@@ -9,7 +9,7 @@ gcloud components install docker-credential-gcr
 gcloud auth configure-docker
 
 ```
-**Setup Google in remote server **
+**Setup Google in remote server**
 ```
 source ~/.bashrc  
 gcloud auth login  
