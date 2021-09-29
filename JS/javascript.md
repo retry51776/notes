@@ -1,0 +1,63 @@
+# ES6 stuff
+
+Merge unqiue items from arrays
+```
+[...new Set([...array1, ...array2])]
+```
+
+To store large dataset in Json
+`JSON.parse("{XXX}")` is faster than `test = {XXX}`
+
+callback vs Promise vs async/await  
+1. callback - the worst  
+2. Promise - `new Promise((resolve, reject) => {}); XXX.then().catch()`   very bad read if multi nest  
+3. async await, try, catch - cleaner read, but still complex
+
+Destruct Object`const { rules, ...otherProps } = this.props;`
+Rename destruct array `const [a1, a2] = [1, 2];`
+Nullish coalescing operator `const test = 0 ?? '-';`
+Optional chaining `const test = {}?.a?.b?.c;`
+
+
+**Frustration**
+Why not support name parameter? `test(name='a', age=3)`
+`const` only works with basic type. like string or number.
+
+# Front End Library
+**React/Redux**
+```
+import { useSelector, useDispath } from 'react-redux';
+
+const [printing, periodEnd] = useSelector(state => [
+    state.queryString.getIn(['queryParameters', 'printing']) || '[]',
+    state.queryString.getIn(['queryParameters', 'period_end']),
+  ]);
+
+const FqipCompany = ({ history, match }) => {
+		return 'xxx'
+};
+
+FqipCompany.propTypes = {
+  history: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
+};
+```
+**react-query & react-table**
+```
+
+avoid column accessor 'xxx.xx' , instead 'xxx-xx'
+
+```
+# Backend
+**Express**
+In middleware, `next()` does NOT exit function
+Any operation could timeout, or involed multi datasources should use engine instead
+Keep route simple as possiable, bussiness logic should done on micro services
+
+
+# Tech Terms
+JWT is value base token, cookie is reference base token
+
+Import Relative Path : <https://www.youtube.com/shorts/WpgZKBtW_t8>
+JS Guide : <https://github.com/airbnb/javascript/tree/master/react>
+
