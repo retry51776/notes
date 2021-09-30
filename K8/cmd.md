@@ -120,3 +120,62 @@ components:
     - route & selector
   - Kubelet
     - communicate with API-service
+
+
+**Deployment File**
+
+https://kubernetes.io/docs/concepts/overview/working-with-objects/
+
+```
+apiVersion: v1 # Required
+kind: [Service|other k8 resources] # Required
+metadata: # Required: uniquely identify the object
+	name: # Required: k8 object id
+	labels: # Optional
+		app: # Important: must match to selector
+		type:
+spec: # Required: desire state
+
+# layer 7 tcp load balancer
+# redirect traffic to different services
+# redirect different ip to matching service (nodePort doesn't matter anymore)
+Ingress spec:
+  rules:
+  - host: stage.local
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: stage
+          servicePort: web
+  - host: terry.internal-service.local
+    http:
+      paths:
+      - path: /app1
+        backend:
+          serviceName: terry-app1
+          servicePort: web
+      - path: /app2
+        backend:
+          serviceName: terry-app2
+          servicePort: web
+  tls:
+  - secretName: terry.internal-service.local
+
+Service spec:
+	type: [NodePort|ClusterIP|LoadBalancer] # usually ClusterIP
+	ports:
+	# ClusterIP
+		- port: 80
+		- targetPort: 80
+		- protocol: TCP
+	# NodePort
+		- targetPort: 80
+		- port: 80
+		- nodePort: [30000-32767]
+	selector:
+		app: # Important: Match from metadata.labels
+		type: # Important: Match from metadata.labels
+
+# Test by `curl https://node_ip:nodePort/`
+```
