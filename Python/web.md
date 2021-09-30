@@ -2,23 +2,45 @@
 # SQL Alchemy
 
 - ORM classes
-  - to CRUD table, but can't modify table. easier to handle in python
+  - easier to CRUD table
+  - but can't modify schema
 - Schema classes
-  - harder to handle in python, can modify table
+  - harder to handle in python
+  - CREATE and DROP statements (known as DDL), constructing SQL queries
 
-- `create_engine()` won't open connection until session query
-- `sessionmaker()` will reuse connection pool
+- `engine = create_engine(URI, pool_pre_ping=True, pool_size=10)` 
+  - won't create connection pool
+  - defined connection pool
+- `conn_pool = sessionmaker(bind=engine)`
+  - create connection pool
+  - defined session default behavior
+- `session = conn_pool()`
+  - will make a connection or reuse from pool
+  - not thread safe
+  - `session.close()` may not commit, may not close connection
 
-**Auto ORM**
+**Auto Schema Ops**
 ```
 from sqlalchemy.ext.automap import automap_base
 
+# 1. Auto Map Whole DB
 Base = automap_base()
 Base.prepare(db.engine, reflect=True)
-Product = Base.classes.tableName
-count = db.session.query(Product).update({Product.ID: 123})
+Product = Base.classes.Product
+
+# 2. Auto Map single table
+meta = MetaData()
+Product = Table('Product', meta, autoload=True,  autoload_with=mysql_engine)
+
+# 3. Self define Schema
+metadata_obj = MetaData()
+Product = Table("Product", metadata_obj, Column('amount', Integer))
+
+# read/edit
+p = db.session.query(Product).update({Product.ID: 123})
 record = {'ID': 124, 'name': 'whatever', 'price': 0}
 Product.insert().values(**record)
+
 ```
 
 **ORM ops**
