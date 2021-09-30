@@ -46,6 +46,11 @@ FqipCompany.propTypes = {
 avoid column accessor 'xxx.xx' , instead 'xxx-xx'
 
 ```
+
+**mouseflow**
+
+Page tracking plugin
+
 # Backend
 **Express**
 - In middleware, `next()` does NOT exit function
