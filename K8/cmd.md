@@ -22,16 +22,18 @@ gcloud container clusters get-credentials XXX-cluster --zone us-central1-a
 ```
 
 `kubectl [create|edit|get|delete]`
-- service
 - job
+- cronjob
 - deployment
 - pods
-- node
+- service
+- ingress
 - event
 - secrets
 
 
 all k8 resources types: https://kubernetes.io/docs/reference/kubectl/overview/#resource-types
+https://crontab.guru/
 
 Commons K8 CMD
 ```
