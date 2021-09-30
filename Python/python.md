@@ -95,7 +95,7 @@ iter([1, 2, 3])
 ```
 
 # Standard Library
-functools
+**functools**
 ```
 @functools.cache
 @lru_cache(maxsize=32)
@@ -109,7 +109,7 @@ def logged(func):
     return with_logging
 ```
 
-Itertools
+**Itertools**
 ```
 for key, group in itertools.groupby(array_json, key_func)
 
@@ -126,7 +126,52 @@ itertools.chain # join list
 # islice('ABCDEFG', 0, None, 2) --> A C E G
 ```
 
-my codes
+**CSV**
+```
+import csv
+
+with open("numbers.csv") as f:
+    r = csv.reader(f)
+    for row in r:
+        print row
+```
+**Multi Process**
+```
+# Multi-Process
+# Note: ProcessPoolExecutor print will not work, logs must return to main process
+from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor, as_completed
+with ThreadPoolExecutor(max_workers=5) as executor:
+	worker = executor.submit(funcion_x, arg1, arg2)
+	for worker in as_completed([worker]):
+		print(worker.result())
+```
+**contextlib**
+```
+from contextlib import contextmanager
+
+@contextmanager
+def get_session(self):
+    session = None
+    for i in range(1, 4):
+        try:
+            session = sessionmaker(bind=self.XXX_engine)()
+            yield session
+            break
+        except Exception:
+            self.logger.exception(f'Reconnecting to XXX. {i}th attempted')
+
+            # Re-create engine
+            self.xxx_engine = create_engine(self.config.XXX_URI, pool_pre_ping=True, pool_size=self.pool_size)
+    if session:
+        session.close()
+```
+**argparse**
+```
+import argparse
+parser.add_argument('-d', '--debug', help='XXX', action='store_true')
+args = parser.parse_args()
+```
+**custom utilities**
 ```
 # round(2.50) == 2, wtf
 # Python round have funny behavior
@@ -136,8 +181,8 @@ def basic_round(x, d=0, as_decimal=False):
     round_digit = Decimal(10) ** -d
     rounded = Decimal(str(x)).quantize(round_digit, rounding=ROUND_HALF_UP)
     return rounded if as_decimal else float(rounded)
-
-
+```
+```
 def get_in(obj, keys=None, default=None):
     try:
         if obj is None or keys is None:
@@ -166,105 +211,6 @@ def get_in(obj, keys=None, default=None):
             return default
     except Exception:
         return default
-
-
-
-import argparse
-parser.add_argument('-d', '--debug', help='XXX', action='store_true')
-args = parser.parse_args()
-```
-**CSV**
-```
-import csv
-
-with open("numbers.csv") as f:
-    r = csv.reader(f)
-    for row in r:
-        print row
-```
-**Multi Process**
-```
-# Multi-Process
-# Note: ProcessPoolExecutor print will not work, logs must return to main process
-from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor, as_completed
-with ThreadPoolExecutor(max_workers=5) as executor:
-	worker = executor.submit(funcion_x, arg1, arg2)
-	for worker in as_completed([worker]):
-		print(worker.result())
-```
-
-# Flask
-
-```
-# Flask Load Config
-app = Flask(__name__)
-app.config.from_pyfile('appcfg.py')
-app.register_blueprint(company_app, url_prefix='/company')
-
-# Flask Events
-@app.before_request
-@app.teardown_requesst
-
-# Create Flask Endpoint
-VIEW_APP = Blueprint('view', __name__)
-@VIEW_APP.route('/ConfigureSSO', methods=['POST'])
-def configure_sso():
-    return json_response(response)
-
-# Golbal Flask error handling
-app.register_error_handler(Exception, handler)
-```
-
-
-# SQL Alchemy
-
-- ORM classes
-  - to CRUD table, but can't modify table. easier to handle in python
-- Schema classes
-  - harder to handle in python, can modify table
-
-- `create_engine()` won't open connection until session query
-- `sessionmaker()` will reuse connection pool
-
-**Auto ORM**
-```
-from sqlalchemy.ext.automap import automap_base
-
-Base = automap_base()
-Base.prepare(db.engine, reflect=True)
-Product = Base.classes.tableName
-count = db.session.query(Product).update({Product.ID: 123})
-record = {'ID': 124, 'name': 'whatever', 'price': 0}
-Product.insert().values(**record)
-```
-
-**Cursor Query**
-```
-cursor = session.connection().cursor()
-cursor.execute(query) //session.execute() will work too
-
-sales = [dict(zip(cursor.column_names, row)) for row in cursor.fetchall()]
-
-# Reflection can modify schema
-# https://docs.sqlalchemy.org/en/13/core/reflection.html
-```
-
-```
-@contextmanager
-def get_session(self):
-    session = None
-    for i in range(1, 4):
-        try:
-            session = sessionmaker(bind=self.XXX_engine)()
-            yield session
-            break
-        except Exception:
-            self.logger.exception(f'Reconnecting to XXX. {i}th attempted')
-
-            # Re-create engine
-            self.xxx_engine = create_engine(self.config.XXX_URI, pool_pre_ping=True, pool_size=self.pool_size)
-    if session:
-        session.close()
 ```
 
 # Tech Terms

@@ -1,34 +1,44 @@
 # kubernetes
-**CMDs**
+**Setup gcloud**
 
 ```
-gcloud init  
-gcloud config set project XXX  
+gcloud init
+gcloud auth login
+gcloud config set project XXX
 gcloud components update
 gcloud components install docker-credential-gcr  
 gcloud auth configure-docker
 
-```
-**Setup Google in remote server**
-```
-source ~/.bashrc  
-gcloud auth login  
-gcloud config set project XXX
-gcloud auth configure-docker  
-docker pull [gcr.io/XXX/YOUR_PROJECT_NAME:develop](http://gcr.io/XXX/YOUR_PROJECT_NAME:develop)  
-
+// Test by pulling gcp image & container
 gcloud docker -- ls
+docker pull [gcr.io/XXX/YOUR_PROJECT_NAME:develop](http://gcr.io/XXX/YOUR_PROJECT_NAME:develop)
+
+source ~/.bashrc 
+
+```
+**Setup gcloud kubectl**
+```
 gcloud container clusters get-credentials XXX-cluster --zone us-central1-a
 ```
 
+`kubectl [create|edit|get|delete]`
+- service
+- job
+- deployment
+- pods
+- node
+- event
+- secrets
+
+
+all k8 resources types: https://kubernetes.io/docs/reference/kubectl/overview/#resource-types
+
+Commons K8 CMD
 ```
-  
-kubectl get services XXXXX  
-image level  
-kubectl get deployment  
-container level  
-kubectl get pods  
+
+kubectl create job --from=cronjob/mycronjob name-of-one-off-job
 kubectl run XXXX --images=XXXX --port=80  
+kubectl exec -it pod-name sh
   
 kubectl expose deployment XXXX --type="LoadBalancer" service "XXXX" exposed  
   
@@ -90,13 +100,23 @@ open container initiative
 ingress is K8 build in route control traefik similar to ingress, but more features nginx
 
   
-application layer encryption  
+application layer encryption  for secrets
+
   
-components:  
-1. ingress  
-2. service  
-3. cronjobs  
-4. deployment/StatefulSet  
-5. etcd  
-6. ConfigMap  
-7. Secrets
+components:
+- Mater Node
+  - Scheduler
+    - Trigger Cron Jobs
+  - Control Mgr
+    - Compare Active State vs Desired State
+  - etcd
+    - key/value DB
+  - API service
+    - Supports cmds
+- Worker Node
+  - Container Run Time
+    - Pods //smallest k8 unit
+  - Kubproxy
+    - route & selector
+  - Kubelet
+    - communicate with API-service
