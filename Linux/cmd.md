@@ -1,6 +1,6 @@
 # Linux
 
-OS 
+**OS** 
 ```
 passwd //Change password
 
@@ -67,7 +67,13 @@ apt // Used By Debain
 rpm //red hat, syntom
 
 ```
-
+**Windows Sub Linux**
+Try remove windows path from WSL if cmd in WSL is slow
+- In `/etc/wsl.conf` add
+```
+[interop]
+appendWindowsPath = false
+```
 # Tech stack
 - qubesOS is secure Linux 
 - Package Manager usually install /usr/bin
