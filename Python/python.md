@@ -91,7 +91,10 @@ zip_longest() # outter join
 next(x for x in itms if type(x).__name__ == 'Abc')
 
 # create iterator of object
-iter([1, 2, 3])
+# must create new iterator for every loop
+# can NOT modify iterator
+i = iter([1, 2, 3])
+i1, i2, i3 = itertools.tee(i, 3)
 ```
 
 # Standard Library
@@ -215,4 +218,6 @@ def get_in(obj, keys=None, default=None):
 
 # Tech Terms
 
-.wheel is python binary file
+- .wheel is python binary file
+- odbcinst.ini
+    - registry and configuration file for ODBC drivers in an environment
