@@ -57,7 +57,37 @@ Page tracking plugin
 - Any operation could timeout, or involed multi datasources should use engine instead
 - Keep route simple as possiable, bussiness logic should done on micro services
 
+**LDAP**
+```
+const LDAP = require('ldapjs'),
+  config = require('@xxx/getconfig'),
+  sltcCaFile = path.resolve('/certs/xxx_ca.crt');
 
+const ldap = LDAP.createClient({
+  url: config.ldap.uri,
+  tlsOptions: {
+    ca: [fs.readFileSync(caFile)],
+  },
+});
+
+ldap.bind(config.ldap.bind_dn, config.ldap.bind_secret, err => {
+  if (err) {
+    const message = 'Error connecting to the LDAP server';
+    app.get('logger').error({ req, err }, message);
+    res.status(500).json({
+      message,
+      error: err,
+    });
+    return;
+  }
+
+  ldap.search(
+    config.ldap.base_user_dn,
+    ldap_query,
+    callback,
+  );
+});
+```
 
 # Tech Terms
 JWT is value base token, cookie is reference base token
