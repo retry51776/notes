@@ -1,13 +1,24 @@
 # ES6 stuff
 
 
-To store large dataset in Json
+> To store large dataset in Json
 `JSON.parse("{XXX}")` is faster than `test = {XXX}`
 
+
+JS modules(import/export)
+CommonJS (require/exports)
+
 **callback vs Promise vs async/await**  
-- callback - the worst  
-- Promise - `new Promise((resolve, reject) => {}); XXX.then().catch()`   very bad read if multi nest, Promise(`blocking code`).then(`not blocking code`)
-- `async await, try, catch` - cleaner read, but still complex
+- callback
+  > callback hell
+- Promise
+  > `new Promise((resolve, reject) => {}); XXX.then().catch()`   very bad read if multi nest, Promise(`blocking code`).then(`not blocking code`)
+
+  > Promise.all(threePromises).spread((xx, yy, zz) => whatever(xx, yy, xx));`
+- `async await, try, catch`
+  > cleaner read, but still complex
+
+  > `await` must have `async` decorator, but call `async` function can invoke without `await`
 
 **Usefull Features**
 - Destruct Object `const { rules, ...otherProps } = this.props;`
@@ -20,42 +31,7 @@ To store large dataset in Json
 **Frustration**
 - Why not support name parameter? `test(name='a', age=3)`
 - `const` only works with basic type. like string or number.
-
-# Front End Library
-**React/Redux**
-```
-import { useSelector, useDispath } from 'react-redux';
-
-const [printing, periodEnd] = useSelector(state => [
-    state.queryString.getIn(['queryParameters', 'printing']) || '[]',
-    state.queryString.getIn(['queryParameters', 'period_end']),
-  ]);
-
-const FqipCompany = ({ history, match }) => {
-		return 'xxx'
-};
-
-FqipCompany.propTypes = {
-  history: PropTypes.object.isRequired,
-  match: PropTypes.object.isRequired,
-};
-```
-**react-query & react-table**
-```
-
-avoid column accessor 'xxx.xx' , instead 'xxx-xx'
-
-```
-
-**mouseflow**
-
-Page tracking plugin
-
-# Backend
-**Express**
-- In middleware, `next()` does NOT exit function
-- Any operation could timeout, or involed multi datasources should use engine instead
-- Keep route simple as possiable, bussiness logic should done on micro services
+- `null` & `undefined`, I get it, but hate it. Python just have None, much easier
 
 
 

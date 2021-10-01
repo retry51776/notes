@@ -61,6 +61,8 @@ session.commit()
 
 # add multi records
 session.add_all([sale, addr, invt])
+
+query = query.options(joinedload('building'))
 ```
 
 **Cursor Query**
@@ -97,3 +99,96 @@ def configure_sso():
 app.register_error_handler(Exception, handler)
 ```
 
+## Crawler
+### splash
+> render dynamic page for scrapy
+```
+import scrapy
+from scrapy.crawler import CrawlerProcess
+from scrapy_splash import SplashRequest
+
+
+# Start the scraping process
+process = CrawlerProcess({
+  'USER_AGENT': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)'
+})
+process.crawl(TestScraper)
+process.start()
+
+class TestScraper(scrapy.Spider):
+  name = 'test'
+  custom_settings = {
+      'SPLASH_URL': SPLASH_URL,
+      'DOWNLOADER_MIDDLEWARES': {
+          'scrapy_splash.SplashCookiesMiddleware': 723,
+          'scrapy_splash.SplashMiddleware': 725,
+          'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 810,
+      },
+      'SPIDER_MIDDLEWARES': {
+          'scrapy_splash.SplashDeduplicateArgsMiddleware': 100,
+      },
+      'DUPEFILTER_CLASS': 'scrapy_splash.SplashAwareDupeFilter',
+      'HTTPCACHE_STORAGE': 'scrapy_splash.SplashAwareFSCacheStorage',
+      'LOG_ENABLED': False, // Splash Logger attched to golbal logger, not good
+  }
+
+  def start_requests(self):
+      yield SplashRequest(
+          url=url,
+          callback=self.parse,
+          args={'wait': 3}
+      )
+
+  def parse(self, response):
+      for url in response.xpath('//ul[@class="abc"]/li/a[@class="xyz"]/@href').getall():
+          // whatever
+```
+---
+## Message Broker
+
+> Improves decoupling, fault tolerance, scalability
+
+> Queue : consumed once
+
+> Pub Sub: consumed many time
+### Protocal
+- AMQP
+  > Adcanced Message Queuing Protocol, move message between applications.
+  
+  > Pika is python implelemntation AMQP 0.9.1
+- MQTT
+- STOMP
+
+---
+
+**RabbitMQ**
+  > AMQP protocal
+
+  > 3.9 support stream
+
+  - Virtual Host
+    - Exchange
+      - Queue
+      > fanout/direct/topic/header/namesless
+
+      > topic/routing_key (M to M) Queue
+
+**Kafka**
+  - topic
+    - partition
+    > partition is append only log
+
+    > by default topic randomly send to partiition, can set to hash
+
+    > order is garanty is partition level, not topic level
+
+    > offset is partition level
+> binary protocol over TCP
+
+> kafka-python
+
+> confluent-kafka-python
+
+> Faust is a stream processing library
+
+> zookeeper is complex, & able bring down server

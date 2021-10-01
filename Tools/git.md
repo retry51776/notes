@@ -38,6 +38,7 @@ git reset --soft HEAD~1
 
 git push --set-upstream origin f/FTR-11-bussiness-metrics
 
+git rebase // will stash my branch prev commits, then apply after rebase branch
 ```
 
 # Tech Terms 

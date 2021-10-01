@@ -1,16 +1,19 @@
 # dotnet
 
-linq XXX.foreach have bad performance.
+> linq XXX.foreach have bad performance.
 use foreach XXX instead
 
 **Route**
 
-Controller's File name, & method name IS part of route
-It's defined in /App_Config/RouteConfig.cs
+> Controller's File name, & method name IS part of route
 
-- every files will be import according to their namespace
-- file names doesn't matter, only name space matter
-- name space conflict will trigger during compile 
+> It's defined in /App_Config/RouteConfig.cs
+
+> every files will be import according to their namespace
+
+> (except controller)file names doesn't matter, only name space matter
+
+> name space conflict will trigger during compile 
 
 
 **RouteConfig class**
@@ -27,9 +30,11 @@ It's defined in /App_Config/RouteConfig.cs
 
 Ex route: "Sales/{controller}/{action}/{id}"
 
-- controller = bundle of multiple route handlers 
-- action = controller class's method name
-- we can register multiple route in AreaRegistration point to same controller's action 
+> controller = bundle of multiple route handlers 
+
+> action = controller class's method name
+
+> we can register multiple route in AreaRegistration point to same controller's action 
 
 **Controller class**
 
@@ -41,11 +46,10 @@ Ex route: "Sales/{controller}/{action}/{id}"
 
 
 **XXXService class (references in controller)**
-
-- complex business logic
+> complex business logic
 
 **Models class**
-- defined Datasource struct
+> defined Datasource struct
 
 **Conversion Jason <==> Data Model**
 
@@ -62,17 +66,24 @@ Ex route: "Sales/{controller}/{action}/{id}"
 
 **.Net Core**
 
-- wwwroot to store static files
-- appsetting.json
-- azureKeyValut to overwrite appsetting values
+> wwwroot to store static files
+
+> appsetting.json
+
+> azureKeyValut to overwrite appsetting values
 
 **.Net Framework**
-- static files to in root
-- /App_Data
-- /App_Start
-- /Script
-- /font
-- webconfig.xml has bunch junks
+> static files to in root
+
+> /App_Data
+
+> /App_Start
+
+> /Script
+
+> /font
+
+> webconfig.xml has bunch junks
 
 
 
@@ -119,9 +130,10 @@ HostBuilder = (NodeJS express) bare bond server
     - services.AddTransient()
     - services.AddHostedService<BackgroundService>();
 
-// use appSetting.json property
-context.Configuration.GetSection(appSettings.json.props)
+> use appSetting.json property
 
+> context.Configuration.GetSection(appSettings.json.props)
+```
 EX: RabbitMqService<RequestModel, Processor>
     protected override Task ExecuteAsync
     public virtual void ConnectMessageQueue
@@ -133,14 +145,17 @@ EX: RabbitMqService<RequestModel, Processor>
     public virtual async Task HandleMessageAsync
     public void HandleMessageError
     public void HandleMessageRetry
-
+```
 
 Interface define data structure,
 so view can check in compile time if variable has methods
 
-- AddTransient(Interface, Instance) //controller & view will get new instance
-- AddScoped(Interface, Instance) // request get new instance
-- AddSingleton(Interface, Instance) // app level instance
+- AddTransient(Interface, Instance)
+    > controller & view will get new instance
+- AddScoped(Interface, Instance)
+    > each request get new instance
+- AddSingleton(Interface, Instance)
+    > app level instance
 
 
 **ASP.NET Request Process(NOT core)**
@@ -153,7 +168,7 @@ so view can check in compile time if variable has methods
 - Application_HandleError()
 
 # Nuget
-setup Private Library
+> setup Private Library
 ```
 nuget sources add -name private_repo -source https://private_server/v3/index.json
 
@@ -187,5 +202,9 @@ nuget pack
 dotnet nuget push --source [publish path] --api-key **** XXX.nupkg
 dotnet publish
 ```
+
 # Tech stack
-new relic is monitor software
+> new relic is monitor software
+
+- IIS Tilde Enumeration
+    > IIS support wildcard in URL, which can expose application structure
