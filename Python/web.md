@@ -61,6 +61,8 @@ session.commit()
 
 # add multi records
 session.add_all([sale, addr, invt])
+
+query = query.options(joinedload('building'))
 ```
 
 **Cursor Query**
