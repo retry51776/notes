@@ -46,6 +46,28 @@ crontab –l
 service [name] status // old Linux
 # To debug Ram & time
 time -f python3 test.py
+
+systemd
+/etc/systemd/system
+/usr/lib/systemd/system
+
+create a service file
+[Unit]
+Description=An Example Service
+After=network-up.target
+
+[Service]
+ExecStart=/usr/bin/python3 /test.py
+
+[Install]
+WantedBy=multi-user.target
+
+initd
+/etc/initd
+
+Journalctl -xe // sevices logs
+Logind // linux login service
+resolved // dns
 ```
 Network
 ```
@@ -53,7 +75,25 @@ nslookup sss.local # do NOT include protocol http
 ufw app list //firewall app
 sudo netstat//network status
 ```
-Apps
+### Package Manager
+- apt-get
+- dpkg
+- yum
+- RPM
+- pacman
+
+
+**Apps**
+- tmux
+- vi/vim/nano
+```
+:wq
+:q!
+
+/xxx search forward
+?xxx search backward
+```
+- 
 ```
 sudo apt install strace	#Debian/Ubuntu 
 # yum install strace		#RHEL/CentOS
