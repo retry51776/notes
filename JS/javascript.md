@@ -22,7 +22,7 @@ To store large dataset in Json
 - `const` only works with basic type. like string or number.
 
 # Front End Library
-**React/Redux**
+## React/Redux
 ```
 import { useSelector, useDispath } from 'react-redux';
 
@@ -40,7 +40,32 @@ FqipCompany.propTypes = {
   match: PropTypes.object.isRequired,
 };
 ```
-**react-query & react-table**
+
+## download file
+```
+//client
+import { saveAs } from 'file-saver';
+async function fetchBatch(id, filename) {
+  const { data } = await axios.get(`/api/download/${id}/?`, {
+    type: 'application/zip',
+    responseType: 'arraybuffer',
+  });
+  const convertedFile = new Blob([data]);
+  saveAs(convertedFile, filename);
+}
+//server
+bucket = new GridFSBucket(xyz());
+res.set({
+  'Accept-Ranges': 'bytes',
+  'Content-Disposition': `attachment; filename=${doc.filename}`,
+  'Content-Type': 'application/zip',
+});
+bucket.openDownloadStream(doc.file_id).pipe(res);
+return Promise.resolve();
+```
+
+
+## react-query & react-table
 ```
 
 avoid column accessor 'xxx.xx' , instead 'xxx-xx'
