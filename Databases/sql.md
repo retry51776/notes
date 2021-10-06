@@ -10,7 +10,16 @@ select * from c join #temp1 on c.b = temp1.b;
 ```
 - make sure filter value is excatly same type as column
 - always query from smallest result set(not always smallest table) to largest;
-  - Query Planner often can opitmized it, but not guarante
+- Query Planner often can opitmized it, but not guarante
+
+- Avoid Wild card is beginning, cost table scan EX `like %12`
+- Query plan Tips
+    - If cost above 5, SQL will try parellarism
+    - Right click select check memory usage
+    - Don't use table variable
+- Implicit conversion
+- TempDB spill
+
 
 **Temp table|CTE|Var table**
 - Table variable is RAM only, can rewrite, no session, but needs more code
@@ -23,7 +32,8 @@ select * from c join #temp1 on c.b = temp1.b;
 - Cover index is none cluster index including other columns
 
 
-Common Operators
+**Common Operators**
+
     - Table scan is slow
     - Index Scan is touch every pages
     - Index Seek is get qualified pages 
@@ -35,12 +45,18 @@ Common Operators
 
     - Stream Aggregate required sorted
     - Hash aggregate is blocking op
+
 **Maintain**
 
 - single user mode vs offline mode
 - I'd remote into DB server, turn to offline mode
 - be careful on single user mode, no recommend
 
+
+**Under the hood**
+- Query optimizer builds a good enough query plan
+- Plan cache story query plans
+- Cardinality Estimator Is generate table stats
 
 # MSSQL
 
@@ -63,6 +79,10 @@ row_number() over
 from template
 where template.provider_uids <@ ARRAY[{}]::integer[]
 group by 1, 2
+
+
+DECLARE @InsertQmId int
+SELECT @InsertQmId = @@IDENTITY
 ```
 
 - TempDB is configable since 2016

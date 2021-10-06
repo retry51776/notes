@@ -36,9 +36,3 @@ Bonson = Force
     - z0 w+ w- (weak force)
     - higgs (field create mass)
 ```
-
-Battery
-- Anode : negative terminal
-  - graphite, lithium
-- Cathode : postive terminal
-  - cobalt, nickel and manganese

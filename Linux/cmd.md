@@ -83,17 +83,6 @@ sudo netstat//network status
 - pacman
 
 
-**Apps**
-- tmux
-- vi/vim/nano
-```
-:wq
-:q!
-
-/xxx search forward
-?xxx search backward
-```
-- 
 ```
 sudo apt install strace	#Debian/Ubuntu 
 # yum install strace		#RHEL/CentOS
@@ -107,6 +96,19 @@ apt // Used By Debain
 rpm //red hat, syntom
 
 ```
+**Apps**
+- tmux
+- vi/vim/nano
+```
+:wq
+:q!
+
+/xxx search forward
+?xxx search backward
+```
+- certbot
+- letsencrypt
+
 **Windows Sub Linux**
 Try remove windows path from WSL if cmd in WSL is slow
 - In `/etc/wsl.conf` add

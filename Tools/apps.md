@@ -22,8 +22,7 @@
 
 
 Datatool
-- https://www.mockaroo.com/
-  - Generate test data
+- Generate test data https://www.mockaroo.com/
 - HDFView #view tool for .h5
 - R-Studio is hardware data recovery
 - winhex
