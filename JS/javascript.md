@@ -1,13 +1,14 @@
 # ES6 stuff
 
 
-To store large dataset in Json
+> To store large dataset in Json
 `JSON.parse("{XXX}")` is faster than `test = {XXX}`
 
 **callback vs Promise vs async/await**  
 - callback - the worst  
 - Promise - `new Promise((resolve, reject) => {}); XXX.then().catch()`   very bad read if multi nest, Promise(`blocking code`).then(`not blocking code`)
 - `async await, try, catch` - cleaner read, but still complex
+- `Promise.all(threePromises).spread((xx, yy, zz) => whatever(xx, yy, xx));`
 
 **Usefull Features**
 - Destruct Object `const { rules, ...otherProps } = this.props;`
@@ -30,7 +31,7 @@ Component Prefer Orders
 4. Events Handler
 5. UI Components
 
-- avoid redux connect() reduces unnecessary props defination
+>avoid redux connect() reduces unnecessary props defination
 ```
 import { useSelector, useDispath } from 'react-redux';
 
@@ -39,11 +40,11 @@ const [printing, periodEnd] = useSelector(state => [
   state.queryString.getIn(['queryParameters', 'period_end']),
 ]);
 
-const FqipCompany = ({ history, match }) => {
-	return 'xxx'
+const Abc = ({ history, match }) => {
+  return 'xxx'
 };
 
-FqipCompany.propTypes = {
+Abc.propTypes = {
   history: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired,
 };
@@ -96,16 +97,36 @@ JSZip.loadAsync(files[0])
   .then(zip => setZip(zip))
   .catch(err => zipError(error));
 ```
-## react-query & react-table
+
+## moment
 ```
-
-avoid column accessor 'xxx.xx' , instead 'xxx-xx'
-
+import moment from 'moment';
+moment
+  .utc(backfill.get('ts'))
+  .local()
+  .format('YYYY-MM-DD @ HH:mm:ss a');
+moment().add('day', 1).subtract('year', 1);
+.startOf('day')
+.endOf('month')
+.isSame(xxx, 'year')
+```
+## react-query & react-table
+>avoid column accessor 'xxx.xx' , instead 'xxx-xx'
+```
+const {
+  data,
+  isLoading,
+  isFetching,
+  refetch,
+} = useQuery('abc', axios_promise, {
+  refetchOnWindowFocus: false,
+  throwOnError: true,
+  initialData: null,
+});
 ```
 
 **mouseflow**
-
-Page tracking plugin
+> Page tracking plugin
 
 # Backend
 **Express**
