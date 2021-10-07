@@ -23,22 +23,46 @@ To store large dataset in Json
 
 # Front End Library
 ## React/Redux
+Component Prefer Orders
+1. Component States
+2. Redux Store
+3. Web actions
+4. Events Handler
+5. UI Components
+
+- avoid redux connect() reduces unnecessary props defination
 ```
 import { useSelector, useDispath } from 'react-redux';
 
 const [printing, periodEnd] = useSelector(state => [
-    state.queryString.getIn(['queryParameters', 'printing']) || '[]',
-    state.queryString.getIn(['queryParameters', 'period_end']),
-  ]);
+  state.queryString.getIn(['queryParameters', 'printing']) || '[]',
+  state.queryString.getIn(['queryParameters', 'period_end']),
+]);
 
 const FqipCompany = ({ history, match }) => {
-		return 'xxx'
+	return 'xxx'
 };
 
 FqipCompany.propTypes = {
   history: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired,
 };
+
+
+import React, { useMemo, useCallback } from 'react';
+
+// useCallback(fn, deps) is equivalent to useMemo(() => fn, deps).
+const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
+React.createElement(
+  type,
+  [props],
+  [...children]
+);
+React.cloneElement(
+  element,
+  [config],
+  [...children]
+);
 ```
 
 ## download file
@@ -64,7 +88,14 @@ bucket.openDownloadStream(doc.file_id).pipe(res);
 return Promise.resolve();
 ```
 
-
+## Upload File
+```
+import JSZip from 'jszip';
+import Dropzone from 'react-dropzone';
+JSZip.loadAsync(files[0])
+  .then(zip => setZip(zip))
+  .catch(err => zipError(error));
+```
 ## react-query & react-table
 ```
 
