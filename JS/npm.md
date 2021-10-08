@@ -41,3 +41,8 @@ modules: [PATHS.localNode, 'node_modules'],
 unsafeCache: /assets/,  
 },
 ```
+
+Windows ESLint failed premission
+```
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
+```
