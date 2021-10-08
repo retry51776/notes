@@ -99,6 +99,8 @@ JSZip.loadAsync(files[0])
 ```
 
 ## moment
+> it's dead 2020 Aug, uses dayjs instead
+https://twitter.com/addyosmani/status/1304676118822174721
 ```
 import moment from 'moment';
 moment

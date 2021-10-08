@@ -32,3 +32,8 @@ here are common trade offs
   - forgot to bring all the tools at once
     - tons DB query when they need it
 
+## Security
+- URL
+  - expose static link on secure resource
+  - open redirect
+  - expose application structure
