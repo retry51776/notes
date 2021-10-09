@@ -1,6 +1,4 @@
-# Don't judge
-
-There is no solution, only tradeoffs.
+# There is no solution, only tradeoffs.
 
 here are common trade offs
 - CPU vs Memory
@@ -12,13 +10,27 @@ here are common trade offs
 - features or scalebility
   - SQL vs no SQL
 - complexity or flexibility
-  
 
-## Cool resources
-- [Icons] https://gist.github.com/rxaviers/7360908
-- [Cron Guru] https://crontab.guru/
+# Application Design
+> Database is usually is the first bottleneck of application design
+- Disk/Network IO
+  > more fields or sister table
 
-## Developer 
+  > nested field or child table
+- CPU
+  > Store calculated field in DB, or aggs by DB
+- DeadLock & Constrain
+  > Enforce table constrain, or enforce in application level
+
+  > Constrain will reduce DB performance, cause more deadlock
+
+> Bussiness Logic & workflow
+  - response time? request volumn?
+  - service or engine?
+  - workflow interference & trigger DB bottneck
+
+
+## Developer Metaphor
 - Bussiness logic & data defines architecture.
 - Useage determent house stucture and foundation.
 
@@ -37,3 +49,5 @@ here are common trade offs
   - expose static link on secure resource
   - open redirect
   - expose application structure
+- ABAC
+  > attribute based access control

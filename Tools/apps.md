@@ -15,7 +15,7 @@
 - Docker
   > remove windows path if CMD run slow
 
-  > WSL2 could cost IO bottleneck
+  > WSL2 could have IO bottleneck
 - WSL
   - debian
 - OpenVPN
@@ -23,6 +23,9 @@
 - Putty
 - DataGrid
 
+## Cool resources
+- [Icons] https://gist.github.com/rxaviers/7360908
+- [Cron Guru] https://crontab.guru/
 
 ## Datatool
 - Generate test data https://www.mockaroo.com/
