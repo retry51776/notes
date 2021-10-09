@@ -1,8 +1,13 @@
 # Python
 
 **Frustration**
-- destructure like es6 `const {a, b, ...others} = obj;`
+- ~~destructure like es6 `const {a, b, ...others} = obj;`~~
+    > new python 3.10 supports this https://docs.python.org/release/3.10.0/whatsnew/3.10.html
 - get_in like methods or null chaining
+- decorator just kind hard to read, maybe should implement in context manager instead
+- function params's default value should be standard type
+    > don't do `[]` or `{}`, buggs, reference, not by value
+- don't delete in loop
 
 
 **Working on library**
@@ -14,23 +19,25 @@ Install local package steps:
     4. cd [source_code_folder]
     5. python3 setup.py install
 ```
-**Build library**
 
-```python3 -m build```
+`python3 -m build`
+> Build library
 
-***Publish package**
 
-```python3 setup.py sdist```
+`python3 setup.py sdist`
+> Publish package
 
-```
-python -m site // List python library location
+`python -m site`
+> List python library location
 
-No such file or directory execute 'python
-#!/usr/bin/env python
-```
+## Problems
+> No such file or directory execute 'python
+
+`#!/usr/bin/env python`
+
 
 # Python Codes
-Build in functions
+## Build in functions
 ```
 def __init__(self):
 def __enter__(self):
@@ -52,8 +59,7 @@ time -f python3 test.py # debug script Ram & time
 date(2018, 9, 30).replace(day=31)
 
 # idiom, like destruct object in javascritp
->>> mylist = [1,2,3]
->>> foo(*mylist)
+>>> foo(*[1,2,3])
 x=1
 y=2
 z=3
@@ -71,17 +77,19 @@ a, b = itemgetter('a', 'b')(params)
 export URL=test //set env
 ```
 
-loop
+## loop
 ```
 array = sorted(
-        [item for item in items if item['a'] > 0],
-        key=lambda x: x['b'], reverse=True
-    )
+    [item for item in items if item['a'] > 0],
+    key=lambda x: x['b'], reverse=True
+)
 for idx, value in enumerate(arrays):
 
 passed_tests = filter(lambda x: x['passed'], tests)
+
 # convertion
 map(len, ['abc', 'de', 'fghi'])
+
 # combine
 list(zip([1, 2, 3], ['a', 'b', 'c']))
 zip # inner join
@@ -92,13 +100,15 @@ next(x for x in itms if type(x).__name__ == 'Abc')
 
 # create iterator of object
 # must create new iterator for every loop
-# can NOT modify iterator
 i = iter([1, 2, 3])
+
+# Kind bad idea, should pass array if you can
+# any child looped will used parent itertor, but sibling pointer still works
 i1, i2, i3 = itertools.tee(i, 3)
 ```
 
 # Standard Library
-**functools**
+## functools
 ```
 @functools.cache
 @lru_cache(maxsize=32)
@@ -112,7 +122,7 @@ def logged(func):
     return with_logging
 ```
 
-**Itertools**
+## Itertools
 ```
 for key, group in itertools.groupby(array_json, key_func)
 
@@ -129,7 +139,7 @@ itertools.chain # join list
 # islice('ABCDEFG', 0, None, 2) --> A C E G
 ```
 
-**CSV**
+## CSV
 ```
 import csv
 
@@ -138,7 +148,7 @@ with open("numbers.csv") as f:
     for row in r:
         print row
 ```
-**Multi Process**
+## Multi Process
 ```
 # Multi-Process
 # Note: ProcessPoolExecutor print will not work, logs must return to main process
@@ -147,8 +157,14 @@ with ThreadPoolExecutor(max_workers=5) as executor:
 	worker = executor.submit(funcion_x, arg1, arg2)
 	for worker in as_completed([worker]):
 		print(worker.result())
+
+import threading
+x = threading.Thread(target=thread_function, args=(1,))
+x.start()
+# similar JS await
+x.join()
 ```
-**contextlib**
+## contextlib
 ```
 from contextlib import contextmanager
 
@@ -168,13 +184,13 @@ def get_session(self):
     if session:
         session.close()
 ```
-**argparse**
+## argparse
 ```
 import argparse
 parser.add_argument('-d', '--debug', help='XXX', action='store_true')
 args = parser.parse_args()
 ```
-**custom utilities**
+## custom utilities
 ```
 # round(2.50) == 2, wtf
 # Python round have funny behavior
@@ -220,4 +236,4 @@ def get_in(obj, keys=None, default=None):
 
 - .wheel is python binary file
 - odbcinst.ini
-    - registry and configuration file for ODBC drivers in an environment
+    > registry and configuration file for ODBC drivers in an environment
