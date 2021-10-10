@@ -1,4 +1,8 @@
 # Front End Library
+| Imperative | Declarative |
+| -- | --- |
+| state & UI transitions | only state |
+
 ## React/Redux
 Component Prefer Orders
 1. Component States
