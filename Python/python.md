@@ -35,13 +35,31 @@ Install local package steps:
 
 `#!/usr/bin/env python`
 
+## type checks
+- myPy - 
+- pytype: google
+- pyre: facebook
+- pyright: microsoft
+  
 
 # Python Codes
 ## Build in functions
 ```
+def test(a: str) -> str | None:
+
+@staticmethod
+@porperty
+@cache
+
+class events
 def __init__(self):
 def __enter__(self):
 def __exit__(self):
+__del__
+
+# python descriptor
+__get__
+__set__
 
 {}.get('xyz') # only works w obj
 hasattr()
@@ -189,6 +207,12 @@ def get_session(self):
 import argparse
 parser.add_argument('-d', '--debug', help='XXX', action='store_true')
 args = parser.parse_args()
+```
+## asyncio
+```
+async def what():
+    return 0
+asyncio.run(what)
 ```
 ## custom utilities
 ```
