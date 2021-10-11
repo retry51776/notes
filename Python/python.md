@@ -169,9 +169,31 @@ c.most_common(5) // top 5 counts, :-2:-1 to get least count
 c.total() == len(list)
 c.subtract(an_other_counter) # will modify c
 
+from collections import deque
+# stack methods
+t = deque()
+t.append(0)
+t.append(1)
+t.pop()
+
+t.popleft()
 ```
 > Counter is super, but counter WON'T change with array. Uses heap instead
 
+## queue
+```
+from queue import PriorityQueue
+q = PriorityQueue()
+
+q.put((5, 'Write'))
+q.put((1, 'Code'))
+q.put((3, 'Study'))
+q.qsize()
+
+while not q.empty():
+    next_item = q.get()
+    print(next_item) # smalest first
+```
 
 ## heapq
 ```
