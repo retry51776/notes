@@ -45,6 +45,7 @@ Install local package steps:
 # Python Codes
 ## Build in functions
 ```
+float('Inf') # max value
 def test(a: str) -> str | None:
 
 @staticmethod
@@ -156,7 +157,33 @@ itertools.chain # join list
 # islice('ABCDEFG', 2, None) --> C D E F G
 # islice('ABCDEFG', 0, None, 2) --> A C E G
 ```
+## collections
+```
+collections.defaultdict
+from collections import Counter
 
+c = Counter(list)
+c.keys() # set of list values
+c.values() # repeat count
+c.most_common(5) // top 5 counts, :-2:-1 to get least count
+c.total() == len(list)
+c.subtract(an_other_counter) # will modify c
+
+```
+> Counter is super, but counter WON'T change with array. Uses heap instead
+
+
+## heapq
+```
+import heapq
+heapq.heapify(list_unorder)
+heapq.heappush(
+heapq.heappop(
+
+heapq.nlargest(n:int, iterable, key:None) # key similar to sort(list, key)
+heapq.nsmallest()
+
+```
 ## CSV
 ```
 import csv
