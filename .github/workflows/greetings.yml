@@ -13,4 +13,4 @@ jobs:
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         issue-message: 'Welcome, thank you for contributed.'
-        pr-message: 'Terry will review PR ASAP'
+        pr-message: '${{ secrets.COOL_NAME }} will review PR ASAP'
