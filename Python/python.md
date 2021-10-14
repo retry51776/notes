@@ -6,7 +6,7 @@
 - get_in like methods or null chaining
 - decorator just kind hard to read, maybe should implement in context manager instead
 - function params's default value should be standard type
-    > don't do `[]` or `{}`, buggs, reference, not by value
+    > don't reference type `[]` or `{}`, any modify reference will presists default value in next function call
 - don't delete in loop
 
 
@@ -56,6 +56,8 @@ lower()
 
 a, b, c = 1, 2, 3
 a = b = c = 4
+f'Rounded to {2.222:.2f}'
+f'Format to {date.today():%Y-%m-%d}'
 ```
 ## Reference Type
 ```
@@ -91,9 +93,23 @@ date.today() + relativedelta(months=1)
 ```
 def test(a: str) -> str | None:
 
+all()
+any([0, 1, 0])
+
+sys.getsizeof(obj) # debug variable Ram
+timeit.timeit(xyz)
+time -f python3 test.py # debug script Ram & time
+#cProfile, pstats takes more setup, but better audit whole project
+
+# Set linux envirement variables
+export URL=test //set env
+```
+
+## dunder|magic methods, decorator
+```
 @staticmethod
 @porperty
-@cache
+@xyz.setter
 
 class events
 __init__(self):
@@ -104,23 +120,26 @@ __del__
 # python descriptor
 __get__
 __set__
+__hash__
 __dict__
-# class operators
+__repr__
+
+# self implement class operators
+from functools import totoal_ordering
+@total_ordering
+xyz.__class__ is self.__class__
 __eq__
 __ne__
 __ge__
 __lt__
 __le__
 
-
-all()
-any([0, 1, 0])
-
-sys.getsizeof(obj) # debug variable Ram
-time -f python3 test.py # debug script Ram & time
-
-# Set linux envirement variables
-export URL=test //set env
+# auto implement
+from dataclasses import dataclass, field
+@dataclass(order=True)
+class Xyz:
+    id: int
+    text: str = field(default="xxx")
 ```
 
 ## loop
@@ -292,6 +311,7 @@ async def what():
     return 0
 asyncio.run(what)
 ```
+> httpx grather is faster multiple network requests
 ## custom utilities
 ```
 # round(2.50) == 2, wtf
