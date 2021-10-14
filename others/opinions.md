@@ -35,6 +35,34 @@ here are common trade offs
 - Service-Oriented
 - Space-based
 
+**Key Properties**
+- (API or Service)? (Internal or External)? UI? 
+  > API: External service without UI
+
+  > Service: Internal service without UI
+
+  > UI: repo has client side, can be internal or external
+
+Backend
+- Engine
+  > any async service, crons, Pub/Sub
+  - Manager
+    > Creates msgs, keep track job status 
+  - Worker
+    > Consumer of msgs
+
+- Calculator Class
+  > Just bussiness logic
+
+  > NO network connections
+- Service Class 
+  > handle network connections, data retrieve
+
+  > application level cache
+  
+  > init Calculator Class instance
+- Scripts
+  > One off job, Ex: test  
 
 **75 blind questions types**
 
