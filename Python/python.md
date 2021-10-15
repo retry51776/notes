@@ -43,39 +43,30 @@ Install local package steps:
   
 
 # Python Codes
-## Build in functions
+## Starndard Type
 ```
 float('Inf') # max value
-def test(a: str) -> str | None:
+endswith()
+startswith()
+upper()
+lower()
+.title()
+.strip()#lstrip or rstrip
+[::-1]#reverse
 
-@staticmethod
-@porperty
-@cache
-
-class events
-def __init__(self):
-def __enter__(self):
-def __exit__(self):
-__del__
-
-# python descriptor
-__get__
-__set__
-
+a, b, c = 1, 2, 3
+a = b = c = 4
+```
+## Reference Type
+```
 {}.get('xyz') # only works w obj
 hasattr()
 getattr(obj, 'xyz') # also work in class
 setattr()
 delattr()
 
-all()
-any([0, 1, 0])
-
-vars(class) # retrun Object
-sys.getsizeof(obj) # debug variable Ram
-time -f python3 test.py # debug script Ram & time
-
-date(2018, 9, 30).replace(day=31)
+# python desturcture
+a, b = itemgetter('a', 'b')(params)
 
 # idiom, like destruct object in javascritp
 >>> foo(*[1,2,3])
@@ -89,8 +80,45 @@ x=1
 y=2
 z=3
 
-# python desturcture
-a, b = itemgetter('a', 'b')(params)
+vars(class) # retrun Object
+
+# dates
+date(2018, 9, 30).replace(day=31)
+from dateutil.relativedelta import 
+date.today() + relativedelta(months=1)
+```
+## Build in functions
+```
+def test(a: str) -> str | None:
+
+@staticmethod
+@porperty
+@some_name.setter
+
+class events
+__init__(self):
+__enter__
+__exit__
+__del__
+
+# python descriptor
+__get__
+__set__
+__dict__
+
+# class operators
+__eq__
+__ne__
+__ge__
+__lt__
+__le__
+
+
+all()
+any([0, 1, 0])
+
+sys.getsizeof(obj) # debug variable Ram
+time -f python3 test.py # debug script Ram & time
 
 # Set linux envirement variables
 export URL=test //set env
@@ -159,7 +187,9 @@ itertools.chain # join list
 ```
 ## collections
 ```
-collections.defaultdict
+from collections import defaultdict
+obj = defaultdict(int) # default int, no more  key error!! super
+
 from collections import Counter
 
 c = Counter(list)

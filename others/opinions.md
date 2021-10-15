@@ -20,18 +20,32 @@ here are common trade offs
 
 > Dynamic Programming or Recursive
 
-> For most, longest, shortest question. Prefer solution that each computation step reduce possibility
+> For most, longest, shortest, max, min question. Prefer solution that each computation step reduce possibility
 
-**75 blind questions**
-> Question types
+  - Ex: max question: only keep track of local max result, throw away past calculation
+
+
+**75 blind questions types**
+
 - Array/Matrix
-- Tree
-  - Heap
-    > Tree structure that will self reorder when add/poll node
-  - Sufflix Trie
-    > Tree structure that store string by letter, reduced space cost, useful for substring search
-- Dynamic Programming
+  - Quick Seach|Sort
+  - Window Slicing
+- Recursive
+  - Divide and Conquer
+    > Merge sort is easy to parrel
 
+  - Dynamic Programming
+    - Tree
+      > Depth-first search
+        - Preorder is priorty is left, node, right
+        - Inorder is started from leftest leave, then root, at last right subtree
+        - Postorder is started from leftest leave, then silbing, at last parent
+
+      > Breadth-first search(level order) prioty is lower level scan first
+      - Heap
+        > Tree structure that will self reorder when add/poll node
+      - Sufflix Trie
+        > Tree structure that store string by letter, reduced space cost, useful for substring search
 
 # Application Design
 > Database is usually is the first bottleneck of application design
