@@ -1,10 +1,17 @@
 # Rust
 `cargo build`
-
+Variables Types
+https://doc.rust-lang.org/reference/types.html
+by default immutable
+```
+let mut test = "ddd";
+let test = Test::new();
+run(&test)
+```
 borrower checker
     - tracking init & moves
     - lifetime inference(garbage collect)
-    - 
+    -  dancling pointers/race conditions
 ### Compilation Stages
 1. Lexical Analysis
    > Convert code to token 
