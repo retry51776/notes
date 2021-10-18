@@ -26,6 +26,8 @@
 ## Cool resources
 - [Icons] https://gist.github.com/rxaviers/7360908
 - [Cron Guru] https://crontab.guru/
+- [Tech Stacks] https://stackshare.io/
+- [Company Investor] https://www.crunchbase.com/
 
 ## Datatool
 - Generate test data https://www.mockaroo.com/

@@ -48,6 +48,7 @@
 - How Chainlink works?
 - LMD phost & FFG finalization
 - heavest chain
+- Node Discovery Protocol
 
 Scale
     - main chain
