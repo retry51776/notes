@@ -12,6 +12,7 @@ borrower checker
     - tracking init & moves
     - lifetime inference(garbage collect)
     -  dancling pointers/race conditions
+
 ### Compilation Stages
 1. Lexical Analysis
    > Convert code to token 
