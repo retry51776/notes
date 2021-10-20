@@ -8,6 +8,8 @@
 - function params's default value should be standard type
     > don't reference type `[]` or `{}`, any modify reference will presists default value in next function call
 - don't delete in loop
+- falsely values & or, need similar `or` for `None` only, I hate `if else`
+
 
 
 **Working on library**
@@ -62,12 +64,14 @@ f'Format to {date.today():%Y-%m-%d}'
 ## Reference Type
 ```
 {}.get('xyz') # only works w obj
+
+getattr(Abc, 'xyz') # only work w class
 hasattr()
-getattr(obj, 'xyz') # also work in class
 setattr()
 delattr()
 
 # python desturcture
+from operator import itemgetter
 a, b = itemgetter('a', 'b')(params)
 
 # idiom, like destruct object in javascritp
@@ -85,8 +89,10 @@ z=3
 vars(class) # retrun Object
 
 # dates
-date(2018, 9, 30).replace(day=31)
-from dateutil.relativedelta import 
+from datetime import date, timedelta
+from dateutil.relativedelta import
+
+date(2018, 9, 30).replace(day=31) + timedelta(days=1)
 date.today() + relativedelta(months=1)
 ```
 ## Build in functions
@@ -120,7 +126,7 @@ all()
 any([0, 1, 0])
 
 sys.getsizeof(obj) # debug variable Ram
-time -f python3 test.py # debug script Ram & time
+
 timeit.timeit(xyz)
 time -f python3 test.py # debug script Ram & time
 #cProfile, pstats takes more setup, but better audit whole project
