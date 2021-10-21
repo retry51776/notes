@@ -47,6 +47,8 @@ Install local package steps:
 # Python Codes
 ## Starndard Type
 ```
+import sys
+sys.maxint
 float('Inf') # max value
 endswith()
 startswith()
@@ -57,11 +59,13 @@ lower()
 [::-1]#reverse
 
 a, b, c = 1, 2, 3
+a, b, *_, d = list(range(10))
+print(a, b,  d)
 a = b = c = 4
-f'Rounded to {2.222:.2f}'
+f'Rounded to {2222222.222:,.2f}'
 f'Format to {date.today():%Y-%m-%d}'
 ```
-## Reference Type
+## CRUD Property
 ```
 {}.get('xyz') # only works w obj
 
@@ -69,6 +73,7 @@ getattr(Abc, 'xyz') # only work w class
 hasattr()
 setattr()
 delattr()
+vars(class) # retrun Object
 
 # python desturcture
 from operator import itemgetter
@@ -85,15 +90,17 @@ z=3
 x=1
 y=2
 z=3
-
-vars(class) # retrun Object
+```
 
 # dates
+```
 from datetime import date, timedelta
-from dateutil.relativedelta import
+from dateutil.relativedelta import relativedelta
 
 date(2018, 9, 30).replace(day=31) + timedelta(days=1)
 date.today() + relativedelta(months=1)
+date.max
+date.min
 ```
 ## Build in functions
 ```
@@ -205,7 +212,7 @@ i1, i2, i3 = itertools.tee(i, 3)
 # Standard Library
 ## functools
 ```
-@functools.cache
+@functools.cache # only 3.10
 @lru_cache(maxsize=32)
 
 functools.reduce(lambda a, b: a+b, lis, 100)

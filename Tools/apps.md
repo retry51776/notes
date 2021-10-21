@@ -7,6 +7,7 @@
   - docker
   - C#
   - .net core essentials
+  - Thunder Client
 - Chrome
   - react dev
   - redux dev

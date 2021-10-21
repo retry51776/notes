@@ -51,6 +51,22 @@ git reset --soft HEAD~1
 git rebase // will stash my branch prev commits, then apply after rebase branch
 ```
 
+## Jenkin Vars
+```
+@echo off
+echo GIT_COMMIT %GIT_COMMIT% 
+echo GIT_BRANCH %GIT_BRANCH%
+echo GIT_LOCAL_BRANCH %GIT_LOCAL_BRANCH%
+echo GIT_PREVIOUS_COMMIT %GIT_PREVIOUS_COMMIT%
+echo GIT_PREVIOUS_SUCCESSFUL_COMMIT %GIT_PREVIOUS_SUCCESSFUL_COMMIT%
+echo GIT_URL %GIT_URL%
+echo GIT_URL_N - %GIT_URL_N%
+echo GIT_AUTHOR_NAME %GIT_AUTHOR_NAME%
+echo GIT_COMMITTER_EMAIL %GIT_COMMITTER_EMAIL%
+
+ARG git_commit
+RUN echo $git_commit > /app/.githash
+```
 # Tech Terms 
 
 Git is a database, smallest unit is File store as blob unit.
