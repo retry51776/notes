@@ -42,7 +42,8 @@ Install local package steps:
 - pytype: google
 - pyre: facebook
 - pyright: microsoft
-  
+
+`def test(a: str) -> str | None:`
 
 # Python Codes
 ## Starndard Type
@@ -104,31 +105,6 @@ date.min
 ```
 ## Build in functions
 ```
-def test(a: str) -> str | None:
-
-@staticmethod
-@porperty
-@some_name.setter
-
-class events
-__init__(self):
-__enter__
-__exit__
-__del__
-
-# python descriptor
-__get__
-__set__
-__dict__
-
-# class operators
-__eq__
-__ne__
-__ge__
-__lt__
-__le__
-
-
 all()
 any([0, 1, 0])
 
@@ -177,6 +153,8 @@ from dataclasses import dataclass, field
 class Xyz:
     id: int
     text: str = field(default="xxx")
+    def __lt__(self, element):
+        return self.id > element.id;
 ```
 
 ## loop

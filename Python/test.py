@@ -5,7 +5,8 @@ def get_logger():
     print(f'got logger from {__name__}')
     return logger
 
-print('Proof of codes always ran when import')
-
 def another_test(a=get_logger()):
     print('another_test')
+
+if __name__ == "__main__":
+    print('Proof of codes always ran when import')
