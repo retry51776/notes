@@ -34,7 +34,6 @@ CommonJS (require/exports)
 - `null` & `undefined`, I get it, but hate it. Python just have None, much easier
 
 
-
 # Tech Terms
 JWT is value base token, cookie is reference base token
 

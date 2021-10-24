@@ -75,6 +75,8 @@ Backend
 
   - Dynamic Programming
     - Tree
+      > Only single path from root to any node
+
       > Depth-first search
         - Preorder is priorty is left, node, right
         - Inorder is started from leftest leave, then root, at last right subtree
@@ -132,3 +134,9 @@ Backend
   - expose application structure
 - ABAC
   > attribute based access control
+
+## Language
+
+| weekly | strongly |
+|--|-|
+| -- | -- |

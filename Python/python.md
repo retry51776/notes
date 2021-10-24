@@ -135,6 +135,7 @@ __get__
 __set__
 __hash__
 __dict__
+__slots__ # similar to property, can't add more __slots__ in run time, but less RAM
 __repr__
 
 # self implement class operators
@@ -323,8 +324,15 @@ args = parser.parse_args()
 ## asyncio
 ```
 async def what():
+    print('before sleep')
+    await asyncio.slee(2)
+    print('after sleep')
     return 0
-asyncio.run(what)
+
+asyncio.run(what()) # runs in MAIN branch
+task = asyncio.create_task(what()) # runs off branch
+await task # similar thread.join()
+
 ```
 > httpx grather is faster multiple network requests
 ## custom utilities
