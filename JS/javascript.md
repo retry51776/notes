@@ -33,6 +33,19 @@ CommonJS (require/exports)
 - `const` only works with basic type. like string or number.
 - `null` & `undefined`, I get it, but hate it. Python just have None, much easier
 
+```
+// ES6 build in supports, most browser, webpack will auto figure file type
+import getXYZ from 'xyz.js';
+// dynamic import
+async componentDidMount() {
+  const { ABC } = await import('./ABC');
+  this.setState({ ABC });
+}
+
+// Common JS module function, can be dynamics run
+module.export = {};
+require('./xyz.js')
+```
 
 # Tech Terms
 JWT is value base token, cookie is reference base token

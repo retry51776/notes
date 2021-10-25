@@ -111,6 +111,13 @@ Backend
   - Internal or External or both?
   - workflow interference & trigger DB bottneck
 
+> FE distrubated in Content Deliver Network(CDN) is at good as it gets, maybe dynamics import too
+
+> Horizontal scaling service & engine, most of works in here
+
+> Golbal DB is very hard, beyond me
+
+
 ---
 ## Developer Metaphor
 - Bussiness logic & data defines architecture.
