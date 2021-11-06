@@ -91,7 +91,10 @@ structural sharing
 Maybe Immer? new dev could break things, but no new APIs
 
 ## React
-Component Prefer Orders
+> Functional component is truely immutable, but class component's state is mutable; Because hooks allow true decouple of state
+
+
+### Component Prefer Orders
 1. Component States
 2. Redux Store
 3. Web actions
@@ -109,10 +112,17 @@ Abc.propTypes = {
   match: PropTypes.object.isRequired,
 };
 
-import React, { useMemo, useCallback } from 'react';
+import React, { useMemo, useCallback, useEffect } from 'react';
 
 // useCallback(fn, deps) is equivalent to useMemo(() => fn, deps).
 const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
+
+useEffect(() => {
+  console.log('Similar to componentDidMount');
+  return () => {
+    console.log('Clean up listener');
+  };
+}, [])
 
 React.createElement(
   type,
@@ -234,3 +244,13 @@ module.exports = {
   ],,
 }
 ```
+
+---
+## Browser Term
+Javascript VM instance
+
+
+Tokenlized
+Abs Structure Tree
+Binary Code
+Optimizer

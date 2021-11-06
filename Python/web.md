@@ -62,7 +62,8 @@ session.commit()
 # add multi records
 session.add_all([sale, addr, invt])
 
-query = query.options(joinedload('building'))
+# orm property, not relationship name
+query = query.options(joinedload('abc').joinedload('efg'))
 ```
 
 **Cursor Query**
@@ -172,6 +173,7 @@ class TestScraper(scrapy.Spider):
       > fanout/direct/topic/header/namesless
 
       > topic/routing_key (M to M) Queue
+
 
 **Kafka**
   - topic

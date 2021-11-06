@@ -79,7 +79,8 @@ MX record
 > mail exchange
 
 CNAME
-> alias for server, EX: https://www. to https://
+> alias for server, EX: https://www. to https://,
+> or abc.com to xyz.com
 
 Zone File
 > name server store domains informations

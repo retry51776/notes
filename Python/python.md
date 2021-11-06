@@ -98,7 +98,9 @@ z=3
 from datetime import date, timedelta
 from dateutil.relativedelta import relativedelta
 
+# less than month unit
 date(2018, 9, 30).replace(day=31) + timedelta(days=1)
+# more than month unit
 date.today() + relativedelta(months=1)
 date.max
 date.min
@@ -116,6 +118,11 @@ time -f python3 test.py # debug script Ram & time
 
 # Set linux envirement variables
 export URL=test //set env
+
+# logging show stacktrace
+stack_info=True
+for line in traceback.format_stack():
+    print(line.strip())
 ```
 
 ## dunder|magic methods, decorator
@@ -205,6 +212,7 @@ def logged(func):
 
 ## Itertools
 ```
+# requires array already sorted by key
 for key, group in itertools.groupby(array_json, key_func)
 
 # really only uses in quiz
@@ -264,7 +272,7 @@ while not q.empty():
 import heapq
 heapq.heapify(list_unorder)
 heapq.heappush(
-heapq.heappop(
+heapq.heappop( # smallest
 
 heapq.nlargest(n:int, iterable, key:None) # key similar to sort(list, key)
 heapq.nsmallest()
@@ -298,22 +306,33 @@ x.join()
 ## contextlib
 ```
 from contextlib import contextmanager
+class DB():
+    def __exit__(self, exc_type, exc_val, exc_traceback):
+        self.disconnect_db()
 
-@contextmanager
-def get_session(self):
-    session = None
-    for i in range(1, 4):
-        try:
-            session = sessionmaker(bind=self.XXX_engine)()
-            yield session
-            break
-        except Exception:
-            self.logger.exception(f'Reconnecting to XXX. {i}th attempted')
+    def init_db(self):
+        self.db_engine = create_engine(self.config.XXX_URI, pool_pre_ping=True, pool_size=self.pool_size)
+        self.session_mk = sessionmaker(bind=self.db_engine)
 
-            # Re-create engine
-            self.xxx_engine = create_engine(self.config.XXX_URI, pool_pre_ping=True, pool_size=self.pool_size)
-    if session:
-        session.close()
+    def disconnect_db(self):
+        if hasattr(self, 'session_mk') and self.session_mk:
+            self.session_mk.close_all()
+        if hasattr(self, 'db_engine') and self.db_engine:
+            self.db_engine.dispose()
+
+    @contextmanager
+    def get_session(self):
+        session = None
+        for i in range(1, 4):
+            try:
+                session = self.session_mk()
+                break
+            except Exception:
+                self.logger.exception(f'Reconnecting to XXX. {i}th attempted')
+                self.init_db()
+        yield session
+        if session:
+            session.close()
 ```
 ## argparse
 ```

@@ -51,14 +51,18 @@
 - Node Discovery Protocol
 
 Scale
-    - main chain
-      - shard
-    - side chain
-      - Matic
-    - layer 2
+  - main chain
+    - shard
+  - side chain
+    - Matic
+    - Has its own security
+  - layer 2
+    - application specific
       - state channel(application specific, not premissionless)
       - plasma project
-      - optimistic rollup (support smart contract)
+    - rollup
+      - optimistic rollup (support smart contract, with judge system, delay withdraw)
+      - zk rollup (long term solution, instance withdraw)
 
 ## Solana
 - separate transaction throughput from consensus?
