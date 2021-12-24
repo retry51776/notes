@@ -1,6 +1,13 @@
 # Linux
 
 **OS** 
+
+> `htop` //Similar to task manager in Windows 
+
+> `free -h` //Memory
+
+> `chmod -R 660 /app`
+
 ```
 passwd //Change password
 

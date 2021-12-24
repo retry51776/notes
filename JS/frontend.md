@@ -190,8 +190,11 @@ const {
 **mouseflow**
 > Page tracking plugin
 
-# Webpack, module bunder
-or rool up, parcel, snowpack
+# Module bunder(Webpack)
+Alternative
+- rool up
+- parcel
+- snowpack
 https://www.youtube.com/watch?v=lFjinlwpcHY&ab_channel=uidotdev
 
 ### Styles
@@ -206,6 +209,8 @@ https://www.youtube.com/watch?v=lFjinlwpcHY&ab_channel=uidotdev
 `polyfill` - browser compability
 
 ### webpack.config.js
+
+> sourceMap `bundle.js.map` links compiled code to source line
 ```
 const webpack = require('webpack');
 const path = require('path');

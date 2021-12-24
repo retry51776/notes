@@ -9,6 +9,7 @@
     > don't reference type `[]` or `{}`, any modify reference will presists default value in next function call
 - don't delete in loop
 - falsely values & or, need similar `or` for `None` only, I hate `if else`
+- Python allow integer as key of object, but JSON file requires key as string. Can be suprised load object is different.
 
 
 
