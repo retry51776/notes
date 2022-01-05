@@ -1,5 +1,13 @@
-
 # Backend
+
+## Mistery Errors
+1. Memory Issue
+```
+error: Forever detected script was killed by signal: SIGKILL
+```
+2.
+
+
 ## Express
 - In middleware, `next()` does NOT exit function
 - Any operation could timeout, or involed multi datasources should use engine instead
