@@ -36,3 +36,8 @@ Bonson = Force
     - z0 w+ w- (weak force)
     - higgs (field create mass)
 ```
+
+Plaster
+Ultracal 30 (strong, can be layer, longer)
+Hydrocal (med, no layer)
+USG pottery plaster (weakest)
