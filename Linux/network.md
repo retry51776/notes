@@ -73,7 +73,7 @@ A/AAAA Records
 > record format store host name to IPv4/IPv6, cycle through IPs of host
 
 PTR Records
-> opposite A/AAAA records, IP to host instead
+> Pointer record is opposite A/AAAA records, IP to host instead
 
 MX record
 > mail exchange
@@ -132,3 +132,6 @@ CMD
 `nslookup google.com`
 
 
+---
+QRadar
+IBM advance firewall

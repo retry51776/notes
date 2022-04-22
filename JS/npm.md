@@ -1,5 +1,11 @@
 
 # NPM 
+semantic versioning
+- major.minor.patch
+> `npm update` to upgrade latest library
+- package.lock.json
+> force npm install library target version
+
 To build library
 `"build": "rimraf dist; npm run prettier; npm run compile; npm pack;"`
 
@@ -13,6 +19,7 @@ Other npm cmds
 npm cache clean --force  
 npm install --no-optional  
 npm run [package.json/script]
+npm ls xyz // to check repo has library
 ```
 
 **Reset private registry **

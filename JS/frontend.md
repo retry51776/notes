@@ -135,17 +135,14 @@ React.cloneElement(
   [...children]
 );
 
-
-# Windows Events
-> React.StrictMode 
-```
-useEventListener("online", callback);
-```
-- mousemove
-- offline
+// React.StrictMode 
 
 useRef // Auto focus
 componentDidCatch(error, errorInfo) {
+import { useContext, createContext } from 'react';
+
+const TerryContext = createContext(null);
+<GrouperContext.Provider value={}
 ```
 
 ## Upload File
