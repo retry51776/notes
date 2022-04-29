@@ -95,22 +95,16 @@ zk snark 2 way
 
 Prover know w()
 a(x) * w(x) = b(x) * c(x)
+
 zk snark 1 way
 We don't needs to decrypt Homomorphic, we just care about equality
 
-Ariel Gabizon - https://www.youtube.com/watch?v=yNS_ttTj1KE&t=2952s
-Explaining SNARKs Part I: Homomorphic Hidings
-Explaining SNARKs Part II: Blind Evaluation of Polynomials
-Explaining SNARKs Part III: The Knowledge of Coefficient Test and Assumption
-Explaining SNARKs Part IV: How to make Blind Evaluation of Polynomials Verifiable
-Explaining SNARKs Part V: From Computations to Polynomials
-Explaining SNARKs Part VI: The Pinocchio Protocol
-Explaining SNARKs Part VII: Pairings of Elliptic Curves
 
   - Pinocchio protocol
   - Convert to polynomials
   > because different polynomials only coincide at n(degree) points
   - Homomorphic Encryption
+  - Knowledge of Coefficient Test force single point commitment
 > balance proofer time, verifier time, proof size
 Baselines:
   - BCCGP-sqrt
@@ -124,3 +118,15 @@ Baselines:
 
 ## Solana
 - separate transaction throughput from consensus?
+
+
+# Resource
+Ariel Gabizon - https://www.youtube.com/watch?v=yNS_ttTj1KE&t=2952s
+
+- Explaining SNARKs Part I: Homomorphic Hidings
+- Explaining SNARKs Part II: Blind Evaluation of Polynomials
+- Explaining SNARKs Part III: The Knowledge of Coefficient Test and Assumption
+- Explaining SNARKs Part IV: How to make Blind Evaluation of Polynomials Verifiable
+- Explaining SNARKs Part V: From Computations to Polynomials
+- Explaining SNARKs Part VI: The Pinocchio Protocol
+- Explaining SNARKs Part VII: Pairings of Elliptic Curves

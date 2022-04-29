@@ -3,6 +3,7 @@
 Voice Component
 - Frequency
 - Resonance
+- Projection
 
 note frequency table
 vocal range
@@ -22,6 +23,11 @@ International Phonetic Alphabet
 - DJ(Daniel Jone) International
 - KK(Keny, Knott) US [https://www.youtube.com/watch?v=-QkyTe27_1Q]
 - Webster
+
+DeEssing
+> usually to reduce ssss sounds
+
+
 
 # Apps
 - singer's studio

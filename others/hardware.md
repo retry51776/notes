@@ -40,6 +40,19 @@ FPGA - Field programmable Gate Array
 
 EDA is hardware design software
 
+Frontend
+  - design
+  - produce
+Backend
+  - cut
+  - Sip(封装)
+  - chiplet
+  - interposer
+  - 3D Nand
+    - 2014 24 layers
+    - 2016 48 layers
+    - 2020 1XX layers
+
 Battery
 - Anode : negative terminal
   - graphite, lithium
