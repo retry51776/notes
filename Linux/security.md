@@ -40,3 +40,23 @@ Microsoft Management Console `Run > mmc > Enter` export LDAP certificate for VPN
   - valid to
   - public key
   - digital signature
+  
+
+**Create TLS**
+1. Create .csr with openssl
+
+```
+openssl req -new -sha256 -out terry.test.local.csr -newkey rsa:2048 -keyout "$1.key" -nodes -reqexts SAN - config <cat /some_ssl.cnf <(printf("[SAN]\nsubjectAltName=DNS:terry.test.local"))>> -out terry.test.local.csr
+```
+
+2. Request AD to signed .csr, created .crt
+  a) https://gcp-dns-1.test.local (usually MS AD)
+  b) download Base-64
+
+3. Install crt
+  a) Install in K8
+    1. kubectl create secret tls terry-tls --cert=terry.test.local.cer --key=terry.test.local.key
+    2. In Ingress file add tls property
+  b) Install in server
+    1. ssh into server
+    2. copy .crt and key to /etc/test/conf/nginx/data/ssl
