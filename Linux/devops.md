@@ -39,3 +39,34 @@ Job > Group > Task
 1. Control Panel / System and Security / System / change setting
 2. rename PC name & domain
 3. change DNS service to DC ip
+
+
+**Github Action**
+.github/workflows/docker-publish.yml
+
+```
+- id: get_branch
+shell: bash
+run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+---
+- name: Build and push
+uses: docker/build-push-action@v2.7.0
+with:
+  context: .
+  build-args: |
+    ENV=prod
+  platforms: linux/amd64
+  tags: |
+    terry.test.local/hello:${{ steps.get_branch.outputs.branch }}${{ github.run_number }}
+---
+clean-working-directory:
+  runs-on: []
+  needs: build
+  steps:
+    -name: Clean
+      shell: bash
+      run: |
+        cd $RUNNER_WORKSPACE
+        cd ..
+        rm -r *
+```

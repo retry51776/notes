@@ -61,6 +61,8 @@ UDP (connestionless), no ack, but faster
 ---
 # DNS
 
+edit host file to network debug
+
 Recursive Resolver
 > middleman between client and DNS
 
