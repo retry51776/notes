@@ -70,3 +70,6 @@ clean-working-directory:
         cd ..
         rm -r *
 ```
+
+paloalto
+> monitor network traffic & firewall

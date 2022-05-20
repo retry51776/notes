@@ -130,3 +130,16 @@ Ariel Gabizon - https://www.youtube.com/watch?v=yNS_ttTj1KE&t=2952s
 - Explaining SNARKs Part V: From Computations to Polynomials
 - Explaining SNARKs Part VI: The Pinocchio Protocol
 - Explaining SNARKs Part VII: Pairings of Elliptic Curves
+
+
+Byzantine-Fault Tolerate(BFT) POS
+best fault torlerat n = 3f + 1
+tendermint - most mature BFT algorithm
+
+
+**Compound**
+2019-Feb launch
+Interest Rate is calculate every block, no fix rates
+
+**Avalanche**
+Have 
