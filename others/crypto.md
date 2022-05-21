@@ -149,6 +149,7 @@ Why do it in elliptic-curve surface?
 security equivalent to classical systems (like RSA)
 more difficult/secure compute than normal 2D coordinate
 
+EX: y^2 = x^3 - 2x + 15
 1. imagine 2D Integer coordinate fold on donut (mod fold plane back to itself, there for 2D plan have [x, y] range that is limited)
 2. draw a elliptic-curve line on donut, as cure hit edge curve line will cutoff(won't loop around)
 3. pick 2 random points on curve-line, Generator Point, and Random Inifinty Point
@@ -161,3 +162,29 @@ more difficult/secure compute than normal 2D coordinate
    6. Scalar Multiplication = reapt Addition Operation on itself
    7. Any Operation can chain together just like algebra operation 13G = 8G + 4G + G
 5. Any Generator Point with Addition Operation will creates a limited set points (group structure)
+
+Share secrets = prive_key * other_public_key = private_A * public_B = private_B * public_A
+Sign Transaction
+
+
+**Sign message**
+digest value (z) same bit size order of curve
+modular arithmetic, order of curve as modulus
+1. pick a random number k, then calculate K = Generator * k, K's x value = r uses for verfication
+2. then calculate k^-1
+
+z = 10 digest value, 1 < z < N, hash of message?
+k = 19 random number, must  
+a = 3 private key
+r = 9 (Generator * k's x axis)
+N = 23 (order of curve)
+s = k^-1(z + ra) % N
+
+(r, s) = signed
+
+**Verification**
+w = s^-1 % N (s from signature)
+u1 = zw % N (z is from message)
+u2 = rw % N (r is from signature)
+S = u1G + u2A (A is sender's public key)
+(S's x value should match r from message)
