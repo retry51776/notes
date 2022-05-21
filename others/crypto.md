@@ -141,5 +141,23 @@ tendermint - most mature BFT algorithm
 2019-Feb launch
 Interest Rate is calculate every block, no fix rates
 
-**Avalanche**
-Have 
+**Elliptic-curve cryptography (ECC)**
+one-way function
+Ex: multiple is easy, divide is hard
+
+Why do it in elliptic-curve surface?
+security equivalent to classical systems (like RSA)
+more difficult/secure compute than normal 2D coordinate
+
+1. imagine 2D Integer coordinate fold on donut (mod fold plane back to itself, there for 2D plan have [x, y] range that is limited)
+2. draw a elliptic-curve line on donut, as cure hit edge curve line will cutoff(won't loop around)
+3. pick 2 random points on curve-line, Generator Point, and Random Inifinty Point
+4. New Math here
+   1. Negative Operation = Flip across y axis
+   2. Addition Operation = draw a line hits 2 points, should have 3rd point hit curve, then take Negative of new point
+   3. Point Double = Addition Operation, use tangle line(Key shortcut)
+   4. Special Case: 2 points parallel to x or y axis, when addition = infinty point
+   5. Special Case: infinty point + point = itself
+   6. Scalar Multiplication = reapt Addition Operation on itself
+   7. Any Operation can chain together just like algebra operation 13G = 8G + 4G + G
+5. Any Generator Point with Addition Operation will creates a limited set points (group structure)
