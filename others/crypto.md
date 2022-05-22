@@ -152,7 +152,7 @@ more difficult/secure compute than normal 2D coordinate
 EX: y^2 = x^3 - 2x + 15
 1. imagine 2D Integer coordinate fold on donut (mod fold plane back to itself, there for 2D plan have [x, y] range that is limited)
 2. draw a elliptic-curve line on donut, as cure hit edge curve line will cutoff(won't loop around)
-3. pick 2 random points on curve-line, Generator Point, and Random Inifinty Point
+3. pick a random points on curve-line as The Generator Point, G;
 4. New Math here
    1. Negative Operation = Flip across y axis
    2. Addition Operation = draw a line hits 2 points, should have 3rd point hit curve, then take Negative of new point
@@ -162,6 +162,11 @@ EX: y^2 = x^3 - 2x + 15
    6. Scalar Multiplication = reapt Addition Operation on itself
    7. Any Operation can chain together just like algebra operation 13G = 8G + 4G + G
 5. Any Generator Point with Addition Operation will creates a limited set points (group structure)
+
+
+Inifinty Point is 0, therefore M_point + Inifinty = M_point
+All group structure will eventually hit Inifinty Point, then back to itself.
+
 
 Share secrets = prive_key * other_public_key = private_A * public_B = private_B * public_A
 Sign Transaction
@@ -188,3 +193,9 @@ u1 = zw % N (z is from message)
 u2 = rw % N (r is from signature)
 S = u1G + u2A (A is sender's public key)
 (S's x value should match r from message)
+
+
+if k is same, r will always be same
+
+RLP (Recurrsive Length Prefix) generate z from message
+SSZ (Simple serialize) Eth 2 generate z from message
