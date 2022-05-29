@@ -131,11 +131,95 @@ Ariel Gabizon - https://www.youtube.com/watch?v=yNS_ttTj1KE&t=2952s
 - Explaining SNARKs Part VI: The Pinocchio Protocol
 - Explaining SNARKs Part VII: Pairings of Elliptic Curves
 
+Homomorphic Hidings invited by Diffie Hellman
+Alice prove y = g^x
+Alice send bob t = g^v
+
+c is bob's random number
+r = v - cx
+bob checks t = g^r * y^c
+because 
+  g^r * y^c
+= g^(v - cx) * g^(x * c)
+= g^v
+= t
+
+##Problem statement to R1CS (Rank 1 Constraint system)
+x^3 + x + 5 = 35
+
+a = x * x // x^2          Step 1
+b = a * x // x^3          Step 2
+c = b + x // x^3 + x      Step 3
+d = c + 5 // x^3 + x + 5  Step 4
+
+QAP(Quadratic arithmetic program)
+// 6 variable, 4 gates
+S = [1, x, a, b, c, d] // the path of solution, relations between steps
+x = [1, 3, 9, 27, 30, 35] // the real steps to solution 
+L(S) * R(S) = O   U(S) * V(S) = W(S) 多维商量
+
+Step 1: L1(S) * R1(S) = x * x
+L1 = [0, 1, 0, 0, 0, 0] // a(s) = 3
+R1 = [0, 1, 0, 0, 0, 0] // b(s) = 3
+O1 = [0, 0, 1, 0, 0, 0] // c(s) = 9
+
+Step 2: L2(S) * R2(S) = a * x
+L2 = [0, 0, 1, 0, 0, 0]
+R2 = [0, 1, 0, 0, 0, 0]
+O2 = [0, 0, 0, 1, 0, 0]
+
+Step 3: L3(S) * R3(S) = (b + x) * 1
+L3 = [0, 1, 0, 1, 0, 0]
+R3 = [1, 0, 0, 0, 0, 0]
+O3 = [0, 0, 0, 0, 1, 0]
+
+Step 4: L4(S) * R4(S) = (c + 5) * 1
+L4 = [5, 0, 0, 0, 1, 0]
+R4 = [1, 0, 0, 0, 0, 0]
+O4 = [0, 0, 0, 0, 0, 1]
+
+U, V, W 矩阵
+目标多项式整除（证据）
+椭圆曲线离散对数 ECC
+
+> Think of we check consistance of calculation path to result, instead of result itself
+
+d = 35 // finial solution
+1. Generated each step effect to finial result
+2. convert each step as a point in polynomials
+3. 
+
+4. polynomials using Lagrange Interpolation https://www.youtube.com/watch?v=bzp_q7NDdd4
+
+T(x) is public know evalution for verification
+H(x) is provided by Prover and divides L(x) * R(x) - O(x) evenly
+
+P = L(x) + R(x) - O(x) = T(x) * H(x)
+
+
+Bulletproof(range proofs) similar to decimal to binary convertion
+5 = 101 = 1(2^2) + 0(2^1) + 1(2^0) = 2 vector muliply
+so if I able prove number requires x bits vector, I proven x is in some range.
+
 
 Byzantine-Fault Tolerate(BFT) POS
 best fault torlerat n = 3f + 1
 tendermint - most mature BFT algorithm
 
+Kilian 92, micali 94,
+  > bad prover time
+GGPR 13, Groth16
+  > trusted steup
+Sonic 19, Marlin 19
+Dark 19, Halo 19, STARK
+
+DSL Program // Compiler to compile into circuit
+- Circom
+- ZoKrates
+- Leo
+- Zinc
+- Cairo
+- Snarky
 
 **Compound**
 2019-Feb launch
@@ -199,3 +283,15 @@ if k is same, r will always be same
 
 RLP (Recurrsive Length Prefix) generate z from message
 SSZ (Simple serialize) Eth 2 generate z from message
+
+**Gas fee**
+base fee
+create contract 530000
+use contract 21000
+
+tx fee = none_zero * 16 + zero * 4
+
+Because Hormophic Hidden, there is only mulplicatetion and addation operator
+R1CS
+convert polynomial into only mulptication and addation
+
