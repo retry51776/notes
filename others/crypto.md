@@ -96,14 +96,11 @@ zk snark 2 way
 Prover know w()
 a(x) * w(x) = b(x) * c(x)
 
-zk snark 1 way
-We don't needs to decrypt Homomorphic, we just care about equality
-
 
   - Pinocchio protocol
   - Convert to polynomials
   > because different polynomials only coincide at n(degree) points
-  - Homomorphic Encryption
+  - Homomorphic Encryption 同态隐藏
   - Knowledge of Coefficient Test force single point commitment
 > balance proofer time, verifier time, proof size
 Baselines:
@@ -144,7 +141,7 @@ because
 = g^v
 = t
 
-##Problem statement to R1CS (Rank 1 Constraint system)
+##Problem statement to R1CS (Rank 1 Constraint system) force addation to vector muliplication
 x^3 + x + 5 = 35
 
 a = x * x // x^2          Step 1
@@ -154,6 +151,7 @@ d = c + 5 // x^3 + x + 5  Step 4
 
 QAP(Quadratic arithmetic program)
 // 6 variable, 4 gates
+Witness vector: S
 S = [1, x, a, b, c, d] // the path of solution, relations between steps
 x = [1, 3, 9, 27, 30, 35] // the real steps to solution 
 L(S) * R(S) = O   U(S) * V(S) = W(S) 多维商量
@@ -178,24 +176,28 @@ L4 = [5, 0, 0, 0, 1, 0]
 R4 = [1, 0, 0, 0, 0, 0]
 O4 = [0, 0, 0, 0, 0, 1]
 
-U, V, W 矩阵
+U, V, W 矩阵 //二次扩张多项式｜QSP多项式
 目标多项式整除（证据）
+拉格朗日插值法
+目标多项式 ｜ 商多项式 h(x) = s.W(x) - s.U(x)*s.V(x)/z(x)
 椭圆曲线离散对数 ECC
+Common Reference String (CRS) a string output by NIZK's generator algorithm and avaiable both prover and verifier.
+
 
 > Think of we check consistance of calculation path to result, instead of result itself
 
 d = 35 // finial solution
-1. Generated each step effect to finial result
-2. convert each step as a point in polynomials
-3. 
-
-4. polynomials using Lagrange Interpolation https://www.youtube.com/watch?v=bzp_q7NDdd4
+1. Generated each step effect to finial result (QAP)
+2. convert each step as vector mulpication (R1CS)
+3. convert vector mulpication to Lagrange polynomial (https://www.youtube.com/watch?v=bzp_q7NDdd4)
+4. Base of 3 polynomials [QAP, z(x), h(x)], use ECC to generate Proof of s
+5. Verifer get h(x), divide by (x - 1), (x - 2) ( x - 3 ) z(x) * h(x) = 
 
 T(x) is public know evalution for verification
 H(x) is provided by Prover and divides L(x) * R(x) - O(x) evenly
 
 P = L(x) + R(x) - O(x) = T(x) * H(x)
-
+// Seems like longer S is(more gate or more variable), QAP is more secure
 
 Bulletproof(range proofs) similar to decimal to binary convertion
 5 = 101 = 1(2^2) + 0(2^1) + 1(2^0) = 2 vector muliply
