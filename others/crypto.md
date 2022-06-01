@@ -187,11 +187,31 @@ Common Reference String (CRS) a string output by NIZK's generator algorithm and 
 > Think of we check consistance of calculation path to result, instead of result itself
 
 d = 35 // finial solution
-1. Generated each step effect to finial result (QAP)
+1. Generated each step effect to finial result
 2. convert each step as vector mulpication (R1CS)
 3. convert vector mulpication to Lagrange polynomial (https://www.youtube.com/watch?v=bzp_q7NDdd4)
-4. Base of 3 polynomials [QAP, z(x), h(x)], use ECC to generate Proof of s
-5. Verifer get h(x), divide by (x - 1), (x - 2) ( x - 3 ) z(x) * h(x) = 
+4. R1CS to QAP
+```
+We knew A(L) * B(R) = C(S) only on select point [1, 2, 3, 4]
+A is vector of [L1, L2 ... L6]
+B is vector of [R1, R2 .... R6]
+C is vector of [O1, O2 ..... O6]
+Z = (x - 1)(x - 2)(x - 3)(x - 4) // because 4 gates
+  A * B = C on select point [1, 2, 3... n] 
+  A * B - C = 0 on select point [1, 2, 3... n]
+  A * B - C is dividsiable by Z
+  A(known) * B(known) - C(known) = Z(known) * H(?)    <- This is QAP
+
+we calculate polynomial H
+We don't want to give A, B, C, very large, also leak our script
+```
+5. Prover uses ECC Generator(g), calculate 5 points A'=A(g) B'=B(g) C'=C(g) H'=H(g), and lamda(λ) commited point A as Proof, and a ? proof polynomial is same order
+6. Verfier can just e(A, B)/e(C, G) = E(H, Z)
+
+
+
+use ECC to generate Proof of s
+5. Verifer get h(x), divide by  z(x) * h(x) = 
 
 T(x) is public know evalution for verification
 H(x) is provided by Prover and divides L(x) * R(x) - O(x) evenly
