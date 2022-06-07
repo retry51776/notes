@@ -14,7 +14,7 @@ enc(m, p) = big_ran() * p + 2 * small_rand() + m
 dec(ct, p) = (ct % p) % 2
 
 
-## BTC
+## Bitcoin Structure
 - block header (80 bytes)
   - block version (4)
   - prev block hash (32)
@@ -46,9 +46,9 @@ dec(ct, p) = (ct % p) % 2
 - Unspent Transaction Output (UTXO)
 - Lighting network is a protocal uses BTC as bank reservor note.
 - longest chain
+<hr/>
 
-
-## Eth
+## Ethereum Structure
 - Account Based model
 - OPs codes 32bit
 - How Chainlink works?
@@ -56,11 +56,18 @@ dec(ct, p) = (ct % p) % 2
 - heavest chain
 - Node Discovery Protocol
 
-Scale
+**Gas fee**
+base fee
+create contract 530000
+use contract 21000
+
+tx fee = none_zero * 16 + zero * 4
+
+**Scale Soluction**
   - main chain
     - shard
   - side chain
-    - Matic
+    - Matic/Polygon
     - Has its own security
   - layer 2
     - application specific
@@ -70,15 +77,7 @@ Scale
       - optimistic rollup (support smart contract, with judge system, delay withdraw)
       - zk rollup (long term solution, instance withdraw, but snark proof takes 3s to generate)
       > submit small signature every state changes, main net don't need offline data to audit
-
-# Buzzword Zoo
-## Private Computation
-- zk proof
-- secure multiparty computation
-- zk-snarks
-- homomorphic Encryption
-- Secure Functions Evaluation
-- Trusted Execution Environments
+<hr/>
 
 ## Private Communication
 - Asy encryption
@@ -86,36 +85,104 @@ Scale
 - Access Control
 
 
-zk snark 2 way
-1. map computation to polynomial equation
-2. Verifier choose secret evaluation point
-3. Prover eval polynomials
-4. Verifier checks(Homomorphic Encryption allow compute on encrypted data without decryption)
-
-
-Prover know w()
-a(x) * w(x) = b(x) * c(x)
-
-
-  - Pinocchio protocol
-  - Convert to polynomials
-  > because different polynomials only coincide at n(degree) points
-  - Homomorphic Encryption 同态隐藏
-  - Knowledge of Coefficient Test force single point commitment
-> balance proofer time, verifier time, proof size
-Baselines:
-  - BCCGP-sqrt
-  - Bulletproofs
-  - ZKB++
-  - Ligero
-  - libSTARK
-  - Hyrax-1/3
-  - Hyrax-native
-
 
 ## Solana
 - separate transaction throughput from consensus?
+- I don't get it, white paper sucks
 
+**Compound**
+2019-Feb launch
+Interest Rate is calculate every block, no fix rates
+
+<hr/>
+
+# Encryption
+
+**Elliptic-curve cryptography (ECC)**
+one-way function
+Ex: multiple is easy, divide is hard
+
+Why do it in elliptic-curve surface?
+security equivalent to classical systems (like RSA)
+more difficult/secure compute than normal 2D coordinate
+
+EX: y^2 = x^3 - 2x + 15
+1. imagine 2D Integer coordinate fold on donut (mod fold plane back to itself, there for 2D plan have [x, y] range that is limited)
+2. draw a elliptic-curve line on donut, as cure hit edge curve line will cutoff(won't loop around)
+3. pick a random points on curve-line as The Generator Point, G;
+4. New Math here
+   1. Negative Operation = Flip across y axis
+   2. Addition Operation = draw a line hits 2 points, should have 3rd point hit curve, then take Negative of new point
+   3. Point Double = Addition Operation, use tangle line(Key shortcut)
+   4. Special Case: 2 points parallel to x or y axis, when addition = infinty point
+   5. Special Case: infinty point + point = itself
+   6. Scalar Multiplication = reapt Addition Operation on itself
+   7. Any Operation can chain together just like algebra operation 13G = 8G + 4G + G
+5. Any Generator Point with Addition Operation will creates a limited set points (group structure)
+
+
+
+**Sign message**
+digest value (z) same bit size order of curve
+modular arithmetic, order of curve as modulus
+1. pick a random number k, then calculate K = Generator * k, K's x value = r uses for verfication
+2. then calculate k^-1
+
+z = 10 digest value, 1 < z < N, hash of message?
+k = 19 random number, must  
+a = 3 private key
+r = 9 (Generator * k's x axis)
+N = 23 (order of curve)
+s = k^-1(z + ra) % N
+
+(r, s) = signed
+
+Share secrets = prive_key * other_public_key = private_A * public_B = private_B * public_A
+
+**Verification**
+w = s^-1 % N (s from signature)
+u1 = zw % N (z is from message)
+u2 = rw % N (r is from signature)
+S = u1G + u2A (A is sender's public key)
+(S's x value should match r from message)
+
+> if k is same, r will always be same
+
+RLP (Recurrsive Length Prefix) generate z from message
+SSZ (Simple serialize) Eth 2 generate z from message
+
+
+**Hormophic Hidden/Encryption, create any struct set that only have mulplicatetion and addation operator
+
+
+# ZK Snark
+
+
+Byzantine-Fault Tolerate(BFT) POS
+
+best fault torlerat n = 3f + 1
+
+tendermint - most mature BFT algorithm
+
+Kilian 92, micali 94,
+  > bad prover time
+GGPR 13, Groth16
+  > trusted steup
+Sonic 19, Marlin 19
+Dark 19, Halo 19, STARK
+
+DSL Program // Compiler to compile into circuit
+- Circom
+- ZoKrates
+- Leo
+- Zinc
+- Cairo
+- Snarky
+
+
+
+Inifinty Point is 0, therefore M_point + Inifinty = M_point
+All group structure will eventually hit Inifinty Point, then back to itself.
 
 # Resource
 Ariel Gabizon - https://www.youtube.com/watch?v=yNS_ttTj1KE&t=2952s
@@ -177,16 +244,41 @@ R4 = [1, 0, 0, 0, 0, 0]
 O4 = [0, 0, 0, 0, 0, 1]
 
 U, V, W 矩阵 //二次扩张多项式｜QSP多项式
+z = (x-1)(x-2)(x-3)...(x-n)
 目标多项式整除（证据）
 拉格朗日插值法
 目标多项式 ｜ 商多项式 h(x) = s.W(x) - s.U(x)*s.V(x)/z(x)
 椭圆曲线离散对数 ECC
 Common Reference String (CRS) a string output by NIZK's generator algorithm and avaiable both prover and verifier.
 
+FAQ:
+- What is ZK Snark?
+> Proof of computation
+
+
+- Why/How polynomial convert to linear algebra?
+watch this https://www.youtube.com/watch?v=SzZaQnzstfE
+
+Terry's bad answer:
+Think of simple problem has only L + R = O; so polynomial L + R - O = 0 must be linearly dependent vectors;
+
+t1(1 - x) + t2(1 + x) + t3(x^2) = 0
+t1 - t1(x) + t2 + t2(x) + t3(x^2) = 0
+(t1 + t2) + (t2 - t1)x + t3(x^2) = 0
+
+t1 + t2 = 0
+t2 + t1 = 0
+t3 = 0
+
+t1 t2 t3
+(1  1 0)(t1) = 0
+(-1 1 0)(t2) = 0
+(0  0 1)(t3) = 0
+
+(there is a none_zero sccaler) such that summation of vectors with none_zero scaler will equal to orgin point
 
 > Think of we check consistance of calculation path to result, instead of result itself
 
-d = 35 // finial solution
 1. Generated each step effect to finial result
 2. convert each step as vector mulpication (R1CS)
 3. convert vector mulpication to Lagrange polynomial (https://www.youtube.com/watch?v=bzp_q7NDdd4)
@@ -205,115 +297,38 @@ Z = (x - 1)(x - 2)(x - 3)(x - 4) // because 4 gates
 we calculate polynomial H
 We don't want to give A, B, C, very large, also leak our script
 ```
+> polynomial property: if prover knows A(s) - B(s) = C(s), 
 5. Prover uses ECC Generator(g), calculate 5 points A'=A(g) B'=B(g) C'=C(g) H'=H(g), and lamda(λ) commited point A as Proof, and a ? proof polynomial is same order
 6. Verfier can just e(A, B)/e(C, G) = E(H, Z)
 
-
-
-use ECC to generate Proof of s
-5. Verifer get h(x), divide by  z(x) * h(x) = 
-
-T(x) is public know evalution for verification
-H(x) is provided by Prover and divides L(x) * R(x) - O(x) evenly
-
-P = L(x) + R(x) - O(x) = T(x) * H(x)
 // Seems like longer S is(more gate or more variable), QAP is more secure
-
+// verfier random checkpoint was calculated by hash(gates)
 Bulletproof(range proofs) similar to decimal to binary convertion
 5 = 101 = 1(2^2) + 0(2^1) + 1(2^0) = 2 vector muliply
 so if I able prove number requires x bits vector, I proven x is in some range.
 
 
-Byzantine-Fault Tolerate(BFT) POS
-best fault torlerat n = 3f + 1
-tendermint - most mature BFT algorithm
-
-Kilian 92, micali 94,
-  > bad prover time
-GGPR 13, Groth16
-  > trusted steup
-Sonic 19, Marlin 19
-Dark 19, Halo 19, STARK
-
-DSL Program // Compiler to compile into circuit
-- Circom
-- ZoKrates
-- Leo
-- Zinc
-- Cairo
-- Snarky
-
-**Compound**
-2019-Feb launch
-Interest Rate is calculate every block, no fix rates
-
-**Elliptic-curve cryptography (ECC)**
-one-way function
-Ex: multiple is easy, divide is hard
-
-Why do it in elliptic-curve surface?
-security equivalent to classical systems (like RSA)
-more difficult/secure compute than normal 2D coordinate
-
-EX: y^2 = x^3 - 2x + 15
-1. imagine 2D Integer coordinate fold on donut (mod fold plane back to itself, there for 2D plan have [x, y] range that is limited)
-2. draw a elliptic-curve line on donut, as cure hit edge curve line will cutoff(won't loop around)
-3. pick a random points on curve-line as The Generator Point, G;
-4. New Math here
-   1. Negative Operation = Flip across y axis
-   2. Addition Operation = draw a line hits 2 points, should have 3rd point hit curve, then take Negative of new point
-   3. Point Double = Addition Operation, use tangle line(Key shortcut)
-   4. Special Case: 2 points parallel to x or y axis, when addition = infinty point
-   5. Special Case: infinty point + point = itself
-   6. Scalar Multiplication = reapt Addition Operation on itself
-   7. Any Operation can chain together just like algebra operation 13G = 8G + 4G + G
-5. Any Generator Point with Addition Operation will creates a limited set points (group structure)
+interactive zk
+1. map computation to polynomial equation
+2. Verifier choose secret evaluation point
+3. Prover eval polynomials
+4. Verifier checks(Homomorphic Encryption allow compute on encrypted data without decryption)
 
 
-Inifinty Point is 0, therefore M_point + Inifinty = M_point
-All group structure will eventually hit Inifinty Point, then back to itself.
+Prover know w()
+a(x) * w(x) = b(x) * c(x)
 
-
-Share secrets = prive_key * other_public_key = private_A * public_B = private_B * public_A
-Sign Transaction
-
-
-**Sign message**
-digest value (z) same bit size order of curve
-modular arithmetic, order of curve as modulus
-1. pick a random number k, then calculate K = Generator * k, K's x value = r uses for verfication
-2. then calculate k^-1
-
-z = 10 digest value, 1 < z < N, hash of message?
-k = 19 random number, must  
-a = 3 private key
-r = 9 (Generator * k's x axis)
-N = 23 (order of curve)
-s = k^-1(z + ra) % N
-
-(r, s) = signed
-
-**Verification**
-w = s^-1 % N (s from signature)
-u1 = zw % N (z is from message)
-u2 = rw % N (r is from signature)
-S = u1G + u2A (A is sender's public key)
-(S's x value should match r from message)
-
-
-if k is same, r will always be same
-
-RLP (Recurrsive Length Prefix) generate z from message
-SSZ (Simple serialize) Eth 2 generate z from message
-
-**Gas fee**
-base fee
-create contract 530000
-use contract 21000
-
-tx fee = none_zero * 16 + zero * 4
-
-Because Hormophic Hidden, there is only mulplicatetion and addation operator
-R1CS
-convert polynomial into only mulptication and addation
-
+- Pinocchio protocol
+- Convert to polynomials
+> because different polynomials only coincide at n(degree) points
+- Homomorphic Encryption 同态隐藏
+- Knowledge of Coefficient Test force single point commitment
+> balance proofer time, verifier time, proof size
+Baselines:
+- BCCGP-sqrt
+- Bulletproofs
+- ZKB++
+- Ligero
+- libSTARK
+- Hyrax-1/3
+- Hyrax-native

@@ -50,6 +50,7 @@ https://videohive.net/
   > Manage Windows Theme
 
 # Bussiness Applications
+- Microsoft Project
 - Trello
 - https://www.notion.so
 - Sizzy
