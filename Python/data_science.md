@@ -5,6 +5,8 @@ DataLake - Just store it, format it later
 Cloud Data Platform - Store in Cloud, Spark Process, Elastic Process
 Spark SQL flexible APIs support different sources
 
+Hadoop runs slow because on disk; writen in Java
+Spark runs faster because on RAM; written in Scalar
 Pandas run on single machine
 PySpark run on multiple machines
 

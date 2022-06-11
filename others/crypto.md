@@ -79,6 +79,14 @@ tx fee = none_zero * 16 + zero * 4
       > submit small signature every state changes, main net don't need offline data to audit
 <hr/>
 
+**Core Devs**
+Vitalik
+Justin Drake
+Andrew Ashikhmin
+Adrian Sutton
+Tim Beiko
+Micah Zoltu
+
 ## Private Communication
 - Asy encryption
 - Proxy Re-encryption

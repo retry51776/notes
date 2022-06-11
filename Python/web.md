@@ -194,3 +194,5 @@ class TestScraper(scrapy.Spider):
 > Faust is a stream processing library
 
 > zookeeper is complex, & able bring down server
+
+https://www.rabbitmq.com/consumers.html#exclusivity
