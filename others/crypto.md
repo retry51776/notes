@@ -56,6 +56,14 @@ dec(ct, p) = (ct % p) % 2
 - heavest chain
 - Node Discovery Protocol
 
+**Core Devs**
+Vitalik
+Justin Drake
+Andrew Ashikhmin
+Adrian Sutton
+Tim Beiko
+Micah Zoltu
+
 **Gas fee**
 base fee
 create contract 530000
@@ -78,14 +86,6 @@ tx fee = none_zero * 16 + zero * 4
       - zk rollup (long term solution, instance withdraw, but snark proof takes 3s to generate)
       > submit small signature every state changes, main net don't need offline data to audit
 <hr/>
-
-**Core Devs**
-Vitalik
-Justin Drake
-Andrew Ashikhmin
-Adrian Sutton
-Tim Beiko
-Micah Zoltu
 
 ## Private Communication
 - Asy encryption
@@ -216,6 +216,42 @@ because
 = g^v
 = t
 
+
+FAQ:
+- What is ZK Snark?
+> Proof of computation
+
+- Why/How polynomial convert to linear algebra?
+> watch this https://www.youtube.com/watch?v=SzZaQnzstfE
+
+Terry's bad answer:
+Think of simple problem has only L + R = O; so polynomial L + R - O = 0 must be linearly dependent vectors;
+
+t1(1 - x) + t2(1 + x) + t3(x^2) = 0
+t1 - t1(x) + t2 + t2(x) + t3(x^2) = 0
+(t1 + t2) + (t2 - t1)x + t3(x^2) = 0
+
+t1 + t2 = 0
+t2 + t1 = 0
+t3 = 0
+
+t1 t2 t3
+(1  1 0)(t1) = 0
+(-1 1 0)(t2) = 0
+(0  0 1)(t3) = 0
+
+(there is a none_zero sccaler) such that summation of vectors with none_zero scaler will equal to orgin point
+
+0. Setup Phase
+```
+t.G
+t'.G = t.G.λ
+
+```
+1. Generated each step effect to finial result
+> Think of we check consistance of calculation path to result, instead of result itself
+2. convert each step as vector mulpication (R1CS)
+```
 ##Problem statement to R1CS (Rank 1 Constraint system) force addation to vector muliplication
 x^3 + x + 5 = 35
 
@@ -250,50 +286,12 @@ Step 4: L4(S) * R4(S) = (c + 5) * 1
 L4 = [5, 0, 0, 0, 1, 0]
 R4 = [1, 0, 0, 0, 0, 0]
 O4 = [0, 0, 0, 0, 0, 1]
-
-U, V, W 矩阵 //二次扩张多项式｜QSP多项式
-z = (x-1)(x-2)(x-3)...(x-n)
-目标多项式整除（证据）
-拉格朗日插值法
-目标多项式 ｜ 商多项式 h(x) = s.W(x) - s.U(x)*s.V(x)/z(x)
-椭圆曲线离散对数 ECC
-Common Reference String (CRS) a string output by NIZK's generator algorithm and avaiable both prover and verifier.
-
-FAQ:
-- What is ZK Snark?
-> Proof of computation
-
-
-- Why/How polynomial convert to linear algebra?
-watch this https://www.youtube.com/watch?v=SzZaQnzstfE
-
-Terry's bad answer:
-Think of simple problem has only L + R = O; so polynomial L + R - O = 0 must be linearly dependent vectors;
-
-t1(1 - x) + t2(1 + x) + t3(x^2) = 0
-t1 - t1(x) + t2 + t2(x) + t3(x^2) = 0
-(t1 + t2) + (t2 - t1)x + t3(x^2) = 0
-
-t1 + t2 = 0
-t2 + t1 = 0
-t3 = 0
-
-t1 t2 t3
-(1  1 0)(t1) = 0
-(-1 1 0)(t2) = 0
-(0  0 1)(t3) = 0
-
-(there is a none_zero sccaler) such that summation of vectors with none_zero scaler will equal to orgin point
-
-> Think of we check consistance of calculation path to result, instead of result itself
-
-1. Generated each step effect to finial result
-2. convert each step as vector mulpication (R1CS)
+```
 3. convert vector mulpication to Lagrange polynomial (https://www.youtube.com/watch?v=bzp_q7NDdd4)
 4. R1CS to QAP
 ```
 We knew A(L) * B(R) = C(S) only on select point [1, 2, 3, 4]
-A is vector of [L1, L2 ... L6]
+A is vector of [L1, L2 .... L6]
 B is vector of [R1, R2 .... R6]
 C is vector of [O1, O2 ..... O6]
 Z = (x - 1)(x - 2)(x - 3)(x - 4) // because 4 gates
@@ -303,11 +301,15 @@ Z = (x - 1)(x - 2)(x - 3)(x - 4) // because 4 gates
   A(known) * B(known) - C(known) = Z(known) * H(?)    <- This is QAP
 
 we calculate polynomial H
-We don't want to give A, B, C, very large, also leak our script
+We don't want to give A, B, C, very large;
+We want to hide S, not QAP
 ```
 > polynomial property: if prover knows A(s) - B(s) = C(s), 
-5. Prover uses ECC Generator(g), calculate 5 points A'=A(g) B'=B(g) C'=C(g) H'=H(g), and lamda(λ) commited point A as Proof, and a ? proof polynomial is same order
-6. Verfier can just e(A, B)/e(C, G) = E(H, Z)
+5. Prover uses ECC g.t, λ.a, calculate 5 points A'=A(g.t) B'=B(g.t) C'=C(g.t) H'=H(g.t), and ? commited polynomial is same
+ECC(a.t.g, b.t.g) / ECC(c.t.g, g) = ECC(h.t.g, z.t.g)
+Sum(A.t) as 
+
+1. Verfier can just ECC(A, B)/ECC(C, G) = ECC(H, Z)
 
 // Seems like longer S is(more gate or more variable), QAP is more secure
 // verfier random checkpoint was calculated by hash(gates)
@@ -326,6 +328,7 @@ interactive zk
 Prover know w()
 a(x) * w(x) = b(x) * c(x)
 
+## Buzz Words
 - Pinocchio protocol
 - Convert to polynomials
 > because different polynomials only coincide at n(degree) points
@@ -340,3 +343,12 @@ Baselines:
 - libSTARK
 - Hyrax-1/3
 - Hyrax-native
+
+
+U, V, W 矩阵 //二次扩张多项式｜QSP多项式
+z = (x-1)(x-2)(x-3)...(x-n)
+目标多项式整除（证据）
+拉格朗日插值法
+目标多项式 ｜ 商多项式 h(x) = s.W(x) - s.U(x)*s.V(x)/z(x)
+椭圆曲线离散对数 ECC
+Common Reference String (CRS) a string output by NIZK's generator algorithm and avaiable both prover and verifier.

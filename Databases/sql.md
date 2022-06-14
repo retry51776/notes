@@ -89,3 +89,5 @@ SELECT @InsertQmId = @@IDENTITY
 - Polyphase will allow mssql query other dB, ex: mongodb, Oracle, spark
 
 # MySQL
+
+ACID (atomicity, consistency, isolation, durability)

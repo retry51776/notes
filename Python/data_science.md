@@ -1,5 +1,15 @@
 SQL Server Integration Services (SSIS)
 
+Data Warehouse Tool
+- Amazone RedShift
+- Google BigQuery
+- SnowFlake
+- TeraData
+- MicroFocus
+
+SnowFlake
+cloud data warehouse platform
+
 Warehouse - Already format
 DataLake - Just store it, format it later
 Cloud Data Platform - Store in Cloud, Spark Process, Elastic Process
@@ -93,3 +103,8 @@ Databrick Runtime
 2. Create Resource Group to save dataset & control premission
 3. Create Notebook & Design workflow
 4. Let Databrick control scale 
+
+
+# Buzzword Zoo
+- Shared Disk Architecture
+- Shared Nothing Architecture

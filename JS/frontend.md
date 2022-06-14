@@ -138,6 +138,12 @@ React.cloneElement(
 // React.StrictMode 
 
 useRef // Auto focus
+forwardRef // reassign ref
+useImperativeHandle // Specialize Event Handler when ref is changed
+
+const [updating, startUpdate] = useTransition();
+
+useId() generate hash
 componentDidCatch(error, errorInfo) {
 import { useContext, createContext } from 'react';
 
