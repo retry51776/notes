@@ -196,3 +196,5 @@ class TestScraper(scrapy.Spider):
 > zookeeper is complex, & able bring down server
 
 https://www.rabbitmq.com/consumers.html#exclusivity
+
+queue.method.message_count

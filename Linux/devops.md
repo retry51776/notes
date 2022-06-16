@@ -73,3 +73,36 @@ clean-working-directory:
 
 paloalto
 > monitor network traffic & firewall
+
+# Terraform
+Hashicorp Configuration Language(HCL)
+written in GO
+
+terraform plan
+terraform apply
+terraform destroy # Avoid it, it destroy everything
+```
+# comments
+#
+#
+terraform { 
+  required_providers: {
+    google = {
+      source = "xxxx",
+      version = "zzz",
+    }
+  }
+}
+
+provider "google" {
+  credentials = file("xxx.json")
+  project = "XXX"
+  region = "us-central1"
+  zone = "us-central1-c"
+}
+
+resource [resource_type] [name]
+resource "google_compute_instance" "test_ec2" {
+  name = ""
+}
+```
