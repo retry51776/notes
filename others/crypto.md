@@ -352,3 +352,26 @@ z = (x-1)(x-2)(x-3)...(x-n)
 目标多项式 ｜ 商多项式 h(x) = s.W(x) - s.U(x)*s.V(x)/z(x)
 椭圆曲线离散对数 ECC
 Common Reference String (CRS) a string output by NIZK's generator algorithm and avaiable both prover and verifier.
+
+
+需要基础
+* 椭圆加密算法 ECC
+* 多项式 等同 线性代数/矩阵
+
+这是我对zk snark理解
+1. 将问题转化成R1CS多项式
+2. 多项式 转化 矩阵
+3. 生成 QAP 整除问题
+We knew A(S) * B(S) = C(S) only on select point [1, 2, 3, 4]
+A is vector of [L1, L2 .... L6]
+B is vector of [R1, R2 .... R6]
+C is vector of [O1, O2 ..... O6]
+Z = (x - 1)(x - 2)(x - 3)(x - 4) // because 4 gates
+  A * B = C on select point [1, 2, 3... n] 
+  A * B - C = 0 on select point [1, 2, 3... n]
+  A * B - C is dividsiable by Z
+  A(已知) * B(已知) - C(已知) = Z(已知) * H(需计算)    <- QAP 整除问题、
+4. 共钥 = λ.G (G is generator in ECC), 套入 A(共钥), B(共钥), C(共钥), H(共钥); 局部系统参数（CRS）来确定多项式
+5. 验证方需要确认 ECC(A, B)/ECC(C, G) = ECC(H, Z)，和（不知道术语）确认多项式关系
+We don't want to give A, B, C, very large;
+We want to hide S, not QAP

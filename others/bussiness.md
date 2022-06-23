@@ -1,5 +1,90 @@
-# Bussiness
+# FrontEnd Bussiness
 
+## Marketing
+Stacks:
+    Google Analytics
+    Email marketing software
+    Video conferencing software
+
+Buzzwords:
+    cold lead
+    campaign
+    Webinar
+
+## Sales
+Stacks:
+    SalesForce
+    Hubspot
+    GoogleInvite
+
+## Implementation
+Stacks:
+    docusign
+
+Buzzwords:
+    Contract
+    Backfills/Tourial
+
+<hr />
+# Backend Bussiness
+
+## Accounting
+Stacks:
+    QuickBook
+    Oracle NetSuite
+    Sage
+
+Buzzwords:
+    Tax
+    Invoice
+    AP/AR
+
+## HR
+Stacks:
+    Sage
+    QuickBook
+
+## Support
+Stacks:
+    zendesk
+    ServiceNow
+
+## Engineer
+    - FullStack
+        - FrontEnd
+        - BackEnd
+    - Infrastructure
+      - DB Admin
+      - DevOps
+      - Networking
+
+<hr />
+
+# Bussiness Lead
+Titles:
+- CEO
+- CTO
+- CFO
+- CMO – Chief Marketing Officer
+- CIO – Chief Information Officer
+- COO – Chief Operating Officer
+
+Owner Stucture:
+- sole proprietorship
+  - difficult to transfer
+  - liability will cover owner's property
+- partnership
+  - difficult to transfer
+  - liability will cover owner's property
+- corporation
+  - considered a legal person
+  - easy to transfer
+- LLC
+  - avoid double-taxation
+  - better protection in cost of complex setup
+
+<hr />
+BuzzWords
 **Perfer stock**
 > private company will issues perfer stock to investor, so in case bankruptcy, investor will get pay out first, when IPO, perfer stock will convert to common stock
 
@@ -11,6 +96,7 @@
 
 reserve Perfer stock for employee
 
+<hr />
 
 # Investment
 

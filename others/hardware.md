@@ -40,6 +40,8 @@ FPGA - Field programmable Gate Array
 
 EDA is hardware design software
 
+Transceiver is network modern for fiber
+
 Frontend
   - design
   - produce

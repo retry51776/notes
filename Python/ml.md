@@ -26,3 +26,15 @@ Convolutional Neural Network (CNN)
 (RRN)
 BiDirection
 ResNetwork
+
+LSTM
+Transformer generate embedding
+Bidirectional Encoder Representation Transformers(BERT)
+> Question Answering
+> Sentiment Analysis
+> Text Summarization
+
+
+# Trainning
+- Masked Language Modeling (MLM) fill in blank
+- Next Sentence Prediction (NSP) figure context

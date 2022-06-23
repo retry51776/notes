@@ -10,7 +10,7 @@
 - don't delete in loop
 - falsely values & or, need similar `or` for `None` only, I hate `if else`
 - Python allow integer as key of object, but JSON file requires key as string. Can be suprised load object is different.
-
+- `[1,2].index(0)` will throw an error, must check before get index`if 0 in [1,2]:`
 
 
 **Working on library**

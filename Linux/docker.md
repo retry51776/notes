@@ -42,3 +42,8 @@ COPY [^n]* # All files that don't start with 'n'
 COPY n[^o]* # All files that start with 'n', but not 'no' 
 COPY no[^d]* # All files that start with 'no', but not 'nod'
 ```
+
+
+Docker each container has its namespaces
+Control groups proect host resources
+SELinux  deal with containers communacation, between containers or to host

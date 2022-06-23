@@ -108,3 +108,7 @@ Databrick Runtime
 # Buzzword Zoo
 - Shared Disk Architecture
 - Shared Nothing Architecture
+- Confusion Matrix
+
+want low False possitity
+Predict Analytics & Prescriptive Analytics 
