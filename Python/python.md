@@ -168,10 +168,21 @@ class Xyz:
 
 ## loop
 ```
+# Sort by 1 key
 array = sorted(
     [item for item in items if item['a'] > 0],
     key=lambda x: x['b'], reverse=True
 )
+# Sort by multi keys
+import operator
+array = sorted(array, key = operator.itemgetter('x', 'y'))
+
+# Sort by custom func
+from functools import cmp_to_key
+def custom_func(x, y):
+    return 0
+array = sorted(array, key=cmp_to_key(custom_func))
+
 for idx, value in enumerate(arrays):
 
 passed_tests = filter(lambda x: x['passed'], tests)

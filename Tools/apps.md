@@ -8,6 +8,9 @@
   - C#
   - .net core essentials
   - Thunder Client
+  - Preference/Setting
+    - Default Formatter: Prettier
+    - Format On Save Mode: file
 - Chrome
   - react dev
   - redux dev
