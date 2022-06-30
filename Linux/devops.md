@@ -106,3 +106,15 @@ resource "google_compute_instance" "test_ec2" {
   name = ""
 }
 ```
+
+
+Config Management DB(CMDB) a file list csp servers
+Jenkin Cronjob tigger Ansiable playbook call APIs
+ServiceNow
+Rapid7
+System Center Configuration Manager
+RedHat Satellite
+CrowdStrike
+Prisma
+Infoblox
+Zabbix

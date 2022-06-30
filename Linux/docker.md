@@ -47,3 +47,20 @@ COPY no[^d]* # All files that start with 'no', but not 'nod'
 Docker each container has its namespaces
 Control groups proect host resources
 SELinux  deal with containers communacation, between containers or to host
+
+## Docker Multi Stage Build
+Runtime Stage vs Build Stage
+
+- can create temp image to do unit test, compile code
+```
+From python AS test
+Add . /src
+WorkDIR /src
+
+From python As final
+COPY --from=test /src /src
+```
+
+## Debug
+	VS plugin, mount VS code into container (Remote - Containers)
+	Python plugin, (debugpy)

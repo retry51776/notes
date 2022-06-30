@@ -1,5 +1,24 @@
 # Python
 
+## New Features
+- 3.0
+  - 3 / 2 = 1.5
+  - str & unicode
+- 3.6
+  - f'{ddd}_123'
+  - async
+- 3.8
+  - := `walrus operator`
+- 3.9
+  - a lot new modules
+- 3.10
+  - pattern matching
+  - Type Operator `isinstance(1, int | str)`
+- 3.11 beta
+  - expression error trackstack
+  - self type
+  - Performance increase
+
 **Frustration**
 - ~~destructure like es6 `const {a, b, ...others} = obj;`~~
     > new python 3.10 supports this https://docs.python.org/release/3.10.0/whatsnew/3.10.html
@@ -11,7 +30,7 @@
 - falsely values & or, need similar `or` for `None` only, I hate `if else`
 - Python allow integer as key of object, but JSON file requires key as string. Can be suprised load object is different.
 - `[1,2].index(0)` will throw an error, must check before get index`if 0 in [1,2]:`
-
+- recursion limit: 10,000
 
 **Working on library**
 ```
@@ -30,11 +49,11 @@ Install local package steps:
 `python3 setup.py sdist`
 > Publish package
 
-`python -m site`
+`python -m site` or `help('modules')`
 > List python library location
 
 ## Problems
-> No such file or directory execute 'python
+> No such file or directory execute 'python'
 
 `#!/usr/bin/env python`
 
@@ -47,6 +66,7 @@ Install local package steps:
 `def test(a: str) -> str | None:`
 
 # Python Codes
+
 ## Starndard Type
 ```
 import sys
@@ -67,15 +87,20 @@ a = b = c = 4
 f'Rounded to {2222222.222:,.2f}'
 f'Format to {date.today():%Y-%m-%d}'
 ```
-## CRUD Property
-```
-{}.get('xyz') # only works w obj
 
+## Attriabutes
+```
+dir(class_object) # show all attriabutes
 getattr(Abc, 'xyz') # only work w class
 hasattr()
 setattr()
 delattr()
 vars(class) # retrun Object
+```
+
+## Property
+```
+{}.get('xyz') # only works w obj
 
 # python desturcture
 from operator import itemgetter
@@ -94,7 +119,7 @@ y=2
 z=3
 ```
 
-# dates
+## dates
 ```
 from datetime import date, timedelta
 from dateutil.relativedelta import relativedelta
@@ -106,6 +131,7 @@ date.today() + relativedelta(months=1)
 date.max
 date.min
 ```
+
 ## Build in functions
 ```
 all()
@@ -116,9 +142,24 @@ sys.getsizeof(obj) # debug variable Ram
 timeit.timeit(xyz)
 time -f python3 test.py # debug script Ram & time
 #cProfile, pstats takes more setup, but better audit whole project
+```
+
+# os, socket module
+```
+from pprint import pprint
+print(object)
+print(object, depth=2) # only print 2nd nested level
 
 # Set linux envirement variables
 export URL=test //set env
+import os
+os.environ // all envirement variables
+os.getcwd() // current dir
+
+import socket
+hostname = socket.gethostname()
+ip = socket.gethostbyname(hostname)
+
 
 # logging show stacktrace
 stack_info=True
@@ -128,6 +169,11 @@ for line in traceback.format_stack():
 
 ## dunder|magic methods, decorator
 ```
+def cust_decorator(func):
+    def wrapper(*args, **kargs):
+        func(*args, **kargs)
+    return wrapper
+
 @staticmethod
 @porperty
 @xyz.setter
@@ -146,6 +192,8 @@ __dict__
 __slots__ # similar to property, can't add more __slots__ in run time, but less RAM
 __repr__
 
+Python Metaclasses
+__class__
 # self implement class operators
 from functools import totoal_ordering
 @total_ordering
@@ -155,8 +203,10 @@ __ne__
 __ge__
 __lt__
 __le__
+```
 
-# auto implement
+## Custom Data Types
+```
 from dataclasses import dataclass, field
 @dataclass(order=True)
 class Xyz:
@@ -164,6 +214,25 @@ class Xyz:
     text: str = field(default="xxx")
     def __lt__(self, element):
         return self.id > element.id;
+
+from enum import Enum
+class Color(Enum):
+    RED = 0
+    GREEN = 1
+    BLUE = 2
+
+
+match color:
+    case Color.RED:
+        print("")
+    case _:
+        print ('no match')
+
+# Store variables into binary
+import struct
+x = struct.pack('111', 11, 22)
+
+(a, b, c) = struct.unpack(x)
 ```
 
 ## loop
@@ -207,7 +276,7 @@ i = iter([1, 2, 3])
 i1, i2, i3 = itertools.tee(i, 3)
 ```
 
-# Standard Library
+# Standard Library Utilities
 ## functools
 ```
 @functools.cache # only 3.10
@@ -408,8 +477,11 @@ def get_in(obj, keys=None, default=None):
         return default
 ```
 
-# Tech Terms
 
-- .wheel is python binary file
+Exception chaining `raise ValueError("Bad grape") from exc`
+
+# Buzzwords Zoo
+Python Enhancement Proposals(PEP)
+- .wheel is python binary file(2012), .egg is old binary format(2004)
 - odbcinst.ini
     > registry and configuration file for ODBC drivers in an environment

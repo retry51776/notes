@@ -1,5 +1,8 @@
 # Regx
 
+> If there is complex regex, try to break into [reg1, reg2 ....], better to maintain multi simple regx than a complex one
+
+
 zip
 ^[0-9]{5}(?:-[0-9]{4})?$
 
