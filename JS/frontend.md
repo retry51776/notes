@@ -117,6 +117,7 @@ import React, { useMemo, useCallback, useEffect } from 'react';
 // useCallback(fn, deps) is equivalent to useMemo(() => fn, deps).
 const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 
+// Uses for HOC chain multiple different lifed states together
 useEffect(() => {
   console.log('Similar to componentDidMount');
   return () => {
@@ -253,6 +254,93 @@ module.exports = {
 }
 ```
 
+
+## Formik
+> Created Each Form Input in its own file
+> Then Have a FormikController similar react_router
+> 
+
+```
+const formik = useFormik({
+  initialValues: {
+    'field': 'xyz'
+  },
+  onSubmit: values => {},
+  validate: values => {
+    let errors = {
+      field: 'Always Error'
+    };
+    return errors;
+  },//or
+  //validationSchema
+})
+
+//formik.values.field one of "", {}, []
+//formik.handleSubmit uses ref.name
+//formik.error.field ? 'Bad' : null
+
+//formik.handleBlur & formik.touched.field
+//{...formik.getFieldProps('field')}
+
+FastField decode state change, only rerender when sub state it uses changed
+<Formik
+  initialValues={}
+  validationSchema={}
+  onSubmit={}>
+  <Form>
+    <Field name="field" type="text" placeholder="xx">
+    <Field as="texatarea" name="text1" placeholder="xx">
+    <ErrorMessage name="field" />
+    <FieldArray name="">
+      {
+        props => {
+          const { push, remove, form } = props;
+          return form?.values?.map(x => x)
+        }
+      }
+    </FieldArray>
+  </Form>
+</Formik>
+
+// Yup as schema
+const validationSchema = Yup.object({
+  field: Yup.string().required('Must field'),
+  complex_field: {
+    initialValue: {
+      label: 'Texas',
+      value: 'TX',
+    },
+    type: object()
+      .nullable()
+      .when('field', {
+        'is': 'Test',//can also be () => {}
+        then: string().required('field = Test, complex_field must fill')
+      }),
+    descrition: 'cccc'
+  }
+})
+//string().oneOf([Yup.ref('password'), ''])
+
+# ChakraInput
+import { theme, ThemeProvider } from '@chakra-ui/core';
+<ThemeProvider them={them}>
+  <MyFormikForm />
+</ThemeProvider>
+
+import { Field } from 'formik';
+import { Input, FormControl, FormLabel, FormErrorMessage } from '@chakra-ui/core';
+<Field name="my_field">
+  {
+    ((field, form)) => {
+      return (
+        <FormControl>
+          <Input />
+        </FormControl>
+      );
+    }
+  }
+</Field>
+```
 ---
 ## Browser Term
 Javascript VM instance

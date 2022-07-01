@@ -23,7 +23,7 @@
 - ~~destructure like es6 `const {a, b, ...others} = obj;`~~
     > new python 3.10 supports this https://docs.python.org/release/3.10.0/whatsnew/3.10.html
 - get_in like methods or null chaining
-- decorator just kind hard to read, maybe should implement in context manager instead
+- decorator acts as interceptor, takes func as args, return func
 - function params's default value should be standard type
     > don't reference type `[]` or `{}`, any modify reference will presists default value in next function call
 - don't delete in loop
@@ -48,6 +48,8 @@ Install local package steps:
 
 `python3 setup.py sdist`
 > Publish package
+
+> requirement.txt is for dev env, setup.py is for client env
 
 `python -m site` or `help('modules')`
 > List python library location
