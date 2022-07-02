@@ -27,7 +27,7 @@ git tag -l
 git tag v1.0 -m "First Tag"
 git push origin v1.0 
 
-// Release
+// Releases are a feature of GitHub
 // semantic versioning pre-release 0.9.1-alpha or beta
 git release create v1.0
 
