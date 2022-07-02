@@ -1,6 +1,11 @@
 
 # NPM 
 semantic versioning
+`~` only update patch
+`^` update minor & path
+
+> remember reset lower level when increase major or minor
+
 - major.minor.patch
 > `npm update` to upgrade latest library
 - package.lock.json

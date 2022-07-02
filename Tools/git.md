@@ -22,6 +22,19 @@ git cherry-pick 7017284
 # Go back to prevous branch
 git checkout -
 
+// Tag
+git tag -l
+git tag v1.0 -m "First Tag"
+git push origin v1.0 
+
+// Release
+// semantic versioning pre-release 0.9.1-alpha or beta
+git release create v1.0
+
+// Git Flow
+git flow init
+git flow feature start xxxx
+
 git rm --cached -r .
 git commit -am "Single line did add & commit"
 git commit --amend -m "rename commit msg"
@@ -78,3 +91,5 @@ Git object types:
 3. tree
 
 .git/hooks
+
+build number generator is global (share across branchs)

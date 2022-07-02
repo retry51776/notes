@@ -1,5 +1,37 @@
+# Architecture
+
+## CI & CD
+1. Source
+   1. branch protection
+   2. branch strategies
+      1. trunk base (commit in main = bad)
+      2. features branching (most commom)
+      3. fork branching (commmon in opensource)
+      4. release branching (water fall or support multi version)
+      5. git flow (release branch, requires release manager)
+      6. environment branching (both environment branch & release branch)
+2. Build
+   1. linting
+   2. unit test
+   3. code coverage
+3. Test Environment
+   1. integration test
+   2. behavior test
+4. Production
+   1. rollback alarm (auto rollback)
+   2. canary or a/b deployment
+      1. DNS weight
+      2. bake period
+   3. deployment pattern
+      1. recreate (for SAP, resources w hash, okay w downtime)
+      2. rolling update (engine, micro service)
+      3. blue green (HA, resources w hash)
+      4. canary
+      5. a/b
+      6. shadow (andriod app, critical engine & service)
+
 response metric:
-1.  Mean time to detect (MTTD)
+1. Mean time to detect (MTTD)
 2. Mean time to acknowledge (MTTA)
 3. Mean time to recovery (MTTR)
 4. Mean time to contain (MTTC)

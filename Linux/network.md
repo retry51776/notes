@@ -61,6 +61,19 @@ UDP (connestionless), no ack, but faster
 ---
 # DNS
 
+A — IPv4 address
+AAAA — IPv6 address
+CAA — Certificate Authority Authorization
+CNAME — Canonical name
+MX — Mail exchange
+NAPTR — Name Authority Pointer
+PTR — Pointer
+SPF — Sender Policy Framework
+SRV — Service locator
+    priority - lower get more traffic
+    Weight default - higher get more traffic
+TXT — Text
+
 edit host file to network debug
 
 Recursive Resolver

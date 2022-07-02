@@ -51,8 +51,12 @@ Install local package steps:
 
 > requirement.txt is for dev env, setup.py is for client env
 
-`python -m site` or `help('modules')`
+`python -m site`
 > List python library location
+
+`help('modules')` print docstring
+module docstring in `__init__.py` or `beginning of *.py`
+function docstring in first line of function
 
 ## Problems
 > No such file or directory execute 'python'

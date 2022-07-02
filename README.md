@@ -1,5 +1,5 @@
 # notes
-It's no project, but like public coding notebook
+This isn't project, but like my public notebook.
 
 Online Editor @ [Gitpod](https://gitpod.io/#github.com/retry51776/notes)
 

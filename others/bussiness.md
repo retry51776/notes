@@ -39,6 +39,7 @@ Buzzwords:
     Invoice
     AP/AR
 
+
 ## HR
 Stacks:
     Sage
@@ -84,7 +85,8 @@ Owner Stucture:
   - better protection in cost of complex setup
 
 <hr />
-BuzzWords
+# BuzzWords
+
 **Perfer stock**
 > private company will issues perfer stock to investor, so in case bankruptcy, investor will get pay out first, when IPO, perfer stock will convert to common stock
 
@@ -96,6 +98,14 @@ BuzzWords
 
 reserve Perfer stock for employee
 
+Positive cashflow w negative [Earning Before Interest, Taxes, Depreciation, and Amortization](EBITDA)
+
+none gaap EBITDA, adjust EBITDA ....
+
+Evergreen Stock proposal -> equity compensation plan
+
+Acquisition vs Buildout
+Company Brand vs Solution Brand
 <hr />
 
 # Investment
@@ -119,3 +129,6 @@ Fed Fund Rate = 1 day bond rate
 7 year
 10 year (T bond)
 30 year
+
+# Good Idea
+Giftcard Meeting
