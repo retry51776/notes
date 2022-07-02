@@ -1,6 +1,6 @@
 # Architecture
 
-## CI & CD
+## CI/CT/CD
 1. Source
    1. linting
    2. branch protection
@@ -18,13 +18,15 @@
    3. publish image/package w alpha tag
    4. trigger message(image_name/package_name & version, relatives tests) to test engine
 3. Test Engine
-   1. rebuild & run relative engine & service (k8 deployment update? or locally env?)
-   2. integration & behavior tests
+   1. rebuild & run relative engine & service (k8 deployment update? or singlr box envirement?)
+   2. integration, behavior, UI tests
       1. Selenium
       2. IDK, build python scripts?
    3. publish image/package w version
 4. Develop Environment
-   1. 
+   1. create release branch
+   2. QA team? bug fix commit?
+   3. merge master & develop
 5. Production Environment
    1. rollback alarm (auto rollback)
    2. canary or a/b deployment
@@ -37,11 +39,14 @@
       4. canary
       5. a/b
       6. shadow (andriod app, critical engine & service)
-6. monitor tools
+6. Monitor
     1. sentry.io (capture runtime error)
     2. Opsgenie (monitor & alert)
     3. zabbix (metrixs)
     4. grafana (logs)
+7. Support
+   1. Service Now or Zenddesk
+
 
 response metric:
 1. Mean time to detect (MTTD)
