@@ -1,24 +1,5 @@
 # FrontEnd Bussiness
 
-
-# Bussiness Applications
-- Microsoft Project
-- Trello
-- https://www.notion.so
-- Sizzy
-  > online web design test tool
-- PandaDoc
-  > sign docs
-- chargebee
-  > Invoice tool, replace Quickbook
-- zulip
-  > free chat app
-- hubspot
-  > sales pipeline
-- bill.com
-- https://tools.pdf24.org/en/
-
-
 ## Marketing
 Stacks:
     Google Analytics
@@ -80,7 +61,7 @@ Stacks:
 
 <hr />
 
-# Bussiness Lead
+# Bussiness Leaders
 Titles:
 - CEO
 - CTO
@@ -117,37 +98,29 @@ Owner Stucture:
 
 reserve Perfer stock for employee
 
-Positive cashflow w negative [Earning Before Interest, Taxes, Depreciation, and Amortization](EBITDA)
-
-none gaap EBITDA, adjust EBITDA ....
-
 Evergreen Stock proposal -> equity compensation plan
 
 Acquisition vs Buildout
 Company Brand vs Solution Brand
 <hr />
 
-# Investment
-
-Case-Shiller house index
-
-# Fed
-Gov Bond = No risk rate
-Generally Fed manually define Fed Fund Rate(before 1970 Fed's only action)
-These day Fed is market player on long maturity bond
-
-Bond maturity / Yield Curive / Money Cost
-Fed Fund Rate = 1 day bond rate
-1 month
-3 month
-6 month
-1 year
-2 year
-3 year
-5 year
-7 year
-10 year (T bond)
-30 year
 
 # Good Idea
 Giftcard Meeting
+
+# Bussiness Applications
+- Microsoft Project
+- Trello
+- https://www.notion.so
+- Sizzy
+  > online web design test tool
+- PandaDoc
+  > sign docs
+- chargebee
+  > Invoice tool, replace Quickbook
+- zulip
+  > free chat app
+- hubspot
+  > sales pipeline
+- bill.com
+- https://tools.pdf24.org/en/
