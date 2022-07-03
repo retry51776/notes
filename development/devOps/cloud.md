@@ -1,7 +1,11 @@
 # AWS
 docs.aws.amazon.com
+
 AWS support prefer screen share
+
 Edit premission will allow ticket creation
+
+CloudWatch + CloudTrail = stackdriver
 
 ## AWS Enterprise Support
 > Always keep ticket #

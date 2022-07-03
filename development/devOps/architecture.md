@@ -3,26 +3,27 @@
 ## CI/CT/CD
 1. Source
    1. linting
-   2. branch protection
-   3. branch strategies
+   2. unit test
+      1. code coverage
+   3. branch protection
+   4. branch strategies
       1. trunk base (commit in main = bad)
       2. features branching (most commom)
       3. fork branching (commmon in opensource)
       4. release branching (water fall or support multi version)
       5. git flow (release branch, requires release manager)
       6. environment branching (both environment branch & release branch)
-2. Build
-   1. unit test
-      1. code coverage
-   2. build image (multi stage if needs compile)
-   3. publish image/package w alpha tag
-   4. trigger message(image_name/package_name & version, relatives tests) to test engine
-3. Test Engine
-   1. rebuild & run relative engine & service (k8 deployment update? or singlr box envirement?)
+2. Build (github action)
+   1. build image (multi stage if needs compile)
+   2. publish image/package w alpha tag
+   3. trigger message(image_name/package_name & version, relatives tests) to test engine
+3. Test Engine (consumer engine)
+   1. rebuild & run effected engine & service (k8 deployment update? or singlr box envirement?)
    2. integration, behavior, UI tests
       1. Selenium
       2. IDK, build python scripts?
-   3. publish image/package w version
+   3. Store test result
+   4. deploy image/publish package
 4. Develop Environment
    1. create release branch
    2. QA team? bug fix commit?
@@ -73,6 +74,11 @@ garfanar
 opsgeny
 sentry.io
 
+# Testing
+Top Down
+Buttom Up
+Big Bang
+Sandwich
 
 
 # Buzzwords

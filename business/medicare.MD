@@ -1,7 +1,8 @@
 # Medicare
 
 ## Federal Level
-- CMS Certification Number (CCN)
+- CMS Certification Number (CCN, 6 digit)
+- National Provider Identifier (NPI or facility #)
 - Change of Ownership (CHOW)
 - Patient Driven Payment Model (PDPM)
 - Resource Utilize Group (RUG)
@@ -46,6 +47,8 @@ medicaid = state (lower rate, $3000 max)
 
 5: 10%
 
+CMS Resident Matching Logic
+https://qtso.cms.gov/system/files/qtso/Users_AppB.pdf
 
 > CMS offers waivers of the required 3-day hospital stay for Medicare SNF 
 

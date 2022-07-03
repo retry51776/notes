@@ -57,65 +57,6 @@ TCP confirm(ack) every messages,
 UDP (connestionless), no ack, but faster
 
 ---
-
----
-# DNS
-
-A — IPv4 address
-AAAA — IPv6 address
-CAA — Certificate Authority Authorization
-CNAME — Canonical name
-MX — Mail exchange
-NAPTR — Name Authority Pointer
-PTR — Pointer
-SPF — Sender Policy Framework
-SRV — Service locator
-    priority - lower get more traffic
-    Weight default - higher get more traffic
-TXT — Text
-
-edit host file to network debug
-
-Recursive Resolver
-> middleman between client and DNS
-
-> either answer it, or ask other name servers
-
-Name Server
-> translate domain names into IP
-
-A/AAAA Records
-> record format store host name to IPv4/IPv6, cycle through IPs of host
-
-PTR Records
-> Pointer record is opposite A/AAAA records, IP to host instead
-
-MX record
-> mail exchange
-
-CNAME
-> alias for server, EX: https://www. to https://,
-> or abc.com to xyz.com
-
-Zone File
-> name server store domains informations
-
-Registrar
-> Root level domain registor
-
-DNS Forwarding
-> For dev server, internal services
-
-DNS Peering
-> Forwarding DNS request another VPC's DNS
-
-Alternative Name Service
-> All DNS request will redirects to another DNS
-
-DNS proxies not working
-> check firewall & routing
-
----
 ## DHCP
 Dynamic Host Configuration Protocal is application layer ptotocal auto config host
 
@@ -150,3 +91,4 @@ CMD
 ---
 QRadar
 IBM advance firewall
+
