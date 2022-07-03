@@ -1,5 +1,24 @@
 # FrontEnd Bussiness
 
+
+# Bussiness Applications
+- Microsoft Project
+- Trello
+- https://www.notion.so
+- Sizzy
+  > online web design test tool
+- PandaDoc
+  > sign docs
+- chargebee
+  > Invoice tool, replace Quickbook
+- zulip
+  > free chat app
+- hubspot
+  > sales pipeline
+- bill.com
+- https://tools.pdf24.org/en/
+
+
 ## Marketing
 Stacks:
     Google Analytics
