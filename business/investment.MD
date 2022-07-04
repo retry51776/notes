@@ -1,5 +1,8 @@
 # Investment
 
+> bankruptcy is before foreclosure
+
+
 # realtors
 Earnest money deposit (EMD) `good faith deposit”`
 Backup offer `offer under contract, still need EMD`
@@ -31,3 +34,6 @@ Fed Fund Rate = 1 day bond rate
 7 year
 10 year (T bond)
 30 year
+
+Cool Phase
+> Exposed the brickwall

@@ -1,12 +1,15 @@
 <h1>DNS</h1>
 
-analogy:
-ip -> address
-port -> apt #
-protocal -> vehicle(bike, car, train, plane)
+> DNS analogy:
+>> ip -> address
+>
+>> port -> apt #
+>
+>> protocal -> vehicle(bike, car, train, plane)
 
 - [DNS Server](#dns-server)
 - [Authoritative Name Server](#authoritative-name-server)
+  - [Zone](#zone)
   - [DNS Records](#dns-records)
 - [Recursive Resolver](#recursive-resolver)
 - [Debug](#debug)
@@ -26,15 +29,17 @@ protocal -> vehicle(bike, car, train, plane)
 ## Authoritative Name Server
 > only answer configed domains
 
-> Primary Zone `store in .dns file`
+### Zone
+> Zone properties can store in AD
 
-> Secondary Zone `read only cache`
+> I think of DNS Zone as folder of DNS records
 
-> Stub Zone `who to ask`
 
-> Forward Lookup `name -> ip`
-
-> Reverse Lookup `ip -> name`
+- Primary Zone `store in .dns file`
+- Secondary Zone `read only cache`
+- Stub Zone `who to ask`
+- Forward Lookup Zone `name -> ip`
+- Reverse Lookup Zone `ip -> name`
 
 ### DNS Records
 
@@ -119,3 +124,4 @@ ipconfig /flushdns
 ```
 
 
+World Intellectual Property Organization (WIPO) 

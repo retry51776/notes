@@ -48,6 +48,19 @@
 7. Support
    1. Service Now or Zenddesk
 
+> Put all intergration tests in python package
+
+2. Build (github action)
+   1. build image
+   2. publish image/package w alpha tag
+   3. multi-stage build
+      1. install test package
+      2. run package tests
+         1. trigger dev deployment(how to avoid other deployment interfered)
+         2. run tests
+   4. publish image/package
+
+
 
 ## response metric:
 1. Mean time to detect (MTTD)
