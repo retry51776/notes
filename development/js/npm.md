@@ -1,5 +1,8 @@
 
 # NPM 
+
+libtrends.info/npm-compare
+
 semantic versioning
 `~` only update patch
 `^` update minor & path

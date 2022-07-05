@@ -79,7 +79,29 @@ sales = [dict(zip(cursor.column_names, row)) for row in cursor.fetchall()]
 
 # Flask
 
+## Methods
+- Get
+- Post `insert, common mistake`
+- Put `idempotent; usually for edit`
+- Delete
+- Patch `similar to put, but with side effect`
+
+## Common Used Modules
+- Flask
+- Blueprint
+- request
+- current_app
+
+
+- make_response
+- jsonify
+- send_file
+
 ```
+res = make_response(json.dumps(xxx))
+res.headers['Content-Type'] = 'application/json'
+res.status_code = 200
+
 # Flask Load Config
 from flask_cache import Cache
 app = Flask(__name__)
@@ -101,6 +123,58 @@ def configure_sso():
 
 # Golbal Flask error handling
 app.register_error_handler(Exception, handler)
+```
+## webargs
+
+> parse & validate HTTP request object
+
+- flaskparser
+  - use_args `inject params into args`
+  - use_kwargs `inject params into kwargs`
+  - parser
+- fields
+  - Nested
+  - DelimitedList `never used`
+  - Int()
+  - Decimal
+  - String(validate=Regexp())
+  - Bool()
+  - List()
+  - Raw()
+- validate `don't have schema, Regexp`
+  - Length()
+  - Range()
+  - Regexp
+  - OneOf
+  - NoneOf
+
+
+## marshmallow
+> ORM for complex data types
+
+- fields
+  - Nested()
+  - Date()
+  - Str()
+- validate
+  - Regexp
+  - OneOf
+  - Range
+  - Schema
+- validates_schema
+
+```
+@xxx.route('')
+@use_kwargs(sss(), location=('json'),)
+def xxx()
+
+class sss(Schema):
+  some_prop = fiel.Str()
+
+  @validates_schema
+  def valid(self, data):
+    # complex logic check here
+    raise Exception('sss')
 ```
 
 ## Crawler

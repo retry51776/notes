@@ -4,6 +4,8 @@
 - 3.0
   - 3 / 2 = 1.5
   - str & unicode
+- 3.5
+  - `async def xxx():` `ftr = xxx()`  `result = asyncio.run(ftr)`  `results= await asyncio.gather(*futures)`
 - 3.6
   - f'{ddd}_123'
   - async
@@ -377,7 +379,14 @@ with open("numbers.csv") as f:
     for row in r:
         print row
 ```
+
 ## Multi Process
+
+- Multi Thread cost time for context switch
+- Multi Process cost more CPU
+- Cooperative Multi Task (similar single event loop)
+    - Coroutine `A variant of functions that enables concurrentcy via Cooperative Multi Task`
+
 ```
 # Multi-Process
 # Note: ProcessPoolExecutor print will not work, logs must return to main process

@@ -72,6 +72,7 @@ aggs
 - Text will tokenized but String won't
 - delete won't physical gone until Lucien document get merge
 - In ES7, only allow single _type per index
+- `track_total_hits`: true, # by default only 10,000
 
 # ES7 breaking changes
 
