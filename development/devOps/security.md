@@ -42,9 +42,6 @@ ssh-rsa is Developer Public Keys
     1. go to CA `ca.xxxx/certsrv`/Install CA Certificate & Download & Install CA Certificate
     2. Add DNS A record OR edit `/etc/hosts`
 
-    3. cat /usr/lib/ssl/misc/ca.pl to check $CATOP
-    4.  
-
 ### Setup VPN
 Microsoft Management Console `Run > mmc > Enter` export LDAP certificate for VPN
 
@@ -99,3 +96,14 @@ openssl req -new -sha256 -out terry.test.local.csr -newkey rsa:2048 -keyout "$1.
 # General Certificate Sign Request from key
 openssl req -new -key xxx.key -out xxx.csr
 ```
+
+## Install CA Service
+1. open Server Manager/manage/Add Roles & feature/.../Active Directory Certificate Services/
+2. Install both `Certification Authority` & `Certification Authority Web Enrollment`
+3. Generate CA private key, w name domain_name-server_name-CA
+4. Configuare
+
+## Interface w CA Service
+1. open Server Manager/Tools/Certification Authority
+
+`http://localhost/certsrv` or `http://pc_name.domain_name.local/certsrv`

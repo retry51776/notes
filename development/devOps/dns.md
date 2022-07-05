@@ -7,6 +7,8 @@
 >
 >> protocal -> vehicle(bike, car, train, plane)
 
+> Windows Server DNS, OpenDNS, Cloudflare, Google Public DNS
+
 - [DNS Server](#dns-server)
 - [Authoritative Name Server](#authoritative-name-server)
   - [Zone](#zone)
