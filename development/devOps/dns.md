@@ -66,13 +66,14 @@ www. = second-level domain
 
 > either answer it, or ask other name servers
 
-Name Server
-> translate domain names into IP
+Name Server (NS)
+> Authoritative Name Server IP
+> at least 2, max 10
 
 A/AAAA Records
 > record format store host name to IPv4/IPv6, cycle through IPs of host
 
-PTR Records
+Reverse DNS lookup (PTR Records)
 > Pointer record is opposite A/AAAA records, IP to host instead
 
 MX record
@@ -80,10 +81,10 @@ MX record
 
 CNAME
 > alias for server, EX: https://www. to https://,
-> or abc.com to xyz.com
+> or abc.com to xyz.com, or https://mail.xyz to 9.9.9.9, support `*` or `$`
 
 Zone File
-> name server store domains informations
+> name server store domains informations, `SOA`
 
 > Ex: www. email. ftp. www.hr. www.sales
 

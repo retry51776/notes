@@ -1,5 +1,6 @@
 # Security
 
+
 ### Linux
 1. gen ssh key `ssh-keygen -b 4096`
 2. create user in remote linux server
@@ -12,18 +13,49 @@ ssh-rsa is Developer Public Keys
 2. Publish SSH to Admin
 3. Add ssh key to github
 
+## Add Certificate
+  ## Windows
+   1. Microsoft Management Console `Run > mmc > Enter` 
+   2. Add or Remove Snap-ins/Certificate/next/Console Root/Certificates/Third-Party Root/All Task/Import
+
+  ## MacOS
+    1. Keychain Access/System/add/Always Trust
+  
+  ## Linux
+    ## Create Cert
+    1. genkey www.xxxx.local
+    2. going to take a while generate randomless
+    3. Inpute Meta: (Country, State, Locality, Organization, Unit, domain_name)
+    4. Generated xxx.crt & xxx.key
+
+    ## Request CA to Sign Cert
+    1. Generated xxx.csr from xxx.key
+    2. go to CA `ca.xxxx/certsrv`/Request a certificate/advanced certificate request, copy xxx.csr text & past to form.
+    3. download Base 64 encoded version xxx.cer
+
+    ## Install crt into Service
+    1. ssh into xxx server, copy crt
+    2. `vi /etc/httpd/conf.d/ssl.conf` to edit `SSLCertificateKeyFile` & `SSLCertificateFile`
+    3. `service httpd restart`
+
+    ## Client Trust CA
+    1. go to CA `ca.xxxx/certsrv`/Install CA Certificate & Download & Install CA Certificate
+    2. Add DNS A record OR edit `/etc/hosts`
+
+    3. cat /usr/lib/ssl/misc/ca.pl to check $CATOP
+    4.  
 
 ### Setup VPN
 Microsoft Management Console `Run > mmc > Enter` export LDAP certificate for VPN
 
 ## File Types
 ```
-
+.csr = Certificate Signed Request
 *.ppk = encrypted private key by puttyGen
 .cer <--> .crt(Microsoft) -> .pfx
 
-.PFX is Personal Exchange Format, windows user certificate
-.cer - certificate with public and private keys.
+.PFX is Personal Exchange Format, windows user certificate(with private key)
+.cer - certificate only with public keys.
 .cer & .key is OpenSSL generated files for OpenVPN, Pageant
 
 *.crt = Windows certificate  for SSL
@@ -40,10 +72,10 @@ Microsoft Management Console `Run > mmc > Enter` export LDAP certificate for VPN
   - valid to
   - public key
   - digital signature
-  
+
 
 **Create TLS**
-1. Create .csr with openssl
+1. Create .csr with openssl (Certificate Signed Request)
 
 ```
 openssl req -new -sha256 -out terry.test.local.csr -newkey rsa:2048 -keyout "$1.key" -nodes -reqexts SAN - config <cat /some_ssl.cnf <(printf("[SAN]\nsubjectAltName=DNS:terry.test.local"))>> -out terry.test.local.csr
@@ -60,3 +92,10 @@ openssl req -new -sha256 -out terry.test.local.csr -newkey rsa:2048 -keyout "$1.
   b) Install in server
     1. ssh into server
     2. copy .crt and key to /etc/test/conf/nginx/data/ssl
+
+
+# CMDs
+```
+# General Certificate Sign Request from key
+openssl req -new -key xxx.key -out xxx.csr
+```
