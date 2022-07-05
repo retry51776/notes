@@ -39,6 +39,7 @@ medicaid = state (lower rate, $3000 max)
 - Staffing
 - Quality Measures
 
+
 ## 5-star Distrubation
 
 1: 20%
@@ -58,3 +59,14 @@ oaisis
 # Dialysis facilities
 > The dialysis centers help people with kidney disease or kidney failure
 
+
+## buzz words
+- Minimum Data Set (MDS)
+- Registered nurse (RN)
+- Managed Care Organization (MCO)
+- Licensed practical nurse (LPN)
+- Payroll-Based Journal (PBJ)
+- Activities of Daily Living (ADLs)
+- universe billing (UB)
+- Prospective Payment System (PPS)
+- Omnibus Budget Reconciliation Act(ORBA)

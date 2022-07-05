@@ -32,6 +32,7 @@
 - `[1,2].index(0)` will throw an error, must check before get index`if 0 in [1,2]:`
 - recursion limit: 10,000
 - Pipfile going replace requirement.txt `pipenv install`
+- Python round() sucks
 
 **Working on library**
 ```
