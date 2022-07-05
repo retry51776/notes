@@ -201,3 +201,14 @@ class TestScraper(scrapy.Spider):
 https://www.rabbitmq.com/consumers.html#exclusivity
 
 queue.method.message_count
+
+# Kafka
+
+partition append-only 
+order only guarantee in partition
+
+Faust is Robinhood stream python library
+
+topic/routing key & queue is m to m relationship
+
+Site Reliable Engineer (SRE)

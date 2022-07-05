@@ -2,7 +2,7 @@
 
 > 1st thing always set static IP, enable remote control, rename pc name
 
-> I love Desktop Experiences, don't like headless
+> I like Desktop Experiences, if headless server we must install Windows Admin Center locally
 
 ### Major Version
 - 2000

@@ -148,33 +148,13 @@ Backend
 |--|-|
 | -- | -- |
 
+## ASCII vs UTF8 vs UTF16
 
-# Crypto
+encoder is like html
+font is like css
 
-Think of computation is cooking food.
+common encoder formats:
+ASCII is old 7 bit character mapping
+UTF8 is most common 8 bit mapping
+UTF16 is larger room 16 bit mapping
 
-data -> food
-ssas -> take out resturant with closed kitchen
-
-> You don't know how, who, cook the food; You just trust brand
-
-
-inhouse server -> home cook
-
-> messy, and do you have clean/updated kitchen?
-
-
-cloud vendor -> comercial landlord
-
-> provide by landloard, they can take it away, or have a backdoor; usually cleam & well equipped
-
-blockchain -> open kitchen
-
-> Anyone can be kitchen cooking(miner), but all dishes(block) needs public review before shipped(node verfication)
-
-
-homorphic encryption
-> plastic wrap/glove for food/data; Able process data without touch data;
-
-zk-snark
-> food container/ packaging technology; able to package food, and able to proven cleanness just by package.
