@@ -68,8 +68,15 @@ git diff README.md
 git reset --soft HEAD~1
 
 git rebase // will stash my branch prev commits, then apply after rebase branch
+
+find . -name "*.pyc" -exec git rm -f "{}" \;
 ```
 
+## Github Vars
+```
+GITHUB_REF
+GITHUB_SHA // full sha
+```
 ## Jenkin Vars
 ```
 @echo off

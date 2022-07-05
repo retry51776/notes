@@ -74,11 +74,16 @@ assertNotIn(a, b)
 assertIsInstance(a, b)
 assertNotIsInstance(a, b)
 
+// @path takes string
 @patch("package_name.attribute_name")
 def test(xxx_atr_mock)
 
-@patch.object('package_name', 'attribute_name')
-def test(xxx_atr_mock):
+// @path takes class object
+import abc
+import efg
+@patch.object(efg, 'attribute_name')
+@patch.object(abc, 'attribute_name')
+def test(self, _abc, _efg):
     xxx_atr_mock.return_value = 123
 
 #        package_name attribute  
@@ -94,4 +99,11 @@ with patch('employee.requesets.get') as mocked_get:
   - Test Stub (return value)
   - Test Spy (conditionally have different behavior)
   - Mock Obj (event trigger)
-- 
+
+
+# pytest
+```
+import pytest
+@pytest.fixture
+def xxx():
+```

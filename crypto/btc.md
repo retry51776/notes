@@ -30,7 +30,9 @@
 - Unspent Transaction Output (UTXO)
 - Lighting network is a protocal uses BTC as bank reservor note.
 - longest chain
-
+- 10 min per block, block body 1mb
+- calculate difficulty every 2 week (2,016 blocks)
+- timestamp is NOT relable in blockchain
 
 ## vulnerability
 - 51% attack `stop all trans, double spent, `

@@ -81,7 +81,9 @@ sales = [dict(zip(cursor.column_names, row)) for row in cursor.fetchall()]
 
 ```
 # Flask Load Config
+from flask_cache import Cache
 app = Flask(__name__)
+cache = Cache(app)
 app.config.from_pyfile('appcfg.py')
 app.register_blueprint(company_app, url_prefix='/company')
 
@@ -93,6 +95,7 @@ before_first_request
 # Create Flask Endpoint
 VIEW_APP = Blueprint('view', __name__)
 @VIEW_APP.route('/ConfigureSSO', methods=['POST'])
+@cache.cached(timeout=60)
 def configure_sso():
     return json_response(response)
 

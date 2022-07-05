@@ -76,7 +76,6 @@ grep [word] [seach_path] //text search
 echo hello > test.txt //Overwrite
 echo hello >> test.txt //Append
 
-
 ```
 
 ## Service/Cronjob/Dev

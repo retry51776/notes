@@ -1,10 +1,17 @@
 import unittest
 from platform import python_version
 #from packaging import version
+#rom typing import List
 
 class TestStringMethods(unittest.TestCase):
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls) -> unittest.TestCase:
+        cls.a = 1
+        return cls
+
+    def setUp(self) -> None:
+        self.test_a = 2
         print('runs before every test')
         return
 
@@ -13,6 +20,7 @@ class TestStringMethods(unittest.TestCase):
         return
 
     def test_upper(self):
+        print('self.a', self.a, 'test_a', self.test_a)
         self.assertEqual('foo'.upper(), 'FOO')
 
     def test_isupper(self):

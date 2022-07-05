@@ -31,6 +31,7 @@
 - Python allow integer as key of object, but JSON file requires key as string. Can be suprised load object is different.
 - `[1,2].index(0)` will throw an error, must check before get index`if 0 in [1,2]:`
 - recursion limit: 10,000
+- Pipfile going replace requirement.txt `pipenv install`
 
 **Working on library**
 ```
@@ -285,6 +286,7 @@ i1, i2, i3 = itertools.tee(i, 3)
 # Standard Library Utilities
 ## functools
 ```
+@functools.wraps(func) // assign __name__, __doc__ attributes in the wrapping function before returning it (think of update 'this = super' in js)
 @functools.cache # only 3.10
 @lru_cache(maxsize=32)
 
