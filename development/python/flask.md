@@ -1,15 +1,93 @@
+# SQLAlchemy
 
-# SQL Alchemy
+> ORM classes
+>> easier to CRUD table
+>
+>> but can't modify schema
 
-- ORM classes
-  - easier to CRUD table
-  - but can't modify schema
-- Schema classes
-  - harder to handle in python
-  - CREATE and DROP statements (known as DDL), constructing SQL queries
+
+> Schema classes
+>> harder to handle in python;
+>
+>> CREATE and DROP statements (known as DDL), constructing SQL queries
+
+> `SQLALCHEMY_DATABASE_URL` will used by SQLAlchemy(app) by default
+## Sqlalchemy Modules
+- orm
+  - Load `Load(xxx_orm).load_only('c1', 'c2')`
+  - sessionmaker `(bind=xxx_engine)()`
+  - joinedload `Force Query everything together`
+  - relationship `("orm_class_name", back_populates="parent_orm.xxx_relationship_name")`
+  - backref
+  - exc
+    - NoResultFound
+    - DBAPIError
+    - TimeoutError
+- ext
+  - automap
+    - automap_base
+  - declaretive
+    - declararive_base() `Define not default schema with metadata.schema`
+  - hybrid
+    - hybrid_property `seems like calculate field`
+- sql
+  - select
+  - and_
+  - or_
+  - not_
+  - tuple_
+  - functions `advance aggeration`
+    - count()
+    - sum()
+  - expression
+    - desc
+    - asc
+    - literal
+- schema
+  - Sequence
+
+- create_engine
+- MetaData
+- Table `('xxx_table', MetaData(), autoload=True, autoload_with=xxx_engine)`
+- Column
+- Integer
+- String
+- Boolean
+- Date
+- ForeignKey
+- VARBINARY
+- Enum
+
+
+### Table Relationship
+
+> backref is legacy parameter
+
+> It's one of most conflusion area.
+
+### How ORM process relationship
+> 1. ORM process Director model
+> 2. there is a relationship call movies
+> 3. uselist ? Director.movies = [Movie, Movie] : Director.movies = cls
+> 4. Movie cls have ForeignKey('director.id') ? do_sub_query : left_join
+> 5. has backref ? Movie.[backref_value] = Director
+```
+# backref only create relationship in one ORM, never both
+class Director(db.Model): 
+  id = db.Column(db.Integer, primary_key=True)
+  #                     ORM_Name    create Movie.director
+  movies = relationship("Movie", backref="director", uselist=False, lazy='select')
+
+# back_populates must explicitly define relationship both ORM
+
+lazy [select, immediate, joined, subquery, selectin]
+```
+
+
+<hr/>
 
 - `engine = create_engine(URI, pool_pre_ping=True, pool_size=10)` 
-  - won't create connection pool
+  - won't create connection until query
   - defined connection pool
 - `conn_pool = sessionmaker(bind=engine)`
   - create connection pool
@@ -20,6 +98,7 @@
   - `session.close()` may not commit, may not close connection
 
 **Auto Schema Ops**
+
 ```
 from sqlalchemy.ext.automap import automap_base
 
@@ -64,6 +143,18 @@ session.add_all([sale, addr, invt])
 
 # orm property, not relationship name
 query = query.options(joinedload('abc').joinedload('efg'))
+
+import enum
+from sqlalchemy import Enum
+
+class xxx(enum.Enum):
+  red = 1
+  green = 2
+
+  def to_json(self):
+    return self.name
+
+color = Column('color', Enum(xxx))
 ```
 
 **Cursor Query**
@@ -89,13 +180,35 @@ sales = [dict(zip(cursor.column_names, row)) for row in cursor.fetchall()]
 ## Common Used Modules
 - Flask
 - Blueprint
+  - @before_app_request
+  - @before_app_first_request
+  - @before_request
+  - @after_request
+  - @after_app_request
 - request
+  - method `str`
+- request_started
+- request_finished
+- app
+  - cli
+    - command("xx_cmd") `flask xxx_app xx_cmd`
+- g `gobal`
 - current_app
+- appcontext_tearing_down `appcontext_tearing_down.connect(xxx, app)`
+
+- session `session object, required app.secret_key`
+- sessions `looks like flask manage session utilities`
+- Response
+- stream_with_context `return Response(stream_with_context(generator))`
 
 
 - make_response
 - jsonify
 - send_file
+- send_from_directory
+- render_template `render_template("xxx.html", name="xxx")`
+- url_for
+
 
 ```
 res = make_response(json.dumps(xxx))
@@ -177,112 +290,18 @@ class sss(Schema):
     raise Exception('sss')
 ```
 
-## Crawler
-### splash
-> render dynamic page for scrapy
+## Flask Template
 ```
-import scrapy
-from scrapy.crawler import CrawlerProcess
-from scrapy_splash import SplashRequest
+<p>name is {{ name }}</p>
 
+<img src="{{ url_for('static', filename="xxx.jpg")}}"/>
 
-# Start the scraping process
-process = CrawlerProcess({
-  'USER_AGENT': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)'
-})
-process.crawl(TestScraper)
-process.start()
+# Template Inheritance
+{% block content %} # Similar to PHP, supports python loop
+{% endblock %}
 
-class TestScraper(scrapy.Spider):
-  name = 'test'
-  custom_settings = {
-      'SPLASH_URL': SPLASH_URL,
-      'DOWNLOADER_MIDDLEWARES': {
-          'scrapy_splash.SplashCookiesMiddleware': 723,
-          'scrapy_splash.SplashMiddleware': 725,
-          'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 810,
-      },
-      'SPIDER_MIDDLEWARES': {
-          'scrapy_splash.SplashDeduplicateArgsMiddleware': 100,
-      },
-      'DUPEFILTER_CLASS': 'scrapy_splash.SplashAwareDupeFilter',
-      'HTTPCACHE_STORAGE': 'scrapy_splash.SplashAwareFSCacheStorage',
-      'LOG_ENABLED': False, // Splash Logger attched to golbal logger, not good
-  }
-
-  def start_requests(self):
-      yield SplashRequest(
-          url=url,
-          callback=self.parse,
-          args={'wait': 3}
-      )
-
-  def parse(self, response):
-      for url in response.xpath('//ul[@class="abc"]/li/a[@class="xyz"]/@href').getall():
-          // whatever
+{% extends "xxx.html" %}
+{% block content %}
+<h1>xxxx</h1>
+{% endblock %}
 ```
----
-## Message Broker
-
-> Improves decoupling, fault tolerance, scalability
-
-> Queue : consumed once
-
-> Pub Sub: consumed many time
-### Protocal
-- AMQP
-  > Adcanced Message Queuing Protocol, move message between applications.
-  
-  > Pika is python implelemntation AMQP 0.9.1
-- MQTT
-- STOMP
-
----
-
-**RabbitMQ**
-  > AMQP protocal
-
-  > 3.9 support stream
-
-  - Virtual Host
-    - Exchange
-      - Queue
-      > fanout/direct/topic/header/namesless
-
-      > topic/routing_key (M to M) Queue
-
-
-**Kafka**
-  - topic
-    - partition
-    > partition is append only log
-
-    > by default topic randomly send to partiition, can set to hash
-
-    > order is garanty is partition level, not topic level
-
-    > offset is partition level
-> binary protocol over TCP
-
-> kafka-python
-
-> confluent-kafka-python
-
-> Faust is a stream processing library
-
-> zookeeper is complex, & able bring down server
-
-https://www.rabbitmq.com/consumers.html#exclusivity
-
-queue.method.message_count
-
-# Kafka
-
-partition append-only 
-order only guarantee in partition
-
-Faust is Robinhood stream python library
-
-topic/routing key & queue is m to m relationship
-
-Site Reliable Engineer (SRE)
