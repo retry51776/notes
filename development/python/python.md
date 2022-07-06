@@ -20,6 +20,7 @@
   - expression error trackstack, add_note(), ExceptionGroup
   - self type
   - Performance increase 15%
+  - tomlib
 
 **Frustration**
 - ~~destructure like es6 `const {a, b, ...others} = obj;`~~
@@ -133,7 +134,9 @@ z=3
 ```
 from datetime import date, timedelta
 from dateutil.relativedelta import relativedelta
+from dateutil.parser import parse
 
+parse('2019-01-01').date()
 # less than month unit
 date(2018, 9, 30).replace(day=31) + timedelta(days=1)
 # more than month unit
@@ -184,7 +187,8 @@ def cust_decorator(func):
         func(*args, **kargs)
     return wrapper
 
-@staticmethod
+@staticmethod # I don't like it, prefer stand along func
+@classmethod(cls) # support inhertance, usually to load_xx & return instance
 @porperty
 @xyz.setter
 
@@ -289,6 +293,7 @@ i1, i2, i3 = itertools.tee(i, 3)
 # Standard Library Utilities
 ## functools
 ```
+functools.partial(xxx_func, 1, 2, 3) // prefill xxx_func w params
 @functools.wraps(func) // assign __name__, __doc__ attributes in the wrapping function before returning it (think of update 'this = super' in js)
 @functools.cache # only 3.10
 @lru_cache(maxsize=32)
@@ -452,6 +457,12 @@ task = asyncio.create_task(what()) # runs off branch
 await task # similar thread.join()
 
 ```
+
+## others standard lib
+```
+from pathlib import Path
+from urllib.request import urlopen
+```
 > httpx grather is faster multiple network requests
 ## custom utilities
 ```
@@ -463,8 +474,7 @@ def basic_round(x, d=0, as_decimal=False):
     round_digit = Decimal(10) ** -d
     rounded = Decimal(str(x)).quantize(round_digit, rounding=ROUND_HALF_UP)
     return rounded if as_decimal else float(rounded)
-```
-```
+
 def get_in(obj, keys=None, default=None):
     try:
         if obj is None or keys is None:
@@ -496,12 +506,15 @@ def get_in(obj, keys=None, default=None):
 ```
 
 # To debug Ram & time
-time -f python3 test.py
+`time -f python3 test.py`
 
-Exception chaining `raise ValueError("Bad grape") from exc`
+`from time import timeit #@timeit`
+
 
 # Buzzwords Zoo
 Python Enhancement Proposals(PEP)
 - .wheel is python binary file(2012), .egg is old binary format(2004)
 - odbcinst.ini
     > registry and configuration file for ODBC drivers in an environment
+- Since Py3, object’s type = its class `type(obj) is obj.__class__`
+- Exception chaining `raise ValueError("Bad grape") from exc`

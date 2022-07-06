@@ -112,3 +112,17 @@ Databrick Runtime
 
 want low False possitity
 Predict Analytics & Prescriptive Analytics 
+
+# Pandas
+```
+df = pd.DataFrame.from_dict()
+del df['Company1']
+df = df.dropna(subset=['Company2'])
+df = df.rename(
+    {
+        'Company2': 'Google',
+        'Company3': 'FB',
+    },
+    axis=1
+)
+```
