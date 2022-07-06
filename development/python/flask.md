@@ -192,7 +192,7 @@ sales = [dict(zip(cursor.column_names, row)) for row in cursor.fetchall()]
 - app
   - cli
     - command("xx_cmd") `flask xxx_app xx_cmd`
-- g `gobal`
+- g `gobal; able to access all wsgi variables`
 - current_app
 - appcontext_tearing_down `appcontext_tearing_down.connect(xxx, app)`
 
@@ -242,8 +242,8 @@ app.register_error_handler(Exception, handler)
 > parse & validate HTTP request object
 
 - flaskparser
-  - use_args `inject params into args`
-  - use_kwargs `inject params into kwargs`
+  - use_args `inject params as args`
+  - use_kwargs `inject params as kwargs`
   - parser
 - fields
   - Nested
@@ -304,4 +304,22 @@ class sss(Schema):
 {% block content %}
 <h1>xxxx</h1>
 {% endblock %}
+```
+
+# Flask Middleware
+```
+from werkzeug.wrappers import Request, Response
+class xxxMiddleWare():
+  def __init__(self, app)
+    pass
+  def __call__(self, environ, start_response):
+    req = Request(environ)
+    print(req.body)
+    if True:
+      return self.app(environ, start_response)
+    res = Response('Deny', minetype='text/plain', status=401)
+    return res(environ, start_response)
+
+# attach middleware to flask
+app.wsgi_app = xxxMiddleWare(app.wsgi_app)
 ```

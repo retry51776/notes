@@ -17,9 +17,9 @@
   - pattern matching
   - Type Operator `isinstance(1, int | str)`
 - 3.11 beta
-  - expression error trackstack
+  - expression error trackstack, add_note(), ExceptionGroup
   - self type
-  - Performance increase
+  - Performance increase 15%
 
 **Frustration**
 - ~~destructure like es6 `const {a, b, ...others} = obj;`~~

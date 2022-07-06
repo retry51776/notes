@@ -1,7 +1,9 @@
 # Network Layers
 Physical layer
 > normal copper wires needs reapter under 1 kilometer
+> 
 > fiber ususally able to goes miles
+> 
 > which viechal you uses
 
 Data Link
@@ -9,7 +11,7 @@ Data Link
 
 Network layer
 > Address of house
-    - Time to Live (TTL): num of hops
+>> Time to Live (TTL): num of hops
 
 Transport layer
 > allows traffic to firected to specific network app, which door; TCP, UDP
@@ -69,9 +71,9 @@ Network Address Translation (NAT)
 
 
 Non-routable Addresses Space (NAT)
-> 10.0.0.0/8
-> 197.16.0.0/12
-> 192.168.0.0/16
+- 10.0.0.0/8
+- 197.16.0.0/12
+- 192.168.0.0/16
 
 
 ---
@@ -87,8 +89,24 @@ CMD
 
 `nslookup google.com`
 
-
 ---
 QRadar
 IBM advance firewall
+
+
+## Setup Domain Controller
+1. Create VM
+   a. rename PC name to (DomainController or something)
+   b. config network adpator properties, disable IPv6, IPv4 with static IP
+2. Server Manager -> Add roles & features -> check
+   a. Active Directory Domain Service
+3. Promote this service to a donmain controller
+4. Add role DNS Service (conver url to ip)
+5. Add role DHCP (manage IP adress assignment)
+
+
+## Add PC to Domain
+1. Control Panel / System and Security / System / change setting
+2. rename PC name & domain
+3. change DNS service to DC ip
 
