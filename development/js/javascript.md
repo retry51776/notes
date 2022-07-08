@@ -59,8 +59,12 @@ Number.isNan()
 typeof xx === 'boolean'
 ```
 
-# Tech Terms
-JWT is value base token, cookie is reference base token
-
+# Buzzwords
+- JWT is value base token, cookie is reference base token
 - Import Relative Path : <https://www.youtube.com/shorts/WpgZKBtW_t8>
 - JS Guide : <https://github.com/airbnb/javascript/tree/master/react>
+- Javascript VM instance
+- Tokenlized
+- Abs Structure Tree
+- Binary Code
+- Optimizer

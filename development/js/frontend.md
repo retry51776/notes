@@ -1,4 +1,5 @@
-# Front End Library
+# Front End
+
 | Imperative | Declarative |
 | --- | --- |
 | state & UI transitions | only state |
@@ -6,9 +7,11 @@
 ## Reudx
 > Setting up Redux Store is a nightmare
 
->avoid redux connect() reduces unnecessary props defination
+> Avoid redux connect() to reduces unnecessary props
 
-react -> dispatch(action) -> (middleware) -> reducer -> store -> react
+> Avoid using redux at all, just uses react context hook
+
+> react -> dispatch(action) -> (middleware) -> reducer -> store -> react
 
 ```
 1. Setup Actions: function return {type: 'xxx'}
@@ -39,38 +42,27 @@ dispatch('ACTION_XYZ');
 
 ```
 
-1. React Component
-type:
-  > component string
+## React Component
+> key:
+>> unqiue id from SILBING, react uses key to reuses element, which is WHY bad idea to use index as key
 
-  > component reference
-key:
-  > unqiue id from SILBING, react uses key to reuses element, which is WHY bad idea to use index as key
-
-ref:
-  > for focus, or 3rd party lib
+> ref:
+>> for focus, or 3rd party lib
   
-`$$typeof:Symbol(react.element)`
-  > react internal id
 
-1. React Reconsiliation
-  > determent which node of DOM tree needs replace
+> ### React Reconsiliation
+>> determent which node of DOM tree needs replace
+>
+>> type changed? generate new DOM
+>
+>> props changed? update effected DOM
+>
+>> try to reused DOM by key. Only in silbing
+>
+> ### Rendering by ReactDom or ReactNative
+>> React Fiber, none blocking, support abort rending, dynamic import
 
-  > type changed? generate new DOM
-
-  > props changed? update effected DOM
-
-  > try to reused DOM by key. Only in silbing
-
-3. Rendering by ReactDom or ReactNative
-   > React Fiber, none blocking, support abort rending, dynamic import
-
-props:
-```
-{
-  type: "main"
-}
-```
+`$$typeof:Symbol(react.element) // react internal id`
 
 ## ImmutableJS
 
@@ -177,7 +169,7 @@ moment().add('day', 1).subtract('year', 1);
 ```
 
 ## react-query & react-table
->avoid column accessor 'xxx.xx' , instead 'xxx-xx'
+> avoid column accessor 'xxx.xx' , instead 'xxx-xx'
 ```
 const {
   data,
@@ -204,69 +196,10 @@ const edit = useMutation(postEdit, {
 **mouseflow**
 > Page tracking plugin
 
-# Module bunder(Webpack)
-Alternative
-- rool up
-- parcel
-- snowpack
-https://www.youtube.com/watch?v=lFjinlwpcHY&ab_channel=uidotdev
-
-### Styles
-- `node-sass` provides binding for Node.js to LibSass, a Sass compiler.
-- `sass-loader` is a loader for Webpack for compiling SCSS/Sass files.
-- `style-loader` injects our styles into our DOM.
-- `css-loader` interprets @import and @url() and resolves them.
-- `mini-css-extract-plugin` extracts our CSS out of the JavaScript bundle into a separate file, essential for production builds.
-
-### JS
-`babel` - es6
-`polyfill` - browser compability
-
-### webpack.config.js
-https://webpack.js.org/configuration/resolve/
-> sourceMap `bundle.js.map` links compiled code to source line
-```
-const webpack = require('webpack');
-const path = require('path');
-// const merge = require('webpack-merge');
-// process.env.npm_lifecycle_event
-
-module.exports = {
-  context: path.join(__dirname, 'xyz/'),
-  entry: {
-    /* multi entry will code splitting */
-  },
-  output: {},
-  module: {
-    rules: [
-      {
-        test: /* regx find target files */,
-        use: [/* loaders */]
-      }
-    ]
-  },
-  // devtool: 'cheap-eval-source-map',
-  plugins: [
-    new CleanWebpackPlugin(),
-    new webpack.HashedModuleIdsPlugin(),
-    new webpack.optimize.SplitChunksPlugin(),
-    new HtmlWebpackPlugin({
-      filename: 'views/index.html',
-      title: 'Terry',
-      template: 'views/base.ejs',
-    }),
-    // Example inject variable into front end
-    new webpack.DefinePlugin({
-      AUTHOR: 'Terry',
-      ANOTHER_ENV: '123',
-    }),
-  ],,
-}
-```
-
 
 ## Formik
 > Created Each Form Input in its own file
+> 
 > Then Have a FormikController similar react_router
 > 
 
@@ -351,12 +284,3 @@ import { Input, FormControl, FormLabel, FormErrorMessage } from '@chakra-ui/core
   }
 </Field>
 ```
----
-## Browser Term
-Javascript VM instance
-
-
-Tokenlized
-Abs Structure Tree
-Binary Code
-Optimizer

@@ -82,6 +82,8 @@ ldap.bind(config.ldap.bind_dn, config.ldap.bind_secret, err => {
 - helmet `Express header`
 - jsonwebtoken
 - Cookie-parser
+- fs `fs.readdirSync()`
+- request
 - cros `app.get('/', cors(corsOpt), (req, res) => {})`
 ```
 const app = express(); # define request process

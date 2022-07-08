@@ -81,11 +81,22 @@
 7: MEMORY USAGE. ...
 8: UNIQUE API CONSUMERS.
 
-Monitor Tools:
-zabix
-garfanar
-opsgeny
-sentry.io
+### Monitor Tools:
+- zabix
+- garfanar
+- opsgeny
+- sentry.io
+- kibana elk
+- Stackdriver 
+- datadog
+
+opentelemetry -> prometheus -> garfanar
+
+### Logs DBs
+prometheus `time-series database`
+elasticsearch `search engine, fast agg, support language`
+Splunk `Bank of American uses it`
+MongoDB `agg slow because single thread mapReducer`
 
 # Testing
 Top Down
@@ -98,4 +109,5 @@ Sandwich
 Access Patter
    - Random
    - Sequential
+
 Direct Memory Access(DMA)
