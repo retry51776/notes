@@ -110,8 +110,9 @@ app.use(bodyParser.json())
 - Keep-Alive
 - Content-Encoding
 - Content-Type
-- Set-Cookie
-- Cookie
+- Set-Cookie(server response) Cookie
+- Cache-Control, Age(time been cache), Expires
+- Request Context (From, Host)
 ```
 const server = http.createServer(app);
 // server.address().address .port

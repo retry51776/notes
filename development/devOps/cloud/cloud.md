@@ -7,6 +7,27 @@ Edit premission will allow ticket creation
 
 CloudWatch + CloudTrail = stackdriver
 
+### Apps
+- S3 `Disk Storage`
+- Cloudfront `CDN`
+- Route 53 `DNS`
+- API Gateway + Lambda `cloud function`
+- App Load Balancer + EC2 `old VM`
+- App Load Balancer + ECS `container`
+- EKS `K8`
+
+### DBs
+https://aws.amazon.com/products/databases/
+
+- RDS `amazon version mysql`
+- Aurora
+
+### Orchestration
+Step Functions
+SNS
+SQS
+Cloud Formation
+
 ## AWS Enterprise Support
 > Always keep ticket #
 
@@ -22,6 +43,18 @@ System Impaired 12h
 Guidance 24h
 
 Enterprise Discount Program (EDP)
+
+```
+~/.aws/credentials
+[default]
+aws_access_key_id=xxx
+aws_secret_access_key=yyy
+
+kubeconfig default /Users/xxx/.kube/config
+
+//brew tap weaveworks/tap
+apt-get install eksctl
+```
 
 # GCP
 GKE

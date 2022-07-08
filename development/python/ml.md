@@ -34,6 +34,8 @@ Bidirectional Encoder Representation Transformers(BERT)
 > Sentiment Analysis
 > Text Summarization
 
+# Dats Sample
+Ensemble Sampling
 
 # Trainning
 - Masked Language Modeling (MLM) fill in blank

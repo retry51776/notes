@@ -39,3 +39,21 @@
 - time wrap attack
 
 - OP_CHECKMULTISIG extra 1 pop off stack
+
+# Source Code Structure
+> . h files, or header files, are used to list the publicly accessible instance variables
+
+> .cpp files, or implementation files, are used to actually implement those methods and use those instance variables
+
+- /src
+  - /index
+    - /base.cpp
+  - /node
+    - /miner.cpp
+  - /secp256k1
+    - /include/secp256k1_preallocated.h
+  - /consensus
+    - /consensus.h
+    - /validation.h
+    - tx_verify.cpp
+    - merkle.cpp

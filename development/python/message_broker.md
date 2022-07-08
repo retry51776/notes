@@ -37,6 +37,7 @@ def __process(ch, method, property, body):
     t.start()
     //method.message_count
 
+conn.add_callback_threadsafe(ack_message)
 ch.queue_declare('xxx', durable=True)
 ch.queue_bind()
 ch.basic_publish(
@@ -109,3 +110,5 @@ Faust is Robinhood stream python library
 topic/routing key & queue is m to m relationship
 
 Site Reliable Engineer (SRE)
+
+"incremental" aggregation functions include `count()`, `sum()`, `min()`, and `max()`
