@@ -1,5 +1,9 @@
 # dotnet
 
+> standard framework is old closed source
+
+> .net core is new open source version
+
 > linq XXX.foreach have bad performance.
 use foreach XXX instead
 

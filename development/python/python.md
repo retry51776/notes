@@ -203,7 +203,8 @@ __get__
 __set__
 __hash__
 __dict__
-__slots__ # similar to property, can't add more __slots__ in run time, but less RAM
+__slots__ # lock class attribute, to save RAM
+__dict__ # access attribute as object
 __repr__
 
 Python Metaclasses

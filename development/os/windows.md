@@ -1,4 +1,4 @@
 # Windows
 
 // TODO: some WSL setup problem
-// GCP, console
+// GCP, console setup

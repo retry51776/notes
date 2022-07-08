@@ -158,3 +158,7 @@ ASCII is old 7 bit character mapping
 UTF8 is most common 8 bit mapping
 UTF16 is larger room 16 bit mapping
 
+### Docker VS VM
+> docker just using linux kernel namespace partitions
+
+> VM have overhead from virtal hardware, virtal OS

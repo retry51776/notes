@@ -33,6 +33,7 @@ CommonJS (require/exports)
 - `const` only works with basic type. like string or number.
 - `null` & `undefined`, I get it, but hate it. Python just have None, much easier
 
+## ES6
 ```
 // ES6 build in supports, most browser, webpack will auto figure file type
 import getXYZ from 'xyz.js';
@@ -45,6 +46,17 @@ async componentDidMount() {
 // Common JS module function, can be dynamics run
 module.export = {};
 require('./xyz.js')
+
+// Format
+xxx.toFixed()
+xxx.toLocalString({
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+})
+
+// Types
+Number.isNan()
+typeof xx === 'boolean'
 ```
 
 # Tech Terms

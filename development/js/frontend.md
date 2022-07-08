@@ -183,12 +183,22 @@ const {
   data,
   isLoading,
   isFetching,
+  status,
   refetch,
 } = useQuery('abc', axios_promise, {
   refetchOnWindowFocus: false,
   throwOnError: true,
-  initialData: null,
+  initialData: underfined, // initialData will have staleTime too
+  placeholderData: Map(), // use placeholderData, almost never use initialData
+  staleTime: 60 * 60 * 24, // how long until data is dirty
+  cacheTime: 60 * 60, // stay in cache even left page
 });
+
+const edit = useMutation(postEdit, {
+  onSuccess: () => {
+    queryClient.invalidateQueries('abc')
+  }
+})
 ```
 
 **mouseflow**
