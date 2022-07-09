@@ -1,0 +1,44 @@
+
+openapi: 3.0.0
+info:
+  title: Terry API makeup Spec
+  version: '1.0'
+externalDocs:
+  description: "Example Redoc API Documenation for github"
+  url: https://github.com/retry51776/notes
+servers:
+  - url: http://localhost:{port}/api
+    variables:
+      port:
+        enum:
+          - "123"
+        default: !!str "1234"
+tags:
+  - name: test
+    description: Just Testing
+
+paths:
+  /sales:
+    summary: Sales
+    get:
+      tags: 
+        - test
+      responses:
+        200:
+          description: Success
+        400:
+          description: 'Denied'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400'
+# Reused components
+components:
+  schemas:
+    400:
+      description: 'xxx'
+      type: object
+      properties:
+        error:
+          type: string
+          example: "xxx"

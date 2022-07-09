@@ -157,7 +157,7 @@ process.on('exit', () => {
 ```
 
 ## API documentation
-> swagger `is OpenAPI specification editor`
+> swagger `is OpenAPI specification with 3 components: UI, Editor, CodeGen`
 
 > 1. from spec(swagger.json) to template(flask routes)
 >> https://editor.swagger.io `Check swagger file, generate server template`
@@ -170,36 +170,6 @@ process.on('exit', () => {
 - Redoc `is nicer looking react api-documentation from swagger` `redoc-cli bundle -o /public/doc.html xx_swagger.yml`
 - swagger static ui `static editor, change {{base_url}}`
 
-
-```
-openapi: 3.0.0
-info:
-  title: Terry API makeup Spec
-  version: '1.0'
-externalDocs:
-  description: whatever
-  url: https://github.com/retry51776/notes
-servers:
-  - url: http://localhost:{port}/api
-    variables:
-      port:
-        enum:
-          - "123"
-        default: !!str "1234"
-tags:
-  - name: test
-    description: Just Testing
-
-paths:
-  /sales:
-    summary: Sales
-    get:
-      tags: 
-        - test
-      responses:
-        200:
-          description: Success
-```
 
 # Buzzwords
 JWT is value base token, cookie is reference base token
