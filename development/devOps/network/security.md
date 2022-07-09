@@ -44,8 +44,15 @@ ssh-rsa is Developer Public Keys
 
 ### Setup VPN
 Microsoft Management Console `Run > mmc > Enter` export LDAP certificate for VPN
+default config path `C:\Users\xxx\OpenVPN\config`
+> xxx.ovpn
+```
+ca xxx_ca.crt
+cert xxx.crt # Musted signed by CA
+key xxx.key
+```
 
-## File Types
+## SSL Files
 ```
 .csr = Certificate Signed Request
 *.ppk = encrypted private key by puttyGen
@@ -55,7 +62,7 @@ Microsoft Management Console `Run > mmc > Enter` export LDAP certificate for VPN
 .cer - certificate only with public keys.
 .cer & .key is OpenSSL generated files for OpenVPN, Pageant
 
-*.crt = Windows certificate  for SSL
+*.crt = Windows SSL Certificate
 *.pem = subset of *.crt, just rename extension to *.crt
 //pem can be private key or public key
 *.key = private key
@@ -107,3 +114,8 @@ openssl req -new -key xxx.key -out xxx.csr
 1. open Server Manager/Tools/Certification Authority
 
 `http://localhost/certsrv` or `http://pc_name.domain_name.local/certsrv`
+
+## Single Sign-on (SSO)
+1. save some shared secret/pub_key into DB
+2. user used private_key to Generate JWT w user_name, time_of_sign, unqiue_id
+3. we vertify JWT w pub_key & create session

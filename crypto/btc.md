@@ -46,6 +46,7 @@
 > .cpp files, or implementation files, are used to actually implement those methods and use those instance variables
 
 - /src
+  - /validation.cpp `5000 lines logics, TODO: break down methods`
   - /index
     - /base.cpp
   - /node

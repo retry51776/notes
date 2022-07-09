@@ -11,3 +11,5 @@ Mid West 24
 Mid South 52
 Rocket Mnt 15
 West Coast 26
+
+imply odd is gambling term

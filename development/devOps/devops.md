@@ -24,26 +24,10 @@ Job > Group > Task
 
 
 ---
-## Setup Domain Controller
-1. Create VM
-   a. rename PC name to (DomainController or something)
-   b. config network adpator properties, disable IPv6, IPv4 with static IP
-2. Server Manager -> Add roles & features -> check
-   a. Active Directory Domain Service
-3. Promote this service to a donmain controller
-4. Add role DNS Service (conver url to ip)
-5. Add role DHCP (manage IP adress assignment)
-
-
-## Add PC to Domain
-1. Control Panel / System and Security / System / change setting
-2. rename PC name & domain
-3. change DNS service to DC ip
-
-
 **Github Action**
 .github/workflows/docker-publish.yml
 
+{{ github.event.release.tag_name }}
 ```
 - id: get_branch
 shell: bash
@@ -69,6 +53,20 @@ clean-working-directory:
         cd $RUNNER_WORKSPACE
         cd ..
         rm -r *
+
+
+---
+generate_docu:
+  image: node
+  stage: deploy
+  script:
+  - npm install -g redoc-cli
+  - redoc-cli bundle -o /public/doc.html xxx_swagger.yml
+  artifacts:
+    paths:
+    -public
+  only:
+  - master
 ```
 
 paloalto
@@ -107,7 +105,10 @@ resource "google_compute_instance" "test_ec2" {
 }
 ```
 
+### Jenkinsfile.develop
+```
 
+```
 Config Management DB(CMDB) a file list csp servers
 Jenkin Cronjob tigger Ansiable playbook call APIs
 ServiceNow

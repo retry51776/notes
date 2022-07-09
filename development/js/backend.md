@@ -76,7 +76,7 @@ ldap.bind(config.ldap.bind_dn, config.ldap.bind_secret, err => {
 - http `node server to handle network`
 - express `web framework build on top http module`
 - body-parser
-- express-session
+- express-session `https://github.com/expressjs/session for docu`
 - redis
 - ejs # Template Engine
 - helmet `Express header`
@@ -142,6 +142,8 @@ const redisStore = req.sessionStore;
 redisStore.get(req.xxxID, (err, sess) => {
   req.session // is avaiable
 })
+
+// express redisSession
 ```
 # Node Standard Lib
 ```
@@ -154,7 +156,50 @@ process.on('exit', () => {
 });
 ```
 
+## API documentation
+> swagger `is OpenAPI specification editor`
 
+> 1. from spec(swagger.json) to template(flask routes)
+>> https://editor.swagger.io `Check swagger file, generate server template`
+>
+>> openapi-generator `takes spec & generate server template, use their docker image`
+> 2. from annotation to spec
+>> apispec `takes docstring & marshmallow to generate spec https://gist.github.com/arundhaj/5f4c0f8c9a8efba9f92f81adea9fd4d7`
+
+### Documentation UI
+- Redoc `is nicer looking react api-documentation from swagger` `redoc-cli bundle -o /public/doc.html xx_swagger.yml`
+- swagger static ui `static editor, change {{base_url}}`
+
+
+```
+openapi: 3.0.0
+info:
+  title: Terry API makeup Spec
+  version: '1.0'
+externalDocs:
+  description: whatever
+  url: https://github.com/retry51776/notes
+servers:
+  - url: http://localhost:{port}/api
+    variables:
+      port:
+        enum:
+          - "123"
+        default: !!str "1234"
+tags:
+  - name: test
+    description: Just Testing
+
+paths:
+  /sales:
+    summary: Sales
+    get:
+      tags: 
+        - test
+      responses:
+        200:
+          description: Success
+```
 
 # Buzzwords
 JWT is value base token, cookie is reference base token

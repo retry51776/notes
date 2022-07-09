@@ -16,6 +16,7 @@
   - react dev
   - redux dev
   - google analytics
+  - [chrome://net-internals](chrome://net-internals/)
 - Windows Terminal
 - Docker
   > remove windows path if CMD run slow
@@ -65,8 +66,16 @@ https://videohive.net/
 - Selenium 
 > automation of web browsers, more features(EX: UI interaction) than scrapy
 
+# Workflow
+- Visio
+- Draw.io
 
 **Windows Sub Linux**
+1. `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`
+2. Go to Micr Store & get Debian
+
+> ~/.bashrc is bash setting
+> PS = Prompt String, just like python `Export PS ="\t"`
 Try remove windows path from WSL if cmd in WSL is slow
 - In `/etc/wsl.conf` add
 ```

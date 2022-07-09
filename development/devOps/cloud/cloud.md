@@ -11,10 +11,29 @@ CloudWatch + CloudTrail = stackdriver
 - S3 `Disk Storage`
 - Cloudfront `CDN`
 - Route 53 `DNS`
-- API Gateway + Lambda `cloud function`
+- API Gateway `10,000 RPS (requests per second)` + Lambda `cloud function`
 - App Load Balancer + EC2 `old VM`
-- App Load Balancer + ECS `container`
+- App Load Balancer `+100,000 RPS, since 16` + ECS `container`
 - EKS `K8`
+- Elastic Load Balancer (ELD) `since 09, container-based`
+
+### Lambda
+> job less than 15 mins
+```
+def xxx_handler(event, context):
+    id = event['queryStringParameters']['id']
+    return {
+        'statusCode': 200,
+        'headers': {
+            'Content-Type': 'json'
+        },
+        'body': json.dumps({})
+
+    }
+```
+### Elastic Container Service (ECS)
+
+### Elastic Kubenete Service (EKS)
 
 ### DBs
 https://aws.amazon.com/products/databases/
@@ -24,8 +43,8 @@ https://aws.amazon.com/products/databases/
 
 ### Orchestration
 Step Functions
-SNS
-SQS
+SNS - `similar rabbitmq`
+SQS - `simple message & consum` 
 Cloud Formation
 
 ## AWS Enterprise Support
@@ -44,6 +63,14 @@ Guidance 24h
 
 Enterprise Discount Program (EDP)
 
+### Pricing Models
+- On Demand
+- Saving Plans
+- Reserved Instances
+- Spot Instances
+- Delicated Host
+
+
 ```
 ~/.aws/credentials
 [default]
@@ -55,6 +82,10 @@ kubeconfig default /Users/xxx/.kube/config
 //brew tap weaveworks/tap
 apt-get install eksctl
 ```
+
+# Aws Course
+- AWS Cloud Practitioner Essentials
+
 
 # GCP
 GKE

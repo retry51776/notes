@@ -1,6 +1,4 @@
-SQL Server Integration Services (SSIS)
-
-Data Warehouse Tool
+## Data Warehouse Tool
 - Amazone RedShift
 - Google BigQuery
 - SnowFlake
@@ -109,11 +107,11 @@ Databrick Runtime
 - Shared Disk Architecture
 - Shared Nothing Architecture
 - Confusion Matrix
-
-want low False possitity
-Predict Analytics & Prescriptive Analytics 
+- SQL Server Integration Services (SSIS)
+- Predict Analytics & Prescriptive Analytics 
 
 # Pandas
+pandas.pydata.org/pandas-docs/
 ```
 df = pd.DataFrame.from_dict()
 del df['Company1']

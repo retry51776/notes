@@ -1,4 +1,11 @@
 # ML
+
+> Find data correlation
+Pearson's coefficient
+
+ANOVA stands for Analysis of Variance
+
+
 ## Libraries
 numpy
 pandas
@@ -19,6 +26,19 @@ Alg.
 pyTorch
 Tensorflow
 
+
+// take out feature at a time
+recursive feature removal
+
+KubeFlow decorator
+@component()
+def get_df(project_id):
+	ddf.to_csv(data_out.path)
+
+pipleline is compile into json
+
+@kfp.dsl.pipeline(name="", pipeline_root=xxx):
+	xxxx = xxx.
 
 ## Models
 dropout

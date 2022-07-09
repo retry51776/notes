@@ -3,6 +3,24 @@ Post Ops
 ```
 /_cluster/settings?include_defaults=true
 /_delete_by_query
+
+{
+  "persistent": {
+    "indices.breaker.request.limit": "70%"
+  },
+  "setting": {
+    "index": {
+      "mapping": {
+        "total_fields": {
+          "limit": 3000
+        },
+        "nested_fields": {
+          "limit": 100
+        }
+      }
+    }
+  }
+}
 ```
 Query
 ```
