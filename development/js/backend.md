@@ -157,8 +157,11 @@ process.on('exit', () => {
 ```
 
 ## API documentation
-> swagger `is OpenAPI specification with 3 components: UI, Editor, CodeGen`
+> OpenAPI `is a specification`
 
+> swagger `is tool with 3 components: UI, Editor, CodeGen`
+
+### CodeGen & Editor
 > 1. from spec(swagger.json) to template(flask routes)
 >> https://editor.swagger.io `Check swagger file, generate server template`
 >
