@@ -1,12 +1,12 @@
 # dotnet
-
-> standard framework is old closed source
-
 > .net core is new open source version
 
 > linq XXX.foreach have bad performance.
 use foreach XXX instead
 
+> base = super
+
+> usually existed a base_controller class acted as middleware, and all other controller based of base_controller
 **Route**
 
 > Controller's File name, & method name IS part of route
@@ -22,15 +22,15 @@ use foreach XXX instead
 
 **RouteConfig class**
 
-    1. create AreaRegistration instance
-    2. create AreaRegistrationContext(name, routes)
-    3. AreaRegistration.RegisterArea(AreaRegistrationContext)
+1. create AreaRegistration instance
+2. create AreaRegistrationContext(name, routes) `in flask xxx_APP = BluePrint(name)`
+3. AreaRegistration.RegisterArea(AreaRegistrationContext) `in flask app.register_blueprint(xxx_APP)`
 
 
 **AreaRegistration class**
 
-    1. override RegisterArea(context)
-    2. context.MapRoute(name, route, view)
+1. override RegisterArea(context)
+2. context.MapRoute(name, route, view) `only for custom routing`
 
 Ex route: "Sales/{controller}/{action}/{id}"
 
@@ -42,12 +42,13 @@ Ex route: "Sales/{controller}/{action}/{id}"
 
 **Controller class**
 
-    1. AsyncController(requestContext)
-    2. check session
-    3. build menu
-    4. business logic
-    5. return ActionResult (View or JsonNet or FileResult)
+1. AsyncController(requestContext) `in flask requestContext = req`
+2. check session
+3. business logic
+4. return ActionResult (View or JsonNet or FileResult)
 
+## requestContext
+requestContext.HttpContext.Request.Url
 
 **XXXService class (references in controller)**
 > complex business logic
@@ -76,21 +77,6 @@ Ex route: "Sales/{controller}/{action}/{id}"
 
 > azureKeyValut to overwrite appsetting values
 
-**.Net Framework**
-> static files to in root
-
-> /App_Data
-
-> /App_Start
-
-> /Script
-
-> /font
-
-> webconfig.xml has bunch junks
-
-
-
 **Ajax Request with .Net**
 ```
 var request = new HttpRequestMessage(HttpMethod.Get, uri);
@@ -101,7 +87,7 @@ using (var response = Client.SendAsync(request).Result)
 }
 ```
 
-# DOTNET CORE
+
 ```
 dotnet list package
 --verbose //Flag to get more detail
@@ -162,49 +148,26 @@ so view can check in compile time if variable has methods
     > app level instance
 
 
-**ASP.NET Request Process(NOT core)**
+## ASP.NET Request Lifecycle
 
+/Global.asax.cs
+- Applocation_Start
 - Application_BeginRequest()
 - Application_AuthenticateRequest()
 - Application_AuthorizeRequest()
 - Application_ProcessRequest()
 - Application_EndRequest()
 - Application_HandleError()
+- Applocation_End
 
-# Nuget
-> setup Private Library
+### MiniProfiler
+> shows stack run time
 ```
-nuget sources add -name private_repo -source https://private_server/v3/index.json
-
-
-VS/Tool/Options/Nuget Package Manager/Package Source
-~/AppData/Roaming/NuGet/NuGet.Config
-```
-
-**Setup Repo**
-```
-dotnet restore(npm install)
-dotnet add package XXXX(npm install XXX -s)
-nuget add foo.nupkg -Source c:\bar\
-dotnet tool install --global dotnet-ef (npm install -g XXX)
-Install-Pack [package-name] (Only work in VS cmd)
-
-dotnet add .Main.csproj reference .Library.csproj
-
-
-
-dotnet list package
-dotnet clean
-dotnet nuget locals all --clear
-```
-
-**Publish**
-```
-dotnet pack -c Release /p:PackageVersion=2.0.1
-nuget pack
-
-dotnet nuget push --source [publish path] --api-key **** XXX.nupkg
-dotnet publish
+1. Install
+2. StartUp.cs create instance `services.AddMiniProfiler()`
+3. Add decorator before inspect method
+4. Add <mini-profiler /> to view
+5. Go to view
 ```
 
 # Tech stack
@@ -212,3 +175,12 @@ dotnet publish
 
 - IIS Tilde Enumeration
     > IIS support wildcard in URL, which can expose application structure
+
+```
+public interface IXXX
+{
+    String xx { get; set; }
+    bool enable { get; set; }
+    String toHTML();  `return String.Format(<h1>{0}</h1>, "Test")`
+}
+```
