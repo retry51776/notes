@@ -1,3 +1,10 @@
+# DevOps Metrics
+- Deployment Freq
+- Lead Time `commited to master to deployment`
+- Mean Time Recovery
+- Change Failure Rate `hotfix/deployment`
+- Cycle time `aka dev time, most mgr care about`
+
 # HashiCorp/ Nomad
 Similar to k8, Nomad is a single binary, both for clients and servers.
 

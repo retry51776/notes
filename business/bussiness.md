@@ -104,6 +104,10 @@ Acquisition vs Buildout
 Company Brand vs Solution Brand
 <hr />
 
+## Lead Direction/Tradeoff
+> High production rate solve low production yield
+
+> Improved robustness vs performance
 
 # Good Idea
 Giftcard Meeting
