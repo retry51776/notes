@@ -1,6 +1,7 @@
 # AWS
 docs.aws.amazon.com
 
+
 AWS support prefer screen share
 
 Edit premission will allow ticket creation
@@ -86,15 +87,41 @@ apt-get install eksctl
 # Aws Course
 - AWS Cloud Practitioner Essentials
 
+#### AWS CLI
+```
+aws ec2 run-instances
+```
 
-# GCP
-GKE
+### Direct Connect
+> Private connection between datacenter to AWS
 
-Google Cloud’s containers as a service (CaaS)
+### Amz Elatics Block Storage(EBS)
+database storage
 
-StackDriver
+## simple storage classes (S3)
+### S3 Standard
+    (11 9s) of data durability
+S3 lifecyle management `auto move data between tiers`
 
-Cloud Storage
+# AWS Lake Formation
+- Athena `big query console`
+- AWS Glue
+  - Data Catalog DataBases `stoage for crawler`
+  - Crawler `detect S3 folder changes & create DB`
+  - Kinesis Firehose
+  - Job `Create ETL engine, do mapping or join query`
+    - Spark
+    - Streaming ETL
+    - Python shell
 
-Cloud Functions
+## AWS IAM
+- Groups
+    - User
+- Role `temporarily access`
+- Policy
+    - Effect: [allow, deny]
+    - Action: xxx_api
+    - Resource: xxx_resource
 
+## Key Management Service (KMS)
+## Inspector

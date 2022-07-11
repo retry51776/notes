@@ -110,3 +110,6 @@ IBM advance firewall
 2. rename PC name & domain
 3. change DNS service to DC ip
 
+# Buzzwords
+- Internet Gateway(IGW)
+- Network Access Control List(Network ACL) `base of IP control`
