@@ -20,6 +20,14 @@ CloudWatch + CloudTrail = stackdriver
 
 ### Lambda
 > job less than 15 mins
+
+> not very good at appliction level cache(because AWS only keep function alive for 30-45mins)
+
+> slow if lambda needs preload large dataset
+
+> slower running in VPC
+
+> mamually keep warm, why aws don't give a config options?
 ```
 def xxx_handler(event, context):
     id = event['queryStringParameters']['id']
@@ -31,6 +39,30 @@ def xxx_handler(event, context):
         'body': json.dumps({})
 
     }
+```
+
+## Step Function
+> Sudo bussiness logic
+state machine
+```
+{
+    "StartAt": "x_step",
+    "States": {
+        "x_step": {
+            "Type": "Choice",
+            "Choices": [{
+                "Variables": "$.choice",
+                "StringEquals": "Confirmed",
+                "Next": "confirmed"
+            }]
+        },
+        "confirmed": {
+            "Type": "Task",
+            "Resource": "confirm_lambda_function"
+            "End": true
+        }
+    }
+}
 ```
 ### Elastic Container Service (ECS)
 
@@ -122,6 +154,13 @@ S3 lifecyle management `auto move data between tiers`
     - Effect: [allow, deny]
     - Action: xxx_api
     - Resource: xxx_resource
+- Identity Federation `link LDAP?`
 
 ## Key Management Service (KMS)
 ## Inspector
+
+## CloudWatch
+- Dashboard
+- Alarm
+
+## CloudTrail

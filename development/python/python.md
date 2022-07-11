@@ -234,8 +234,6 @@ i = iter([1, 2, 3])
 i1, i2, i3 = itertools.tee(i, 3)
 ```
 
-# Standard Library Utilities
-
 ## custom utilities
 ```
 # round(2.50) == 2, wtf

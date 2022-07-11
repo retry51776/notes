@@ -57,7 +57,7 @@ https://videohive.net/
 # Security/DevOps
 - Vulnerability Scoring https://www.first.org/cvss/
 - netspy (Pen/Penetration testing)
-- checkmarx
+- checkmarx `check code`
 - Rapid7
 - whitesource (check software dep security versions has security bugs)
   > GPL 2/3 are often deny, MIT is prefer

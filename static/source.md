@@ -14,3 +14,5 @@
 [DevOps 2021 Setup Report](https://www2.circleci.com/2021-puppet-state-of-devops.html?utm_source=google&utm_medium=sem&utm_campaign=sem-google-dg--uscan-en-stateofdevops-maxConv-lg-nb&utm_term=g_e-devops%20report%202021_c__freeCopy_20211222&utm_content=sem-google-dg--uscan-en-stateofdevops-maxConv-lg-nb_keyword-text_eta-stateofdevops2021_mixed-&gclid=Cj0KCQjw8amWBhCYARIsADqZJoVNIft_lwyGCs2KxBrzXQzBTtzJhRi0rjpp6SqFOVqprLDdOvJfxLQaAornEALw_wcB)
 
 [rocket](https://commons.wikimedia.org/wiki/File:Ssme_schematic_%28updated%29.svg)
+
+[workflow](https://developer.here.com/documentation/ci_cd/white_paper/topics/ci-cd-workflow.html)

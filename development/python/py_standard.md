@@ -1,7 +1,4 @@
-# Standard Libs
-
-TODO: too many python notes, needs splite out core vs standard libs
-
+# Standard Library Utilities
 
 ## dates
 ```
