@@ -116,4 +116,33 @@ for doc in helpers.scan(
   scroll,
   routing
 )
+
+{
+  "script": {
+    "script": {
+      "land": "expression",
+      "params": {
+        "ppp": [1,2,3]
+      }
+      "source": '''
+        for (int i=0; i< params.ppp.length; i++) {
+          if (doc['xxx'] > 123 && doc['yyy'] == params.ppp[i]) return true;
+          return false;
+        }
+      '''
+    }
+  }
+}
+
+{
+  "scripted_metric": {
+    "params": {
+      "x_agg": {}
+    },
+    "init_script": "params._agg.x_agg = []",
+    "map_script": "params._agg.x_agg.add(params._source.x)", // pick values
+    "combine_script": "", // run shard level
+    "reduce_script": "",// run node level
+  }
+}
 ```
