@@ -1,4 +1,4 @@
-# dotnet
+# dotnet core
 > .net core is new open source version
 
 > linq XXX.foreach have bad performance.
@@ -6,12 +6,38 @@ use foreach XXX instead
 
 > base = super
 
-> usually existed a base_controller class acted as middleware, and all other controller based of base_controller
-**Route**
+> app.UseXXX ususally is middleware
+
+> services.AddXXX Usually is setup service `similar flask app.xxx = YYY`
+
+> wwwroot to store static files
+
+> appsetting.json
+
+> azureKeyValut to overwrite appsetting values
+
+## ASP.NET Application Workflow
+- Main()
+- Host.CreateDefaultBuilder
+- Startup.cs
+    - ConfigureServices()
+        - AddDbContext()
+        - AddControllers()
+        - AddCors()
+        - AddSession()
+        - AddSingleton()
+        - AddScoped()
+    - Configure()
+        - UseRouting() `aka BluePrint`
+        - UseCors()
+        - UseSession()
+
+
+## /Controller `same for .net standard`
 
 > Controller's File name, & method name IS part of route
 
-> It's defined in /App_Config/RouteConfig.cs
+> Custom Route can be defined in `/App_Config/RouteConfig.cs`
 
 > every files will be import according to their namespace
 
@@ -19,43 +45,24 @@ use foreach XXX instead
 
 > name space conflict will trigger during compile 
 
-
-**RouteConfig class**
-
-1. create AreaRegistration instance
-2. create AreaRegistrationContext(name, routes) `in flask xxx_APP = BluePrint(name)`
-3. AreaRegistration.RegisterArea(AreaRegistrationContext) `in flask app.register_blueprint(xxx_APP)`
-
-
-**AreaRegistration class**
-
-1. override RegisterArea(context)
-2. context.MapRoute(name, route, view) `only for custom routing`
-
-Ex route: "Sales/{controller}/{action}/{id}"
-
-> controller = bundle of multiple route handlers 
-
-> action = controller class's method name
-
-> we can register multiple route in AreaRegistration point to same controller's action 
-
-**Controller class**
+> requestContext `requestContext.HttpContext.Request.Url`
 
 1. AsyncController(requestContext) `in flask requestContext = req`
 2. check session
 3. business logic
 4. return ActionResult (View or JsonNet or FileResult)
 
-## requestContext
-requestContext.HttpContext.Request.Url
 
-**XXXService class (references in controller)**
-> complex business logic
+## /Services
+> complex business logic `most likely init during ConfigureServices(), then refered in controller`
 
-**Models class**
+## /Models
 > defined Datasource struct
 
+## /Properties
+> launchSettings.json store different envs, will overwrite in Production
+
+# Coding
 **Conversion Jason <==> Data Model**
 
 - Dictionary.TryGetValue()
@@ -67,17 +74,7 @@ requestContext.HttpContext.Request.Url
   - new JavaScriptSerializer().Deserialize(string, typeof(ModelClass))
 
 
-
-
-**.Net Core**
-
-> wwwroot to store static files
-
-> appsetting.json
-
-> azureKeyValut to overwrite appsetting values
-
-**Ajax Request with .Net**
+## Ajax Request with .Net
 ```
 var request = new HttpRequestMessage(HttpMethod.Get, uri);
 request.Headers.Add("username", username);
@@ -148,17 +145,6 @@ so view can check in compile time if variable has methods
     > app level instance
 
 
-## ASP.NET Request Lifecycle
-
-/Global.asax.cs
-- Applocation_Start
-- Application_BeginRequest()
-- Application_AuthenticateRequest()
-- Application_AuthorizeRequest()
-- Application_ProcessRequest()
-- Application_EndRequest()
-- Application_HandleError()
-- Applocation_End
 
 ### MiniProfiler
 > shows stack run time

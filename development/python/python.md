@@ -93,6 +93,8 @@ lower()
 .title()
 .strip()#lstrip or rstrip
 [::-1]#reverse
+[1,2,2,3,3,3].count(2)
+dictionary.setdefault(keyname, value)
 
 a, b, c = 1, 2, 3
 a, b, *_, d = list(range(10))
