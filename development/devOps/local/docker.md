@@ -69,6 +69,7 @@ COPY --from=test /src /src
 docker run -it --rm [images-tag] sh
 
 docker-compose build --no-cache
+docker-compose -f docker-compose.dev.yml up
 
 docker cp sltc-dashboard:/opt/app/node_modules .
 
@@ -108,3 +109,7 @@ USER tom
 CMD node index.js
 
 ```
+
+# Other
+- Codacy Badge `Codacy/repo/Setting/General`
+- Github Action Badge `Github/repo/action/xxx_action/.../Create Action Badge`

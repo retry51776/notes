@@ -14,6 +14,7 @@
 - /View `templates`
 - /Controller
 - /Areas
+- .sln # solution file, defines how many apps inside repo
 
 > custom routing https://stackoverflow.com/questions/56824966/is-there-something-like-routeconfig-cs-in-net-core-mvc
 

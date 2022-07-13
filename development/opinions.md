@@ -143,22 +143,25 @@ Backend
   > attribute based access control
 
 ## Language
-
-| weekly | strongly |
-|--|-|
-| -- | -- |
+> The reason c++ is fast because good coder will reduce work `Ex: python get val from dict always generate hash, but in c++ if you already gen hash, just reused hash`
+> But in the same time, developer have to manager more details
+> Think of driving, the more direct control over car engine faster you can drive. But I love automatic transmission!
 
 ## ASCII vs UTF8 vs UTF16
+> encoder is like html
+>
+> common encoder formats:
+>> ASCII is old 7 bit character mapping
+>> UTF8 is most common 8 bit mapping
+>> UTF16 is larger room 16 bit mapping
 
-encoder is like html
-font is like css
-
-common encoder formats:
-ASCII is old 7 bit character mapping
-UTF8 is most common 8 bit mapping
-UTF16 is larger room 16 bit mapping
+> font is like css
 
 ### Docker VS VM
 > docker just using linux kernel namespace partitions
 
 > VM have overhead from virtal hardware, virtal OS
+
+
+# Quiz
+- The Minion Game

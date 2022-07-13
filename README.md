@@ -1,4 +1,7 @@
 # notes
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/03049fab007a4e098dc046095b4f5928)](https://www.codacy.com/gh/retry51776/notes/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=retry51776/notes&amp;utm_campaign=Badge_Grade)
+[![Greetings](https://github.com/retry51776/notes/actions/workflows/greetings.yml/badge.svg)](https://github.com/retry51776/notes/actions/workflows/greetings.yml)
+
 This isn't project, but like my public notebook.
 
 Online Editor @ [Gitpod](https://gitpod.io/#github.com/retry51776/notes)

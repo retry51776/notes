@@ -19,6 +19,8 @@ CloudWatch + CloudTrail = stackdriver
 - Elastic Load Balancer (ELD) `since 09, container-based`
 
 ### Lambda
+> test with severless or SAM
+
 > job less than 15 mins
 
 > not very good at appliction level cache(because AWS only keep function alive for 30-45mins)
@@ -39,6 +41,22 @@ def xxx_handler(event, context):
         'body': json.dumps({})
 
     }
+
+sam local invoke -e ./xx.json XXX_Function
+sam local start-api
+
+AWSTemplateFormatVersion: '2010-01-01'
+Transform: AWS::Serverless-2010-01-01
+Description: >
+    xxx
+
+Resources:
+    LambdaDemoFunction:
+        Type: AWS::Serverless::Function
+    Properties:
+        CodeUri: lambda/
+        Handler: lambda.xxx_handler
+        Runtime: python3.10
 ```
 
 ## Step Function

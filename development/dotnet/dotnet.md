@@ -16,6 +16,22 @@ use foreach XXX instead
 
 > azureKeyValut to overwrite appsetting values
 
+# Deployment & Developement
+> Ways to set ASPNETCORE_ENVIRONMENT
+```
+# 1. Default location
+/Properties/launchSettings.json
+# 2. Go into container & change it
+$Env:ASPNETCORE_ENVIRONMENT = "Development"
+# 3. During publish package
+dotnet publish -c Debug -r win-x64 /p:EnvironmentName=Development
+# 4. Though docker-development.env
+ASPNETCORE_ENVIRONMENT=Development
+
+
+appsettings.json # Define Apps, kind replaced .sln file
+```
+>
 ## ASP.NET Application Workflow
 - Main()
 - Host.CreateDefaultBuilder
