@@ -11,18 +11,6 @@ here are common trade offs
   > SQL vs no SQL
 - complexity or flexibility
 
-# Stuck?
-> started from solution, extract key variables that calculated solution
-
-> Question/Input properties?
-
-> cache redone steps, common in tree, recursive
-
-> Dynamic Programming or Recursive
-
-> For most, longest, shortest, max, min question. Prefer solution that each computation step reduce possibility
-
-  - Ex: max question: only keep track of local max result, throw away past calculation
 
 ## Architecture
 - Monolithic/layered
@@ -43,50 +31,27 @@ here are common trade offs
 
   > UI: repo has client side, can be internal or external
 
-Backend
-- Engine
+## Backend Pattern
+- /Engine
   > any async service, crons, Pub/Sub
   - Manager
     > Creates msgs, keep track job status 
   - Worker
     > Consumer of msgs
 
-- Calculator Class
+- /Calculator
   > Just bussiness logic
 
   > NO network connections
-- Service Class 
+- /Service 
   > handle network connections, data retrieve
 
   > application level cache
   
   > init Calculator Class instance
-- Scripts
+- /Script
   > One off job, Ex: test  
 
-**75 blind questions types**
-
-- Array/Matrix
-  - Quick Seach|Sort
-  - Window Slicing
-- Recursive
-  - Divide and Conquer
-    > Merge sort is easy to parrel
-
-  - Dynamic Programming
-    - Tree
-      > Only single path from root to any node
-
-      > Depth-first search
-        - Preorder is priorty is left, node, right
-        - Inorder is started from leftest leave, then root, at last right subtree
-        - Postorder is started from leftest leave, then silbing, at last parent
-
-      > Breadth-first search(level order) prioty is lower level scan first
-      - Heap
-        > Tree structure that will self reorder when add/poll node
-      - Sufflix Trie
-        > Tree structure that store string by letter, reduced space cost, useful for substring search
 
 # Application Design
 > Database is usually is the first bottleneck of application design
@@ -142,11 +107,6 @@ Backend
 - ABAC
   > attribute based access control
 
-## Language
-> The reason c++ is fast because good coder will reduce work `Ex: python get val from dict always generate hash, but in c++ if you already gen hash, just reused hash`
-> But in the same time, developer have to manager more details
-> Think of driving, the more direct control over car engine faster you can drive. But I love automatic transmission!
-
 ## ASCII vs UTF8 vs UTF16
 > encoder is like html
 >
@@ -162,6 +122,33 @@ Backend
 
 > VM have overhead from virtal hardware, virtal OS
 
+# Application Language
+# SQL
+> It's NOT a standard when it suppose to be a standard.
+> 
+> If function is such bad for performance, why make it so powerful. It's like puting posion in nice soda can.
+# Python
+> It's slow, but 90% bussiness use cases accpets horizontal scaling to mitigate problem.
+> 
+> Typescipt like feature on Python will be cool.
+> 
+> I love snake_case variable naming. Every language should use it.
 
-# Quiz
-- The Minion Game
+# JS
+> Very big ecosystem, now it's problem.
+> 
+> Too many framework, even JS engines & JS runtime have more than I want to learn.
+> 
+> At the end of day, it's single thread process. Similar max performance issue like Python.
+> 
+> I want all browser support typescript, sass by default. I can dream.
+> 
+> I don't like UpperCamelCase or LowerCamelCase
+
+# C++
+> The reason c++ is fast because good coder will reduce work `Ex: python get val from dict always generate hash, but in c++ if you already gen hash, just reused hash`
+> But in the same time, developer have to manager more details
+> Think of driving, the more direct control over car engine faster you can drive. But I love automatic transmission!
+
+## .Net
+> One major thing I don't like about .net: isn't very clear what calls what, where code/DI from. I have to read micro docs, but there just too many versions w no clear differences.

@@ -1,4 +1,7 @@
 # dotnet core
+- Common Languege Specification (CLS)
+- Famework Class Library (FCL) `package in python, EX: ASP.NET(flask), WinForm, ADO.Net`
+  - Base Class Library (BCL) `aka standard lib, Ex: system, os, io`
 > .net core is new open source version
 
 > linq XXX.foreach have bad performance.
@@ -186,3 +189,7 @@ public interface IXXX
     String toHTML();  `return String.Format(<h1>{0}</h1>, "Test")`
 }
 ```
+
+## Naming Pattern
+- onXXX `takes event as param`
+- xxxHandler `e`

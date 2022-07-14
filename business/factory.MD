@@ -1,5 +1,8 @@
-# factory
+# Factory
+> I should wrote down more notes.
 
+
+## Buzzwords
 - Bill of materials (BOM)
 - Bill of Lading (BOL) `for carrier`
 - Bill of Lading (BOL)
@@ -9,17 +12,17 @@
 - Return Material Authorization (RMA)
 - Supply Chain Management (SCM)
 
-ERP Modules
+## ERP Modules
 - HR
 - Shop Floor `Clock in Time, schedule`
-- GL
-- AR
-- AP
-- Cash & Bank management
+- General Ledger (GL)
+- Account Receivable (AR)
+- Account Payable (AP)
+- Cash & Bank management `CFO setup once, send payroll`
 - Production Control
-- Product Management
-- Inventory
+- Product Management `Engineer Dept often have their software (Ex: AutoCAD), need integeretion into ERP`
+- Inventory `A lot daily/monthly reports`
 - Project Management
-- Sales & Marketing
-- Master Planning
+- Sales & Marketing `Sales often complaint about speed`
+- Master Planning `Cause a lot deadlock`
 - Procurement

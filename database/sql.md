@@ -1,5 +1,7 @@
-# SQL general
+# SQL
+atomicity, consistency, isolation, durability (ACID)
 
+## Tips
 - in where caluse, avoid using function on table columns
     - Bad: `where ISNULL(sales.enddate, '2999-12-31') > @enddate` 
     - Good: `where sales.enddate is NULL or sales.enddate > @enddate`
@@ -17,6 +19,7 @@ select * from c join #temp1 on c.b = temp1.b;
     - If cost above 5, SQL will try parellarism
     - Right click select check memory usage
     - Don't use table variable
+
 - Implicit conversion
 - TempDB spill
 
@@ -26,37 +29,39 @@ select * from c join #temp1 on c.b = temp1.b;
 - Temp table less code, requires drop, but lives within session
 
 
-**Index**
+## Index
 - Cluster index is unique index, row is store by cluster index
 - None cluster index(index storage) is always store cluster index(reduce look up)
 - Cover index is none cluster index including other columns
 
 
-**Common Operators**
+## Common Operators
+- Table scan is slow
+- Index Scan is touch every pages
+- Index Seek is get qualified pages 
+- Key Lookup is get other columns
 
-    - Table scan is slow
-    - Index Scan is touch every pages
-    - Index Seek is get qualified pages 
-    - Key Lookup is get other columns
+- Nested Loop is cursor, fastest
+- Merge Join is fast, but slightly CPU
+- Hash Match cost a lot CPU
 
-    - Nested Loop is cursor, fastest
-    - Merge Join is fast, but slightly CPU
-    - Hash Match cost a lot CPU
+- Stream Aggregate required sorted
+- Hash aggregate is blocking op
 
-    - Stream Aggregate required sorted
-    - Hash aggregate is blocking op
-
-**Maintain**
-
-- single user mode vs offline mode
-- I'd remote into DB server, turn to offline mode
-- be careful on single user mode, no recommend
+## Maintain
+> single user mode vs offline mode
+> 
+> I'd remote into DB server, turn to offline mode
+> 
+> be careful on single user mode, no recommend
 
 
-**Under the hood**
-- Query optimizer builds a good enough query plan
-- Plan cache story query plans
-- Cardinality Estimator Is generate table stats
+## Under the hood
+> Query optimizer builds a good enough query plan
+> 
+> Plan cache story query plans
+> 
+> Cardinality Estimator Is generate table stats
 
 # MSSQL
 
@@ -89,5 +94,28 @@ SELECT @InsertQmId = @@IDENTITY
 - Polyphase will allow mssql query other dB, ex: mongodb, Oracle, spark
 
 # MySQL
+```
+create
+    definer = terry@`%` procedure x_proc(IN xxx varchar, OUT tt int)
+BEGIN
+    declare _xx int(5);
+    declare done int default false;
+    declare xx_cursor CURSOR FOR
+        SELECT xx FROM YY WHERE zz = xxx;
+    declare continue handler for not found set done = TRUE;
 
-ACID (atomicity, consistency, isolation, durability)
+    open xx_cursor;
+    xx_loop: LOOP
+        fetch xx_cursor INTO _xx;
+
+        if done THEN
+            LEAVE xx_loop
+        else
+            //whatever
+        end if;
+    end loop xx_loop;
+    close xx_cursor;
+    set tt = 2
+    leave x_proc;
+END;
+```
