@@ -186,4 +186,7 @@ JWT is value base token, cookie is reference base token
 ```
 error: Forever detected script was killed by signal: SIGKILL
 ```
-2.
+
+# New JS framework?
+- fresh `next nextjs? lol`
+- deno `node replacement, typescript buildin support, but we still need webpack to compile for front end`
