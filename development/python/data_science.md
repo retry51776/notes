@@ -4,21 +4,17 @@
 - SnowFlake
 - TeraData
 - MicroFocus
+- SnowFlake `cloud data warehouse platform`
+- Cloud Data Platform `Store in Cloud, Spark Process, Elastic Process`
+- Spark SQL `flexible APIs support different sources`
+- Hadoop `runs slow because on disk; writen in Java`
+- Spark `runs faster because on RAM; written in Scalar`
+- Pandas `run on single machine`
+- PySpark `run on multiple machines`
+- Databrick `Data analytics platform base off Apache Spark`
 
-SnowFlake
-cloud data warehouse platform
 
-Warehouse - Already format
-DataLake - Just store it, format it later
-Cloud Data Platform - Store in Cloud, Spark Process, Elastic Process
-Spark SQL flexible APIs support different sources
-
-Hadoop runs slow because on disk; writen in Java
-Spark runs faster because on RAM; written in Scalar
-Pandas run on single machine
-PySpark run on multiple machines
-
-ETL Problems:
+### ETL Problems:
 1. different source/format
 2. Schema mismatch
 3. Different representation
@@ -27,10 +23,7 @@ ETL Problems:
 6. Schema evolution
 
 
-# Databrick
-Data analytics platform base off Apache Spark
-
-## Components
+## Databrick Components
 - Web App
 - Notebooks
 - Job & Queues
@@ -66,7 +59,6 @@ Hive Tables
     * define dataFrame schema, it will convert body to string or json
     * Hook up proceessor to DataFrame (message_df.writeStream.option().foreachBatch(some_process).start())
 Data Table for ETL, can uplaod example.json let databrick auto create schema;
-4. 
 
 
 Workspace/Data Science View
@@ -102,8 +94,24 @@ Databrick Runtime
 3. Create Notebook & Design workflow
 4. Let Databrick control scale 
 
+## Feature Selection Methods
+> Too much feature can distract model accuracy and increase cost
+### Filter Method
+   - Pearson Correlation `static Correlation`
+   - Chi-Squared `static Correlation`
+   - ANOVA Test `static Correlation for category`
+### Wrapper Method
+   - Forward Selection `Add feature 1 at a time`
+   - Backward Elimination `Model accuracy less than 0.05 change`
+   - Recursive Feature Elimination (RFE) `I think of this approch similar greedy method`
+### Embedded Method
+   - Lasso: selectFromModel ?
+   - Tree-Based: selectFromModel ?
+   - I know some 3rd platform have build in param search, even come with UI visual result.
 
 # Buzzword Zoo
+- Warehouse `Already format & agged`
+- DataLake `Just store it, format it later`
 - Shared Disk Architecture
 - Shared Nothing Architecture
 - Confusion Matrix
@@ -113,8 +121,18 @@ Databrick Runtime
 # Pandas
 pandas.pydata.org/pandas-docs/
 ```
+import pandas as pd
+df = pd.read_csv('xx.csv')
+df = pd.read_sql(query, con)
 df = pd.DataFrame.from_dict()
 del df['Company1']
+def.loc[['row1', 'row2']] // get 2 rows
+def.loc[['C1', 'C2']] // get 2 cols
+def.loc[['row1', 'C2']] // get value
+df.column_name.to_list()
+df.head() // view dataset
+df.nlargest(10, 'x_col') // view 10 rows sort by x_col
+df.apply()
 df = df.dropna(subset=['Company2'])
 df = df.rename(
     {
@@ -123,4 +141,34 @@ df = df.rename(
     },
     axis=1
 )
+```
+
+# sklearn
+```
+from sklearn.preprocessing import RobustScaler
+normilizer = RobustScaler().fix(df)
+normilizer.transform(X)
+
+
+from sklearn.feature_selection import chi2, SelectKBest
+best_features = SelectKBest(score_func=chi2, k=5)
+select_features = best_features.fix(X, Y).columns
+```
+
+# ray
+```
+import modin.pandas # pandas that using ray
+import ray
+ray.init()
+res = [xx.remote(1), xx.remote(2)]
+ray.get(res)
+
+@ray.remote()
+def xx(p):
+    pass
+
+from sklearn.feature_selection import RFECV
+from sklearn.metrics import mean_squared_error
+
+
 ```

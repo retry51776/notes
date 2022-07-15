@@ -102,6 +102,11 @@ Evergreen Stock proposal -> equity compensation plan
 
 Acquisition vs Buildout
 Company Brand vs Solution Brand
+
+# Bankruptcy
+- Chapter 11 bankruptcy `reorganization plan`
+- Chapter 7 bankruptcy `liquidate assets`
+
 <hr />
 
 ## Lead Direction/Tradeoff

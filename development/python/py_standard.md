@@ -185,6 +185,17 @@ x = threading.Thread(target=thread_function, args=(1,))
 x.start()
 # similar JS await
 x.join()
+
+import multiprocessing
+pool = multiprocessing.Pool(multiprocessing.cpu_count())
+def xxx_func(whatever):
+    return whatever
+result = pool.map(xxx_func, frame.iterrows())
+pool.close()
+pool.join()
+
+import subprocess
+subprocess.run()
 ```
 ## contextlib
 ```
@@ -222,6 +233,9 @@ class DB():
 import argparse
 parser.add_argument('-d', '--debug', help='XXX', action='store_true')
 args = parser.parse_args()
+
+import sys
+print(sys.argv[1])
 ```
 ## asyncio
 ```
@@ -241,5 +255,7 @@ await task # similar thread.join()
 ```
 from pathlib import Path
 from urllib.request import urlopen
+import pickle // store in binary
+import json // store in json
 ```
 > httpx grather is faster multiple network requests

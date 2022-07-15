@@ -9,6 +9,8 @@
 > Decision Pipeline
 
 > multi message same queue & engine VS different queue w its engine
+
+> From my experience 3 mins to publish 5,000 small message
 ### Protocal
 - AMQP
   > Adcanced Message Queuing Protocol, move message between applications.
@@ -20,12 +22,12 @@
 ---
 
 # RabbitMQ
-  > AMQP protocal
+> AMQP protocal
 
-  > 3.9 support stream
+> 3.9 support stream
 
-  - Virtual Host
-    - Exchange
+- Virtual Host
+  - Exchange
       - Queue
       > fanout/direct/topic/header/namesless
 

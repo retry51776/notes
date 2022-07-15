@@ -118,4 +118,7 @@ BEGIN
     set tt = 2
     leave x_proc;
 END;
+
+call x_proc('test', @tt)
+select @tt
 ```
