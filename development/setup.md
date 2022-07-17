@@ -10,7 +10,9 @@
   - .net core essentials
   - Thunder Client
   - Base64
-  - kubenetes
+  - Kubernetes `Offical plugin let VS view k8 objects`
+  - Kubernetes Support `code snippets`
+  - Helm intellisense
   - Preference/Setting
     - Default Formatter: Prettier
     - Format On Save Mode: file
@@ -32,7 +34,7 @@
 - DataGrid
 - Homebrew
   - minikube `https://minikube.sigs.k8s.io/docs/start/`
-  - 
+  - `minikube addons enable ingress` & `minikube addons enable ingress-dns`
 
 ## Cool resources
 - [Icons] https://gist.github.com/rxaviers/7360908

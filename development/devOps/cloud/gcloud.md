@@ -27,6 +27,7 @@ gcloud auth configure-docker // Warning doesn't matter
 // Test by pulling gcp image & container
 gcloud docker -- ls
 
+// Create K8 context @ ~/.kube/config, I never manually create context
 gcloud container clusters get-credentials XXX-cluster --zone us-central1-a
 
 ps auxww // Show all process

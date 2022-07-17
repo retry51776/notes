@@ -111,7 +111,7 @@ Service spec:
 		- targetPort: 80
 		- port: 80
 		- nodePort: [30000-32767]
-    # LoadBalancer: publish service by single public ip
+    # LoadBalancer: publish service by single public ip, will ask CLOUD provider for public ip address
 	selector:
 		app: # Important: Match from metadata.labels
 		type: # Important: Match from metadata.labels
@@ -191,6 +191,8 @@ kubectl config set-credentials bob --client-certificate=bob.crt --client-key=bob
 
 // Create context just for bob
 kubectl config set-context bob-context --cluster=minikube --namespace=lfs158 --user=bob
+kubectl config use-context bob-context
+kubectl config set-context --current --namespace=kube-system
 
 //kubectl config view
 ---

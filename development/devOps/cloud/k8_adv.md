@@ -18,7 +18,7 @@
 
 
 ### Preq
-1. check metrics_server `kubectl -n kube-system get pods `
+1. check metrics_server `kubectl -n kube-system get pods`
 2. if not already install, install it `kubectl -n kube-system -f .\metricserver.yaml`
 3. check node allocated resources
 4. make sure deployment set resources: requests [always set limited too]
