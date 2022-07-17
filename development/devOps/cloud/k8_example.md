@@ -41,6 +41,9 @@ spec:
 ```
 
 # Basic Example
+> Manually scale `kubectl scale deploy/xxx --replicas 3`
+> 
+> Desc `kubectl describe node xxx`
 ```
 apiVersion: v1 # Required
 kind: [Service|other k8 resources] # Required

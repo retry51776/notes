@@ -9,6 +9,8 @@
   - C#
   - .net core essentials
   - Thunder Client
+  - Base64
+  - kubenetes
   - Preference/Setting
     - Default Formatter: Prettier
     - Format On Save Mode: file
@@ -28,6 +30,9 @@
 - MobaXTerms
 - Putty
 - DataGrid
+- Homebrew
+  - minikube `https://minikube.sigs.k8s.io/docs/start/`
+  - 
 
 ## Cool resources
 - [Icons] https://gist.github.com/rxaviers/7360908

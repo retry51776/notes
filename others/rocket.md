@@ -19,7 +19,7 @@ Raptor 1 180 tons thrust
 Raptor 2 230-250 tons thrust w 300 bar pressure
 - Removed tortch igniters
 
-# Componets & Parts
+## Componets & Parts
 - oxy power head
 - fuel power head
 - preburner

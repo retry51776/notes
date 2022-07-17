@@ -119,3 +119,6 @@ openssl req -new -key xxx.key -out xxx.csr
 1. save some shared secret/pub_key into DB
 2. user used private_key to Generate JWT w user_name, time_of_sign, unqiue_id
 3. we vertify JWT w pub_key & create session
+
+## Initiative for Open Authentication (OATH)
+> Think of OATH2.0 as JWT standard

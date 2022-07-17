@@ -104,6 +104,7 @@ Acquisition vs Buildout
 Company Brand vs Solution Brand
 
 # Bankruptcy
+- Chapter 13 bankruptcy `deplay debt`
 - Chapter 11 bankruptcy `reorganization plan`
 - Chapter 7 bankruptcy `liquidate assets`
 

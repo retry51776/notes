@@ -113,3 +113,4 @@ IBM advance firewall
 # Buzzwords
 - Internet Gateway(IGW)
 - Network Access Control List(Network ACL) `base of IP control`
+- Security Group `AWS Security Group is stateful`

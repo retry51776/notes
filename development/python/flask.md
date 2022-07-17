@@ -170,6 +170,8 @@ sales = [dict(zip(cursor.column_names, row)) for row in cursor.fetchall()]
 
 # Flask
 
+> max worker = 2 * CPU + 
+
 ## Methods
 - Get
 - Post `insert, common mistake`
@@ -298,7 +300,7 @@ class sss(Schema):
 
 # Template Inheritance
 {% block content %} # Similar to PHP, supports python loop
-{% endblock %}
+{% endblock %}F
 
 {% extends "xxx.html" %}
 {% block content %}

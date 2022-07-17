@@ -99,6 +99,9 @@ here are common trade offs
   - forgot to bring all the tools at once
     - tons DB query when they need it
 
+<hr />
+
+> Compare Developer to car, sport car(senior dev) 0-60 is faster than corolla(jr dev), where it make differences is on max speed(dev don't awared their mistakes until review mirror). 
 ## Security
 - URL
   - expose static link on secure resource

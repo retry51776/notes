@@ -106,4 +106,6 @@ with patch('employee.requesets.get') as mocked_get:
 import pytest
 @pytest.fixture
 def xxx():
+    mock = mocker.patch("flask_sqlalchemy._QueryProperty.__get__").return_value = mocker.Mock()
+    return mock
 ```

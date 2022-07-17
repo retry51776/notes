@@ -37,6 +37,9 @@
 - Pipfile going replace requirement.txt `pipenv install`
 - Python round() sucks
 
+## TODO:
+- build retry decorator
+- 
 **Working on library**
 ```
 Install local package steps:

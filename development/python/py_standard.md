@@ -6,7 +6,7 @@ from datetime import date, timedelta
 from dateutil.relativedelta import relativedelta
 from dateutil.parser import parse
 
-parse('2019-01-01').date()
+parse('2019-01-01').date().strftime('%Y-%m-%d')
 # less than month unit
 date(2018, 9, 30).replace(day=31) + timedelta(days=1)
 # more than month unit
@@ -190,10 +190,16 @@ import multiprocessing
 pool = multiprocessing.Pool(multiprocessing.cpu_count())
 def xxx_func(whatever):
     return whatever
+
 result = pool.map(xxx_func, frame.iterrows())
 pool.close()
 pool.join()
 
+
+def xx(counter):
+    counter.value += 1
+counter = multiprocessing.Value('i', 0)
+tsk = multiprocessing.Process(target=xx, args(counter))
 import subprocess
 subprocess.run()
 ```

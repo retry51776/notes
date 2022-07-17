@@ -5,6 +5,12 @@
 - Change Failure Rate `hotfix/deployment`
 - Cycle time `aka dev time, most mgr care about`
 
+## Four Fundamental Topologies
+- Stream-aligned team: `Aligned to a flow of work from (usually) a segment of the business domain.`
+- Enabling team: `Helps a stream-aligned team to overcome obstacles. Also detects missing capabilities.`
+- Complicated subsystem team: `Where significant mathematics/calculation or hardto-find niche technical expertise is needed full-time.`
+- Platform team: `A grouping of other team types that provide a compelling internal product to accelerate delivery by stream-aligned teams.`
+
 # HashiCorp/ Nomad
 Similar to k8, Nomad is a single binary, both for clients and servers.
 
