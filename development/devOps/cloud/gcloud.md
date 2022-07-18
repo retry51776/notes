@@ -11,7 +11,7 @@ Cloud Storage
 Cloud Functions
 
 ## Setup
-```
+```bash
 gcloud init
 gcloud components update
 gcloud components list
@@ -40,3 +40,9 @@ function Prompt {
     return "> ";
 }
 ```
+## DB Auth
+> [Configure public IP](https://cloud.google.com/sql/docs/mysql/configure-ip)
+> [Configure SSL](https://cloud.google.com/sql/docs/mysql/configure-ssl-instance)
+### Cloud SQL Auth proxy
+> allows sidecar container for deployment to access DB without SSL
+`cloud_sql_proxy -instances=proj_id:zone:db_instance_id=tcp:3306 -credential_file=/secrets_path.json` 

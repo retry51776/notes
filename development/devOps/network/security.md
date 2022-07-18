@@ -78,7 +78,7 @@ key xxx.key
   - digital signature
 
 
-**Create TLS**
+**Create SSL/TLS**
 1. Create .csr with openssl (Certificate Signed Request)
 
 ```

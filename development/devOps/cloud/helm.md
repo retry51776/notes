@@ -2,9 +2,15 @@
 > Helm is package manager for k8, also templating Engines
 > 
 > Helm < 2.0 Client / Sever (Tiller) since 3.0 No more Tiller
-
+> 
+> (Go template language)[https://pkg.go.dev/text/template]
+> 
+> (YAML)[https://helm.sh/docs/chart_template_guide/yaml_techniques/]
 ## Helm CMDs
 ```bash
+brew install helm
+brew install chart-testing
+
 # By default Helm don't have public repo(unlike npm or pip)
 helm repo add stable https://charts.helm.sh/stable
 helm repo add traefik https://helm.tra
@@ -27,24 +33,66 @@ helm search repo xxx
 helm search hub xxx
 
 # Chart Operations
-helm create xxx
+helm template --debug <chart_name>
+helm install --dry-run measly-whippet ./mychart
+helm install --dry-run --disable-openapi-validation measly-whippet ./mychart
+helm test <RELEASE_NAME>
+helm create xx
 helm package xxx
 
 ```
 ## Helm Structure
+> example https://github.com/traefik/traefik-helm-chart/blob/master/traefik/
 ```
 /helm-charts
   /charts
   /templates (what k8 objects creates)
+    /_helpers.tpl (define common properties)
+    /NOTES.txt (docstring)
   .values.yaml (k8 values)
   .Chart.yaml (chart meta info)
-{{ include "helm-cahrts.labels" . | nindent 4 }}
-{{ .Values.service.name | qoute }}
 
+/templates/_helpers.tpl
+{{- define "xxx.label" }}
+{{- end }}
+
+//templates/xxx_deployment
+{{- template "xxx.label"}}
+```
+
+## Helm worflow control & reference
+> This remind me php programming
+> 
+```bash
 // - remove line space
 test:
   {{- .Release.Name }}
 
 {{- toYaml .Values.xxx | nindent 8 }}
+{{ include "helm-cahrts.labels" . | nindent 4 }}
+{{ .Values.service.name | default "10m" | qoute }}
 
+  toppings: |-
+    {{- range $.Values.pizzaToppings }}
+    - {{ . | title | quote }}
+    {{- end }}    
+  {{- end }}
+
+{{- with .Values.xx.xxx.xxxx }}
+    grand_chile: yy
+    root_xx: {{ $.Values.xx }}
+{{- end}}
+
+{{ range $index, $service := (lookup "v1" "Service" "mynamespace" "").items }}
+    {{/* do something with each service */}}
+{{ end }}
+
+operators (eq, ne, lt, gt, and, or and so on)
+
+data:
+  {{- $files := .Files }}
+  {{- range tuple "config1.toml" "config2.toml" "config3.toml" }}
+  {{ . }}: |-
+        {{ $files.Get . }}
+  {{- end }}
 ```

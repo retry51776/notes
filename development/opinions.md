@@ -155,3 +155,7 @@ here are common trade offs
 
 ## .Net
 > One major thing I don't like about .net: isn't very clear what calls what, where code/DI from. I have to read micro docs, but there just too many versions w no clear differences.
+
+## YAML
+> YAML itself indentation already messy and unreadable, now Helm workflow control on TOP of this mess? Why? It's ugly! Easy to make mistakes. I want my good old json format back :(
+> I get it, it's easy make parser if we can trust indent. I hope someone build better parser & different format.
