@@ -34,7 +34,6 @@
 - DataGrid
 - Homebrew
   - minikube `https://minikube.sigs.k8s.io/docs/start/`
-  - `minikube addons enable ingress` & `minikube addons enable ingress-dns`
 
 ## Cool resources
 - [Icons] https://gist.github.com/rxaviers/7360908

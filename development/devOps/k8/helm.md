@@ -9,6 +9,7 @@
 ## Helm CMDs
 ```bash
 brew install helm
+brew install kustomize
 brew install chart-testing
 
 # By default Helm don't have public repo(unlike npm or pip)
@@ -22,6 +23,13 @@ helm show chart traefik/traefik
 helm dependency list xxx
 
 # Install chart with different values has 2 ways(value.yml or --set xxx=123)
+1. create chart folder
+2. helm pull & check code
+3. create xxx-config.yml
+4. helm install --values=xxx-config.yaml xxx xxx
+
+# pull chart zip
+helm pull traefik traefik/traefik
 helm install --values=xxx.yaml chart_name --namespace [kube-system]
 helm install traefik traefik/traefik --set dashboard.enabled=true,serviceType=LoadBalancer,rbac.enabled=true,dashboard.domain=traefik.local
 helm uninstall xxx

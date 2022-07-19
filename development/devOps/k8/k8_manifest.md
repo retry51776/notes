@@ -45,6 +45,9 @@ spec:
 > 
 > Desc `kubectl describe node xxx`
 ```
+kubectl create deployment nginx --image nginx
+kubectl expose deploy nginx --port 80 --type LoadBalancer
+
 apiVersion: v1 # Required
 kind: [Service|other k8 resources] # Required
 metadata: # Required: uniquely identify the object

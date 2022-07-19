@@ -2,12 +2,12 @@
 # Docker 
 
 Build, push, pull, run image 
-```
+```bash
 docker build -t docker.xxx/repo_name:terry . 
 docker push docker.xxx/repo_name:terry 
 sudo docker pull docker.xxx/repo_name:terry
 sudo docker pull docker.xxx/repo_name:terry
-sudo docker run -d --name container-name -v /var/log/xxx:/app/logs docker.xxx/repo-name:terry python3 start.py app-name --deploy --restart
+sudo docker run -d --name container-name -v /var/log/xxx:/app/logs docker.xxx/repo-name:terry python3 start.py app-name --deploy --restart --net=host
 ```
 
 start temp container

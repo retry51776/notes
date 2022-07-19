@@ -74,7 +74,7 @@ Non-routable Addresses Space (NAT)
 - 10.0.0.0/8
 - 197.16.0.0/12
 - 192.168.0.0/16
-
+https://jodies.de/ipcalc
 
 ---
 VPN tunnel

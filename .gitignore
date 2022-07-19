@@ -1,4 +1,5 @@
 .vscode/*
 *.pyc
+*.tgz
 .DS_Store
 .DS_Store

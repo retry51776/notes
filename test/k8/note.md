@@ -3,6 +3,7 @@
 
 > https://www.devtech101.com/2019/03/02/using-traefik-as-your-ingress-controller-combined-with-metallb-on-your-bare-metal-kubernetes-cluster-part-2/
 > 
+>  Kubernetes bare-metal load balancer, like MetalLB
 1. `helm repo add traefik https://helm.tra
 efik.io/traefik`
 1. `helm install traefik traefik/traefik --set dashboard.enabled=true,serviceType=LoadBalancer,rbac.enabled=true,dashboard.domain=traefik.local`
