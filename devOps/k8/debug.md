@@ -1,6 +1,8 @@
 # Debug
 > I needs to collect all network debugging cmds here.
 ```bash
+command: ["sleep", "infinity"]
+
 # Lazy way
 chrome://flags/#allow-insecure-localhost
 
@@ -32,13 +34,21 @@ CACERT=${SERVICEACCOUNT}/ca.crt
 # List pods through the API
 curl --cacert ${CACERT} --header "Authorization: Bearer $TOKEN" -s ${APISERVER}/api/v1/namespaces/shopping/pods/ 
 
+# Insecure way
+curl --header "Authorization: Bearer $TOKEN" -s ${APISERVER}/api/v1/namespaces/shopping/pods/ --insecure
+
+# replace yml variable
+cat xxx.yaml | sed "s/XXX_VALUE/$some_value/"
 ```
 
-# Release used address
+# powershell
 ```powershell
+#  see what used address
 Get-Process -Id (Get-NetTCPConnection -LocalPort YourPortNumberHere).OwningProcess
+```
 
 # Create Token
+```bash
 apiVersion: v1
 kind: Secret
 metadata:
@@ -49,6 +59,7 @@ type: kubernetes.io/service-account-token
 # Get Token
 kubectl get secrets/kubernetes-dashboard-token -o yaml
 echo xxxx | base64 -d
+# echo xxxx | base64 -w 0
 npm install -g jwt-cli
 jwt xxxxx
 ```

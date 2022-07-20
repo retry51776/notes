@@ -1,5 +1,17 @@
 # K8 Security
 
+## Addons
+> cert-manager 
+>> `simplifies the process of obtaining, renewing and using those certificates`
+>> 1. Create CA cert & key
+>> 2. Create clusterissuer
+>> 3. Create Certificate
+>> 4. Create Secret
+>> 5. Set Ingress
+
+> keycloak `client applaction authorication`
+
+> Kubernetes Dashboard
 ## Secrets
 |  Built-in Type	  |  Usage |
 |---|---|
