@@ -122,3 +122,9 @@ openssl req -new -key xxx.key -out xxx.csr
 
 ## Initiative for Open Authentication (OATH)
 > Think of OATH2.0 as JWT standard
+
+## K8 secrets
+`htpasswd -nb [ -m | -B | -d | -s | -p ] [ -C cost ] username password`
+
+
+Man-in-the-middle (MITM)

@@ -159,3 +159,21 @@ here are common trade offs
 ## YAML
 > YAML itself indentation already messy and unreadable, now Helm workflow control on TOP of this mess? Why? It's ugly! Easy to make mistakes. I want my good old json format back :(
 > I get it, it's easy make parser if we can trust indent. I hope someone build better parser & different format.
+
+
+<hr />
+
+# other
+
+## gRPC | webtransport
+> grpc(Google) remote procedure call
+make client request looks like function, replaces rest, webhook
+
+> web socket cons: each new message type needs new socket; server can't create new connection;
+
+## Tailwind 
+> 2019 css framework, I like it, make sense
+
+## Brower IDE
+> very cool, just live on 10-21-2021
+https://vscode.dev/

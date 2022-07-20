@@ -3,6 +3,8 @@
 > 
 > Helm < 2.0 Client / Sever (Tiller) since 3.0 No more Tiller
 > 
+> The biggest feature helm is uninstall & rollback
+> 
 > (Go template language)[https://pkg.go.dev/text/template]
 > 
 > (YAML)[https://helm.sh/docs/chart_template_guide/yaml_techniques/]
@@ -41,6 +43,7 @@ helm search repo xxx
 helm search hub xxx
 
 # Chart Operations
+# View chart
 helm template --debug <chart_name>
 helm install --dry-run measly-whippet ./mychart
 helm install --dry-run --disable-openapi-validation measly-whippet ./mychart

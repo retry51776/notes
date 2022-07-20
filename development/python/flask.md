@@ -86,7 +86,7 @@ lazy [select, immediate, joined, subquery, selectin]
 
 <hr/>
 
-- `engine = create_engine(URI, pool_pre_ping=True, pool_size=10)` 
+- `engine = create_engine(URI, pool_pre_ping=True, pool_size=10, connect_args={"sslrootcert": "", "sslcert": "", "sslkey": ""})` 
   - won't create connection until query
   - defined connection pool
 - `conn_pool = sessionmaker(bind=engine)`

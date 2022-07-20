@@ -44,6 +44,7 @@ Buzzwords:
 Stacks:
     Sage
     QuickBook
+    isolved
 
 ## Support
 Stacks:
