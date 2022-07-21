@@ -1,0 +1,55 @@
+# addon
+
+### Install tools
+- kubeadm `Install production k8`
+- kubespray/kargo (base off Ansible)
+- kops
+
+// K8 local dev
+- minikube `Full k8 single cluster single node`
+- kind `Run k8 in docker`
+- k3s `not common`
+
+// IDE plugins
+- kubernetes
+- Kubernetes Support
+- Helm intellisense
+
+// other CMDs
+- kubectl
+- helm
+- kustomize `less feature of helm`
+- https://www.datree.io/
+- CloudFlare PKI/TLS toolkit
+
+// K8 addons
+- kubenete dashboard
+- cert-manager
+- traefik
+
+
+## kubenete dashboard
+```bash
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.5.0/aio/deploy/recommended.yaml
+
+// expose api_service locally
+kubectl proxy
+
+kubectl create serviceaccount dashboard -n default
+kubectl create clusterrolebinding dashboard-admin -n default --clusterrole=cluster-admin --serviceaccount=default:dashboard
+kubectl get secret $(kubectl get serviceaccount dashboard -o jsonpath="{ secrets[0].name}") -o jsonpath="{.data.token}" | base64 --decode
+```
+
+### Service Mesh Addons:
+- Consul
+- Envoy
+- Istio
+- Kuma
+- Linkerd
+- Maesh
+- Tanzu Service Mesh
+
+Advance Deployement
+Canary - 2 different version at same time
+Blue/Green - Completed switch over
+> Create another service with selector able select both version PODs

@@ -1,3 +1,18 @@
+# K8 Manifest
+### Label
+> is an object uses by selector
+Recommend Properties
+- app: xxx
+- env: [dev, prod, stage]
+- type: [engine, service, ui]
+### Annotations
+> is an object passed to K8 controller, always research documenation to see what & how k8 controller loads annotations
+Example
+```yaml
+# Tell k8 whatever defined is for this service_account
+annotations:
+  kubernetes.io/service-account.name: kubernetes-dashboard
+```
 # Deployment
 ```
 apiVersion: apps/v1

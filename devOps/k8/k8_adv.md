@@ -66,3 +66,36 @@ spec:
 
 ## Custom Metrics
 1. `custom.metrics.k8s.io`
+
+## Admission Webhook / Admission Controller
+> 2 types: intercepts or validate
+> Required tls
+
+### Workflow:
+1. Authentication
+2. Authorization
+3. Mutating webhook
+4. AdmissionReview
+5. Validating webhook
+6. Lock etcd
+7. Edit etcd
+```yml
+kind: MetatingWebhookConfiguration
+webhooks:
+  - name: "xxx"
+  # What k8_objects can trigger
+  objectSelector:
+    matchLabels:
+      webhook-enabled: "xyz"
+  clientConfig:
+    service:
+      name: xxx
+      path: '/xxx'
+    caBundle: "{CA_PEM_B64}"
+  # What event tigger
+  rules:
+  - operations: [ "CREATE" ]
+    apiGroups: [""]
+    apiVersions: ["v1"]
+    resources: ["pods"]
+```

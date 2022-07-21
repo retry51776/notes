@@ -1,11 +1,28 @@
 # Debug
-> I needs to collect all network debugging cmds here.
+> IDK, won't be organized here. Whatever I dump here whatever useful for debug
+
+### Commons Erros
+- Error Validating data
+- SchedulingDisabled
+- ImagePullBackoff
+- CashLoopBackoff
+- CreateContainerError
+- Probe Failling
+- RunContainerError
+- Exceed CPU Limits
+- FailedScheduling
+- Failed Mount
+- Kubelet crash
+
+
 ```bash
-command: ["sleep", "infinity"]
+# command: ["sleep", "infinity"]
+chmox +x xxx.sh
 
 # Lazy way
-chrome://flags/#allow-insecure-localhost
+# chrome://flags/#allow-insecure-localhost
 
+kubectl describe deploy xxx
 # Delete bad install
 kubectl delete -f <filename>
 # Rollback deployment
@@ -39,6 +56,9 @@ curl --header "Authorization: Bearer $TOKEN" -s ${APISERVER}/api/v1/namespaces/s
 
 # replace yml variable
 cat xxx.yaml | sed "s/XXX_VALUE/$some_value/"
+
+# Directly show deployments through api_service
+http://127.0.0.1:8001/apis/apps/v1/namespaces/default/deployments
 ```
 
 # powershell
@@ -58,7 +78,9 @@ metadata:
 type: kubernetes.io/service-account-token
 # Get Token
 kubectl get secrets/kubernetes-dashboard-token -o yaml
+# base64 decoded start with e
 echo xxxx | base64 -d
+# base64 encoded start with LS 
 # echo xxxx | base64 -w 0
 npm install -g jwt-cli
 jwt xxxxx

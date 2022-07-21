@@ -8,7 +8,12 @@
 >> 3. Create Certificate
 >> 4. Create Secret
 >> 5. Set Ingress
-
+```yml
+kind: Secret
+data:
+  tls.crt: $(cat xxx.pem | base64 | tr -d '\n')
+  tls.key: $(cat xxx-key.pem | base64 | tr -d '\n')
+```
 > keycloak `client applaction authorication`
 
 > Kubernetes Dashboard

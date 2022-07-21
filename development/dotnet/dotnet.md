@@ -71,6 +71,11 @@ appsettings.json # Define Apps, kind replaced .sln file
 3. business logic
 4. return ActionResult (View or JsonNet or FileResult)
 
+## /.vscode
+    /launch.json
+    /settings.json
+    /task.json
+    /extensions.json
 
 ## /Services
 > complex business logic `most likely init during ConfigureServices(), then refered in controller`
@@ -115,7 +120,6 @@ dotnet watch run
 dotnet watch --project XXX.csproj run XXX.csproj
 
 ```
-
 XXX.csproj
 
     - StartupObject // webpack.entry

@@ -10,6 +10,7 @@
   - .net core essentials
   - Thunder Client
   - Base64
+  - Code Spell Checker
   - Kubernetes `Offical plugin let VS view k8 objects`
   - Kubernetes Support `code snippets`
   - Helm intellisense
