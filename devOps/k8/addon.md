@@ -27,6 +27,10 @@
 - cert-manager
 - traefik
 
+// Logging
+- ELK `elasticseach, Logstash, Kibana`
+- zipkin `distributed tracing system, keep stack trace`
+
 
 ## kubenete dashboard
 ```bash
@@ -41,9 +45,13 @@ kubectl get secret $(kubectl get serviceaccount dashboard -o jsonpath="{ secrets
 ```
 
 ### Service Mesh Addons:
+> Service mesh is similar to use cloud proxy, do network trafik through sidcar
 - Consul
 - Envoy
 - Istio
+>> VirtualService `similar to IngressRule`
+>> DestinationRule ``
+>> IstioGateway `alternate to buildin ingress gateway`
 - Kuma
 - Linkerd
 - Maesh

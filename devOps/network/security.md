@@ -126,5 +126,9 @@ openssl req -new -key xxx.key -out xxx.csr
 ## K8 secrets
 `htpasswd -nb [ -m | -B | -d | -s | -p ] [ -C cost ] username password`
 
+### SAML
+> Identity Provider(IDP) create jwt w user_id & Service Provider(internetal service)
+
+> Tool: SAML tracer
 
 Man-in-the-middle (MITM)

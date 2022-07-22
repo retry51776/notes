@@ -71,14 +71,6 @@ spec:
 > 2 types: intercepts or validate
 > Required tls
 
-### Workflow:
-1. Authentication
-2. Authorization
-3. Mutating webhook
-4. AdmissionReview
-5. Validating webhook
-6. Lock etcd
-7. Edit etcd
 ```yml
 kind: MetatingWebhookConfiguration
 webhooks:

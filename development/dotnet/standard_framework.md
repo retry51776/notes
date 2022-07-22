@@ -15,6 +15,7 @@
 - /Controller
 - /Areas
 - .sln # solution file, defines how many apps inside repo
+- Web.config `.net core changed to appsettings.json`
 
 > custom routing https://stackoverflow.com/questions/56824966/is-there-something-like-routeconfig-cs-in-net-core-mvc
 

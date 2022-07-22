@@ -38,6 +38,12 @@ data:
 openssl req -new -key xxx.key -out xxx.csr "/CN=fname lname/O=HR"
 openssl x509 -req -in xxx.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out xxx.crt -day 500
 
+# Alternativy: use kubectl sign
+kubectl certificate approve xxx.csr
+kubectl get csr/xxx -o yaml
+kubectl get csr xxx -o jsonpath='{.status.certificate}'| base64 -d > xxx.crt
+
+
 # Step 2. Add ~/.kube/config
 kubectl config set-cluster xxx-cluster --server=https://1.1.1.1:52807 --certificate-authority=ca.crt --embed-certs=true
 kubectl config set-credentials xxx --client-certificate=xxx.crt --client-key=xxx.key --embed-certs=true

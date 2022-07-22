@@ -9,6 +9,10 @@
 
 > Windows Server DNS, OpenDNS, Cloudflare, Google Public DNS
 
+### resolv.conf vs hosts
+> resolv.conf specifies nameservers in order of search preference.
+> hosts overrides all nameservers by mapping urls/shortnames to IPs.
+
 - [DNS Server](#dns-server)
 - [Authoritative Name Server](#authoritative-name-server)
   - [Zone](#zone)

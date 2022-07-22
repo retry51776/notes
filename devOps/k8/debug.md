@@ -19,6 +19,9 @@
 # command: ["sleep", "infinity"]
 chmox +x xxx.sh
 
+# Use kubectl convert yml to different k8 versions
+kubectl convert --help
+
 # Lazy way
 # chrome://flags/#allow-insecure-localhost
 

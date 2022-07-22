@@ -1,3 +1,5 @@
+image:
+  pullPolicy: Always
 dashboard:
   enabled: true
   domain: traefik.local

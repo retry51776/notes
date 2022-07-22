@@ -1,4 +1,7 @@
 # K8 Manifest
+> Key manifest examples, some of k8 needs both yml & kubectl cmds. Kind hard to split kubectl & yaml
+
+## Common Manifest Properties
 ### Label
 > is an object uses by selector
 Recommend Properties
@@ -13,8 +16,29 @@ Example
 annotations:
   kubernetes.io/service-account.name: kubernetes-dashboard
 ```
-# Deployment
+
+### metadata
+```yml
+metadata:
+  deletionTimestamp: # schedule pod delete time
+  finalizers: # prevent schedule delete pod
+  ownerReferences: # who create k8 obj
 ```
+
+# Deployment
+
+```yml
+apiVersion: v1 # Required
+kind: [Service|other k8 resources] # Required
+metadata: # Required: uniquely identify the object
+	name: # Required: k8 object id
+	labels: # Optional
+		app: # Important: must match to selector
+		type:
+spec: # Required: desire state
+```
+
+```yml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -55,23 +79,6 @@ spec:
         command: ["/bin/sh", "-c", "echo Welcome to BLUE App! > /host-vol/index.html ; sleep infinity"]
 ```
 
-# Basic Example
-> Manually scale `kubectl scale deploy/xxx --replicas 3`
-> 
-> Desc `kubectl describe node xxx`
-```
-kubectl create deployment nginx --image nginx
-kubectl expose deploy nginx --port 80 --type LoadBalancer
-
-apiVersion: v1 # Required
-kind: [Service|other k8 resources] # Required
-metadata: # Required: uniquely identify the object
-	name: # Required: k8 object id
-	labels: # Optional
-		app: # Important: must match to selector
-		type:
-spec: # Required: desire state
-```
 
 # Ingress
 > To expose service to public
@@ -87,7 +94,8 @@ spec: # Required: desire state
 > redirect different ip to matching service (nodePort doesn't matter anymore)
 > 
 > Ingress type: [Custom | External LB | Internal LB]
-```
+
+```yml
 Ingress spec:
 metadata:
   annotations:
@@ -115,9 +123,11 @@ spec:
   tls:
   - secretName: terry.internal-service.local
 ```
+
 # Service
 > Must declare to expose other services
-```
+
+```yml
 Service spec:
 	type: [NodePort|ClusterIP|LoadBalancer] # usually ClusterIP
 	ports:
@@ -138,10 +148,10 @@ Service spec:
 ```
 
 
-# Mount Volumn
+## Mount Volumn
 1. Add volumes to deployment
 2. Tell where volumns mount to `volumeMounts`
-```
+```yml
   containers:
   - name: myapp-vol-container
     image: myapp
@@ -170,7 +180,7 @@ containers:
 
 
 # Add K8 User
-```
+```bash
 sudo useradd -s /bin/bash bob
 sudo passwd bob
 
@@ -225,7 +235,7 @@ metadata:
 rules:
 - apiGroups: [""]
   resources: ["pods"]
-  verbs: ["get", "watch", "list"]
+  verbs: [create delete deletecollection patch update get list watch]
 
 ~/rbac$ kubectl create -f role.yaml
 ```

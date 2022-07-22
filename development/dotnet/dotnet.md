@@ -13,11 +13,13 @@ use foreach XXX instead
 
 > services.AddXXX Usually is setup service `similar flask app.xxx = YYY`
 
-> wwwroot to store static files
-
-> appsetting.json
-
-> azureKeyValut to overwrite appsetting values
+## Folder Structure
+- /wwwroot `to store static files`
+- /appsetting.json `azureKeyValut to overwrite appsetting.json values`
+- /Properties `similar to .vscode`
+- /Controllers
+- /Models
+- /Views
 
 # Deployment & Developement
 > Ways to set ASPNETCORE_ENVIRONMENT
