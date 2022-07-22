@@ -91,3 +91,16 @@ webhooks:
     apiVersions: ["v1"]
     resources: ["pods"]
 ```
+
+> keep at least some pod running
+```yml
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  name: nginx-pdb
+spec:
+  maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: nginx
+```

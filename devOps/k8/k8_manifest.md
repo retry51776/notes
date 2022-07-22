@@ -94,6 +94,8 @@ spec:
 > redirect different ip to matching service (nodePort doesn't matter anymore)
 > 
 > Ingress type: [Custom | External LB | Internal LB]
+> 
+> Basic Example from k8 `kubectl apply -f https://kind.sigs.k8s.io/examples/ingress/usage.yaml`
 
 ```yml
 Ingress spec:
@@ -101,6 +103,11 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: traefik
 spec:
+  defaultBackend:
+    resource:
+      apiGroup: k8s.example.com
+      kind: StorageBucket
+      name: static-assets
   rules:
   - host: stage.local
     http:
@@ -128,14 +135,15 @@ spec:
 > Must declare to expose other services
 
 ```yml
-Service spec:
+Kind: Service
+spec:
 	type: [NodePort|ClusterIP|LoadBalancer] # usually ClusterIP
 	ports:
 	# ClusterIP: accessable within k8 network
-		- port: 80
-		- targetPort: 80
+		- port: 80        # Sevice's port
+		- targetPort: 80  # Pod's port
 		- protocol: TCP
-	# NodePort: each pod is accessable by public_ip:port
+	# NodePort: each pod is accessable by public_ip:port; Only for developer testing
 		- targetPort: 80
 		- port: 80
 		- nodePort: [30000-32767]
@@ -146,6 +154,9 @@ Service spec:
 
 # Test by `curl https://node_ip:nodePort/`
 ```
+
+# Cluster
+- extraPortMapping
 
 
 ## Mount Volumn
@@ -191,7 +202,8 @@ cat bob.csr | base64 | tr -d '\n','%'
 
 vim signing-request.yaml
 below is asking k8 premission for certificate we just created
----
+```
+```yaml
 apiVersion: certificates.k8s.io/v1
 kind: CertificateSigningRequest
 metadata:
@@ -205,7 +217,8 @@ spec:
   - digital signature
   - key encipherment
   - client auth
-
+```
+```bash
 ---
 // Aprovel Signning Request
 kubectl get csr
@@ -226,14 +239,16 @@ kubectl config set-context --current --namespace=kube-system
 ---
 // Give bob role access
 vim role.yaml
-
+```
+```yml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: pod-reader
   namespace: lfs158
 rules:
-- apiGroups: [""]
+# apiGroups: "" stand for default k8 core api
+- apiGroups: ""
   resources: ["pods"]
   verbs: [create delete deletecollection patch update get list watch]
 
