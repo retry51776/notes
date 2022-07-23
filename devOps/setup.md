@@ -12,7 +12,8 @@
   - Base64
   - Code Spell Checker
   - Kubernetes `Offical plugin let VS view k8 objects`
-  - Kubernetes Support `code snippets`
+  - Kubernetes Support `the code snippets wasn't full k8 sets, i hate it`
+  - Kubernetes Templates `code snippets`
   - Helm intellisense
   - Preference/Setting
     - Default Formatter: Prettier

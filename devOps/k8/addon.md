@@ -26,6 +26,7 @@
 - kubenete dashboard
 - cert-manager
 - traefik
+- DNS server
 
 // Logging
 - ELK `elasticseach, Logstash, Kibana`
@@ -41,7 +42,7 @@ kubectl proxy
 
 kubectl create serviceaccount dashboard -n default
 kubectl create clusterrolebinding dashboard-admin -n default --clusterrole=cluster-admin --serviceaccount=default:dashboard
-kubectl get secret $(kubectl get serviceaccount dashboard -o jsonpath="{ secrets[0].name}") -o jsonpath="{.data.token}" | base64 --decode
+kubectl get secret $(kubectl get serviceaccount kubernetes-dashboard -o jsonpath="{ secrets[0].name}") -o jsonpath="{.data.token}" | base64 --decode
 ```
 
 ### Service Mesh Addons:

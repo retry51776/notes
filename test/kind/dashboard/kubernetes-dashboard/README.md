@@ -3,15 +3,6 @@
 [Kubernetes Dashboard](https://github.com/kubernetes/dashboard) is a general purpose, web-based UI for Kubernetes clusters.
 It allows users to manage applications running in the cluster and troubleshoot them, as well as manage the cluster itself.
 
-## TL;DR
-
-```console
-# Add kubernetes-dashboard repository
-helm repo add kubernetes-dashboard https://kubernetes.github.io/dashboard/
-# Deploy a Helm Release named "kubernetes-dashboard" using the kubernetes-dashboard chart
-helm install kubernetes-dashboard kubernetes-dashboard/kubernetes-dashboard
-```
-
 ## Introduction
 
 This chart bootstraps a [Kubernetes Dashboard](https://github.com/kubernetes/dashboard) deployment on a [Kubernetes](https://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.

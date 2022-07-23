@@ -19,6 +19,7 @@ spec:
   ports:
   # Default port used by the image
   - port: 5678
+    targetPort: 80
 ---
 kind: Pod
 apiVersion: v1
@@ -40,13 +41,19 @@ spec:
     app: bar
   ports:
   # Default port used by the image
-  - port: 5678
+  - port: 1234
+    targetPort: 80
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: example-ingress
 spec:
+  defaultBackend:
+    service:
+      name: bar-service
+      port:
+        number: 1234
   rules:
   - http:
       paths:
@@ -63,7 +70,14 @@ spec:
           service:
             name: bar-service
             port:
-              number: 5678
+              number: 1234
+      - pathType: Prefix
+        path: "/dashboard"
+        backend:
+          service:
+            name: kubernetes-dashboard
+            port: 
+              number: 8443
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress

@@ -32,11 +32,20 @@ kubectl describe node xxx
 kubectl create deployment nginx --image nginx
 kubectl expose deploy nginx --port 80 --type LoadBalancer
 
+kubectl create job --from=cronjob/mycronjob name-of-one-off-job
+kubectl run XXXX --images=XXXX --port=80  
+kubectl exec -it pod-name sh
+kubectl rollout restart deployment xyz
+kubectl rollout undo deployment myapp
+kubectl rollout history deploy myapp --revision=2
+
+# Almost never do this in Production, will create service & ingress
+kubectl expose deployment XXXX --type="LoadBalancer" service "XXXX" exposed  
 
 # verbs: [create delete deletecollection patch update get list watch]
 # k8 object [
 #   always: ing(ingress), pod, svc(service), deploy(deployments), no(node), secrets, cj(cronjob)
-#   often: cm(configmaps), ep(endpoint), sa(service account), ns(namespace), role/clusterRole, roleBinding/clusterRoleBinding,
+#   often: cm(configmaps), ep(endpoint), sa(service account), ns(namespace), role/clusterRole, roleBinding/clusterRoleBinding, dm(daemonset)
 #   looked: csr(CertSignReq), hpa(horizatialPodAutoscale), NetworkPolicy, 
 #   never: cs(componentstatuses), ev(events), pdb(poddisruptionbudgets), psp(podsecuritypolicies), pc(priorityclasses)
 # ]

@@ -19,6 +19,10 @@
 # command: ["sleep", "infinity"]
 chmox +x xxx.sh
 
+# Check host DNS
+systemd-resolve --status | grep 'DNS Servers' --after 5
+sudo ip route add 10.96.0.0/12 via 172.18.0.2
+
 # Use kubectl convert yml to different k8 versions
 kubectl convert --help
 
@@ -30,11 +34,17 @@ kubectl describe deploy xxx
 kubectl delete -f <filename>
 # Rollback deployment
 kubectl rollout undo deployment my-application
+
+# Test selector
+kubectl get pods --selector=xxx=xxx_label
 ```
 # curl API_Service 
 ```bash
 # Debug
 kubectl -n shopping exec -it shopping-api -- bash
+
+# Show all process
+ps auxww 
 
 # Point to the internal API server hostname
 APISERVER=https://kubernetes.default.svc

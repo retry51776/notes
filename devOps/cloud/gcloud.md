@@ -46,3 +46,9 @@ function Prompt {
 ### Cloud SQL Auth proxy
 > allows sidecar container for deployment to access DB without SSL
 `cloud_sql_proxy -instances=proj_id:zone:db_instance_id=tcp:3306 -credential_file=/secrets_path.json` 
+
+## Daemonset
+- fluentbit
+- metrics-agent
+- traefik-ingress-controller
+- pdcsi `google presistent disk`
