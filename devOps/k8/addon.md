@@ -27,6 +27,13 @@
 - cert-manager
 - traefik
 - DNS server
+- grafana `monitor platform`
+- istio `service mesh`
+- fluentd `data collector`
+- Open Policy Agent(OPA) `access control`
+- Longhorn `distributed block storage`
+- fleet `large scale deployment of Kubernetes clusters`
+- 
 
 // Logging
 - ELK `elasticseach, Logstash, Kibana`

@@ -52,3 +52,7 @@ function Prompt {
 - metrics-agent
 - traefik-ingress-controller
 - pdcsi `google presistent disk`
+
+## GKE Cert
+> Google-managed certificates don't support wildcard domain
+> https://cloud.google.com/kubernetes-engine/docs/how-to/managed-certs

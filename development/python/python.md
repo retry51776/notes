@@ -1,6 +1,7 @@
 # Python
+> battery included because python comes with std lib
 
-## New Features
+## Change Logs
 - 3.0
   - 3 / 2 = 1.5
   - str & unicode

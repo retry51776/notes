@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    meta.helm.sh/release-name: kubernetes-dashboard
+    meta.helm.sh/release-namespace: default
+  creationTimestamp: "2022-07-22T22:38:30Z"
+  labels:
+    app.kubernetes.io/component: kubernetes-dashboard
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: kubernetes-dashboard
+    app.kubernetes.io/version: 2.6.0
+    helm.sh/chart: kubernetes-dashboard-5.7.0
+    kubernetes.io/cluster-service: "true"
+  name: kubernetes-dashboard
+  namespace: default
+  resourceVersion: "34596"
+  uid: e5b17f35-0654-4dfa-aa0b-46524086c8d2
+spec:
+  clusterIP: 10.96.170.246
+  clusterIPs:
+  - 10.96.170.246
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: https
+    port: 8443
+    protocol: TCP
+    targetPort: https
+  selector:
+    app.kubernetes.io/component: kubernetes-dashboard
+    app.kubernetes.io/instance: kubernetes-dashboard
+    app.kubernetes.io/name: kubernetes-dashboard
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

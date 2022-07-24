@@ -1,5 +1,4 @@
 # K8 Security
-
 ## Addons
 > cert-manager 
 >> `simplifies the process of obtaining, renewing and using those certificates`
@@ -111,3 +110,43 @@ Identity
 - Cloud ID
 
 Police -> roles -> premission [service. resource. verb]
+
+# Cert-Manager
+> Problem to Solve: Too many cert, expired different time, manual create cert creates security risk, human errors
+
+> Let's Encrypt https://letsencrypt.org/ `allows create free cert, alt: vault-prod, venafi-tpp`
+
+> certbot `k8s pod create csr & ask let's encrypt to sign`
+
+Certificate Resolvers `retrieving certificates from an Automatic Certificate Management Environment (ACME) server.`
+kubernetes.io/ingress.class: "nginx"
+nginx.ingress.kubernetes.io/force-ssl-redirect: "true" 
+```yml
+# Install cert-manager
+
+# Setup let's encrypt through issuer.yaml
+apiVersion: cert-manager.io/v1
+kind: Issuer
+spec:
+  selfSigned: {}
+  # can be selfSigned, CA, Vault, ExternalLoadBalancer, Venafi, External, ACME
+---
+spec:
+  acme:
+    server: https://acme-xxx.letsencrypt.org/directory
+    email: xxx@gmail.com
+    privateKeySecretRef:
+      name: letsencrypt-cluster-issuer-key
+    solvers:
+    - http01:
+      ingress:
+        class: nginx
+---
+kind: Certificate
+spec:
+  dnsName:
+    - test.com
+    secretName: test-tls
+    issuerRef:
+      name: selfsign
+```

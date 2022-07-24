@@ -88,6 +88,7 @@ CMD
 `netcat google.com 80 -z`, `Test-NetConnection -port 80`
 
 `nslookup google.com`
+`curl ifconfig.co //get public_ip`
 
 ---
 QRadar

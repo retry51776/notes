@@ -71,29 +71,3 @@ spec:
             name: bar-service
             port:
               number: 1234
-      - pathType: Prefix
-        path: "/dashboard"
-        backend:
-          service:
-            name: kubernetes-dashboard
-            port: 
-              number: 8443
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: k8-dashboard
-  labels:
-    name: k8-dashboard
-spec:
-  rules:
-  - host: k8-dashboard.local
-    http:
-      paths:
-      - pathType: Prefix
-        path: "/"
-        backend:
-          service:
-            name: kubernetes-dashboard
-            port: 
-              number: 443
