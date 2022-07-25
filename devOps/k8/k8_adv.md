@@ -104,3 +104,20 @@ spec:
     matchLabels:
       app: nginx
 ```
+
+## CRD
+```yml
+apiversion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+spec:
+  versions:
+    - name: v1
+      served: true
+  scope: namespaced
+  names:
+    plural: xxxs
+    singluar: xxx
+    kind: haha
+    shortNames:
+    - x
+```

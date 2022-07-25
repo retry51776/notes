@@ -1,5 +1,5 @@
 # Kind
-> Follow steps to create k8s cluster with kind, setup example NakePods, Service, Ingress, &   
+> Follow steps to create k8s cluster with kind, setup example NakePods, Service, Ingress, & External LoadBalancer
 
 ## Setup Cluster
 1.  `kind create cluster --config cluster.yml`

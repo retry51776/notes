@@ -1,5 +1,20 @@
 # Security
 
+> Netowrk admin security stuff. Most about Cert
+
+## Basic Terms
+- X.509 certificate `is a digital certificate, contains both pub & pri keys`
+  - Transport Layer Security (TLS) `Newer than SSL`
+  - Secure Sockets Layer (SSL) `Similar as TLS`
+- Certificate Authority(CA)
+  - who issued
+  - who issued to
+  - valid to
+  - public key
+  - digital signature
+
+## Buzzwords
+- Man-in-the-middle (MITM)
 
 ### Linux
 1. gen ssh key `ssh-keygen -b 4096`
@@ -46,42 +61,31 @@ ssh-rsa is Developer Public Keys
 Microsoft Management Console `Run > mmc > Enter` export LDAP certificate for VPN
 default config path `C:\Users\xxx\OpenVPN\config`
 > xxx.ovpn
-```
+```bash
 ca xxx_ca.crt
 cert xxx.crt # Musted signed by CA
 key xxx.key
 ```
 
 ## SSL Files
-```
-.csr = Certificate Signed Request
-*.ppk = encrypted private key by puttyGen
-.cer <--> .crt(Microsoft) -> .pfx
-
-.PFX is Personal Exchange Format, windows user certificate(with private key)
-.cer - certificate only with public keys.
-.cer & .key is OpenSSL generated files for OpenVPN, Pageant
-
-*.crt = Windows SSL Certificate
-*.pem = subset of *.crt, just rename extension to *.crt
-//pem can be private key or public key
-*.key = private key
-*.pub = public key
-```
-
-## Tech Terms
-- Certificate Authority(CA)
-  - who issued
-  - who issued to
-  - valid to
-  - public key
-  - digital signature
+> .cer & .key is OpenSSL generated files for OpenVPN, Pageant
+- *.key `private key`
+- *.pub `public key`
+- *.cer `certificate only with public keys`
+- *.csr `Certificate Signed Request`
+- *.ppk `encrypted private key by puttyGen`
+  
+> Windows
+- *.cer <--> .crt(Microsoft) -> .pfx `file conversion`
+- *.crt `Windows SSL Certificate`
+- *.PFX `is Personal Exchange Format, windows user certificate(with private key)`
+- *.pem `can be private key or public key; subset of *.crt, just rename extension to *.crt`
 
 
 **Create SSL/TLS**
 1. Create .csr with openssl (Certificate Signed Request)
 
-```
+```bash
 openssl req -new -sha256 -out terry.test.local.csr -newkey rsa:2048 -keyout "$1.key" -nodes -reqexts SAN - config <cat /some_ssl.cnf <(printf("[SAN]\nsubjectAltName=DNS:terry.test.local"))>> -out terry.test.local.csr
 ```
 
@@ -99,7 +103,7 @@ openssl req -new -sha256 -out terry.test.local.csr -newkey rsa:2048 -keyout "$1.
 
 
 # CMDs
-```
+```bash
 # General Certificate Sign Request from key
 openssl req -new -key xxx.key -out xxx.csr
 ```
@@ -130,5 +134,3 @@ openssl req -new -key xxx.key -out xxx.csr
 > Identity Provider(IDP) create jwt w user_id & Service Provider(internetal service)
 
 > Tool: SAML tracer
-
-Man-in-the-middle (MITM)

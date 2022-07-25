@@ -1,3 +1,7 @@
+# DevOps
+> Common reference terms in devOps that I understand.
+
+
 # DevOps Metrics
 - Deployment Freq
 - Lead Time `commited to master to deployment`
@@ -11,15 +15,25 @@
 - Complicated subsystem team: `Where significant mathematics/calculation or hardto-find niche technical expertise is needed full-time.`
 - Platform team: `A grouping of other team types that provide a compelling internal product to accelerate delivery by stream-aligned teams.`
 
-# HashiCorp/ Nomad
-Similar to k8, Nomad is a single binary, both for clients and servers.
+## CheckList
+- install
+- config
+- provision
+- deploy
 
-wrote by Golang, opensource, 3 or 5 server
+- security
+- monitor
+- backup & restore
 
-Agent
-Job > Group > Task
+- network
+- HA
+- scalibity
+- performance
 
-# Orchestration
+- cost
+- documentation
+- test
+
 
 ---
 ## Deployment strategy
@@ -38,10 +52,11 @@ Job > Group > Task
 
 ---
 **Github Action**
+> These should moved to /test or /example folder
 .github/workflows/docker-publish.yml
 
 {{ github.event.release.tag_name }}
-```
+```yml
 - id: get_branch
 shell: bash
 run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
@@ -82,53 +97,9 @@ generate_docu:
   - master
 ```
 
-paloalto
-> monitor network traffic & firewall
 
-# Terraform
-Hashicorp Configuration Language(HCL)
-written in GO
-
-terraform plan
-terraform apply
-terraform destroy # Avoid it, it destroy everything
-```
-# comments
-#
-#
-terraform { 
-  required_providers: {
-    google = {
-      source = "xxxx",
-      version = "zzz",
-    }
-  }
-}
-
-provider "google" {
-  credentials = file("xxx.json")
-  project = "XXX"
-  region = "us-central1"
-  zone = "us-central1-c"
-}
-
-resource [resource_type] [name]
-resource "google_compute_instance" "test_ec2" {
-  name = ""
-}
-```
 
 ### Jenkinsfile.develop
 ```
 
 ```
-Config Management DB(CMDB) a file list csp servers
-Jenkin Cronjob tigger Ansiable playbook call APIs
-ServiceNow
-Rapid7
-System Center Configuration Manager
-RedHat Satellite
-CrowdStrike
-Prisma
-Infoblox
-Zabbix
