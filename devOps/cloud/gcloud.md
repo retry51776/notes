@@ -53,6 +53,22 @@ function Prompt {
 - traefik-ingress-controller
 - pdcsi `google presistent disk`
 
-## GKE Cert
+## GKE Cert, Ingress & External LB
 > Google-managed certificates don't support wildcard domain
 > https://cloud.google.com/kubernetes-engine/docs/how-to/managed-certs
+
+```yaml
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: managed-cert
+spec:
+  domains:
+    - DOMAIN_NAME1
+    - DOMAIN_NAME2
+
+# GGP will auto create External Load Balancer
+Ingress.metadata.annotation.kubernetes.io/gke: xxx-lb-name
+# GCP will auto link GKE managed cert to Ingress
+Ingress.metadata.annotation.networking.gke.io/managed-certificates: xxx-name
+```

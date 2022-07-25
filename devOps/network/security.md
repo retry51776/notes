@@ -1,6 +1,16 @@
 # Security
-
 > Netowrk admin security stuff. Most about Cert
+
+> $300 to $2000 to get root_ca signed
+
+> root_ca_authority signed internal db & micro-service certs 
+
+> public_ca_authority signed root_ca_authority
+
+> cert is configed in loadbalancer, ingress, or however db loads cert
+
+> wildcard cert `allows easy to manage & single cert for internal reverse proxy`
+> single cert `hard to manage, but more secure`
 
 ## Basic Terms
 - X.509 certificate `is a digital certificate, contains both pub & pri keys`
@@ -13,20 +23,6 @@
   - public key
   - digital signature
 
-## Buzzwords
-- Man-in-the-middle (MITM)
-
-### Linux
-1. gen ssh key `ssh-keygen -b 4096`
-2. create user in remote linux server
-3. copy public key into /home/user_name/.ssh
-
-
-### Windows
-ssh-rsa is Developer Public Keys
-1. PuTTYgen -> .ppk -> .ssh
-2. Publish SSH to Admin
-3. Add ssh key to github
 
 ## Add Certificate
   ## Windows
@@ -57,32 +53,23 @@ ssh-rsa is Developer Public Keys
     1. go to CA `ca.xxxx/certsrv`/Install CA Certificate & Download & Install CA Certificate
     2. Add DNS A record OR edit `/etc/hosts`
 
-### Setup VPN
-Microsoft Management Console `Run > mmc > Enter` export LDAP certificate for VPN
-default config path `C:\Users\xxx\OpenVPN\config`
-> xxx.ovpn
-```bash
-ca xxx_ca.crt
-cert xxx.crt # Musted signed by CA
-key xxx.key
-```
-
-## SSL Files
+## SSL/TLS cert Files
 > .cer & .key is OpenSSL generated files for OpenVPN, Pageant
 - *.key `private key`
 - *.pub `public key`
 - *.cer `certificate only with public keys`
-- *.csr `Certificate Signed Request`
+- *.csr `certificate Signed Request`
+- *.crt `signed Certificate`
 - *.ppk `encrypted private key by puttyGen`
   
 > Windows
 - *.cer <--> .crt(Microsoft) -> .pfx `file conversion`
-- *.crt `Windows SSL Certificate`
 - *.PFX `is Personal Exchange Format, windows user certificate(with private key)`
 - *.pem `can be private key or public key; subset of *.crt, just rename extension to *.crt`
 
 
 **Create SSL/TLS**
+> Remember to restart loadbalancer when renew cert to take effect
 1. Create .csr with openssl (Certificate Signed Request)
 
 ```bash
@@ -119,6 +106,25 @@ openssl req -new -key xxx.key -out xxx.csr
 
 `http://localhost/certsrv` or `http://pc_name.domain_name.local/certsrv`
 
+# Developer VPN
+## by Microsoft UI
+Microsoft Management Console `Run > mmc > Enter` export LDAP certificate for VPN
+default config path `C:\Users\xxx\OpenVPN\config`
+> xxx.ovpn
+```bash
+ca xxx_ca.crt
+cert xxx.crt # Musted signed by CA
+key xxx.key
+```
+
+## by Powershell
+```powershell
+Get-Certificate -Template XXX -CertStoreLocation cert:\xxx
+Export-PfxCertificate -Cert cert:\xxx -FilePath yyy -Password 123
+Remove-Item yyy
+```
+
+# Client login
 ## Single Sign-on (SSO)
 1. save some shared secret/pub_key into DB
 2. user used private_key to Generate JWT w user_name, time_of_sign, unqiue_id
@@ -127,10 +133,24 @@ openssl req -new -key xxx.key -out xxx.csr
 ## Initiative for Open Authentication (OATH)
 > Think of OATH2.0 as JWT standard
 
-## K8 secrets
-`htpasswd -nb [ -m | -B | -d | -s | -p ] [ -C cost ] username password`
-
 ### SAML
 > Identity Provider(IDP) create jwt w user_id & Service Provider(internetal service)
 
 > Tool: SAML tracer
+
+# Secure Shell (SSH)
+### Linux SSH
+1. gen ssh key `ssh-keygen -b 4096`
+2. create user in remote linux server
+3. copy public key into /home/user_name/.ssh
+
+
+### Windows
+ssh-rsa is Developer Public Keys
+1. PuTTYgen -> .ppk -> .ssh
+2. Publish SSH to Admin
+3. Add ssh key to github
+
+
+# Buzzwords
+- Man-in-the-middle (MITM)

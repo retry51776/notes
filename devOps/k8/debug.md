@@ -19,6 +19,8 @@
 # command: ["sleep", "infinity"]
 chmox +x xxx.sh
 
+# Generate k8 secets
+htpasswd -nb [ -m | -B | -d | -s | -p ] [ -C cost ] username password
 # Check host DNS
 systemd-resolve --status | grep 'DNS Servers' --after 5
 sudo ip route add 10.96.0.0/12 via 172.18.0.2
