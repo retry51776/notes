@@ -11,7 +11,7 @@
 > do simple ping or curl to make sure endpoint works inside k8s
 ```bash
 # ep only exposed to k8s, so you must exec into k8 pod to test
-kubectl exec -it some_pod sh
+kubectl exec -it bar-app sh
 # get ep's k8 internal ip & port
 kubectl get ep
 # -k insecure

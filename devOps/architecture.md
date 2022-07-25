@@ -1,4 +1,6 @@
 # Architecture
+> I worked for small company. We don't have everything listed here. I wish we have half of stuffs here.
+
 
 ## CI/CT/CD
 1. Source
@@ -32,7 +34,7 @@
    1. rollback alarm (auto rollback)
    2. canary or a/b deployment
       1. DNS weight
-      2. bake period
+      2. baking period
    3. deployment patterns
       1. recreate (for SAP, resources w hash, okay w downtime)
       2. rolling update (engine, micro service)
@@ -40,11 +42,11 @@
       4. canary
       5. a/b
       6. shadow (andriod app, critical engine & service)
-6. Monitor
-    1. sentry.io (capture runtime error)
-    2. Opsgenie (monitor & alert)
-    3. zabbix (metrixs)
-    4. grafana (logs)
+6. [Monitor](./cloud/monitor.md)
+   1. Logs (ELK)
+   2. Capture runtime error (sentry.io)
+   3. Alert (Opsgenie)
+   4. Metrics (grafana/zabbix)
 7. Support
    1. Service Now or Zenddesk
 
@@ -80,17 +82,6 @@
 6: CPU USAGE. ...
 7: MEMORY USAGE. ...
 8: UNIQUE API CONSUMERS.
-
-### Monitor Tools:
-- zabix
-- garfanar
-- opsgeny
-- sentry.io
-- kibana elk
-- Stackdriver 
-- datadog
-
-opentelemetry -> prometheus -> garfanar
 
 ### Logs DBs
 prometheus `time-series database`

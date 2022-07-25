@@ -17,6 +17,16 @@ kind create cluster --config demo.yml
 docker build -t my-custom-image:unique-tag ./my-image-dir
 kind load docker-image my-custom-image:unique-tag
 kubectl apply -f my-manifest-using-my-image:unique-tag
+
+# Pause Cluster
+docker start kind-control-plane && docker exec kind-control-plane sh -c 'mount -o remount,ro /sys; kill -USR1 1'
+docker start kind-worker && docker exec kind-worker sh -c 'mount -o remount,ro /sys; kill -USR1 1'
+docker pause kind-control-plane
+docker pause kind-worker
+
+# Resume Cluster
+docker start kind-control-plane
+docker start kind-worker
 ```
 
 # Yml

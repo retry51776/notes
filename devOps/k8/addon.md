@@ -33,11 +33,6 @@
 - Open Policy Agent(OPA) `access control`
 - Longhorn `distributed block storage`
 - fleet `large scale deployment of Kubernetes clusters`
-- 
-
-// Logging
-- ELK `elasticseach, Logstash, Kibana`
-- zipkin `distributed tracing system, keep stack trace`
 
 
 ## kubenete dashboard
