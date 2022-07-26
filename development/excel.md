@@ -1,6 +1,6 @@
 # Excel
 
-```
+```js
 sumif(matc_data_range, match_value, sum_value_range)
 countif()
 

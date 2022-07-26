@@ -1,6 +1,5 @@
 # DevOps
-> Common reference terms in devOps that I understand.
-
+> Fancy words goes here, because DevOps have tons of them.
 
 # DevOps Metrics
 - Deployment Freq
@@ -49,57 +48,3 @@
   > target subject get updates 
 - Shadow
 
-
----
-**Github Action**
-> These should moved to /test or /example folder
-.github/workflows/docker-publish.yml
-
-{{ github.event.release.tag_name }}
-```yml
-- id: get_branch
-shell: bash
-run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
----
-- name: Build and push
-uses: docker/build-push-action@v2.7.0
-with:
-  context: .
-  build-args: |
-    ENV=prod
-  platforms: linux/amd64
-  tags: |
-    terry.test.local/hello:${{ steps.get_branch.outputs.branch }}${{ github.run_number }}
----
-clean-working-directory:
-  runs-on: []
-  needs: build
-  steps:
-    -name: Clean
-      shell: bash
-      run: |
-        cd $RUNNER_WORKSPACE
-        cd ..
-        rm -r *
-
-
----
-generate_docu:
-  image: node
-  stage: deploy
-  script:
-  - npm install -g redoc-cli
-  - redoc-cli bundle -o /public/doc.html xxx_swagger.yml
-  artifacts:
-    paths:
-    -public
-  only:
-  - master
-```
-
-
-
-### Jenkinsfile.develop
-```
-
-```

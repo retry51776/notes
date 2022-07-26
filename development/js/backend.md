@@ -16,7 +16,7 @@
 
 
 ## download file
-```
+```js
 //client
 import { saveAs } from 'file-saver';
 async function fetchBatch(id, filename) {
@@ -39,7 +39,7 @@ return Promise.resolve();
 ```
 
 ## LDAP
-```
+```js
 const LDAP = require('ldapjs'),
   config = require('@xxx/getconfig'),
   sltcCaFile = path.resolve('/certs/xxx_ca.crt');
@@ -85,7 +85,7 @@ ldap.bind(config.ldap.bind_dn, config.ldap.bind_secret, err => {
 - fs `fs.readdirSync()`
 - request
 - cros `app.get('/', cors(corsOpt), (req, res) => {})`
-```
+```js
 const app = express(); # define request process
 
 xxxRouter = express.Router(); # init express plugins
@@ -113,7 +113,7 @@ app.use(bodyParser.json())
 - Set-Cookie(server response) Cookie
 - Cache-Control, Age(time been cache), Expires
 - Request Context (From, Host)
-```
+```js
 const server = http.createServer(app);
 // server.address().address .port
 
@@ -137,7 +137,7 @@ res.redirect('google.com')
 ```
 
 ### Redis Session
-```
+```js
 const redisStore = req.sessionStore;
 redisStore.get(req.xxxID, (err, sess) => {
   req.session // is avaiable
@@ -146,7 +146,7 @@ redisStore.get(req.xxxID, (err, sess) => {
 // express redisSession
 ```
 # Node Standard Lib
-```
+```js
 import process from 'code:process';
 
 process.cwd() // current directory

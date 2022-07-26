@@ -8,7 +8,7 @@
         - index.js
         - /[id].js `/sales/123`
 
-```
+```js
 import { useRouter } from 'next/router';
 import styles from '/styles/Home.css'
 

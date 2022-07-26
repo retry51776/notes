@@ -13,7 +13,7 @@
 
 > react -> dispatch(action) -> (middleware) -> reducer -> store -> react
 
-```
+```js
 1. Setup Actions: function return {type: 'xxx'}
 
 2. Setup Reducer: (state, action => {do_your_thing})
@@ -93,7 +93,7 @@ Maybe Immer? new dev could break things, but no new APIs
 4. Events Handler
 5. UI Components
 
-```
+```js
 /* React router pass in history & match*/
 const Abc = ({ history, match }) => {
   return 'xxx'
@@ -145,7 +145,7 @@ const TerryContext = createContext(null);
 ```
 
 ## Upload File
-```
+```js
 import JSZip from 'jszip';
 import Dropzone from 'react-dropzone';
 JSZip.loadAsync(files[0])
@@ -156,7 +156,7 @@ JSZip.loadAsync(files[0])
 ## moment
 > it's dead 2020 Aug, uses dayjs instead
 https://twitter.com/addyosmani/status/1304676118822174721
-```
+```js
 import moment from 'moment';
 moment
   .utc(backfill.get('ts'))
@@ -170,7 +170,7 @@ moment().add('day', 1).subtract('year', 1);
 
 ## react-query & react-table
 > avoid column accessor 'xxx.xx' , instead 'xxx-xx'
-```
+```js
 const {
   data,
   isLoading,
@@ -201,9 +201,9 @@ const edit = useMutation(postEdit, {
 > Created Each Form Input in its own file
 > 
 > Then Have a FormikController similar react_router
-> 
-
-```
+>
+> Another dead popular repo
+```js
 const formik = useFormik({
   initialValues: {
     'field': 'xyz'

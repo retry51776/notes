@@ -1,15 +1,15 @@
 # Regx
 
 > If there is complex regex, try to break into [reg1, reg2 ....], better to maintain multi simple regx than a complex one
+```bash
 
-
-zip
+# zip
 ^[0-9]{5}(?:-[0-9]{4})?$
 
-example group
+# example group
 [^a-Z0-9]
 
-Integer
+# Integer
 '^[\-\+]?[0-9]+'
 
 start indicator *  = ?+
@@ -34,3 +34,4 @@ look ahead selector ?=
 .(?=at) will match cat, mat
 
 none capture group is (?:[a-d])zzzz is match zzzz from azzzz
+```

@@ -34,7 +34,7 @@ CommonJS (require/exports)
 - `null` & `undefined`, I get it, but hate it. Python just have None, much easier
 
 ## ES6
-```
+```js
 // ES6 build in supports, most browser, webpack will auto figure file type
 import getXYZ from 'xyz.js';
 // dynamic import

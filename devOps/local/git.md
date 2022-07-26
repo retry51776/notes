@@ -1,37 +1,32 @@
 # Git
-## Config
-```
-// Convert Git repo end of line
-git config --global core.attributesfile ~/.gitattributes
-echo "* text=auto" > ~/.gitattributes
+> Git is a database, smallest unit is File store as blob unit.
 
-git config --global core.autocrlf false
-git config --global core.eol lf
+> build number generator is global (share across branchs)
+### Git object types:
+1. blob
+2. commit
+3. tree
 
-config --global --edit
-git config --global user.name "Terry"
-git config --global user.email terrywuemail@gmail.com
+.git/hooks
 
-git clean -df
-```
 ## CMDs
-```
+```bash
 git log --abbrev-commit
 git log --graph --online --decorate
 git cherry-pick 7017284
 # Go back to prevous branch
 git checkout -
 
-// Tag
+# Tag
 git tag -l
 git tag v1.0 -m "First Tag"
 git push origin v1.0 
 
-// Releases are a feature of GitHub
-// semantic versioning pre-release 0.9.1-alpha or beta
+# Releases are a feature of GitHub
+# semantic versioning pre-release 0.9.1-alpha or beta
 git release create v1.0
 
-// Git Flow
+# Git Flow
 git flow init
 git flow feature start xxxx
 git flow feature finish xxxx // feature completed
@@ -49,7 +44,7 @@ git reset --hard
 git reset HEAD
 git reset --hard HEAD~1
 
-// Squash last 3 commits
+# Squash last 3 commits
 git reset --soft HEAD~3
 git commit
 
@@ -59,7 +54,6 @@ git merge --squash
 git push origin develop --force
 git remote set-url origin https://github.com/USERNAME/REPOSITORY.git
 git remote -v
-
 
 git push --set-upstream origin branch_b
 git branch rm branch_a
@@ -72,13 +66,31 @@ git rebase // will stash my branch prev commits, then apply after rebase branch
 find . -name "*.pyc" -exec git rm -f "{}" \;
 ```
 
-## Github Vars
+#### Config
+```bash
+# Convert Git repo end of line
+git config --global core.attributesfile ~/.gitattributes
+echo "* text=auto" > ~/.gitattributes
+
+git config --global core.autocrlf false
+git config --global core.eol lf
+
+config --global --edit
+git config --global user.name "Terry"
+git config --global user.email terrywuemail@gmail.com
+
+git clean -df
 ```
+
+# CICD Pipeline
+## Github Vars
+```bash
 GITHUB_REF
 GITHUB_SHA // full sha
 ```
+
 ## Jenkin Vars
-```
+```bash
 @echo off
 echo GIT_COMMIT %GIT_COMMIT% 
 echo GIT_BRANCH %GIT_BRANCH%
@@ -93,16 +105,3 @@ echo GIT_COMMITTER_EMAIL %GIT_COMMITTER_EMAIL%
 ARG git_commit
 RUN echo $git_commit > /app/.githash
 ```
-# Tech Terms 
-
-Git is a database, smallest unit is File store as blob unit.
-
-
-Git object types:
-1. blob
-2. commit
-3. tree
-
-.git/hooks
-
-build number generator is global (share across branchs)

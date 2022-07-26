@@ -1,24 +1,32 @@
-<h1>DNS</h1>
-
-> DNS analogy:
+# DNS
+## DNS analogy
 >> ip -> address
 >
 >> port -> apt #
 >
 >> protocal -> vehicle(bike, car, train, plane)
 
-> Windows Server DNS, OpenDNS, Cloudflare, Google Public DNS
+## DNS Servers
+- Windows Server DNS
+- OpenDNS
+- Cloudflare
+- Google Public DNS
 
 ### resolv.conf vs hosts
 > resolv.conf specifies nameservers in order of search preference.
 > hosts overrides all nameservers by mapping urls/shortnames to IPs.
 
-- [DNS Server](#dns-server)
-- [Authoritative Name Server](#authoritative-name-server)
-  - [Zone](#zone)
-  - [DNS Records](#dns-records)
-- [Recursive Resolver](#recursive-resolver)
-- [Debug](#debug)
+- [DNS](#dns)
+  - [DNS analogy](#dns-analogy)
+  - [DNS Servers](#dns-servers)
+    - [resolv.conf vs hosts](#resolvconf-vs-hosts)
+  - [DNS Server](#dns-server)
+  - [Authoritative Name Server](#authoritative-name-server)
+    - [Zone](#zone)
+    - [DNS Records](#dns-records)
+  - [Recursive Resolver](#recursive-resolver)
+  - [Debug](#debug)
+- [Buzzword](#buzzword)
 
 
 ## DNS Server
@@ -48,25 +56,24 @@
 - Reverse Lookup Zone `ip -> name`
 
 ### DNS Records
-
-    - IPv4 address (A)
-    - IPv6 address (AAAA)
-    - Certificate Authority Authorization (CAA)
-    - Canonical name (CNAME)
-    - Mail exchange (MX)
-    - Name Authority Pointer (NAPTR)
-    - Name Server (NS)
-    - Pointer (PTR)
-    - Sender Policy Framework (SPF)
-    - Service Record (SVR, w Port #, Weight, Piroty)
-    - Text (TXT)
-
+  - IPv4 address (A)
+  - IPv6 address (AAAA)
+  - Certificate Authority Authorization (CAA)
+  - Canonical name (CNAME)
+  - Mail exchange (MX)
+  - Name Authority Pointer (NAPTR)
+  - Name Server (NS)
+  - Pointer (PTR)
+  - Sender Policy Framework (SPF)
+  - Service Record (SVR, w Port #, Weight, Piroty)
+  - Text (TXT)
+```
 http://www.test.com
 
 .com = Top level domains
 test = domain name / second level domain
 www. = second-level domain
-
+```
 ## Recursive Resolver
 > middleman between client and DNS
 
@@ -115,8 +122,9 @@ Service Record (SVR, w Port #, Weight, Piroty)
     `dig x_service.x_target.com SRV`
 
 ## Debug
-```
-edit host file(c:\windows\system32\drivers\etc) to network debug 
+```bash
+# network debug
+edit hosts file(c:\windows\system32\drivers\etc)
 
 DNS Console, NSLOOKUP, DNSCMD, IPCONFIG, DNS Logs
 
@@ -126,9 +134,9 @@ Netdiag.exe /fix
 
 ipconfig /flushdns
 
-# Enable Dynamic Updates In Dns
+# Enable Dynamic Updates In DNS
 # Start>Program>Admin tools> DNS >Zone properties.
 ```
 
-
-World Intellectual Property Organization (WIPO) 
+# Buzzword
+- World Intellectual Property Organization (WIPO) 

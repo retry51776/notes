@@ -1,7 +1,7 @@
-# Webpack
+# Module bunder
+> Think of modern day website is giving puzzle to user. Then Module bunder(webpack) is the packaging process in puzzle factory.
 
-# Module bunder(Webpack)
-Alternative
+## Alternative
 - rool up
 - parcel
 - snowpack
@@ -37,7 +37,7 @@ https://www.youtube.com/watch?v=lFjinlwpcHY&ab_channel=uidotdev
 ### webpack.config.js
 https://webpack.js.org/configuration/resolve/
 > sourceMap `bundle.js.map` links compiled code to source line
-```
+```js
 const webpack = require('webpack');
 const path = require('path');
 // const merge = require('webpack-merge');

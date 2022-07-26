@@ -1,6 +1,6 @@
 # Jest
 
-```
+```js
 describe('XYZ', () => {
     it.todo('Test that never builded');
 

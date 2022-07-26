@@ -1,4 +1,3 @@
-
 # NPM 
 
 libtrends.info/npm-compare
@@ -23,7 +22,7 @@ To install library
 Only run `npm install` to init Project, then always `npm ci`
 
 Other npm cmds
-```
+```bash
 npm cache clean --force  
 npm install --no-optional  
 npm run [package.json/script]
@@ -31,7 +30,7 @@ npm ls xyz // to check repo has library
 ```
 
 **Reset private registry **
-```
+```bash
 npm config list  
 npm config delete registry  
 npm config set registry "http://npm.private_npm_server:4873/"  
@@ -40,7 +39,7 @@ registry = "http://npm.private_npm_server:4873/"
 ```
 
 **Setup Dependence Library within Project **
-``` 
+```dockerfile
 Step 1: Mount Library Source into Container  
 Dockerfile  
 RUN mkdir -p /opt/node_modules  
@@ -58,6 +57,6 @@ unsafeCache: /assets/,
 ```
 
 Windows ESLint failed premission
-```
+```powershell
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
 ```
