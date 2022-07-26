@@ -1,7 +1,7 @@
 # MongoDB
 
 **Python**
-```
+```js
 self.mongodb = MongoClient(MONGODB_URI)[DB]
 self.mongodb[COLLECTION].update_one(
     {'_id': ObjectId('123123')},
@@ -20,7 +20,7 @@ self.mongodb[COLLECTION].update_one(
 
 
 **JS**
-```
+```js
 
 mgCols = {
   $project: {

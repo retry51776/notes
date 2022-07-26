@@ -119,6 +119,7 @@ Police -> roles -> premission [service. resource. verb]
 > certbot `k8s pod create csr & ask let's encrypt to sign`
 
 Certificate Resolvers `retrieving certificates from an Automatic Certificate Management Environment (ACME) server.`
+ACME chanllenge will either http or dns
 kubernetes.io/ingress.class: "nginx"
 nginx.ingress.kubernetes.io/force-ssl-redirect: "true" 
 ```yml

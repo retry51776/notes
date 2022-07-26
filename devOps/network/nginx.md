@@ -2,7 +2,8 @@
 
 ## Add custom format to ngnix
 ```
-log_format custom_log 'xxxx'
+log_format custom_log  '$remote_addr - $remote_user [$time_local] "$request" $status "$http_referer" '
+                               '"$http_user_agent" "$http_x_forwarded_for"';
 
 access_log /var/log/nginx/xxxx custom_log;
 ```

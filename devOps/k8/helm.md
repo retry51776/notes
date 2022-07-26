@@ -31,7 +31,7 @@ helm dependency list xxx
 4. helm install --values=xxx-config.yaml xxx xxx
 
 # pull chart zip
-helm pull traefik traefik/traefik
+helm pull traefik/traefik
 helm install --values=xxx.yaml chart_name --namespace [kube-system]
 helm install traefik traefik/traefik --set dashboard.enabled=true,serviceType=LoadBalancer,rbac.enabled=true,dashboard.domain=traefik.local
 helm uninstall xxx

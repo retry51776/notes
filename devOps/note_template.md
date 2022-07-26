@@ -1,11 +1,19 @@
 # XXXX
+> 👍 Success
 > Some quick notes about XXXX should be on top!
 > 
-> I needs to rewrite all notes in this format, follow similar template
+> I needs to <mark>rewrite</mark> all notes in this format, follow similar template
+> Markdown Codes https://rdmd.readme.io/docs/code-blocks
+
+Water is H<sub>2</sub>O
+
+
 
 ## CMDs
 ```bash
 python3 start.py
+
+# https://rdmd.readme.io/docs/code-blocks
 ```
 
 ## Scirpts

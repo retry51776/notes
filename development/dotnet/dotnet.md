@@ -145,7 +145,7 @@ HostBuilder = (NodeJS express) bare bond server
 > use appSetting.json property
 
 > context.Configuration.GetSection(appSettings.json.props)
-```
+```cs
 EX: RabbitMqService<RequestModel, Processor>
     protected override Task ExecuteAsync
     public virtual void ConnectMessageQueue

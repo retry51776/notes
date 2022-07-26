@@ -7,7 +7,7 @@
 - 
 
 ## Query
-```
+```sql
 create role xxx with login;
 create database xxx_db with owner xxx;
 

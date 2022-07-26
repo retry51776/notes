@@ -1,4 +1,5 @@
 # Test
+> This folder become my playground. It's for me to testing whatever.
 
 > orgranize by same subject tests into single file
 

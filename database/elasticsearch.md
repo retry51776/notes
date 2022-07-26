@@ -1,6 +1,6 @@
 # Elasticsearch
 Post Ops
-```
+```bash
 /_cluster/settings?include_defaults=true
 /_delete_by_query
 
@@ -23,7 +23,7 @@ Post Ops
 }
 ```
 Query
-```
+```bash
 exists: {"field": "test"}
 
 "nested" : {
@@ -107,7 +107,7 @@ splunk is similar to logstash. bank of America use splunk store its logs
 > Data loss can happen in a number of ways, you need to be able to recreate the data if needed. True, Elasticsearch has a snapshot/restore feature, but this process will only ever partially recover you in the event of data loss. Updates made between the most recent snapshot and the outage will be lost unless you have another system in place to queue them. Snapshot/restore will also not help in the event of split-brain, because there’s no mechanism for reconciling updates to each partition. Updates will just be lost.
 
 # Python
-```
+```py
 from elasticsearch import helpers
 for doc in helpers.scan(
   es,

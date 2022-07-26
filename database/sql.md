@@ -1,12 +1,12 @@
 # SQL
-atomicity, consistency, isolation, durability (ACID)
+> atomicity, consistency, isolation, durability (ACID)
 
 ## Tips
 - in where caluse, avoid using function on table columns
     - Bad: `where ISNULL(sales.enddate, '2999-12-31') > @enddate` 
     - Good: `where sales.enddate is NULL or sales.enddate > @enddate`
 - break nested query into temp table SQL
-```
+```sql
 select b, sum(a) into #temp1 where a > 2 group by b;
 select * from c join #temp1 on c.b = temp1.b;
 ```
@@ -65,7 +65,7 @@ select * from c join #temp1 on c.b = temp1.b;
 
 # MSSQL
 
-```
+```sql
 sp_who2 active
 KILL session_id
 
@@ -94,7 +94,7 @@ SELECT @InsertQmId = @@IDENTITY
 - Polyphase will allow mssql query other dB, ex: mongodb, Oracle, spark
 
 # MySQL
-```
+```sql
 create
     definer = terry@`%` procedure x_proc(IN xxx varchar, OUT tt int)
 BEGIN

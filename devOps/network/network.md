@@ -111,6 +111,14 @@ IBM advance firewall
 2. rename PC name & domain
 3. change DNS service to DC ip
 
+## LDAP Anology
+> Lightweight Directory Access Protocol (LDAP)`Just a protocal; similar to http`
+> 
+> Active Directory(AD) `similar to flask` 
+> 
+> Joint Engine Technology (JET) `similar to SQL`
+
+
 # Buzzwords
 - Internet Gateway(IGW)
 - Network Access Control List(Network ACL) `base of IP control`
