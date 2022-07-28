@@ -1,8 +1,24 @@
 # ES6 stuff
+> I don't keep up w JS too much, but I am sure 20 years later JS still lives on.
 
 
-> To store large dataset in Json
-`JSON.parse("{XXX}")` is faster than `test = {XXX}`
+**Frustration**
+- Why not support name parameter? `test(name='a', age=3)`
+- `const` only works with basic type. like string or number.
+- `null` & `undefined`, I get it, but hate it. Python just have None, much easier
+- To store large dataset in Json `JSON.parse("{XXX}")` is faster than `test = {XXX}`
+
+## Emerscript Changes
+- ES1 `1997`
+- ES2 `1998`
+- ES3 `1999 Try/Catch, Regx`
+  - ES3.1 `microsoft drama`
+- ES5 `2009 JSON, Array, Common StandardLib methods`
+- ES6 `2015 for of; ()=>{}; Modules`
+- ES7 `2016 @decorator(); observe; includes`
+- ES8 `2017 Async Await`
+- ES9 `2018 {...others};`
+- TS
 
 
 JS modules(import/export)
@@ -28,10 +44,6 @@ CommonJS (require/exports)
 - Merge unqiue items from arrays `[...new Set([...array1, ...array2])]`
 
 
-**Frustration**
-- Why not support name parameter? `test(name='a', age=3)`
-- `const` only works with basic type. like string or number.
-- `null` & `undefined`, I get it, but hate it. Python just have None, much easier
 
 ## ES6
 ```js

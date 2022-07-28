@@ -2,7 +2,7 @@
 > I worked for small company. We don't have everything listed here. I wish we have half of stuffs here.
 
 
-## CI/CT/CD
+## CI / CD / Continue Tracking (CT)
 1. Source
    1. linting
    2. unit test
@@ -10,8 +10,8 @@
    3. branch protection
    4. branch strategies
       1. trunk base (commit in main = bad)
-      2. features branching (most commom)
-      3. fork branching (commmon in opensource)
+      2. features branching (most common)
+      3. fork branching (common in opensource)
       4. release branching (water fall or support multi version)
       5. git flow (release branch, requires release manager)
       6. environment branching (both environment branch & release branch)
@@ -20,7 +20,7 @@
    2. publish image/package w alpha tag
    3. trigger message(image_name/package_name & version, relatives tests) to test engine
 3. Test Engine (consumer engine)
-   1. rebuild & run effected engine & service (k8 deployment update? or singlr box envirement?)
+   1. rebuild & run effected engine & service (k8 deployment update? or single box environment?)
    2. integration, behavior, UI tests
       1. Selenium
       2. IDK, build python scripts?
@@ -41,16 +41,17 @@
       3. blue green (HA, resources w hash)
       4. canary
       5. a/b
-      6. shadow (andriod app, critical engine & service)
+      6. shadow (Android app, critical engine & service)
 6. [Monitor](./cloud/monitor.md)
    1. Logs (ELK)
-   2. Capture runtime error (sentry.io)
+   2. Capture runtime error (Sentry.io)
    3. Alert (Opsgenie)
-   4. Metrics (grafana/zabbix)
+   4. Metrics (Grafana/zabbix)
+   5. Tracing (Zipkin)
 7. Support
-   1. Service Now or Zenddesk
+   1. Service Now or Zendesk
 
-> Put all intergration tests in python package
+> Put all integration tests in python package
 
 2. Build (github action)
    1. build image
@@ -63,7 +64,7 @@
    4. publish image/package
 
 
-
+# Blackbox Metrics:
 ## response metric:
 1. Mean time to detect (MTTD)
 2. Mean time to acknowledge (MTTA)
@@ -84,17 +85,23 @@
 8: UNIQUE API CONSUMERS.
 
 ### Logs DBs
-prometheus `time-series database`
-elasticsearch `search engine, fast agg, support language`
-Splunk `Bank of American uses it`
-MongoDB `agg slow because single thread mapReducer`
+- prometheus `time-series database`
+- elasticsearch `search engine, fast agg, support language`
+- Splunk `Bank of American uses it`
+- MongoDB `agg slow because single thread mapReducer`
 
 # Testing
-Top Down
-Buttom Up
-Big Bang
-Sandwich
+- Top Down
+- Bottom Up
+- Big Bang
+- Sandwich
 
+# Migration Strategy
+- Rehost `Lift & Shift`
+- Refactor `minor app changes`
+- Revise `med app changes`
+- Rebuild `well, that sucks`
+- Replace `Maybe better this way`
 
 # Buzzwords
 Access Patter

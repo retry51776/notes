@@ -1,9 +1,11 @@
 # Backend
+> What, nodejs has build-in fetch now! Only took years https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 
-- node - runtime
-- http - node module
-- express - server framwork
-- remix/nextjs - add SSR, file_route, websocket features on top express
+## Key modules from runtim to framework
+- node `runtime`
+- http `node module`
+- express `server framwork`
+- remix/nextjs `add SSR, file_route, websocket features on top express`
 
 
 ## Express
@@ -11,7 +13,7 @@
 - Any operation could timeout, or involed multi datasources should use engine instead
 - Keep route simple as possiable, bussiness logic should done on micro services
 
-## nextJS & Remix
+## NextJS & Remix
 > MVC framework w react pattern
 
 
@@ -182,11 +184,8 @@ JWT is value base token, cookie is reference base token
 
 
 ## Mistery Errors
+> I know what it mean, but never find out the source of leakage!
 1. Memory Issue
 ```
 error: Forever detected script was killed by signal: SIGKILL
 ```
-
-# New JS framework?
-- fresh `next nextjs? lol`
-- deno `node replacement, typescript buildin support, but we still need webpack to compile for front end`

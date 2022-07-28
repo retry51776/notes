@@ -21,12 +21,22 @@ To install library
 
 Only run `npm install` to init Project, then always `npm ci`
 
+Node Package Execute `npx allow excute without install`
+
 Other npm cmds
-```bash
+```js
+// Ignore npm v7+ peer deps checks
+npm install xxx --legacy-peer-deps
+// Force npm to fetch remote resources
+npm install xxx --force
+
 npm cache clean --force  
+npm install -i xyz
 npm install --no-optional  
 npm run [package.json/script]
 npm ls xyz // to check repo has library
+
+npm start --prefix folderA
 ```
 
 **Reset private registry **

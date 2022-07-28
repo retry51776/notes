@@ -16,6 +16,7 @@
 
 
 ```bash
+systemctl restart kubelet
 # command: ["sleep", "infinity"]
 chmox +x xxx.sh
 

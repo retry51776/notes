@@ -4,9 +4,12 @@
 | --- | --- |
 | state & UI transitions | only state |
 
-## Reudx
-> Setting up Redux Store is a nightmare
+> Page level fetching
+> Component level fetching
+> Server side fetching
 
+
+## Reudx
 > Avoid redux connect() to reduces unnecessary props
 
 > Avoid using redux at all, just uses react context hook
@@ -14,20 +17,21 @@
 > react -> dispatch(action) -> (middleware) -> reducer -> store -> react
 
 ```js
-1. Setup Actions: function return {type: 'xxx'}
+// 1. Setup Actions: function return {type: 'xxx'}
 
-2. Setup Reducer: (state, action => {do_your_thing})
+// 2. Setup Reducer: (state, action => {do_your_thing})
 
-3. Optional: create middleware, redux-devtools-extension(WTF they thinking, read latest doc)
+// 3. Optional: create middleware, redux-devtools-extension(WTF they thinking, read latest doc)
 import { compose, createStore, applyMiddleware } from 'redux';
 
-4. const store = createStore(
+// 4. Define Store
+const store = createStore(
   reducer, /* preloadedState, */
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 
-5. uses Redux in component
+// 5. uses Redux in component
 import { useSelector, useDispatch } from 'react-redux';
 
 // As long as redux will refresh same components, otherwise don't be lazy
@@ -47,7 +51,7 @@ dispatch('ACTION_XYZ');
 >> unqiue id from SILBING, react uses key to reuses element, which is WHY bad idea to use index as key
 
 > ref:
->> for focus, or 3rd party lib
+>> for focus, or 3rd party lib; NextJS ServerSide caching using Ref to scope cache
   
 
 > ### React Reconsiliation
@@ -130,7 +134,7 @@ React.cloneElement(
 
 // React.StrictMode 
 
-useRef // Auto focus
+useRef // Auto focus, or scoping sever side reference
 forwardRef // reassign ref
 useImperativeHandle // Specialize Event Handler when ref is changed
 
@@ -225,11 +229,12 @@ const formik = useFormik({
 //formik.handleBlur & formik.touched.field
 //{...formik.getFieldProps('field')}
 
-FastField decode state change, only rerender when sub state it uses changed
+//FastField decode state change, only rerender when sub state it uses changed
 <Formik
   initialValues={}
   validationSchema={}
-  onSubmit={}>
+  onSubmit={}
+>
   <Form>
     <Field name="field" type="text" placeholder="xx">
     <Field as="texatarea" name="text1" placeholder="xx">
@@ -263,6 +268,7 @@ const validationSchema = Yup.object({
   }
 })
 //string().oneOf([Yup.ref('password'), ''])
+//.test('test-id', 'error-msg', val=>!val)
 
 # ChakraInput
 import { theme, ThemeProvider } from '@chakra-ui/core';
@@ -284,3 +290,7 @@ import { Input, FormControl, FormLabel, FormErrorMessage } from '@chakra-ui/core
   }
 </Field>
 ```
+
+## react-hook-form (RHF)
+> TODO: figure how it work
+> https://react-hook-form.com/api/useform/formstate/

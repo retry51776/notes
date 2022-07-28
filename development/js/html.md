@@ -30,7 +30,7 @@ n<sup>2</sup>
 > <meta> og(open graph) tags have page meta for FB embed
 ---
 # CSS
-```
+```css
 .btn-green {
     @apply text-white bg-green-500 hover:bg-green-700;
 }

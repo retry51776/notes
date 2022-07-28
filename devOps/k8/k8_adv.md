@@ -1,4 +1,5 @@
 # K8 Adv
+> Stuff I consider beyond basic k8s objects. There are way too many, but we restrict to common CRO.
 <hr />
 
 # Scaling
@@ -24,7 +25,7 @@
 4. make sure deployment set resources: requests [always set limited too]
 5. check not already hpa `kubectl get hpa`
 
-```
+```yml
 apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
@@ -120,4 +121,30 @@ spec:
     kind: haha
     shortNames:
     - x
+```
+
+
+## ServiceMesh, Network Police & Network Agent
+> Network Police is basic In/Out traffic control. Similar to Ingress Rule to Ingress Controller, there is a controller to implement polices, network agent is not install by default. Popular is calico
+> Read more [AddOn.md](./addon.md)
+
+> https://kubernetes.io/docs/concepts/services-networking/network-policies/
+
+> Why? Aren't we have Ingress, LB, Service already?
+> 
+> Because network go through sidecar enables:
+>> Metric Monitor Solutions
+>> Network Police for finner/secure traffic control. (Ex: Retry, Restrict)
+>> Fancy Deployment (Ex: Canary, BlueGreen)
+```yml
+# NetworkPolicy.spec.policyTypes.ingress.from [ipBlock, namespaceSelector, podSelectore]
+kind: NetworkPolicy
+spec:
+  podSelectore:
+    matchLabels:
+  policeTypes:
+  - Ingress
+  ingress:
+  -from:
+  - Egress
 ```

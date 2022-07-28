@@ -1,5 +1,17 @@
-# There is no solution, only tradeoffs.
+# Software Analogy
+> Old school windows software deployment is like `send you big coffee machine to you house. Manuafactor can't clean it because they don't have access. User can't clean machine, or adjust coffee concentration because user can't open it(Closed source)`
 
+> Then open source dev is like `we publish coffee machine parts(motor, pump, electric switches) design to public, user can make their own parts & wired them together. Now user knows how to take it apart & clean it. But now user needs to figure out what parts & how to wired parts together`
+
+> Modern Hook libraries is like `we send you smart coffee machine(w touch screen) supports limited adjustment (callback parameters); Hope user able to find coffee machine that does everything you need.`
+>> `const { /* here is where user pick up coffee */ } = useXXX(/* telling machine how to cook */)`
+>> `useXXX()` is the machine
+>> `onXXX` that passed into useXXX() is like custom request `similar to tell coffee machine before it cook, do x, y z; If machine doesn't support custom request, then you have to either try to see if you can modify add water after you got coffee, or pick another machine`
+
+> Event base:
+> 
+ 
+# There is no solution, only tradeoffs.
 here are common trade offs
 - CPU vs Memory
   > AKA space time trade offs

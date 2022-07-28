@@ -1,6 +1,9 @@
-## IDK Products
+## IDK
+> Someone mentions xyz that IDK goes here. Or notes I don't know where to dump it here.
+
+```
 Config Management DB(CMDB) a file list csp servers
-Jenkin Cronjob tigger Ansiable playbook call APIs
+Jenkins Cronjob trigger Ansible playbook call APIs
 ServiceNow
 Rapid7
 System Center Configuration Manager
@@ -20,3 +23,4 @@ wrote by Golang, opensource, 3 or 5 server
 
 Agent
 Job > Group > Task
+```

@@ -7,6 +7,7 @@
     - /sales
         - index.js
         - /[id].js `/sales/123`
+    - _app.js `global context, or flask current_app`
 
 ```js
 import { useRouter } from 'next/router';

@@ -13,26 +13,34 @@
 // IDE plugins
 - kubernetes
 - Kubernetes Support
+- Kubernetes Template
 - Helm intellisense
 
-// other CMDs
+// CMDs
 - kubectl
 - helm
 - kustomize `less feature of helm`
-- https://www.datree.io/
-- CloudFlare PKI/TLS toolkit
 
-// K8 addons
-- kubenete dashboard
+// K8 Networking addons
+- istio `service mesh`
+- [spec.affinity.nodeAffinity](https://kubernetes.io/docs/reference/scheduling/config/)
+- DNS server
 - cert-manager
 - traefik
-- DNS server
+
+
+// K8 Monitor addons
+- kubenete dashboard
 - grafana `monitor platform`
-- istio `service mesh`
 - fluentd `data collector`
 - Open Policy Agent(OPA) `access control`
+
+// K8 others addons
 - Longhorn `distributed block storage`
 - fleet `large scale deployment of Kubernetes clusters`
+- https://www.datree.io/ `deployment file checker`
+- CloudFlare PKI/TLS toolkit
+
 
 
 ## kubenete dashboard

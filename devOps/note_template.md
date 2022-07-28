@@ -16,7 +16,7 @@ python3 start.py
 # https://rdmd.readme.io/docs/code-blocks
 ```
 
-## Scirpts
+## Scripts
 ```python
 a = 1
 ```
@@ -37,5 +37,5 @@ a = 1
 > dfsf
 
 # Buzzwords
-- Xxx Yyyy Zz (XYZ) `fanncy words`
+- Xxx Yyyy Zz (XYZ) `fancy words`
 - Aaaa Bbbb Cccc (ABC)

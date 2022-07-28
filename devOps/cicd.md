@@ -1,11 +1,11 @@
 # CI & CD
-> Example of stuff in CICD. A lots tools in this space.
+> Example of stuff in CI/CD. A lots tools in this space.
 
 > Funny thing about CI & CD is automate process, testing code to be more reliable. Yet CI & CD itself is the MOST UNRELIABLE thing ever.
 ## [Bash](/devOps/local/bash.md)
 > Works w linux.
 ## [GO](/development/go.md)
-> A lots devOps tools wriiten in GO.
+> A lots devOps tools written in GO.
 ## [Python](/development/python/python.md)
 > Duct tap of devOps
 ## [Terraform](./cloud/terrform.md)

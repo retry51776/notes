@@ -1,6 +1,9 @@
-# Setup Developer Applications
+# Developer Setup
+> Checklist for setup my env, my host os still windows or mac, even I works w linux a lot; There are too many linux, and when things goes wrong harder to google solution.
+
+## Applications
 - Sublime
-- VS Code
+- VS Code & Plugins
   - remote container
   - python
   - eslint
@@ -10,8 +13,8 @@
   - .net core essentials
   - Thunder Client
   - Base64
-  - Code Spell Checker
-  - Kubernetes `Offical plugin let VS view k8 objects`
+  - Code Spell Checker `Must Install`
+  - Kubernetes `Official plugin let VS view k8 objects`
   - Kubernetes Support `the code snippets wasn't full k8 sets, i hate it`
   - Kubernetes Templates `code snippets`
   - Helm intellisense
@@ -36,6 +39,7 @@
 - DataGrid
 - Homebrew
   - minikube `https://minikube.sigs.k8s.io/docs/start/`
+  - kind
 
 ## Cool resources
 - [Icons] https://gist.github.com/rxaviers/7360908
@@ -44,16 +48,14 @@
 - [Company Investor] https://www.crunchbase.com/
 
 ## Datatool
-- Generate test data https://www.mockaroo.com/
 - HDFView #view tool for .h5
 - R-Studio is hardware data recovery
 - winhex
 - mrtlab needs special hardware
 
 # UI Tool
-https://www.figma.com/
-> Design Pic
-https://videohive.net/
+- [Figma: Design Pic](https://www.figma.com/)
+- https://videohive.net/
 
 
 ## Linux GUI Tools
@@ -78,15 +80,19 @@ https://videohive.net/
 - Visio
 - Draw.io
 
+# Mock Data
+- Generate test data https://www.mockaroo.com/
+- https://mockapi.io/
+
 **Windows Sub Linux**
 1. `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`
-2. Go to Micr Store & get Debian
+2. Go to Microsoft Store & get Debian
 
 > ~/.bashrc is bash setting
 > PS = Prompt String, just like python `Export PS ="\t"`
 Try remove windows path from WSL if cmd in WSL is slow
 - In `/etc/wsl.conf` add
-```
+```bash
 [interop]
 appendWindowsPath = false
 ```
