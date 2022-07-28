@@ -1,7 +1,7 @@
 # Git
 > Git is a database, smallest unit is File store as blob unit.
 
-> build number generator is global (share across branchs)
+> build number generator is global (share across branches)
 ### Git object types:
 1. blob
 2. commit
@@ -14,7 +14,7 @@
 git log --abbrev-commit
 git log --graph --online --decorate
 git cherry-pick 7017284
-# Go back to prevous branch
+# Go back to previous branch
 git checkout -
 
 # Tag
@@ -82,7 +82,7 @@ git config --global user.email terrywuemail@gmail.com
 git clean -df
 ```
 
-# CICD Pipeline
+# CI / CD Pipeline
 ## Github Vars
 ```bash
 GITHUB_REF

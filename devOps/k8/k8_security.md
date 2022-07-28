@@ -1,4 +1,5 @@
-# K8 Security
+# K8s Security
+> TLS/SSL certs, Service mesh
 ## Addons
 > cert-manager 
 >> `simplifies the process of obtaining, renewing and using those certificates`
@@ -13,7 +14,7 @@ data:
   tls.crt: $(cat xxx.pem | base64 | tr -d '\n')
   tls.key: $(cat xxx-key.pem | base64 | tr -d '\n')
 ```
-> keycloak `client applaction authorication`
+> keycloak `client application authorization`
 
 > Kubernetes Dashboard
 ## Secrets
@@ -119,7 +120,7 @@ Police -> roles -> premission [service. resource. verb]
 > certbot `k8s pod create csr & ask let's encrypt to sign`
 
 Certificate Resolvers `retrieving certificates from an Automatic Certificate Management Environment (ACME) server.`
-ACME chanllenge will either http or dns
+ACME challenge will either http or dns
 kubernetes.io/ingress.class: "nginx"
 nginx.ingress.kubernetes.io/force-ssl-redirect: "true" 
 ```yml

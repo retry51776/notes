@@ -6,22 +6,22 @@
 **75 blind questions types**
 
 - Array/Matrix
-  - Quick Seach|Sort
+  - Quick Search|Sort
   - Window Slicing
 - Recursive
   - Divide and Conquer
-    > Merge sort is easy to parrel
+    > Merge sort is easy to parallel
 
   - Dynamic Programming
     - Tree
       > Only single path from root to any node
 
       > Depth-first search
-        - Preorder is priorty is left, node, right
+        - Preorder is priority is left, node, right
         - Inorder is started from leftest leave, then root, at last right subtree
-        - Postorder is started from leftest leave, then silbing, at last parent
+        - Postorder is started from leftest leave, then sibling, at last parent
 
-      > Breadth-first search(level order) prioty is lower level scan first
+      > Breadth-first search(level order) priory is lower level scan first
       - Heap
         > Tree structure that will self reorder when add/poll node
       - Sufflix Trie
@@ -46,18 +46,18 @@
 - init result,
 - always create extra operation pointer `avoid pointer interfior with  each other`
 - divide task into setup up phase, process phase, reset phase,
-- mark variables types: reset each cycle, cycles/golbal state
+- mark variables types: reset each cycle, cycles/global state
 
 
-```
+```py
 for x in zip(*['abc', 'def', 'ghi'])
     //x = ['a', 'd', 'g']
 ```
 
 ### For Divide & Conquer Questions:
-> Often a prefer solution in Production because predictable runtime & able parallized process
+> Often a prefer solution in Production because predictable runtime & able parallel process
 
 Always at least 2 parts:
-1. dividsion // create pointers, recursive function
-2. merge // where logic happens
+1. division `create pointers, recursive function`
+2. merge `where logic happens`
 

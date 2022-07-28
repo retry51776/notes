@@ -1,17 +1,17 @@
 # Backend
 > What, nodejs has build-in fetch now! Only took years https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 
-## Key modules from runtim to framework
+## Key modules from runtime to framework
 - node `runtime`
 - http `node module`
-- express `server framwork`
+- express `server framework`
 - remix/nextjs `add SSR, file_route, websocket features on top express`
 
 
 ## Express
 - In middleware, `next()` does NOT exit function
-- Any operation could timeout, or involed multi datasources should use engine instead
-- Keep route simple as possiable, bussiness logic should done on micro services
+- Any operation could timeout, or involved multi datasources should use engine instead
+- Keep route simple as possible, business logic should done on micro services
 
 ## NextJS & Remix
 > MVC framework w react pattern
@@ -100,9 +100,9 @@ app.use(bodyParser.json())
 ```
 
 ### http req & res
-> both origin & referer is attched by brower
+> both origin & referrer is attached by browser
 
-> Block CROS will prevent embeded iframe, but won't protect from seliumn crawler
+> Block CROS will prevent embedded iframe, but won't protect from seliumn crawler
 
 > define req, res object
 
@@ -142,7 +142,7 @@ res.redirect('google.com')
 ```js
 const redisStore = req.sessionStore;
 redisStore.get(req.xxxID, (err, sess) => {
-  req.session // is avaiable
+  req.session // is available
 })
 
 // express redisSession
@@ -182,10 +182,3 @@ JWT is value base token, cookie is reference base token
 - Import Relative Path : <https://www.youtube.com/shorts/WpgZKBtW_t8>
 - Scaffolding `MVC folder structure /bin /public /route /view`
 
-
-## Mistery Errors
-> I know what it mean, but never find out the source of leakage!
-1. Memory Issue
-```
-error: Forever detected script was killed by signal: SIGKILL
-```

@@ -9,7 +9,7 @@ Recommend Properties
 - env: [dev, prod, stage]
 - type: [engine, service, ui]
 ### Annotations
-> is an object passed to K8 controller, always research documenation to see what & how k8 controller loads annotations
+> is an object passed to K8 controller, always research documentations to see what & how k8 controller loads annotations
 Example
 ```yaml
 # Tell k8 whatever defined is for this service_account
@@ -139,11 +139,11 @@ Kind: Service
 spec:
 	type: [NodePort|ClusterIP|LoadBalancer] # usually ClusterIP
 	ports:
-	# ClusterIP: accessable within k8 network
-		- port: 80        # Sevice's port
+	# ClusterIP: accessible within k8 network
+		- port: 80        # service's port
 		- targetPort: 80  # Pod's port
 		- protocol: TCP
-	# NodePort: each pod is accessable by public_ip:port; Only for developer testing
+	# NodePort: each pod is accessible by public_ip:port; Only for developer testing
 		- targetPort: 80
 		- port: 80
 		- nodePort: [30000-32767]
@@ -159,9 +159,9 @@ spec:
 - extraPortMapping
 
 
-## Mount Volumn
+## Mount Volume
 1. Add volumes to deployment
-2. Tell where volumns mount to `volumeMounts`
+2. Tell where volumes mount to `volumeMounts`
 ```yml
   containers:
   - name: myapp-vol-container
@@ -201,7 +201,7 @@ openssl req -new -key bob.key -out bob.csr -subj "/CN=bob/O=learner"
 cat bob.csr | base64 | tr -d '\n','%'
 
 vim signing-request.yaml
-below is asking k8 premission for certificate we just created
+below is asking k8 permission for certificate we just created
 ```
 ```yaml
 apiVersion: certificates.k8s.io/v1
@@ -218,26 +218,26 @@ spec:
   - key encipherment
   - client auth
 ```
+
+### Approval Signing Request
 ```bash
----
-// Aprovel Signning Request
 kubectl get csr
 certificatesigningrequest.certificates.k8s.io/bob-csr approved
 
-// Export Certificate
+# Export Certificate
 kubectl get csr bob-csr -o jsonpath='{.status.certificate}' | base64 -d > bob.crt
 
-// Assign bob's credential to key & cert
+# Assign bob's credential to key & cert
 kubectl config set-credentials bob --client-certificate=bob.crt --client-key=bob.key
 
-// Create context just for bob
+# Create context just for bob
 kubectl config set-context bob-context --cluster=minikube --namespace=lfs158 --user=bob
 kubectl config use-context bob-context
 kubectl config set-context --current --namespace=kube-system
 
-//kubectl config view
+# kubectl config view
 ---
-// Give bob role access
+# Give bob role access
 vim role.yaml
 ```
 ```yml

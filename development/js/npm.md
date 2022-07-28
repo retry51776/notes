@@ -66,7 +66,7 @@ unsafeCache: /assets/,
 },
 ```
 
-Windows ESLint failed premission
+Windows ESLint failed permission
 ```powershell
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
 ```

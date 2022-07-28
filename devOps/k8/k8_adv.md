@@ -1,5 +1,5 @@
 # K8 Adv
-> Stuff I consider beyond basic k8s objects. There are way too many, but we restrict to common CRO.
+> Stuff I consider beyond basic k8s objects. There are way too many, but we restrict to common CRD.
 <hr />
 
 # Scaling
@@ -11,7 +11,7 @@
 
 ## Cluster Autoscaling
 > https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler
-> Vendor specifit, can be very expensive.
+> Vendor specific, can be very expensive.
 
 
 ## Horizontal Pod Autoscaling (HPA)
@@ -85,7 +85,7 @@ webhooks:
       name: xxx
       path: '/xxx'
     caBundle: "{CA_PEM_B64}"
-  # What event tigger
+  # What event trigger
   rules:
   - operations: [ "CREATE" ]
     apiGroups: [""]
@@ -134,7 +134,7 @@ spec:
 > 
 > Because network go through sidecar enables:
 >> Metric Monitor Solutions
->> Network Police for finner/secure traffic control. (Ex: Retry, Restrict)
+>> Network Police for finnier/secure traffic control. (Ex: Retry, Restrict)
 >> Fancy Deployment (Ex: Canary, BlueGreen)
 ```yml
 # NetworkPolicy.spec.policyTypes.ingress.from [ipBlock, namespaceSelector, podSelectore]

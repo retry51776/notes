@@ -5,9 +5,9 @@
 > observable cone means the farther we see the older it gets
 
 # Thoughts
-> Is this means someone far aways already seen our future? and our future already determined?
+> Is this means someone far away already seen our future? and our future already determined?
 
-> I feel like standard model have more applications, things far aways most likely won't matter. We can't even get to Mars..
+> I feel like standard model have more applications, things far away most likely won't matter. We can't even get to Mars..
 
 > Why is space in Standard Model? I felt like Standard Model only desc how particle interact w other particles. There is got to explain why space grow & dark matter. I suspect both are  caused same physic.
 # General Relativity
@@ -30,10 +30,10 @@ $$
     constance = ${8πG\over c4} Tμν$
 
 ### Geodesics Equation 
-> gerometry of space-time, left part Einstein equation, aka Curvature, How obj naturally move
+> geometry of space-time, left part Einstein equation, aka Curvature, How obj naturally move
 
 #### riemann curvature tensor (space curve)
-  - metric tensor (calulate distance)
+  - metric tensor (calculate distance)
   - christopher symbols (how grid changes)
   - richie tensor (tool compress riemann curvature tensor)
   - richie scalar (avg curvature in all directions)
@@ -44,7 +44,7 @@ $$
 2. Schwarzschild metric `for spherical mass`
 3. FLRW metric
 4. Morris-Thorne `wormhole`
-5. kerr `blackhole`
+5. kerr `black hole`
 
 #### Calculation Coordinate
 1. cartesian coordinates `Minkowski Metric`

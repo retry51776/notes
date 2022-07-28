@@ -7,7 +7,7 @@
 - json-server
 
 
-## Mistery Errors
+## Mystery Errors
 > I know what it mean, but never find out the source of leakage!
 1. Memory Issue
 ```

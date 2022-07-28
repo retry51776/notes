@@ -7,8 +7,8 @@
 ## [GO](/development/go.md)
 > A lots devOps tools written in GO.
 ## [Python](/development/python/python.md)
-> Duct tap of devOps
-## [Terraform](./cloud/terrform.md)
+> Duct tape of devOps
+## [Terraform](./cloud/terraform.md)
 > It's industry standard tool. Most likely the biggest coverage devOps toolbox.
 ## Ansible
 > Old, but similar tools to Terraform

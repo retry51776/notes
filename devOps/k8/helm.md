@@ -1,5 +1,5 @@
 # Helm
-> Helm is package manager for k8, also templating Engines
+> Helm is package manager for k8s
 > 
 > Helm < 2.0 Client / Sever (Tiller) since 3.0 No more Tiller
 > 
@@ -71,7 +71,7 @@ helm package xxx
 {{- template "xxx.label"}}
 ```
 
-## Helm worflow control & reference
+## Helm workflow control & reference
 > This remind me php programming
 > 
 ```bash

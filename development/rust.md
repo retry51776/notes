@@ -3,7 +3,7 @@
 Variables Types
 https://doc.rust-lang.org/reference/types.html
 by default immutable
-```
+```rust
 let mut test = "ddd";
 let test = Test::new();
 run(&test)
@@ -39,7 +39,7 @@ borrower checker
 5. Code Generation
     > convert to binary
 
-    > LLVM is collegection small compiler and toolchain technology
+    > LLVM is collection small compiler and toolchain technology
 ```
 let y = x; // x's value is removed
 let y = &x; // y has x's pointer

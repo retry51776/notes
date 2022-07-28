@@ -1,4 +1,5 @@
 # addon
+> Addons / Plugins / Modules not installed by k8s & needs setups.
 
 ### Install tools
 - kubeadm `Install production k8`
@@ -27,6 +28,7 @@
 - DNS server
 - cert-manager
 - traefik
+- nginx-ingress
 
 
 // K8 Monitor addons
@@ -43,7 +45,7 @@
 
 
 
-## kubenete dashboard
+## kubernetes dashboard
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.5.0/aio/deploy/recommended.yaml
 
@@ -56,7 +58,7 @@ kubectl get secret $(kubectl get serviceaccount kubernetes-dashboard -o jsonpath
 ```
 
 ### Service Mesh Addons:
-> Service mesh is similar to use cloud proxy, do network trafik through sidcar
+> Service mesh is similar to use cloud proxy, do network traefik through sidcar
 - Consul
 - Envoy
 - Istio
@@ -68,7 +70,7 @@ kubectl get secret $(kubectl get serviceaccount kubernetes-dashboard -o jsonpath
 - Maesh
 - Tanzu Service Mesh
 
-Advance Deployement
-Canary - 2 different version at same time
-Blue/Green - Completed switch over
+Advance Deployments w VirtualService
+- Canary `2 different version at same time`
+- Blue/Green `Completed switch over`
 > Create another service with selector able select both version PODs

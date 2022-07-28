@@ -1,5 +1,5 @@
 # Security
-> Netowrk admin security stuff. Most about Cert
+> Network admin security stuff. Most about Cert
 
 > $300 to $2000 to get root_ca signed
 
@@ -7,7 +7,7 @@
 
 > public_ca_authority signed root_ca_authority
 
-> cert is configed in loadbalancer, ingress, or however db loads cert
+> cert is configured in loadbalancer, ingress, or however db loads cert
 
 > wildcard cert `allows easy to manage & single cert for internal reverse proxy`
 > single cert `hard to manage, but more secure`
@@ -35,8 +35,8 @@
   ## Linux
     ## Create Cert
     1. genkey www.xxxx.local
-    2. going to take a while generate randomless
-    3. Inpute Meta: (Country, State, Locality, Organization, Unit, domain_name)
+    2. going to take a while generate randomness
+    3. Input Meta: (Country, State, Locality, Organization, Unit, domain_name)
     4. Generated xxx.crt & xxx.key
 
     ## Request CA to Sign Cert
@@ -82,7 +82,7 @@ openssl req -new -sha256 -out terry.test.local.csr -newkey rsa:2048 -keyout "$1.
 
 3. Install crt
   a) Install in K8
-    1. kubectl create secret tls terry-tls --cert=terry.test.local.cer --key=terry.test.local.key
+    1. `kubectl create secret tls terry-tls --cert=terry.test.local.cer --key=terry.test.local.key`
     2. In Ingress file add tls property
   b) Install in server
     1. ssh into server
@@ -106,7 +106,7 @@ openssl req -new -key xxx.key -out xxx.csr
 
 `http://localhost/certsrv` or `http://pc_name.domain_name.local/certsrv`
 
-# Developer VPN
+# Generate Developer VPN cert
 ## by Microsoft UI
 Microsoft Management Console `Run > mmc > Enter` export LDAP certificate for VPN
 default config path `C:\Users\xxx\OpenVPN\config`

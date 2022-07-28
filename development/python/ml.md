@@ -26,28 +26,28 @@ Alg.
 pyTorch
 Tensorflow
 
-
-// take out feature at a time
+```py
+# take out feature at a time
 recursive feature removal
 
-KubeFlow decorator
+# KubeFlow decorator
 @component()
 def get_df(project_id):
 	ddf.to_csv(data_out.path)
 
-pipleline is compile into json
+pipeline is compile into json
 
 @kfp.dsl.pipeline(name="", pipeline_root=xxx):
 	xxxx = xxx.
-
+```
 ## Models
-dropout
-Convolutional Neural Network (CNN)
-(RRN)
-BiDirection
-ResNetwork
+- dropout
+- Convolution Neural Network (CNN)
+- (RRN)
+- BiDirection
+- ResNetwork
 
-LSTM
+- LSTM
 Transformer generate embedding
 Bidirectional Encoder Representation Transformers(BERT)
 > Question Answering
@@ -63,7 +63,7 @@ Ensemble Sampling
 
 ## Vertex AI
 ### Setup Pipeline
-```
+```py
 from kfp.v2 import compiler
 @kfp.dsl.pipeline(name, pipeline_root)
 def pipeline():
@@ -74,7 +74,7 @@ def pipeline():
 compiler.Compiler().compile(pipeline_func=pipeline, package_path)
 ```
 
-```
+```py
 from kfp.v2.dsl import component, Dataset, Input, Output
 @component(case_image='', packages_to_install=[])
 def step1(num1: float, x_in: Input[Dataset], out: Output[Artifact]):

@@ -36,7 +36,7 @@
   - or_
   - not_
   - tuple_
-  - functions `advance aggeration`
+  - functions `advance aggregation`
     - count()
     - sum()
   - expression
@@ -99,7 +99,7 @@ lazy [select, immediate, joined, subquery, selectin]
 
 **Auto Schema Ops**
 
-```
+```py
 from sqlalchemy.ext.automap import automap_base
 
 # 1. Auto Map Whole DB
@@ -123,7 +123,7 @@ Product.insert().values(**record)
 ```
 
 **ORM ops**
-```
+```py
 sale = Sale(amount=123)
 session.add(sale)
 session.commit()
@@ -158,9 +158,9 @@ color = Column('color', Enum(xxx))
 ```
 
 **Cursor Query**
-```
+```py
 cursor = session.connection().cursor()
-cursor.execute(query) //session.execute() will work too
+cursor.execute(query) # session.execute() will work too
 
 sales = [dict(zip(cursor.column_names, row)) for row in cursor.fetchall()]
 
@@ -170,7 +170,7 @@ sales = [dict(zip(cursor.column_names, row)) for row in cursor.fetchall()]
 
 # Flask
 
-> max worker = 2 * CPU + 
+> max worker = 2 * CPU + 1
 
 ## Methods
 - Get
@@ -212,7 +212,7 @@ sales = [dict(zip(cursor.column_names, row)) for row in cursor.fetchall()]
 - url_for
 
 
-```
+```py
 res = make_response(json.dumps(xxx))
 res.headers['Content-Type'] = 'application/json'
 res.status_code = 200
@@ -278,7 +278,7 @@ app.register_error_handler(Exception, handler)
   - Schema
 - validates_schema
 
-```
+```py
 @xxx.route('')
 @use_kwargs(sss(), location=('json'),)
 def xxx()
@@ -293,7 +293,7 @@ class sss(Schema):
 ```
 
 ## Flask Template
-```
+```py
 <p>name is {{ name }}</p>
 
 <img src="{{ url_for('static', filename="xxx.jpg")}}"/>
@@ -309,7 +309,7 @@ class sss(Schema):
 ```
 
 # Flask Middleware
-```
+```py
 from werkzeug.wrappers import Request, Response
 class xxxMiddleWare():
   def __init__(self, app)

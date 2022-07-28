@@ -1,5 +1,5 @@
-# Software Analogy
-> Old school windows software deployment is like `send you big coffee machine to you house. Manuafactor can't clean it because they don't have access. User can't clean machine, or adjust coffee concentration because user can't open it(Closed source)`
+s# Software Analogy
+> Old school windows software deployment is like `send you big coffee machine to you house. Manufactory can't clean it because they don't have access. User can't clean machine, or adjust coffee concentration because user can't open it(Closed source)`
 
 > Then open source dev is like `we publish coffee machine parts(motor, pump, electric switches) design to public, user can make their own parts & wired them together. Now user knows how to take it apart & clean it. But now user needs to figure out what parts & how to wired parts together`
 
@@ -18,8 +18,8 @@ here are common trade offs
 - Speed vs Accuracy
 - Latency vs. Throughput
 - consistency or availability
-  > DB high avaibility problem
-- features or scalebility
+  > DB high availability problem
+- features or scalability
   > SQL vs no SQL
 - complexity or flexibility
 
@@ -27,7 +27,7 @@ here are common trade offs
 ## Architecture
 - Monolithic/layered
 - Service Base/microservice
-- distrubate/event driven
+- distribute/event driven
 
 > IMO these just 3 basic architectures mixed together
 - MicroKernel/Plug-in
@@ -52,7 +52,7 @@ here are common trade offs
     > Consumer of msgs
 
 - /Calculator
-  > Just bussiness logic
+  > Just business logic
 
   > NO network connections
 - /Service 
@@ -78,33 +78,33 @@ here are common trade offs
 
   > Constrain will reduce DB performance, cause more deadlock
 ---
-> Bussiness Logic & workflow
-  - response time? request volumn?
-  - where bussiness logic
+> Business Logic & workflow
+  - response time? request volumes?
+  - where business logic
     - compute @ engine, store in DB
     - compute @ DB proc
     - compute @ service endpoint
     - compute @ client side
   - Internal or External or both?
-  - workflow interference & trigger DB bottneck
+  - workflow interference & trigger DB bottleneck
 
-> FE distrubated in Content Deliver Network(CDN) is at good as it gets, maybe dynamics import too
+> FE distributed in Content Deliver Network(CDN) is at good as it gets, maybe dynamics import too
 
 > Horizontal scaling service & engine, most of works in here
 
-> Golbal DB is very hard, beyond me
+> Global DB is very hard, beyond me
 
 
 ---
 ## Developer Metaphor
-- Bussiness logic & data defines architecture.
-- Useage determent house structure and foundation.
+- Business logic & data defines architecture.
+- Usage determent house structure and foundation.
 
 - Carpenter is determent by right tools and usage
 - Common Developer problems:
-  - didn't know the right tool/didn't familar with tool
+  - didn't know the right tool/didn't familiar with tool
     - reinvent the tool
-    - wrong aproch the problem
+    - wrong approach the problem
   - bring too much tools
     - performance problem
     - over engineering
@@ -113,7 +113,7 @@ here are common trade offs
 
 <hr />
 
-> Compare Developer to car, sport car(senior dev) 0-60 is faster than corolla(jr dev), where it make differences is on max speed(dev don't awared their mistakes until review mirror). 
+> Compare Developer to car, sport car(senior dev) 0-60 is faster than corolla(jr dev), where it make differences is on max speed(dev don't aware their mistakes until review mirror). 
 ## Security
 - URL
   - expose static link on secure resource
@@ -143,7 +143,7 @@ here are common trade offs
 > 
 > If function is such bad for performance, why make it so powerful. It's like puting posion in nice soda can.
 # Python
-> It's slow, but 90% bussiness use cases accpets horizontal scaling to mitigate problem.
+> It's slow, but 90% bushiness use cases accepts horizontal scaling to mitigate problem.
 > 
 > Typescipt like feature on Python will be cool.
 > 
@@ -186,6 +186,6 @@ make client request looks like function, replaces rest, webhook
 ## Tailwind 
 > 2019 css framework, I like it, make sense
 
-## Brower IDE
+## Browser IDE
 > very cool, just live on 10-21-2021
 https://vscode.dev/

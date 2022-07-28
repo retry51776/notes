@@ -31,7 +31,7 @@
     - Queue
 - Online Analytical Processing (OLAP)
   - SQL Warehouse
-  - Data Lake Storen `speciallize for hadoop`
+  - Data Lake Storage `specialize for hadoop`
 
 # Security
 - Azure AD
@@ -43,8 +43,8 @@
   - ExpressRoute `Dedicated connection to VNet, usually offer by data center`
 - Load balancer `Expose VNet to public`
 
-- Avaiable Region
-- Avaiable Zone `more than 3 data centers`
+- Available Region `1 data center`
+- Available Zone `more than 3 data centers`
 
 ### Private Link
 > https://docs.microsoft.com/en-us/azure/private-link/

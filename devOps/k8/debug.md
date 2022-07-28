@@ -1,7 +1,7 @@
 # Debug
 > IDK, won't be organized here. Whatever I dump here whatever useful for debug
 
-### Commons Erros
+### Commons Errors
 - Error Validating data
 - SchedulingDisabled
 - ImagePullBackoff

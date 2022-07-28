@@ -36,12 +36,12 @@ CommonJS (require/exports)
 
   > `await` must have `async` decorator, but call `async` function can invoke without `await`
 
-**Usefull Features**
+**Usefully Features**
 - Destruct Object `const { rules, ...otherProps } = this.props;`
 - Rename destruct array `const [a1, a2] = [1, 2];`
 - Nullish coalescing operator `const test = 0 ?? '-';`
 - Optional chaining `const test = {}?.a?.b?.c;`
-- Merge unqiue items from arrays `[...new Set([...array1, ...array2])]`
+- Merge unique items from arrays `[...new Set([...array1, ...array2])]`
 
 
 

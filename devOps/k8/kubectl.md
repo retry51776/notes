@@ -26,23 +26,24 @@ echo http://localhost:1234
 
 ## Basic Example
 ```bash
+# Imperative CMDs
+kubectl run XXXX --images=XXXX --port=80
+kubectl expose deploy nginx --port 80 --type LoadBalancer
+kubectl autoscale deployment foo --min=2 --max=10 --cpu-percent=80
+
+# Declarative CMDs
 # get more detail/status on k8 objects, common 1st step to debug
 kubectl describe node xxx
 
 kubectl create deployment nginx --image nginx
-kubectl expose deploy nginx --port 80 --type LoadBalancer
-
 kubectl create job --from=cronjob/mycronjob name-of-one-off-job
-kubectl run XXXX --images=XXXX --port=80  
+
 kubectl exec -it pod-name sh
 kubectl rollout restart deployment xyz
 kubectl rollout undo deployment myapp
 kubectl rollout history deploy myapp --revision=2
 
-# Almost never do this in Production, will create service & ingress
-kubectl expose deployment XXXX --type="LoadBalancer" service "XXXX" exposed  
-
-# verbs: [create delete deletecollection patch update get list watch]
+# verbs: [create delete delete collection patch update get list watch]
 # k8 object [
 #   always: ing(ingress), pod, svc(service), deploy(deployments), no(node), secrets, cj(cronjob)
 #   often: cm(configmaps), ep(endpoint), sa(service account), ns(namespace), role/clusterRole, roleBinding/clusterRoleBinding, dm(daemonset)
@@ -59,7 +60,4 @@ kubectl explain deployment.spec.template
 # Admin testing
 kubectl --as=xxxx_user get all
 kubectl --as-group=xxx get all
-```
-
-```
 ```

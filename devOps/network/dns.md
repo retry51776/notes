@@ -1,10 +1,11 @@
 # DNS
+> There are a lot network admin, even business logic, permission control dependence on DNS
 ## DNS analogy
->> ip -> address
+>> ip (building)
 >
->> port -> apt #
+>> port (apt #)
 >
->> protocal -> vehicle(bike, car, train, plane)
+>> protocall (carrier) `USPS just drop it off without confirm, UPS requires confirmation`
 
 ## DNS Servers
 - Windows Server DNS
@@ -41,7 +42,7 @@
 - DEBUG LOGGING
 
 ## Authoritative Name Server
-> only answer configed domains
+> only answer configured domains
 
 ### Zone
 > Zone properties can store in AD
@@ -67,7 +68,7 @@
   - Sender Policy Framework (SPF)
   - Service Record (SVR, w Port #, Weight, Piroty)
   - Text (TXT)
-```
+```bash
 http://www.test.com
 
 .com = Top level domains
@@ -97,12 +98,12 @@ CNAME
 > or abc.com to xyz.com, or https://mail.xyz to 9.9.9.9, support `*` or `$`
 
 Zone File
-> name server store domains informations, `SOA`
+> name server store domains information, `SOA`
 
 > Ex: www. email. ftp. www.hr. www.sales
 
 Registrar
-> Root level domain registor
+> Root level domain registers
 
 DNS Forwarding
 > For dev server, internal services
@@ -116,7 +117,7 @@ Alternative Name Service
 DNS proxies not working
 > check firewall & routing
 
-Service Record (SVR, w Port #, Weight, Piroty)
+Service Record (SVR, w Port #, Weight, Priority)
     priority - lower get more traffic
     Weight default - higher get more traffic
     `dig x_service.x_target.com SRV`

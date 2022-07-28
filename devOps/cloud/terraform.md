@@ -3,7 +3,7 @@
 > Hashicorp Configuration Language(HCL)
 > written in GO
 
-```
+```js
 # comments
 #
 #

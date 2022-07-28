@@ -11,29 +11,29 @@
 > multi message same queue & engine VS different queue w its engine
 
 > From my experience 3 mins to publish 5,000 small message
-### Protocal
+### Protocall
 - AMQP
-  > Adcanced Message Queuing Protocol, move message between applications.
+  > Advanced Message Queuing Protocol, move message between applications.
   
-  > Pika is python implelemntation AMQP 0.9.1
+  > Pika is python implementation AMQP 0.9.1
 - MQTT
 - STOMP
 
 ---
 
 # RabbitMQ
-> AMQP protocal
+> AMQP protocall
 
 > 3.9 support stream
 
 - Virtual Host
   - Exchange
       - Queue
-      > fanout/direct/topic/header/namesless
+      > fanout/direct/topic/header/nameless
 
       > topic/routing_key (M to M) Queue
 
-```
+```py
 def __process(ch, method, property, body):
     t = Thread(target=do_work)
     t.start()
@@ -63,9 +63,9 @@ ch.start_consuming() # I forgets this
     - partition
     > partition is append only log
 
-    > by default topic randomly send to partiition, can set to hash
+    > by default topic randomly send to partition, can set to hash
 
-    > order is garanty is partition level, not topic level
+    > order is guaranty is partition level, not topic level
 
     > offset is partition level
 
@@ -78,7 +78,7 @@ ch.start_consuming() # I forgets this
 > confluent-kafka-python
 
 > Faust is a stream processing library
-```
+```py
 class Order(faust.Record):
     sales_id: int
     sales_amt: double
@@ -96,7 +96,7 @@ https://www.rabbitmq.com/consumers.html#exclusivity
 
 queue.method.message_count
 ## Java
-```
+```java
 xxxStream.groupByKey().aggregate(() -> 0.0,
     (key, order, total) -> total + order.getPrice(),
     Materialized.with(Serdes.String(), Serdes.Double()))

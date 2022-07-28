@@ -1,9 +1,9 @@
-# Typescirpt
-> 2 way type def: (implict, explicitly)
+# Typescript
+> 2 way type def: (implicit, explicitly)
 > 
 > https://www.typescriptlang.org/docs/
 > 
-# Stucture
+# Structure
 /tsconfig.config
 ```js
 {
@@ -18,7 +18,7 @@ tsc index.js
 ```
 
 
-## Scipts
+## Scripts
 ```js
 type GreetFunction = (a: string |  'hhh') => void;
 type CustomType2 = [number?, string?, boolean?, any?];

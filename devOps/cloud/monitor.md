@@ -30,7 +30,7 @@ opentelemetry -> prometheus -> garfanar
 > Datadog Components:
 >> Datadog Agent: CPU, Disk IO, Latency, 15s default, auto backfill
 >> API: 
->> Integeration: 
+>> Integration: 
 
 
 ## opsgeny

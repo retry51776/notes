@@ -1,5 +1,5 @@
 # Nginx
-
+> most common load balancer
 ## Add custom format to ngnix
 ```
 log_format custom_log  '$remote_addr - $remote_user [$time_local] "$request" $status "$http_referer" '

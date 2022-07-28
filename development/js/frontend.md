@@ -9,7 +9,7 @@
 > Server side fetching
 
 
-## Reudx
+## Redux
 > Avoid redux connect() to reduces unnecessary props
 
 > Avoid using redux at all, just uses react context hook
@@ -48,13 +48,13 @@ dispatch('ACTION_XYZ');
 
 ## React Component
 > key:
->> unqiue id from SILBING, react uses key to reuses element, which is WHY bad idea to use index as key
+>> unique id from SIBLING, react uses key to reuses element, which is WHY bad idea to use index as key
 
 > ref:
 >> for focus, or 3rd party lib; NextJS ServerSide caching using Ref to scope cache
   
 
-> ### React Reconsiliation
+> ### React Reconciliation
 >> determent which node of DOM tree needs replace
 >
 >> type changed? generate new DOM
@@ -113,7 +113,7 @@ import React, { useMemo, useCallback, useEffect } from 'react';
 // useCallback(fn, deps) is equivalent to useMemo(() => fn, deps).
 const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 
-// Uses for HOC chain multiple different lifed states together
+// Uses for HOC chain multiple different lifted states together
 useEffect(() => {
   console.log('Similar to componentDidMount');
   return () => {
@@ -184,7 +184,7 @@ const {
 } = useQuery('abc', axios_promise, {
   refetchOnWindowFocus: false,
   throwOnError: true,
-  initialData: underfined, // initialData will have staleTime too
+  initialData: undefined, // initialData will have staleTime too
   placeholderData: Map(), // use placeholderData, almost never use initialData
   staleTime: 60 * 60 * 24, // how long until data is dirty
   cacheTime: 60 * 60, // stay in cache even left page
@@ -237,7 +237,7 @@ const formik = useFormik({
 >
   <Form>
     <Field name="field" type="text" placeholder="xx">
-    <Field as="texatarea" name="text1" placeholder="xx">
+    <Field as="textarea" name="text1" placeholder="xx">
     <ErrorMessage name="field" />
     <FieldArray name="">
       {
@@ -264,7 +264,7 @@ const validationSchema = Yup.object({
         'is': 'Test',//can also be () => {}
         then: string().required('field = Test, complex_field must fill')
       }),
-    descrition: 'cccc'
+    description: 'cccc'
   }
 })
 //string().oneOf([Yup.ref('password'), ''])

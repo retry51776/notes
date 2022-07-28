@@ -32,7 +32,7 @@
     > don't reference type `[]` or `{}`, any modify reference will presists default value in next function call
 - don't delete in loop
 - falsely values & or, need similar `or` for `None` only, I hate `if else`
-- Python allow integer as key of object, but JSON file requires key as string. Can be suprised load object is different.
+- Python allow integer as key of object, but JSON file requires key as string. Can be surprised load object is different.
 - `[1,2].index(0)` will throw an error, must check before get index`if 0 in [1,2]:`
 - recursion limit: 10,000
 - Pipfile going replace requirement.txt `pipenv install`
@@ -42,7 +42,7 @@
 - build retry decorator
 - 
 **Working on library**
-```
+```py
 Install local package steps:
     1. copy source code into docker container's root folder
     2. docker exec -it [container_name] sh
@@ -86,7 +86,7 @@ function docstring in first line of function
 # Python Codes
 
 ## Starndard Type
-```
+```py
 import sys
 sys.maxint
 float('Inf') # max value
@@ -109,7 +109,7 @@ f'Format to {date.today():%Y-%m-%d}'
 ```
 
 ## Attriabutes
-```
+```py
 dir(class_object) # show all attriabutes
 getattr(Abc, 'xyz') # only work w class
 hasattr()
@@ -119,7 +119,7 @@ vars(class) # retrun Object
 ```
 
 ## Property
-```
+```py
 {}.get('xyz') # only works w obj
 
 # python desturcture
@@ -140,7 +140,7 @@ z=3
 ```
 
 ## Build in functions
-```
+```py
 all()
 any([0, 1, 0])
 
@@ -153,7 +153,7 @@ time -f python3 test.py # debug script Ram & time
 
 
 ## dunder|magic methods, decorator
-```
+```py
 def cust_decorator(func):
     def wrapper(*args, **kargs):
         func(*args, **kargs)
@@ -200,7 +200,7 @@ __le__
 
 
 ## loop
-```
+```py
 # Sort by 1 key
 array = sorted(
     [item for item in items if item['a'] > 0],
@@ -241,7 +241,7 @@ i1, i2, i3 = itertools.tee(i, 3)
 ```
 
 ## custom utilities
-```
+```py
 # round(2.50) == 2, wtf
 # Python round have funny behavior
 def basic_round(x, d=0, as_decimal=False):

@@ -1,3 +1,4 @@
 # Hunt
-SNARE Trap
-Gillnetting
+
+- SNARE Trap
+- Gillnetting

@@ -3,7 +3,7 @@
 > 
 > Control groups protect host resources
 > 
-> SELinux  deal with containers communacation, between containers or to host
+> SELinux  deal with containers communication, between containers or to host
 
 ## Docker Scripts
 ```bash
@@ -28,7 +28,7 @@ docker run -it --rm [images-tag] sh sleep infinity
 ```bash
 # Restart
 docker-compose build --no-cache --pull
-# Extact File from container
+# Extract File from container
 docker cp container-name:/opt/app/node_modules .
 ```
 

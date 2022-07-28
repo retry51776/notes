@@ -2,7 +2,7 @@
 # Crawler
 ### splash
 > render dynamic page for scrapy
-```
+```py
 import scrapy
 from scrapy.crawler import CrawlerProcess
 from scrapy_splash import SplashRequest

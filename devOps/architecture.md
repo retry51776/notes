@@ -42,7 +42,7 @@
       4. canary
       5. a/b
       6. shadow (Android app, critical engine & service)
-6. [Monitor](./cloud/monitor.md)
+6. [Monitor/Tracking](./cloud/monitor.md)
    1. Logs (ELK)
    2. Capture runtime error (Sentry.io)
    3. Alert (Opsgenie)

@@ -1,10 +1,9 @@
 # AWS
 docs.aws.amazon.com
 
-
 AWS support prefer screen share
 
-Edit premission will allow ticket creation
+Edit permission will allow ticket creation
 
 CloudWatch + CloudTrail = stackdriver
 
@@ -19,18 +18,18 @@ CloudWatch + CloudTrail = stackdriver
 - Elastic Load Balancer (ELD) `since 09, container-based`
 
 ### Lambda
-> test with severless or SAM
+> test with serverless or SAM
 
 > job less than 15 mins
 
-> not very good at appliction level cache(because AWS only keep function alive for 30-45mins)
+> not very good at application level cache(because AWS only keep function alive for 30-45mins)
 
 > slow if lambda needs preload large dataset
 
 > slower running in VPC
 
-> mamually keep warm, why aws don't give a config options?
-```
+> manually keep warm, why aws don't give a config options?
+```js
 def xxx_handler(event, context):
     id = event['queryStringParameters']['id']
     return {
@@ -60,7 +59,7 @@ Resources:
 ```
 
 ## Step Function
-> Sudo bussiness logic
+> Sudo business logic
 state machine
 ```
 {
@@ -106,7 +105,7 @@ Cloud Formation
 > Cross Account needs open tickets in both accounts
 
 Response Time
-bussiness critical 15min
+business critical 15min
 Production System Down 1h
 Production Impaired 4h
 System Impaired 12h
@@ -119,7 +118,7 @@ Enterprise Discount Program (EDP)
 - Saving Plans
 - Reserved Instances
 - Spot Instances
-- Delicated Host
+- Dedicated Host
 
 
 ```
@@ -143,7 +142,7 @@ aws ec2 run-instances
 ```
 
 ### Direct Connect
-> Private connection between datacenter to AWS
+> Private connection between data center to AWS
 
 ### Amz Elatics Block Storage(EBS)
 database storage
@@ -156,7 +155,7 @@ S3 lifecyle management `auto move data between tiers`
 # AWS Lake Formation
 - Athena `big query console`
 - AWS Glue
-  - Data Catalog DataBases `stoage for crawler`
+  - Data Catalog DataBases `Storage for crawler`
   - Crawler `detect S3 folder changes & create DB`
   - Kinesis Firehose
   - Job `Create ETL engine, do mapping or join query`

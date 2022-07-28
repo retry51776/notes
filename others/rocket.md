@@ -17,9 +17,9 @@ Merlin
 
 Raptor 1 180 tons thrust
 Raptor 2 230-250 tons thrust w 300 bar pressure
-- Removed tortch igniters
+- Removed torch igniters
 
-## Componets & Parts
+## Components & Parts
 - oxy power head
 - fuel power head
 - preburner

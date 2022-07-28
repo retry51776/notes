@@ -1,7 +1,7 @@
 # Standard Library Utilities
 
 ## dates
-```
+```py
 from datetime import date, timedelta
 from dateutil.relativedelta import relativedelta
 from dateutil.parser import parse
@@ -17,7 +17,7 @@ date.min
 
 
 # os, socket module
-```
+```py
 from pprint import pprint
 print(object)
 print(object, depth=2) # only print 2nd nested level
@@ -41,7 +41,7 @@ for line in traceback.format_stack():
 
 
 ## Custom Data Types
-```
+```py
 from dataclasses import dataclass, field
 @dataclass(order=True)
 class Xyz:
@@ -71,9 +71,9 @@ x = struct.pack('111', 11, 22)
 ```
 
 ## functools
-```
-functools.partial(xxx_func, 1, 2, 3) // prefill xxx_func w params
-@functools.wraps(func) // assign __name__, __doc__ attributes in the wrapping function before returning it (think of update 'this = super' in js)
+```py
+functools.partial(xxx_func, 1, 2, 3) # prefill xxx_func w params
+@functools.wraps(func) # assign __name__, __doc__ attributes in the wrapping function before returning it (think of update 'this = super' in js)
 @functools.cache # only 3.10
 @lru_cache(maxsize=32)
 
@@ -87,7 +87,7 @@ def logged(func):
 ```
 
 ## Itertools
-```
+```py
 # requires array already sorted by key
 for key, group in itertools.groupby(array_json, key_func)
 
@@ -104,7 +104,7 @@ itertools.chain # join list
 # islice('ABCDEFG', 0, None, 2) --> A C E G
 ```
 ## collections
-```
+```py
 from collections import defaultdict
 obj = defaultdict(int) # default int, no more  key error!! super
 
@@ -129,7 +129,7 @@ t.popleft()
 > Counter is super, but counter WON'T change with array. Uses heap instead
 
 ## queue
-```
+```py
 from queue import PriorityQueue
 q = PriorityQueue()
 
@@ -144,7 +144,7 @@ while not q.empty():
 ```
 
 ## heapq
-```
+```py
 import heapq
 heapq.heapify(list_unorder)
 heapq.heappush(
@@ -155,7 +155,7 @@ heapq.nsmallest()
 
 ```
 ## CSV
-```
+```py
 import csv
 
 with open("numbers.csv") as f:
@@ -171,7 +171,7 @@ with open("numbers.csv") as f:
 - Cooperative Multi Task (similar single event loop)
     - Coroutine `A variant of functions that enables concurrentcy via Cooperative Multi Task`
 
-```
+```py
 # Multi-Process
 # Note: ProcessPoolExecutor print will not work, logs must return to main process
 from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor, as_completed
@@ -204,7 +204,7 @@ import subprocess
 subprocess.run()
 ```
 ## contextlib
-```
+```py
 from contextlib import contextmanager
 class DB():
     def __exit__(self, exc_type, exc_val, exc_traceback):
@@ -235,7 +235,7 @@ class DB():
             session.close()
 ```
 ## argparse
-```
+```py
 import argparse
 parser.add_argument('-d', '--debug', help='XXX', action='store_true')
 args = parser.parse_args()
@@ -244,7 +244,7 @@ import sys
 print(sys.argv[1])
 ```
 ## asyncio
-```
+```py
 async def what():
     print('before sleep')
     await asyncio.slee(2)
@@ -258,7 +258,7 @@ await task # similar thread.join()
 ```
 
 ## others standard lib
-```
+```py
 from pathlib import Path
 from urllib.request import urlopen
 import pickle // store in binary

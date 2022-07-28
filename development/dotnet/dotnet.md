@@ -1,6 +1,6 @@
 # dotnet core
-- Common Languege Specification (CLS)
-- Famework Class Library (FCL) `package in python, EX: ASP.NET(flask), WinForm, ADO.Net`
+- Common Language Specification (CLS)
+- Framework Class Library (FCL) `package in python, EX: ASP.NET(flask), WinForm, ADO.Net`
   - Base Class Library (BCL) `aka standard lib, Ex: system, os, io`
 > .net core is new open source version
 
@@ -21,7 +21,7 @@ use foreach XXX instead
 - /Models
 - /Views
 
-# Deployment & Developement
+# Deployment & Development
 > Ways to set ASPNETCORE_ENVIRONMENT
 ```
 # 1. Default location
@@ -80,10 +80,10 @@ appsettings.json # Define Apps, kind replaced .sln file
     /extensions.json
 
 ## /Services
-> complex business logic `most likely init during ConfigureServices(), then refered in controller`
+> complex business logic `most likely init during ConfigureServices(), then refereed in controller`
 
 ## /Models
-> defined Datasource struct
+> defined Datasource structure
 
 ## /Properties
 > launchSettings.json store different envs, will overwrite in Production
@@ -111,7 +111,7 @@ using (var response = Client.SendAsync(request).Result)
 ```
 
 
-```
+```bash
 dotnet list package
 --verbose //Flag to get more detail
 

@@ -1,8 +1,8 @@
-# Module bunder
-> Think of modern day website is giving puzzle to user. Then Module bunder(webpack) is the packaging process in puzzle factory.
+# Module bundler
+> Think of modern day website is giving puzzle to user. Then Module bundler(webpack) is the packaging process in puzzle factory.
 
 ## Alternative
-- rool up
+- roll up
 - parcel
 - snowpack
 https://www.youtube.com/watch?v=lFjinlwpcHY&ab_channel=uidotdev
@@ -32,7 +32,7 @@ https://www.youtube.com/watch?v=lFjinlwpcHY&ab_channel=uidotdev
 
 ### JS
 `babel` - es6
-`polyfill` - browser compability
+`polyfill` - browser compatibility
 
 ### webpack.config.js
 https://webpack.js.org/configuration/resolve/

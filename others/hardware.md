@@ -3,13 +3,13 @@
 CPU
   - CISC
     - x86
-    > Access memory prior instruction, & different instruction size, makes out of order excution hard, 
+    > Access memory prior instruction, & different instruction size, makes out of order execution hard, 
 
     > Variable length instructions
 
     > Can perform arithmetic & access memory in a instruction
 
-    > fewer registerss
+    > fewer resisters
 
     > larger & complexer instructions
 
@@ -18,7 +18,7 @@ CPU
     - MIPS
     - Arm
     - RISC5
-      > Fixed Instruction Length allows preload & preprocess easy, out of order excution 
+      > Fixed Instruction Length allows preload & preprocessed easy, out of order execution 
 
       > simple instruction & same instruction size makes decoder easy to scale
 
@@ -28,7 +28,7 @@ CPU
 
       > less instruction
 
-      > single cyle instruction
+      > single cycle instruction
 GPU
 ASIC
 FPGA - Field programmable Gate Array
@@ -58,5 +58,5 @@ Backend
 Battery
 - Anode : negative terminal
   - graphite, lithium
-- Cathode : postive terminal
+- Cathode : positive terminal
   - cobalt, nickel and manganese

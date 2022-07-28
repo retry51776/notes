@@ -12,7 +12,7 @@ morpheus gui for none dev people to scale project
 - Platform-As-A-Service (PaaS)
 - Logic-as-a-Service (LaaS)
 
-- Online Transactional Procesing (OLTP)
+- Online Transactional Processing (OLTP)
 - Online Analytical Processing (OLAP)
 
 - service-level agreement (SLA)

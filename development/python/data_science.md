@@ -27,11 +27,11 @@
 - Web App
 - Notebooks
 - Job & Queues
-- Cluster Managerment(Spark)
+- Cluster Management(Spark)
 
 /Workspace
     * Shared Folder
-    * Jupitor Notebook
+    * Jupiter Notebook
     * Users
     * Cluster
     * Jobs
@@ -57,8 +57,8 @@ Hive Tables
     * Create Delta Tables
     * Convert Stream into DataFrame (spark.readStream, body is binary)
     * define dataFrame schema, it will convert body to string or json
-    * Hook up proceessor to DataFrame (message_df.writeStream.option().foreachBatch(some_process).start())
-Data Table for ETL, can uplaod example.json let databrick auto create schema;
+    * Hook up processor to DataFrame (message_df.writeStream.option().foreachBatch(some_process).start())
+Data Table for ETL, can upload example.json let databrick auto create schema;
 
 
 Workspace/Data Science View
@@ -69,9 +69,9 @@ Workspace/Data Science View
     - Job
     - Model
 SQL Analytics (BI view)
-    - SQL Endpoint // Think of it as K8 job
-    - Queries // Shared query or views
-    - Alert // Tigger some scipt
+    - SQL Endpoint `Think of it as K8 job`
+    - Queries `Shared query or views`
+    - Alert `Trigger some script`
     - History
 
 
@@ -80,7 +80,7 @@ SQL Analytics (BI view)
     /Blobs
         /Project_Name
             /output
-                /aggergate.csv (store meta during exe cution)
+                /aggergate.csv (store meta during execution)
                     
 
 
@@ -90,7 +90,7 @@ Databrick Runtime
 
 
 1. Create Work Cluster(Amount resource to do the work, which Python, which Databrick Version)
-2. Create Resource Group to save dataset & control premission
+2. Create Resource Group to save dataset & control permission
 3. Create Notebook & Design workflow
 4. Let Databrick control scale 
 
@@ -119,8 +119,8 @@ Databrick Runtime
 - Predict Analytics & Prescriptive Analytics 
 
 # Pandas
-pandas.pydata.org/pandas-docs/
-```
+> pandas.pydata.org/pandas-docs/
+```py
 import pandas as pd
 df = pd.read_csv('xx.csv')
 df = pd.read_sql(query, con)
@@ -144,7 +144,7 @@ df = df.rename(
 ```
 
 # sklearn
-```
+```py
 from sklearn.preprocessing import RobustScaler
 normilizer = RobustScaler().fix(df)
 normilizer.transform(X)
@@ -156,7 +156,7 @@ select_features = best_features.fix(X, Y).columns
 ```
 
 # ray
-```
+```py
 import modin.pandas # pandas that using ray
 import ray
 ray.init()

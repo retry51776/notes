@@ -1,8 +1,8 @@
 # GAS
 @ 2019
-54% Cruid oil
+54% Crud oil
 18% fed tax
-15% distrution & marketing
+15% distribution & marketing
 13% Refining cost & profit
 
 5 Petroleum Admin Defense Districts

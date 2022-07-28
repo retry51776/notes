@@ -1,4 +1,10 @@
-# Linux OS Boot Order
+# Linux OS 
+> qubesOS is secure Linux 
+
+> /proc is virtual file reflect process info
+linux make everything as file
+
+## Boot Order
 1. On Power
 2. BIOS
 3. Boot Loader
@@ -10,24 +16,13 @@
    4. OpenRC
    5. runit
 
-> /proc is virtual file refect process info
-linux make everything as file
-
-```
-lsof "list open files"
-ss -tunapl "socket process"
-
-# check logs
-journalctl -fu nginx
-```
-
 # Linux Apps
 
 Free Software Foundation (FSF) 
 
 GNU is list of open source linux components
 
-### Compliles
+### Compilers
 - make
   > Makefile: create rules, assign cmd to rule, chain rules
 - GNU Compiler Collection (GCC)
@@ -35,6 +30,8 @@ GNU is list of open source linux components
 
 ## Package Manager 
 > Think of apple app store, android app store
+> 
+> Package Manager usually install /usr/bin
 
 - apt-get
 - dpkg
@@ -42,7 +39,7 @@ GNU is list of open source linux components
 - RPM
 - pacman
 
-```
+```bash
 sudo apt install strace	#Debian/Ubuntu 
 # yum install strace		#RHEL/CentOS
 # dnf install strace		#Fedora 22+
@@ -56,28 +53,50 @@ rpm //red hat, syntom
 
 ```
 
-**OS CMDs** 
+### OS CMDs
+```bash
+# Similar to task manager in Windows 
+htop
+top
+
+# network manager
+iftop
+
+# linux process
+procps
+strace
+
+# Memory
+free -h
+
+
+# Change password
+passwd
+
+# Display OS info
+uname -a
+# show disk usage
+df -ah
+du -sh [path-name]
+
+
+vi test.txt
+cat test.txt
+
+less //cat large files  /[search_text]
+grep [word] [seach_path] //text search
+
+echo hello > test.txt //Overwrite
+echo hello >> test.txt //Append
+
+# past cmd
+history
 ```
-htop // Similar to task manager in Windows 
 
-free -h //Memory
-
+### Permission
+```bash
+# Change permission on file
 chmod -R 660 /app
-
-passwd //Change password
-
-uname -a //Display OS info
-df -ah  //show disk usage
-du -sh [path-name] // disk usage
-
-top //linux task manager
-
-iftop //network manager
-
-history// past cmd
-
-procps // linux process
-strace //
 
 sudo chown user_name file_name
 chmod u+x file_name
@@ -90,19 +109,10 @@ chomd [owner][group][other] file_name
     - w:2:write
     - x:1:excute
 
-vi test.txt
-cat test.txt
-
-less //cat large files  /[search_text]
-grep [word] [seach_path] //text search
-
-echo hello > test.txt //Overwrite
-echo hello >> test.txt //Append
-
 ```
 
-## Service/Cronjob/Dev
-```
+## Service / Cronjob / Dev
+```bash
 crontab –l
 service [name] status // old Linux
 
@@ -124,31 +134,41 @@ WantedBy=multi-user.target
 initd
 /etc/initd
 
-Journalctl -xe // sevices logs
-Logind // linux login service
-resolved // dns
+# sevices logs
+Journalctl -xe
+# linux login service
+Logind
+# dns
+resolved
 ```
 
-## Network
-```
-nslookup sss.local # do NOT include protocol http
-ufw app list //firewall app
-sudo netstat//network status
+### Network CMDs
+```bash
+# do NOT include protocol http
+nslookup sss.local
+# firewall app
+ufw app list
+# network status
+sudo netstat
+
+# list open files
+lsof
+# socket process
+ss -tunapl
+
+# check logs
+journalctl -fu nginx
 ```
 
-**Apps**
+### Editors
+> Don't know how to get out vim? It happened to me too, lol
 - tmux
 - vi/vim/nano
-```
+```bash
 :wq
 :q!
 
 /xxx search forward
 ?xxx search backward
 ```
-- certbot
-- letsencrypt
 
-# Tech stack
-- qubesOS is secure Linux 
-- Package Manager usually install /usr/bin
