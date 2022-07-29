@@ -1,6 +1,7 @@
 # Volume
 > secrets & configMap acts as volume too.
 
+> Act as bridge between sidecars
 
 ## Volume Type
 > There are so many Volumes, always go by official documentation
