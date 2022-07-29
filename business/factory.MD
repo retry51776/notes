@@ -20,7 +20,7 @@
 - Account Payable (AP)
 - Cash & Bank management `CFO setup once, send payroll`
 - Production Control
-- Product Management `Engineer Dept often have their software (Ex: AutoCAD), need integeretion into ERP`
+- Product Management `Engineer Dept often have their software (Ex: AutoCAD), need integration into ERP`
 - Inventory `A lot daily/monthly reports`
 - Project Management
 - Sales & Marketing `Sales often complaint about speed`

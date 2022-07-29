@@ -23,9 +23,9 @@
 
 Medicare = federal (100 days, 65+ or disable)
 
-  - Medicare Part A = Casre Facility Insurance
-  - Medicare Part B = Care Provider(Doc, Thearpy) Insurance
-  - Medicare Part C = Privatlize Insurance
+  - Medicare Part A = Care Facility Insurance
+  - Medicare Part B = Care Provider(Doc, Therapy) Insurance
+  - Medicare Part C = Privatized Insurance
   - Medicare Part D = Drug Insurance
 
 medicaid = state (lower rate, $3000 max)
@@ -40,7 +40,7 @@ medicaid = state (lower rate, $3000 max)
 - Quality Measures
 
 
-## 5-star Distrubation
+## 5-star Distribution
 
 1: 20%
 

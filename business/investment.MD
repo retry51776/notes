@@ -22,7 +22,7 @@ Gov Bond = No risk rate
 Generally Fed manually define Fed Fund Rate(before 1970 Fed's only action)
 These day Fed is market player on long maturity bond
 
-Bond maturity / Yield Curive / Money Cost
+Bond maturity / Yield Curve / Money Cost
 Fed Fund Rate = 1 day bond rate
 1 month
 3 month

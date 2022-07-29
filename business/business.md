@@ -1,4 +1,4 @@
-# FrontEnd Bussiness
+# FrontEnd Business
 
 ## Marketing
 Stacks:
@@ -62,7 +62,7 @@ Stacks:
 
 <hr />
 
-# Bussiness Leaders
+# Business Leaders
 Titles:
 - CEO
 - CTO
@@ -71,7 +71,7 @@ Titles:
 - CIO – Chief Information Officer
 - COO – Chief Operating Officer
 
-Owner Stucture:
+Owner Structures:
 - sole proprietorship
   - difficult to transfer
   - liability will cover owner's property
@@ -88,8 +88,8 @@ Owner Stucture:
 <hr />
 # BuzzWords
 
-**Perfer stock**
-> private company will issues perfer stock to investor, so in case bankruptcy, investor will get pay out first, when IPO, perfer stock will convert to common stock
+**Prefer stock**
+> private company will issues prefer stock to investor, so in case bankruptcy, investor will get pay out first, when IPO, prefer stock will convert to common stock
 
 **Convertible debt/note/bond**
 > company borrow money, allow lender to choose 1. pay back later 2. allow lender convert to stock in future w set price 3. stock options in set price
@@ -97,7 +97,7 @@ Owner Stucture:
 **409A**
 > 409A is an independent appraisal of the fair market value (FMV) of a private company's common stock
 
-reserve Perfer stock for employee
+reserve Prefer stock for employee
 
 Evergreen Stock proposal -> equity compensation plan
 
@@ -105,7 +105,7 @@ Acquisition vs Buildout
 Company Brand vs Solution Brand
 
 # Bankruptcy
-- Chapter 13 bankruptcy `deplay debt`
+- Chapter 13 bankruptcy `delay debt`
 - Chapter 11 bankruptcy `reorganization plan`
 - Chapter 7 bankruptcy `liquidate assets`
 
@@ -119,7 +119,7 @@ Company Brand vs Solution Brand
 # Good Idea
 Giftcard Meeting
 
-# Bussiness Applications
+# Business Applications
 - Microsoft Project
 - Trello
 - https://www.notion.so

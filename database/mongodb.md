@@ -1,5 +1,5 @@
 # MongoDB
-
+> Is's not very fast on aggregation
 **Python**
 ```js
 self.mongodb = MongoClient(MONGODB_URI)[DB]

@@ -1,11 +1,11 @@
 > Most the code will be .net core
 
 ### Session
-```
+```cs
 SessionStore.isAuthenticated()
 ```
 ### Generate JWT
-```
+```cs
 using JWT.Builder;
 using JWT.Algorithms;
 
@@ -24,7 +24,7 @@ return new JwtBuilder()
 
 ### URI
 > Request, Response will auto injected by .net core (I dont like it, no idea where it came from)
-```
+```cs
 print(Request.QueryString['q']);
 
 

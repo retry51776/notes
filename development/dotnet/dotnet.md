@@ -101,7 +101,7 @@ appsettings.json # Define Apps, kind replaced .sln file
 
 
 ## Ajax Request with .Net
-```
+```cs
 var request = new HttpRequestMessage(HttpMethod.Get, uri);
 request.Headers.Add("username", username);
 using (var response = Client.SendAsync(request).Result)
@@ -113,10 +113,10 @@ using (var response = Client.SendAsync(request).Result)
 
 ```bash
 dotnet list package
---verbose //Flag to get more detail
+--verbose #Flag to get more detail
 
-//Must must *.csproj in root folder
-//Or add --project XXX.csproj 
+# Must must *.csproj in root folder
+# Or add --project XXX.csproj 
 dotnet run
 dotnet watch run
 dotnet watch --project XXX.csproj run XXX.csproj
@@ -187,7 +187,7 @@ so view can check in compile time if variable has methods
 - IIS Tilde Enumeration
     > IIS support wildcard in URL, which can expose application structure
 
-```
+```cs
 public interface IXXX
 {
     String xx { get; set; }
@@ -198,4 +198,4 @@ public interface IXXX
 
 ## Naming Pattern
 - onXXX `takes event as param`
-- xxxHandler `e`
+- xxxHandler `callback`

@@ -8,7 +8,7 @@ Voice Component
 note frequency table
 vocal range
 
-octave means 7 ptiches higher
+octave means 7 pitches higher
 
 1 note ≈ 4hz
 A2 ≈ 110Hz

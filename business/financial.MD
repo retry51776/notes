@@ -11,7 +11,7 @@
 - Cash flow (CF)
 - Profit and loss statement (P&L)
 - Return on investment (ROI)
-- Adjusting Entries (Accural Method)
+- Adjusting Entries (Accrual Method)
 - Prorate (adjustment)
 
 
@@ -21,7 +21,7 @@
 1. Identify Transactions
 2. Prepare Journal Entries
 3. Post to GL
-4. Unadjust Trail Balance
+4. Unadjusted Trail Balance
 5. Post Adjusting Entries
 6. Adjusted Trail Balance
 7. Create Financial Statement
@@ -30,9 +30,9 @@
 ## General Ledger (GL)
 > Double Entry Accounting able to track flow of credit
 
-> Assets(own) = libility(owes) + equility(owner)
+> Assets(own) = liability(owes) + equality(owner)
 
-> (usually every month)After Trail Balance, Close Period, generate financal statement, Balance Sheet, Income Statement, Cash Flow Statement
+> (usually every month)After Trail Balance, Close Period, generate financial statement, Balance Sheet, Income Statement, Cash Flow Statement
 
   - Sub Ledger
       - Voucher No (foreign key) `Post Credit or Debit to GL, w 'tag' chart of accounts; Audit Trail Balance`
@@ -52,7 +52,7 @@
 Account
     1. Staff Accountant
         - Period-End Adjustment
-        - Analyse statement
+        - Analyst statement
         - CPA
         - title
             1. Assistant Controller

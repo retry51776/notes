@@ -3,16 +3,16 @@
 - OPs codes 32bit
 - How Chainlink works?
 - LMD phost & FFG finalization
-- heavest chain
+- heaviest chain
 - Node Discovery Protocol
 
 **Core Devs**
-Vitalik
-Justin Drake
-Andrew Ashikhmin
-Adrian Sutton
-Tim Beiko
-Micah Zoltu
+- Vitalik
+- Justin Drake
+- Andrew Ashikhmin
+- Adrian Sutton
+- Tim Beiko
+- Micah Zoltu
 
 **Gas fee**
 base fee
@@ -29,8 +29,8 @@ tx fee = none_zero * 16 + zero * 4
     - Has its own security
   - layer 2
     - application specific
-      - state channel(application specific, not premissionless)
-      - plasma project, batch trans, main net must assume data is avaiable for audit
+      - state channel(application specific, not permissionless)
+      - plasma project, batch trans, main net must assume data is available for audit
     - rollup
       - optimistic rollup (support smart contract, with judge system, delay withdraw)
       - zk rollup (long term solution, instance withdraw, but snark proof takes 3s to generate)

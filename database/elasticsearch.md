@@ -1,6 +1,6 @@
 # Elasticsearch
 Post Ops
-```bash
+```js
 /_cluster/settings?include_defaults=true
 /_delete_by_query
 
@@ -71,7 +71,7 @@ bulk upsert
 
 ```
 
-bool => boolean logic wraper
+bool => boolean logic wrapper
 - filter (NPL will be different)
 - must
 - must_not

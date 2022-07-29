@@ -41,7 +41,7 @@ Dopamine(多巴胺) - active agent, lack will cause shaking
 Serotonin(血清素) - Happy, memory
 Oxytocin() - Love
 Melatonin - Clock, Sleep
-Endorphine - Pain killer
+Endorphins - Pain killer
 Adrenaline - fight or flight
 Norepinephrine - redirect blood in dangerous
 

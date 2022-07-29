@@ -20,19 +20,19 @@
   - output
     - value
     - trans out len
-    - trans out scipt
+    - trans out script
   - lock time (4)
 
 - private key is 1 to 1 with public key
 - 160 bit address = `ripemd160(sha256(256_bit_public_key))`
-- secp256k1 elipcal curve
+- secp256k1 elliptical curve
 
 - Unspent Transaction Output (UTXO)
-- Lighting network is a protocall uses BTC as bank reservor note.
+- Lighting network is a protocall uses BTC as bank reserves note.
 - longest chain
 - 10 min per block, block body 1mb
 - calculate difficulty every 2 week (2,016 blocks)
-- timestamp is NOT relable in blockchain
+- timestamp is NOT reliable in blockchain
 
 ## vulnerability
 - 51% attack `stop all trans, double spent, `

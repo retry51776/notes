@@ -1,7 +1,7 @@
 # Building
 
 - level base
-- mudd sill (treated lumber, )
+- muds sill (treated lumber, )
 - Beam
 - Joists (support floor) / Rim Joinst / Band
 - Subfloor
