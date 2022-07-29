@@ -1,5 +1,9 @@
 # Debug
-> IDK, won't be organized here. Whatever I dump here whatever useful for debug
+> 80% K8s problems are networking, configMap, secrets;
+> 
+> 1. Looks though events, k8s object status;
+> 2. Check Pod Logs;
+> 3. Test around inside POD;
 
 ### Commons Errors
 - Error Validating data
@@ -7,48 +11,82 @@
 - ImagePullBackoff
 - CashLoopBackoff
 - CreateContainerError
-- Probe Failling
+- Probe Failing
 - RunContainerError
 - Exceed CPU Limits
 - FailedScheduling
 - Failed Mount
 - Kubelet crash
 
-
+## Debugging Inside POD
 ```bash
-systemctl restart kubelet
+kubectl -n shopping exec -it shopping-api -- bash
 # command: ["sleep", "infinity"]
 chmox +x xxx.sh
 
-# Generate k8 secets
-htpasswd -nb [ -m | -B | -d | -s | -p ] [ -C cost ] username password
-# Check host DNS
-systemd-resolve --status | grep 'DNS Servers' --after 5
-sudo ip route add 10.96.0.0/12 via 172.18.0.2
+# Read more in Networking.md
+ping xxx-service
+curl -k 1.1.1.1
+nslookup xxx
+```
 
-# Use kubectl convert yml to different k8 versions
-kubectl convert --help
+## Debugging Inside Node
+```bash
+systemctl restart kubelet
 
-# Lazy way
-# chrome://flags/#allow-insecure-localhost
+# Directly ssh into node; $HOME/.ssh/kube_rsa
+ssh -i <path of the private key file> admin@<ip of the aws kube instances>
 
+# Read more in kubelet.md
+```
+
+## Debugging On Client Side / Node
+#### Common Debug
+```bash
+# Did you forget some secrets or configMap?
+kubectl get events
+# What is deployment status?
 kubectl describe deploy xxx
-# Delete bad install
+# Test selector
+kubectl get pods --selector=xxx=xxx_label
+
+
+# Often apply -f won't overwrite
+kubectl replace --force -f xxx.yaml
+# Delete Old Ingress, then recreate ingress
 kubectl delete -f <filename>
 # Rollback deployment
 kubectl rollout undo deployment my-application
 
-# Test selector
-kubectl get pods --selector=xxx=xxx_label
+# Use kubectl convert yml to different k8 versions
+kubectl convert --help
+# Admin testing
+kubectl --as=xxxx_user get all
+kubectl --as-group=xxx get all
 ```
-# curl API_Service 
+
+#### Client Side Networking
 ```bash
-# Debug
-kubectl -n shopping exec -it shopping-api -- bash
+# Check host DNS
+systemd-resolve --status | grep 'DNS Servers' --after 5
+# Add IP routing in Host
+sudo ip route add 10.96.0.0/12 via 172.18.0.2
 
 # Show all process
-ps auxww 
+ps auxww
 
+# Lazy way
+# chrome://flags/#allow-insecure-localhost
+
+# Generate k8 secets
+htpasswd -nb [ -m | -B | -d | -s | -p ] [ -C cost ] username password
+
+#  see what used address
+Get-Process -Id (Get-NetTCPConnection -LocalPort YourPortNumberHere).OwningProcess
+```
+
+directly access api_server
+```bash
 # Point to the internal API server hostname
 APISERVER=https://kubernetes.default.svc
 
@@ -69,22 +107,11 @@ curl --cacert ${CACERT} --header "Authorization: Bearer $TOKEN" -s ${APISERVER}/
 
 # Insecure way
 curl --header "Authorization: Bearer $TOKEN" -s ${APISERVER}/api/v1/namespaces/shopping/pods/ --insecure
-
-# replace yml variable
-cat xxx.yaml | sed "s/XXX_VALUE/$some_value/"
-
-# Directly show deployments through api_service
-http://127.0.0.1:8001/apis/apps/v1/namespaces/default/deployments
 ```
 
-# powershell
-```powershell
-#  see what used address
-Get-Process -Id (Get-NetTCPConnection -LocalPort YourPortNumberHere).OwningProcess
-```
 
-# Create Token
-```bash
+# Create Token for Dashboard
+```yml
 apiVersion: v1
 kind: Secret
 metadata:

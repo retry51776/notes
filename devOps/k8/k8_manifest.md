@@ -1,5 +1,11 @@
 # K8 Manifest
-> Key manifest examples, some of k8 needs both yml & kubectl cmds. Kind hard to split kubectl & yaml
+> Key manifest examples, some of k8 needs both yml & `kubectl` `cmds`. Kind hard to split `kubectl` & `yaml`
+
+# Tip & Tricks w YAML
+```bash
+# replace yml variable
+cat xxx.yaml | sed "s/XXX_VALUE/$some_value/"
+```
 
 ## Common Manifest Properties
 ### Label
@@ -82,10 +88,6 @@ spec:
 
 # Ingress
 > To expose service to public
-
-> Delete Old Ingress, then recreate ingress. Often apply -f won't overwrite
-
-> Or try kubectl replace --force -f xxx.yaml
 > 
 > layer 7 tcp load balancer
 > 

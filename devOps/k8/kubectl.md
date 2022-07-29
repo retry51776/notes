@@ -1,6 +1,13 @@
 # Kubectl
+> `kubectl` have a lots params/paths; Since I split out each k8s object into its own file, many `kubectl CMDs` are split out everywhere.
 
-## Setting
+## Control / Deployment
+> Read more [basic k8s sample](./../../test/kind/README.md)
+
+## Debug
+> Read more [debug tips & cmds](./debug.md)
+
+## Client Setting
 ```bash
 kubectl config view
 # Overwrite Default Config Paths
@@ -8,7 +15,7 @@ kubectl config view
 export KUBECONFIG=~/.kube/new-config
 ```
 
-## Control / Deployment
+## Manage / Operations
 ```bash
 # Manually scale
 kubectl scale deploy/xxx --replicas 3
@@ -19,9 +26,10 @@ kubectl drain <node name> --ignore-daemonsets --force --delete-local-data
 export POD_NAME=$(kubectl get pods -n default -l "app.kubernetes.io/name=kubernetes-dashboard,app.kubernetes.io/instance=kubernetes-dashboard" -o jsonpath="{.items[0].metadata.name}")
 #                               pod_name        host_port:pod_port
 kubectl -n default port-forward ingress-nginx-controller-76d4b989c5-dhqbr 1111:80
-# Access through browser
-echo http://localhost:1234
 
+# Expose api-service locally
+kubectl proxy
+# Directly show deployments through api_service http://127.0.0.1:8001/apis/apps/v1/namespaces/default/deployments
 ```
 
 ## Basic Example
@@ -52,12 +60,7 @@ kubectl rollout history deploy myapp --revision=2
 # ]
 
 kubectl api-resources
-# Expose api-service locally
-kubectl proxy
 
 kubectl explain deployment.spec.template
 
-# Admin testing
-kubectl --as=xxxx_user get all
-kubectl --as-group=xxx get all
 ```

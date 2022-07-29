@@ -37,6 +37,9 @@ npm run [package.json/script]
 npm ls xyz // to check repo has library
 
 npm start --prefix folderA
+
+// Update local packages
+npm update
 ```
 
 **Reset private registry **

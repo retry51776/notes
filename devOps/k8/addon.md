@@ -36,12 +36,18 @@
 - grafana `monitor platform`
 - fluentd `data collector`
 - Open Policy Agent(OPA) `access control`
+- Datadog `Enterprise monitor`
+- pager duty `idk`
+
 
 // K8 others addons
 - Longhorn `distributed block storage`
 - fleet `large scale deployment of Kubernetes clusters`
 - https://www.datree.io/ `deployment file checker`
 - CloudFlare PKI/TLS toolkit
+- hashcorp vault `Secrets Management`
+- travis ci
+
 
 
 

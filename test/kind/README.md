@@ -10,19 +10,19 @@
 ## Test Endpoint
 > do simple ping or curl to make sure endpoint works inside k8s
 ```bash
-# ep only exposed to k8s, so you must exec into k8 pod to test
-kubectl exec -it bar-app sh
 # get ep's k8 internal ip & port
 kubectl get ep
+# ep only exposed to k8s, so you must exec into k8 pod to test
+kubectl exec -it bar-app sh
 # -k insecure
-curl -k https://10.244.1.2:8443
+curl <foo_service_ip>
 ```
 
 ## Test Service
 ```bash
-kubectl exec -it some_pod sh
-wget bar-service:5678
-# systemctl status firewalld
+kubectl exec -it foo-app sh
+wget foo-service:5678
+# systemctl status firewalls
 ```
 
 ## Test Ingress
@@ -34,8 +34,13 @@ kubectl get nodes -o wide
 # Get POD ID
 kubectl -n ingress-nginx get pods
 
-# Start NodePort Forward
-kubectl -n ingress-nginx port-forward ingress-nginx-controller-66n8m 8000:80
+# Start Port Forward on Ingress Service                       host_port:service_port 
+kubectl -n ingress-nginx port-forward service/ingress-nginx-controller 8000:80
+# Most the time Port Forward Service or Pod.
+# Start Port Forward on Deployment or Daemonset
+# kubectl port-forward deployment/xxx <host_port>:<pod_port>
+# Start Port Forward on Single Ingress Controller             host_port:pod_port
+# kubectl -n ingress-nginx port-forward ingress-nginx-controller-gftjn 8000:88
 
 # Test in browser http://127.0.0.1:8000
 ```

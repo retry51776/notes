@@ -85,7 +85,8 @@ here are common trade offs
     - compute @ DB proc
     - compute @ service endpoint
     - compute @ client side
-  - Internal or External or both?
+  - exposed to Internal or External or both?
+  - cache everywhere
   - workflow interference & trigger DB bottleneck
 
 > FE distributed in Content Deliver Network(CDN) is at good as it gets, maybe dynamics import too
@@ -94,7 +95,7 @@ here are common trade offs
 
 > Global DB is very hard, beyond me
 
-
+> Example Act as documentation & test
 ---
 ## Developer Metaphor
 - Business logic & data defines architecture.
@@ -135,17 +136,17 @@ here are common trade offs
 ### Docker VS VM
 > docker just using linux kernel namespace partitions
 
-> VM have overhead from virtal hardware, virtal OS
+> VM have overhead from virtual hardware, virtual OS
 
 # Application Language
 # SQL
 > It's NOT a standard when it suppose to be a standard.
 > 
-> If function is such bad for performance, why make it so powerful. It's like puting posion in nice soda can.
+> If function is such bad for performance, why make it so powerful. It's like putting poisons in nice soda can.
 # Python
 > It's slow, but 90% bushiness use cases accepts horizontal scaling to mitigate problem.
 > 
-> Typescipt like feature on Python will be cool.
+> Typescript like feature on Python will be cool.
 > 
 > I love snake_case variable naming. Every language should use it.
 

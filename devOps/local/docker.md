@@ -14,7 +14,7 @@ docker pull docker.xxx/repo_name:terry
 docker ps -a
 
 # Run image
-docker run -d --name container-name -v /var/log/xxx:/app/logs docker.xxx/repo-name:terry python3 start.py app-name --deploy --restart --net=host
+docker run -d --name container-name -v /var/log/xxx:/app/logs docker.xxx/repo-name:terry python3 start.py app-name --deploy --restart --net=host --env-file /xxx.config -e xxx=ggg
 
 # start temp container
 docker run -it --rm [images-tag] sh sleep infinity

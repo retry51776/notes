@@ -1,3 +1,2 @@
-# kubeadm
-> Proper on-premise production k8 setup
-
+# KubeAdmin
+> I needs to try KubeAdmin sometime.

@@ -249,8 +249,13 @@ const formik = useFormik({
     </FieldArray>
   </Form>
 </Formik>
+```
 
+# Yup
+```js
 // Yup as schema
+//string().oneOf([Yup.ref('password'), ''])
+//.test('test-id', 'error-msg', val=>!val)
 const validationSchema = Yup.object({
   field: Yup.string().required('Must field'),
   complex_field: {
@@ -267,10 +272,13 @@ const validationSchema = Yup.object({
     description: 'cccc'
   }
 })
-//string().oneOf([Yup.ref('password'), ''])
-//.test('test-id', 'error-msg', val=>!val)
+```
+## Chakra UI
+> https://chakra-ui.com/docs/components
+```js
 
-# ChakraInput
+// Input
+// 
 import { theme, ThemeProvider } from '@chakra-ui/core';
 <ThemeProvider them={them}>
   <MyFormikForm />
@@ -294,3 +302,23 @@ import { Input, FormControl, FormLabel, FormErrorMessage } from '@chakra-ui/core
 ## react-hook-form (RHF)
 > TODO: figure how it work
 > https://react-hook-form.com/api/useform/formstate/
+
+```js
+import { Controller, useForm } from "react-hook-form";
+// register manually
+const { register } = useForm();
+<input {...register("fName")} />
+
+// Controller
+<Controller
+  render={props => (
+    <TextField
+      label={name}
+      error={errors[name]}
+      {...props}
+    />
+  )}
+  control={control}
+  name={name}
+/>
+```

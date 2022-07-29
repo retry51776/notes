@@ -25,8 +25,8 @@ docker pause kind-control-plane
 docker pause kind-worker
 
 # Resume Cluster
-docker start kind-control-plane
-docker start kind-worker
+docker unpause kind-control-plane
+docker unpause kind-worker
 ```
 
 # Yml
