@@ -48,9 +48,10 @@ which pg_config
 apk add pg_config
 apk info --who-owns /usr/bin/pg_config
 
-apt // Used By Debain
-rpm //red hat, syntom
-
+# Used By Debain
+apt
+# red hat, syntom
+rpm
 ```
 
 ### OS CMDs

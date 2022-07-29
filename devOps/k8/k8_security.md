@@ -30,7 +30,13 @@ data:
 | bootstrap.kubernetes.io/token | bootstrap token data |
 
 ## Auth
-> by certificates
+> Normal Users manage by independent services like User/Client Certificates
+> Service Accounts communicate with the API server to perform various operations.
+
+
+> The user/client now connects to a Service via its ClusterIP, which forwards traffic to one of the Pods attached to it. A Service provides load balancing by default while selecting the Pods for traffic forwarding.
+
+> 1. by certificates
 >> CA certificates store at Control Plane node default path `/etc/kubernetes/pki`
 
 ```bash
@@ -69,7 +75,7 @@ kubectl apply -f xxx_role.yml
 
 
 ```
-> by OAUTH
+> 2. by OAUTH
 >> K8 will send group_id and OAUTH token;
 >> Example: ServiceAccount Bearer Token default `/var/run/secrets/kubernetes.io/serviceaccount`
 >> 
@@ -110,7 +116,7 @@ Identity
 - Group
 - Cloud ID
 
-Police -> roles -> premission [service. resource. verb]
+Police -> roles -> permission [service. resource. verb]
 
 # Cert-Manager
 > Problem to Solve: Too many cert, expired different time, manual create cert creates security risk, human errors
@@ -152,3 +158,4 @@ spec:
     issuerRef:
       name: selfsign
 ```
+

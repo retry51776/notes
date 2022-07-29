@@ -3,9 +3,16 @@
 
 > Production clusters should enable Kubelet authentication and authorization.
 
+> Service.targetPort = Pod.spec.containerPort
+
+> default url `my-svc.my-namespace.svc.cluster.local`
 
 ## External LoadBalancer
 > https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/
 
 After you enable GKE Loadbalancer API, add this to ingress
 `Ingress.metadata.annotations.kubernetes.io/ingress.class: "gce"`
+
+
+# PODs
+> endpoints is auto created by k8, Ex:(10.1.1.1:5000, 10.1.1.2:5000)

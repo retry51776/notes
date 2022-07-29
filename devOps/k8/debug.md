@@ -4,6 +4,8 @@
 > 1. Looks though events, k8s object status;
 > 2. Check Pod Logs;
 > 3. Test around inside POD;
+> 4. Check permission
+> 5. Check sidecar
 
 ### Commons Errors
 - Error Validating data
