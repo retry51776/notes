@@ -45,6 +45,7 @@ ssh -i <path of the private key file> admin@<ip of the aws kube instances>
 ## Debugging On Client Side / Node
 #### Common Debug
 ```bash
+kubectl cluster-info
 # Did you forget some secrets or configMap?
 kubectl get events
 # What is deployment status?

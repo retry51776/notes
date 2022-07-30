@@ -13,6 +13,11 @@ kubectl config view
 # Overwrite Default Config Paths
 # ~/.kube/config or /Users/<user_name>/.kube/config
 export KUBECONFIG=~/.kube/new-config
+
+# Get Namespace
+kubectl get ns
+# Switch Namespace
+kubectl config set-context --current --namespace=kube-system
 ```
 
 ## Manage / Operations

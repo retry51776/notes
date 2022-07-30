@@ -7,6 +7,9 @@
 
 > default url `my-svc.my-namespace.svc.cluster.local`
 
+> Services, complex encapsulations of network routing rule definitions stored in iptables on cluster nodes and implemented by kube-proxy agents.
+
+> https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/
 ## External LoadBalancer
 > https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/
 

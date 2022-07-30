@@ -1,5 +1,6 @@
 # K8s Security
 > TLS/SSL certs, Service mesh
+
 ## Addons
 > cert-manager 
 >> `simplifies the process of obtaining, renewing and using those certificates`
@@ -18,6 +19,9 @@ data:
 
 > Kubernetes Dashboard
 ## Secrets
+> application layer encryption for secrets
+
+> Hashricrop Vault Addon
 |  Built-in Type	  |  Usage |
 |---|---|
 | Opaque |   arbitrary user-defined data |

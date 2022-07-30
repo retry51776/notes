@@ -1,3 +1,20 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: foo-service
+spec:
+  selector:
+    app: foo
+  ports:
+  - name: http
+    protocol: TCP
+    port: 5678
+    targetPort: 80
+  - name: https
+    protocol: TCP
+    port: 567
+    targetPort: 443
+---
 kind: Pod
 apiVersion: v1
 metadata:
@@ -8,18 +25,26 @@ spec:
   containers:
   - name: foo-app
     image: nginxdemos/hello
+    ports:
+    - containerPort: 80
+    - containerPort: 443
 ---
 kind: Service
 apiVersion: v1
 metadata:
-  name: foo-service
+  name: bar-service
 spec:
   selector:
-    app: foo
+    app: bar
   ports:
-  # Default port used by the image
-  - port: 5678
+  - name: http
+    protocol: TCP
+    port: 1234
     targetPort: 80
+  - name: https
+    protocol: TCP
+    port: 123
+    targetPort: 443
 ---
 kind: Pod
 apiVersion: v1
@@ -31,18 +56,9 @@ spec:
   containers:
   - name: bar-app
     image: nginxdemos/hello
----
-kind: Service
-apiVersion: v1
-metadata:
-  name: bar-service
-spec:
-  selector:
-    app: bar
-  ports:
-  # Default port used by the image
-  - port: 1234
-    targetPort: 80
+    ports:
+    - containerPort: 80
+    - containerPort: 443
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress

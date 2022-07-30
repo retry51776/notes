@@ -3,12 +3,23 @@
 
 > List most common used attributes, I never able to remember them.
 
+## Ports Tracking
+| Internal Curl | `end_point:pod_port` | `service_name:service_port` | `my-svc.my-namespace.svc.cluster.local` | `xxx.com/sales` | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
+| --- | Pod | Service | Ingress | LoadBalancer | --- | --- | 
+| Pod | localhost:`pod_port>host_port` | --- | --- | --- | --- | --- | 
+| Deployment / Pods | --- | localhost:`pod_port>host_port` | --- | --- | --- | --- |
+| Service | --- | --- | localhost:`service_port>host_port` | --- | --- | --- | 
+| --- | --- | --- | --- | --- | --- | --- | 
+
+
+ -> (optional, debug) -> < -> <cluster_ip>:<service_port> -> <ingress_rule> -> <url>
 ## containers
 > Uses everywhere, smallest k8s unit
 - args
 - volumeMounts `where mount to`
 - livenessProbe / readinessProbe / startupProbe
-- ports
+- ports `list application ports that exposes to Service`
 - resources
 - image
 - imagePullPolicy

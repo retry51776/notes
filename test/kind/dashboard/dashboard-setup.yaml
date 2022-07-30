@@ -54,3 +54,44 @@ spec:
             name: kubernetes-dashboard
             port: 
               number: 443
+---
+
+---
+
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: letsencrypt-issuer
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: terrywuemail@gmail.com
+    privateKeySecretRef:
+      name: letsencrypt-issuer-key
+    solvers:
+    - http01:
+        ingress:
+          class: nginx
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: dashboard-cert
+spec:
+  dnsNames:
+    - dashboard.local
+  secretName: dashboard-tls
+  issuerRef:
+    name: selfsigned
+---
+
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: local-cert
+spec:
+  dnsNames:
+    - k8.local
+  secretName: local-tls
+  issuerRef:
+    name: selfsigned
