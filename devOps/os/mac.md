@@ -2,6 +2,9 @@
 ```bash
 # Show hidden files
 Press Command + Shift + . (period)
+
+# Continue Invalid SSL website
+Type 'thisisunsafe' on page
 ```
 
 # Networking

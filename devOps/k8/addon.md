@@ -39,6 +39,9 @@
 - Datadog `Enterprise monitor`
 - pager duty `idk`
 
+// Backup & restore
+- Kasten's K10
+- Velero
 
 // K8 others addons
 - Longhorn `distributed block storage`
@@ -47,6 +50,7 @@
 - CloudFlare PKI/TLS toolkit
 - hashcorp vault `Secrets Management`
 - travis ci
+
 
 
 

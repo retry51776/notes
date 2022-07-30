@@ -1,5 +1,7 @@
 # Nginx
 > most common load balancer
+> Default Logs path `/var/log/nginx/access.log or error.log`
+
 ## Add custom format to ngnix
 ```
 log_format custom_log  '$remote_addr - $remote_user [$time_local] "$request" $status "$http_referer" '
@@ -22,7 +24,7 @@ access_log /var/log/nginx/xxxx custom_log;
 - upstream
 
 ## upstream
-```
+```bash
 upstream notes {
     # ip_hash
     # hash
@@ -42,7 +44,7 @@ http://notes
 ```
 
 ## Common Header Operations
-```
+```bash
 proxy_set_header Host $host;
 proxy_set_header X-Real-IP $remote_addr;
 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
