@@ -5,7 +5,7 @@
 >
 >> port (apt #)
 >
->> protocall (carrier) `USPS just drop it off without confirm, UPS requires confirmation`
+>> protocol (carrier) `USPS just drop it off without confirm, UPS requires confirmation`
 
 ## DNS Servers
 - Windows Server DNS

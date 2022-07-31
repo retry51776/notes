@@ -11,7 +11,7 @@
 > multi message same queue & engine VS different queue w its engine
 
 > From my experience 3 mins to publish 5,000 small message
-### Protocall
+### Protocol
 - AMQP
   > Advanced Message Queuing Protocol, move message between applications.
   
@@ -22,7 +22,7 @@
 ---
 
 # RabbitMQ
-> AMQP protocall
+> AMQP protocol
 
 > 3.9 support stream
 

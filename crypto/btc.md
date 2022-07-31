@@ -28,7 +28,7 @@
 - secp256k1 elliptical curve
 
 - Unspent Transaction Output (UTXO)
-- Lighting network is a protocall uses BTC as bank reserves note.
+- Lighting network is a protocol uses BTC as bank reserves note.
 - longest chain
 - 10 min per block, block body 1mb
 - calculate difficulty every 2 week (2,016 blocks)

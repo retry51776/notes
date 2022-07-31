@@ -148,3 +148,7 @@ spec:
   -from:
   - Egress
 ```
+
+## Other good posts:
+- Share cert across namespaces https://github.com/cert-manager/cert-manager/issues/494
+- 

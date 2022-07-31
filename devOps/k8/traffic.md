@@ -5,7 +5,7 @@
 > Aka how to design mall; How to route traffic, where to put stores; How many hallway?
 ## Service (Map of Mall)
 > default url `my-svc.my-namespace.svc.cluster.local`
-
+> `Service.spec.externalName: test-service.namespacename.svc.cluster.local`
 > Services, complex encapsulations of network routing rule definitions stored in iptables on cluster nodes and implemented by kube-proxy agents.
 
 > Service.Type=NodePort or Service.Type=LoadBalancer are for none http / https Service
@@ -14,6 +14,11 @@
 
 
 ## Ports Tracking (Mall main door to hallway door to store door)
+> I like to assign UI port 1000, 2000 ... 9000;
+> assign important micro-service(API) port 1111, 2222, ... 9999;
+> assign not critical micro-service port 1234, 5678;
+> Also can XXX product micro-service ports start w 3, yyy product start w 4
+
 | Internal Curl | `end_point:pod_port` | `service_name:service_port` | `my-svc.my-namespace.svc.cluster.local` | `xxx.com/sales` | --- | --- |
 | --- | --- | --- | --- | --- | --- | --- |
 | --- | Pod | Service | Ingress | LoadBalancer | --- | --- | 
@@ -36,6 +41,7 @@ Port Chaining
 > After you enable GKE Loadbalancer API, add this to ingress https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/
 `Ingress.metadata.annotations.kubernetes.io/ingress.class: "gce"`
 
+> Ingress Controller can config `--default-ssl-certificate` to set wildcard cert; secret(TLS) can't share across namespaces;
 
 # Controller (Manage View)
 > Aka how to build mall; How controller of Elevator works; How automatic open door open; where, what & how information in InfoCenter generate;

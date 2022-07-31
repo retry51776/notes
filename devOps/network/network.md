@@ -24,9 +24,9 @@ router `will keep IP datagram, but replace ethernet frame`
 - Next hop
 - Total hops
 - Interface
-Distance protocall, old school hop calculation
+Distance protocol, old school hop calculation
 
-Link State protocall, router will get stats farther router, to able react faster
+Link State protocol, router will get stats farther router, to able react faster
 
 ---
 # Transport
@@ -44,7 +44,7 @@ UDP (connestionless), no ack, but faster
 
 ---
 ## DHCP
-Dynamic Host Configuration Protocall (DHCP) `is application layer protocall auto config host`
+Dynamic Host Configuration protocol (DHCP) `is application layer protocol auto config host`
    - Dynamic, 
    - Automatic allocation `try to keep ip`
    - Fix allocation: 
@@ -93,7 +93,7 @@ curl ifconfig.co //get public_ip
 3. change DNS service to DC ip
 
 ## LDAP Analogy
-> Lightweight Directory Access Protocol (LDAP)`Just a protocall; similar to http`
+> Lightweight Directory Access Protocol (LDAP)`Just a protocol; similar to http`
 > 
 > Active Directory(AD) `similar to flask` 
 > 

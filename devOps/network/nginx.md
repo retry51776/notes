@@ -2,7 +2,11 @@
 > most common load balancer
 > Default Logs path `/var/log/nginx/access.log or error.log`
 
-## Add custom format to ngnix
+#### proxy_pass vs redirect
+redirect means tell client look someplace else
+proxy_pass is server get stuff from elsewhere & client's url doesn't change
+
+#### Add custom format to ngnix
 ```
 log_format custom_log  '$remote_addr - $remote_user [$time_local] "$request" $status "$http_referer" '
                                '"$http_user_agent" "$http_x_forwarded_for"';

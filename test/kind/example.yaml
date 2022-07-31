@@ -11,10 +11,10 @@ spec:
     protocol: TCP
     port: 1234
     targetPort: 80
-  - name: https
-    protocol: TCP
-    port: 123
-    targetPort: 443
+  # - name: https
+  #   protocol: TCP
+  #   port: 123
+  #   targetPort: 443
 ---
 kind: Service
 apiVersion: v1
@@ -28,10 +28,10 @@ spec:
     protocol: TCP
     port: 5678
     targetPort: 80
-  - name: https
-    protocol: TCP
-    port: 567
-    targetPort: 443
+  # - name: https
+  #   protocol: TCP
+  #   port: 567
+  #   targetPort: 443
 ---
 kind: Pod
 apiVersion: v1

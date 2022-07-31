@@ -24,9 +24,23 @@ kubectl exec -it foo-app sh
 wget foo-service:5678
 # systemctl status firewalls
 ```
+## Edit /etc/hosts
+```bash
+# Edit /etc/hosts
+cd /etc
+sudo vi /etc/hosts
+# Add record into /etc/hosts
+# 127.0.0.1      k8.local
 
-## Test Ingress
-> Setup Ingress NodePort Forward
+# Force MacOS reload /etc/hosts
+sudo killall -HUP mDNSResponder
+# Test in browser http://k8.local/
+``` 
+
+
+
+## Setup NodePort Forward, Reverse Proxy (Optional)
+> Only do this when you can't setup extraPortMappings.
 ```bash
 # Get Node IP
 kubectl get nodes -o wide
@@ -43,14 +57,11 @@ kubectl -n ingress-nginx port-forward service/ingress-nginx-controller 8000:80
 # kubectl -n ingress-nginx port-forward ingress-nginx-controller-gftjn 8000:88
 
 # Test in browser http://127.0.0.1:8000
-```
 
-## Setup Reverse Proxy & Edit /etc/hosts
-```bash
 # Setup Reverse Proxy
 brew install nginx
 vi /opt/homebrew/etc/nginx/nginx.config
-# create reverse proxy to ingress port fortwarding
+# create reverse proxy to ingress port forwarding
     server {
         listen       80;
         server_name  localhost k8.local www.k8.local;
@@ -63,13 +74,4 @@ vi /opt/homebrew/etc/nginx/nginx.config
 
 sudo brew services start nginx
 sudo brew services restart nginx
-
-# Edit /etc/hosts
-cd /etc
-sudo vi /etc/hosts
-# Add record into /etc/hosts
-# 127.0.0.1      k8.local
-
-sudo killall -HUP mDNSResponder
-# Test in browser http://k8.local/
 ```
