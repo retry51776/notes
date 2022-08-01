@@ -14,6 +14,11 @@
 
 
 ## Ports Tracking
+> Port are very confusing; Here is port workflow in k8s.
+![](./../../static/k8s-service-port.png)
+
+> Here is access table if any help
+
 | Access | Pod / PODs | Service | LoadBalancer | 
 | --- | --- | --- | ---  | 
 | ClusterIP | `end_point:pod_port` | `service_name:service_port` | --- | 
@@ -22,7 +27,7 @@
 | ExternalName | --- | `my-svc.my-namespace.svc.cluster.local` |--- | --- | --- | 
 | Internet | --- | --- | `xxx.com/sales` | --- | --- |
 
-Port Chaining
+#### Port Chaining
 > `Deployment.spec.template.spec.containers.ports`/.containerPort = `Service.spec.ports`/.targetPort <-> .port = `Ingress.spec.rules.http.paths`/.path.backend.service.port <-> .path
 
 ## Endpoint (Store #)
