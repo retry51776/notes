@@ -1,0 +1,25 @@
+# Example how to access service from another namespace
+# kubectl run -i --rm alpine --image=praqma/network-multitool -- bash
+# curl -k http://bar-service:5678
+# curl -k http://foo-service.default.svc.cluster.local:5678
+apiVersion: v1
+kind: Service
+metadata:
+  name: bar-service
+  namespace: test
+spec:
+  type: ExternalName
+  externalName: bar-service.default.svc.cluster.local
+  ports:
+  - port: 1234
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: foo-service
+  namespace: test
+spec:
+  type: ExternalName
+  externalName: foo-service.default.svc.cluster.local
+  ports:
+  - port: 80

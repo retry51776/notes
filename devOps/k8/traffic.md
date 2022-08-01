@@ -5,7 +5,7 @@
 > Aka how to design mall; How to route traffic, where to put stores; How many hallway?
 ## Service (Map of Mall)
 > default url `my-svc.my-namespace.svc.cluster.local`
-> `Service.spec.externalName: test-service.namespacename.svc.cluster.local`
+> `Service.spec.externalName: test-service.namespace.svc.cluster.local`
 > Services, complex encapsulations of network routing rule definitions stored in iptables on cluster nodes and implemented by kube-proxy agents.
 
 > Service.Type=NodePort or Service.Type=LoadBalancer are for none http / https Service
@@ -13,19 +13,14 @@
 > https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/
 
 
-## Ports Tracking (Mall main door to hallway door to store door)
-> I like to assign UI port 1000, 2000 ... 9000;
-> assign important micro-service(API) port 1111, 2222, ... 9999;
-> assign not critical micro-service port 1234, 5678;
-> Also can XXX product micro-service ports start w 3, yyy product start w 4
-
-| Internal Curl | `end_point:pod_port` | `service_name:service_port` | `my-svc.my-namespace.svc.cluster.local` | `xxx.com/sales` | --- | --- |
-| --- | --- | --- | --- | --- | --- | --- |
-| --- | Pod | Service | Ingress | LoadBalancer | --- | --- | 
-| Pod | localhost:`pod_port>host_port` | --- | --- | --- | --- | --- | 
-| Deployment / Pods | --- | localhost:`pod_port>host_port` | --- | --- | --- | --- |
-| Service | --- | --- | localhost:`service_port>host_port` | --- | --- | --- | 
-| --- | --- | --- | --- | --- | --- | --- | 
+## Ports Tracking
+| Access | Pod / PODs | Service | LoadBalancer | 
+| --- | --- | --- | ---  | 
+| ClusterIP | `end_point:pod_port` | `service_name:service_port` | --- | 
+| NodePort | node_ip:`host_port=pod_port` | node_ip:`host_port=service_port` | --- | 
+| LoadBalancer | --- | cluster_ip:`host_port=service_port` | --- | --- | --- | 
+| ExternalName | --- | `my-svc.my-namespace.svc.cluster.local` |--- | --- | --- | 
+| Internet | --- | --- | `xxx.com/sales` | --- | --- |
 
 Port Chaining
 > `Deployment.spec.template.spec.containers.ports`/.containerPort = `Service.spec.ports`/.targetPort <-> .port = `Ingress.spec.rules.http.paths`/.path.backend.service.port <-> .path

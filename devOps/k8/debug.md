@@ -22,6 +22,9 @@
 
 ## Debugging Inside POD
 ```bash
+# Start a busybox
+kubectl run -i --rm alpine --image=praqma/network-multitool -- bash #--tty
+
 kubectl -n shopping exec -it shopping-api -- bash
 # View Pod logs
 kubectl logs -f shopping-api
@@ -34,6 +37,8 @@ kubectl logs -n ingress-nginx -l app.kubernetes.io/name=ingress-nginx
 ping xxx-service
 curl -k 1.1.1.1
 nslookup xxx
+# Track
+traceroute xxx-service
 ```
 
 ## Debugging Inside Node

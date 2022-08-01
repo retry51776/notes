@@ -66,7 +66,9 @@
 - *.cer <--> .crt(Microsoft) -> .pfx `file conversion`
 - *.PFX `is Personal Exchange Format, windows user certificate(with private key)`
 - *.pem `can be private key or public key; subset of *.crt, just rename extension to *.crt`
-
+- *.der `(Distinguished Encoding Rules) binary format`
+- *.p12 `(Public Key Cryptography Standard) can have private key, password lock` <--> *.PFX
+- *.p7b `public key only, for Tomcat`
 
 **Create SSL/TLS**
 > Remember to restart loadbalancer when renew cert to take effect
