@@ -22,7 +22,7 @@
   - valid to
   - public key
   - digital signature
-
+- Decision Strategy `Authorization`
 
 ## Add Certificate
   ## Windows

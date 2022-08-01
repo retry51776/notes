@@ -1,6 +1,15 @@
 # DevOps
 > Fancy words goes here, because DevOps have tons of them.
 
+# Operational Burdens
+- CI / CD
+- Production Stability (CT)
+- Meeting
+- Stack Maintain
+- Documentation
+- Unit test
+
+
 # DevOps Metrics
 - Deployment Freq
 - Lead Time `committed to master to deployment`

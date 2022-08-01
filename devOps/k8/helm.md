@@ -13,6 +13,8 @@
 brew install helm
 brew install kustomize
 brew install chart-testing
+# Helm's unitest tool
+helm plugin install https://github.com/lrills/helm-unittest
 
 # By default Helm don't have public repo(unlike npm or pip)
 helm repo add stable https://charts.helm.sh/stable
@@ -60,6 +62,7 @@ helm package xxx
   /templates (what k8 objects creates)
     /_helpers.tpl (define common properties)
     /NOTES.txt (docstring)
+    /tests (helm test xxx)
   .values.yaml (k8 values)
   .Chart.yaml (chart meta info)
 

@@ -26,28 +26,43 @@
 ### Client Cred Flow
 1. service1 get access token from auth server
 2. service1 send req w access token(JWT) to service2
+
+
 ### Keycloak features
 - Single Sign-on (SSO)
 - OAuth 2
 - Social Login
 - LDAP
-- Managemen
+- Management
 - User Federation `either link to LDAP or Kerberos`
 
 # UI
 ## Admin Portal
 http://localhost:8080/admin/master/console/#/realms/xxx_realm
 http://localhost:8080/admin/master/console/#/realms/Terryland
-/Realm Setting
-    /General `Login page style`
-    /Login `Can User reset passwrod?`
-    /Keys `Private keys`
-    /Email `Forget Password, Confirm Email Setting`
-    /Themes `styles`
-    /Localization `idk?`
-    /Cache
-    /Tokens `Session TTL setting`
-
+- /Realm Setting
+    - /General `Login page style`
+    - /Login `Can User reset password?`
+    - /Keys `Private keys`
+    - /Email `Forget Password, Confirm Email Setting`
+    - /Themes `styles`
+    - /Localization `idk?`
+    - /Cache
+    - /Tokens `Session TTL setting`
+	- /Client `Authorization`
+		- /Resource `resource label`
+		- /Authorization scopes `action label; verbs;`
+		- /Policies `logic return boolean, can be nested`
+    		- Role `user tag`
+    		- client `3rd party`
+    		- Time `only xxx time`
+    		- User `specific user`
+    		- Aggregated `nested policies, combine logic`
+    		- group `group policies`
+		- /Permissions
+			- resource based `only resource`
+			- scope based `both resource & verb`
+    	-  /Evaluate `Testing tool`
 ## User Portal
 http://localhost:8080/realms/xxx_realm/account/
 http://localhost:8080/realms/Terryland/account/
