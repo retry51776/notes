@@ -77,8 +77,16 @@ CMD node index.js
 ```
 
 ## docker-compose
-```bash
-docker-compose -f docker-compose.dev.yml up
+```yaml
+# docker-compose -f docker-compose.dev.yml up
+services:
+	my-app:
+		healthcheck:
+			test: ["curl" "google.com"]
+			interval: 10
+			timeout: 10s
+			retries: 3
+
 ```
 
 ```yml

@@ -105,3 +105,14 @@ echo GIT_COMMITTER_EMAIL %GIT_COMMITTER_EMAIL%
 ARG git_commit
 RUN echo $git_commit > /app/.githash
 ```
+
+## Gitlab CI
+```yml
+#.gitlab-ci.yml
+run_something:
+	image: python:3.10
+	before_script:
+		- apt-get update && apt-install
+  script:
+    - python3 start.py
+```

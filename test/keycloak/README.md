@@ -10,6 +10,11 @@
 - Client `EX: Draw.io`
 - Authorization Server `EX: grant access`
 
+# Endpoints
+> https://www.keycloak.org/docs-api/15.0/rest-api/
+- Get token: `{HOST_NAME}/auth/realms/<realm_name>/protocol/openid-connect/token`
+- List Users `{HOST_NAME}/auth/admin/realms/<realm_name>/users`
+
 ### Auth Code FLow
 1. Owner Request Client
 2. Client gen request to Auth Server

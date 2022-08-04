@@ -25,6 +25,9 @@
 # Start a busybox
 kubectl run -i --rm alpine --image=praqma/network-multitool -- bash #--tty
 
+# Show all env
+printenv
+
 kubectl -n shopping exec -it shopping-api -- bash
 # View Pod logs
 kubectl logs -f shopping-api

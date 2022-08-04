@@ -6,9 +6,13 @@
 
 # Terry's Cheatsheet.
 
-> There are too many things to remember! You don't write it down, you don't remember. Hopefully my future self can read uses these notes.
+> There are too many things to remember! You don't write it down, you don't remember. 
 > 
 > This is a trunk base repo for obvious reasons!
 
+# Repo Structure
+- /development `Application language`
+- /database
+- /devOps `This is hard to define`
 
 
