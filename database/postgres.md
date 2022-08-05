@@ -6,6 +6,21 @@
 - limit connections, very easy to blow up, avoid connection leak
 - 
 
+## PSQL
+```bash
+psql -U postgres
+
+# show DB
+\l
+# switch DB
+\c postgres
+# show schemas
+\dn
+select * from information_schema.schemata;
+# show table
+\dt+
+select * from xxx;
+```
 ## Query
 ```sql
 create role xxx with login;
