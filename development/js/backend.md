@@ -112,6 +112,7 @@ app.use(bodyParser.json())
 - Keep-Alive
 - Content-Encoding
 - Content-Type
+- Content-Disposition(Download File)
 - Set-Cookie(server response) Cookie
 - Cache-Control, Age(time been cache), Expires
 - Request Context (From, Host)
