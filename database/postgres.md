@@ -20,6 +20,9 @@ select * from information_schema.schemata;
 # show table
 \dt+
 select * from xxx;
+
+# show config
+psql -U postgres -c 'SHOW config_file'
 ```
 ## Query
 ```sql

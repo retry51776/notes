@@ -24,11 +24,15 @@ python3 manager.py runserver_plus
 # Google how to override to define fields, read_only_fields, attach event handler
 from rest_framework.serializers import ModelSerializer
 
+
 # attach event to Model
 # https://docs.djangoproject.com/en/4.0/ref/signals/
 from django.db.models.signals import pre_init, post_delete, post_save
 from django.dispatch import receiver
 @receiver(pre_init, sender=xxxModel)
+
+# similar formik dirty
+instance.data_change('xyz')
 ```
 
 ## Controller
@@ -56,3 +60,14 @@ admin.site.register(django.db.models)
 
 # ViewSet defined what Model, which records, which properties shows on form & default values  
 ```
+
+## Django Apps | Addons | Plugin
+### Django REST framework
+> Authentication policies, 
+
+### Django-cors-headers
+
+### sentry
+> Runtime Error Tracking; sentry.io is paid version
+### Django GUID
+### Cookiecutter

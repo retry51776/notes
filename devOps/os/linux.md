@@ -70,6 +70,8 @@ strace
 # Memory
 free -h
 
+# Find file
+find / -name "xxx.config"
 
 # Change password
 passwd

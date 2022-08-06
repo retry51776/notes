@@ -73,3 +73,7 @@ Windows ESLint failed permission
 ```powershell
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
 ```
+
+```bash
+npx @openapitools/openapi-generator-cli generate -g typescript-axios -i http://xxx:/v1/schema/ -o /ajax
+```

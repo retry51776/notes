@@ -17,6 +17,9 @@
 ## Horizontal Pod Autoscaling (HPA)
 > https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/horizontal-pod-autoscaler-v2beta2/#HorizontalPodAutoscalerSpec
 
+> can't scale to 0, bad metrics
+
+> keda is better alternative: https://keda.sh/docs/2.7/deploy/
 
 ### Preq
 1. check metrics_server `kubectl -n kube-system get pods`

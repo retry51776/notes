@@ -5,6 +5,8 @@
 > 
 > SELinux  deal with containers communication, between containers or to host
 
+## Frustration
+- Docker will complicate about port conflict within containers; But if host machine have process took port, docker will silently continue; without warning!
 ## Docker Scripts
 ```bash
 # Image Ops: Build, push, pull, list
@@ -79,13 +81,38 @@ CMD node index.js
 ## docker-compose
 ```yaml
 # docker-compose -f docker-compose.dev.yml up
+version: '3.9'
 services:
-	my-app:
+    my-app:
+        build:
+			context: ./dockerfile
+			target: runtime
+        command: python3 start.py api-service -d
+		restart: unless-stopped
+        container_name: my-app
+        image: python10
+        ports:
+            - '4000:80'
+        volumes:
+            - .:/app
+		environment:
+			xx: xx
 		healthcheck:
 			test: ["curl" "google.com"]
 			interval: 10
 			timeout: 10s
 			retries: 3
+		depends_on:
+			xx-db:
+				condition: service_healthy
+		# only trigger when docker-compose up -d xx-profile
+		profiles:
+			- xx-profile
+			- yyyy
+networks:
+    default:
+        name: local-network
+		external: true
 
 ```
 

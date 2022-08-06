@@ -116,3 +116,17 @@ run_something:
   script:
     - python3 start.py
 ```
+
+## Github Vs Bitbucket Vs Gitlab
+- Github
+	- `charge per repo`
+	- `ruby on rail`
+	- `github action`
+	- `better text search`
+- Bitbucket
+  - `charge per user`
+  - `written in python & django`
+  - `better security record`
+  - `plugin for Jira Integration`
+- Gitlab
+  - `self host`

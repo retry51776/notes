@@ -13,6 +13,6 @@
 # Repo Structure
 - /development `Application language`
 - /database
-- /devOps `This is hard to define`
+- /devOps `This is hard to define, includes network admin, CI/CD/CT;`
 
 
