@@ -61,3 +61,14 @@
 az group list 
 az group delete --name xxx
 ```
+
+## Development
+```bash
+# dot sdk default C:\program files(x86)\dotnet; Add to path env
+
+npm install -g azurite
+azurite start
+
+# download & install Microsoft Azure Storage Explore
+# click connect/local storage emulator/connect
+```

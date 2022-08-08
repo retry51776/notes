@@ -116,24 +116,30 @@ chomd [owner][group][other] file_name
 
 ## Service / Cronjob / Dev
 ```bash
+# Show cronjobs
 crontab –l
-service [name] status // old Linux
+# Show Service status
+service [name] status
 
-systemd
-/etc/systemd/system
-/usr/lib/systemd/system
-
-create a service file
+# create systemd service file @
+# /etc/systemd/system
+# /usr/lib/systemd/system
+# Start of demo.service file
 [Unit]
 Description=An Example Service
 After=network-up.target
 
 [Service]
-ExecStart=/usr/bin/python3 /test.py
+ExecStart=/usr/bin/python3 /demo.py
+User=root
+Restart=always
+RestartSec=1
 
 [Install]
 WantedBy=multi-user.target
+# End of service file
 
+# systemctl start demo
 initd
 /etc/initd
 

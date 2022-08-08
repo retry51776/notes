@@ -2,54 +2,55 @@
 
 ## Marketing
 Stacks:
-    Google Analytics
-    Email marketing software
-    Video conferencing software
+- Google Analytics
+- Email marketing software
+- Video conferencing software
 
 Buzzwords:
-    cold lead
-    campaign
-    Webinar
+- cold lead
+- campaign
+- Webinar
 
 ## Sales
 Stacks:
-    SalesForce
-    Hubspot
-    GoogleInvite
+- SalesForce
+- Hubspot
+- GoogleInvite
 
 ## Implementation
 Stacks:
-    docusign
+- docusign
 
 Buzzwords:
-    Contract
-    Backfills/Tourial
+- Contract
+- Backfills/Tourial
 
 <hr />
+
 # Backend Bussiness
 
 ## Accounting
 Stacks:
-    QuickBook
-    Oracle NetSuite
-    Sage
+- QuickBook
+- Oracle NetSuite
+- Sage
 
 Buzzwords:
-    Tax
-    Invoice
-    AP/AR
+- Tax
+- Invoice
+- AP/AR
 
 
 ## HR
 Stacks:
-    Sage
-    QuickBook
-    isolved
+- Sage
+- QuickBook
+- isolved
 
 ## Support
 Stacks:
-    zendesk
-    ServiceNow
+- zendesk
+- ServiceNow
 
 ## Engineer
     - FullStack
@@ -139,3 +140,5 @@ Giftcard Meeting
 # Interview Tools
 - codeinterview.io
 - www.codewars.com
+
+> Top tier company implement standard & direction; 2nd tier company develop their brand; 3rd tier company focus on product

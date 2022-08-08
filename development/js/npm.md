@@ -1,8 +1,9 @@
 # NPM 
+> libtrends.info/npm-compare
 
-libtrends.info/npm-compare
+> https://bundlephobia.com/
 
-semantic versioning
+### semantic versioning
 `~` only update patch
 `^` update minor & path
 

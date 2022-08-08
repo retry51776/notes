@@ -1,21 +1,23 @@
 # Django
-> Kind like ASP .Net MVC Framework, Django uses Model View Template(MVT); Comes w RouteControl, @admin vs user; DB mgr & ORM; ViewSet that can load from Model; Form can auto generate by model; Model Event(signal); Build-in Admin Portal
+> Kind like ASP .Net MVC Framework, Django uses Model View Template(MVT); Comes w RouteControl, @admin vs user; DB mgr & ORM; ViewSet & Form that generated from Model; Model Event & Request Event(signal); Build-in Admin Panel;
 
 > not good at static file, through S3 or whitenoise
 
 ## Company
 - Pinterest
 - Instagram
-- dropbox
-- youtube
+- Dropbox
+- Youtube
 ## Workflow
-urls.py (route) -> ViewSet(aka controller: What record, how to serialize, who can see `Mixin`) -> Model(permission)
+1. urls.py `route`
+2. ViewSet `aka controller: What record, how to serialize, who can see Mixin; which form/template`
+3. Model `permission`
 
 ## Structure
 - /manager.py `entry point`
 - /setting.py
-- /urls.py `URL Route Register; appname is default_base_name, will overwritten by basename`
-- /admin.py `Admin controller`
+- /urls.py `URL Route Register; appname is default_base_name, will overwritten by basename; so {% url 'xxx' %} can reference url`
+- /admin.py `what shows up in Admin Panel`
 ----
 - /migration `alembic`
 - /forms `Django build-in forms`
@@ -28,7 +30,7 @@ urls.py (route) -> ViewSet(aka controller: What record, how to serialize, who ca
 ## Cmds
 ```py
 python3 manager.py runserver_plus
-# [makemigrations, migrate, runserver, collectstatic, xxx]
+# [makemigrations, migrate, runserver, collectstatic, xxx, createsuperuser]
 ```
 ## Model
 ```py
@@ -61,6 +63,17 @@ entries = b.xxx_set.all()
 .remove()
 .clear()
 .set(id=123)
+
+# Model Relation
+user = models.ForeignKey(
+    User,
+    on_delete=models.SET_NULL,# CASCADE, SET_DEFAULT,
+    blank=True,
+    null=True,
+)
+# PROTECT / RESTRICT prevent parent delete
+# SET_NULL is set parent foreign key null
+# CASCADE delete with parent
 ```
 
 ## View
@@ -79,10 +92,16 @@ with schema_context('public'):
     pass
 
 from django.contrib.auth.models import Group, Permission
-# Wthin ViewSet
+# Within ViewSet
 if (xxx) {
   redirect('/login')
 }
+
+# Must meet at least one permission
+@admin.action(
+  permissions=['change', 'create'],
+  description='Mark selected stories as published',
+)
 
 from django.view import View
 class xx(View):
@@ -112,10 +131,16 @@ class xx(View):
 `setup() -> dispatch() -> http_method_not_allowed() -> options()`
 
 ### FormView workflow
-`get_context_data() -> get_form_class() -> get_form_kwargs() -> get_success_url() -> form_valid() -> form_invalid() -> post()`
+1. `get_context_data()` 
+2. `get_form_class()`
+3. `get_form_kwargs()`
+4. `get_success_url()`
+5. `form_valid()`
+6. `form_invalid()` 
+7. `post()`
 ```py
 
-# Add Django Form into Admin page
+# Add Django Form into Admin Panel
 @admin.register(xxxModel)
 
 # Add custom model to Django 
