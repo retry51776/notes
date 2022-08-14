@@ -125,7 +125,8 @@ spec:
     shortNames:
     - x
 ```
-
+## Service Mesh
+> Enable Service Authorization
 
 ## ServiceMesh, Network Police & Network Agent
 > Network Police is basic In/Out traffic control. Similar to Ingress Rule to Ingress Controller, there is a controller to implement polices, network agent is not install by default. Popular is calico

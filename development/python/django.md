@@ -1,7 +1,21 @@
 # Django
-> Kind like ASP .Net MVC Framework, Django uses Model View Template(MVT); Comes w RouteControl, @admin vs user; DB mgr & ORM; ViewSet & Form that generated from Model; Model Event & Request Event(signal); Build-in Admin Panel;
+> Kind like ASP .Net MVC Framework, Django uses Model View Template(MVT); 
+> 
+> Build-in features:
+- RouteControl
+- Admin Panel
+- User & Permission Mgr
+- DB mgr & ORM Model
+- ViewSet & Form that generated from Model
+- Signal `Model Event & Request Event`
 
 > not good at static file, through S3 or whitenoise
+
+> Django ORM is weird
+- why can't they uses operator like normal `entry__xField__operator`; `xRelationship__childField__operator`;
+- `Entry.objects.all()[-1]` not support;
+- `.order_by('-rating')` why not `.asc()` or `.desc()`
+
 
 ## Company
 - Pinterest
@@ -16,7 +30,7 @@
 ## Structure
 - /manager.py `entry point`
 - /setting.py
-- /urls.py `URL Route Register; appname is default_base_name, will overwritten by basename; so {% url 'xxx' %} can reference url`
+- /urls.py `URL Route Register; appname is default_base_name, will overwritten by basename; so {% url 'xxx' param1 %} can reference url`
 - /admin.py `what shows up in Admin Panel`
 ----
 - /migration `alembic`
@@ -29,15 +43,14 @@
 
 ## Cmds
 ```py
+# List all cmds
+django-admin
 python3 manager.py runserver_plus
-# [makemigrations, migrate, runserver, collectstatic, xxx, createsuperuser]
+# [makemigrations, migrate, runserver, collectstatic, xxx, createsuperuser, shell_plus]
 ```
 ## Model
+> attach common logic to Model as methods `get_xyz()`
 ```py
-# Google how to override to define fields, read_only_fields, attach event handler
-from rest_framework.serializers import ModelSerializer
-
-
 # attach event to Model; Kind like redux
 # https://docs.djangoproject.com/en/4.0/ref/signals/
 from django.db.models.signals import pre_init, post_delete, post_save
@@ -54,6 +67,8 @@ def handler_func(sender, instance, created, **kwargs):
 
 # similar formik dirty
 instance.data_change('xyz')
+# FloatField, DateTimeField
+model.CharField(null=True, choices=[('a', 'a'), ('b', 'b')])
 model.FileField(validators=[])
 
 # https://docs.djangoproject.com/en/4.0/ref/models/relations/
@@ -74,13 +89,32 @@ user = models.ForeignKey(
 # PROTECT / RESTRICT prevent parent delete
 # SET_NULL is set parent foreign key null
 # CASCADE delete with parent
-```
 
+# QuerySet reverse order
+XXX.objects.all().order_by("-amount")
+# Many to Many double __ .filter(xxx__yy="zz")
+```
+## Serializer
+```py
+# Google how to override to define fields, read_only_fields, attach event handler
+from rest_framework.serializers import ModelSerializer
+xyz = SerializerMethodField()
+def get_xyz():
+  return 1
+```
 ## View
 > In typical MVC model, Controller in django includes (urls.py, ViewSet)
 
 > Class Base View (CBV) `overwrite life cycle event to enforce permission & control; class will auto implement a lot simple ops, but do more complex ops requires read doc`
+> > default route `list, create, retrieve, update, partial_update, destroy`
 > Function Base View (FBV) `you got to hook up everything`
+
+### ViewSet Key methods
+- get_queryset()
+- perform_create()
+- perform_update()
+- perform_destroy()
+- evaluation() `?`
 ```py
 # app.route('/xxx', xxx_funct)
 path('/xxx', view)
@@ -102,6 +136,10 @@ if (xxx) {
   permissions=['change', 'create'],
   description='Mark selected stories as published',
 )
+
+# add sub method into ViewSet EX:/user/123/set_password
+@action(detail=True, method=["GET"], permission_classes=[])
+def set_password(self, request)
 
 from django.view import View
 class xx(View):
@@ -170,6 +208,7 @@ permission enforcement:
 - by middleware
 ## Django Apps | Addons | Plugin
 ### Django REST framework (DRF)
+> DRF parses HttpRequest header & body into Python Dict; Uses Serializer to convert into different formats
 > Authentication policies, Auto create OpenAPI endpoint from Model
 > Attach API by `path('/api', include('rest_framework.urls'))`
 
@@ -179,3 +218,8 @@ permission enforcement:
 > Runtime Error Tracking; sentry.io is paid version
 ### Django GUID
 ### Cookiecutter
+
+
+### djangorestframework-version-transforms
+> 1. by header param `Accept: version=1`
+> 2. by url path `r'?(?P<pk>[0-9]+)/$'`

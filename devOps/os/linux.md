@@ -4,6 +4,8 @@
 > /proc is virtual file reflect process info
 linux make everything as file
 
+> CMDs `[application] [options] [command] [command options] [arguments...]`
+
 ## Boot Order
 1. On Power
 2. BIOS

@@ -70,3 +70,5 @@ $$
 - Ultracal 30 `strong, can be layer, longer`
 - Hydrocal `med, no layer`
 - USG pottery plaster `weakest`
+
+Bell Siphon `Using pressure to release fluid in a batch; EX: washing machine dispend washing flue;`

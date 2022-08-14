@@ -3,6 +3,7 @@
 
 # Computation
 - VM `$70/month general vm 2CPU, 8GB, 16GB disk`
+- App Service `old name: Web App`
 - Container Instances `single container`
 - Batch
 - Azure Kubernetes Service (AKS)
@@ -11,7 +12,6 @@
 - Service Fabric
 - Cloud Services
 - Mobile App
-- Web App
 
 - Logic App `Is it step function?`
 - Azure Functions `Similar cloud function`
@@ -72,3 +72,12 @@ azurite start
 # download & install Microsoft Azure Storage Explore
 # click connect/local storage emulator/connect
 ```
+
+## App Service
+> Kind like VM w [C#, php, java, javascript, Python, Ruby, Docker] already installed; AD supported; default path `/home/site/www.root/`
+
+- App Service Plan `resource limit; auto scale up & out; pick runtime;`
+  - Service (host machine that run webapp or container)
+  - DeploymentSlot `kind like BlueGreen`
+  - Application Setting `Envs`
+  - Custom Domain  `attach domain`

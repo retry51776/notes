@@ -154,6 +154,12 @@ heapq.nlargest(n:int, iterable, key:None) # key similar to sort(list, key)
 heapq.nsmallest()
 
 ```
+
+## importlib
+```py
+module_name = "some_package_name.module_a"
+module_a = importlib.import(module_name, ".")
+```
 ## CSV
 ```py
 import csv

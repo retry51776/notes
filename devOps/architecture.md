@@ -103,6 +103,11 @@
 - Rebuild `well, that sucks`
 - Replace `Maybe better this way`
 
+# API Versioning Strategy
+- url pattern
+- custom header
+- QueryParameterVersioning
+
 # Buzzwords
 Access Patter
    - Random
