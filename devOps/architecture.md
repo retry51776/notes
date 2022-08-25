@@ -113,4 +113,5 @@ Access Patter
    - Random
    - Sequential
 
-Direct Memory Access(DMA)
+- Direct Memory Access(DMA)
+- proximity service `Common bushiness request`

@@ -33,6 +33,9 @@ GRANT [usage | create | all] ON DATABASE [DB] TO [USER]
 GRANT [permission] ON SCHEMA [SM] TO [USER]
 GRANT [permission] ON ALL TABLES IN SCHEMA [SM] TO [USER]
 GRANT [permission] ON ALL SEQUENCES IN SCHEMA [SM] TO [USER]
+
+ALTER USER xyz WITH PASSWORD 'xyz';
+SELECT * FROM information_schema.role_table_grants WHERE table_name = 'xyz';
 ```
 
 ## Setup

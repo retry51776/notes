@@ -81,3 +81,4 @@ azurite start
   - DeploymentSlot `kind like BlueGreen`
   - Application Setting `Envs`
   - Custom Domain  `attach domain`
+  - 

@@ -208,10 +208,10 @@ permission enforcement:
 - by middleware
 ## Django Apps | Addons | Plugin
 ### Django REST framework (DRF)
-> DRF parses HttpRequest header & body into Python Dict; Uses Serializer to convert into different formats
+> DRF parses HttpRequest header & body into Python Dict; Uses Serializer to convert into different formats;
 > Authentication policies, Auto create OpenAPI endpoint from Model
 > Attach API by `path('/api', include('rest_framework.urls'))`
-
+> `drf_spectacular` auto generate openapi documentation
 ### Django-cors-headers
 
 ### sentry

@@ -47,6 +47,11 @@
 - [Tech Stacks] https://stackshare.io/
 - [Company Investor] https://www.crunchbase.com/
 
+- [Create bots]https://web.axiom.ai/recipes
+- [Math] https://www.wolframalpha.com/
+- [PDF & other tools] https://tinywow.com/
+- [Form Template] jotform.com
+- [SASS product] https://www.opensourcealternative.to/
 ## Datatool
 - HDFView #view tool for .h5
 - R-Studio is hardware data recovery

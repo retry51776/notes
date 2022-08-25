@@ -106,15 +106,31 @@ ARG git_commit
 RUN echo $git_commit > /app/.githash
 ```
 
+Language Server Index Format (LSIF) - `enable github or gitlab code intelligence`
+
 ## Gitlab CI
+> Executor is defined at runner level `/etc/gitlab-runner/config.toml`
+
 ```yml
 #.gitlab-ci.yml
+
+# Defined Job Orders, same stage will executed parallel
+stages:
+  - stage1
+  - stage2
+  - stage3
+
+# Example Job 1
 run_something:
 	image: python:3.10
 	before_script:
 		- apt-get update && apt-install
   script:
     - python3 start.py
+  # Optional Settings
+  allow_failure: true
+  artifacts:
+
 ```
 
 ## Github Vs Bitbucket Vs Gitlab

@@ -75,6 +75,9 @@ free -h
 # Find file
 find / -name "xxx.config"
 
+# Show Folder Structure
+tree
+
 # Change password
 passwd
 

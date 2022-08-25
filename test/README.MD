@@ -103,10 +103,28 @@ with patch('employee.requesets.get') as mocked_get:
 
 
 # pytest
-```
+> Define common components in `/tests/conftest.py`
+```py
 import pytest
 @pytest.fixture
 def xxx():
     mock = mocker.patch("flask_sqlalchemy._QueryProperty.__get__").return_value = mocker.Mock()
     return mock
+
+@pytest.fixture
+def xyz():
+    return "This is xyz"
+
+@pytest.fixture(autouse=True)
+def auto_use():
+    # Do something
+    return
+
+# other unit tests
+def test_something(xyz):
+    assert xyz == "This is xyz"
+
+@pytest.mark.parametrize('xyz', {})
+def test_x(xyz):
+    assert 'z' in xyz
 ```

@@ -190,6 +190,12 @@ const {
   cacheTime: 60 * 60, // stay in cache even left page
 });
 
+useEffect(() => {
+  if (data?.hasMore) {
+    queryClient.prefetchQuery(['xxx', page + 1], doFetch(page + 1))
+  }
+}, [data, page])
+
 const edit = useMutation(postEdit, {
   onSuccess: () => {
     queryClient.invalidateQueries('abc')

@@ -3,3 +3,7 @@
 - retry
 
 - loguru
+
+- pytest
+- pyfakerfs
+

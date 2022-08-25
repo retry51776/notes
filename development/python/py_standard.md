@@ -25,8 +25,15 @@ print(object, depth=2) # only print 2nd nested level
 # Set linux envirement variables
 export URL=test //set env
 import os
-os.environ // all envirement variables
-os.getcwd() // current dir
+# all envirement variables
+os.environ
+# current dir
+os.getcwd()
+# 
+os.walk('/')
+os.path.exists('/etc')
+os.remove("/etc/test.txt")
+os.rmdir("/folder")
 
 import socket
 hostname = socket.gethostname()

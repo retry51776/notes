@@ -190,3 +190,7 @@ make client request looks like function, replaces rest, webhook
 ## Browser IDE
 > very cool, just live on 10-21-2021
 https://vscode.dev/
+
+# Buzzword
+- Unique Resource Identifier (URI)
+- REpresenatinal State Transfer(REST)
