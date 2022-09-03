@@ -37,6 +37,8 @@
 - recursion limit: 10,000
 - Pipfile going replace requirement.txt `pipenv install`
 - Python round() sucks
+- `__init__` doesn't support different params
+- `setattr()` won't have IDE auto suggestion
 
 ## TODO:
 - build retry decorator
@@ -99,6 +101,10 @@ lower()
 [::-1]#reverse
 [1,2,2,3,3,3].count(2)
 dictionary.setdefault(keyname, value)
+type('xyz', (object), {
+    '__init__': lambda: None,
+    'some_method': 'return value',
+})
 
 a, b, c = 1, 2, 3
 a, b, *_, d = list(range(10))

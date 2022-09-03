@@ -22,17 +22,19 @@
 - Instagram
 - Dropbox
 - Youtube
+
 ## Workflow
 1. urls.py `route`
 2. ViewSet `aka controller: What record, how to serialize, who can see Mixin; which form/template`
-3. Model `permission`
+   1. Model `permission`
+3. Template
 
-## Structure
+## Folder Structure
 - /manager.py `entry point`
 - /setting.py
 - /urls.py `URL Route Register; appname is default_base_name, will overwritten by basename; so {% url 'xxx' param1 %} can reference url`
 - /admin.py `what shows up in Admin Panel`
-----
+----Folders------
 - /migration `alembic`
 - /forms `Django build-in forms`
 - /views `Django build-in ui components, EX: table, list`
@@ -40,6 +42,29 @@
 - /serializers `For api`
 - /management
   - /commands `kind like npm run xxx, call by python3 manager.py xxxx`
+
+# Django Components
+- Setting
+- Http Request
+  - Middleware
+  - Deserialize & Serialize Request
+- View
+  - Serializer
+  - View (decorator or class)
+    - Pagination
+- Model & DB Migrations
+  - Model Options https://docs.djangoproject.com/en/4.1/ref/models/options/
+    - permissions
+  - orm weird syntax `__pk implies __id__exact; fieldName__lt=14`
+  - `django.core.files.File`
+  - lookups
+- Form & Template
+- Others
+  - `django.core.mail`
+  - security
+    - hostname, CSRF, SSL
+    - Default Django User, Sites, Groups
+  - Signals
 
 ## Cmds
 ```py
@@ -50,6 +75,14 @@ python3 manager.py runserver_plus
 ```
 ## Model
 > attach common logic to Model as methods `get_xyz()`
+
+- `Model.objects.all()`
+- `Model.save()`
+- `Model.delete()`
+- `Field.contribute_to_class()` Field adds descriptor,
+- `Field.contribute_to_related_class` adds descriptor to nested Model
+- `Field.view_perm_name` = rules_permissions.key; used by descriptor to enforce which rules_permissions
+- Meta
 ```py
 # attach event to Model; Kind like redux
 # https://docs.djangoproject.com/en/4.0/ref/signals/
@@ -94,14 +127,6 @@ user = models.ForeignKey(
 XXX.objects.all().order_by("-amount")
 # Many to Many double __ .filter(xxx__yy="zz")
 ```
-## Serializer
-```py
-# Google how to override to define fields, read_only_fields, attach event handler
-from rest_framework.serializers import ModelSerializer
-xyz = SerializerMethodField()
-def get_xyz():
-  return 1
-```
 ## View
 > In typical MVC model, Controller in django includes (urls.py, ViewSet)
 
@@ -110,11 +135,12 @@ def get_xyz():
 > Function Base View (FBV) `you got to hook up everything`
 
 ### ViewSet Key methods
+- QuerySet._fetch_all() 
 - get_queryset()
-- perform_create()
-- perform_update()
-- perform_destroy()
-- evaluation() `?`
+- get()
+- post()
+- list()
+- create()
 ```py
 # app.route('/xxx', xxx_funct)
 path('/xxx', view)
@@ -206,20 +232,3 @@ permission enforcement:
 - by decorator `@login_required`
 - redirect within ViewController
 - by middleware
-## Django Apps | Addons | Plugin
-### Django REST framework (DRF)
-> DRF parses HttpRequest header & body into Python Dict; Uses Serializer to convert into different formats;
-> Authentication policies, Auto create OpenAPI endpoint from Model
-> Attach API by `path('/api', include('rest_framework.urls'))`
-> `drf_spectacular` auto generate openapi documentation
-### Django-cors-headers
-
-### sentry
-> Runtime Error Tracking; sentry.io is paid version
-### Django GUID
-### Cookiecutter
-
-
-### djangorestframework-version-transforms
-> 1. by header param `Accept: version=1`
-> 2. by url path `r'?(?P<pk>[0-9]+)/$'`

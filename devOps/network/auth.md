@@ -27,8 +27,18 @@
 > There are SO SO SO many lib, platform, tools, etc. IDK what is industry standard.
 
 
-## Tools
+## Common Solutions
 - okta
+- Auth0
 - [SSL/TLS](/devOps/network/security.md)
 - [DNS](/devOps/network/dns.md)
 - [Keycloak](/test/keycloak/README.md)
+
+# Technology or Buzzwords
+- OpenID Connect Standard (OAuth 2) `delegate client auth`
+  - refresh token flow
+  - refresh token rotation `out of order refresh token will invalid tokens family`
+    - sliding expiration/windows `max refresh`
+    - fix lifetime `lock max lifetime when access token created`
+    - none `until revoke`
+- MFA

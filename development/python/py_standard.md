@@ -15,6 +15,14 @@ date.max
 date.min
 ```
 
+# bisect
+```py
+# get idx that value will be sort
+idx = bisect.bisect(array, value)
+
+# insert into sorted array & keep order
+bisect.insert(array, value)
+```
 
 # os, socket module
 ```py
@@ -104,6 +112,7 @@ combinations
 
 random.shuffle
 itertools.chain # join list
+for x, y in itertools.product([x_arr, y_arr])
 
 # islice('ABCDEFG', 2) --> A B
 # islice('ABCDEFG', 2, 4) --> C D

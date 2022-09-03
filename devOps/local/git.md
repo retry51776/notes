@@ -132,6 +132,13 @@ run_something:
   artifacts:
 
 ```
+#### Gitlab System hooks
+- push_events
+- tag_push_events
+- merge_request_events
+- repository_update_events
+- enable_ssl_verification
+
 
 ## Github Vs Bitbucket Vs Gitlab
 - Github
