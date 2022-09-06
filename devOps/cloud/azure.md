@@ -15,6 +15,7 @@
 
 - Logic App `Is it step function?`
 - Azure Functions `Similar cloud function`
+- Azure LoadBalancer `very basic, don't support regex routing, throttle req`
 
 ## Storage
 - Online Transactional Procesing (OLTP)

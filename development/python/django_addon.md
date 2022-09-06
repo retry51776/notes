@@ -4,6 +4,24 @@
 > Attach API by `path('/api', include('rest_framework.urls'))`
 > `drf_spectacular` auto generate openapi documentation
 
+- Router
+- View
+  - ViewSet
+    - serializer_class
+    - permission_classes
+    - authentication_classes
+    - filter_backends
+  - GenericViewSet
+    - get_object()
+    - get_queryset()
+  - ModelViewSet
+    - list()
+    - retrieve()
+    - create()
+    - destroy()
+- Parsers & Render & Pagination
+- `DEFAULT_PERMISSION_CLASSES` triggers by
+  - View.get_object() -> .check_object_permissions(request, obj)
 ## GenericViewSet
 ```py
 def get_object()

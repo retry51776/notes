@@ -53,7 +53,7 @@
   - View (decorator or class)
     - Pagination
 - Model & DB Migrations
-  - Model Options https://docs.djangoproject.com/en/4.1/ref/models/options/
+  - Model Meta options https://docs.djangoproject.com/en/4.1/ref/models/options/
     - permissions
   - orm weird syntax `__pk implies __id__exact; fieldName__lt=14`
   - `django.core.files.File`

@@ -111,6 +111,7 @@ Language Server Index Format (LSIF) - `enable github or gitlab code intelligence
 ## Gitlab CI
 > Executor is defined at runner level `/etc/gitlab-runner/config.toml`
 
+> deploy by gitlab-takeoff
 ```yml
 #.gitlab-ci.yml
 
@@ -129,7 +130,16 @@ run_something:
     - python3 start.py
   # Optional Settings
   allow_failure: true
+  # Optional Rules
+  rules:
+    # Rule [if, changes, exists]
+    - if: '$CI_COMMIT_BRANCH != "master"'
+      # when (should rename to then)
+      when: never
+    - when: on_success
   artifacts:
+
+
 
 ```
 #### Gitlab System hooks
