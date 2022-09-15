@@ -104,6 +104,7 @@ with patch('employee.requesets.get') as mocked_get:
 
 # pytest
 > Define common components in `/tests/conftest.py`
+> pytest by default won't show print stdout `pytest -s /tests/abc` will show stdout
 ```py
 import pytest
 @pytest.fixture

@@ -128,3 +128,9 @@ networks:
 # Other
 - Codacy Badge `Codacy/repo/Setting/General`
 - Github Action Badge `Github/repo/action/xxx_action/.../Create Action Badge`
+
+# Full Virtual OS
+- VirtualBox (not support m1)
+- VMware Fusion Player (not usable)
+- UTM (free, usable)
+- Parallel desktop (pay, best)

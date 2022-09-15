@@ -30,7 +30,7 @@
 3. Template
 
 ## Folder Structure
-- /manager.py `entry point`
+- /manage.py `entry point`
 - /setting.py
 - /urls.py `URL Route Register; appname is default_base_name, will overwritten by basename; so {% url 'xxx' param1 %} can reference url`
 - /admin.py `what shows up in Admin Panel`
@@ -41,7 +41,7 @@
 - /models `ORM & permission control`
 - /serializers `For api`
 - /management
-  - /commands `kind like npm run xxx, call by python3 manager.py xxxx`
+  - /commands `kind like npm run xxx, call by python3 manage.py xxxx`
 
 # Django Components
 - Setting
@@ -70,11 +70,12 @@
 ```py
 # List all cmds
 django-admin
-python3 manager.py runserver_plus
-# [makemigrations, migrate, runserver, collectstatic, xxx, createsuperuser, shell_plus]
+python3 manage.py runserver_plus
+# [makemigrations, showmigrations, migrate, runserver, collectstatic, xxx, createsuperuser, shell_plus]
 ```
 ## Model
 > attach common logic to Model as methods `get_xyz()`
+> polymorphic let 1 table have multiple ORM Models
 
 - `Model.objects.all()`
 - `Model.save()`

@@ -164,6 +164,17 @@ process.on('exit', () => {
 
 > swagger `is tool with 3 components: UI, Editor, CodeGen`
 
+> `tags` group endpoint into api;
+> `operationId` should always `[tag]_methodName`
+
+> openapi-cli won't generate request model w `multipart/form-data`, just api method params directly;
+> while swagger generate request model;
+
+# Keywords
+- Style Values `standards of how serializeing complex value`
+- parameter types `[path, query, header, cookie]`
+- content type | media type `[application/json | xml | x-www-form-urlencoded, multipart/form-data, text/html, application/pdf, image/png]`
+- data types `[string, number, integer, boolean, array, object]`
 ### CodeGen & Editor
 > 1. from spec(swagger.json) to template(flask routes)
 >> https://editor.swagger.io `Check swagger file, generate server template`
