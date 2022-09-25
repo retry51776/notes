@@ -27,7 +27,13 @@ D: Same as C, but use your personal credit.
 
 Criticism:
 With more Actors & Assets, the game requires more & more placeholders, which also causes the farther decoupled producer to the owner.
-Banks are no longer at risk of loans, yet Banks can still create credit! US banks started offload risk; EX: Mortage Backed Security(MBS) is a bundle of mortages, then sold to investors in a lower rate & bank profit by rate difference.
+Banks are no longer at risk of loans, yet Banks can still create credit! US banks started offload risk; EX: Mortgage Backed Security(MBS) is a bundle of mortgages, then sold to investors in a lower rate & bank profit by rate difference.
 Banks these days profit from nothing by creating different derivatives. Banks should either hold loan risk & allow fraction reserve, or act as Investment Banks to offload risk.
 Bank no longer act as credit shared places for people. Most of their credits come from Federal Reserve. People's ability to get a loan is limited to mortgages and credit cards. Think of QA having a bias to review senior dev PRs, not junior dev PRs.
 We, the people, produce new assets. Yet new credit is created by banks. Some assets are distributed to the producer, but most of the new assets' ownership goes to the bank. Unless we can allocate all required assets without a bank network, newly created wealth by default, goes to bank.
+
+
+1 - interest_rate = exchange_rate of future_asset to current_asset
+
+If Fed set too high interest rate, people will arbitrage different by sell current assets for future promise; (aka Paul Volcker caused recession in 1980 to stop inflation)
+If Fed set too low interest rate, people will arbitrage different by make future promise for current assets; (aka 2020 all assets price increase) 

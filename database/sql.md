@@ -122,3 +122,8 @@ END;
 call x_proc('test', @tt)
 select @tt
 ```
+
+# SQLlite
+```sql
+SELECT Column1, group_concat(Column2) FROM Table GROUP BY Column1
+```

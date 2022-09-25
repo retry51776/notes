@@ -172,3 +172,23 @@ from sklearn.metrics import mean_squared_error
 
 
 ```
+
+# Nvidia
+- CuPy `Numpy alternative build w CUDA GPU library`
+- Numba `Python compiler to CUDA GPU`
+>> Object Mode `back into python code`
+
+```py
+from numba import njit, vectorize
+
+@njit
+def slow_funct():
+    return 123
+
+@vectorize
+def xx(input_arr):
+    arr = []
+    for x in input_arr:
+        arr.append(x)
+    return arr
+```

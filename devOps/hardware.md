@@ -47,6 +47,27 @@
       > single cycle instruction
 ## GPU
 > simple small, but many cores
+
+> Hardware -> Driver -> Developer Framework -> Application
+
+> Render Driver
+>> - OpenGL Shading Language (GLSL) `C-style language; open platform; easier`
+>> - DirectX `C++; start as direct3D; only in windows;`
+>> - Metal `C++; apple's directX; only in mac system`
+>>> Geometric Primitive: smallest build unit [point, line, triangle, Cube, Cone, Cylinder ...]
+
+>> Game Engine `Render framework enable user works w physical engine, shapes, light, texture; higher level unit than driver`
+>>> - Unity `can compile into OpenGL or DirectX`
+>>> - unreal `unreal engine 5 support crazy real 3D render. such as unlimited polygons, glass effect(reflection & see through)`
+
+>> Computer-aided design (CAD) 
+>> OpenCV `Library for Computer Vision, take vision as input, not output! Support C++; Python; Java; Written C++;`
+>>> Facial Recognition
+>>> Object Detection
+>>> Activity Recognition
+
+>> Compute Unified Device Architecture (CUDA) `2006 Nvidia C extension only works on Nvidia GPU`
+
 ## Field programmable Gate Array (FPGA)
 > FPGA original design to debug & test in FAB; Each time before compute, it needs to load compiled design, then execute; It's great for process stream data;
 - Hardware description language
