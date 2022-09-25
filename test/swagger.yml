@@ -32,6 +32,41 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/400'
+  /pet/:
+    post:
+      tags:
+        - test
+      summary: Updates a pet in the store with form data
+      description: ''
+      operationId: updatePetWithForm
+      requestBody:
+        description: Create a new pet in the store
+        content:
+          multipart/mixed:
+            schema:
+              type: object
+              properties:      # Request parts
+                id:            # Part 1 (string value)
+                  type: string
+                  format: uuid
+                address:       # Part2 (object)
+                  type: object
+                  properties:
+                    street:
+                      type: string
+                    city:
+                      type: string
+                profileImage:  # Part 3 (an image)
+                  type: string
+                  format: binary
+                arr1:       # Part2 (object)
+                  type: array
+                  items:
+                    type: string
+            encoding:
+              arr1:
+                style: deepObject
+                explode: false
 # Reused components
 components:
   schemas:

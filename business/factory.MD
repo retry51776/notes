@@ -11,6 +11,10 @@
 - Package Slip `for customer`
 - Return Material Authorization (RMA)
 - Supply Chain Management (SCM)
+- Accountability Mechanism
+
+Street words
+- Golden Sample `Sample is better than actual delivery`
 
 ## ERP Modules
 - HR

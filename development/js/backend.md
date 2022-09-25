@@ -159,7 +159,7 @@ process.on('exit', () => {
 });
 ```
 
-## API documentation
+## OPENAPI
 > OpenAPI `is a specification`
 
 > swagger `is tool with 3 components: UI, Editor, CodeGen`
@@ -170,11 +170,20 @@ process.on('exit', () => {
 > openapi-cli won't generate request model w `multipart/form-data`, just api method params directly;
 > while swagger generate request model;
 
-# Keywords
+### Keywords
 - Style Values `standards of how serializeing complex value`
 - parameter types `[path, query, header, cookie]`
 - content type | media type `[application/json | xml | x-www-form-urlencoded, multipart/form-data, text/html, application/pdf, image/png]`
 - data types `[string, number, integer, boolean, array, object]`
+- required parameter `will generated as positional args`
+- encoding `only apply for multipart request, control encoding per property`
+
+- `requestBody.required`
+- `requestBody.content.[application/json | multipart/mix]`
+### Key Logic
+- https://github.com/OpenAPITools/openapi-generator/blob/master/docs/generators/python.md `generator doc`
+- https://github.com/OpenAPITools/openapi-generator/blob/c59759f20a18dd2aaba9586943d99987cfd76f12/modules/openapi-generator/src/main/java/org/openapitools/codegen/DefaultCodegen.java#L4329 `openapi logic parse params`
+- `mustache template`
 ### CodeGen & Editor
 > 1. from spec(swagger.json) to template(flask routes)
 >> https://editor.swagger.io `Check swagger file, generate server template`

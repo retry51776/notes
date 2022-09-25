@@ -76,5 +76,6 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
 ```
 
 ```bash
+npm install @openapitools/openapi-generator-cli
 npx @openapitools/openapi-generator-cli generate -g typescript-axios -i http://xxx:/v1/schema/ -o /ajax
 ```

@@ -77,12 +77,15 @@ python3 manage.py runserver_plus
 > attach common logic to Model as methods `get_xyz()`
 > polymorphic let 1 table have multiple ORM Models
 
+- `Model.objects` is django Model Manager, can overwrite it add orm custom filter
 - `Model.objects.all()`
 - `Model.save()`
 - `Model.delete()`
 - `Field.contribute_to_class()` Field adds descriptor,
 - `Field.contribute_to_related_class` adds descriptor to nested Model
 - `Field.view_perm_name` = rules_permissions.key; used by descriptor to enforce which rules_permissions
+- `Model.objects.update_or_create(defaults={})`
+- `qs.annotate(xxx_sum=Sum('xxx'))`
 - Meta
 ```py
 # attach event to Model; Kind like redux

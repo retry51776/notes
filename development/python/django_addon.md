@@ -22,6 +22,8 @@
 - Parsers & Render & Pagination
 - `DEFAULT_PERMISSION_CLASSES` triggers by
   - View.get_object() -> .check_object_permissions(request, obj)
+
+
 ## GenericViewSet
 ```py
 def get_object()
@@ -48,6 +50,13 @@ from rest_framework.serializers import ModelSerializer
 xyz = SerializerMethodField()
 def get_xyz():
   return 1
+
+xxx = xxxSerializer(date={}, initial_data={}, validated_data={})
+xxx.is_valid()
+xxx.errors
+xxx.data
+xxx.validated_data
+xxx._writeable_fields
 ```
 
 # Django Addons / Apps
@@ -73,3 +82,12 @@ def get_xyz():
 ### djangorestframework-version-transforms
 > 1. by header param `Accept: version=1`
 > 2. by url path `r'?(?P<pk>[0-9]+)/$'`
+
+
+# Testing
+```bash
+# must install to test django
+pip install pytest-django
+```
+## Factory-Boy
+unit test tool, similar to fixture
