@@ -59,3 +59,26 @@
 > Rate hike over reality won't punish those created bad promises
 > 
 > Over hike rates just hurt producer that currently trying to produce. Anytime Fed is set wrong rate, smart trader profit by arbitrage. 
+
+> Also because deglobalization / trust broken. Seem like players will sub divided into smaller groups, which trade efficiency for redundancy. My only concern that some unique resource(space?) cause two sub group fight.
+
+# Loan Effect Example
+In the village with total $100 credit, and credit is use to distribute fish; There are 10 fisherman, and you are 1 of them;
+
+You catch a fish per day, sold $10/fish; 10% village resource allocation right!
+
+Today you talk to banker: I'll get a team to catch 5 fish, please loan me $20 to hire another fisherman
+
+Banker trust you & created $20 note & give it to you;
+
+Case 1: Your team did catch 5 fish, contribution = 5 / (5 + 8) = 38.46%; Village now has $120 credit, $120 * 38.46% = $46.152;
+Then -$20 bank, $11 to fisherman, $10 for self labor = $5.12 extra income; Other fisherman contribution = 1 / (5 + 8) = 7.69%; $120 * 7.69% = $9.23; even know each fisherman get $9.23, they still able to buy a fish because there is 13 fish; Now bank has $20, which is 16.6% contribution power allow bank buy 2.166 fish;
+
+
+Case 2: You team did NOT catch anything; Of course you will be bankrupt, and no one trust you again; You have $20 - $11 = $9 leftover money, but bank took away; Village now has $111 credit, $100 + $11(your teammate salary); Fisherman didn't catch any fish still has $11, which is $11/$111 = 9.9% contribution, which dilute other fisherman contribution;
+> Other fisherman doesn't know credit increased, only sold $10 per fish; Which at this point, fisherman who catch a fish, sold it for $10, can't buy back the fish for $10! fish price = $111 / 8 = $13.875;
+> Other fisherman realized credit increased, $111 / 8 = $13.875, but everyone in village expected buy $10 fish won't able to, because we caught less fish, and Fisherman didn't catch any fish still has $11
+
+Banker has $11 lost on their book; Either next loan able to recover lost, or lost accumulate, eventually cause recession.
+## Example Conclusion
+> Increase productivity has risk, when successful increase productivity banker take a cut(can be big or small, dependence on number); When failed attempted, cost of failure either distribute in whole society, or accumulate in bank system.

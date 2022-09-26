@@ -72,3 +72,13 @@ $$
 - USG pottery plaster `weakest`
 
 Bell Siphon `Using pressure to release fluid in a batch; EX: washing machine dispend washing flue;`
+
+# Natural Gas
+Transportation
+- Pipe line `max length 700 miles under sea or 2200 miles on land`
+- LNG `ship in super cold liquid form`
+
+- Conventional Gas
+- Unconventional Gas `biproduct of fossil fuels well`
+  - Coal Seam Gas
+  - shell gas
