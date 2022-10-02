@@ -80,6 +80,13 @@
 
 ## Buzzwords
 - EDA `is hardware design software`
+- Standard Cell Library `Group of transistor gates, Ex: And, Or, Add operation`
+- Track Height `Standard Cell Library KPI`
+- Design for Manufacturability -> Design Technology Co-Optimization
+- multi-patterning `multi mask on single layer`
+- half-pitch `length of gate`
+- Resolution Enhancement Techniques `Similar to special font to improve readability of bad print`
+- Power, Performance, Area, Cost `chip KPI`
 - Transceiver `is network modern for fiber`
 - Translation Lookaside Buffer (TLB) `is a memory cache that stores recent translations of virtual memory to physical addresses for faster retrieval`
 

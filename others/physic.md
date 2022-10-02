@@ -82,3 +82,11 @@ Transportation
 - Unconventional Gas `biproduct of fossil fuels well`
   - Coal Seam Gas
   - shell gas
+
+# Nuclear
+> fusion
+> fission
+> > uranium `able to develop nuclear weapon`
+> > Plutonium `by product of uranium reaction, doesn't exist naturally`
+> > thorium `won't self start, won't `
+>> Small Modular Reactor (SMR)

@@ -144,4 +144,5 @@ Giftcard Meeting
 > Top tier company implement standard & direction; 2nd tier company develop their brand; 3rd tier company focus on product
 
 Learning Curve pricing - max production rate to expose all possible problems
-Addressable Market - The potentials of market
+Addressable Market - The potentials of market 
+blocker strategy - `prevent competitor's move`
