@@ -109,9 +109,19 @@
 - QueryParameterVersioning
 
 # Buzzwords
-Access Patter
+- Access Patter
    - Random
    - Sequential
+- Product Hygiene `Features that not necessary for core function, but reduce possible problems; Platform management, Input validation;`
+
 
 - Direct Memory Access(DMA)
 - proximity service `Common bushiness request`
+
+
+## collaborative editing `Multi user mode, Ex: google doc, etherpad`
+> Pessimistic Control `aka lock`
+
+> Optimistic Concurrency Control `Versioning, & merge `
+>> Operational Transformation/Event Passing `Each operation is an event, client needs to convert other events into op_delta before merge into client's state`
+>> Differential Sync `aka git`

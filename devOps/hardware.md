@@ -59,6 +59,7 @@
 >> Game Engine `Render framework enable user works w physical engine, shapes, light, texture; higher level unit than driver`
 >>> - Unity `can compile into OpenGL or DirectX`
 >>> - unreal `unreal engine 5 support crazy real 3D render. such as unlimited polygons, glass effect(reflection & see through)`
+>>> - gamemaker `beginner friendly 2D game engine`
 
 >> Computer-aided design (CAD) 
 >> OpenCV `Library for Computer Vision, take vision as input, not output! Support C++; Python; Java; Written C++;`

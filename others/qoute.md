@@ -11,3 +11,5 @@
 > Work is solving my problems through solving other's problem. Each problem has different 'value' & 'difficultly'(aka exchange rate) relatives to different people;  Most companies try to find common problems that most people have; I don't like to solve my friends' problem, but rather adjust their problem's 'value';
 
 > It's not knowledge determent path, it's knowledge changes unknown, unknown determent path;
+
+> Work starts on labor, then creator, then narrator;

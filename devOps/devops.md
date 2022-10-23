@@ -57,3 +57,7 @@
   > target subject get updates 
 - Shadow
 
+
+# JIRA
+- RELEASE MANAGEMENT `auto generate release notes`
+

@@ -60,6 +60,11 @@ Non-routable Addresses Space (NAT)
 - 192.168.0.0/16
 https://jodies.de/ipcalc
 
+# Http History
+- http 1.0 `start 1996, each request needs its TCP connection`
+- http 1.1 `1997, keep-alive reuse TCP connection; pipeline allow multi requests before response`
+- http 2.0 `2015, stream enable multi request on same connection; stream doesn't effect other streams; server push;`
+- http 3.0 `2022, QUIC replace TCP, connection id enable switch network interface`
 
 ---
 ## CMDs
