@@ -37,6 +37,7 @@ HPT axis = hypothalamus -> pituitary  -> thyroid
 
 # Hormones
 
+GABA - stop electric signal pass between neuron; opposite to Dopamine
 Dopamine(多巴胺) - active agent, lack will cause shaking
 Serotonin(血清素) - Happy, memory
 Oxytocin() - Love

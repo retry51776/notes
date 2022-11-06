@@ -34,6 +34,7 @@ Stacks:
 - QuickBook
 - Oracle NetSuite
 - Sage
+- ChartMogul `analyst on sass metric`
 
 Buzzwords:
 - Tax
@@ -97,6 +98,33 @@ Owner Structures:
 
 **409A**
 > 409A is an independent appraisal of the fair market value (FMV) of a private company's common stock
+
+**Saas Metrics**
+- Customer Churn `opposite to customer retention rate; used to calculate average user time`
+- Revenue Churn `similar to Customer Churn, but on Revenue;`
+- Net MRR Churn `= (lost MRR + Contraction MRR - Expansion MRR - Reactivation ARR) / MRR Beginning of Period`
+- Customer Lifetime Value (CLV) `CLV = Customer Value * Average Customer Lifespan`
+> Average Purchase Value = total_revenue / number_order (within a year)
+> Average Purchase Frequency = purchase_count / customer_count
+> Customer Value = avg_purchase_value * avg_purchase_frequency
+> Average Customer Lifespan = all_customers_lifespan / customer_count
+
+- Customer Acquisition Cost (CAC) `CAC = marketing_spend / total_sales`
+- Months to Recover CAC
+- CAC-to-LTV Ratio `at least 3 X CAC`
+- Customer Engagement Score `No standard, just uses GA to make up a report`
+- Qualified Marketing Traffic `traffic excludes existed customer`
+- Leads by Lifecycle Stage
+> Lead > Market Qualified Lead(MQL) > Sales Qualified Lead(SQL) > Opportunity > Customer
+- Lead-to-Customer Rate
+- Customer Health Score
+- Average Revenue Per User (ARPU)
+
+- Monthly recurring revenue (MRR)
+- Annual recurring revenue (ARR)
+- Contraction revenue (signed contract)
+- Expansion revenue (up sales)
+- Reactivation revenue
 
 reserve Prefer stock for employee
 

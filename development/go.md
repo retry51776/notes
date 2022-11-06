@@ -8,7 +8,7 @@
 - `go.sum` similar package.lock
 - `Makefile`
 - `/cmd`
-- 
+- `main.go`
 
 # CMDs
 ```bash

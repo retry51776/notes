@@ -180,6 +180,9 @@ process.on('exit', () => {
 
 - `requestBody.required`
 - `requestBody.content.[application/json | multipart/mix]`
+- `get.parameters`
+- `get.operationId`
+- `get.tags`
 ### Key Logic
 - https://github.com/OpenAPITools/openapi-generator/blob/master/docs/generators/python.md `generator doc`
 - https://github.com/OpenAPITools/openapi-generator/blob/c59759f20a18dd2aaba9586943d99987cfd76f12/modules/openapi-generator/src/main/java/org/openapitools/codegen/DefaultCodegen.java#L4329 `openapi logic parse params`

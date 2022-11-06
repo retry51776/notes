@@ -1,4 +1,5 @@
 # Message Broker
+> It's fast because zero-copy uses linux system call `sendfile()` directly transfer os cache into NIC buffer; and sequential I/O is append only db
 
 > Improves decoupling, fault tolerance, scalability
 

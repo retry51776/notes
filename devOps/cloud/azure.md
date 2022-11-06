@@ -80,6 +80,7 @@ azurite start
 - App Service Plan `resource limit; auto scale up & out; pick runtime;`
   - Service (host machine that run webapp or container)
   - DeploymentSlot `kind like BlueGreen`
-  - Application Setting `Envs`
+  - Application Configuration `config`
+    - Key Vault Reference `secrets`
   - Custom Domain  `attach domain`
-  - 
+  - w3wp process

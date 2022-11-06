@@ -88,5 +88,5 @@ Transportation
 > fission
 > > uranium `able to develop nuclear weapon`
 > > Plutonium `by product of uranium reaction, doesn't exist naturally`
-> > thorium `won't self start, won't `
+> > thorium `fertile rather than fissile`
 >> Small Modular Reactor (SMR)
