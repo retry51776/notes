@@ -14,6 +14,8 @@
 - Behavior Libraries `React, ReactTable, ReactQuery, headlessui`
 - Style Systems `Bootstrap, TailwindUI, DaisyUI`
 
+- styled-components `Define css in react component`
+
 ## Redux
 > Avoid redux connect() to reduces unnecessary props
 
@@ -102,6 +104,7 @@ Maybe Immer? new dev could break things, but no new APIs
 4. Events Handler
 5. UI Components
 
+- wouter is alterative to React Router
 ```js
 /* React router pass in history & match*/
 const Abc = ({ history, match }) => {

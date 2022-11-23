@@ -61,6 +61,12 @@
 >>> - unreal `unreal engine 5 support crazy real 3D render. such as unlimited polygons, glass effect(reflection & see through)`
 >>> - gamemaker `beginner friendly 2D game engine`
 
+### Terms
+- Level of Detail (LOD) `Each object with its level detail, lowest level uses billboard;`
+- Dynamic Level Detail (DLD) `new way handle LOD; reduce polygons size to inverse to distance;`
+- Foliage `create cluster w same module as a component; Ex: generate tree base of leaves,`
+- Nanite Foliage
+
 >> Computer-aided design (CAD) 
 >> OpenCV `Library for Computer Vision, take vision as input, not output! Support C++; Python; Java; Written C++;`
 >>> Facial Recognition

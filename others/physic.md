@@ -10,6 +10,11 @@
 > I feel like standard model have more applications, things far away most likely won't matter. We can't even get to Mars..
 
 > Why is space in Standard Model? I felt like Standard Model only desc how particle interact w other particles. There is got to explain why space grow & dark matter. I suspect both are  caused same physic.
+
+> General relativity is a top-down theory, analyzes the reality as a whole, then break it down;
+> Standard Physic is bottom-up theory, analyzes the reality in smallest component, then group then back as a whole;
+> I think the reason Physic requires imaginary number because reality that we can observe is a subdomain of all realities(I don't beveled multi-verse); AKA I beveled there is the universal rule, but we stuck in some hard coded version;
+
 # General Relativity
 
 > The Einstein equation desc relationship between Content & Curvature

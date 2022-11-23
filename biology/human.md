@@ -29,7 +29,8 @@ pancreas / 胰腺
 gonads / 性腺
 
 pancreas / 胰腺 produce 
-   * insulin/ 胰岛素 speeds up rate cell store glucose 
+   * insulin/ 胰岛素 speeds up rate cell store glucose
+    > https://public.tableau.com/app/profile/marty.kendall7139/viz/foodinsulinindexanalysis/FIIallfoods?publish=yes
    * glucacon / 胰高血糖素 break down fat into glucose
 
 HPA axis = hypothalamus -> pituitary  -> adrenal 

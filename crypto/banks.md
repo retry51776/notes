@@ -82,3 +82,32 @@ Case 2: You team did NOT catch anything; Of course you will be bankrupt, and no 
 Banker has $11 lost on their book; Either next loan able to recover lost, or lost accumulate, eventually cause recession.
 ## Example Conclusion
 > Increase productivity has risk, when successful increase productivity banker take a cut(can be big or small, dependence on number); When failed attempted, cost of failure either distribute in whole society, or accumulate in bank system.
+
+
+# 3 key forces
+## Demand/Desires
+> key variables includes
+> > age
+> > external environment
+> > capability projection
+> > individual desires
+> > credit market
+## Supply/Capability 
+> key variables includes
+> > resources
+> > > physical resources
+> > > human resources
+> > > technology
+> > system
+> > > allocation
+> > > logistic
+> 
+- Expectation/Credit `self reflection & distribution`
+
+> Think of state as a man; Just like any people, of course he want everything; Credit is his good job sticker(sometime is easier to get, sometime is harder); his future strength is always unknown variable; The goal is good job sticker should roughly have consistence value(if sudden sticker is easier to earn, then he may sudden work harder, in the cost of future he won't);
+
+> Gov is like part of brain decides goal, wishes of society.
+> Fed Reserve is like heart(credit circular speed) & bone(credit produce) does control blood in body;
+> Finance Industry is part of brain does planning for society. Leverage is a must in order to amplify signal;
+> Company is like organ, organize cells to do some function;
+> People is like cell that does some work;
