@@ -250,6 +250,11 @@ i1, i2, i3 = itertools.tee(i, 3)
 ```py
 # round(2.50) == 2, wtf
 # Python round have funny behavior
+from decimal import Decimal, getcontext, Context
+getcontext().prec = 2
+getcontext().traps[decimal.DivisionByZero] = False
+# Or decimal.setcontext(Context(prec=2, rounding=ROUND_HALF_UP))
+print(Decimal(0.1) + Decimal(0.2))
 def basic_round(x, d=0, as_decimal=False):
     if x is None:
         return None
