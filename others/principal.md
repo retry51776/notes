@@ -2,21 +2,19 @@
 > Inspired by Ray Dalio book
 
 # Strong Beveled
-- Value > Ability > Skill
-> Mathematics law(Principal) build on top of axioms(Value);
 
-> Mathematics develop(Ability) other theory(Principal) by law/theory + other assumption + creativity think;
-
-> Formula(Skill) is condensed version of Mathematics law/theory(Principal);
-
-- Life is video game;
-> money just a score, value, ability, skill is game equipment;
+## Life is a video game
+> You (player) have to make decision what you want to collect(or not collect), where you explore, which equipments to carry(RIGHT equipments > more equipments), which relationships to establish;
 > 
-> You have to make decision what you want to collect`or not collect`, where you explore, which equipments to carry`right equipments > more equipments`, which relationships to establish;
->
-> Some problems you can by pass though money`money just a equipment`.
-> Some problems because player control `hardest to fix`.
-> Some problems because player don't know game rule/pattern`education & recognize pattern`.
+> During the game, your character may collect equipments `Money, Value, Ability, Skill`;
+> 
+>> IMO: Too many `equipments` will be counter productive, just like too many junks in hoarder house. Right principle is determent by your PROBLEM SET (game).
+> 
+>> IMO: Money amplify person true nature `Money is like mushroom in super mario, turn you bigger`.
+> 
+>> IMO: Hardest problem to overcome is player control bug `mental disability`.
+> 
+>> IMO: Lack of education & recognize pattern `Player don't know game rule/pattern`.
 > 
 > Happiness comes from player, not character in game; Many player don't understand player himself, or confused between player and character.
 >
@@ -25,28 +23,49 @@
 - Everything has its mechanic;
 > Research by either collect statistics, or by logic;
 
-- Pain + Reflection = Progress
-- Transparency accelerate learning process.
-> The very reason I write this repo.
-
-- Focus proportional to MY ability to change it.
-- Past can't change; Only reflect if you intended change yourself for future.
-- There is no solution, only tradeoff.
-
 - 4 ways handle problem
 > 1. Don't recognized/ignore problem.
 > 2. Change path to avoid problem.
 > 3. Self improvement to resolve problem.
 > 4. Get others resolve problem for you.
 
-- A good framework is critical.
+- Pain + Reflection = Progress
+> Mistake causes pain; Mistake indices there is a problem; It's up to player which 1 out of 4 ways to handle it.
+>> If you choose #3; You may unlock a game equipment`principle, skill, money, or lesson`; It's up to you to collect`or not collect` this new equipment
+
+>> Principle has different level, you can REFINE principle to get better principle; Or keep using level 1 principle`early child conclusion` you collected; 
+
+- Transparency accelerate learning process.
+> The very reason I write this repo.
+
+- Focus proportional to YOUR ability to change it.
+
+- Past can't change; Only reflect if you intended change yourself for future.
+
+- There is no solution, only tradeoff.
+
+- Mistake + Value + Ability => Principal
+> Value > Ability > Skill
+> 
+> Mathematics law(Principal) build on top of axioms(Value);
+>
+> Mathematician develop(Ability) other theory(Principal) by law/theory + other assumption + creativity think;
+>
+> Formula(Skill) is condensed version of Mathematics law/theory(Principal);
+
+- A good framework(Top-down view) is critical.
 > A good framework should able steelman argument for everyone POV;
-> Most things in life can fit into 10 framework`TODO: to list frameworks & write it down, but framework is something hard to describe in text`.
-# Recognize Pattern
+> 
+> IMO: Most things in life can fit into small number of frameworks`TODO: to list frameworks & write it down, but framework is something hard to describe in text`.
+
+- great power comes great responsibility`spider-man`
+
+## Recognize Pattern
 - Most things have recursive property
 > Ex: Wealth, Knowledge, Ability, Social Skill
 
 - We reverted to reptilian brain in time of conflict;
+> Solution/Hack around by delay response`aka cool off period`;
 
 - Heard < Seen < Used < Understand < Improve < Trust yourself < Others trust you
 
@@ -58,6 +77,7 @@
 
 - Decision fatigue
 > Branch exist, representative exist; If we solved/expand this humanity BOTTLENECK`reliance on computer`, we will make great improvement.
+
 
 # Weak Opinion
 - Don't trust, verify.
