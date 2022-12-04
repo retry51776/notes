@@ -3,6 +3,8 @@
 
 > handle exception is kind pain, no try: catch
 
+> Build in support parallelism `aka multi thread/process`
+
 # Structure
 - `go.mod` similar requirement.txt & setup.py
 - `go.sum` similar package.lock
@@ -75,4 +77,19 @@ func (e *executor) reset() {
 var eee executor
 eee_pointer = &eee
 (*eee_pointer).reset()
+
+// Multi thread; add go will start execution in different thread
+func slow_sum(channel chan int) {
+    // channel allow async input
+    x := <- channel
+    y := <- channel
+    c <- x + y
+}
+
+c := make(chan int)// second param is int can cause bug, be careful
+go slow_sum(c)
+c <- 10//x
+c <- 20//y
+r := <- c
+go fast_function()
 ```
