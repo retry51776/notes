@@ -47,9 +47,9 @@
 - Mistake + Value + Ability => Principal
 > Value > Ability > Skill
 > 
-> Mathematics law(Principal) build on top of axioms(Value);
+> Mathematics theory(Principal) build on top of axioms(Value);
 >
-> Mathematician develop(Ability) other theory(Principal) by law/theory + other assumption + creativity think;
+> Mathematician by creativity think(Ability) + math tools(Principal & Value) => develop algorithm(Skill) to resolve problem(Mistake)
 >
 > Formula(Skill) is condensed version of Mathematics law/theory(Principal);
 
