@@ -20,20 +20,34 @@
 >
 > The only resource player have is time.
 
-- Everything has its mechanic;
-> Research by either collect statistics, or by logic;
 
-- 4 ways handle problem
+## Decision framework
+> Sense`see, feel, hear, how much these sense matter in your environment` develop Value`personal value`
+> 
+> Ability`Moveability, Learn, Practices, Reflection, Recognize Pattern` develop Skill`Ride a bike, Program w Python, Program w C...`
+> 
+> Problem / [Skill + Value] = Decision `Encounter problem, your decision dependence on what skill & value you already have`
+
+> Principal is condense version`common denominator` of skill.
+> > IDK Reflection should be Ability or skill; My guess they both recursively create each other make classify hard
+>
+> Framework is collection of Principals.
+
+
+- 4 choice handle problem
 > 1. Don't recognized/ignore problem.
 > 2. Change path to avoid problem.
 > 3. Self improvement to resolve problem.
 > 4. Get others resolve problem for you.
 
 - Pain + Reflection = Progress
-> Mistake causes pain; Mistake indices there is a problem; It's up to player which 1 out of 4 ways to handle it.
+> Mistake causes pain`one of sense`; Mistake indices there is a problem; It's up to player which 1 out of 4 ways to handle it.
 >> If you choose #3; You may unlock a game equipment`principle, skill, money, or lesson`; It's up to you to collect`or not collect` this new equipment
 
 >> Principle has different level, you can REFINE principle to get better principle; Or keep using level 1 principle`early child conclusion` you collected; 
+
+- Everything has its mechanic;
+> Understand **mechanic** by either collect statistics, or by logic;
 
 - Transparency accelerate learning process.
 > The very reason I write this repo.
@@ -44,21 +58,14 @@
 
 - There is no solution, only tradeoff.
 
-- Mistake + Value + Ability => Principal
-> Value > Ability > Skill
-> 
-> Mathematics theory(Principal) build on top of axioms(Value);
->
-> Mathematician by creativity think(Ability) + math tools(Principal & Value) => develop algorithm(Skill) to resolve problem(Mistake)
->
-> Formula(Skill) is condensed version of Mathematics law/theory(Principal);
-
 - A good framework(Top-down view) is critical.
 > A good framework should able steelman argument for everyone POV;
 > 
 > IMO: Most things in life can fit into small number of frameworks`TODO: to list frameworks & write it down, but framework is something hard to describe in text`.
 
-- great power comes great responsibility`spider-man`
+- Great power comes great responsibility`spider-man`
+> IMO: Most people problem is they want power `money, position` without responsibility;
+> It's easy envy rich, because you don't have to pay its responsibility.
 
 ## Recognize Pattern
 - Most things have recursive property

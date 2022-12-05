@@ -1,6 +1,11 @@
 # Quote
 
 ## Life
+
+> Great power comes great responsibility`spider-man`
+
+> Value > Ability > Skill `quote from Rai Dalio`
+
 > Addiction is a progressive narrowing of the things that bring you pleasure. A good life is a progressive expansion of the things to bring you pleasure.
 ` from Dr. Andrew Huberman`
 

@@ -56,6 +56,13 @@
 > Better not only mean cost less, but more reliable, diverse, less unknown impact;
 > Also that means we may not want to drive as fast as we can.
 
+## Mathematics theory
+> Mathematics theory(Principal) build on top of axioms(Value);
+>
+> Mathematician by creativity think(Ability) + math tools(Principal & Value) => develop algorithm(Skill) to resolve problem(Mistake)
+>
+> Formula(Skill) is condensed version of Mathematics law/theory(Principal);
+
 ## Common Movie design pattern
 1. Shows misleading ending first, then start from beginning, then show end with a twist.
 2. Try to search for some secret that is sitting in plain sight.
