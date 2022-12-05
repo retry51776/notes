@@ -79,7 +79,12 @@
 > Branch exist, representative exist; If we solved/expand this humanity BOTTLENECK`reliance on computer`, we will make great improvement.
 
 
-# Weak Opinion
+# Weak Beveled
 - Don't trust, verify.
 - Seek satisfaction, not happiness.
 - Goal is not important, execution path is the key. The skill to navigate in path and understand the tradeoffs is what makes different.
+- Repetition training is most effective way to change.
+- Change your path is easier than change what your desire.
+
+# Common Judgement
+- When leader w strong ego, their ability is ceiling of their team.
