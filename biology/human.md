@@ -83,3 +83,8 @@ Thyus Lymphocyte 淋巴细胞 breaks into
      Cytotoxic T Cell is a killer cell
 
 Check & balance of B & T Lymphicyte is important
+
+# Memory Types
+- Semantic Memory `knowledge`
+- Episodic Memory `Remember events`
+- Procedural Memory `How to do things`

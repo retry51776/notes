@@ -13,3 +13,5 @@
 > It's not knowledge determent path, it's knowledge changes unknown, unknown determent path;
 
 > Work starts on labor, then creator, then narrator;
+
+> When you told a child hundreds time & child repeat same mistake. It does prove child's intellect, instead proven parent are dummy. It's parent that not realize their approach wasn't working, and search for alternative.
