@@ -22,16 +22,23 @@
 
 
 ## Decision framework
+Forward
 > Sense`see, feel, hear, how much these sense matter in your environment` develop Value`personal value`
 > 
 > Ability`Moveability, Learn, Practices, Reflection, Recognize Pattern` develop Skill`Ride a bike, Program w Python, Program w C...`
 > 
 > Problem / [Skill + Value] = Decision `Encounter problem, your decision dependence on what skill & value you already have`
 
+Backward
 > Principal is condense version`common denominator` of skill.
 > > IDK Reflection should be Ability or skill; My guess they both recursively create each other make classify hard
 >
 > Framework is collection of Principals.
+> > A good framework should able steelman argument`or explain` for every subject's action`aka people's POV`;
+> 
+> > Framework most likely in 2 types: Top-down VS Bottom-Up
+> 
+> > IMO: Most things in life can fit into small number of frameworks
 
 
 - 4 choice handle problem
@@ -58,13 +65,9 @@
 
 - There is no solution, only tradeoff.
 
-- A good framework(Top-down view) is critical.
-> A good framework should able steelman argument for everyone POV;
-> 
-> IMO: Most things in life can fit into small number of frameworks`TODO: to list frameworks & write it down, but framework is something hard to describe in text`.
-
 - Great power comes great responsibility`spider-man`
 > IMO: Most people problem is they want power `money, position` without responsibility;
+> 
 > It's easy envy rich, because you don't have to pay its responsibility.
 
 ## Recognize Pattern
