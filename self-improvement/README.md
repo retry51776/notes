@@ -23,10 +23,23 @@
 
 ## Decision framework
 Forward
-> Sense`see, feel, hear, how much these sense matter in your environment` develop Value`personal value`
+> Personal Value is statistical bias from the past. `It's hard to change because it require a lot to dilute denominator.`
+> > Extravert
+> > Caring
+> > Creative
+> > Reliable
+> > Leadership
+> > Conceptual
+> > Tough
+> > Humble
+> > Determent
 > 
-> Ability`Moveability, Learn, Practices, Reflection, Recognize Pattern` develop Skill`Ride a bike, Program w Python, Program w C...`
-> 
+> Abilities are ways of thinking and behaving.
+> > Actual reward function determent by value.
+> > Each brain like different hardware, have different latency & throughput.
+>
+> Skills are learned tools. `Procedural Memory | how to do things`
+>
 > Problem / [Skill + Value] = Decision `Encounter problem, your decision dependence on what skill & value you already have`
 
 Backward
