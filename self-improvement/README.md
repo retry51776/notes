@@ -35,8 +35,7 @@ Forward
 > > Determent
 > 
 > Abilities are ways of thinking and behaving.
-> > Actual reward function determent by value.
-> > Each brain like different hardware, have different latency & throughput.
+> > Algorithm that store in Limbic System/Habits`not in Neocortex`? 
 >
 > Skills are learned tools. `Procedural Memory | how to do things`
 >

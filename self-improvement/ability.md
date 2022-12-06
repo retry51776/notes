@@ -1,5 +1,5 @@
 # Ability
-> Abilities are ways of thinking and behaving.
+> Abilities are ways of thinking and behaving. `algorithm?`
 > 
 > I think we should use Parenting model to train Limbic & reptilian brain
 
