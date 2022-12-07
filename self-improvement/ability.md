@@ -5,15 +5,12 @@
 
 - Brain Process
   - Neocortex `aka Human Brain`
-    - Recognize Pattern
-    - Logic
-    - Higher thinking
-    - Self Control
-    - Compassion
-    - Judgement
-    - Focused
-    - Speech `Needs memory, logic, muscle`
-  - Limbic System `aka Mammal Brain`
+    - Frontal lob `human characteristic; Ex: motivation, empathy, conscience`
+    - Parietal lob `nerve input processor`
+    - Occipital lob `Vision`
+    - Temporal lob `logic; pattern; memory`
+
+  - Limbic System `aka Mammal Brain; IMO logic here, but about children level logic`
     - Emotion
       - Sad
       - Disgust
@@ -26,11 +23,13 @@
       - Episodic Memory `Remember events`
       - Procedural Memory `How to do things`
     - Habits
-    - I think there is logic there, but about children level logic
+
   - Reptilian brain `aka Reptile Brain: basic body functions`
-    - Flight
-    - Fight
-    - Survival System `heart beat`
+    - Thalamus `Info Router`
+    - Cerebellum `Movement Control`
+      - Flight
+      - Fight
+    - Survival System `circulation, breathing, heart, digest`
 
 below head
 - Moveability `both Brain & Muscle & Control System`

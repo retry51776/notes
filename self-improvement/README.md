@@ -39,7 +39,7 @@ Forward
 >
 > Skills are learned tools. `Procedural Memory | how to do things`
 >
-> Problem / [Skill + Value] = Decision `Encounter problem, your decision dependence on what skill & value you already have`
+> Problem / [Skill + Value] = Choice `Encounter problem, your choice dependence on what skill & value you possess`
 
 Backward
 > Principal is condense version`common denominator` of skill.
@@ -75,12 +75,12 @@ Backward
 
 - Past can't change; Only reflect if you intended change yourself for future.
 
-- There is no solution, only tradeoff.
+- There is no solution, only tradeoff. `Everything cost something`
 
 - Great power comes great responsibility`spider-man`
 > IMO: Most people problem is they want power `money, position` without responsibility;
 > 
-> It's easy envy rich, because you don't have to pay its responsibility.
+> It's easy envy rich, because you did't pay its responsibility`cost`.
 
 ## Recognize Pattern
 - Most things have recursive property
@@ -93,12 +93,12 @@ Backward
 
 - Top down view VS bottom up view
 
-- Intelligence is under same law as supply`often too much focus` and demand`often overlook`.
+- Intelligence also equilibrium of supply`often too much focus` and demand`often overlook`.
 
 - Addiction is a progressive narrowing of the thing bring you pleasure. A good life is a progressive expansion of the things to bring your pleasure.
 
 - Decision fatigue
-> Branch exist, representative exist; If we solved/expand this humanity BOTTLENECK`reliance on computer`, we will make great improvement.
+> Brand exist, representative exist; If we solved/expand this humanity BOTTLENECK`reliance on computer`, we will make great improvement.
 
 
 # Weak Beveled
