@@ -17,16 +17,24 @@ Older people sleep less. Maybe it relates to learning. Sleep is like committing 
 
 
 # Endocrine System / 内分泌系统
+controls attraction, appetite, aggression
+- moods
+- arousal
+- circadian rhythm
+- metabolism
+- immune system
+- signal growth
+- reproduction
 
 pineal gland / 松果腺
-hypothalamus / 下丘脑
-pituitary gland / 脑下垂体
-thyroid gland / 甲状腺
-parathyroid gland / 甲状旁腺
+hypothalamus / 下丘脑 `control pituitary gland`
+pituitary gland / 脑下垂体 `control rest glands`
+thyroid gland / 甲状腺 `metabolism`
+parathyroid gland / 甲状旁腺 `calcium`
 thymus / 胸腺
-adrenal gland / 肾上腺
-pancreas / 胰腺
-gonads / 性腺
+adrenal gland / 肾上腺 `flight or fight`
+pancreas / 胰腺 `sugar level`
+gonads / 性腺 `sex`
 
 pancreas / 胰腺 produce 
    * insulin/ 胰岛素 speeds up rate cell store glucose
