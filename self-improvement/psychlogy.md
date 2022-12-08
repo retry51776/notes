@@ -1,7 +1,7 @@
 # Psychology
 > Psychology are ways of thinking and behaving.
 
-> Sensation > Perception > Association Areas > Response
+> Sensation > **Perception** > **Association** > Response
 
 # Hardware
 - Brain Process `Brain function is localized`
@@ -10,14 +10,16 @@
     - thinking
     - learning
   - **Neocortex** `aka Human Brain`
-    - Frontal lob `human characteristic; Ex: motivation, empathy, conscience`
+    - **Frontal lob** `human characteristic; Ex: motivation, empathy, conscience`
       - speaking
       - planning
       - judging
       - abstract
     - Parietal lob `nerve input processor;`
-    - Occipital lob `vision;`
-    - Temporal lob `logic; pattern; memory;`
+    - Occipital lob `vision; its associate logic area to understand concealed information`
+      - Top Down View
+      - Bottom Up View
+    - **Temporal lob** `logic; pattern; memory;`
       - comprehension
       - sound
       - speech
@@ -53,25 +55,29 @@ below head
 - Reproductive system
 
 
-# Sensation
+# 1. Sensation
 > Absolute Threshold of sensation `min stimulation needs to register 50% of the time`
 
 > It's not absolute changes matter, but relative change.
 
 ## Touch
-> Touch is VERY important sensation. `first sensation to commutate between others, develop trust?`
-
+> Touch is VERY important sensation. `proven by Harry Harlow’s Monkey Wire Mother Experiment`
+> > First sensation to commutate between others, develop trust?
+> 
+> > Sex is just extreme form of touch
+>
+>
 > Touch sensation is 4 sensations
 - pressure
 - warmth
 - cold
 - pain
 
-Kinesthesis `senses body movement and position`
+**Kinesthesis** `senses body movement and position`
 
-Vestibular `monitor head's position and balance`
+**Vestibular** `monitor head's position and balance`
 
-# Perception
+# 2. Perception
 > How we interpret the information that our senses give us.
 
 > Perception is where a lot information is dropped.`aka lead to MISTAKE;`
@@ -84,6 +90,7 @@ Group things by
 - closure
 
 ## Vision Perception
+perception;
 - Depth Perception
 - Monocular cues `size of what we see`
   - relative size and height
@@ -126,7 +133,7 @@ Consciousness state:
 > REM
 
 
-# Association Areas
+# 3. Association
 > Sleep develop Association Areas; `why we dream`
 
 > Association Learning links certain events, behaviors, or stimuli together in the process of conditioning
@@ -136,10 +143,25 @@ Consciousness state:
 
 > Operant conditioning `aka training w positive and negative feedback`
 ## Selective Attention `aka focus stimulus`
+
+
+## Vision Association
+> Often there is something blocked part of view, yet we still able detected blocked item;
 > 
+> Vision perception associates logic & pattern to interpret;
+> > We develop top-down view & bottom-up view from vision.
+
+## Logic Association
+> IDK there is single area do all logic. `maybe Temporal lob?`
+
+> My guess is order is flipped; It's Association **first**, then Logic **second**.
 
 # Emotion & Memory
-6 Primary Emotions? `Is all memory have 6 tags?`
+> Memory & Emotion are both organized by `Amygdala?` 
+>
+> 6 Primary Emotions? `Is all memory have 6 tags?`
+> 
+> IDK much here, but concluded this is mostly write only hardware; So hack around is not forget`delete` what we want, but increase memory & emotion that we want;
 
 # Conclusion
 > We must be aware which brain level we operating on;

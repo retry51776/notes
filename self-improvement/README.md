@@ -52,7 +52,6 @@ Backward
 > 
 > > IMO: Most things in life can fit into small number of frameworks
 
-
 - 4 choice handle problem
 > 1. Don't recognized/ignore problem.
 > 2. Change path to avoid problem.
@@ -81,6 +80,9 @@ Backward
 > IMO: Most people problem is they want power `money, position` without responsibility;
 > 
 > It's easy envy rich, because you did't pay its responsibility`cost`.
+
+- First develop framework explain all possible paths, then optimize based of statistical bias;
+
 
 ## Recognize Pattern
 - Most things have recursive property
