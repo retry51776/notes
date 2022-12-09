@@ -8,6 +8,7 @@
 
 
 ## Encounter Problem
+> aka: Response > Result > Evaluation > Diagnosis > Design > Implementation
 - choice 1. Don't recognized/ignore problem.
 
 

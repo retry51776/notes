@@ -1,15 +1,19 @@
 # Psychology
 > Psychology are ways of thinking and behaving.
 
-> Sensation > **Perception** > **Association** > Response
+> Sensation > **Perception** > **Association** > Response > Result
+
+[Encounter Problem](./framework.md)
+
+> We should keep in mind the goal is to find improvement, not judgement;
 
 # Hardware
 - Brain Process `Brain function is localized`
-  - **Association Areas** `link memory to sensor or processor; key thing we develop in life`
-    - remember
-    - thinking
-    - learning
-  - **Neocortex** `aka Human Brain`
+  - **Neocortex** `aka Human Brain 4 lobs + Association Area`
+    - **Association Areas** `link memory to sensor or processor; key thing we develop in life`
+      - correlation
+      - learning
+      - thinking `reroute info to logic area`
     - **Frontal lob** `human characteristic; Ex: motivation, empathy, conscience`
       - speaking
       - planning
@@ -106,6 +110,7 @@ perception;
 
 > Plan; Consequences; Reflection;
 
+> What determent a person's value is their problem; not their ability;
 Self Perception Attributes:
 - Extravert `Frontal lob`
 - Caring `Frontal lob + Parietal lob + Limbic System + `
