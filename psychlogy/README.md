@@ -1,11 +1,6 @@
 # Principal & Framework
 > Inspired by Ray Dalio book; Here are my general principals & frameworks.
 
-Forward Propagation
-> Sensation > **Perception** > **Association** > Response
-
-Backward Propagation
-> Result > Evaluation > Diagnosis > Design > Implementation
 
 # Framework
 
@@ -28,16 +23,22 @@ Backward Propagation
 
 
 ## [**Psychology**](./psychology.md)
-Forward Propagation
+Forward Propagation Workflow
+> Sensation > **Perception** > **Association** > Response
+
+Backward Propagation Workflow
+> Result > Evaluation > Diagnosis > Design > Implementation
+
+Forward Propagation Assets
 > **Personal Value** is statistical bias from the past. 
 > > It's hard to change because it require a lot to dilute denominator.
 >
 > **Skills** are learned tools. `Procedural Memory`
 >
-> Problem / [Skill + Value] = [**Choice**](./framework.md#encounter-problem) 
+> Problem / [Skill + Value] = [**Choice**](#encounter-problem) 
 > > Encounter problem, your choice dependence on what skill & value you possess
 
-Backward Propagation
+Backward Propagation Artifact
 > **Principal** is condense version`common denominator` of **skills**.
 >
 > **Framework** is collection of **Principals**.
@@ -108,3 +109,56 @@ Backward Propagation
 
 # Common Judgement
 - When leader w strong ego, their ability is ceiling of their team.
+
+
+# Encounter Problem
+> aka: Response > Result > Evaluation > Diagnosis > Design > Implementation
+- choice 1. Don't recognized/ignore problem.
+
+
+- choice 2. Avoid problem.
+  - 2.1 Change path without change desires
+  - 2.2 Change path & desires
+
+
+- choice 3. Self improvement to resolve problem.
+  - 3.1 listen other | observe problem
+    - 3.1.1 bad decision `already know what went wrong`
+      - missing knowledge;
+      - lack of training;
+      - improve process design;
+    - 3.1.2 missing skill `have an idea of what need to learn`
+      - lack of motivation;
+      - lack of resource;
+    - 3.1.3 psychology problem `root to multiple problems`
+      - association problem?
+        - personal bias? `dilute bias`
+        - unaware preconception? `identify preconception cause problem, what causes association, how to reduce association`
+      - perception problem; `what you don't noticed? Can you practice to improve perception?`
+      - sensation problem; `i can't fix blind; any work around?`
+  - 3.2 validate problem
+    - 3.2.1 can you reproduce problem?
+    - 3.2.2 can you limited variables?
+    - 3.2.3 can you add test, logs, monitor to narrow root causes?
+  - 3.3 communication
+    - 3.3.1 If any one using reptilian brain, delay communication
+    - 3.3.2 Establish connection by confirm their feeling, share your feeling
+  - 3.4 design solution
+    - 3.4.1 If there is another party, remember compromise
+    - 3.4.2 Solution can be incremental improvement
+  - 3.5 training
+    - 3.5.1 repeatation is the key
+  - 3.6 explore alternative
+    - 3.6.1 what if?
+  - 3.7 conclusion
+    - 3.7.1 Identify problem, solution, progress, lesson
+    - 3.7.2 Other subject/problem have inspiration from new conclusion
+    - 3.7.2 Add conclusion to log
+  - 3.8 develop trust
+    - 3.8.1 Trust yourself to resolve problem
+    - 3.8.2 Other trust you to resolve problem
+
+
+- choice 4. Get others resolve problem for you.
+  - 4.1 Reliance on others
+  - 4.2 Observe & go to #3

@@ -1,11 +1,14 @@
 # Psychology
 > Psychology are ways of thinking and behaving.
 
-> Sensation > **Perception** > **Association** > Response > Result
+Forward Propagation Workflow
+> Sensation > **Perception** > **Association** > Response
 
-[Encounter Problem](./framework.md)
+Backward Propagation Workflow
+> Result > Evaluation > Diagnosis > Design > Implementation
 
-> We should keep in mind the goal is to find improvement, not judgement;
+[Encounter Problem](README.md#encounter-problem)
+> aka `Response > Result > Evaluation > Diagnosis > Design > Implementation`
 
 # Hardware
 - Brain Process `Brain function is localized`
@@ -61,11 +64,11 @@ below head
 
 # 1. Sensation
 > Absolute Threshold of sensation `min stimulation needs to register 50% of the time`
-
+>
 > It's not absolute changes matter, but relative change.
 
 ## Touch
-> Touch is VERY important sensation. `proven by Harry Harlow’s Monkey Wire Mother Experiment`
+> Touch is VERY important sensation. `proven by Harry Harlow’s Wire Monkey Mother Experiment`
 > > First sensation to commutate between others, develop trust?
 > 
 > > Sex is just extreme form of touch
