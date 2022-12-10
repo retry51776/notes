@@ -4,7 +4,7 @@
 - when create new table in SCHEMA, existing user won't auto get permission
 - permission is very hard to manage in postgres
 - limit connections, very easy to blow up, avoid connection leak
-- 
+- 14 & older Postgres treat NULL as unique; Only 15 has new clause NULL NOT DISTINCT
 
 ## PSQL
 ```bash

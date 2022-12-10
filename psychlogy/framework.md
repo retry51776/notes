@@ -42,6 +42,7 @@
 > There are so many decisions in complex problem/product;
 > 
 > People uses trust`brand, representatives` and simplify`abstraction, metaphor, framework` to work around complex problem;
+> > In 2020 we have a lot debate about platform immunity; fundamentally problem is product owner makes decisions for user because user can't/won't/avoid make all decision.  
 > 
 > Engineer uses correlation to guess, improve solution.
 > There isn't a scientific way to predict solution for complex problem in future`past result isn't prove`.

@@ -97,7 +97,7 @@ Backward Propagation Artifact
 - Intelligence also equilibrium of supply`often too much focus` and demand`often overlook`.
 
 - Decision fatigue
-> The reason for Brand, Representative; If we solved/expand this humanity BOTTLENECK`reliance on computer?`, we will make great improvement.
+> The reason for Brand, Company, Representative; If we solved/expand this humanity BOTTLENECK`reliance on computer?`, we will make great improvement.
 
 
 # Personal Value

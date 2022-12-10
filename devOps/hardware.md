@@ -25,7 +25,7 @@
 
     > Can perform arithmetic & access memory in a instruction
 
-    > fewer resisters
+    > fewer registers
 
     > larger & complexer instructions
 

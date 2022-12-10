@@ -1,5 +1,10 @@
 # Psychology
 > Psychology are ways of thinking and behaving.
+> > IMO: Psychology is similar to chip design; Workload & resource determent optimal design.
+> 
+> > Each cortex lob are registers; Association Areas is CPU`more like FPGA`; some cortex also acts as storage;
+>
+> Brain Process is asynchronous 
 
 Forward Propagation Workflow
 > Sensation > **Perception** > **Association** > Response
@@ -80,6 +85,18 @@ below head
 - cold
 - pain
 
+## Vision
+> Convolutional neural network(CNN)
+> 
+> 90% info input by vision
+
+## Hearing
+> It's useful, but not required perception.
+
+**Smell**
+
+**Taste**
+
 **Kinesthesis** `senses body movement and position`
 
 **Vestibular** `monitor head's position and balance`
@@ -97,7 +114,6 @@ Group things by
 - closure
 
 ## Vision Perception
-perception;
 - Depth Perception
 - Monocular cues `size of what we see`
   - relative size and height
@@ -150,6 +166,12 @@ Consciousness state:
 > Association Areas is where **mistake** happens too, is easier to noticed but **harder to change** compare to **Perception**
 
 > Operant conditioning `aka training w positive and negative feedback`
+
+ways to change association
+1. avoid trigger
+2. dilution
+3. reevaluate associated subject`aka divide & conquer`
+
 ## Selective Attention `aka focus stimulus`
 
 
