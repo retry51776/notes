@@ -2,18 +2,17 @@
 > Psychology are ways of thinking and behaving.
 > > IMO: Psychology is similar to chip design; Workload & resource determent optimal design.
 > 
+> > I assumed brain assign neuron functionality based on neuron location`more connections more computation?`, sensor location, output location, supply routes, and workflow design? Is brain balance between least neuron and capture reality?
+> 
 > > Each cortex lob are registers; Association Areas is CPU`more like FPGA`; some cortex also acts as storage;
 >
-> Brain Process is asynchronous 
+> Is Brain Process asynchronous?
 
 Forward Propagation Workflow
-> Sensation > **Perception** > **Association** > Response
+> **Attention** > Sensation > **Perception** > **Association** > Action
 
 Backward Propagation Workflow
 > Result > Evaluation > Diagnosis > Design > Implementation
-
-[Encounter Problem](README.md#encounter-problem)
-> aka `Response > Result > Evaluation > Diagnosis > Design > Implementation`
 
 # Hardware
 - Brain Process `Brain function is localized`
@@ -67,7 +66,19 @@ below head
 - Reproductive system
 
 
-# 1. Sensation
+# 1. Attention
+> Most often problem is within this layer;
+
+> Attention is a multiplier of sensation
+
+Selective Attention
+
+Way to change attention?
+- reduce distraction
+- training
+- increase the consequences
+
+# 2. Sensation
 > Absolute Threshold of sensation `min stimulation needs to register 50% of the time`
 >
 > It's not absolute changes matter, but relative change.
@@ -90,6 +101,13 @@ below head
 > 
 > 90% info input by vision
 
+- Depth Perception
+- Monocular cues `size of what we see`
+  - relative size and height
+  - linear perspective
+  - texture gradient
+  - interposition
+
 ## Hearing
 > It's useful, but not required perception.
 
@@ -101,35 +119,20 @@ below head
 
 **Vestibular** `monitor head's position and balance`
 
-# 2. Perception
+
+# 3. Perception
 > How we interpret the information that our senses give us.
 
 > Perception is where a lot information is dropped.`aka lead to MISTAKE;`
 > > It's very important to find under perform Perception;
 > > It's very **hard to noticed** missing Perception;
+## Mental senses
+> external and internal, mental or spiritual distress, sense of self, including friendship, companionship and power, psychic capacity
 
-Group things by
-- proximity
-- continuity
-- closure
+> IDK here, seem lack of Scientific consensus
 
-## Vision Perception
-- Depth Perception
-- Monocular cues `size of what we see`
-  - relative size and height
-  - linear perspective
-  - texture gradient
-  - interposition
-
-## Motion Perception
-> easy to fool
-
-## Consciousness | Self Perception
 > Our awareness of ourselves and environment
 
-> Plan; Consequences; Reflection;
-
-> What determent a person's value is their problem; not their ability;
 Self Perception Attributes:
 - Extravert `Frontal lob`
 - Caring `Frontal lob + Parietal lob + Limbic System + `
@@ -146,18 +149,24 @@ Consciousness state:
 - Drug Alter `Depressant; Stimulants; Hallucinogens`
 - Hypnosis `calm, trance-like state during which you tend to have **heightened concentration and focus**, and in which you're typically more open to suggestion.`
 - Sleeping `recuperation; growth; mental function;`
-> Rapid eye movement (REM)
 
-> Adrenal Glands release cortisol
-> Pineal Gland release melatonin
-> Alpha `aka wake`
-> (NREM-1)
-> (NREM-2)
-> (NREM-3) delta wave
-> REM
+## Nociception
+> the perception of pain;
+> 
+> Trigger to reflection
+
+## Radiation
+> sense of color, sense of moods associated with color, sense of temperature
 
 
-# 3. Association
+## Thermoception
+> the sense of heat
+
+## Proprioception
+> the perception of body awareness
+
+
+# 4. Association
 > Sleep develop Association Areas; `why we dream`
 
 > Association Learning links certain events, behaviors, or stimuli together in the process of conditioning
@@ -165,14 +174,17 @@ Consciousness state:
 
 > Association Areas is where **mistake** happens too, is easier to noticed but **harder to change** compare to **Perception**
 
-> Operant conditioning `aka training w positive and negative feedback`
-
-ways to change association
+**ways to change association**
 1. avoid trigger
+   1. increase awareness
+   2. avoid
 2. dilution
-3. reevaluate associated subject`aka divide & conquer`
-
-## Selective Attention `aka focus stimulus`
+   1. create new memory replaced association
+   2. reedit memory
+3. Operant conditioning `aka training w positive and negative feedback`
+4. reevaluate associated subject
+   1. replace subject`or behavior`
+   2. break down subject`aka divide & conquer`
 
 
 ## Vision Association
@@ -186,16 +198,26 @@ ways to change association
 
 > My guess is order is flipped; It's Association **first**, then Logic **second**.
 
-# Emotion & Memory
-> Memory & Emotion are both organized by `Amygdala?` 
+## Emotion & Memory Association
+> Memory & Emotion are both organized by `Amygdala?`
+> 
+> Is this a sub step of association? 
 >
 > 6 Primary Emotions? `Is all memory have 6 tags?`
 > 
-> IDK much here, but concluded this is mostly write only hardware; So hack around is not forget`delete` what we want, but increase memory & emotion that we want;
+> mostly write only hardware? So hack around is not forget`delete` what we want, but increase memory & emotion that we want;
+
+
+# 5. [Action](README.md#action)
+> aka `Action > Result > Evaluation > Diagnosis > Design > Implementation`
+
+
 
 # Conclusion
 > We must be aware which brain level we operating on;
 > > Logic only works in higher level.
+>
+> > When we talk to a person, imagine talking to 2 people, the logical one and the emotional one `connection before correction`
 >
 > Try to resolve problem in wrong level is similar fixing bug in different area.
 > > Missing Perception? or Bad Association?
@@ -207,3 +229,6 @@ ways to change association
 > 
 > Out of 6 Primary Emotions: 4 consider negative, while 2 maybe positive;
 > > Are we suppose to be unhappy more?
+
+
+> What determent a person's value is their problem; not their ability;

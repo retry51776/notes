@@ -24,7 +24,7 @@
 
 ## [**Psychology**](./psychology.md)
 Forward Propagation Workflow
-> Sensation > **Perception** > **Association** > Response
+> **Attention** > Sensation > **Perception** > **Association** > Action
 
 Backward Propagation Workflow
 > Result > Evaluation > Diagnosis > Design > Implementation
@@ -111,8 +111,8 @@ Backward Propagation Artifact
 - When leader w strong ego, their ability is ceiling of their team.
 
 
-# Encounter Problem
-> aka: Response > Result > Evaluation > Diagnosis > Design > Implementation
+# Action
+> aka: Action > Result > Evaluation > Diagnosis > Design > Implementation
 - choice 1. Don't recognized/ignore problem.
 
 
@@ -131,11 +131,12 @@ Backward Propagation Artifact
       - lack of motivation;
       - lack of resource;
     - 3.1.3 psychology problem `root to multiple problems`
-      - association problem?
+      - attention?
+      - association?
         - personal bias? `dilute bias`
         - unaware preconception? `identify preconception cause problem, what causes association, how to reduce association`
-      - perception problem; `what you don't noticed? Can you practice to improve perception?`
-      - sensation problem; `i can't fix blind; any work around?`
+      - perception? `what you don't noticed? Can you practice to improve perception?`
+      - sensation? `i can't fix blind; any work around?`
   - 3.2 validate problem
     - 3.2.1 can you reproduce problem?
     - 3.2.2 can you limited variables?
