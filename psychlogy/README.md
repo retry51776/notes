@@ -1,61 +1,40 @@
-# Principal & Framework
-> Inspired by Ray Dalio book; Here are my general principals & frameworks.
+# Knowledge
+> Inspired by Ray Dalio book; Here are my knowledge of psychology.
 
-
-# Framework
-
-## Life is a video game
-> You `player` have to make decision what you want to collect `or not collect`, where you explore, which equipments to carry `RIGHT equipments > more equipments`, which relationships to establish;
-> 
-> During the game, your character may collect equipments `Money, Skill, Principal, Value`;
-> 
->> IMO: Too many `equipments` will be counter productive, just like too many junks in hoarder house. Right principle is determent by your **PROBLEM** `game`.
-> 
->> IMO: Money amplify person true nature `Money is like mushroom in super mario, turn you bigger`.
-> 
->> IMO: Hardest problem to overcome is player control bug `mental disability`.
-> 
->> IMO: Lack of education & recognize pattern `Player don't know game rule/pattern`.
-> 
-> Happiness comes from player, not character in game; Many player don't understand player himself, or confused between player and character.
->
-> The only resource player have is time.
-
-
-## [**Psychology**](./psychology.md)
+## [**Psychology Workflow**](./psychology.md)
 Forward Propagation Workflow
 > **Attention** > Sensation > **Perception** > **Association** > Action
 
 Backward Propagation Workflow
 > Result > Evaluation > Diagnosis > Design > Implementation
 
-Assets
+## **Knowledge**
+> knowledge is byproduct`RNN hidden state` of Psychology Workflow
+
 > **Skills** are learned tools or behavior. `Procedural Memory`
 >
-> **Principals** are common rule across many skills
+> [**Principals**](#principal) are common rule across many skills;
 >
-> **Frameworks** are collection of principals.
+> [**Frameworks**](#framework) are collection of principals.
 > > A good framework should able steelman argue `or explain` for every subject's action `aka people's POV`;
 > 
 > > Framework most likely in 2 types: Top-down VS Bottom-Up
 > 
 > > IMO: Most things in life can fit into small number of [frameworks](./framework.md)
 >
-> **Personal Value** is statistical bias from the past. 
+> [**Personal Value**](#personal-value) is statistical bias from the past. 
 > > It's hard to change because it require a lot to dilute denominator.
 
 
-> Problem / [Assets] = [**Choice**](#encounter-problem) 
-> > Encounter problem, your [action](#action) dependence on what **Assets** you possess
-
-
-# Principal
-- 4 choice handle problem
+[**Action**](#action)
+> Encounter problem, your **Knowledge** determents your [action](#action)
+>
 > 1. Don't recognized/ignore problem.
 > 2. Change path to avoid problem.
 > 3. Self improvement to resolve problem.
 > 4. Get others resolve problem for you.
 
+# Principal
 - Pain + Reflection = Progress
 > Mistake indices there is a problem; It's up to player which 1 out of 4 ways to handle it.
 >> If you choose #3; You may unlock a game equipment`principle, skill, money, or lesson`; It's up to you to collect`or not collect` this new equipment
@@ -100,6 +79,28 @@ Assets
 - Decision fatigue
 > The reason for Brand, Company, Representative; If we solved/expand this humanity BOTTLENECK`reliance on computer?`, we will make great improvement.
 
+- When leader w strong ego, their ability is ceiling of their team.
+
+
+## Framework
+> Life is a video game
+
+> You `player` have to make decision what you want to collect `or not collect`, where you explore, which equipments to carry `RIGHT equipments > more equipments`, which relationships to establish;
+> 
+> During the game, your character may collect equipments `Money, Skill, Principal, Value`;
+> 
+>> IMO: Too many `equipments` will be counter productive, just like too many junks in hoarder house. Right principle is determent by your **PROBLEM** `game`.
+> 
+>> IMO: Money amplify person true nature `Money is like mushroom in super mario, turn you bigger`.
+> 
+>> IMO: Hardest problem to overcome is player control bug `mental disability`.
+> 
+>> IMO: Lack of education & recognize pattern `Player don't know game rule/pattern`.
+> 
+> Happiness comes from player, not character in game; Many player don't understand player himself, or confused between player and character.
+>
+> The only resource player have is time.
+
 
 # Personal Value
 - Don't trust, verify.
@@ -107,9 +108,6 @@ Assets
 - Goal is not important, execution path is the key. The skill to navigate in path and understand the tradeoffs is what makes different.
 - Repetition training is most effective way to change.
 - Change your path is easier than change what your desire.
-
-# Common Judgement
-- When leader w strong ego, their ability is ceiling of their team.
 
 
 # Action
