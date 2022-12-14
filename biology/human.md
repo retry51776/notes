@@ -44,19 +44,6 @@ pancreas / 胰腺 produce
 HPA axis = hypothalamus -> pituitary  -> adrenal 
 HPT axis = hypothalamus -> pituitary  -> thyroid 
 
-# Hormones
-
-GABA - stop electric signal pass between neuron; opposite to Dopamine
-Dopamine(多巴胺) - active agent, lack will cause shaking
-Serotonin(血清素) - Happy, memory
-Prolactin(泌乳素) - Produce milk
-Luteinizing Hormones (黄体化激素) - Ovaries
-Follicle Stimulating Hormones (卵泡刺激素) - pubertal development
-Oxytocin() - Love
-Melatonin - Clock, Sleep
-Endorphins - Pain killer
-Adrenaline - fight or flight
-Norepinephrine - redirect blood in dangerous
 
 # immune system
 
@@ -96,3 +83,36 @@ Check & balance of B & T Lymphicyte is important
 - Semantic Memory `knowledge`
 - Episodic Memory `Remember events`
 - Procedural Memory `How to do things`
+
+# Hormones
+> produces by gland
+GABA - stop electric signal pass between neuron; opposite to Dopamine
+Dopamine(多巴胺) - active agent, lack will cause shaking
+Serotonin(血清素) - Happy, memory
+Prolactin(泌乳素) - Produce milk
+Luteinizing Hormones (黄体化激素) - Ovaries
+Follicle Stimulating Hormones (卵泡刺激素) - pubertal development
+Oxytocin() - Love
+Melatonin - Clock, Sleep
+Endorphins - Pain killer
+Adrenaline - fight or flight
+Norepinephrine - redirect blood in dangerous
+
+# Nervous System
+- Central Nervous System (CNS)
+  - Brain
+  - Spinal Cord
+- Peripheral Nervous System (PNS)
+  - Somatic Nervous System `voluntary`
+  - Autonomic Nervous System `involuntary`
+    - Sympathetic Nervous System `Arousing`
+      - spin core -> preganglionic cell -> ganglion -> postganglionic cell -> organ
+    - Parasympathetic Nervous System `Calming`
+
+> Both Neutotransmitter and hormones effects neuron, sometime even same compound.
+> > I think of both Neutotransmitter and hormones are message broker system`rabbitmq` in programming, each organ has it own consumer`receptor` listen to message and will response according its consumer; hormones is fanout exchange, deliver through blood; while neutotransmitter is topic exchange deliver to specific organ
+**Neutotransmitter** `ferry signal to another neuron; most neuron works with single type Neutotransmitter`
+- Acetylcholine (ACH)
+- Gamma aminobutyric acid (GABA) `30% neuron, suppress`
+- Norepinephrine `suppress; excite heart for alertness`
+- Dopamine `suppress;`

@@ -8,6 +8,8 @@
 >
 > Is Brain Process asynchronous?
 
+> We observe other's behavior`solution`, copy cat their behavior`like cheating in exam`; Then result will trigger feedback system`by neurotransmitters trigger emotions & memory`;
+
 Forward Propagation Workflow
 > **Attention** > Sensation > **Perception** > **Association** > Action
 

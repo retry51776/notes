@@ -29,24 +29,25 @@ Forward Propagation Workflow
 Backward Propagation Workflow
 > Result > Evaluation > Diagnosis > Design > Implementation
 
-Forward Propagation Assets
-> **Personal Value** is statistical bias from the past. 
-> > It's hard to change because it require a lot to dilute denominator.
+Assets
+> **Skills** are learned tools or behavior. `Procedural Memory`
 >
-> **Skills** are learned tools. `Procedural Memory`
+> **Principals** are common rule across many skills
 >
-> Problem / [Skill + Value] = [**Choice**](#encounter-problem) 
-> > Encounter problem, your choice dependence on what skill & value you possess
-
-Backward Propagation Artifact
-> **Principal** is condense version`common denominator` of **skills**.
->
-> **Framework** is collection of **Principals**.
+> **Frameworks** are collection of principals.
 > > A good framework should able steelman argue `or explain` for every subject's action `aka people's POV`;
 > 
 > > Framework most likely in 2 types: Top-down VS Bottom-Up
 > 
 > > IMO: Most things in life can fit into small number of [frameworks](./framework.md)
+>
+> **Personal Value** is statistical bias from the past. 
+> > It's hard to change because it require a lot to dilute denominator.
+
+
+> Problem / [Assets] = [**Choice**](#encounter-problem) 
+> > Encounter problem, your [action](#action) dependence on what **Assets** you possess
+
 
 # Principal
 - 4 choice handle problem
