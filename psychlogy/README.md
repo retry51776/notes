@@ -1,17 +1,22 @@
-# Knowledge
+# Conclusions
 > Inspired by Ray Dalio book; Here are my knowledge of psychology.
 
 ## [**Psychology Workflow**](./psychology.md)
-Forward Propagation Workflow
-> **Attention** > Sensation > **Perception** > **Association** > Action
+Forward Propagation Workflow `just talking about Central Nervous System`
+> **Attention** > Sensation > **Perception** > **Association** > [**Action**](#action)
 
 Backward Propagation Workflow
 > Result > Evaluation > Diagnosis > Design > Implementation
 
 ## **Knowledge**
-> knowledge is byproduct`RNN hidden state` of Psychology Workflow
+> Knowledge is byproduct`RNN hidden state` of Psychology Workflow
 
-> **Skills** are learned tools or behavior. `Procedural Memory`
+> Result changes [**Personal Value**](#personal-value); Value is statistical bias `aka pattern` from the past.
+> > Hard to change personal value because value require many different Results to dilute existing denominator.
+>
+> > We are always be `bias` because we all only experiences subset of realities.
+> 
+> **Skills** are learned [**Actions**](#action). `Procedural Memory`
 >
 > [**Principals**](#principal) are common rule across many skills;
 >
@@ -21,13 +26,12 @@ Backward Propagation Workflow
 > > Framework most likely in 2 types: Top-down VS Bottom-Up
 > 
 > > IMO: Most things in life can fit into small number of [frameworks](./framework.md)
->
-> [**Personal Value**](#personal-value) is statistical bias from the past. 
-> > It's hard to change because it require a lot to dilute denominator.
+> 
+> > Understanding Framework will change personal value like distribution able calculate median point;
 
 
 [**Action**](#action)
-> Encounter problem, your **Knowledge** determents your [action](#action)
+> Encounter problem, your [**Knowledge**](#knowledge) determents your [**Action**](#action)
 >
 > 1. Don't recognized/ignore problem.
 > 2. Change path to avoid problem.
@@ -63,6 +67,8 @@ Backward Propagation Workflow
 
 
 # Recognize Pattern
+- Most people happy when they have new ability.
+> That's why kid way happier than adult, kid unlock new ability more frequents than adult.
 - Most things have recursive property
 > Ex: Wealth, Knowledge, Ability, Social Skill
 
