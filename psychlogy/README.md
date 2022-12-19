@@ -25,16 +25,25 @@ Backward Propagation Workflow `aka reflection process`
 > 
 > Knowledge includes skills, principals, frameworks, and personal value;
 
-> Personal value is statistical bias `aka pattern` from the past action & result.
+Default Knowledge `aka most people know by default`
+- Action > Result > Pattern > Personal Value
+> **Pattern** extract from observable past **action** & **result**.
+> 
+> **Personal value** is statistical bias `aka pattern` from the past action & result.
 > > Hard to change personal value because value require many different Results to dilute existing denominator.
 >
 > > We are always be `bias` because we all only experiences subset of realities.
+
+None Default Knowledge `requires training`
+> **Skills** are learned [**Actions**](#action); `aka copy answer for problem`
+> > Procedural Memory. Most people able obtain.
+>
+> [**Principals**](#principal) are patterns across many skills; `aka workflow/rule of how to make answer`
+> > Principal won't have conflict w other principals `under some premises`.
 > 
-> **Skills** are learned [**Actions**](#action). `Procedural Memory`
+> > Principal is guide for action.
 >
-> [**Principals**](#principal) are common rule across many skills;
->
-> [**Frameworks**](#framework) are collection of principals.
+> [**Frameworks**](#framework) are collection of principals. `aka understanding of problems`
 > > A good framework should able steelman argue `or explain` for every subject's action `aka people's POV`;
 > 
 > > Framework most likely in 2 types: Top-down VS Bottom-Up
@@ -66,23 +75,25 @@ Backward Propagation Workflow `aka reflection process`
 - There is no solution, only tradeoff.
 > Everything cost something.
 
-- Great power comes great responsibility`spider-man`
+- Great power comes great responsibility. `spider-man`
 > IMO: Most people problem is they want power `money, position` without responsibility;
 > 
 > Parenting should base on equal respect; Make kid understand more choices comes with more responsibility.
+
+- Correct workflow is more valuable than correct answer.
+> Most parent mistakes root from parent value correct behavior OVER child's psychology workflow.
+>
+> Don't go for perfect answer. Rather focus on constance improvement of existing workflow.
+
+- Establish goal & rule in advanced, and transparent environment.
+
 
 # Recognize Pattern
 - Most people happy when they have new ability.
 > That's why kid way happier than adult, kid unlock new ability more frequents than adult.
 
-
-- Most things have recursive property
+- Most things have recursive property.
 > Ex: Wealth, Knowledge, Ability, Social Skill
-
-
-- Correct workflow is more valuable than correct answer.
-> Most parent mistakes root from parent value correct behavior OVER child's psychology workflow.
-
 
 - We reverted to reptilian brain in time of conflict;
 > Solution/Hack around by delay response`aka cool off period`;
@@ -90,16 +101,12 @@ Backward Propagation Workflow `aka reflection process`
 - Heard < Seen < Used < Understand < Improve < Trust yourself < Others trust you
 > or knowing < remembering < understanding < communicating
 
-- Top down view VS bottom up view
-
 - Intelligence also equilibrium of supply`often too much focus` and demand`often overlook`.
 
 - Decision fatigue
 > The reason for Brand, Company, Representative; If we solved/expand this humanity BOTTLENECK`reliance on computer?`, we will make great improvement.
 
 - When leader w strong ego, their ability is ceiling of their team.
-
-- Establish goal & rule in advanced, and transparent environment.
 
 - We develop heuristics first, `optimize based of statistical bias`, then algorithms `framework explain all possible paths`;
 
