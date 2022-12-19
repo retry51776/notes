@@ -14,7 +14,13 @@
 - Adjusting Entries (Accrual Method)
 - Prorate (adjustment)
 
-
+- Greeks alphabet
+  - alpha `active seek return`
+  - beta `passive return`
+  - delta `differences`
+  - gamma `rate of change of delta`
+  - theta `decay rate`
+  - vega `volatility`
 <hr/>
 
 ## Accounting Cycle
