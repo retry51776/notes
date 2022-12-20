@@ -1,14 +1,15 @@
 # Workflow
-> Inspired by Ray Dalio's Principal; Here is my desire psychology workflow.
+> Here is my desire workflow, process, standardized system. `IDK what is best name for it.`
 > 
-> To read more about [**psychology**](./psychology.md)
+> Workflow is design on top of [**Psychology**](./psychology.md)
+>
+> Inspired by Ray Dalio's Principal;
 
 ## **Central Nervous System Workflow**
 Forward Propagation Workflow `aka decision process`
 
-> **Attention** > Sensation > **Perception** > **Association** > [**Action**](#action)
->
-> > Association find related [**Knowledge**](#knowledge) to problem, Knowledge determents your [**Action**](#action)
+>Problem > [**Attention**](./psychology.md#1-attention) > [Sensation](./psychology.md#2-sensation) > [**Perception**](./psychology.md#3-perception) > [**Association**](./psychology.md#4-association) > [**Action**](#action)
+> > Association find relevant [**Knowledge**](#knowledge) of problem, Knowledge determents your [**Action**](#action)
 >  >1. Don't recognized/ignore problem.
 >  >2. Change path to avoid problem.
 >  >3. Self improvement to resolve problem.
@@ -26,7 +27,7 @@ Backward Propagation Workflow `aka reflection process`
 > Knowledge includes skills, principals, frameworks, and personal value;
 
 Default Knowledge `aka most people know by default`
-- Action > Result > Pattern > Personal Value
+- [Problem > Action > Result] > Pattern > Personal Value
 > **Pattern** extract from observable past **action** & **result**.
 > 
 > **Personal value** is statistical bias `aka pattern` from the past action & result.
@@ -58,17 +59,9 @@ None Default Knowledge `requires training`
 - Don't trust, verify.
 - Seek satisfaction, not happiness.
 - All knowledge build on top assumptions, aware assumption can be invalidated.
-- Pain + Reflection = Progress
-> Mistake indices there is a problem; It's up to player which 1 out of 4 ways to handle it.
->> If you choose #3; You may unlock a game equipment`principle, skill, money, or lesson`; It's up to you to collect`or not collect` this new equipment
->
->> Principle has different level, you can **REFINE** principle to get better principle; Or keep using level 1 principle`early child conclusion` you collected; 
 
-- Everything has its mechanic;
+- Everything has its mechanic.
 > Understand **mechanic** by either collect statistics, or by logic;
-
-- Transparency accelerate learning process.
-> The very reason I write this repo.
 
 - Past can't change; Only reflect if you intended change yourself for future.
 
@@ -80,17 +73,20 @@ None Default Knowledge `requires training`
 > 
 > Parenting should base on equal respect; Make kid understand more choices comes with more responsibility.
 
-- Correct workflow is more valuable than correct answer.
-> Most parent mistakes root from parent value correct behavior OVER child's psychology workflow.
->
-> Don't go for perfect answer. Rather focus on constance improvement of existing workflow.
-
 - Establish goal & rule in advanced, and transparent environment.
 
 
 # Recognize Pattern
+- Transparency accelerate learning process.
+> The very reason I write this repo.
 - Most people happy when they have new ability.
 > That's why kid way happier than adult, kid unlock new ability more frequents than adult.
+
+- Pain + Reflection = Progress
+> Mistake indices there is a problem; It's up to player which 1 out of 4 ways to handle it.
+>> If you choose #3; You may unlock a game equipment`principle, skill, money, or lesson`; It's up to you to collect`or not collect` this new equipment
+>
+>> Principle has different level, you can **REFINE** principle to get better principle; Or keep using level 1 principle`early child conclusion` you collected; 
 
 - Most things have recursive property.
 > Ex: Wealth, Knowledge, Ability, Social Skill
@@ -110,14 +106,23 @@ None Default Knowledge `requires training`
 
 - We develop heuristics first, `optimize based of statistical bias`, then algorithms `framework explain all possible paths`;
 
-
 - Goal is not important, execution path is the key. The skill to navigate in path and understand the tradeoffs is what makes different.
-
 
 - Repetition training is most effective way to change.
 
 - Change your path is easier than change what your desire.
 
+- 2 approaches to solution
+> Top down approach
+> > List possible causes, then start eliminate causes by logic.
+> 
+> Bottom up approach
+> > Start from what I can do, build a module at a time, then start combine module.
+
+- Better workflow is more valuable than correct answer.
+> Most parent mistakes root from parent value correct behavior OVER child's psychology workflow.
+>
+> Don't go for perfect answer. Rather focus on constance improvement of existing workflow.
 
 ## Framework
 > Life is a video game
@@ -143,7 +148,9 @@ None Default Knowledge `requires training`
 
 # Action
 > aka: Action > Result > Evaluation > Diagnosis > Design > Implementation
-- choice 1. Don't recognized/ignore problem.
+- choice 1. Do nothing.
+  - 1.1 Because don't recognized problem.
+  - 1.2 Because ignore problem.
 
 
 - choice 2. Avoid problem.
@@ -153,15 +160,13 @@ None Default Knowledge `requires training`
 
 - choice 3. Self improvement to resolve problem.
   - 3.1 listen other | observe problem
-    - 3.1.1 bad decision `already know what went wrong`
-      - missing knowledge;
-      - lack of training;
-      - improve process design;
-    - 3.1.2 missing skill `have an idea of what need to learn`
-      - lack of motivation;
-      - lack of resource;
-    - 3.1.3 psychology problem `root to multiple problems`
-      - attention?
+    - 3.1.1 bad decision `aka attention problem`
+      - improve workflow design;
+      - more workflow training;
+    - 3.1.2 missing knowledge `have an idea of what need to learn`
+      - get motivation;
+      - get resource;
+    - 3.1.3 deeper psychology problem `root to multiple problems`
       - association?
         - personal bias? `dilute bias`
         - unaware preconception? `identify preconception cause problem, what causes association, how to reduce association`
@@ -174,7 +179,7 @@ None Default Knowledge `requires training`
   - 3.3 communication
     - 3.3.1 If any one using reptilian brain, delay communication
     - 3.3.2 Establish connection by confirm their feeling, share your feeling
-  - 3.4 design solution
+  - 3.4 design workflow
     - 3.4.1 If there is another party, remember compromise
     - 3.4.2 Solution can be incremental improvement
   - 3.5 training
@@ -191,6 +196,6 @@ None Default Knowledge `requires training`
     - 3.8.2 Other trust you to resolve problem
 
 
-- choice 4. Get others resolve problem for you.
-  - 4.1 Reliance on others
-  - 4.2 Observe & go to #3
+- choice 4. Outsource Problem.
+  - 4.1 Reliance on people
+  - 4.2 Reliance on machine
