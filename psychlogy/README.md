@@ -22,15 +22,15 @@ Backward Propagation Workflow `aka reflection process`
 > Result > Evaluation > Diagnosis > Design > Implementation
 
 ### Knowledge
-> Knowledge is byproduct`RNN hidden state` of Workflow;
+> Knowledge is byproduct`RNN hidden state` of CNS Workflow;
 > 
-> Knowledge includes skills, principals, frameworks, and personal value;
+> Knowledge includes pattern, personal value, skills, principals, and frameworks;
 
 Default Knowledge `aka most people know by default`
-- [Problem > Action > Result] > Pattern > Personal Value
-> **Pattern** extract from observable past **action** & **result**.
+
+> [**Pattern**](#pattern) is recognized relationship from past **[Problem > Action > Result]**.
 > 
-> **Personal value** is statistical bias `aka pattern` from the past action & result.
+> **Personal value** is statistical bias `aka heuristics` from the past action & result.
 > > Hard to change personal value because value require many different Results to dilute existing denominator.
 >
 > > We are always be `bias` because we all only experiences subset of realities.
@@ -38,79 +38,91 @@ Default Knowledge `aka most people know by default`
 None Default Knowledge `requires training`
 > **Skills** are learned [**Actions**](#action); `aka copy answer for problem`
 > > Procedural Memory. Most people able obtain.
->
-> [**Principals**](#principal) are patterns across many skills; `aka workflow/rule of how to make answer`
+
+> [**Principals**](#principal) are workflows develop from [**patterns**](#pattern) & value; `aka workflow of how to make answer`
 > > Principal won't have conflict w other principals `under some premises`.
 > 
 > > Principal is guide for action.
+> 
+> > Principal is refined personal value;
 >
-> [**Frameworks**](#framework) are collection of principals. `aka understanding of problems`
+> [**Frameworks**](#framework) are collection of principals. `aka understanding of relationship between answer & problems`
 > > A good framework should able steelman argue `or explain` for every subject's action `aka people's POV`;
 > 
 > > Framework most likely in 2 types: Top-down VS Bottom-Up
 > 
 > > IMO: Most things in life can fit into small number of [frameworks](./framework.md)
 > 
-> > Understanding Framework will change personal value like distribution able calculate median point;
+> > Framework will change personal value like distribution able calculate median point;
 
 
-# Principal
-- Focus proportional to YOUR ability to change it.
-- Don't trust, verify.
-- Seek satisfaction, not happiness.
+# Pattern
+`Recognized patterns, aka assumptions I made by default.`
+
 - All knowledge build on top assumptions, aware assumption can be invalidated.
 
 - Everything has its mechanic.
 > Understand **mechanic** by either collect statistics, or by logic;
 
-- Past can't change; Only reflect if you intended change yourself for future.
-
 - There is no solution, only tradeoff.
 > Everything cost something.
 
-- Great power comes great responsibility. `spider-man`
+- Great power comes great responsibility. `from spider-man`
 > IMO: Most people problem is they want power `money, position` without responsibility;
 > 
 > Parenting should base on equal respect; Make kid understand more choices comes with more responsibility.
 
-- Establish goal & rule in advanced, and transparent environment.
-
-
-# Recognize Pattern
-- Transparency accelerate learning process.
-> The very reason I write this repo.
-- Most people happy when they have new ability.
-> That's why kid way happier than adult, kid unlock new ability more frequents than adult.
-
-- Pain + Reflection = Progress
-> Mistake indices there is a problem; It's up to player which 1 out of 4 ways to handle it.
->> If you choose #3; You may unlock a game equipment`principle, skill, money, or lesson`; It's up to you to collect`or not collect` this new equipment
->
->> Principle has different level, you can **REFINE** principle to get better principle; Or keep using level 1 principle`early child conclusion` you collected; 
-
 - Most things have recursive property.
 > Ex: Wealth, Knowledge, Ability, Social Skill
 
-- We reverted to reptilian brain in time of conflict;
-> Solution/Hack around by delay response`aka cool off period`;
+- We reverted to reptilian brain in time of conflict.
+> Hack around by delay response. `aka cool off period`
 
 - Heard < Seen < Used < Understand < Improve < Trust yourself < Others trust you
 > or knowing < remembering < understanding < communicating
 
-- Intelligence also equilibrium of supply`often too much focus` and demand`often overlook`.
+- Intelligence is equilibrium of supply `often too much focus` and demand`often overlook`.
 
 - Decision fatigue
 > The reason for Brand, Company, Representative; If we solved/expand this humanity BOTTLENECK`reliance on computer?`, we will make great improvement.
 
 - When leader w strong ego, their ability is ceiling of their team.
 
-- We develop heuristics first, `optimize based of statistical bias`, then algorithms `framework explain all possible paths`;
+- Repetition training is most effective way to change.
+
+
+# Principal
+`Principal is workflow includes personal bias. aka heuristics.`
+- Transparency accelerate learning process.
+> The very reason I write this repo.
+
+
+- Focus proportional to YOUR ability to change it.
+- Don't trust, verify.
+- Seek satisfaction, not happiness.
+> Most people happy when they have new ability.
+> 
+> That's why kid way happier than adult, kid unlock new ability more frequents than adult.
+
+- Better workflow is more valuable than correct answer.
+> Most parent mistakes root from parent value correct behavior OVER child's psychology workflow.
+>
+> Don't go for perfect answer. Rather focus on constance improvement of existing workflow.
+
+- Past can't change; Only reflect if you intended change yourself for future.
+> Change your path is easier than change what your desire.
+
+- Pain + Reflection = Progress
+> Mistake indices there is a problem; It's up to player which 1 out of 4 [actions](#action) to handle it.
+>> If you choose #3; You may unlock a game equipment`principle, skill, money, or lesson`; It's up to you to collect`or not collect` this new equipment
+>
+>> Principle has different level, you can **REFINE** principle to get better principle; Or keep using level 1 principle`early child conclusion` you collected; 
 
 - Goal is not important, execution path is the key. The skill to navigate in path and understand the tradeoffs is what makes different.
 
-- Repetition training is most effective way to change.
+- We develop heuristics first, `optimize based of statistical bias`, then algorithms `framework explain all possible paths`;
 
-- Change your path is easier than change what your desire.
+- Establish goal & rule in advanced, and transparent environment.
 
 - 2 approaches to solution
 > Top down approach
@@ -118,11 +130,6 @@ None Default Knowledge `requires training`
 > 
 > Bottom up approach
 > > Start from what I can do, build a module at a time, then start combine module.
-
-- Better workflow is more valuable than correct answer.
-> Most parent mistakes root from parent value correct behavior OVER child's psychology workflow.
->
-> Don't go for perfect answer. Rather focus on constance improvement of existing workflow.
 
 ## Framework
 > Life is a video game
@@ -144,8 +151,6 @@ None Default Knowledge `requires training`
 > The only resource player have is time.
 
 
-
-
 # Action
 > aka: Action > Result > Evaluation > Diagnosis > Design > Implementation
 - choice 1. Do nothing.
@@ -159,23 +164,30 @@ None Default Knowledge `requires training`
 
 
 - choice 3. Self improvement to resolve problem.
-  - 3.1 listen other | observe problem
-    - 3.1.1 bad decision `aka attention problem`
+  - 3.1 diagnose `listen other; reexamine knowledge`
+    - 3.1.1 skill?
+      - have an idea of what need to learn
+    - 3.1.2 attention?
       - improve workflow design;
       - more workflow training;
-    - 3.1.2 missing knowledge `have an idea of what need to learn`
-      - get motivation;
-      - get resource;
-    - 3.1.3 deeper psychology problem `root to multiple problems`
-      - association?
-        - personal bias? `dilute bias`
-        - unaware preconception? `identify preconception cause problem, what causes association, how to reduce association`
-      - perception? `what you don't noticed? Can you practice to improve perception?`
-      - sensation? `i can't fix blind; any work around?`
-  - 3.2 validate problem
-    - 3.2.1 can you reproduce problem?
-    - 3.2.2 can you limited variables?
-    - 3.2.3 can you add test, logs, monitor to narrow root causes?
+    - 3.1.3 sensation?
+      - any work around? `i can't fix blind`
+    - 3.1.4 perception?
+      - biology perception?
+        - `idk fix, work around?`
+      - psychology perception?
+        - what you don't noticed? `Can you practice to improve perception?`
+    - 3.1.5 association?
+      - personal bias? `dilute bias`
+      - unaware preconception? `identify preconception cause problem, what causes association, how to reduce association`
+  - 3.2 validate diagnose
+    - 3.2.1 start from problem
+      - can you reproduce problem?
+      - list out possible cause, then elimination
+    - 3.2.2 start from ability
+      - can you add test, logs, monitor to narrow root causes?
+      - can you limited variables?
+      - can you execute potential solution see result?
   - 3.3 communication
     - 3.3.1 If any one using reptilian brain, delay communication
     - 3.3.2 Establish connection by confirm their feeling, share your feeling
