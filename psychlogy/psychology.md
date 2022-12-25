@@ -176,6 +176,8 @@ Consciousness state:
 
 > Association Areas is where **mistake** happens too, is easier to noticed but **harder to change** compare to **Perception**
 
+> unaware preconception? `identify preconception cause problem, what causes association, how to reduce association`
+
 **ways to change association**
 1. avoid trigger
    1. increase awareness

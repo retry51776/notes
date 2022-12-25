@@ -8,7 +8,7 @@
 ## **Central Nervous System Workflow**
 Forward Propagation Workflow `aka decision process`
 
->Problem > [**Attention**](./psychology.md#1-attention) > [Sensation](./psychology.md#2-sensation) > [**Perception**](./psychology.md#3-perception) > [**Association**](./psychology.md#4-association) > [**Action**](#action)
+> Problem > [**Attention**](./psychology.md#1-attention) > [Sensation](./psychology.md#2-sensation) > [**Perception**](./psychology.md#3-perception) > [**Association**](./psychology.md#4-association) > [**Action**](#action)
 > > Association find relevant [**Knowledge**](#knowledge) of problem, Knowledge determents your [**Action**](#action)
 >  >1. Don't recognized/ignore problem.
 >  >2. Change path to avoid problem.
@@ -21,12 +21,22 @@ Forward Propagation Workflow `aka decision process`
 Backward Propagation Workflow `aka reflection process`
 > Result > Evaluation > Diagnosis > Design > Implementation
 
+### Ability
+> Both desire & awareness greatly impact `or trigger` workflow cycle.
+- Desire `It's important have desire diversity. or else become addition.`
+- Awareness `aka [Attention > Sensation > Perception]`
+  - Biology Awareness
+  - Psychology Awareness
+    - Self Awareness
+    - Other Awareness
+
+
 ### Knowledge
 > Knowledge is byproduct`RNN hidden state` of CNS Workflow;
 > 
 > Knowledge includes pattern, personal value, skills, principals, and frameworks;
 
-Default Knowledge `aka most people know by default`
+- Default Knowledge `aka most people know by default`
 
 > [**Pattern**](#pattern) is recognized relationship from past **[Problem > Action > Result]**.
 > 
@@ -35,7 +45,7 @@ Default Knowledge `aka most people know by default`
 >
 > > We are always be `bias` because we all only experiences subset of realities.
 
-None Default Knowledge `requires training`
+- None Default Knowledge `requires training`
 > **Skills** are learned [**Actions**](#action); `aka copy answer for problem`
 > > Procedural Memory. Most people able obtain.
 
@@ -86,18 +96,16 @@ None Default Knowledge `requires training`
 - Decision fatigue
 > The reason for Brand, Company, Representative; If we solved/expand this humanity BOTTLENECK`reliance on computer?`, we will make great improvement.
 
-- When leader w strong ego, their ability is ceiling of their team.
-
-- Repetition training is most effective way to change.
-
 
 # Principal
-`Principal is workflow includes personal bias. aka heuristics.`
+`Principal is recognized pattern includes personal bias. aka heuristics.`
+
+`Self-Guidance principals:`
 - Transparency accelerate learning process.
 > The very reason I write this repo.
 
-
 - Focus proportional to YOUR ability to change it.
+> Connection before correction. `by Jane Nelsen`
 - Don't trust, verify.
 - Seek satisfaction, not happiness.
 > Most people happy when they have new ability.
@@ -112,15 +120,18 @@ None Default Knowledge `requires training`
 - Past can't change; Only reflect if you intended change yourself for future.
 > Change your path is easier than change what your desire.
 
+- Repetition training is most effective way to change.
+
 - Pain + Reflection = Progress
 > Mistake indices there is a problem; It's up to player which 1 out of 4 [actions](#action) to handle it.
 >> If you choose #3; You may unlock a game equipment`principle, skill, money, or lesson`; It's up to you to collect`or not collect` this new equipment
 >
->> Principle has different level, you can **REFINE** principle to get better principle; Or keep using level 1 principle`early child conclusion` you collected; 
-
-- Goal is not important, execution path is the key. The skill to navigate in path and understand the tradeoffs is what makes different.
+>> Principle has different level, you can **REFINE** principle to get better principle; Or keep using level 1 principle`early child conclusion` you collected;
 
 - We develop heuristics first, `optimize based of statistical bias`, then algorithms `framework explain all possible paths`;
+
+`Team work principals:`
+- Goal is not important, execution path is the key. The skill to navigate in path and understand the tradeoffs is what makes different.
 
 - Establish goal & rule in advanced, and transparent environment.
 
@@ -130,6 +141,9 @@ None Default Knowledge `requires training`
 > 
 > Bottom up approach
 > > Start from what I can do, build a module at a time, then start combine module.
+
+- When leader w strong ego, leader's ability is ceiling of their team.
+
 
 ## Framework
 > Life is a video game
@@ -165,21 +179,20 @@ None Default Knowledge `requires training`
 
 - choice 3. Self improvement to resolve problem.
   - 3.1 diagnose `listen other; reexamine knowledge`
-    - 3.1.1 skill?
-      - have an idea of what need to learn
-    - 3.1.2 attention?
+    - 3.1.1 [attention?](psychology.md#1-attention)
       - improve workflow design;
       - more workflow training;
-    - 3.1.3 sensation?
+    - 3.1.2 [sensation?](psychology.md#2-sensation)
       - any work around? `i can't fix blind`
-    - 3.1.4 perception?
+    - 3.1.3 [perception?](./psychology.md#3-perception)
       - biology perception?
         - `idk fix, work around?`
       - psychology perception?
         - what you don't noticed? `Can you practice to improve perception?`
-    - 3.1.5 association?
-      - personal bias? `dilute bias`
-      - unaware preconception? `identify preconception cause problem, what causes association, how to reduce association`
+    - 3.1.4 [association?](psychology.md#4-association)
+      - Avoid
+      - Add `missing skill; establish association;Dilution;`
+      - Edit `Reedit memory; divide & conquer;`
   - 3.2 validate diagnose
     - 3.2.1 start from problem
       - can you reproduce problem?
