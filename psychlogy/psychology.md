@@ -10,11 +10,6 @@
 
 > We observe other's behavior`solution`, copy cat their behavior`like cheating in exam`; Then result will trigger feedback system`by neurotransmitters trigger emotions & memory`;
 
-Forward Propagation Workflow
-> **Attention** > Sensation > **Perception** > **Association** > Action
-
-Backward Propagation Workflow
-> Result > Evaluation > Diagnosis > Design > Implementation
 
 # Hardware
 - Brain Process `Brain function is localized`
@@ -175,6 +170,7 @@ Consciousness state:
 > > Close mind people has strong preconception`from memory` that they can't change association;
 
 > Association Areas is where **mistake** happens too, is easier to noticed but **harder to change** compare to **Perception**
+> > Mistake/Forget is not a bug, but a feature enable people combine/decouple different ideas.
 
 > unaware preconception? `identify preconception cause problem, what causes association, how to reduce association`
 
@@ -211,11 +207,9 @@ Consciousness state:
 > 
 > mostly write only hardware? So hack around is not forget`delete` what we want, but increase memory & emotion that we want;
 
+> Basic mechanics of short term memory is neuron associate different signal together. Increase voltage to create more neurotransmitters; The receptor will increase surface area to capture more neurotransmitters;
 
-# 5. [Action](README.md#action)
-> aka `Action > Result > Evaluation > Diagnosis > Design > Implementation`
-
-
+> Long term memory is neuron develop new terminal directly connects to other neuron; serotonin cause neuron grew new terminal;
 
 # Conclusion
 > We must be aware which brain level we operating on;

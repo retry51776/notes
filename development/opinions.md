@@ -1,4 +1,4 @@
-s# Software Analogy
+# Software Analogy
 > Old school windows software deployment is like `send you big coffee machine to you house. Manufactory can't clean it because they don't have access. User can't clean machine, or adjust coffee concentration because user can't open it(Closed source)`
 
 > Then open source dev is like `we publish coffee machine parts(motor, pump, electric switches) design to public, user can make their own parts & wired them together. Now user knows how to take it apart & clean it. But now user needs to figure out what parts & how to wired parts together`
@@ -96,6 +96,8 @@ here are common trade offs
 > Global DB is very hard, beyond me
 
 > Example Act as documentation & test
+
+> Understand common actions unit, and its rough estimate of cost(Time, Space).
 ---
 ## Developer Metaphor
 - Business logic & data defines architecture.

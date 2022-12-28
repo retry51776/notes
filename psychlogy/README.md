@@ -1,5 +1,5 @@
 # Workflow
-> Here is my desire workflow, process, standardized system. `IDK what is best name for it.`
+> Here is my desire workflow / process / framework / standardized system. `IDK what is best name for it.`
 > 
 > Workflow is design on top of [**Psychology**](./psychology.md)
 >
@@ -10,19 +10,14 @@ Forward Propagation Workflow `aka decision process`
 
 > Problem > [**Attention**](./psychology.md#1-attention) > [Sensation](./psychology.md#2-sensation) > [**Perception**](./psychology.md#3-perception) > [**Association**](./psychology.md#4-association) > [**Action**](#action)
 > > Association find relevant [**Knowledge**](#knowledge) of problem, Knowledge determents your [**Action**](#action)
->  >1. Don't recognized/ignore problem.
->  >2. Change path to avoid problem.
->  >3. Self improvement to resolve problem.
->  >4. Get others resolve problem for you.
-> 
-> > Note: Rational Logic is subset of knowledge.
 
 
 Backward Propagation Workflow `aka reflection process`
 > Result > Evaluation > Diagnosis > Design > Implementation
 
 ### Ability
-> Both desire & awareness greatly impact `or trigger` workflow cycle.
+> Both **desire** & **awareness** greatly impact `or trigger` workflow cycle.
+> > IMO: most important in AI is right question & measurement of progress.
 - Desire `It's important have desire diversity. or else become addition.`
 - Awareness `aka [Attention > Sensation > Perception]`
   - Biology Awareness
@@ -32,9 +27,9 @@ Backward Propagation Workflow `aka reflection process`
 
 
 ### Knowledge
-> Knowledge is byproduct`RNN hidden state` of CNS Workflow;
+> Knowledge is byproduct `RNN hidden state` of CNS Workflow;
 > 
-> Knowledge includes pattern, personal value, skills, principals, and frameworks;
+> Knowledge includes memory & emotion, pattern, personal value, skills, principals, and frameworks;
 
 - Default Knowledge `aka most people know by default`
 
@@ -49,14 +44,14 @@ Backward Propagation Workflow `aka reflection process`
 > **Skills** are learned [**Actions**](#action); `aka copy answer for problem`
 > > Procedural Memory. Most people able obtain.
 
-> [**Principals**](#principal) are workflows develop from [**patterns**](#pattern) & value; `aka workflow of how to make answer`
+> [**Principals**](#principal) are common used algorithm support/explain [**recognized patterns**](#pattern) & value; `aka workflow of how to make answer`
 > > Principal won't have conflict w other principals `under some premises`.
 > 
 > > Principal is guide for action.
 > 
 > > Principal is refined personal value;
 >
-> [**Frameworks**](#framework) are collection of principals. `aka understanding of relationship between answer & problems`
+> [**Frameworks**](#framework) are collection of principals. `aka what is important & how they interact`
 > > A good framework should able steelman argue `or explain` for every subject's action `aka people's POV`;
 > 
 > > Framework most likely in 2 types: Top-down VS Bottom-Up
@@ -67,7 +62,7 @@ Backward Propagation Workflow `aka reflection process`
 
 
 # Pattern
-`Recognized patterns, aka assumptions I made by default.`
+`Recognized patterns, aka observation.`
 
 - All knowledge build on top assumptions, aware assumption can be invalidated.
 
@@ -91,14 +86,14 @@ Backward Propagation Workflow `aka reflection process`
 - Heard < Seen < Used < Understand < Improve < Trust yourself < Others trust you
 > or knowing < remembering < understanding < communicating
 
-- Intelligence is equilibrium of supply `often too much focus` and demand`often overlook`.
+- Intelligence is equilibrium of supply `often too much focus` and demand `often overlook`.
 
 - Decision fatigue
 > The reason for Brand, Company, Representative; If we solved/expand this humanity BOTTLENECK`reliance on computer?`, we will make great improvement.
 
 
 # Principal
-`Principal is recognized pattern includes personal bias. aka heuristics.`
+`Principal is both observation & beveled.`
 
 `Self-Guidance principals:`
 - Transparency accelerate learning process.
@@ -111,11 +106,6 @@ Backward Propagation Workflow `aka reflection process`
 > Most people happy when they have new ability.
 > 
 > That's why kid way happier than adult, kid unlock new ability more frequents than adult.
-
-- Better workflow is more valuable than correct answer.
-> Most parent mistakes root from parent value correct behavior OVER child's psychology workflow.
->
-> Don't go for perfect answer. Rather focus on constance improvement of existing workflow.
 
 - Past can't change; Only reflect if you intended change yourself for future.
 > Change your path is easier than change what your desire.
@@ -134,6 +124,12 @@ Backward Propagation Workflow `aka reflection process`
 - Goal is not important, execution path is the key. The skill to navigate in path and understand the tradeoffs is what makes different.
 
 - Establish goal & rule in advanced, and transparent environment.
+
+- Better workflow is more valuable than correct answer.
+> Most parent mistakes root from parent value correct behavior OVER child's psychology workflow.
+>
+> Don't go for perfect answer. Rather focus on constance improvement of existing workflow.
+
 
 - 2 approaches to solution
 > Top down approach
