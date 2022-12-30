@@ -5,6 +5,7 @@
 
 ### semantic versioning
 `~` only update patch
+
 `^` update minor & path
 
 > remember reset lower level when increase major or minor
@@ -31,6 +32,7 @@ npm install xxx --legacy-peer-deps
 // Force npm to fetch remote resources
 npm install xxx --force
 
+npm outdate
 npm cache clean --force  
 npm install -i xyz
 npm install --no-optional  

@@ -21,15 +21,25 @@
 
 > Is probability inheritance through time? `Monty Hall`
 
+> Complex Variable is design to map states that in a loop.
 ## Word Def
 - Principle `The underline idea/concept`
 - Algorithm `The serials of steps to resolve problem`
 
 # IMO
 > Encryption just make one path much harder than other paths.
+> > Will increase action space good enough to protect secrets? AI seems have stronger ability to run through large action space than human.
 
 > Problem w school is they focus on algorithm(skill); but not ability to prove algorithm(principal), nor underline premise(value), nor mistakes/need that lead to this new theory/principal.
 
-# IDK
+# Classes
+`aka my wish list; I'm not good w math, but I think there are many useful principals/idea from advance math courses;`
 - Topology `Connectedness, Holes, Compactness`
 > Homeomorphic is sub area Topology where one object can wrap into another object;
+
+- Partial Differential Equations (PDE)
+- Advanced Calculus
+- Number Theory
+- Graph Theory
+- Abstract Algebra `aka advance stuff`
+- Cryptography

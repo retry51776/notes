@@ -1,10 +1,14 @@
 
 # Physic
-> space-time trade-off: Cool physic fact, everything "moves same speed" in space-time, speed increase will slow down time
+> space-time trade-off: Cool physic fact, everything "moves same speed" in space-time, speed increase will slow down time;
+> > Apple is NOT falling to ground, but whopped timed bring earth & apple together;
 
 > observable cone means the farther we see the older it gets
 
 # Thoughts
+> What really is spacetime? Why single direction?`is it single direction? or we only sense forward?` Is space moving apart, or only light redshift?
+
+
 > Is this means someone far away already seen our future? and our future already determined?
 
 > I feel like standard model have more applications, things far away most likely won't matter. We can't even get to Mars..
@@ -89,9 +93,17 @@ Transportation
   - shell gas
 
 # Nuclear
-> fusion
-> fission
+> Fusion `merge atoms`
+> > By laser to donated small bomb; `higher pressure;`
+> 
+> > By Electric field; `higher temperature`
+
+
+> Fission `split atoms`
 > > uranium `able to develop nuclear weapon`
+> 
 > > Plutonium `by product of uranium reaction, doesn't exist naturally`
+> 
 > > thorium `fertile rather than fissile`
->> Small Modular Reactor (SMR)
+>
+> Small Modular Reactor (SMR)

@@ -165,6 +165,7 @@ Consciousness state:
 
 # 4. Association
 > Sleep develop Association Areas; `why we dream`
+> > Older people sleep less. Maybe it relates to learning. Sleep is like committing changes in the brain. `aka Less associate adjustment`
 
 > Association Learning links certain events, behaviors, or stimuli together in the process of conditioning
 > > Close mind people has strong preconception`from memory` that they can't change association;
