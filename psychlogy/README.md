@@ -27,12 +27,11 @@ Backward Propagation Workflow `aka reflection process`
 
 
 ### Knowledge
-> Knowledge is byproduct `RNN hidden state` of CNS Workflow;
-> 
-> Knowledge includes memory & emotion, pattern, personal value, skills, principals, and frameworks;
+> Knowledge is accumulate state `RNN hidden state` of CNS Workflow;
 
 - Default Knowledge `aka most people know by default`
-
+> [**Memory & emotion**](./psychology.md#emotion--memory-association)
+> 
 > [**Pattern**](#pattern) is recognized relationship from past **[Problem > Action > Result]**.
 > 
 > **Personal value** is statistical bias `aka heuristics` from the past action & result.
@@ -93,7 +92,7 @@ Backward Propagation Workflow `aka reflection process`
 
 
 # Principal
-`Principal is both observation & beveled.`
+`aka belief/goal/guidance/assumption.`
 
 `Self-Guidance principals:`
 - Transparency accelerate learning process.

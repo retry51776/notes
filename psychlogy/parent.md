@@ -24,5 +24,13 @@
 > > Make sure feedback system works, parent's job is regulate feedback, not be feedback itself.
 > 
 > > Acknowledge progress, praise child's solution.
+>
+> > Tantrum is child in survive mode.
 > 
 > Self-esteem is self trust; Children must develop them-self, not given to children`we can help CHILD develop them-self`.
+
+> The whole chapter 3 child order, root cause is parent demand/response; If there is already GOOD CHILD, the other most likely different is because parent no longer has same response as FIRST GOOD CHILD. `or parent's demand changed`
+
+
+# Games
+- Toddler Telephone `use kids tell other parent message`

@@ -5,62 +5,62 @@
 > > I assumed brain assign neuron functionality based on neuron location`more connections more computation?`, sensor location, output location, supply routes, and workflow design? Is brain balance between least neuron and capture reality?
 > 
 > > Each cortex lob are registers; Association Areas is CPU`more like FPGA`; some cortex also acts as storage;
->
-> Is Brain Process asynchronous?
 
-> We observe other's behavior`solution`, copy cat their behavior`like cheating in exam`; Then result will trigger feedback system`by neurotransmitters trigger emotions & memory`;
+> First: we observe other's behavior`action`, copy cat their behavior`like cheating in exam`;
+> 
+> Second: result will trigger our feedback system`by neurotransmitters trigger emotions & memory`, then we observe patter & adjust our behavior;
 
 
-# Hardware
-- Brain Process `Brain function is localized`
-  - **Neocortex** `aka Human Brain 4 lobs + Association Area`
-    - **Association Areas** `link memory to sensor or processor; key thing we develop in life`
-      - correlation
-      - learning
-      - thinking `reroute info to logic area`
-    - **Frontal lob** `human characteristic; Ex: motivation, empathy, conscience`
-      - speaking
-      - planning
-      - judging
-      - abstract
-    - Parietal lob `nerve input processor;`
-    - Occipital lob `vision; its associate logic area to understand concealed information`
-      - Top Down View
-      - Bottom Up View
-    - **Temporal lob** `logic; pattern; memory;`
-      - comprehension
-      - sound
-      - speech
+# Questions:
+- What/How is Brain Process overall architecture?
 
-  - **Limbic System** `aka Mammal Brain; IMO logic here, but about children level logic`
-    - Pituitary Gland `look /bio/human`
-    - Hypothalamus `look /bio/human`
-    - Amygdala `memory consolidation & emotion`
-      - Emotion
-        - Sad
-        - Disgust
-        - Happy
-        - Surprise
-        - Anger
-        - Fear
-      - Episodic Memory `Remember events`
-      - Procedural Memory `How to do things; Habits?`
-    - Hippocampus `learning and memory; `
-      - Semantic Memory `knowledge`
+- Psychology Perception?
 
-  - Reptilian brain `aka Reptile Brain: basic body functions`
-    - Thalamus `Info Router`
-    - Cerebellum `Movement Control`
-      - Flight
-      - Fight
-    - Survival System `circulation, breathing, heart, digest`
+- How Hippocampus works? Maybe is help AI development.
 
-below head
-- Moveability `both Brain & Muscle & Control System`
-  - Carry, Move other object
-  - Self Moveability
-- Digestive system
-- Reproductive system
+- Is Emotion & Memory a sub step of association? 
+
+- 6 Primary Emotions? `Is all memory have 6 tags?`
+
+- Out of 6 Primary Emotions: 4 consider negative, while 2 maybe positive; Are we suppose to be unhappy more?
+
+# Brain
+`Brain function is localized`
+- **Neocortex** `aka Human Brain; 4 lobs + Association Area + Insular cortex; cortex often 6 layers`
+  - **Association Areas** `link memory to sensor or processor; key thing we develop in life`
+    - correlation
+    - learning
+    - thinking `reroute info to logic area`
+  - **Frontal lob** `human characteristic; Ex: motivation, empathy, conscience`
+    - speaking
+    - planning
+    - judging
+    - abstract
+    - smell sensation
+  - Parietal lob
+    - touch sensation `nerve input processor;`
+  - Occipital lob
+    - vision sensation`vision; its associate logic area to understand concealed information`
+  - **Temporal lob** `logic; pattern; memory;`
+    - sound sensation
+    - speech
+    - comprehension
+  - Insular cortex
+    - taste sensation
+
+- **Limbic System** `aka Mammal Brain; IMO logic here, but about children level logic; Create Long Term Memory;`
+  - [Pituitary Gland](../biology/anatomy.md#endocrine-system)
+  - Hypothalamus `regulate basic needs through hormones: sleep, sex, eat, rest;`
+  - Amygdala `flight or fight`
+  - Thalamus `relay station`
+  - Hippocampus `convert short term memory into long term memory; Only create memory;`
+
+- Reptilian brain `aka Reptile Brain: basic body functions`
+  - Midbrain `quick sensation process trigger body's reflexes`
+  - Pons `regulation of sleep and wakefulness`
+  - Medulla `control the muscles of the head and neck`
+  - Cerebellum `Movement Control`
+  - Brain Stem `breathing, heart, blood pressure, wakefulness;`
 
 
 # 1. Attention
@@ -72,8 +72,12 @@ Selective Attention
 
 Way to change attention?
 - reduce distraction
+  - avoid trigger
+  - change path/environment
+- **increase the consequences**
+  - increase reward
+  - increase/create punishment
 - training
-- increase the consequences
 
 # 2. Sensation
 > Absolute Threshold of sensation `min stimulation needs to register 50% of the time`
@@ -85,9 +89,8 @@ Way to change attention?
 > > First sensation to commutate between others, develop trust?
 > 
 > > Sex is just extreme form of touch
->
->
-> Touch sensation is 4 sensations
+
+Touch sensations:
 - pressure
 - warmth
 - cold
@@ -109,8 +112,10 @@ Way to change attention?
 > It's useful, but not required perception.
 
 **Smell**
+> Directly to brain, only sense that by pass Thalamus.
 
 **Taste**
+> Processed by the gustatory system.
 
 **Kinesthesis** `senses body movement and position`
 
@@ -118,48 +123,42 @@ Way to change attention?
 
 
 # 3. Perception
-> How we interpret the information that our senses give us.
+> Brain interpret the information that our senses give us.
 
 > Perception is where a lot information is dropped.`aka lead to MISTAKE;`
 > > It's very important to find under perform Perception;
+> 
 > > It's very **hard to noticed** missing Perception;
-## Mental senses
-> external and internal, mental or spiritual distress, sense of self, including friendship, companionship and power, psychic capacity
-
-> IDK here, seem lack of Scientific consensus
+## Psychology Perception
+> Processed by frontal lob?
 
 > Our awareness of ourselves and environment
 
-Self Perception Attributes:
-- Extravert `Frontal lob`
-- Caring `Frontal lob + Parietal lob + Limbic System + `
-- Reliable `Frontal lob + Limbic System/Habits`
-- Creative `Thalamus| lobs able make info across multiple lobs?`
-- Leadership
-- Conceptual `Temporal lob + Occipital lob`
-- Tough
-- Humble
-- Determined
+> Ability includes [desire, knowledge, self awareness, other awareness,] determent these attributes `aka result`:
+- Extravert `+desire, +other awareness`
+- Caring `+ other awareness`
+- Reliable `+knowledge, + other awareness`
+- Creative `+knowledge, - other awareness`
+- Leadership `+[desire, knowledge, self awareness, other awareness,]`
+- Conceptual `+knowledge`
+- Tough `+desire, -self awareness`
+- Humble `-desire, +self awareness`
+- Determined `+desire, +knowledge`
 
-Consciousness state:
-- Awake
-- Drug Alter `Depressant; Stimulants; Hallucinogens`
-- Hypnosis `calm, trance-like state during which you tend to have **heightened concentration and focus**, and in which you're typically more open to suggestion.`
-- Sleeping `recuperation; growth; mental function;`
-
-## Nociception
+## Biology Perception
+> Most of Biology Perception processed by mammal brain;
+### Nociception
 > the perception of pain;
 > 
 > Trigger to reflection
 
-## Radiation
+### Radiation
 > sense of color, sense of moods associated with color, sense of temperature
 
-
-## Thermoception
+### Thermoception
 > the sense of heat
 
-## Proprioception
+### Proprioception
 > the perception of body awareness
 
 
@@ -200,17 +199,34 @@ Consciousness state:
 > My guess is order is flipped; It's Association **first**, then Logic **second**.
 
 ## Emotion & Memory Association
-> Memory & Emotion are both organized by `Amygdala?`
-> 
-> Is this a sub step of association? 
->
-> 6 Primary Emotions? `Is all memory have 6 tags?`
-> 
-> mostly write only hardware? So hack around is not forget`delete` what we want, but increase memory & emotion that we want;
+> Memory & Emotion are related
+> > If you want to memorize something, tie them to a feeling
 
+### Working memory
+- Capacity: 7 items +-2
+- Duration: 20-30s
+- Encoding: Visual and auditory last longer than verbal or written information
+  - The positional effect
+- Interference: Memory will interfered w each other
+- Transfer to long-term memory by Hippocampus
 > Basic mechanics of short term memory is neuron associate different signal together. Increase voltage to create more neurotransmitters; The receptor will increase surface area to capture more neurotransmitters;
 
+### Long Term Memory
+- Semantic Memory `knowledge`
+- Episodic Memory `Remember events`
+- Procedural Memory `How to do things`
+> Long Term Memory & Emotion are created by Hippocampus, and store in different areas in cortex;
+> 
 > Long term memory is neuron develop new terminal directly connects to other neuron; serotonin cause neuron grew new terminal;
+
+### Primary Emotions
+- Sad
+- Disgust
+- Happy
+- Surprise
+- Anger
+- Fear
+
 
 # Conclusion
 > We must be aware which brain level we operating on;
@@ -222,12 +238,3 @@ Consciousness state:
 > > Missing Perception? or Bad Association?
 
 > I think we should use Parenting model to train Limbic & reptilian brain
-
-> Memory & Emotion are the same thing
-> > If you want to memorize something, tie them to a feeling
-> 
-> Out of 6 Primary Emotions: 4 consider negative, while 2 maybe positive;
-> > Are we suppose to be unhappy more?
-
-
-> What determent a person's value is their problem; not their ability;

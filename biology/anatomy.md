@@ -28,13 +28,6 @@ Key Systems
 
 - Regulatory Gene `webpack`
 
-
-# Phycology
-Memory Types
-- Semantic Memory `knowledge`
-- Episodic Memory `Remember events`
-- Procedural Memory `How to do things`
-
 ## Nervous System
 - Central Nervous System (CNS)
   - Brain
@@ -68,7 +61,7 @@ Memory Types
 
 
 ## Hormones
-> produces by gland
+> produces by gland; `I think of hormones are massagers;`
 - GABA - stop electric signal pass between neuron; opposite to Dopamine
 - Dopamine(多巴胺) - active agent, lack will cause shaking
 - Serotonin(血清素) - Happy, memory
@@ -83,7 +76,9 @@ Memory Types
 
 
 ## Endocrine System
-`内分泌系统` controls attraction, appetite, aggression
+`内分泌系统` controls attraction, appetite, aggression;
+
+Functions includes:
 - moods
 - arousal
 - circadian rhythm
@@ -92,6 +87,7 @@ Memory Types
 - signal growth
 - reproduction
 
+Glands:
 - pineal gland / 松果腺
 - hypothalamus / 下丘脑 `control pituitary gland`
 - pituitary gland / 脑下垂体 `control rest glands`
@@ -160,3 +156,9 @@ B Cell antibody is generated randomly, so its antibody must be confirmed with T 
 
 Check & balance of B & T Lymphicyte is important
 
+# Reptilian brain
+Consciousness state:
+- Awake
+- Drug Alter `Depressant; Stimulants; Hallucinogens`
+- Hypnosis `calm, trance-like state during which you tend to have **heightened concentration and focus**, and in which you're typically more open to suggestion.`
+- Sleeping `recuperation; growth; mental function;`
