@@ -10,7 +10,13 @@
 
 > Event base:
 > 
- 
+
+# Prediction
+1. future developer(within 10 yrs) will write/describe MVP code, then give to AI compiler to optimize code; AI compiler may ask developer can it make some assumption/clarification, then compile production code able to way faster;
+2. Everything will be event base; `except DB`
+3. DB will support all types, like time serial, no sql, sql, language, graph; Maybe cloud service, w accelerated hardware;
+
+
 # There is no solution, only tradeoffs.
 here are common trade offs
 - CPU vs Memory

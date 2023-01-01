@@ -3,6 +3,8 @@
 > > IMO: Psychology is similar to chip design; Workload & resource determent optimal design.
 > 
 > > I assumed brain assign neuron functionality based on neuron location`more connections more computation?`, sensor location, output location, supply routes, and workflow design? Is brain balance between least neuron and capture reality?
+> > 
+> > I assume brain also use near memory computation design, there fore memory & functions are localized.
 > 
 > > Each cortex lob are registers; Association Areas is CPU`more like FPGA`; some cortex also acts as storage;
 
@@ -15,6 +17,8 @@
 - What/How is Brain Process overall architecture?
 
 - Psychology Perception?
+
+- What is ego/pride? something relates to connection? NN input weight?
 
 - How Hippocampus works? Maybe is help AI development.
 
@@ -80,6 +84,8 @@ Way to change attention?
 - training
 
 # 2. Sensation
+> Sensations are the raw data that our brains receive from the outside world.
+> 
 > Absolute Threshold of sensation `min stimulation needs to register 50% of the time`
 >
 > It's not absolute changes matter, but relative change.
@@ -123,30 +129,32 @@ Touch sensations:
 
 
 # 3. Perception
-> Brain interpret the information that our senses give us.
-
-> Perception is where a lot information is dropped.`aka lead to MISTAKE;`
+> Perception is brain interpret the information from our senses.
+> > Perception can break into 2 major categories: [Biology Perception](#biology-perception) & [Psychology Perception](#psychology-perception);
+>
+> > Perception is where a lot information is dropped.`aka lead to MISTAKE;`
+> 
 > > It's very important to find under perform Perception;
 > 
 > > It's very **hard to noticed** missing Perception;
+
+
 ## Psychology Perception
-> Processed by frontal lob?
+> aka Social awareness Processed by frontal lob?
 
-> Our awareness of ourselves and environment
-
-> Ability includes [desire, knowledge, self awareness, other awareness,] determent these attributes `aka result`:
-- Extravert `+desire, +other awareness`
-- Caring `+ other awareness`
-- Reliable `+knowledge, + other awareness`
-- Creative `+knowledge, - other awareness`
-- Leadership `+[desire, knowledge, self awareness, other awareness,]`
+> Ability includes [desire, knowledge, self awareness, social awareness] determent these personality attributes:
+- Extravert `+social awareness`
+- Caring `+social awareness -> self awareness`
+- Reliable `+knowledge -> action, +social awareness`
+- Creative `+knowledge, - social awareness`
+- Leadership `+[desire, knowledge, self awareness, social awareness,]`
 - Conceptual `+knowledge`
 - Tough `+desire, -self awareness`
 - Humble `-desire, +self awareness`
 - Determined `+desire, +knowledge`
 
 ## Biology Perception
-> Most of Biology Perception processed by mammal brain;
+> Biology Perception processed by reptilian brain;
 ### Nociception
 > the perception of pain;
 > 
@@ -200,7 +208,10 @@ Touch sensations:
 
 ## Emotion & Memory Association
 > Memory & Emotion are related
+> > All mammal have similar emotions.
+> 
 > > If you want to memorize something, tie them to a feeling
+
 
 ### Working memory
 - Capacity: 7 items +-2
@@ -213,7 +224,7 @@ Touch sensations:
 
 ### Long Term Memory
 - Semantic Memory `knowledge`
-- Episodic Memory `Remember events`
+- Episodic Memory `Remember events by sensation`
 - Procedural Memory `How to do things`
 > Long Term Memory & Emotion are created by Hippocampus, and store in different areas in cortex;
 > 

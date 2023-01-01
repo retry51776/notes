@@ -19,6 +19,10 @@ Backward Propagation Workflow `aka reflection process`
 > Both **desire** & **awareness** greatly impact `or trigger` workflow cycle.
 > > IMO: most important in AI is right question & measurement of progress.
 - Desire `It's important have desire diversity. or else become addition.`
+  - Biology Desire
+  - Psychology Desire
+    - Belong
+    - Power
 - Awareness `aka [Attention > Sensation > Perception]`
   - Biology Awareness
   - Psychology Awareness
@@ -30,34 +34,33 @@ Backward Propagation Workflow `aka reflection process`
 > Knowledge is accumulate state `RNN hidden state` of CNS Workflow;
 
 - Default Knowledge `aka most people know by default`
-> [**Memory & emotion**](./psychology.md#emotion--memory-association)
+> [**Memory & emotion**](./psychology.md#emotion--memory-association) includes Working Memory & Long Term Memory & Emotion.
 > 
 > [**Pattern**](#pattern) is recognized relationship from past **[Problem > Action > Result]**.
-> 
-> **Personal value** is statistical bias `aka heuristics` from the past action & result.
-> > Hard to change personal value because value require many different Results to dilute existing denominator.
+> > Hard to change pattern because pattern require many different Results to dilute existing denominator.
 >
 > > We are always be `bias` because we all only experiences subset of realities.
+> 
+> **Personal value** `aka KPI` are ways we evaluate the world `action & result`.
+> > Rare to change because we develop personal value in early childhood. The new personal value require compatibility with existing personal value & patterns.
 
 - None Default Knowledge `requires training`
 > **Skills** are learned [**Actions**](#action); `aka copy answer for problem`
 > > Procedural Memory. Most people able obtain.
 
-> [**Principals**](#principal) are common used algorithm support/explain [**recognized patterns**](#pattern) & value; `aka workflow of how to make answer`
+> [**Principals**](#principal) are common used algorithm support/explain [**Recognized patterns**](#pattern); `aka algorithms lead to answer`
 > > Principal won't have conflict w other principals `under some premises`.
 > 
 > > Principal is guide for action.
-> 
-> > Principal is refined personal value;
 >
-> [**Frameworks**](#framework) are collection of principals. `aka what is important & how they interact`
+> [**Frameworks**](#framework) are collection of principals to explain reality. `aka how we think the world works.`
 > > A good framework should able steelman argue `or explain` for every subject's action `aka people's POV`;
 > 
 > > Framework most likely in 2 types: Top-down VS Bottom-Up
 > 
 > > IMO: Most things in life can fit into small number of [frameworks](./framework.md)
 > 
-> > Framework will change personal value like distribution able calculate median point;
+> > Rarely new framework lead to develop new personal value;
 
 
 # Pattern
