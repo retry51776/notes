@@ -72,6 +72,8 @@
 
 > Attention is a multiplier of sensation
 
+> [Personal Value](README.md#personal-value) is a important variable in Attention.
+
 Selective Attention
 
 Way to change attention?
@@ -140,9 +142,10 @@ Touch sensations:
 
 
 ## Psychology Perception
-> aka Social awareness Processed by frontal lob?
+> Ability to read emotions through body expression. `aka Social awareness Processed by frontal lob?`
+> > Psychology Perception on self, or on other?
 
-> Ability includes [desire, knowledge, self awareness, social awareness] determent these personality attributes:
+> Ability includes [desire, knowledge, self awareness, social awareness] determent these personal values:
 - Extravert `+social awareness`
 - Caring `+social awareness -> self awareness`
 - Reliable `+knowledge -> action, +social awareness`
@@ -171,6 +174,8 @@ Touch sensations:
 
 
 # 4. Association
+> Association find relevant [**Knowledge**](README.md#knowledge) of problem, Knowledge determents your [**Action**](README.md#action)
+
 > Sleep develop Association Areas; `why we dream`
 > > Older people sleep less. Maybe it relates to learning. Sleep is like committing changes in the brain. `aka Less associate adjustment`
 

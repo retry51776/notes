@@ -8,29 +8,23 @@
 ## **Central Nervous System Workflow**
 Forward Propagation Workflow `aka decision process`
 
-> Problem > [**Attention**](./psychology.md#1-attention) > [Sensation](./psychology.md#2-sensation) > [**Perception**](./psychology.md#3-perception) > [**Association**](./psychology.md#4-association) > [**Action**](#action)
-> > Personal Value is a important variable in Attention.
-> 
-> > Association find relevant [**Knowledge**](#knowledge) of problem, Knowledge determents your [**Action**](#action)
+> [Desire](#desire) > Problem > [**Awareness**](#awareness) > [**Association**](./psychology.md#4-association) > [**Action**](#action)
 
 
 Backward Propagation Workflow `aka reflection process`
-> Result > Evaluation > Diagnosis > Design > Implementation
+> Result > [Evaluation](#action) > [Diagnosis](#diagnose) > [Design](#design) > [Implementation](#implementation)
 
-> Both **desire** & **awareness** greatly impact `or trigger` workflow cycle.
-- Desire `It's important have desire diversity. or else become addition.`
-  - Biology Desire
-  - Psychology Desire
-    - Belong
-    - Power
-- Awareness `aka [Attention > Sensation > Perception]`
-  - Biology Awareness
-  - Psychology Awareness
-    - Self Awareness
-    - Other Awareness
+<hr>
+
+> **Desire**, **Awareness**, **Knowledge** are key elements to control workflow.
+## Desire
+> There is a natural psychological desire within us to belong and have power.
+
+## Awareness
+> Awareness can break down to [**Attention**](./psychology.md#1-attention) > [Sensation](./psychology.md#2-sensation) > [**Perception**](./psychology.md#3-perception)
 
 
-### Knowledge
+## Knowledge
 > Knowledge is accumulate state `RNN hidden state` of CNS Workflow;
 
 - Knowledge without training
@@ -44,7 +38,7 @@ Backward Propagation Workflow `aka reflection process`
 > > Conclusion is guidance for action.
 > 
 > [**Personal Value**](#personal-value) `aka KPI for evaluation` are ways we evaluate the internal & external action & result.
-> > Rare to change because we develop personal value in early childhood.
+> > It is rare for individuals to change their personal values because these values are typically developed during early childhood.
 > 
 > > The new personal value require compatibility with existing personal value & conclusion.
 
@@ -62,7 +56,7 @@ Backward Propagation Workflow `aka reflection process`
 > 
 > > IMO: Most things in life can fit into small number of [frameworks](./framework.md)
 > 
-> > Rarely new framework lead to develop new personal value;
+> > It is rare, but sometime new framework to lead to the development of new personal values.
 
 # Personal Value
 > It's recommend you prioritize your top 10 Personal Values & live by it.
@@ -70,27 +64,24 @@ Backward Propagation Workflow `aka reflection process`
 > Living by your value makes you happier, more confidence on your decision, give direction to your life.
 
 from google:
-- Altruism
+- Personal growth
 - Dependability
+- Adaptability
+- Well-being
+- Altruism
+- Compassion
 - Integrity
 - Generosity
 - Courage
 - Gratitude
-- Well-being
 - Sustainability
-- Family
-- Self-respect
-- Adaptability
-- Uniqueness
-- Assertiveness
-- Support
-- Open-mindedness
-- Personal growth
-- Flexibility
 - Frugality
-- Improvement
-- Self-reliance
-- Honesty
+- Loyalty
+- Family
+- Humility
+- Assertiveness
+- Uniqueness
+- Sustainability
 
 # Conclusion
 `aka Recognized patterns.`
@@ -193,19 +184,20 @@ from google:
 
 
 # Action
-> aka: Action > Result > Evaluation > Diagnosis > Design > Implementation
-- Action 1. Do nothing.
+> aka: Problem > Evaluation > Diagnosis > Design > Action
+- Evaluation 1. Do nothing.
   - 1.1 Don't recognized problem.
   - 1.2 Ignore problem.
 
 
-- Action 2. Avoid problem.
+- Evaluation 2. Avoid problem.
   - 2.1 Change path
   - 2.2 Change desires
 
 
-- Action 3. Self improvement to resolve problem.
-  - 3.1 diagnose `listen other; reexamine knowledge`
+- Evaluation 3. Self improvement to resolve problem.
+  ### Diagnose
+  - 3.1 Diagnose `listen other; reexamine knowledge`
     - 3.1.1 [attention?](psychology.md#1-attention)
       - improve workflow design;
       - more workflow training;
@@ -228,12 +220,14 @@ from google:
       - can you add test, logs, monitor to narrow root causes?
       - can you limited variables?
       - can you execute potential solution see result?
+  ### Design
   - 3.3 communication
     - 3.3.1 If any one using reptilian brain, delay communication
     - 3.3.2 Establish connection by confirm their feeling, share your feeling
   - 3.4 design workflow
     - 3.4.1 If there is another party, remember compromise
     - 3.4.2 Solution can be incremental improvement
+  ### Implementation
   - 3.5 training
     - 3.5.1 confirm improvement
     - 3.5.2 repeatation is the key
@@ -248,6 +242,6 @@ from google:
     - 3.8.2 Other trust you to resolve problem
 
 
-- Action 4. Outsource Problem.
+- Evaluation 4. Outsource Problem.
   - 4.1 Reliance on people
   - 4.2 Reliance on machine
