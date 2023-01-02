@@ -9,15 +9,15 @@
 Forward Propagation Workflow `aka decision process`
 
 > Problem > [**Attention**](./psychology.md#1-attention) > [Sensation](./psychology.md#2-sensation) > [**Perception**](./psychology.md#3-perception) > [**Association**](./psychology.md#4-association) > [**Action**](#action)
+> > Personal Value is a important variable in Attention.
+> 
 > > Association find relevant [**Knowledge**](#knowledge) of problem, Knowledge determents your [**Action**](#action)
 
 
 Backward Propagation Workflow `aka reflection process`
 > Result > Evaluation > Diagnosis > Design > Implementation
 
-### Ability
 > Both **desire** & **awareness** greatly impact `or trigger` workflow cycle.
-> > IMO: most important in AI is right question & measurement of progress.
 - Desire `It's important have desire diversity. or else become addition.`
   - Biology Desire
   - Psychology Desire
@@ -33,27 +33,29 @@ Backward Propagation Workflow `aka reflection process`
 ### Knowledge
 > Knowledge is accumulate state `RNN hidden state` of CNS Workflow;
 
-- Default Knowledge `aka most people know by default`
-> [**Memory & emotion**](./psychology.md#emotion--memory-association) includes Working Memory & Long Term Memory & Emotion.
+- Knowledge without training
+> [**Memory & Emotion**](./psychology.md#emotion--memory-association) includes Working Memory & Long Term Memory & Emotion.
 > 
-> [**Pattern**](#pattern) is recognized relationship from past **[Problem > Action > Result]**.
-> > Hard to change pattern because pattern require many different Results to dilute existing denominator.
+> [**Conclusion**](#conclusion) is recognized pattern derived from past observation `[Problem > Action > Result]`.
+> > It's difficult to change our conclusion because it's based on many different results, which makes it hard to dilute the existing conclusion.
 >
 > > We are always be `bias` because we all only experiences subset of realities.
 > 
-> **Personal value** `aka KPI` are ways we evaluate the world `action & result`.
-> > Rare to change because we develop personal value in early childhood. The new personal value require compatibility with existing personal value & patterns.
+> > Conclusion is guidance for action.
+> 
+> [**Personal Value**](#personal-value) `aka KPI for evaluation` are ways we evaluate the internal & external action & result.
+> > Rare to change because we develop personal value in early childhood.
+> 
+> > The new personal value require compatibility with existing personal value & conclusion.
 
-- None Default Knowledge `requires training`
-> **Skills** are learned [**Actions**](#action); `aka copy answer for problem`
+- Knowledge requires training
+> **Skills** are learned [**Actions**](#action);
 > > Procedural Memory. Most people able obtain.
 
-> [**Principals**](#principal) are common used algorithm support/explain [**Recognized patterns**](#pattern); `aka algorithms lead to answer`
+> [**Principals**](#principal) are common used algorithm support/explain [**conclusion**](#conclusion); `Metaphor: algorithms transform unknown function into known function`
 > > Principal won't have conflict w other principals `under some premises`.
-> 
-> > Principal is guide for action.
 >
-> [**Frameworks**](#framework) are collection of principals to explain reality. `aka how we think the world works.`
+> [**Frameworks**](#framework) are collection of principals to explain reality. `aka mental construction of reality.`
 > > A good framework should able steelman argue `or explain` for every subject's action `aka people's POV`;
 > 
 > > Framework most likely in 2 types: Top-down VS Bottom-Up
@@ -62,9 +64,36 @@ Backward Propagation Workflow `aka reflection process`
 > 
 > > Rarely new framework lead to develop new personal value;
 
+# Personal Value
+> It's recommend you prioritize your top 10 Personal Values & live by it.
+> 
+> Living by your value makes you happier, more confidence on your decision, give direction to your life.
 
-# Pattern
-`Recognized patterns, aka observation.`
+from google:
+- Altruism
+- Dependability
+- Integrity
+- Generosity
+- Courage
+- Gratitude
+- Well-being
+- Sustainability
+- Family
+- Self-respect
+- Adaptability
+- Uniqueness
+- Assertiveness
+- Support
+- Open-mindedness
+- Personal growth
+- Flexibility
+- Frugality
+- Improvement
+- Self-reliance
+- Honesty
+
+# Conclusion
+`aka Recognized patterns.`
 
 - All knowledge build on top assumptions, aware assumption can be invalidated.
 
@@ -77,7 +106,7 @@ Backward Propagation Workflow `aka reflection process`
 - Great power comes great responsibility. `from spider-man`
 > IMO: Most people problem is they want power `money, position` without responsibility;
 > 
-> Parenting should base on equal respect; Make kid understand more choices comes with more responsibility.
+> Parenting should base on equal respect; Make kid understand more power comes with more responsibility.
 
 - Most things have recursive property.
 > Ex: Wealth, Knowledge, Ability, Social Skill
@@ -112,7 +141,7 @@ Backward Propagation Workflow `aka reflection process`
 - Past can't change; Only reflect if you intended change yourself for future.
 > Change your path is easier than change what your desire.
 
-- Repetition training is most effective way to change.
+- Repetition training is most effective way to change. `Not talking about memory, just habits.`
 
 - Pain + Reflection = Progress
 > Mistake indices there is a problem; It's up to player which 1 out of 4 [actions](#action) to handle it.
@@ -165,17 +194,17 @@ Backward Propagation Workflow `aka reflection process`
 
 # Action
 > aka: Action > Result > Evaluation > Diagnosis > Design > Implementation
-- choice 1. Do nothing.
-  - 1.1 Because don't recognized problem.
-  - 1.2 Because ignore problem.
+- Action 1. Do nothing.
+  - 1.1 Don't recognized problem.
+  - 1.2 Ignore problem.
 
 
-- choice 2. Avoid problem.
-  - 2.1 Change path without change desires
-  - 2.2 Change path & desires
+- Action 2. Avoid problem.
+  - 2.1 Change path
+  - 2.2 Change desires
 
 
-- choice 3. Self improvement to resolve problem.
+- Action 3. Self improvement to resolve problem.
   - 3.1 diagnose `listen other; reexamine knowledge`
     - 3.1.1 [attention?](psychology.md#1-attention)
       - improve workflow design;
@@ -219,6 +248,6 @@ Backward Propagation Workflow `aka reflection process`
     - 3.8.2 Other trust you to resolve problem
 
 
-- choice 4. Outsource Problem.
+- Action 4. Outsource Problem.
   - 4.1 Reliance on people
   - 4.2 Reliance on machine

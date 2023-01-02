@@ -212,6 +212,16 @@ Touch sensations:
 > 
 > > If you want to memorize something, tie them to a feeling
 
+### Memory encoding
+- rehearsal `aka repeat`
+- chunking `aka organized memory`
+- mnemonic devices
+  - image `aka picturize memory`
+  - pegword `aka use story`
+  - location
+  - Acronym
+- Self-Referencing
+- Spacing `aka repeat study in large time gape`
 
 ### Working memory
 - Capacity: 7 items +-2

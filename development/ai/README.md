@@ -1,7 +1,11 @@
 # AI
+> I think the fundamental idea of AI is past determent future.
+> > What I mean is AI extract pattern from past data, assumes those pattern will most likely works in future problem.
 
+> > IMO: most important in AI is right question `aka desire` & measurement of progress `aka value`.
 ## Hardware
 - near memory design:
+- reconfigurable dataflow hardware vs parallelism on top of existing computation
 
 ## Basic Terms:
 - Learning Workflow

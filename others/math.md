@@ -31,6 +31,8 @@
 > > Will increase action space good enough to protect secrets? AI seems have stronger ability to run through large action space than human.
 
 > Problem w school is they focus on algorithm(skill); but not ability to prove algorithm(principal), nor underline premise(value), nor mistakes/need that lead to this new theory/principal.
+ 
+> Calculus is focus on relationship. Instead geometry only focus on number answer.
 
 # Classes
 `aka my wish list; I'm not good w math, but I think there are many useful principals/idea from advance math courses;`
