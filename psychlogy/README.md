@@ -1,7 +1,7 @@
 # Workflow
 > Here is my desire workflow / process / framework / standardized system. `IDK what is best name for it.`
 > 
-> Workflow is design on top of [**Psychology**](./psychology.md)
+> Workflow is based on [**Psychology**](./psychology.md)
 >
 > Inspired by Ray Dalio's Principal;
 
@@ -12,22 +12,26 @@ Forward Propagation Workflow `aka decision process`
 
 
 Backward Propagation Workflow `aka reflection process`
-> Result > [Evaluation](#action) > [Diagnosis](#diagnose) > [Design](#design) > [Implementation](#implementation)
+> Result > [Evaluation/Action](#action) > [Diagnosis](#diagnose) > [Design](#design) > [Implementation](#implementation)
 
 <hr>
 
-> **Desire**, **Awareness**, **Knowledge** are key elements to control workflow.
+## Term Definition
+> [**Desire**](#desire), [**Awareness**](#awareness), [**Knowledge**](#knowledge) are key elements to control workflow `aka behavior`.
 ## Desire
 > There is a natural psychological desire within us to belong and have power.
-
+>
+> It is difficult to change desires, so it is easier to simply avoid the things that trigger desire.
 ## Awareness
 > Awareness can break down to [**Attention**](./psychology.md#1-attention) > [Sensation](./psychology.md#2-sensation) > [**Perception**](./psychology.md#3-perception)
 
 
 ## Knowledge
 > Knowledge is accumulate state `RNN hidden state` of CNS Workflow;
+> 
+> I categorizes Knowledge into Natural & Acquired.
 
-- Knowledge without training
+### Natural Knowledge
 > [**Memory & Emotion**](./psychology.md#emotion--memory-association) includes Working Memory & Long Term Memory & Emotion.
 > 
 > [**Conclusion**](#conclusion) is recognized pattern derived from past observation `[Problem > Action > Result]`.
@@ -42,12 +46,16 @@ Backward Propagation Workflow `aka reflection process`
 > 
 > > The new personal value require compatibility with existing personal value & conclusion.
 
-- Knowledge requires training
+### Acquired Knowledge
 > **Skills** are learned [**Actions**](#action);
 > > Procedural Memory. Most people able obtain.
-
-> [**Principals**](#principal) are common used algorithm support/explain [**conclusion**](#conclusion); `Metaphor: algorithms transform unknown function into known function`
+>
+> [**Principals**](#principal) are common used algorithm support/explain [**conclusion**](#conclusion); 
+> > Metaphor: algorithms transform unknown equation into solvable equation
+> 
 > > Principal won't have conflict w other principals `under some premises`.
+> 
+> > IMO discrete math has many basic Principal, should be taught in HS.
 >
 > [**Frameworks**](#framework) are collection of principals to explain reality. `aka mental construction of reality.`
 > > A good framework should able steelman argue `or explain` for every subject's action `aka people's POV`;
@@ -59,11 +67,11 @@ Backward Propagation Workflow `aka reflection process`
 > > It is rare, but sometime new framework to lead to the development of new personal values.
 
 # Personal Value
-> It's recommend you prioritize your top 10 Personal Values & live by it.
+> It is recommended that you prioritize your top 10 personal values and strive to live by them.
 > 
-> Living by your value makes you happier, more confidence on your decision, give direction to your life.
+> By living in accordance with your values, you may find that you feel happier, have more confidence in your decisions, and have a clearer direction in your life.
 
-from google:
+Ex Personal Values from google:
 - Personal growth
 - Dependability
 - Adaptability

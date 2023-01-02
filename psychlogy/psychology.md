@@ -16,13 +16,9 @@
 # Questions:
 - What/How is Brain Process overall architecture?
 
-- Psychology Perception?
-
 - What is ego/pride? something relates to connection? NN input weight?
 
 - How Hippocampus works? Maybe is help AI development.
-
-- Is Emotion & Memory a sub step of association? 
 
 - 6 Primary Emotions? `Is all memory have 6 tags?`
 
@@ -77,6 +73,7 @@
 Selective Attention
 
 Way to change attention?
+- Reprioritize Personal Values
 - reduce distraction
   - avoid trigger
   - change path/environment
