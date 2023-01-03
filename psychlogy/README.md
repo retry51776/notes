@@ -18,13 +18,20 @@ Backward Propagation Workflow `aka reflection process`
 
 ## Term Definition
 > [**Desire**](#desire), [**Awareness**](#awareness), [**Knowledge**](#knowledge) are key elements to control workflow `aka behavior`.
+
+
 ## Desire
 > There is a natural psychological desire within us to **belong** and have **power**.
 >
+> Remember power comes with responsibility, ask your self when you desire something, are you ready for responsibility.
+>
 > It is difficult to change desires, so it is easier to simply avoid the things that trigger desire.
+
+
 ## Awareness
 > Awareness can break down to [**Attention**](./psychology.md#1-attention) > [Sensation](./psychology.md#2-sensation) > [**Perception**](./psychology.md#3-perception)
-
+>
+> If you lack of some awareness, most likely your personal value doesn't prioritize it.
 
 ## Knowledge
 > Knowledge is accumulate state `RNN hidden state` of CNS Workflow;
@@ -198,7 +205,7 @@ Ex Personal Values from google:
 
 
 # Action
-> aka: Problem > Evaluation > Diagnosis > Design > Action
+> aka: Problem > Evaluation > Diagnosis > Design > Implementation
 - Evaluation 1. Do nothing.
   - 1.1 Don't recognized problem.
   - 1.2 Ignore problem.

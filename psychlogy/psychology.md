@@ -26,41 +26,42 @@
 
 # Brain
 `Brain function is localized`
-- **Human Brain** `aka Neocortex; includes mammal brain; 4 lobs + Association Area + Insular cortex; cortex often 6 layers`
-  - **Association Areas** `link memory to sensor or processor; key thing we develop in life`
-    - correlation
-    - learning
-    - thinking `reroute info to logic area`
-  - **Frontal lob** `human characteristic; Ex: motivation, empathy, conscience`
-    - speaking
-    - planning
-    - judging
-    - abstract
-    - smell sensation
-  - Parietal lob
-    - touch sensation `nerve input processor;`
-  - Occipital lob
-    - vision sensation`vision; its associate logic area to understand concealed information`
-  - **Temporal lob** `logic; pattern; memory;`
-    - sound sensation
-    - speech
-    - comprehension
-  - Insular cortex
-    - taste sensation
+- [Central Nervous System](./../biology/anatomy.md#central-nervous-system-cns)
+  - **Human Brain** `aka Neocortex; includes mammal brain; 4 lobs + Association Area + Insular cortex; cortex often 6 layers`
+    - **Association Areas** `link memory to sensor or processor; key thing we develop in life`
+      - correlation
+      - learning
+      - thinking `reroute info to logic area`
+    - **Frontal lob** `human characteristic; Ex: motivation, empathy, conscience`
+      - speaking
+      - planning
+      - judging
+      - abstract
+      - smell sensation
+    - Parietal lob
+      - touch sensation `nerve input processor;`
+    - Occipital lob
+      - vision sensation`vision; its associate logic area to understand concealed information`
+    - **Temporal lob** `logic; pattern; memory;`
+      - sound sensation
+      - speech
+      - comprehension
+    - Insular cortex
+      - taste sensation
 
-- **Mammal Brain** `includes Reptilian brain; IMO logic here, but about children level logic;`
-  - [Pituitary Gland](../biology/anatomy.md#endocrine-system)
-  - Hypothalamus `regulate basic needs through hormones: sleep, sex, eat, rest;`
-  - Amygdala `flight or fight`
-  - Thalamus `relay station`
-  - Hippocampus `convert short term memory into long term memory; Only create memory;`
+  - **Mammal Brain** `includes Reptilian brain; IMO logic here, but about children level logic;`
+    - [Pituitary Gland](../biology/anatomy.md#endocrine-system)
+    - Hypothalamus `regulate basic needs through hormones: sleep, sex, eat, rest;`
+    - Amygdala `flight or fight`
+    - Thalamus `relay station`
+    - Hippocampus `convert short term memory into long term memory; Only create memory;`
 
-- Reptilian brain `aka Reptile Brain: basic body functions`
-  - Midbrain `quick sensation process trigger body's reflexes`
-  - Pons `regulation of sleep and wakefulness`
-  - Medulla `control the muscles of the head and neck`
-  - Cerebellum `Movement Control`
-  - Brain Stem `breathing, heart, blood pressure, wakefulness;`
+  - Reptilian brain `aka Reptile Brain: basic body functions`
+    - Midbrain `quick sensation process trigger body's reflexes`
+    - Pons `regulation of sleep and wakefulness`
+    - Medulla `control the muscles of the head and neck`
+    - Cerebellum `Movement Control`
+    - Brain Stem `breathing, heart, blood pressure, wakefulness;`
 - [Peripheral Nervous System](./../biology/anatomy.md#peripheral-nervous-system-pns)
 
 
@@ -141,6 +142,7 @@ Touch sensations:
 
 ## Psychology Perception
 `aka Body Language`
+> Mammal Brain uses [Peripheral Nervous System](./../biology/anatomy.md#peripheral-nervous-system-pns) directly express body language.
 > Ability to read body language through body expression. `Processed by frontal lob?`
 > > Psychology Perception on self, or on other?
 > 
@@ -219,22 +221,20 @@ Touch sensations:
 > 
 > > If you want to memorize something, tie them to a feeling
 
-### Memory encoding
-- rehearsal `aka repeat`
-- chunking `aka organized memory`
-- mnemonic devices
-  - image `aka picturize memory`
-  - pegword `aka use story`
-  - location
-  - Acronym
-- Self-Referencing
-- Spacing `aka repeat study in large time gape`
-
 ### Working memory
 - Capacity: 7 items +-2
 - Duration: 20-30s
 - Encoding: Visual and auditory last longer than verbal or written information
   - The positional effect
+  - rehearsal `aka repeat`
+  - chunking `aka organized memory`
+  - mnemonic devices
+    - image `aka picturize memory`
+    - pegword `aka use story`
+    - location
+    - Acronym
+  - Self-Referencing
+  - Spacing `aka repeat study in large time gape`
 - Interference: Memory will interfered w each other
 - Transfer to long-term memory by Hippocampus
 > Basic mechanics of short term memory is neuron associate different signal together. Increase voltage to create more neurotransmitters; The receptor will increase surface area to capture more neurotransmitters;
