@@ -10,7 +10,7 @@
 
 > First: we observe other's behavior`action`, copy cat their behavior`like cheating in exam`;
 > 
-> Second: result will trigger our feedback system`by neurotransmitters trigger emotions & memory`, then we observe patter & adjust our behavior;
+> Second: result will trigger our feedback system`by neurotransmitters trigger emotions & memory`, then we observe patter & adjust our conclusion & behavior;
 
 
 # Questions:
@@ -20,13 +20,13 @@
 
 - How Hippocampus works? Maybe is help AI development.
 
-- 6 Primary Emotions? `Is all memory have 6 tags?`
+- Is all memory have 6 emotional tags?
 
 - Out of 6 Primary Emotions: 4 consider negative, while 2 maybe positive; Are we suppose to be unhappy more?
 
 # Brain
 `Brain function is localized`
-- **Neocortex** `aka Human Brain; 4 lobs + Association Area + Insular cortex; cortex often 6 layers`
+- **Human Brain** `aka Neocortex; includes mammal brain; 4 lobs + Association Area + Insular cortex; cortex often 6 layers`
   - **Association Areas** `link memory to sensor or processor; key thing we develop in life`
     - correlation
     - learning
@@ -48,7 +48,7 @@
   - Insular cortex
     - taste sensation
 
-- **Limbic System** `aka Mammal Brain; IMO logic here, but about children level logic; Create Long Term Memory;`
+- **Mammal Brain** `includes Reptilian brain; IMO logic here, but about children level logic;`
   - [Pituitary Gland](../biology/anatomy.md#endocrine-system)
   - Hypothalamus `regulate basic needs through hormones: sleep, sex, eat, rest;`
   - Amygdala `flight or fight`
@@ -61,6 +61,7 @@
   - Medulla `control the muscles of the head and neck`
   - Cerebellum `Movement Control`
   - Brain Stem `breathing, heart, blood pressure, wakefulness;`
+- [Peripheral Nervous System](./../biology/anatomy.md#peripheral-nervous-system-pns)
 
 
 # 1. Attention
@@ -139,19 +140,23 @@ Touch sensations:
 
 
 ## Psychology Perception
-> Ability to read emotions through body expression. `aka Social awareness Processed by frontal lob?`
+`aka Body Language`
+> Ability to read body language through body expression. `Processed by frontal lob?`
 > > Psychology Perception on self, or on other?
+> 
+> > Women usually out perform men on reading body language.
+>
+> Body language is Emotional Expression by mammal brain. In fact most mammal have all 6 primary emotions.
 
-> Ability includes [desire, knowledge, self awareness, social awareness] determent these personal values:
-- Extravert `+social awareness`
-- Caring `+social awareness -> self awareness`
-- Reliable `+knowledge -> action, +social awareness`
-- Creative `+knowledge, - social awareness`
-- Leadership `+[desire, knowledge, self awareness, social awareness,]`
-- Conceptual `+knowledge`
-- Tough `+desire, -self awareness`
-- Humble `-desire, +self awareness`
-- Determined `+desire, +knowledge`
+> TODO: needs to study more.
+
+- The Definitive Book of Body Language
+> 1. Read gestures in clusters.
+> 2. Look for congruence. `aka find contradiction`
+> 3. Read gestures in context.
+- Lie Detection 101
+- What every body saying
+
 
 ## Biology Perception
 > Biology Perception processed by reptilian brain;

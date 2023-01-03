@@ -29,10 +29,10 @@ Key Systems
 - Regulatory Gene `webpack`
 
 ## Nervous System
-- Central Nervous System (CNS)
+### Central Nervous System (CNS)
   - Brain
   - Spinal Cord
-- Peripheral Nervous System (PNS)
+### Peripheral Nervous System (PNS)
   - Somatic Nervous System `voluntary`
   - Autonomic Nervous System `involuntary`
     - Sympathetic Nervous System `Arousing;紧张;`

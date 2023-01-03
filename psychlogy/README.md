@@ -1,9 +1,9 @@
 # Workflow
-> Here is my desire workflow / process / framework / standardized system. `IDK what is best name for it.`
+> Just write down my psychology process; Also some of my frameworks & conclusions.
 > 
-> Workflow is based on [**Psychology**](./psychology.md)
+> [CNS Workflow](./../biology/anatomy.md#central-nervous-system-cns) is based on [**Psychology**](./psychology.md)
 >
-> Inspired by Ray Dalio's Principal;
+> Inspired by Ray Dalio's Principal; and other books.
 
 ## **Central Nervous System Workflow**
 Forward Propagation Workflow `aka decision process`
@@ -12,14 +12,14 @@ Forward Propagation Workflow `aka decision process`
 
 
 Backward Propagation Workflow `aka reflection process`
-> Result > [Evaluation/Action](#action) > [Diagnosis](#diagnose) > [Design](#design) > [Implementation](#implementation)
+> Result > [Evaluation](#action) > [Diagnosis](#diagnose) > [Design](#design) > [Implementation](#implementation)
 
 <hr>
 
 ## Term Definition
 > [**Desire**](#desire), [**Awareness**](#awareness), [**Knowledge**](#knowledge) are key elements to control workflow `aka behavior`.
 ## Desire
-> There is a natural psychological desire within us to belong and have power.
+> There is a natural psychological desire within us to **belong** and have **power**.
 >
 > It is difficult to change desires, so it is easier to simply avoid the things that trigger desire.
 ## Awareness
@@ -40,6 +40,8 @@ Backward Propagation Workflow `aka reflection process`
 > > We are always be `bias` because we all only experiences subset of realities.
 > 
 > > Conclusion is guidance for action.
+>
+> > The very reason we love story, story lead to conclusion.
 > 
 > [**Personal Value**](#personal-value) `aka KPI for evaluation` are ways we evaluate the internal & external action & result.
 > > It is rare for individuals to change their personal values because these values are typically developed during early childhood.
@@ -57,7 +59,7 @@ Backward Propagation Workflow `aka reflection process`
 > 
 > > IMO discrete math has many basic Principal, should be taught in HS.
 >
-> [**Frameworks**](#framework) are collection of principals to explain reality. `aka mental construction of reality.`
+> [**Frameworks**](#framework) are collection of principals & conclusions to explain reality. `aka mental construction of reality.`
 > > A good framework should able steelman argue `or explain` for every subject's action `aka people's POV`;
 > 
 > > Framework most likely in 2 types: Top-down VS Bottom-Up
@@ -100,18 +102,14 @@ Ex Personal Values from google:
 > Understand **mechanic** by either collect statistics, or by logic;
 
 - There is no solution, only tradeoff.
-> Everything cost something.
 
 - Great power comes great responsibility. `from spider-man`
-> IMO: Most people problem is they want power `money, position` without responsibility;
+> IMO: Common problem is people's desire for power, money, and position without assuming responsibility.
 > 
-> Parenting should base on equal respect; Make kid understand more power comes with more responsibility.
+> > Parenting should base on equal respect; Make kid understand more power comes with more responsibility.
 
 - Most things have recursive property.
 > Ex: Wealth, Knowledge, Ability, Social Skill
-
-- We reverted to reptilian brain in time of conflict.
-> Hack around by delay response. `aka cool off period`
 
 - Heard < Seen < Used < Understand < Improve < Trust yourself < Others trust you
 > or knowing < remembering < understanding < communicating
@@ -123,9 +121,9 @@ Ex Personal Values from google:
 
 
 # Principal
-`aka belief/goal/guidance/assumption.`
+`aka belief/guidance/assumption.`
 
-`Self-Guidance principals:`
+`Self principals:`
 - Transparency accelerate learning process.
 > The very reason I write this repo.
 
@@ -142,15 +140,23 @@ Ex Personal Values from google:
 
 - Repetition training is most effective way to change. `Not talking about memory, just habits.`
 
-- Pain + Reflection = Progress
-> Mistake indices there is a problem; It's up to player which 1 out of 4 [actions](#action) to handle it.
->> If you choose #3; You may unlock a game equipment`principle, skill, money, or lesson`; It's up to you to collect`or not collect` this new equipment
+- We have two minds, the rational mind `human brain/cortex`, and the emotional mind `mammal brain`.
+> Mammal brain express through body language, has 6 primary emotions.
+> 
+> Rational mind just pattern recognition machine.
 >
->> Principle has different level, you can **REFINE** principle to get better principle; Or keep using level 1 principle`early child conclusion` you collected;
+> People communication often neglected emotional mind`both self & other`. 
+> 
+> We reverted to reptilian brain in time of conflict.
+> > Hack around by delay response. `aka cool off period`
+
+- Pain + Reflection = Progress
 
 - We develop heuristics first, `optimize based of statistical bias`, then algorithms `framework explain all possible paths`;
 
 `Team work principals:`
+- If you want to go fast, go alone, if you want to go far, go together.
+
 - Goal is not important, execution path is the key. The skill to navigate in path and understand the tradeoffs is what makes different.
 
 - Establish goal & rule in advanced, and transparent environment.
