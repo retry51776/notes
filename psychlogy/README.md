@@ -1,23 +1,26 @@
 # Workflow
-> Just write down my psychology process; Also some of my frameworks & conclusions.
+> Just write down my understand of psychological process;
 > 
-> [CNS Workflow](./../biology/anatomy.md#central-nervous-system-cns) is based on [**Psychology**](./psychology.md)
+> I only focus on [Central Nervous System Workflow](./../biology/anatomy.md#central-nervous-system-cns), is based on [**Psychology**](./psychology.md)
 >
-> Inspired by Ray Dalio's Principal; and other books.
+> Inspired by Ray Dalio's Principal and Positive discipline by Jane Nelsen.
 
-## **Central Nervous System Workflow**
-Forward Propagation Workflow `aka decision process`
+## Forward Propagation Workflow
+aka decision process
 
 > [Desire](#desire) > Problem > [**Awareness**](#awareness) > [**Association**](./psychology.md#4-association) > [**Action**](#action)
 
 
-Backward Propagation Workflow `aka reflection process`
+## Backward Propagation Workflow
+aka [reflection process](#reflection-process)
 > Result > [Evaluation](#action) > [Diagnosis](#diagnose) > [Design](#design) > [Implementation](#implementation)
 
-<hr>
+[**Desire**](#desire), [**Awareness**](#awareness), [**Knowledge**](#knowledge) are key elements to control workflow `aka behavior`.
 
-## Term Definition
-> [**Desire**](#desire), [**Awareness**](#awareness), [**Knowledge**](#knowledge) are key elements to control workflow `aka behavior`.
+
+</br></br>
+
+# Definitions
 
 
 ## Desire
@@ -34,14 +37,16 @@ Backward Propagation Workflow `aka reflection process`
 > If you lack of some awareness, most likely your personal value doesn't prioritize it.
 
 ## Knowledge
-> Knowledge is accumulate state `RNN hidden state` of CNS Workflow;
+> [Knowledge](knowledge.md) is accumulate state `RNN hidden state` of CNS Workflow;
 > 
 > I categorizes Knowledge into Natural & Acquired.
 
-### Natural Knowledge
+Natural Knowledge:
+### Memory & Emotion
 > [**Memory & Emotion**](./psychology.md#emotion--memory-association) includes Working Memory & Long Term Memory & Emotion.
-> 
-> [**Conclusion**](#conclusion) is recognized pattern derived from past observation `[Problem > Action > Result]`.
+
+### Conclusion
+> [**Conclusion**](knowledge.md#conclusion) is recognized pattern derived from past observation `[Problem > Action > Result]`.
 > > It's difficult to change our conclusion because it's based on many different results, which makes it hard to dilute the existing conclusion.
 >
 > > We are always be `bias` because we all only experiences subset of realities.
@@ -49,163 +54,39 @@ Backward Propagation Workflow `aka reflection process`
 > > Conclusion is guidance for action.
 >
 > > The very reason we love story, story lead to conclusion.
-> 
-> [**Personal Value**](#personal-value) `aka KPI for evaluation` are ways we evaluate the internal & external action & result.
+
+### Personal Value
+> [**Personal Value**](knowledge.md#personal-value) are ways we evaluate the internal & external action & result.`aka KPI for evaluation; Or NN Loss Functions;`
 > > It is rare for individuals to change their personal values because these values are typically developed during early childhood.
 > 
 > > The new personal value require compatibility with existing personal value & conclusion.
 
-### Acquired Knowledge
+Acquired Knowledge:
+### Skill
 > **Skills** are learned [**Actions**](#action);
 > > Procedural Memory. Most people able obtain.
 >
-> [**Principals**](#principal) are common used algorithm support/explain [**conclusion**](#conclusion); 
+### Principal
+> [**Principals**](knowledge.md#principal) are common used algorithm support/explain [**conclusion**](knowledge.md#conclusion); 
 > > Metaphor: algorithms transform unknown equation into solvable equation
 > 
 > > Principal won't have conflict w other principals `under some premises`.
 > 
 > > IMO discrete math has many basic Principal, should be taught in HS.
->
+
+### Frameworks
 > [**Frameworks**](#framework) are collection of principals & conclusions to explain reality. `aka mental construction of reality.`
 > > A good framework should able steelman argue `or explain` for every subject's action `aka people's POV`;
 > 
 > > Framework most likely in 2 types: Top-down VS Bottom-Up
 > 
-> > IMO: Most things in life can fit into small number of [frameworks](./framework.md)
+> > IMO: Most things in life can fit into small number of [frameworks](knowledge.md#framework)
 > 
 > > It is rare, but sometime new framework to lead to the development of new personal values.
 
-# Personal Value
-> It is recommended that you prioritize your top 10 personal values and strive to live by them.
-> 
-> By living in accordance with your values, you may find that you feel happier, have more confidence in your decisions, and have a clearer direction in your life.
 
-Ex Personal Values from google:
-- Personal growth
-- Dependability
-- Adaptability
-- Well-being
-- Altruism
-- Compassion
-- Integrity
-- Generosity
-- Courage
-- Gratitude
-- Sustainability
-- Frugality
-- Loyalty
-- Family
-- Humility
-- Assertiveness
-- Uniqueness
-- Sustainability
-
-# Conclusion
-`aka Recognized patterns.`
-
-- All knowledge build on top assumptions, aware assumption can be invalidated.
-
-- Everything has its mechanic.
-> Understand **mechanic** by either collect statistics, or by logic;
-
-- There is no solution, only tradeoff.
-
-- Great power comes great responsibility. `from spider-man`
-> IMO: Common problem is people's desire for power, money, and position without assuming responsibility.
-> 
-> > Parenting should base on equal respect; Make kid understand more power comes with more responsibility.
-
-- Most things have recursive property.
-> Ex: Wealth, Knowledge, Ability, Social Skill
-
-- Heard < Seen < Used < Understand < Improve < Trust yourself < Others trust you
-> or knowing < remembering < understanding < communicating
-
-- Intelligence is equilibrium of supply `often too much focus` and demand `often overlook`.
-
-- Decision fatigue
-> The reason for Brand, Company, Representative; If we solved/expand this humanity BOTTLENECK`reliance on computer?`, we will make great improvement.
-
-
-# Principal
-`aka belief/guidance/assumption.`
-
-`Self principals:`
-- Transparency accelerate learning process.
-> The very reason I write this repo.
-
-- Focus proportional to YOUR ability to change it.
-> Connection before correction. `by Jane Nelsen`
-- Don't trust, verify.
-- Seek satisfaction, not happiness.
-> Most people happy when they have new ability.
-> 
-> That's why kid way happier than adult, kid unlock new ability more frequents than adult.
-
-- Past can't change; Only reflect if you intended change yourself for future.
-> Change your path is easier than change what your desire.
-
-- Repetition training is most effective way to change. `Not talking about memory, just habits.`
-
-- We have two minds, the rational mind `human brain/cortex`, and the emotional mind `mammal brain`.
-> Mammal brain express through body language, has 6 primary emotions.
-> 
-> Rational mind just pattern recognition machine.
->
-> People communication often neglected emotional mind`both self & other`. 
-> 
-> We reverted to reptilian brain in time of conflict.
-> > Hack around by delay response. `aka cool off period`
-
-- Pain + Reflection = Progress
-
-- We develop heuristics first, `optimize based of statistical bias`, then algorithms `framework explain all possible paths`;
-
-`Team work principals:`
-- If you want to go fast, go alone, if you want to go far, go together.
-
-- Goal is not important, execution path is the key. The skill to navigate in path and understand the tradeoffs is what makes different.
-
-- Establish goal & rule in advanced, and transparent environment.
-
-- Better workflow is more valuable than correct answer.
-> Most parent mistakes root from parent value correct behavior OVER child's psychology workflow.
->
-> Don't go for perfect answer. Rather focus on constance improvement of existing workflow.
-
-
-- 2 approaches to solution
-> Top down approach
-> > List possible causes, then start eliminate causes by logic.
-> 
-> Bottom up approach
-> > Start from what I can do, build a module at a time, then start combine module.
-
-- When leader w strong ego, leader's ability is ceiling of their team.
-
-
-## Framework
-> Life is a video game
-
-> You `player` have to make decision what you want to collect `or not collect`, where you explore, which equipments to carry `RIGHT equipments > more equipments`, which relationships to establish;
-> 
-> During the game, your character may collect equipments `Money, Skill, Principal, Value`;
-> 
->> IMO: Too many `equipments` will be counter productive, just like too many junks in hoarder house. Right principle is determent by your **PROBLEM** `game`.
-> 
->> IMO: Money amplify person true nature `Money is like mushroom in super mario, turn you bigger`.
-> 
->> IMO: Hardest problem to overcome is player control bug `mental disability`.
-> 
->> IMO: Lack of education & recognize pattern `Player don't know game rule/pattern`.
-> 
-> Happiness comes from player, not character in game; Many player don't understand player himself, or confused between player and character.
->
-> The only resource player have is time.
-
-
-# Action
-> aka: Problem > Evaluation > Diagnosis > Design > Implementation
+# Reflection Process
+> [Reflection Process](#backward-propagation-workflow) is backward propagation workflow. 
 - Evaluation 1. Do nothing.
   - 1.1 Don't recognized problem.
   - 1.2 Ignore problem.
@@ -220,15 +101,16 @@ Ex Personal Values from google:
   ### Diagnose
   - 3.1 Diagnose `listen other; reexamine knowledge`
     - 3.1.1 [attention?](psychology.md#1-attention)
+      - reprioritize personal value;
       - improve workflow design;
       - more workflow training;
     - 3.1.2 [sensation?](psychology.md#2-sensation)
       - any work around? `i can't fix blind`
     - 3.1.3 [perception?](./psychology.md#3-perception)
-      - biology perception?
-        - `idk fix, work around?`
-      - psychology perception?
-        - what you don't noticed? `Can you practice to improve perception?`
+      - biology perception? `work around?`
+      - psychology perception? [`study emotion & mammal brain, and PNS`](../biology/anatomy.md)
+        - internal
+        - external
     - 3.1.4 [association?](psychology.md#4-association)
       - Avoid
       - Add `missing skill; establish association;Dilution;`

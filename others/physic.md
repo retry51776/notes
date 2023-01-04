@@ -73,6 +73,8 @@ $$
 >>  - z0 w+ w- (weak force)
 >>  - higgs (field create mass)
 
+Strong force caused cosmic inflation.
+In big bang, 4 force independence order: [gravity, strong force, week force, electromagnetism]
 <hr />
 
 ### Plaster
