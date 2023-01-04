@@ -1,3 +1,6 @@
+# Business
+> A lot buzzwords, I never remember them.
+
 # FrontEnd Business
 
 ## Marketing
@@ -10,6 +13,7 @@ Buzzwords:
 - cold lead
 - campaign
 - Webinar
+- cost per one thousand impressions(CPM) `advertisement cost`
 
 ## Sales
 Stacks:
@@ -25,7 +29,7 @@ Buzzwords:
 - Contract
 - Backfills/Tourial
 
-<hr />
+<br />
 
 # Backend Bussiness
 
@@ -88,43 +92,47 @@ Owner Structures:
   - better protection in cost of complex setup
 
 <hr />
+
 # BuzzWords
 
-**Prefer stock**
+- Prefer stock
 > private company will issues prefer stock to investor, so in case bankruptcy, investor will get pay out first, when IPO, prefer stock will convert to common stock
 
-**Convertible debt/note/bond**
+- Convertible debt/note/bond
 > company borrow money, allow lender to choose 1. pay back later 2. allow lender convert to stock in future w set price 3. stock options in set price
 
-**409A**
+- 409A
 > 409A is an independent appraisal of the fair market value (FMV) of a private company's common stock
 
-**Saas Metrics**
-- Customer Churn `opposite to customer retention rate; used to calculate average user time`
-- Revenue Churn `similar to Customer Churn, but on Revenue;`
-- Net MRR Churn `= (lost MRR + Contraction MRR - Expansion MRR - Reactivation ARR) / MRR Beginning of Period`
-- Customer Lifetime Value (CLV) `CLV = Customer Value * Average Customer Lifespan`
-> Average Purchase Value = total_revenue / number_order (within a year)
-> Average Purchase Frequency = purchase_count / customer_count
-> Customer Value = avg_purchase_value * avg_purchase_frequency
-> Average Customer Lifespan = all_customers_lifespan / customer_count
+- Learning Curve pricing `max production rate to expose all possible problems`
+- Addressable Market `The potentials of market `
+- Blocker strategy `prevent competitor's move`
+- SAAS Metrics
+  - Customer Churn `opposite to customer retention rate; used to calculate average user time`
+  - Revenue Churn `similar to Customer Churn, but on Revenue;`
+  - Net MRR Churn `= (lost MRR + Contraction MRR - Expansion MRR - Reactivation ARR) / MRR Beginning of Period`
+  - Customer Lifetime Value (CLV) `CLV = Customer Value * Average Customer Lifespan`
+  > Average Purchase Value = total_revenue / number_order (within a year)
+  > Average Purchase Frequency = purchase_count / customer_count
+  > Customer Value = avg_purchase_value * avg_purchase_frequency
+  > Average Customer Lifespan = all_customers_lifespan / customer_count
 
-- Customer Acquisition Cost (CAC) `CAC = marketing_spend / total_sales`
-- Months to Recover CAC
-- CAC-to-LTV Ratio `at least 3 X CAC`
-- Customer Engagement Score `No standard, just uses GA to make up a report`
-- Qualified Marketing Traffic `traffic excludes existed customer`
-- Leads by Lifecycle Stage
-> Lead > Market Qualified Lead(MQL) > Sales Qualified Lead(SQL) > Opportunity > Customer
-- Lead-to-Customer Rate
-- Customer Health Score
-- Average Revenue Per User (ARPU)
+  - Customer Acquisition Cost (CAC) `CAC = marketing_spend / total_sales`
+  - Months to Recover CAC
+  - CAC-to-LTV Ratio `at least 3 X CAC`
+  - Customer Engagement Score `No standard, just uses GA to make up a report`
+  - Qualified Marketing Traffic `traffic excludes existed customer`
+  - Leads by Lifecycle Stage
+  > Lead > Market Qualified Lead(MQL) > Sales Qualified Lead(SQL) > Opportunity > Customer
+  - Lead-to-Customer Rate
+  - Customer Health Score
+  - Average Revenue Per User (ARPU)
 
-- Monthly recurring revenue (MRR)
-- Annual recurring revenue (ARR)
-- Contraction revenue (signed contract)
-- Expansion revenue (up sales)
-- Reactivation revenue
+  - Monthly recurring revenue (MRR)
+  - Annual recurring revenue (ARR)
+  - Contraction revenue (signed contract)
+  - Expansion revenue (up sales)
+  - Reactivation revenue
 
 reserve Prefer stock for employee
 
@@ -169,8 +177,5 @@ Giftcard Meeting
 - codeinterview.io
 - www.codewars.com
 
+# Quotes
 > Top tier company implement standard & direction; 2nd tier company develop their brand; 3rd tier company focus on product
-
-Learning Curve pricing - max production rate to expose all possible problems
-Addressable Market - The potentials of market 
-blocker strategy - `prevent competitor's move`

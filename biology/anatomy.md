@@ -1,14 +1,14 @@
 # Anatomy
-> Study of human body
+> Study of human body。
 > 
-> Problem here is human body often multi purposes; These can't be easily organized into distinct system;
+> > The problem is that the human body often performs multiple functions, which cannot be easily organized into distinct systems.
 
 Key Systems
 - [Phycology](../psychlogy/psychology.md) `aka how brain works`
 - [Circulatory System](#circulatory-system)
   - Respiratory System
-  - Lymphatic System
-- Digestive System
+  - [Lymphatic System](#lymphatic-system)
+- [Digestive System](#digest-system)
 - Muscular System
   - Reproductive System
 
@@ -28,11 +28,11 @@ Key Systems
 
 - Regulatory Gene `webpack`
 
-## Nervous System
-### Central Nervous System (CNS)
+# Nervous System
+## Central Nervous System (CNS)
   - Brain
-  - Spinal Cord
-### Peripheral Nervous System (PNS)
+  - [Spinal Cord](#reptilian-brain)
+## Peripheral Nervous System (PNS)
   - Somatic Nervous System `voluntary`
   - Autonomic Nervous System `involuntary`
     - Sympathetic Nervous System `Arousing;紧张;`
@@ -51,33 +51,28 @@ Key Systems
       - Spinal Accessory Nerve `head & shoulder; motor`
       - Hypoglossal Nerve `talk; motor`
 
-> Both Neutotransmitter and hormones effects neuron, sometime even same compound.
-> > I think of both Neutotransmitter and hormones are message broker system`rabbitmq` in programming, each organ has it own consumer`receptor` listen to message and will response according its consumer; hormones is fanout exchange, deliver through blood; while neutotransmitter is topic exchange deliver to specific organ
-**Neutotransmitter** `ferry signal to another neuron; most neuron works with single type Neutotransmitter`
-- Acetylcholine (ACH)
-- Gamma aminobutyric acid (GABA) `30% neuron, suppress`
-- Norepinephrine `suppress; excite heart for alertness`
-- Dopamine `suppress;`
+### Reptilian brain
+Consciousness state:
+- Awake
+- Drug Alter `Depressant; Stimulants; Hallucinogens`
+- Hypnosis `calm, trance-like state during which you tend to have **heightened concentration and focus**, and in which you're typically more open to suggestion.`
+- Sleeping `recuperation; growth; mental function;`
 
 
-## Hormones
-> produces by gland; `I think of hormones are massagers;`
-- GABA - stop electric signal pass between neuron; opposite to Dopamine
-- Dopamine(多巴胺) - active agent, lack will cause shaking
-- Serotonin(血清素) - Happy, memory
-- Prolactin(泌乳素) - Produce milk
-- Luteinizing Hormones (黄体化激素) - Ovaries
-- Follicle Stimulating Hormones (卵泡刺激素) - pubertal development
-- Oxytocin() - Love
-- Melatonin - Clock, Sleep
-- Endorphins - Pain killer
-- Adrenaline - fight or flight
-- Norepinephrine - redirect blood in dangerous
+
+# Circulatory System
+main components:
+- Heart
+- Blood vessels `which include your arteries, veins and capillaries`
+- Blood `made up of red and white blood cells, plasma and platelets`
 
 
-## Endocrine System
-`内分泌系统` controls attraction, appetite, aggression;
+# Endocrine System
+> Endocrine System `内分泌系统` controls attraction, appetite, aggression;
+>
+> Gland produce Hormones; Hormones travel though bloodstream, then bind to hormone receptor to enter cell. 
 
+## Glands
 Functions includes:
 - moods
 - arousal
@@ -87,7 +82,7 @@ Functions includes:
 - signal growth
 - reproduction
 
-Glands:
+Organs:
 - pineal gland / 松果腺
 - hypothalamus / 下丘脑 `control pituitary gland`
 - pituitary gland / 脑下垂体 `control rest glands`
@@ -107,14 +102,30 @@ Glands:
 
 > HPT axis = hypothalamus -> pituitary  -> thyroid
 
+## Hormones
+> produces by gland; `I think of hormones are massagers;`
+- GABA - stop electric signal pass between neuron; opposite to Dopamine
+- Dopamine(多巴胺) - active agent, lack will cause shaking
+- Serotonin(血清素) - Happy, memory
+- Prolactin(泌乳素) - Produce milk
+- Luteinizing Hormones (黄体化激素) - Ovaries
+- Follicle Stimulating Hormones (卵泡刺激素) - pubertal development
+- Oxytocin() - Love
+- Melatonin - Clock, Sleep
+- Endorphins - Pain killer
+- Adrenaline - fight or flight
+- Norepinephrine - redirect blood in dangerous
 
-# Circulatory System
-main components:
-- Heart
-- Blood vessels `which include your arteries, veins and capillaries`
-- Blood `made up of red and white blood cells, plasma and platelets`
+> Both Neutotransmitter and hormones effects neuron, sometime even same compound.
+> > I think of both Neutotransmitter and hormones are message broker system`rabbitmq` in programming, each organ has it own consumer`receptor` listen to message and will response according its consumer; hormones is fanout exchange, deliver through blood; while neutotransmitter is topic exchange deliver to specific organ
+**Neutotransmitter** `ferry signal to another neuron; most neuron works with single type Neutotransmitter`
+- Acetylcholine (ACH)
+- Gamma aminobutyric acid (GABA) `30% neuron, suppress`
+- Norepinephrine `suppress; excite heart for alertness`
+- Dopamine `suppress;`
 
-## Lymphatic System
+
+# Lymphatic System
 `淋巴系統`
 Lymphatic vessels pumps 15% fluid back into blood stream;
 
@@ -156,9 +167,10 @@ B Cell antibody is generated randomly, so its antibody must be confirmed with T 
 
 Check & balance of B & T Lymphicyte is important
 
-# Reptilian brain
-Consciousness state:
-- Awake
-- Drug Alter `Depressant; Stimulants; Hallucinogens`
-- Hypnosis `calm, trance-like state during which you tend to have **heightened concentration and focus**, and in which you're typically more open to suggestion.`
-- Sleeping `recuperation; growth; mental function;`
+# Digest System
+> Digest System break food into 3 types:
+- Fat
+- Protein
+- Carbohydrate
+  - fructose directly defuses in blood & uses by cells.
+  - glucose and alcohol process by same way.

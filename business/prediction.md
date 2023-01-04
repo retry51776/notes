@@ -10,4 +10,4 @@
 2. cell agriculture
    1. no longer need large corn/soybean farm; glucose will product in factory just like gas
    2. reduction of animals farms, some kind cell production will cheaper than chicken
-3. 
+3. AI took over

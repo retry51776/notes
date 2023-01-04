@@ -60,6 +60,7 @@ Ex Personal Values from google:
 - Decision fatigue
 > The reason for Brand, Company, Representative; If we solved/expand this humanity BOTTLENECK`reliance on computer?`, we will make great improvement.
 
+- Often structure determent properties.
 
 
 # Skill

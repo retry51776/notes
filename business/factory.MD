@@ -1,5 +1,5 @@
 # Factory
-> I should wrote down more notes.
+> Stuff I learn in manufactory.
 
 
 ## Buzzwords
