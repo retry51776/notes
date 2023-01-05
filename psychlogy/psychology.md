@@ -8,10 +8,6 @@
 > 
 > > Each cortex lob are registers; Association Areas is CPU`more like FPGA`; some cortex also acts as storage;
 
-> First: we observe other's behavior`action`, copy cat their behavior`like cheating in exam`;
-> 
-> Second: result will trigger our feedback system`by neurotransmitters trigger emotions & memory`, then we observe patter & adjust our conclusion & behavior;
-
 
 # Questions:
 - What/How is Brain Process overall architecture?
@@ -48,6 +44,8 @@
       - comprehension
     - Insular cortex
       - taste sensation
+
+
 
   - **Mammal Brain** `includes Reptilian brain; IMO logic here, but about children level logic;`
     - [Pituitary Gland](../biology/anatomy.md#endocrine-system)
@@ -141,23 +139,8 @@ Touch sensations:
 
 
 ## Psychology Perception
-`aka Body Language`
-> Mammal Brain uses [Peripheral Nervous System](./../biology/anatomy.md#peripheral-nervous-system-pns) directly express body language.
-> Ability to read body language through body expression. `Processed by frontal lob?`
-> > Psychology Perception on self, or on other?
-> 
+> Ability to read (Self & Other) body language through [body expression](#mammal-brain).
 > > Women usually out perform men on reading body language.
->
-> Body language is Emotional Expression by mammal brain. In fact most mammal have all 6 primary emotions.
-
-> TODO: needs to study more.
-
-- The Definitive Book of Body Language
-> 1. Read gestures in clusters.
-> 2. Look for congruence. `aka find contradiction`
-> 3. Read gestures in context.
-- Lie Detection 101
-- What every body saying
 
 
 ## Biology Perception
@@ -215,10 +198,8 @@ Touch sensations:
 
 > My guess is order is flipped; It's Association **first**, then Logic **second**.
 
-## Emotion & Memory Association
-> Memory & Emotion are related
-> > All mammal have similar emotions.
-> 
+## Memory Association
+> Memory & Emotion are related.
 > > If you want to memorize something, tie them to a feeling
 
 ### Working memory
@@ -247,7 +228,25 @@ Touch sensations:
 > 
 > Long term memory is neuron develop new terminal directly connects to other neuron; serotonin cause neuron grew new terminal;
 
-### Primary Emotions
+
+# Mammal Brain
+> [Mammal Brain](#brain) uses [Peripheral Nervous System](./../biology/anatomy.md#peripheral-nervous-system-pns) directly express body language.
+> 
+> Mammal Brain process reality in terms of emotions;
+> > Mammal Brain process same sensation as Human Brain, but have faster response than Human Brain.
+> 
+> > All mammals have similar emotions.
+
+> IMO
+> > Mammal brain is another kid within us;
+> 
+> > Mammal brain includes [Peripheral Nervous System](./../biology/anatomy.md#peripheral-nervous-system-pns)
+> 
+> > We should use [Parenting model](parent.md) to train mammal brain.
+> > Connection before correction.
+
+## Primary Emotions
+> aka Mammal Brain Process
 - Sad
 - Disgust
 - Happy
@@ -255,6 +254,16 @@ Touch sensations:
 - Anger
 - Fear
 
+## Body Language
+> aka Mammal Brain Output
+
+Books:
+- The Definitive Book of Body Language
+ - 1. Read gestures in clusters.
+ - 2. Look for congruence. `aka find contradiction`
+ - 3. Read gestures in context.
+- Lie Detection 101
+- What every body saying
 
 # Conclusion
 > We must be aware which brain level we operating on;
@@ -264,5 +273,3 @@ Touch sensations:
 >
 > Try to resolve problem in wrong level is similar fixing bug in different area.
 > > Missing Perception? or Bad Association?
-
-> I think we should use Parenting model to train Limbic & reptilian brain

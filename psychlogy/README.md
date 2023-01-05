@@ -1,7 +1,7 @@
 # Workflow
 > Just write down my understand of psychological process;
 >
-> I divides brain into human brain `rational` and mammal brain `emotional`;
+> I divides brain into human brain `rational` and [mammal brain](psychology.md#mammal-brain) `emotional`;
 > 
 > I only focus on [Central Nervous System Workflow](./../biology/anatomy.md#central-nervous-system-cns) `aka rational`, is based on [**Psychology**](./psychology.md)
 >
@@ -11,12 +11,12 @@
 ## Forward Propagation Workflow
 aka decision process
 
-> [Desire](#desire) > Problem > [**Awareness**](#awareness) > [**Association**](./psychology.md#4-association) > [**Action**](#action)
+> [Desire](#desire) > Problem > [**Awareness**](#awareness) > [**Association**](./psychology.md#4-association) > [**Action**](#reflection-process)
 
 
 ## Backward Propagation Workflow
 aka [reflection process](#reflection-process)
-> Result > [Evaluation](#action) > [Diagnosis](#diagnose) > [Design](#design) > [Implementation](#implementation)
+> Result > [Evaluation](#reflection-process) > [Diagnosis](#diagnose) > [Design](#design) > [Implementation](#implementation)
 
 [**Desire**](#desire), [**Awareness**](#awareness), [**Knowledge**](#knowledge) are key elements to control workflow `aka behavior`.
 
@@ -66,7 +66,7 @@ Natural Knowledge:
 
 Acquired Knowledge:
 ### Skill
-> **Skills** are learned [**Actions**](#action);
+> **Skills** are learned [**Actions**](#reflection-process);
 > > Procedural Memory. Most people able obtain.
 >
 ### Principal
