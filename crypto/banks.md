@@ -1,41 +1,38 @@
-## Game Rules:
-> Assume the world starts with x numbers of players, each w some assets; (assets can be unique skillset or products, some are transferable, and some are bound to the player)
+# Analogy
+> Here are the rules for the game:
+>
+> At the start of the game, there are x players, each with some assets (which may include unique skills or products, some of which are transferable and some of which are bound to the player).
+>
+> The game will be evaluated at certain intervals. When the game determines that a player has acquired enough critical assets and has spent enough time playing, it will produce new assets.
+>
+> Advanced assets have complex requirements, such as requiring a specific player's skillset, a large number of other assets, and a long time investment.
+>
+> Players can change their allocation of assets or form teams in order to meet the requirements for advanced assets.
 
-> The game will evaluate at some integral; Once satisfied with critical assets and time, the game will produce new assets.
-
-> Advance assets have complex requirements, such as a specific player's skillet, a large number of asset requirements, long time;
-
-> The player can change an asset allocation, or team up together to satisfied requirements.
-
-## Strategy - This game is very similar to the sorting problem
-> Direct swap asset is most straightforward but very limited;
-
-> The current solution focus on matching correct asset allocation; 
-
-> We create some placeholder that enables assets to decouple from the owner/producer;
-
-> New assets distribute to the credit's owner, not the producer;
+> The strategy for this game is similar to solving a sorting problem.
+> 
+> The most straightforward approach is to directly swap assets, but this method has limited utility. Our current solution focuses on finding the correct asset allocation. We use placeholder assets to allow assets to be separated from their owner or producer. When new assets are produced, they are distributed to the owner of the credits, rather than the producer.
 
 
 ## Notes:
 > Not all Credit/Placeholders are equal;
 
-> Any two trust parties can create Credit/Placeholders.
+> Any two trust parties can create Placeholders `Credit`.
 
-> Credit/Placeholders are promises of future assets.
+> Placeholders `Credit` are promises of future assets.
 
 
 ## FAQ:
 - How do I create credit? When you promise to do homework, get your parents to buy ice cream. You get ice cream without doing homework yet; Just a promise.
 - How do I create credit that everyone uses? When you get a mortgage/loan from the bank.
 - How do I create real money without liability? 
-- - A: Federal Reserve creates credit in their computer network with a keyboard. It doesn't cause them anything but the electricity they pay with credit!
-- - B: Commercial Banks that approve your loan. The credit/money they loan you MOSTLY doesn't exist, just like the Federal Reserve, where most are digits in their computer. Commercial Bank does constrain by [reserve liquidity, bad loans, initial capital]
-- - C: ~~The company takes a loan from Bank or creates a junk bond, then default!~~
-- - D: ~~Same as C, but use your personal credit.~~
+  - A: Federal Reserve creates credit in their computer network with a keyboard. It doesn't cause them anything but the electricity they pay with credit!
+  - B: Commercial Banks that approve your loan. The credit/money they loan you MOSTLY doesn't exist, just like the Federal Reserve, where most are digits in their computer. Commercial Bank does constrain by [reserve liquidity, bad loans, initial capital]
+  - C: ~~The company takes a loan from Bank or creates a junk bond, then default!~~
+  - D: ~~Same as C, but use your personal credit.~~
 - Why would asset owner trade their asset for credit when credit will devalue?
-- - A: All assets decays, some decay faster; Ex: food decays within a week, while gold hardly decays; Which explain why people value gold more than food, even when people can't live without food;
-- - B: Specialized caused producers over produce for their own uses! Farmer won't consume all their crops, same as car worker can't consume all cars they made; Also make producer dependence on other producers;
+  - A: All assets decays, some decay faster; Ex: food decays within a week, while gold hardly decays; Which explain why people value gold more than food, even when people can't live without food;
+  - B: Specialized caused producers over produce for their own uses! Farmer won't consume all their crops, same as car worker can't consume all cars they made; Also make producer dependence on other producers;
 - What is cash in this framework? Paper money/Greenback is legacy from previous system. When we switch over current system @ 1935, new system for backward compatibility will always exchange 1 to 1 bank credit to cash. The world is run by credit, not cash(which only printed by government). In fact cash use case is getting smaller & smaller;
 - How is Government create credit? Same as you, get a loan from the banks! The only difference is banker will always buy government bond. Market determent T-Bond price. Because everyone trust government's T-Bond(promise), there is T-Bond market, which is key indicator/baseline of every other markets(Ex: stock, MBS, Corp Bond, ...)
 
@@ -98,9 +95,8 @@ Banker has $11 lost on their book; Either next loan able to recover lost, or los
 > > > physical resources
 > > > human resources
 > > > technology
-> > system
-> > > allocation
-> > > logistic
+> > > > allocation
+> > > > logistic
 > 
 - Expectation/Credit `self reflection & distribution`
 
@@ -111,3 +107,5 @@ Banker has $11 lost on their book; Either next loan able to recover lost, or los
 > Finance Industry is part of brain does planning for society. Leverage is a must in order to amplify signal;
 > Company is like organ, organize cells to do some function;
 > People is like cell that does some work;
+
+> mixing flower to make dope, fed add water(credit) to mix, gov shake water & flower, people adds flower

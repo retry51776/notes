@@ -1,9 +1,12 @@
 # Workflow
 > Just write down my understand of psychological process;
+>
+> I divides brain into human brain `rational` and mammal brain `emotional`;
 > 
-> I only focus on [Central Nervous System Workflow](./../biology/anatomy.md#central-nervous-system-cns), is based on [**Psychology**](./psychology.md)
+> I only focus on [Central Nervous System Workflow](./../biology/anatomy.md#central-nervous-system-cns) `aka rational`, is based on [**Psychology**](./psychology.md)
 >
 > Inspired by Ray Dalio's Principal and Positive discipline by Jane Nelsen.
+> > IMO: Both book have same idea, develop & enforce workflow.
 
 ## Forward Propagation Workflow
 aka decision process
