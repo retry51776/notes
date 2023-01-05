@@ -90,35 +90,43 @@ Acquired Knowledge:
 
 # Reflection Process
 > [Reflection Process](#backward-propagation-workflow) is backward propagation workflow. 
-- Evaluation #1: Do nothing.
+## Evaluation #1: Do nothing.
   - 1.1 Don't recognized problem.
   - 1.2 Ignore problem.
 
 
-- Evaluation #2: Avoid problem.
+## Evaluation #2: Avoid problem.
   - 2.1 Change path
   - 2.2 Change desires
 
 
-- Evaluation #3: Self improvement.
+## Evaluation #3: Self improvement.
   ### Diagnose
   - 3.1 Diagnose `listen other; reexamine knowledge`
-    - 3.1.1 [attention?](psychology.md#1-attention)
-      - reprioritize personal value;
-      - improve workflow design;
-      - more workflow training;
-    - 3.1.2 [sensation?](psychology.md#2-sensation)
-      - any work around? `i can't fix blind`
-    - 3.1.3 [perception?](./psychology.md#3-perception)
-      - biology perception? `work around?`
-      - psychology perception? [`study emotion & mammal brain, and PNS`](../biology/anatomy.md)
-        - internal
-        - external
-    - 3.1.4 [association?](psychology.md#4-association)
-      - Avoid
-      - Add `missing skill; establish association;Dilution;`
-      - Edit `Reedit memory; divide & conquer;`
-  - 3.2 validate diagnose
+    - 3.1.2 [Desire](#desire) `Belong or Power?`
+      - Increase:
+        - reprioritize personal value;
+        - convert emotion to motivation
+      - Decrease:
+        - [avoid](#evaluation-2-avoid-problem)
+        - power comes w responsibility
+    - 3.1.2 [Awareness](#awareness)
+      - [attention?](psychology.md#1-attention)
+        - reprioritize personal value;
+        - improve workflow design;
+        - more workflow training;
+      - [sensation?](psychology.md#2-sensation)
+        - any work around? `i can't fix blind`
+      - [perception?](./psychology.md#3-perception)
+        - biology perception? `work around?`
+        - psychology perception? [`study emotion & mammal brain, and PNS`](../biology/anatomy.md)
+          - internal
+          - external
+    - 3.1.3 [Association](psychology.md#4-association)
+      - Add Knowledge `missing skill; establish association;Dilution;`
+      - Avoid Association
+      - Edit Association `Reedit memory; divide & conquer;`
+  - 3.2 Validate diagnose
     - 3.2.1 start from problem
       - can you reproduce problem?
       - list out possible cause, then elimination
@@ -127,18 +135,18 @@ Acquired Knowledge:
       - can you limited variables?
       - can you execute potential solution see result?
   ### Design
-  - 3.3 communication
+  - 3.3 Communication
     - 3.3.1 Connection before correction.
       - External: confirm their feeling, share your feeling
       - Internal: trust yourself, aka [mammal brain](psychology.md#mammal-brain)
-  - 3.4 design workflow
+  - 3.4 Design workflow
     - 3.4.1 If there is another party, remember compromise
     - 3.4.2 Solution can be incremental improvement
   ### Implementation
-  - 3.5 training
+  - 3.5 Training
     - 3.5.1 confirm improvement
     - 3.5.2 repeatation is the key
-  - 3.6 conclusion
+  - 3.6 Conclusion
     - 3.6.1 Identify problem, solution, progress, lesson
     - 3.6.2 explore alternative
     - 3.6.3 document [adjustment of knowledge](#knowledge)
@@ -146,6 +154,6 @@ Acquired Knowledge:
     - 3.6.4 develop trust `internal & external`
 
 
-- Evaluation #4: Outsource Problem.
+## Evaluation #4: Outsource Problem.
   - 4.1 Reliance on people
   - 4.2 Reliance on machine
