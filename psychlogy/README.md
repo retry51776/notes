@@ -90,17 +90,17 @@ Acquired Knowledge:
 
 # Reflection Process
 > [Reflection Process](#backward-propagation-workflow) is backward propagation workflow. 
-- Evaluation 1. Do nothing.
+- Evaluation #1: Do nothing.
   - 1.1 Don't recognized problem.
   - 1.2 Ignore problem.
 
 
-- Evaluation 2. Avoid problem.
+- Evaluation #2: Avoid problem.
   - 2.1 Change path
   - 2.2 Change desires
 
 
-- Evaluation 3. Self improvement to resolve problem.
+- Evaluation #3: Self improvement.
   ### Diagnose
   - 3.1 Diagnose `listen other; reexamine knowledge`
     - 3.1.1 [attention?](psychology.md#1-attention)
@@ -148,6 +148,6 @@ Acquired Knowledge:
     - 3.8.2 Other trust you to resolve problem
 
 
-- Evaluation 4. Outsource Problem.
+- Evaluation #4: Outsource Problem.
   - 4.1 Reliance on people
   - 4.2 Reliance on machine

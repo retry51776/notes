@@ -240,7 +240,7 @@ Touch sensations:
 > IMO
 > > Mammal brain is another kid within us;
 > 
-> > Mammal brain includes [Peripheral Nervous System](./../biology/anatomy.md#peripheral-nervous-system-pns)
+> > Mammal brain includes [Reptilian brain](#reptilian-brain) and [Peripheral Nervous System](./../biology/anatomy.md#peripheral-nervous-system-pns).
 > 
 > > We should use [Parenting model](parent.md) to train mammal brain.
 > > Connection before correction.
@@ -264,6 +264,16 @@ Books:
  - 3. Read gestures in context.
 - Lie Detection 101
 - What every body saying
+
+
+## Reptilian brain
+> Survival Stuff; I think of Reptilian brain as driver for hardware.
+
+Consciousness state:
+- Awake
+- Drug Alter `Depressant; Stimulants; Hallucinogens`
+- Hypnosis `calm, trance-like state during which you tend to have **heightened concentration and focus**, and in which you're typically more open to suggestion.`
+- Sleeping `recuperation; growth; mental function;`
 
 # Conclusion
 > We must be aware which brain level we operating on;

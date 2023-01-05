@@ -51,15 +51,6 @@ Key Systems
       - Spinal Accessory Nerve `head & shoulder; motor`
       - Hypoglossal Nerve `talk; motor`
 
-### Reptilian brain
-Consciousness state:
-- Awake
-- Drug Alter `Depressant; Stimulants; Hallucinogens`
-- Hypnosis `calm, trance-like state during which you tend to have **heightened concentration and focus**, and in which you're typically more open to suggestion.`
-- Sleeping `recuperation; growth; mental function;`
-
-
-
 # Circulatory System
 main components:
 - Heart
