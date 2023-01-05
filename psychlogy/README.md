@@ -128,8 +128,9 @@ Acquired Knowledge:
       - can you execute potential solution see result?
   ### Design
   - 3.3 communication
-    - 3.3.1 If any one using reptilian brain, delay communication
-    - 3.3.2 Establish connection by confirm their feeling, share your feeling
+    - 3.3.1 Connection before correction.
+      - External: confirm their feeling, share your feeling
+      - Internal: trust yourself, aka [mammal brain](psychology.md#mammal-brain)
   - 3.4 design workflow
     - 3.4.1 If there is another party, remember compromise
     - 3.4.2 Solution can be incremental improvement
@@ -137,15 +138,12 @@ Acquired Knowledge:
   - 3.5 training
     - 3.5.1 confirm improvement
     - 3.5.2 repeatation is the key
-  - 3.6 explore alternative
-    - 3.6.1 what if?
-  - 3.7 conclusion
-    - 3.7.1 Identify problem, solution, progress, lesson
-    - 3.7.2 Other subject/problem have inspiration from new conclusion
-    - 3.7.2 Add conclusion to log
-  - 3.8 develop trust
-    - 3.8.1 Trust yourself to resolve problem
-    - 3.8.2 Other trust you to resolve problem
+  - 3.6 conclusion
+    - 3.6.1 Identify problem, solution, progress, lesson
+    - 3.6.2 explore alternative
+    - 3.6.3 document [adjustment of knowledge](#knowledge)
+      - Ex: skill, conclusion, principal, personal value
+    - 3.6.4 develop trust `internal & external`
 
 
 - Evaluation #4: Outsource Problem.
