@@ -65,6 +65,19 @@ Ex Personal Values from google:
 
 # Skill
 `IDK, just too many to list`
+- Math
+  - Algebra
+  - Discrete Math
+  - Probability
+  - Calculus
+- Physic
+  - Classic Physic
+    - CSI
+  - The Standard Model
+  - Theoretical physics
+- Chemistry
+- Biology
+- Psychology
 
 
 # Principal

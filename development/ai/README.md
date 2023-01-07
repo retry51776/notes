@@ -16,9 +16,13 @@
   - Activation function
   - Weight
   - Bias `a value that is added to the output of a neuron before it is passed to the next layer.`
+- Prompt Engineering `aka use beginning statement to set context for AI`
 
 ## architecture
 > Think of AI as a kid, we are designing games to see which game `architecture` help AI `kid` grow;
 
 - Stable diffusion: add noise to image, let AI recover image;
+
+
+- Language Model is statical model of large text db. AI usually very agreeable/static basie.
 

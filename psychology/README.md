@@ -49,7 +49,7 @@ Natural Knowledge:
 > [**Memory & Emotion**](./psychology.md#emotion--memory-association) includes Working Memory & Long Term Memory & Emotion.
 
 ### Conclusion
-> [**Conclusion**](knowledge.md#conclusion) is recognized pattern derived from past observation `[Problem > Action > Result]`.
+> [**Conclusion**](knowledge.md#conclusion) is recognized pattern derived from past observation.
 > > It's difficult to change our conclusion because it's based on many different results, which makes it hard to dilute the existing conclusion.
 >
 > > We are always be `bias` because we all only experiences subset of realities.
@@ -70,7 +70,7 @@ Acquired Knowledge:
 > > Procedural Memory. Most people able obtain.
 >
 ### Principal
-> [**Principals**](knowledge.md#principal) are common used algorithm support/explain [**conclusion**](knowledge.md#conclusion); 
+> [**Principals**](knowledge.md#principal) are [**core conclusions**](#conclusion) support/explain [other conclusions](knowledge.md#conclusion);
 > > Metaphor: algorithms transform unknown equation into solvable equation
 > 
 > > Principal won't have conflict w other principals `under some premises`.
