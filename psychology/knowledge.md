@@ -62,6 +62,9 @@ Ex Personal Values from google:
 
 - Often structure determent properties.
 
+- All evolutionary ideas are breaking our assumptions.
+> Ex: Einstein E=mc^2 means energy and mass is same thing.
+> Ex: Newton establish science.
 
 # Skill
 `IDK, just too many to list`
@@ -238,3 +241,4 @@ Ex Personal Values from google:
 4. Unchangeable destiny.
 5. At first technology matter the most, but at the end relationship are most important.
 6. Puzzle movie.
+7. Tessellation; Most classic literary have tessellation; There are some side characters with few details; Yet indicates they follow same rule & pattern that main character follow. Ex: 红楼梦 皇帝>贾府>赖管家

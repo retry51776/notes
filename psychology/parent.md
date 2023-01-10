@@ -31,6 +31,10 @@
 
 > The whole chapter 3 child order, root cause is parent demand/response; If there is already GOOD CHILD, the other most likely different is because parent no longer has same response as FIRST GOOD CHILD. `or parent's demand changed`
 
+# IMO
+> Company todays just like predator, instead body, company capture your attention. Those able protective their younger from predator survives.
+
+
 
 # Games
 - Toddler Telephone `use kids tell other parent message`

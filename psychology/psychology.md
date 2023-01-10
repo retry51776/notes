@@ -257,6 +257,7 @@ Touch sensations:
 ## Body Language
 > aka Mammal Brain Output
 
+
 Books:
 - The Definitive Book of Body Language
  - 1. Read gestures in clusters.
@@ -264,6 +265,14 @@ Books:
  - 3. Read gestures in context.
 - Lie Detection 101
 - What every body saying
+
+Rules:
+1. Expansion body space when positive, cave in when negative.
+2. We all natural have our pacifier behavior. Observes frequency.
+
+Tips:
+1. Practice paused & think. `aka inaction`
+2. 
 
 
 ## Reptilian brain
@@ -282,4 +291,5 @@ Consciousness state:
 > > When we talk to a person, imagine talking to 2 people, the logical one and the emotional one `connection before correction`
 >
 > Try to resolve problem in wrong level is similar fixing bug in different area.
-> > Missing Perception? or Bad Association?
+>
+> Brain function is localized, that is reason when we doing same thing we get tried & bored` feedback system avoid over use`. Also the same reason we need diversify desires. 

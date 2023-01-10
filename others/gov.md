@@ -32,10 +32,32 @@
 ## Executive
 - President
 
-## Legislative
-- Senator `state right; appointment confirmation;`
-- House `budget;`
+> 1st Monday of Feb President request budget from Oct 1st;
+> 15th Apr Congress budget resolution `aka blueprint; total amount`;
+> 15th May Congress appropriations bills; `aka markup bill; 12 subcommittees`
+> authorization
 
+## Legislative
+> 35 weeks session; Trying to get money whenever they lunch or call;
+>
+> Wednesday legislative markup;
+> Thursday & Friday usually vote; `roll & call`
+> 
+- Senator `state right; appointment confirmation;`
+  - Vice President
+> Monday 5:30am first vote;
+> Tuesday afternoon lunch & plan for both parties.
+- House `budget;`
+  - Speak of House
+  - Committee
+    - standing committees `aka by topic`
+      - Steering Committee `HR`, Appropriations Committee `Accounting`, Foreign Affairs Committee, 
+    - select committees `aka temporary issue`
+    - joint committees `aka both Senator & House`
+  - Party whip
+  - Party leader
+> Monday more time for house gather;
+> 6:30am Tuesday first vote;
 ## Judicial
 > Interpret Constitution
 
