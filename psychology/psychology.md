@@ -160,8 +160,8 @@ Touch sensations:
 > the perception of body awareness
 
 
-# 4. Association
-> Association find relevant [**Knowledge**](README.md#knowledge) of problem, Knowledge determents your [**Action**](README.md#action)
+# 4. Experience
+> Associate [**Experience**](README.md#experience) of problem determents your [**Action**](README.md#action)
 
 > Sleep develop Association Areas; `why we dream`
 > > Older people sleep less. Maybe it relates to learning. Sleep is like committing changes in the brain. `aka Less associate adjustment`

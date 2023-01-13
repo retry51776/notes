@@ -34,7 +34,8 @@
 
 > 1st Monday of Feb President request budget from Oct 1st;
 > 15th Apr Congress budget resolution `aka blueprint; total amount`;
-> 15th May Congress appropriations bills; `aka markup bill; 12 subcommittees`
+> 15th May Congress appropriations bills; `aka markup bill; 12 subcommittees;`
+> If appropriations bills no ready before Oct 1st; Congress uses Continuing Resolution(CR) to temporary fund gov. 
 > authorization
 
 ## Legislative
@@ -42,20 +43,39 @@
 >
 > Wednesday legislative markup;
 > Thursday & Friday usually vote; `roll & call`
-> 
+
+Interests Group -> any congress man proposal -> speaker of house assign to committee -> committee -> chair decide topic -> mark up -> pass by majority of committee -> vote by congress -> sign by president
+
+### Staff
+> aka those actually work & write law;
+- Individual Staff
+- Congressional Research Service
+- Government Accountability Office
+- Congressional Budget Office
+
+### Committee
+- standing committees `aka by topic`
+    - Steering Committee `HR`, Appropriations Committee `Accounting`, Foreign Affairs Committee;
+    - 20 for house & 16 for senate
+    - Chair
+    - House Rule Committee `Only for house`
+- select committees `aka temporary issue`
+  - Advisor Only has no legislative power
+- joint committees `aka both Senator & House`
+  - Conference Committee `adj bill for both houses`
+
+### Caucus
+> aka small party within party
+
 - Senator `state right; appointment confirmation;`
   - Vice President
+  - Majority leader
 > Monday 5:30am first vote;
 > Tuesday afternoon lunch & plan for both parties.
 - House `budget;`
   - Speak of House
-  - Committee
-    - standing committees `aka by topic`
-      - Steering Committee `HR`, Appropriations Committee `Accounting`, Foreign Affairs Committee, 
-    - select committees `aka temporary issue`
-    - joint committees `aka both Senator & House`
   - Party whip
-  - Party leader
+  - Majority leader
 > Monday more time for house gather;
 > 6:30am Tuesday first vote;
 ## Judicial

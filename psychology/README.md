@@ -11,14 +11,14 @@
 ## Forward Propagation Workflow
 aka decision process
 
-> [Desire](#desire) > Problem > [**Awareness**](#awareness) > [**Association**](./psychology.md#4-association) > [**Action**](#reflection-process)
+> [Desire](#desire) > Problem > [**Awareness**](#awareness) > [**Experience**](./psychology.md#4-experience) > [**Action**](#reflection-process)
 
 
 ## Backward Propagation Workflow
 aka [reflection process](#reflection-process)
 > Result > [Evaluation](#reflection-process) > [Diagnosis](#diagnose) > [Design](#design) > [Implementation](#implementation)
 
-[**Desire**](#desire), [**Awareness**](#awareness), [**Knowledge**](#knowledge) are key elements to control workflow `aka behavior`.
+[**Desire**](#desire), [**Awareness**](#awareness), [**Experience**](#experience) are key elements to control workflow `aka behavior`.
 
 
 </br></br>
@@ -39,17 +39,17 @@ aka [reflection process](#reflection-process)
 >
 > If you lack of some awareness, most likely your personal value doesn't prioritize it.
 
-## Knowledge
-> [Knowledge](knowledge.md) is accumulate state `RNN hidden state` of CNS Workflow;
+## Experience
+> [Experience](experience.md) is accumulate state `RNN hidden state` of CNS Workflow;
 > 
-> I categorizes Knowledge into Natural & Acquired.
+> I categorizes experience into Natural & Acquired.
 
-Natural Knowledge:
+Natural Experience:
 ### Memory & Emotion
 > [**Memory & Emotion**](./psychology.md#emotion--memory-association) includes Working Memory & Long Term Memory & Emotion.
 
 ### Conclusion
-> [**Conclusion**](knowledge.md#conclusion) is recognized pattern derived from past observation.
+> [**Conclusion**](experience.md#conclusion) is recognized pattern derived from past observation.
 > > It's difficult to change our conclusion because it's based on many different results, which makes it hard to dilute the existing conclusion.
 >
 > > We are always be `bias` because we all only experiences subset of realities.
@@ -59,18 +59,18 @@ Natural Knowledge:
 > > The very reason we love story, story lead to conclusion.
 
 ### Personal Value
-> [**Personal Value**](knowledge.md#personal-value) are ways we evaluate the internal & external action & result.`aka KPI for evaluation; Or NN Loss Functions;`
+> [**Personal Value**](experience.md#personal-value) are ways we evaluate the internal & external action & result.`aka KPI for evaluation; Or NN Loss Functions;`
 > > It is rare for individuals to change their personal values because these values are typically developed during early childhood.
 > 
 > > The new personal value require compatibility with existing personal value & conclusion.
 
-Acquired Knowledge:
+Acquired Experience:
 ### Skill
 > **Skills** are learned [**Actions**](#reflection-process);
 > > Procedural Memory. Most people able obtain.
 >
 ### Principal
-> [**Principals**](knowledge.md#principal) are [**core conclusions**](#conclusion) support/explain [other conclusions](knowledge.md#conclusion);
+> [**Principals**](experience.md#principal) are [**core conclusions**](#conclusion) support/explain [other conclusions](experience.md#conclusion);
 > > Metaphor: algorithms transform unknown equation into solvable equation
 > 
 > > Principal won't have conflict w other principals `under some premises`.
@@ -83,7 +83,7 @@ Acquired Knowledge:
 > 
 > > Framework most likely in 2 types: Top-down VS Bottom-Up
 > 
-> > IMO: Most things in life can fit into small number of [frameworks](knowledge.md#framework)
+> > IMO: Most things in life can fit into small number of [frameworks](experience.md#framework)
 > 
 > > It is rare, but sometime new framework to lead to the development of new personal values.
 
@@ -102,7 +102,7 @@ Acquired Knowledge:
 
 ## Evaluation #3: Self improvement.
   ### Diagnose
-  - 3.1 Diagnose `listen other; reexamine knowledge`
+  - 3.1 Diagnose `listen other; reexamine experience`
     - 3.1.2 [Desire](#desire) `Belong or Power?`
       - Increase:
         - reprioritize personal value;
@@ -123,7 +123,7 @@ Acquired Knowledge:
           - internal
           - external
     - 3.1.3 [Association](psychology.md#4-association)
-      - Add Knowledge `missing skill; establish association;Dilution;`
+      - Add Experience `missing skill; establish association;Dilution;`
       - Avoid Association
       - Edit Association `Reedit memory; divide & conquer;`
   - 3.2 Validate diagnose
@@ -149,7 +149,7 @@ Acquired Knowledge:
   - 3.6 Conclusion
     - 3.6.1 Identify problem, solution, progress, lesson
     - 3.6.2 explore alternative
-    - 3.6.3 document [adjustment of knowledge](#knowledge)
+    - 3.6.3 document [adjustment of experience](#experience)
       - Ex: skill, conclusion, principal, personal value
     - 3.6.4 develop trust `internal & external`
 
