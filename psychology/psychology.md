@@ -12,7 +12,7 @@
 # Questions:
 - What/How is Brain Process overall architecture?
 
-- What is ego/pride? something relates to connection? NN input weight?
+- What is ego/pride? something relates to connection? NN input weight? Is confident self-perception or experience?
 
 - How Hippocampus works? Maybe is help AI development.
 
@@ -161,9 +161,9 @@ Touch sensations:
 
 
 # 4. Experience
-> Associate [**Experience**](README.md#experience) of problem determents your [**Action**](README.md#action)
+> [**Past Experience**](README.md#experience) associates to problem determents your [**Action**](README.md#action)
 
-> Sleep develop Association Areas; `why we dream`
+> Sleep develop [Association Areas](#brain); `why we dream`
 > > Older people sleep less. Maybe it relates to learning. Sleep is like committing changes in the brain. `aka Less associate adjustment`
 
 > Association Learning links certain events, behaviors, or stimuli together in the process of conditioning
@@ -234,6 +234,8 @@ Touch sensations:
 > 
 > Mammal Brain process reality in terms of emotions;
 > > Mammal Brain process same sensation as Human Brain, but have faster response than Human Brain.
+>
+> > Freeze > Run > Fight
 > 
 > > All mammals have similar emotions.
 
@@ -267,7 +269,7 @@ Books:
 - What every body saying
 
 Rules:
-1. Expansion body space when positive, cave in when negative.
+1. Closed vs Expand posture
 2. We all natural have our pacifier behavior. Observes frequency.
 
 Tips:

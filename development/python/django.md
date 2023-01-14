@@ -85,6 +85,7 @@ python3 manage.py runserver_plus
 - `Field.contribute_to_related_class` adds descriptor to nested Model
 - `Field.view_perm_name` = rules_permissions.key; used by descriptor to enforce which rules_permissions
 - `Model.objects.update_or_create(defaults={})`
+- `Model.objects.get_or_create()[0] return [orms, created_bool]`
 - `qs.annotate(xxx_sum=Sum('xxx'))`
 - Meta
 ```py

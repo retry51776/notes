@@ -49,6 +49,8 @@ docker scan image_name
 
 ## Dockerfile
 ```dockerfile
+# aka localhost for docker network
+host.docker.internal 
 COPY [^n]* # All files that don't start with 'n'
 COPY n[^o]* # All files that start with 'n', but not 'no' 
 COPY no[^d]* # All files that start with 'no', but not 'nod'
