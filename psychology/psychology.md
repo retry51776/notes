@@ -230,12 +230,13 @@ Touch sensations:
 
 
 # Mammal Brain
-> [Mammal Brain](#brain) uses [Peripheral Nervous System](./../biology/anatomy.md#peripheral-nervous-system-pns) directly express body language.
+> [Mammal Brain](#brain) workflow: **safety** >  **body language** > **perceive emotions**
 > 
-> Mammal Brain process reality in terms of emotions;
-> > Mammal Brain process same sensation as Human Brain, but have faster response than Human Brain.
+> Default Response order: Freeze > Run > Fight
+
+> Mammal Brain process same sensation as Human Brain, but have faster response than Human Brain.
 >
-> > Freeze > Run > Fight
+> Mammal Brain uses [Peripheral Nervous System](./../biology/anatomy.md#peripheral-nervous-system-pns) directly express body language.
 > 
 > > All mammals have similar emotions.
 
@@ -257,7 +258,7 @@ Touch sensations:
 - Fear
 
 ## Body Language
-> aka Mammal Brain Output
+> aka Mammal Brain Output; Non-verbose communication;
 
 
 Books:
@@ -269,13 +270,19 @@ Books:
 - What every body saying
 
 Rules:
-1. Closed vs Expand posture
-2. We all natural have our pacifier behavior. Observes frequency.
+1. Closed vs Expand posture.
+2. Pacifier behavior is scratching for brain itch;
+   - a. Observes frequency changes.
+3. Body position.
+4. Gravity Effect.
+5. Synchronous speech vs expression.
 
 Tips:
 1. Practice paused & think. `aka inaction`
-2. 
 
+> Look away while talking is for reduce distraction for clear thought.
+>
+> 
 
 ## Reptilian brain
 > Survival Stuff; I think of Reptilian brain as driver for hardware.
