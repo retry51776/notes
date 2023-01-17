@@ -129,7 +129,11 @@ Touch sensations:
 
 # 3. Perception
 > Perception is brain interpret the information from our senses.
-> > Perception can break into 2 major categories: [Biology Perception](#biology-perception) & [Psychology Perception](#psychology-perception);
+> 
+> Perceptions are skills; `aka sensory development`
+> > Ex: baby's vision up side down; peekaboo game; We learn how to walk because we practices Proprioception;
+> 
+> Perception can break into 2 major categories: [Biology Perception](#biology-perception) & [Psychology Perception](#psychology-perception);
 >
 > > Perception is where a lot information is dropped.`aka lead to MISTAKE;`
 > 
@@ -161,10 +165,10 @@ Touch sensations:
 
 
 # 4. Experience
-> [**Past Experience**](README.md#experience) associates to problem determents your [**Action**](README.md#action)
+> [**Past Experience**](README.md#experience) project your [**Action**](README.md#action)
 
 > Sleep develop [Association Areas](#brain); `why we dream`
-> > Older people sleep less. Maybe it relates to learning. Sleep is like committing changes in the brain. `aka Less associate adjustment`
+> > Older people sleep less. Maybe sleep is like committing changes in the brain.
 
 > Association Learning links certain events, behaviors, or stimuli together in the process of conditioning
 > > Close mind people has strong preconception`from memory` that they can't change association;
@@ -175,9 +179,9 @@ Touch sensations:
 > unaware preconception? `identify preconception cause problem, what causes association, how to reduce association`
 
 **ways to change association**
-1. avoid trigger
+1. avoid
    1. increase awareness
-   2. avoid
+   2. avoid trigger
 2. dilution
    1. create new memory replaced association
    2. reedit memory
@@ -196,7 +200,7 @@ Touch sensations:
 ## Logic Association
 > IDK there is single area do all logic. `maybe Temporal lob?`
 
-> My guess is order is flipped; It's Association **first**, then Logic **second**.
+> Association **first**, then Logic **second**. `aka we are not always logical being`
 
 ## Memory Association
 > Memory & Emotion are related.
@@ -260,25 +264,28 @@ Touch sensations:
 ## Body Language
 > aka Mammal Brain Output; Non-verbose communication;
 
+> Our bodies are similar to cars, with speech being the equivalent of honking and non-verbal communication being like the turning signals and headlights. To reach our destination, we need to learn how to navigate social interactions in the same way we learn traffic patterns.
 
 Books:
 - The Definitive Book of Body Language
- - 1. Read gestures in clusters.
- - 2. Look for congruence. `aka find contradiction`
- - 3. Read gestures in context.
 - Lie Detection 101
 - What every body saying
 
 Rules:
 1. Closed vs Expand posture.
-2. Pacifier behavior is scratching for brain itch;
+2. The act of using a pacifier is similar to scratching an itch in the brain.
    - a. Observes frequency changes.
 3. Body position.
 4. Gravity Effect.
-5. Synchronous speech vs expression.
+5. Look for congruence. `aka find contradiction`
+   1. speech vs expression.
+   2. speech vs body position
+   3. left vs right; top vs bottom;
 
 Tips:
 1. Practice paused & think. `aka inaction`
+2. Read gestures in clusters.
+3. Read gestures in context.
 
 > Look away while talking is for reduce distraction for clear thought.
 >

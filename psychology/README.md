@@ -12,7 +12,7 @@
 ## Forward Propagation Workflow
 aka decision process
 
-> [Desire](#desire) > Problem > [**Awareness**](#awareness) > [**Experience**](#experience) > [**Action**](#reflection-process)
+> [Desire](#desire) > Problem > [**Awareness**](#awareness) > [**Experience**](#experience) > [**Evaluation**](#reflection-process) > Action
 
 
 ## Backward Propagation Workflow
@@ -39,10 +39,10 @@ aka [reflection process](#reflection-process)
 > Awareness can break down to [**Attention**](./psychology.md#1-attention) > [Sensation](./psychology.md#2-sensation) > [**Perception**](./psychology.md#3-perception)
 >
 > If you lack of some awareness, most likely your personal value doesn't prioritize it.
-> > Prioritize [personal value](#personal-value), then learn [skills](#skill) to improve Awareness;
+> > Prioritize [personal value](#personal-value), then learn [skills](#skill) to improve [Perception](psychology.md#3-perception);
 
 ## Experience
-> [Experience](experience.md) is accumulate state `RNN hidden state` of CNS Workflow;
+> [Experiences](experience.md) are accumulate state `RNN hidden state` of CNS Workflow;
 > 
 > I categorizes experience into Natural & Acquired.
 
@@ -73,7 +73,7 @@ Acquired Experience:
 >
 > > Both [verbal and nonverbal communication](psychology.md#mammal-brain) skills will improve [**Perception**](./psychology.md#3-perception).
 ### Principal
-> [**Principals**](experience.md#principal) are [**core conclusions**](#conclusion) support/explain [other conclusions](experience.md#conclusion);
+> **Principals** are [**core beliefs**](experience.md#principal) that guide actions & [explain other conclusions](experience.md#conclusion);
 > > Metaphor: algorithms transform unknown equation into solvable equation
 > 
 > > Principal won't have conflict w other principals `under some premises`.
@@ -93,8 +93,7 @@ Acquired Experience:
 
 # Reflection Process
 > [Reflection Process](#backward-propagation-workflow) is backward propagation workflow.
-> 
-> Action is also similar process;
+
 ## Evaluation #1: Do nothing.
   - 1.1 Don't recognized problem.
   - 1.2 Ignore problem.
@@ -124,13 +123,13 @@ Acquired Experience:
         - any work around? `i can't fix blind`
       - [perception?](./psychology.md#3-perception)
         - biology perception? `work around?`
-        - psychology perception? [`study emotion & mammal brain, and PNS`](../biology/anatomy.md)
+        - psychology perception? [`study mammal brain`](psychology.md#3-perception)
           - internal
           - external
     - 3.1.3 [Experience](psychology.md#4-experience)
       - Add Experience
       - Avoid Trigger
-      - Edit Association `Reedit memory; divide & conquer;`
+      - Edit Association
   - 3.2 Validate diagnose
     - 3.2.1 start from problem
       - can you reproduce problem?
