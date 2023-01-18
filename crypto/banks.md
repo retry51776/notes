@@ -1,3 +1,75 @@
+# Forces
+> We have both supply & demand; In a perfect world we would be self sufficient; Our supply perfectly match with our demand;
+- Demand
+  - Credit `aka desire requires borrow against future; similar to peak load in electricity grid`
+    - Treasury bonds
+      - Yield Rate `Exchange rate of government future promise to dollar, determent by Federal Reserve & open market`
+      - Yield maturity
+    - Municipal bonds
+    - Corporate bonds
+    - Asset-backed securities (ABS)
+      - Mortgage
+      - Other Loan
+    - Consumer Credit
+  - Natural Needs `aka basic desire; similar to base load in electricity grid;`
+    - Physical
+      - Food
+      - Garment
+      - Shelter
+      - Movability
+    - Psychology `ask marketing team`
+      - Trust `fear will increase demand`
+      - Ego
+      - self actualization
+- Supply
+  - Assets `aka hardware; similar to electricity that stored in battery;`
+    - Resources
+      - Commodities
+      - Land `Ex: flatten space, access harbor, high ground for dam`
+      - Labor `matter less & less`
+    - Logistic Hardware `includes road, train, airplane, ship`
+  - Technology `aka software; similar engineer for electricity grid`
+    - Technology `aka material science, nuclear`
+    - Entrepreneurship `aka companies; existing electricity factory`
+      - Logistic Software `Ex: ERP, Uber, UPS, Internet ...`
+      - Capital `only accelerate on short term deployment; Ex: Uber`
+
+
+- Accidents
+  - Man make Disasters
+    - Political disasters
+      - War
+      - Terrorist attacks
+      - Cyber attacks
+    - Industrial accidents
+      - Nuclear accidents
+      - Oil spills
+      - Environmental degradation
+  - Natural Disasters
+    - Asteroid
+    - Pandemic
+    - Earth Quack
+    - Weather
+
+> Demand factor:
+> Credit, Natural Need `aka population`, Accidents 
+
+> Supply Network:
+> Resources > Logistic > Technology > Logistic > Product
+
+> Federal Reserve similar software manage electricity grid; By adjusting Interest Rate `Interest Rate is exchange rate current assets to future promise` to flatten Demand Peak; Supply advancement requires more assets `rare to come by`, or technology advancement `not in Fed control`;
+
+## Bond
+- Maturity
+- Coupon
+- Yield
+- Price
+- Face Value
+- Credit rating
+- Callability
+- Inflation protection
+- Liquidity
+
 # Analogy
 > Here are the rules for the game:
 >
