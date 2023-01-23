@@ -1,25 +1,28 @@
-# Workflow
+# Learning Process
 > Just write down my understand of psychological process;
 >
-> I divides brain into human brain `rational` and [mammal brain](psychology.md#mammal-brain) `emotional`;
+> I categorize the [brain](psychology.md#brain) into two parts:
+> > Rational human brain;
+> >
+> > [Emotional mammal brain](psychology.md#mammal-brain);
 > 
-> I only focus on [Central Nervous System Workflow](./../biology/anatomy.md#central-nervous-system-cns) `aka rational`, is based on [**Psychology**](./psychology.md)
+> I focus exclusively on processes within the [Central Nervous System Processes](./../biology/anatomy.md#central-nervous-system-cns), which are rational and based on [**Psychology**](./psychology.md).
 >
 > Inspired by Ray Dalio's Principal and Positive discipline by Jane Nelsen.
-> > IMO: Both book have same idea, develop & enforce workflow.
+> > IMO: Both book have same idea, develop & enforce processes.
 
 </br></br>
-## Forward Propagation Workflow
+## Forward Propagation Decision Processes
 aka decision process
 
 > [Desire](#desire) > Problem > [**Awareness**](#awareness) > [**Experience**](#experience) > [**Evaluation**](#reflection-process) > Action
 
 
-## Backward Propagation Workflow
+## Backward Propagation Decision Processes
 aka [reflection process](#reflection-process)
 > Result > [Evaluation](#reflection-process) > [Diagnosis](#diagnose) > [Design](#design) > [Implementation](#implementation)
 
-[**Desire**](#desire), [**Awareness**](#awareness), [**Experience**](#experience) are key elements to control workflow `aka behavior`.
+[**Desire**](#desire), [**Awareness**](#awareness), [**Experience**](#experience) are important factors that influence decision processes.
 
 
 </br></br>
@@ -42,7 +45,7 @@ aka [reflection process](#reflection-process)
 > > Prioritize [personal value](#personal-value), then learn [skills](#skill) to improve [Perception](psychology.md#3-perception);
 
 ## Experience
-> [Experiences](experience.md) are accumulate state `RNN hidden state` of CNS Workflow;
+> [Experiences](experience.md) are accumulate state `RNN hidden state` of CNS Process;
 > 
 > I categorizes experience into Natural & Acquired.
 
@@ -92,7 +95,7 @@ Acquired Experience:
 
 
 # Reflection Process
-> [Reflection Process](#backward-propagation-workflow) is backward propagation workflow.
+> [Reflection Process](#backward-propagation-decision-processes) is backward propagation decision processes.
 
 ## Evaluation #1: Do nothing.
   - 1.1 Don't recognized problem.
@@ -117,8 +120,8 @@ Acquired Experience:
     - 3.1.2 [Awareness](#awareness)
       - [attention?](psychology.md#1-attention)
         - reprioritize personal value;
-        - improve workflow design;
-        - more workflow training;
+        - improve process design;
+        - more process training;
       - [sensation?](psychology.md#2-sensation)
         - any work around? `i can't fix blind`
       - [perception?](./psychology.md#3-perception)
@@ -143,7 +146,7 @@ Acquired Experience:
     - 3.3.1 Connection before correction.
       - External: confirm their feeling, share your feeling
       - Internal: trust yourself, aka [mammal brain](psychology.md#mammal-brain)
-  - 3.4 Design workflow
+  - 3.4 Design Process
     - 3.4.1 If there is another party, remember compromise
     - 3.4.2 Solution can be incremental improvement
   ### Implementation

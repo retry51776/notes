@@ -1,5 +1,5 @@
 # Experience
-> Try to organize my [knowledge](README.md#knowledge) here.
+> Try to organize my [experience](README.md#experience) here.
 - Natural
   - [Personal Value](#personal-value)
   - [Conclusion](#conclusion)
@@ -129,10 +129,10 @@ Ex Personal Values from google:
 
 - Establish goal & rule in advanced, and transparent environment.
 
-- Better workflow is more valuable than correct answer.
-> Most parent mistakes root from parent value correct behavior OVER child's psychology workflow.
+- Better process is more valuable than correct answer.
+> Most parent mistakes root from parent value correct behavior OVER child's psychology process.
 >
-> Don't go for perfect answer. Rather focus on constance improvement of existing workflow.
+> Don't go for perfect answer. Rather focus on constance improvement of existing process.
 
 
 - 2 approaches to solution

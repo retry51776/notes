@@ -12,6 +12,8 @@
 # Questions:
 - What/How is Brain Process overall architecture?
 
+- Where desire comes from?
+
 - What is ego/pride? something relates to connection? NN input weight? Is confident self-perception or experience?
 
 - How Hippocampus works? Maybe is help AI development.
@@ -47,7 +49,7 @@
 
 
 
-  - **Mammal Brain** `includes Reptilian brain; IMO logic here, but about children level logic;`
+  - [**Mammal Brain**](#mammal-brain)
     - [Pituitary Gland](../biology/anatomy.md#endocrine-system)
     - Hypothalamus `regulate basic needs through hormones: sleep, sex, eat, rest;`
     - Amygdala `flight or fight`
@@ -62,6 +64,75 @@
     - Brain Stem `breathing, heart, blood pressure, wakefulness;`
 - [Peripheral Nervous System](./../biology/anatomy.md#peripheral-nervous-system-pns)
 
+
+## Mammal Brain
+> [Mammal Brain](#brain) workflow: **safety** >  **body language** > **perceive emotions**
+> 
+> Default Response order: Freeze > Run > Fight
+
+> Mammal Brain advantage over Cortex are speedy process input, immediate action, focus safety, better communication;
+>
+> Mammal Brain uses [Peripheral Nervous System](./../biology/anatomy.md#peripheral-nervous-system-pns) directly express body language.
+> 
+> > All mammals have similar emotions.
+
+> IMO
+> > Mammal brain able process logic, but about children level logic;
+> 
+> > Mammal brain includes [Reptilian brain](#reptilian-brain) and [Peripheral Nervous System](./../biology/anatomy.md#peripheral-nervous-system-pns).
+> 
+> > We should use [Parenting model](parent.md) to train mammal brain.
+> > Connection before correction.
+
+## Primary Emotions
+> aka Mammal Brain Process
+- Sad
+- Disgust
+- Happy
+- Surprise
+- Anger
+- Fear
+
+## Body Language
+> aka Mammal Brain Output; Non-verbose communication;
+
+> Our bodies are similar to cars, with speech being the equivalent of honking and non-verbal communication being like the turning signals and headlights. To reach our destination, we need to learn how to navigate social interactions in the same way we learn traffic patterns.
+
+Books:
+- The Definitive Book of Body Language
+- Lie Detection 101
+- What every body saying
+
+Rules:
+1. Closed vs Expand posture.
+2. The act of using a pacifier is similar to scratching an itch in the brain.
+   - a. Observes frequency changes.
+3. Body position.
+4. Gravity Effect.
+5. Look for congruence. `aka find contradiction`
+   1. speech vs expression.
+   2. speech vs body position
+   3. left vs right; top vs bottom;
+
+Tips:
+1. Practice paused & think. `aka inaction`
+2. Read gestures in clusters.
+3. Read gestures in context.
+
+> Look away while talking is for reduce distraction for clear thought.
+>
+> 
+
+## Reptilian brain
+> Survival Stuff; I think of Reptilian brain as driver for hardware.
+
+Consciousness state:
+- Awake
+- Drug Alter `Depressant; Stimulants; Hallucinogens`
+- Hypnosis `calm, trance-like state during which you tend to have **heightened concentration and focus**, and in which you're typically more open to suggestion.`
+- Sleeping `recuperation; growth; mental function;`
+
+<hr/><br/><br/>
 
 # 1. Attention
 > Most often problem is within this layer;
@@ -128,18 +199,16 @@ Touch sensations:
 
 
 # 3. Perception
-> Perception is brain interpret the information from our senses.
+> Perception is brain interpret the information from our senses. `aka sensory development`
 > 
-> Perceptions are skills; `aka sensory development`
+> Perceptions are core skills that develop other skills;
 > > Ex: baby's vision up side down; peekaboo game; We learn how to walk because we practices Proprioception;
 > 
 > Perception can break into 2 major categories: [Biology Perception](#biology-perception) & [Psychology Perception](#psychology-perception);
 >
 > > Perception is where a lot information is dropped.`aka lead to MISTAKE;`
 > 
-> > It's very important to find under perform Perception;
-> 
-> > It's very **hard to noticed** missing Perception;
+> It is crucial to identify under performing perceptions, but it can be challenging to detect missing perceptions.
 
 
 ## Psychology Perception
@@ -233,73 +302,6 @@ Touch sensations:
 > Long term memory is neuron develop new terminal directly connects to other neuron; serotonin cause neuron grew new terminal;
 
 
-# Mammal Brain
-> [Mammal Brain](#brain) workflow: **safety** >  **body language** > **perceive emotions**
-> 
-> Default Response order: Freeze > Run > Fight
-
-> Mammal Brain process same sensation as Human Brain, but have faster response than Human Brain.
->
-> Mammal Brain uses [Peripheral Nervous System](./../biology/anatomy.md#peripheral-nervous-system-pns) directly express body language.
-> 
-> > All mammals have similar emotions.
-
-> IMO
-> > Mammal brain is another kid within us;
-> 
-> > Mammal brain includes [Reptilian brain](#reptilian-brain) and [Peripheral Nervous System](./../biology/anatomy.md#peripheral-nervous-system-pns).
-> 
-> > We should use [Parenting model](parent.md) to train mammal brain.
-> > Connection before correction.
-
-## Primary Emotions
-> aka Mammal Brain Process
-- Sad
-- Disgust
-- Happy
-- Surprise
-- Anger
-- Fear
-
-## Body Language
-> aka Mammal Brain Output; Non-verbose communication;
-
-> Our bodies are similar to cars, with speech being the equivalent of honking and non-verbal communication being like the turning signals and headlights. To reach our destination, we need to learn how to navigate social interactions in the same way we learn traffic patterns.
-
-Books:
-- The Definitive Book of Body Language
-- Lie Detection 101
-- What every body saying
-
-Rules:
-1. Closed vs Expand posture.
-2. The act of using a pacifier is similar to scratching an itch in the brain.
-   - a. Observes frequency changes.
-3. Body position.
-4. Gravity Effect.
-5. Look for congruence. `aka find contradiction`
-   1. speech vs expression.
-   2. speech vs body position
-   3. left vs right; top vs bottom;
-
-Tips:
-1. Practice paused & think. `aka inaction`
-2. Read gestures in clusters.
-3. Read gestures in context.
-
-> Look away while talking is for reduce distraction for clear thought.
->
-> 
-
-## Reptilian brain
-> Survival Stuff; I think of Reptilian brain as driver for hardware.
-
-Consciousness state:
-- Awake
-- Drug Alter `Depressant; Stimulants; Hallucinogens`
-- Hypnosis `calm, trance-like state during which you tend to have **heightened concentration and focus**, and in which you're typically more open to suggestion.`
-- Sleeping `recuperation; growth; mental function;`
-
 # Conclusion
 > We must be aware which brain level we operating on;
 > > Logic only works in higher level.
@@ -308,4 +310,4 @@ Consciousness state:
 >
 > Try to resolve problem in wrong level is similar fixing bug in different area.
 >
-> Brain function is localized, that is reason when we doing same thing we get tried & bored` feedback system avoid over use`. Also the same reason we need diversify desires. 
+> Brain function is localized, that is reason when we doing same thing we get tried & bored` feedback system avoid over use`. Also the same reason we need diversify desires.
