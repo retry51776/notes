@@ -15,13 +15,24 @@ Key Systems
 
 ## Analogy
 > Just distinct biology features reminds me programming terms;
-- DNA `Python Source Code`
-- Transcription `Python Compiler`
-- RNA `.pyc file, Compiled Python Code`
-- Ribosome `Python Run Time`
 
-- Protein `Method`
-- Enzymes `Helper Method`
+> Human have about 200 distinct cell types;
+
+> Aging is NOT because DNA corruption, rather DNA corruption trigger repairing DNA have strong side effect to DNA packing;
+
+- Genome
+  - DNA `Blueprint; Not reservable change; aka Source Code;`
+    - Gene `section of DNA create protein; aka Class or Function;`
+- Epigenomes `beyond genetic; Reservable change; aka CICD;`
+  - Transcription `DNA to RNA; aka CI;`
+    - RNA `.pyc file, Compiled Python Code;`
+    - Histones `The protein DNA wrapped around; control accessability of gene; aka archive source code;`
+      - concentration of Cell Molecules `Environment Variable`
+      - Molecules wrap around DNA `packing logic`
+ - Translation `RNA to Protein; aka CD;`
+    - Ribosome `Python Run Time; read 3 RNA code to 1 amino acids;`
+    - Protein `Molecules made from 20 amino acids`
+    - Enzymes `Helper Method`
 - Cell `Class`
 - hormone `Redux Action Event`
 - hormone receptors `Redux Event Reducer`
@@ -165,3 +176,9 @@ Check & balance of B & T Lymphicyte is important
 - Carbohydrate
   - fructose directly defuses in blood & uses by cells.
   - glucose and alcohol process by same way.
+
+
+# Maintenance
+- Heartflow Test `aka put color dye into blood, then ct scan how blood flow in heart`
+- Chanca Piedra Kidney Stone Breaker
+- 

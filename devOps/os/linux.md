@@ -58,6 +58,9 @@ rpm
 
 ### OS CMDs
 ```bash
+# Current OS info
+cat /etc/os-release
+
 # Similar to task manager in Windows 
 htop
 top
@@ -186,3 +189,26 @@ journalctl -fu nginx
 ?xxx search backward
 ```
 
+LVM (Logical Volume Manager)
+- LV (Logic Volume) `eqs to partition`
+- VG (Volume Group) `eqs to hard drive`
+- PV (Physical Volume) ` 1:1 to partition`
+```bash
+# Disk Scan
+lvmdiskscan
+
+# Create partition
+gparted 
+
+# PV
+pvscan
+pvcreate /dev/sdb1
+
+# VG
+vgscan
+vgextend target_vol_grp_name /dev/sdb1
+
+# LV
+lvscan
+
+```

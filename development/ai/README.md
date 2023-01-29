@@ -32,6 +32,7 @@
 - CodeFormer `Image/movie recover & enhance AI`
 - ChatGPT `Everyone knows`
 - Quillbot `Rephrase text`
+- https://beta.elevenlabs.io/voice-lab
 
 
 ## IMO

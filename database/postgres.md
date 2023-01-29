@@ -72,3 +72,27 @@ scp root@192.168.x.x:/var/lib/CA/rootCA.crt ~/.postgresql/root.crt
 psql -h 192.168.x.x -U xxx xx_db
 ```
 
+
+## Debug
+```sql
+psql -U postgres -c 'SHOW config_file'
+
+select * from pg_available_extensions;
+create extension pg_stat_statements;
+
+SELECT datname,procpid,current_query FROM pg_stat_activity;
+select * from pg_stat_statements;
+
+EXPLAIN ANALYZE UPDATE tenk1 SET hundred = hundred + 1 WHERE unique1 < 100;
+
+```
+
+
+```config
+# Require Restart
+# postgresql.conf
+shared_preload_libraries = 'pg_stat_statements'
+
+pg_stat_statements.max = 10000
+pg_stat_statements.track = all
+```
