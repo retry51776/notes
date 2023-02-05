@@ -35,3 +35,8 @@ tx fee = none_zero * 16 + zero * 4
       - optimistic rollup (support smart contract, with judge system, delay withdraw)
       - zk rollup (long term solution, instance withdraw, but snark proof takes 3s to generate)
       > submit small signature every state changes, main net don't need offline data to audit
+
+
+# FAQ
+1. Geth uses most disk space because Eth state get bigger each block; Take a long time to sync because Geth must execute block in sequence;
+2. 

@@ -41,7 +41,11 @@ def __process(ch, method, property, body):
     //method.message_count
 
 conn.add_callback_threadsafe(ack_message)
-ch.queue_declare('xxx', durable=True)
+ch.queue_declare('xxx', durable=True, arguments={
+    'x-delivery-limit': 3,
+    'x-dead-letter-exchange': 'nnn',
+    'x-dead-letter-routing-key': 'xxx',
+})
 ch.queue_bind()
 ch.basic_publish(
     exchange='xxx',

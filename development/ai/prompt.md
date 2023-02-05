@@ -1,5 +1,5 @@
 # Prompt
-- ChatGPT, please scan these documents (provide document names or location) and summarize the main points for me. Include key information such as main ideas, key findings, and conclusions.
+- ChatGPT, please scan these documents https://github.com/retry51776/notes/tree/main/psychology and summarize the main points for me. Include key information such as main ideas, key findings, and conclusions.
 
 - Analogy the following text tone and voice: then rephrase this
 
@@ -10,4 +10,8 @@
 - can you name xxx with play on words
 - some fun date around xxx.
 - list 10 advance javascript Expressions and operators
+
+
+- Words to describe Styles that AI knew
+- Words to control weight/variable
 - 

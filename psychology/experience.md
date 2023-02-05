@@ -167,6 +167,8 @@ Ex Personal Values from google:
 >
 > The only resource player have is time.
 
+## Society Analogy
+> Society can be compared to a rope, with the population representing its thinness and the length of time being its length. Individuals are like fibers within this rope, carrying the patterns, experiences, and knowledge `aka force`. These force `pattern/experience/knowledge` can either pass on to next generation, or pass on to friends & families, or coworker; Natural diaster is like external force will sudden hit the rope; Rope always has strands that lead to nowhere.
 
 ## Science pyramid
 1. Mathematics

@@ -19,13 +19,16 @@ Key Systems
 > Human have about 200 distinct cell types;
 
 > Aging is NOT because DNA corruption, rather DNA corruption trigger repairing DNA have strong side effect to DNA packing;
+> > DNA is cookbook; Ribosome is reader; Histones & chromatin fiber & other Cell Molecules are bookmarks; Damage is not cookbook text, nor reader; Rather bookmarks on cookbook may moved to wrong spot;
 
 - Genome
   - DNA `Blueprint; Not reservable change; aka Source Code;`
-    - Gene `section of DNA create protein; aka Class or Function;`
+    - Chromosome `Thread like structures; Human 46 set`
+      - Gene `section of DNA create protein; aka Class or Function;`
 - Epigenomes `beyond genetic; Reservable change; aka CICD;`
   - Transcription `DNA to RNA; aka CI;`
     - RNA `.pyc file, Compiled Python Code;`
+    - chromatin fiber `Chain Histones/chromatin together`
     - Histones `The protein DNA wrapped around; control accessability of gene; aka archive source code;`
       - concentration of Cell Molecules `Environment Variable`
       - Molecules wrap around DNA `packing logic`

@@ -25,3 +25,5 @@
 > What determent a person's value is their problem; not their ability;
 
 > Benjamin Franklin's Friend: You are impossible, your opinion have a slap in them for everyone differed than yours. They become so offensive that no one care for them. Your friend enjoy themselves better when you're not around. You know so much that no man will tell you anything. In fact no one will try. For the effort will only lead to discomfort and hard work. So you will never know anymore than you did now, which it's very little.
+>
+> Love wants closeness, but desire requires distance.
