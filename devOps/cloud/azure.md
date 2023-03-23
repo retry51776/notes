@@ -61,7 +61,24 @@
 ```bash
 az group list 
 az group delete --name xxx
+
+az webapp config appsettings list --name xxxx --resource-group xxx
+az webapp config container show --name xxx --resource-group xxx
 ```
+
+https://learn.microsoft.com/en-us/azure/virtual-machines/acu
+1vcpu = 1 core
+
+Pricing Tier Categories:
+- Shared `Ex: F1, D1`
+  - Can't scale out
+  - Shared VM
+- Dedicated `Ex: B1, B2, B3`
+  - Own VM
+  - Scale Out
+- Isolated
+  - Dedicated Virtual Network
+  - Max scale out
 
 ## Development
 ```bash
@@ -79,8 +96,16 @@ azurite start
 
 - App Service Plan `resource limit; auto scale up & out; pick runtime;`
   - Service (host machine that run webapp or container)
+  - Application Insight `aka Google Analysis`
   - DeploymentSlot `kind like BlueGreen`
   - Application Configuration `config`
     - Key Vault Reference `secrets`
   - Custom Domain  `attach domain`
+  - Configuration `aka Environment`
+  - Adv Tool
+    - ssh
+    - logs
+      - id `host log`
+      - id_default `aka container log`
+      - id_msi `aka proxy log`
   - w3wp process

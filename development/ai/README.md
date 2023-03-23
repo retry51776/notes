@@ -33,6 +33,8 @@
 - ChatGPT `Everyone knows`
 - Quillbot `Rephrase text`
 - https://beta.elevenlabs.io/voice-lab
+- https://you.com/
+- midjourney
 
 
 ## IMO
@@ -74,3 +76,8 @@
 > > Most important thing is feedback system.
 >
 > People lives in a house; Sames for AI, AI lives on hardware; Some AI can squeeze in small PC, of course can't do as much.
+
+## Dataset
+- BooksCorpus
+- WebText
+- Common Crawl

@@ -66,6 +66,8 @@ Ex Personal Values from google:
 > Ex: Einstein E=mc^2 means energy and mass is same thing.
 > Ex: Newton establish science.
 
+- writing < speech < though < awareness < body < physic < spacetime
+
 # Skill
 `IDK, just too many to list`
 - Math

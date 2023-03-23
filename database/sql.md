@@ -2,6 +2,7 @@
 > atomicity, consistency, isolation, durability (ACID)
 
 ## Tips
+- IN MSSQL & MySQL before 5.8 will NOT multiple NULL values on unique constrain.
 - in where caluse, avoid using function on table columns
     - Bad: `where ISNULL(sales.enddate, '2999-12-31') > @enddate` 
     - Good: `where sales.enddate is NULL or sales.enddate > @enddate`

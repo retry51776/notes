@@ -5,6 +5,9 @@
 
 "Attention Is All You Need" by Vaswani, et al. (2017): This paper introduces the "Transformer" model, which is a type of neural network that is particularly well-suited for natural language processing tasks. The Transformer model has had a significant impact on the field of NLP, and it has been used in a variety of applications, including machine translation and language modeling.
 
+Filter query step:
+The idea is embedding layer encoded w position info. Then train attention matrix(n^2) to capture relationship weights; Then attention matrix times embedding layer to get filtered input.
+
 "DeepMind and Blizzard Entertainment are working to build the definitive version of Starcraft II for AI research" by David Silver, et al. (2017): This paper describes the collaboration between DeepMind and Blizzard Entertainment to create a version of the Starcraft II video game that is optimized for use in AI research. The game has since become a popular benchmark for AI algorithms, and it has been used in a number of research papers and competitions.
 
 "GPT-3: Language Models are Few-Shot Learners" by Alec Radford, et al. (2021): This paper introduces the "GPT-3" language model, which is one of the largest and most powerful language models to date. GPT-3 has been able to achieve state-of-the-art results on a variety of NLP tasks, and it has been used in a number of interesting applications, including machine translation, text summarization, and question answering.

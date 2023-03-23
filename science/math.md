@@ -34,6 +34,16 @@
  
 > Calculus is focus on relationship. Instead geometry only focus on number answer.
 
+## Prime
+> x/ln(x) > prime_count > Gauss's Conjecture 1/log(x)
+
+
+## Complex Number
+i * x = flip x 90 degree in complex plane;
+
+rotate 30 degress = cos(pi/6) + i * sin(pi/6)
+
+
 # Classes
 `aka my wish list; I'm not good w math, but I think there are many useful principals/idea from advance math courses;`
 - Topology `Connectedness, Holes, Compactness`

@@ -118,6 +118,7 @@ Tips:
 1. Practice paused & think. `aka inaction`
 2. Read gestures in clusters.
 3. Read gestures in context.
+4. Eye contact similar to service health check.
 
 > Look away while talking is for reduce distraction for clear thought.
 >

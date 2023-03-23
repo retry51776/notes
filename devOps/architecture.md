@@ -1,6 +1,8 @@
 # Architecture
 > I worked for small company. We don't have everything listed here. I wish we have half of stuffs here.
 
+## WebService
+DNS > loadbalancer > gunicorn instance > gunicorn workers > flask
 
 ## CI / CD / Continue Tracking (CT)
 1. Source

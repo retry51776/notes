@@ -14,4 +14,15 @@
 
 - Words to describe Styles that AI knew
 - Words to control weight/variable
-- 
+- negative words
+
+
+- Write prompt as exam format: AKA debug mode
+Logical and commonsense exam:
+Can I hire monkeys to build my beach house in NY?
+
+Explain your answer in following format:
+Premise:
+Question:
+Reasoning: 
+Answer: 
