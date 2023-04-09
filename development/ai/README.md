@@ -81,3 +81,26 @@
 - BooksCorpus
 - WebText
 - Common Crawl
+
+## Datastore
+> high-dimensional vector search; Similar to pandas specialized libraries for data process;
+
+- pinecone
+- milvus
+- qdrant
+- redis
+- weaviate
+- zilliz
+
+## Plugin
+
+PluginFlask server
+- /upsert `convert info into openapi format; Then convert text to openapi text-embedding-ada-002; Last store in Datastore format(pinecone) in our DB`
+- /query `convert query_str into openapi embedding; Then use Datastore find top related records; Then return to ChatGPT`
+
+
+Zero-shot learning: In zero-shot learning, a model is trained to recognize objects or classes that it has never seen before. This is done by providing the model with some prior knowledge about the classes, such as their attributes or relationships to other classes. The model can then use this knowledge to make predictions about new classes without any specific training data for those classes.
+
+One-shot learning: In one-shot learning, a model is trained to recognize objects or classes based on a single example of each class. This is typically achieved using techniques such as metric learning or siamese networks, which learn to compare and contrast different examples to identify similarities and differences between classes.
+
+Few-shot learning: In few-shot learning, a model is trained to recognize objects or classes based on a small number of examples of each class. This typically involves training the model on a small subset of the available training data, and then fine-tuning the model on new examples as they become available.
