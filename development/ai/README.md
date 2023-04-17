@@ -104,3 +104,23 @@ Zero-shot learning: In zero-shot learning, a model is trained to recognize objec
 One-shot learning: In one-shot learning, a model is trained to recognize objects or classes based on a single example of each class. This is typically achieved using techniques such as metric learning or siamese networks, which learn to compare and contrast different examples to identify similarities and differences between classes.
 
 Few-shot learning: In few-shot learning, a model is trained to recognize objects or classes based on a small number of examples of each class. This typically involves training the model on a small subset of the available training data, and then fine-tuning the model on new examples as they become available.
+
+
+LLM is similar to foreigner that can see & draw picture with 1409 points;
+
+We translate 4096 words/tokens to a LLM picture(1049 points), then let LLM draw a response picture(1049 points), then translate back.
+
+Different LLM draw different points(embedding similar to language);
+
+ChatGPT don't READ or WRITE word or paragraph;
+
+only after 15+ interaction, summary memory will reduce token length.
+
+AI sucks at Abbreviation. 
+
+- Chain: predetermine workflow
+- Agent: undetermined workflow
+
+Once major differences is NN can do backward propagation. But neuron synapse only fire single direction.
+
+what is some top news happens in recent months? to check when AI model trained at

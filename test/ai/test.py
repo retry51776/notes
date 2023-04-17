@@ -99,12 +99,24 @@ tools = [
     ),
 ]
 
-agent = initialize_agent(tools, llm=llm, agent="zero-shot-react-description", verbose=True)
-agent.run(query)
+#agent = initialize_agent(tools, llm=llm, agent="zero-shot-react-description", verbose=True)
+#agent.run(query)
 
 # tools = load_tools(['wikipedia'], llm=llm)
 # agent.run("Who is 34th president of the United States?")
 
+from langchain.agents import Tool, AgentExecutor, LLMSingleActionAgent, AgentOutputParser
+from langchain import SerpAPIWrapper, LLMChain
+llm_chain = LLMChain(llm=llm)
+tool_names = [tool.name for tool in tools]
+agent = LLMSingleActionAgent(
+    llm_chain=llm_chain, 
+    stop=["\nObservation:"], 
+    allowed_tools=tool_names
+)
+agent_executor = AgentExecutor.from_agent_and_tools(agent=agent, tools=tools, verbose=True)
+
+agent_executor.run(query)
 
 
 # resp = llm([
