@@ -199,6 +199,17 @@ Ex Personal Values from google:
 2. Structure determent algorithm
 > I wish to be expert in this area, this will reveal so much about human brain; Our main bottleneck & how to bypass them
 
+## Habits
+> We are just a collection of habits. Habits are store in basal ganglia, center of brain. Rational decision are in outer layer of brain. In a way be rational is a habit.
+>
+> Basal ganglia is almost like kernal of OS. The rational part (cortex) is more a plugin/3rd party software of OS.
+>
+> Habbit Workflow: `Cue > Desire > Action > Reware`
+>
+> Develop Habit: `Obsessive > Attritive > Easy > Satisfy`
+>
+> Inhibit Habit: `Invisible > Disgusting > Difficult > Unsatisfied` 
+
 ## Difficulty w Complexity
 1. There is no solution, only tradeoff.
 2. Decision fatigue.

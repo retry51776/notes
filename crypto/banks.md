@@ -59,6 +59,8 @@
 
 > Federal Reserve similar software manage electricity grid; By adjusting Interest Rate `Interest Rate is exchange rate current assets to future promise` to flatten Demand Peak; Supply advancement requires more assets `rare to come by`, or technology advancement `not in Fed control`;
 
+> Credit is simultaneously be created & destoried by everyone at every day. When anyone(individual, company, government) take out loan, we created credit. Every payment we paid out loan, we destoried credit. There will always more debet than credit(because interest).
+
 ## Bond
 - Maturity
 - Coupon

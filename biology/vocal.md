@@ -32,4 +32,7 @@ DeEssing
 # Apps
 - singer's studio
 - nail your pitch
-  
+
+
+# Bio Tech
+- Cochlear: `Implant that directly send (20 sound frequencies) electric signal to cochlea.`

@@ -28,7 +28,7 @@
 
 - Reticular formation: This is a network of nerve fibers that runs through the brainstem and is involved in the regulation of sleep, arousal, and attention.
 
-- Basal ganglia: These are a group of structures located deep within the brain that are involved in the control of movement and the initiation of voluntary actions.
+- Basal ganglia: These are a group of structures located deep within the brain that are involved in the control of movement and the initiation of voluntary actions. Also store & process habits.
 
 
 
