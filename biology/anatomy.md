@@ -43,9 +43,16 @@ Key Systems
 - Regulatory Gene `webpack`
 
 # Nervous System
+> Nervous System similar to road system. There are a City(Neocortex), Express Toll(PNS), Highway Enter & Exit ram(Basal Ganglia), Highway(Spinal Cord), Normal Road(Circulatory System);
 ## Central Nervous System (CNS)
-  - Brain
-  - [Spinal Cord](#reptilian-brain)
+  - ForeBrain [(Mammal Brain)](../psychology/psychology.md#mammal-brain) 
+    - Cerebral Cortex `Thought`
+    - Basal Ganglia `Habbit`
+    - Limbic System `Emotion, memory, and learning.`
+    - Hippocampus `convert short to long memory`
+  - Midbrain [(Reptile brain)](../psychology/psychology.md#reptilian-brain) `low level process`
+  - Hindbrain `hardware driver`
+  - Spinal Cord
 ## Peripheral Nervous System (PNS)
   - Somatic Nervous System `voluntary`
   - Autonomic Nervous System `involuntary`
