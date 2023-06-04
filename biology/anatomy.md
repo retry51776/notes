@@ -12,36 +12,6 @@ Key Systems
 - Muscular System
   - Reproductive System
 
-
-## Analogy
-> Just distinct biology features reminds me programming terms;
-
-> Human have about 200 distinct cell types;
-
-> Aging is NOT because DNA corruption, rather DNA corruption trigger repairing DNA have strong side effect to DNA packing;
-> > DNA is cookbook; Ribosome is reader; Histones & chromatin fiber & other Cell Molecules are bookmarks; Damage is not cookbook text, nor reader; Rather bookmarks on cookbook may moved to wrong spot;
-
-- Genome
-  - DNA `Blueprint; Not reservable change; aka Source Code;`
-    - Chromosome `Thread like structures; Human 46 set`
-      - Gene `section of DNA create protein; aka Class or Function;`
-- Epigenomes `beyond genetic; Reservable change; aka CICD;`
-  - Transcription `DNA to RNA; aka CI;`
-    - RNA `.pyc file, Compiled Python Code;`
-    - chromatin fiber `Chain Histones/chromatin together`
-    - Histones `The protein DNA wrapped around; control accessability of gene; aka archive source code;`
-      - concentration of Cell Molecules `Environment Variable`
-      - Molecules wrap around DNA `packing logic`
- - Translation `RNA to Protein; aka CD;`
-    - Ribosome `Python Run Time; read 3 RNA code to 1 amino acids;`
-    - Protein `Molecules made from 20 amino acids`
-    - Enzymes `Helper Method`
-- Cell `Class`
-- hormone `Redux Action Event`
-- hormone receptors `Redux Event Reducer`
-
-- Regulatory Gene `webpack`
-
 # Nervous System
 > Nervous System similar to road system. There are a City(Neocortex), Express Toll(PNS), Highway Enter & Exit ram(Basal Ganglia), Highway(Spinal Cord), Normal Road(Circulatory System);
 ## Central Nervous System (CNS)

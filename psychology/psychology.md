@@ -21,6 +21,7 @@
 - How Hippocampus works? Maybe is help AI development.
 
 - Is all memory have 6 emotional tags?
+  > Memory is encoded into neuron synapse (structure & connection) ` Envirenment Activity -> Neural Activity -> microRNA -> neuron synapse changes -> changes to Neural Activity`
 
 - Out of 6 Primary Emotions: 4 consider negative, while 2 maybe positive; Are we suppose to be unhappy more?
  > We are just collection of habbit. Want to be happy, develop habbit to be happy.
