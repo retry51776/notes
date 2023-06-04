@@ -2,7 +2,7 @@
 > Psychology are ways of thinking and behaving.
 > > IMO: Psychology is similar to chip design; Workload & resource determent optimal design.
 > 
-> > I assumed brain assign neuron functionality based on neuron location`more connections more computation?`, sensor location, output location, supply routes, and workflow design? Is brain balance between least neuron and capture reality?
+> > I assumed brain assign neuron functionality based on neuron location` connections = computation`, sensor location, output location, supply routes, and workflow design? Is brain balance between least neuron and capture reality?
 > > 
 > > I assume brain also use near memory computation design, there fore memory & functions are localized.
 > 
@@ -11,20 +11,23 @@
 
 # Questions:
 - What/How is Brain Process overall architecture?
+  > I think brain is very much like OS, reptile brain acts as linux kernal, and mammal brain acts as applications installed in OS. Rational just one of many installed software.
 
 - Where desire comes from?
 
-- What is ego/pride? something relates to connection? NN input weight? Is confident self-perception or experience?
+- What is ego/pride?
+  > Ego/pride most likely a kernal feture. Even loster, animals existed before human have ego.
 
 - How Hippocampus works? Maybe is help AI development.
 
 - Is all memory have 6 emotional tags?
 
 - Out of 6 Primary Emotions: 4 consider negative, while 2 maybe positive; Are we suppose to be unhappy more?
+ > We are just collection of habbit. Want to be happy, develop habbit to be happy.
 
 # Brain
 `Brain function is localized`
-- [Central Nervous System](./../biology/anatomy.md#central-nervous-system-cns)
+- [Central Nervous System](./../biology/anatomy.md#central-nervous-system-cns) `develop think & ration.`
   - **Human Brain** `aka Neocortex; includes mammal brain; 4 lobs + Association Area + Insular cortex; cortex often 6 layers`
     - **Association Areas** `link memory to sensor or processor; key thing we develop in life`
       - correlation
@@ -49,7 +52,7 @@
 
 
 
-  - [**Mammal Brain**](#mammal-brain)
+  - [**Mammal Brain**](#mammal-brain) `Develop habbit, long term memory, and emotion`
     - [Pituitary Gland](../biology/anatomy.md#endocrine-system)
     - Hypothalamus `regulate basic needs through hormones: sleep, sex, eat, rest;`
     - Amygdala `flight or fight`
@@ -102,6 +105,7 @@ Books:
 - The Definitive Book of Body Language
 - Lie Detection 101
 - What every body saying
+- Atomic Habit
 
 Rules:
 1. Closed vs Expand posture.
@@ -237,8 +241,8 @@ Touch sensations:
 # 4. Experience
 > [**Past Experience**](README.md#experience) project your [**Action**](README.md#action)
 
-> Sleep develop [Association Areas](#brain); `why we dream`
-> > Older people sleep less. Maybe sleep is like committing changes in the brain.
+> Sleep resets [Association Areas](#brain); `why we dream; Neuron trys to fire all its synapse; That's why a get new ideas after sleep;`
+> > Older people sleep less. That is reason as we get older, we harder to change the way we think.
 
 > Association Learning links certain events, behaviors, or stimuli together in the process of conditioning
 > > Close mind people has strong preconception`from memory` that they can't change association;
