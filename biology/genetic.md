@@ -55,8 +55,3 @@
 
 - Enhancer RNA (eRNA): These are a type of non-coding RNA produced at enhancer sites, and they play a role in gene expression regulation.
 
-
-## Questions:
-1. How is RNA's role in memory formation?
-2. Is there a way to inject RNA to help memory formation?
-3. How's aging effect RNA process?

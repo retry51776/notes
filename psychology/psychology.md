@@ -9,23 +9,6 @@
 > > Each cortex lob are registers; Association Areas is CPU`more like FPGA`; some cortex also acts as storage;
 
 
-# Questions:
-- What/How is Brain Process overall architecture?
-  > I think brain is very much like OS, reptile brain acts as linux kernal, and mammal brain acts as applications installed in OS. Rational just one of many installed software.
-
-- Where desire comes from?
-
-- What is ego/pride?
-  > Ego/pride most likely a kernal feture. Even loster, animals existed before human have ego.
-
-- How Hippocampus works? Maybe is help AI development.
-
-- Is all memory have 6 emotional tags?
-  > Memory is encoded into neuron synapse (structure & connection) ` Envirenment Activity -> Neural Activity -> microRNA -> neuron synapse changes -> changes to Neural Activity`
-
-- Out of 6 Primary Emotions: 4 consider negative, while 2 maybe positive; Are we suppose to be unhappy more?
- > We are just collection of habbit. Want to be happy, develop habbit to be happy.
-
 # Brain
 `Brain function is localized`
 - [Central Nervous System](./../biology/anatomy.md#central-nervous-system-cns) `develop think & ration.`
@@ -55,6 +38,7 @@
 
   - [**Mammal Brain**](#mammal-brain) `Develop habbit, long term memory, and emotion`
     - [Pituitary Gland](../biology/anatomy.md#endocrine-system)
+    - Basal Ganglia `Action Selection`
     - Hypothalamus `regulate basic needs through hormones: sleep, sex, eat, rest;`
     - Amygdala `flight or fight`
     - Thalamus `relay station`
@@ -80,10 +64,7 @@
 > 
 > > All mammals have similar emotions.
 
-> IMO
-> > Mammal brain able process logic, but about children level logic;
-> 
-> > Mammal brain includes [Reptilian brain](#reptilian-brain) and [Peripheral Nervous System](./../biology/anatomy.md#peripheral-nervous-system-pns).
+> > Basel gangalia brain listen feedback from cortex, enhace & supress signal to thalamus;
 > 
 > > We should use [Parenting model](parent.md) to train mammal brain.
 > > Connection before correction.
@@ -126,8 +107,6 @@ Tips:
 4. Eye contact similar to service health check.
 
 > Look away while talking is for reduce distraction for clear thought.
->
-> 
 
 ## Reptilian brain
 > Survival Stuff; I think of Reptilian brain as driver for hardware.

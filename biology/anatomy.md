@@ -15,13 +15,9 @@ Key Systems
 # Nervous System
 > Nervous System similar to road system. There are a City(Neocortex), Express Toll(PNS), Highway Enter & Exit ram(Basal Ganglia), Highway(Spinal Cord), Normal Road(Circulatory System);
 ## Central Nervous System (CNS)
-  - ForeBrain [(Mammal Brain)](../psychology/psychology.md#mammal-brain) 
-    - Cerebral Cortex `Thought`
-    - Basal Ganglia `Habbit`
-    - Limbic System `Emotion, memory, and learning.`
-    - Hippocampus `convert short to long memory`
-  - Midbrain [(Reptile brain)](../psychology/psychology.md#reptilian-brain) `low level process`
-  - Hindbrain `hardware driver`
+  - ForeBrain [(Human Brain)](../psychology/psychology.md#brain)
+  - Midbrain [(Mammal Brain)](../psychology/psychology.md#mammal-brain)
+  - Hindbrain [(Reptile brain)](../psychology/psychology.md#reptilian-brain)
   - Spinal Cord
 ## Peripheral Nervous System (PNS)
   - Somatic Nervous System `voluntary`
