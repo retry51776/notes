@@ -1,13 +1,27 @@
 # Nervous System
 > It's hard to seperate hardware from application, but this note focus more on hardware.
 
-## Central Nervous System `develop think & ration.`
+> Programming Analogy
+>
+> Cell > Tissue > Organ > Organ System > Organism
+> 
+> statement > method > class > package > program
+
+
+# Organ System
+> I think so far there are only 2 nervous system we awares.
+
+## Central Nervous System
+> Control system that think & ration.
 - [**Human Brain**](#human-brain)
 - [**Mammal Brain**](#mammal-brain)
 - [**Reptilian Brain**](#reptilian-brain)
 - Brain Stem `aka Spinal Cord; breathing, heart, blood pressure, wakefulness;`
+
 ## Peripheral Nervous System
-- Somatic Nervous System `voluntary`
+> Control system independently from CNS, but also operate together.
+
+- Somatic Nervous System `voluntary control skeletal muscle`
 - Autonomic Nervous System `involuntary`
   - Sympathetic Nervous System `Arousing;紧张;`
     - spin core -> preganglionic cell -> ganglion -> postganglionic cell -> organ
@@ -25,28 +39,37 @@
     - Spinal Accessory Nerve `head & shoulder; motor`
     - Hypoglossal Nerve `talk; motor`
 
+
+# Orgin
+> 3 brains. I need to research more orgin for PNS.
+
 ## Human Brain
-> aka Neocortex; 4 lobs + Association Area + Insular cortex; cortex often 6 layers
-  - **Association Areas** `link memory to sensor or processor; key thing we develop in life`
-    - correlation
-    - learning
-    - thinking `reroute info to logic area`
-  - **Frontal lob** `human characteristic; Ex: motivation, empathy, conscience`
-    - speaking
-    - planning
-    - judging
-    - abstract
-    - smell sensation
-  - Parietal lob
-    - touch sensation `nerve input processor;`
-  - Occipital lob
-    - vision sensation`vision; its associate logic area to understand concealed information`
-  - **Temporal lob** `logic; pattern; memory;`
-    - sound sensation
-    - speech
-    - comprehension
-  - Insular cortex
-    - taste sensation
+> aka Neocortex; 4 lobs + Association Area + Insular cortex;
+> > Neocortex is latin "neo" means new and "cortext" means bark or rind. Aka new bark wraped around tree.
+> 
+> > Neocortex has 6 layers neurons. Layer 1(outter most) mostly dendrites of other layers, very few neorons. 2-3 layers work together.
+
+> Common cortical circuit: `Because different cortex can adpat different functions, this indicates there is a common design neuron.`
+- **Association Areas** `link memory to sensor or processor; key thing we develop in life`
+  - correlation
+  - learning
+  - thinking `reroute info to logic area`
+- **Frontal lob** `human characteristic; Ex: motivation, empathy, conscience`
+  - speaking
+  - planning
+  - judging
+  - abstract
+  - smell sensation
+- Parietal lob
+  - touch sensation `nerve input processor;`
+- Occipital lob
+  - vision sensation`vision; its associate logic area to understand concealed information`
+- **Temporal lob** `logic; pattern; memory;`
+  - sound sensation
+  - speech
+  - comprehension
+- Insular cortex
+  - taste sensation
 
 ## Mammal Brain
 > aka Mid Brain; Develop habbit, long term memory, and emotion
@@ -81,11 +104,13 @@ All mammals have 6 Primary Emotions
 
 
 ## Reptilian brain
-`aka Hind Brain; basic body functions`
-    - Pons `regulation of sleep and wakefulness`
-    - Medulla `control the muscles of the head and neck`
-    - Cerebellum `Movement Control`
+> aka Hind Brain; basic body functions
+>
 > Survival Stuff; I think of Reptilian brain as driver for hardware.
+
+- Pons `regulation of sleep and wakefulness`
+- Medulla `control the muscles of the head and neck`
+- Cerebellum `Movement Control`
 
 Consciousness state:
 - Awake
@@ -93,49 +118,26 @@ Consciousness state:
 - Hypnosis `calm, trance-like state during which you tend to have **heightened concentration and focus**, and in which you're typically more open to suggestion.`
 - Sleeping `recuperation; growth; mental function;`
 
+# Tissue
+> I consider sub modules of brain are tissue here.
 
+## Basal ganglia
+> Basal ganglia critical role in action selection. They receive input from the cortex and are involved in the coordination and execution of movements. The basal ganglia help in filtering out irrelevant actions and selecting the most relevant ones based on learned associations and reward feedback.
 
-<hr/>
+> Action selection ability shows in cat, dogs, & human. Of course means basal ganglia is part of mammal brain(mid brain)
 
-# Neuron
+# Cell
+
+## Neuron
 > We know computation & memory functions are implemented by Neuron. But devil is in the detail.
 
-## Cell
+Neuron Cell
 - neurotransmitters > recepitor / gap junctions
 - Dendrites
 - Cell Body
 - Axon
 - Terminals
 - Synapse
-
-
-## Ideas
-1. Memory are store in neuron synapse structure?
-2. Decision decided by action threshold.
-3. 
-
-## Questions:
-1. How is RNA's role in memory formation?
-2. Is there a way to inject RNA to help memory formation?
-3. How's aging effect RNA process?
-4. Which neurotransmitters that cause desire,  which neurotransmitters cause satisfaction?
-5. Which ways causes neuro cell growth or die out its synax? I assumed feedback system is carry by neurotransmitters, or other chemical compound.
-6. How axonal sprouting works?
-7. Guidance protein for axon?
-
-
-- What/How is Brain Process overall architecture?
-  > I think brain is very much like OS, reptile brain acts as linux kernal, and mammal brain acts as applications installed in OS. Rational just one of many installed software.
-
-- Where desire comes from?
-
-- What is ego/pride?
-  > Ego/pride most likely a kernal feture. Even loster, animals existed before human have ego.
-
-- How Hippocampus works? Maybe is help AI development.
-
-- Is all memory have 6 emotional tags?
-  > Memory is encoded into neuron synapse (structure & connection) ` Envirenment Activity -> Neural Activity -> microRNA -> neuron synapse changes -> changes to Neural Activity`
 
 
 ## Axon Guidance
@@ -171,18 +173,32 @@ axon survival?
 
 Neuron switch transmitter under stress
 
+burst mode `rapid neuron fires, strong signal but not accurate; usually trigger by cue`
+tonic mode `normal neuron communcation`
 
-## Neocortex
-> [Neocortex](psychology.md#brain) is latin "neo" means new and "cortext" means bark or rind. Aka new bark wraped around tree.
+# Questions:
 
-> Common cortical circuit: `Because different cortex can adpat different functions, this indicates there is a common design neuron.`
-> > Neocortex has 6 layers neurons. Layer 1(outter most) mostly dendrites of other layers, very few neorons. 2-3 layers work together.
+1. How is RNA's role in memory formation?
+2. Is there a way to inject RNA to help memory formation?
+3. How's aging effect RNA process?
+4. Which neurotransmitters that cause desire,  which neurotransmitters cause satisfaction?
+5. Which ways causes neuro cell growth or die out its synax? I assumed feedback system is carry by neurotransmitters, or other chemical compound.
+6. How axonal sprouting works?
+7. Guidance protein for axon?
 
 
-## Action Selection
-> Basal ganglia critical role in action selection. They receive input from the cortex and are involved in the coordination and execution of movements. The basal ganglia help in filtering out irrelevant actions and selecting the most relevant ones based on learned associations and reward feedback.
+- What/How is Brain Process overall architecture?
+  > I think brain is very much like OS, reptile brain acts as linux kernal, and mammal brain acts as applications installed in OS. Rational just one of many installed software.
 
-> Action selection ability shows in cat, dogs, & human. Of course means basal ganglia is part of mammal brain(mid brain)
+- Where desire comes from?
+
+- What is ego/pride?
+  > Ego/pride most likely a kernal feture. Even loster, animals existed before human have ego.
+
+- How Hippocampus works? Maybe is help AI development.
+
+- Is all memory have 6 emotional tags?
+  > Memory is encoded into neuron synapse (structure & connection) ` Envirenment Activity -> Neural Activity -> microRNA -> neuron synapse changes -> changes to Neural Activity`
 
 ## Study more
 Longterm Porentiation: rapid fire syntax can caused permently strength Synapse
@@ -190,6 +206,3 @@ Longterm Depression:
 
 
 spinal thalamic?
-
-burst mode `rapid neuron fires, strong signal but not accurate; usually trigger by cue`
-tonic mode `normal neuron communcation`
