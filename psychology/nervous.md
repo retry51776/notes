@@ -12,14 +12,14 @@
 > I think so far there are only 2 nervous system we awares.
 
 ## Central Nervous System
-> Control system that think & ration.
+> Control system that process thought, emotion, survial, generatly fast response time.
 - [**Human Brain**](#human-brain)
 - [**Mammal Brain**](#mammal-brain)
 - [**Reptilian Brain**](#reptilian-brain)
 - Brain Stem `aka Spinal Cord; breathing, heart, blood pressure, wakefulness;`
 
 ## Peripheral Nervous System
-> Control system independently from CNS, but also operate together.
+> Control system independently from CNS, but also operate together, generatly slower response time.
 
 - Somatic Nervous System `voluntary control skeletal muscle`
 - Autonomic Nervous System `involuntary`
@@ -72,20 +72,21 @@
   - taste sensation
 
 ## Mammal Brain
-> aka Mid Brain; Develop habbit, long term memory, and emotion
-
-- [Pituitary Gland](../biology/anatomy.md#endocrine-system)
-- Basal Ganglia `Action Selection`
-- Hypothalamus `regulate basic needs through hormones: sleep, sex, eat, rest;`
-- Amygdala `flight or fight`
-- Thalamus `relay station`
-- Hippocampus `convert short term memory into long term memory; Only create memory;`
-
+> aka Mid Brain; Decision Control, habbit formation, long term memory, and emotion.
+>
 > Mammal Brain workflow: **safety** >  **body language** > **perceive emotions**
 > 
 > Default Response order: Freeze > Run > Fight
 
 > Mammal Brain advantage over Cortex are speedy process input, immediate action, focus safety, better communication;
+
+- [Pituitary Gland](../biology/anatomy.md#endocrine-system)
+- [Basal Ganglia](#basal-ganglia) `Action Selection`
+- Hypothalamus `regulate basic needs through hormones: sleep, sex, eat, rest;`
+- Amygdala `flight or fight`
+- Thalamus `relay station`
+- Hippocampus `convert short term memory into long term memory; Only create memory;`
+
 >
 > Mammal Brain uses [Peripheral Nervous System](./../biology/anatomy.md#peripheral-nervous-system-pns) directly express body language.
 > 
@@ -125,6 +126,12 @@ Consciousness state:
 > Basal ganglia critical role in action selection. They receive input from the cortex and are involved in the coordination and execution of movements. The basal ganglia help in filtering out irrelevant actions and selecting the most relevant ones based on learned associations and reward feedback.
 
 > Action selection ability shows in cat, dogs, & human. Of course means basal ganglia is part of mammal brain(mid brain)
+
+> Basal ganglia output are GABA supress signal.
+- Direct Pathway `supress basal ganglia's output, aka stop supress right signal; This does NOT effect your decision. Rather make you more active/energetic on your decision.`
+- Indirect Pathway `increase basal ganalia's supression; Return to normal dependences on return normal from Indirect Pathway.`
+
+> Though & Self Control is 2 different things.
 
 # Cell
 

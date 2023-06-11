@@ -2,11 +2,11 @@
 > Just write down my understand of psychological process;
 >
 > I categorize the [brain](nervous.md#brain) into two parts:
-> > Rational human brain;
+> > [Rational human brain](nervous.md#human-brain);
 > >
 > > [Emotional mammal brain](nervous.md#mammal-brain);
 > 
-> I focus exclusively on processes within the [Central Nervous System Processes](nervous.md#central-nervous-system-cns), which are rational and based on [**Psychology**](./psychology.md).
+> I focus exclusively on processes within the [Central Nervous System Processes](nervous.md#central-nervous-system), which are rational and based on [**Psychology**](./psychology.md).
 >
 > Inspired by Ray Dalio's Principal and Positive discipline by Jane Nelsen.
 > > IMO: Both book have same idea, develop & enforce processes.
@@ -51,7 +51,7 @@ aka [reflection process](#reflection-process)
 
 Natural Experience:
 ### Memory & Emotion
-> [**Memory & Emotion**](./psychology.md#emotion--memory-association) includes Working Memory & Long Term Memory & Emotion.
+> [**Memory & Emotion**](nervous.md#mammal-brain) includes Working Memory & Long Term Memory & Emotion.
 
 ### Conclusion
 > [**Conclusion**](experience.md#conclusion) is recognized pattern derived from past observation.
@@ -74,7 +74,7 @@ Acquired Experience:
 > **Skills** are learned [**Actions**](#reflection-process);
 > > Procedural Memory. Most people able obtain.
 >
-> > Both [verbal and nonverbal communication](psychology.md#mammal-brain) skills will improve [**Perception**](./psychology.md#3-perception).
+> > Both [verbal and nonverbal communication](nervous.md#mammal-brain) skills will improve [**Perception**](./psychology.md#3-perception).
 ### Principal
 > **Principals** are [**core beliefs**](experience.md#principal) that guide actions & [explain other conclusions](experience.md#conclusion);
 > > Metaphor: algorithms transform unknown equation into solvable equation
@@ -145,7 +145,7 @@ Acquired Experience:
   - 3.3 Communication
     - 3.3.1 Connection before correction.
       - External: confirm their feeling, share your feeling
-      - Internal: trust yourself, aka [mammal brain](psychology.md#mammal-brain)
+      - Internal: trust yourself, aka [mammal brain](nervous.md#mammal-brain)
   - 3.4 Design Process
     - 3.4.1 If there is another party, remember compromise
     - 3.4.2 Solution can be incremental improvement

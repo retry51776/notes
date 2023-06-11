@@ -218,3 +218,5 @@ Tips:
 > Try to resolve problem in wrong level is similar fixing bug in wrong area.
 >
 > Brain function is localized, that is reason when we doing same thing we get tried & bored` feedback system avoid over use`. Also the same reason we need diversify desires.
+
+> Maybe we should split brain by application: long term memory, short term memory, emotion, through, action controller, movement 

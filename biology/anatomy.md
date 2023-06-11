@@ -4,7 +4,7 @@
 > > The problem is that the human body often performs multiple functions, which cannot be easily organized into distinct systems.
 
 Key Systems
-- [Phycology](../psychlogy/psychology.md) `aka how brain works`
+- [Nervous System](../psychology/nervous.md) `aka how brain works`
 - [Circulatory System](#circulatory-system)
   - Respiratory System
   - [Lymphatic System](#lymphatic-system)
