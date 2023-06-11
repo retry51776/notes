@@ -9,117 +9,9 @@
 > > Each cortex lob are registers; Association Areas is CPU`more like FPGA`; some cortex also acts as storage;
 
 
-# Brain
-`Brain function is localized`
-- [Central Nervous System](./../biology/anatomy.md#central-nervous-system-cns) `develop think & ration.`
-  - **Human Brain** `aka Neocortex; includes mammal brain; 4 lobs + Association Area + Insular cortex; cortex often 6 layers`
-    - **Association Areas** `link memory to sensor or processor; key thing we develop in life`
-      - correlation
-      - learning
-      - thinking `reroute info to logic area`
-    - **Frontal lob** `human characteristic; Ex: motivation, empathy, conscience`
-      - speaking
-      - planning
-      - judging
-      - abstract
-      - smell sensation
-    - Parietal lob
-      - touch sensation `nerve input processor;`
-    - Occipital lob
-      - vision sensation`vision; its associate logic area to understand concealed information`
-    - **Temporal lob** `logic; pattern; memory;`
-      - sound sensation
-      - speech
-      - comprehension
-    - Insular cortex
-      - taste sensation
-
-
-
-  - [**Mammal Brain**](#mammal-brain) `Develop habbit, long term memory, and emotion`
-    - [Pituitary Gland](../biology/anatomy.md#endocrine-system)
-    - Basal Ganglia `Action Selection`
-    - Hypothalamus `regulate basic needs through hormones: sleep, sex, eat, rest;`
-    - Amygdala `flight or fight`
-    - Thalamus `relay station`
-    - Hippocampus `convert short term memory into long term memory; Only create memory;`
-
-  - Reptilian brain `aka Reptile Brain: basic body functions`
-    - Midbrain `quick sensation process trigger body's reflexes`
-    - Pons `regulation of sleep and wakefulness`
-    - Medulla `control the muscles of the head and neck`
-    - Cerebellum `Movement Control`
-    - Brain Stem `breathing, heart, blood pressure, wakefulness;`
-- [Peripheral Nervous System](./../biology/anatomy.md#peripheral-nervous-system-pns)
-
-
-## Mammal Brain
-> [Mammal Brain](#brain) workflow: **safety** >  **body language** > **perceive emotions**
-> 
-> Default Response order: Freeze > Run > Fight
-
-> Mammal Brain advantage over Cortex are speedy process input, immediate action, focus safety, better communication;
->
-> Mammal Brain uses [Peripheral Nervous System](./../biology/anatomy.md#peripheral-nervous-system-pns) directly express body language.
-> 
-> > All mammals have similar emotions.
-
-> > Basel gangalia brain listen feedback from cortex, enhace & supress signal to thalamus;
-> 
-> > We should use [Parenting model](parent.md) to train mammal brain.
-> > Connection before correction.
-
-## Primary Emotions
-> aka Mammal Brain Process
-- Sad
-- Disgust
-- Happy
-- Surprise
-- Anger
-- Fear
-
-## Body Language
-> aka Mammal Brain Output; Non-verbose communication;
-
-> Our bodies are similar to cars, with speech being the equivalent of honking and non-verbal communication being like the turning signals and headlights. To reach our destination, we need to learn how to navigate social interactions in the same way we learn traffic patterns.
-
-Books:
-- The Definitive Book of Body Language
-- Lie Detection 101
-- What every body saying
-- Atomic Habit
-
-Rules:
-1. Closed vs Expand posture.
-2. The act of using a pacifier is similar to scratching an itch in the brain.
-   - a. Observes frequency changes.
-3. Body position.
-4. Gravity Effect.
-5. Look for congruence. `aka find contradiction`
-   1. speech vs expression.
-   2. speech vs body position
-   3. left vs right; top vs bottom;
-
-Tips:
-1. Practice paused & think. `aka inaction`
-2. Read gestures in clusters.
-3. Read gestures in context.
-4. Eye contact similar to service health check.
-
-> Look away while talking is for reduce distraction for clear thought.
-
-## Reptilian brain
-> Survival Stuff; I think of Reptilian brain as driver for hardware.
-
-Consciousness state:
-- Awake
-- Drug Alter `Depressant; Stimulants; Hallucinogens`
-- Hypnosis `calm, trance-like state during which you tend to have **heightened concentration and focus**, and in which you're typically more open to suggestion.`
-- Sleeping `recuperation; growth; mental function;`
-
-<hr/><br/><br/>
-
 # 1. Attention
+> Right now I beveled attention trigger by Basal ganglia neuron fires in burst mode.
+
 > Most often problem is within this layer;
 
 > Attention is a multiplier of sensation
@@ -287,12 +179,42 @@ Touch sensations:
 > Long term memory is neuron develop new terminal directly connects to other neuron; serotonin cause neuron grew new terminal;
 
 
+## Body Language
+> aka Mammal Brain Output; Non-verbose communication;
+
+> Our bodies are similar to cars, with speech being the equivalent of honking and non-verbal communication being like the turning signals and headlights. To reach our destination, we need to learn how to navigate social interactions in the same way we learn traffic patterns.
+
+Books:
+- The Definitive Book of Body Language
+- Lie Detection 101
+- What every body saying
+- Atomic Habit
+
+Rules:
+1. Closed vs Expand posture.
+2. The act of using a pacifier is similar to scratching an itch in the brain.
+   - a. Observes frequency changes.
+3. Body position.
+4. Gravity Effect.
+5. Look for congruence. `aka find contradiction`
+   1. speech vs expression.
+   2. speech vs body position
+   3. left vs right; top vs bottom;
+
+Tips:
+1. Practice paused & think. `aka inaction`
+2. Read gestures in clusters.
+3. Read gestures in context.
+4. Eye contact similar to service health check.
+
+> Look away while talking is for reduce distraction for clear thought.
+
 # Conclusion
 > We must be aware which brain level we operating on;
 > > Logic only works in higher level.
 >
 > > When we talk to a person, imagine talking to 2 people, the logical one and the emotional one `connection before correction`
 >
-> Try to resolve problem in wrong level is similar fixing bug in different area.
+> Try to resolve problem in wrong level is similar fixing bug in wrong area.
 >
 > Brain function is localized, that is reason when we doing same thing we get tried & bored` feedback system avoid over use`. Also the same reason we need diversify desires.

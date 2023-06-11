@@ -13,30 +13,7 @@ Key Systems
   - Reproductive System
 
 # Nervous System
-> Nervous System similar to road system. There are a City(Neocortex), Express Toll(PNS), Highway Enter & Exit ram(Basal Ganglia), Highway(Spinal Cord), Normal Road(Circulatory System);
-## Central Nervous System (CNS)
-  - ForeBrain [(Human Brain)](../psychology/psychology.md#brain)
-  - Midbrain [(Mammal Brain)](../psychology/psychology.md#mammal-brain)
-  - Hindbrain [(Reptile brain)](../psychology/psychology.md#reptilian-brain)
-  - Spinal Cord
-## Peripheral Nervous System (PNS)
-  - Somatic Nervous System `voluntary`
-  - Autonomic Nervous System `involuntary`
-    - Sympathetic Nervous System `Arousing;紧张;`
-      - spin core -> preganglionic cell -> ganglion -> postganglionic cell -> organ
-    - Parasympathetic Nervous System `Calming;放松;near organ;12 cranial nerves`
-      - Olefactory Nerve `nose; sense`
-      - Optic Nerve `eye; sense`
-      - Oculomotor Nerve `eye muscle; motor`
-      - Trochlear Nerve `eye muscle; motor`
-      - Trigeminal Nerve `jaw muscle; both`
-      - Abducens `eye muscle; motor`
-      - Facial Nerve `facial expression; both`
-      - Auditory Nerve `sound; sense`
-      - Glossopharyngeal Nerve `tongue; both`
-      - Vagus Nerve `heart, digest; both`
-      - Spinal Accessory Nerve `head & shoulder; motor`
-      - Hypoglossal Nerve `talk; motor`
+> [Nervous System](../psychology/nervous.md) similar to road system. There are a City(Neocortex), Express Toll(PNS), Highway Enter & Exit ram(Basal Ganglia), Highway(Spinal Cord), Normal Road(Circulatory System);
 
 # Circulatory System
 main components:

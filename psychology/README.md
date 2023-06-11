@@ -1,12 +1,12 @@
 # Learning Process
 > Just write down my understand of psychological process;
 >
-> I categorize the [brain](psychology.md#brain) into two parts:
+> I categorize the [brain](nervous.md#brain) into two parts:
 > > Rational human brain;
 > >
-> > [Emotional mammal brain](psychology.md#mammal-brain);
+> > [Emotional mammal brain](nervous.md#mammal-brain);
 > 
-> I focus exclusively on processes within the [Central Nervous System Processes](./../biology/anatomy.md#central-nervous-system-cns), which are rational and based on [**Psychology**](./psychology.md).
+> I focus exclusively on processes within the [Central Nervous System Processes](nervous.md#central-nervous-system-cns), which are rational and based on [**Psychology**](./psychology.md).
 >
 > Inspired by Ray Dalio's Principal and Positive discipline by Jane Nelsen.
 > > IMO: Both book have same idea, develop & enforce processes.
