@@ -152,6 +152,8 @@ Touch sensations:
 > Memory & Emotion are related.
 > > If you want to memorize something, tie them to a feeling
 
+> Memory will break into different aspects, then store its corresponse areas of brain.
+
 ### Working memory
 - Capacity: 7 items +-2
 - Duration: 20-30s
@@ -219,4 +221,4 @@ Tips:
 >
 > Brain function is localized, that is reason when we doing same thing we get tried & bored` feedback system avoid over use`. Also the same reason we need diversify desires.
 
-> Maybe we should split brain by application: long term memory, short term memory, emotion, through, action controller, movement 
+> Maybe we should split brain by application: long term memory, short term memory, emotion, through, action controller, movement, pattern seperation, pattern completion

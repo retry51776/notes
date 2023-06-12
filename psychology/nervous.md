@@ -64,6 +64,9 @@
 - Insular cortex
   - taste sensation
 
+> I like Carl Wernicke Brain Theroy that each lob process some aspects of object. There is NO SINGLE PLACE in brain store all meaning of a object. Meaning of object are distribute in many areas of brain. There is "a hub" that these aspects of object must grather in order to process & make decision.
+> > Consciousness is degrees that brain integrate different attributes. If only response by very few areas of brain, then the person is not very Consciousness.
+
 ## Mammal Brain
 > Decision Control, habbit formation, long term memory, and emotion.
 >
@@ -128,7 +131,7 @@ Consciousness state:
 > Though & Self Control is 2 different things.
 
 ## Hippocampus
-> Memory, Mood, Stress, Pattern Seperation;
+> Memory, Mood, Stress, Pattern Seperation & Pattern Completion;
 
 > Different location hippocampal neurons have different application.
 
@@ -137,7 +140,9 @@ Consciousness state:
 
 - radiology stem cells
 - neurogenesis `new neuron that grow into mature neurons`
-- Pattern Seperation `able to pick up more attributes from context. aka bigger hash size.`
+- Pattern Completion `makes input signal similar to past experiences`
+> As we age, we think similar things are same.
+- Pattern Seperation `able to pick up more attributes from context. aka hash features.`
 > More hippocampal neurons will have better pattern seperation.
 
 > Less hippocampal neurons will easier to addict to drugs.
@@ -157,6 +162,7 @@ Neuron Cell
 - Terminals
 - Synapse
 
+2500 Synapse when born; 15000 Synapse when 3 years old; 7000 Synapse when adult;
 
 ### Axon Guidance
 > "Growth cone" has receptor detects near by "molecular cues", molecular cues attracts more mRNA is direction, which produces more protiens to steer axon growth path.
@@ -237,3 +243,7 @@ Longterm Depression:
 
 
 spinal thalamic?
+
+
+## IMO
+> Each cortex lob acts as a worker/node of mammal brain. Usually each cortex lob assign same function, sometime different cortex lob can switch its function(Ex: touch, sound, shape, color ...). Each lob neuron dendrites connects to other lobs related attributes. Mammal brain acts as controller, that grather all infos in cortex lobs, made a decision & send signal to rest of body.
