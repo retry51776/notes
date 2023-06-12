@@ -3,6 +3,13 @@
 > 
 > > The problem is that the human body often performs multiple functions, which cannot be easily organized into distinct systems.
 
+
+> Programming Analogy
+>
+> Cell > Tissue > Organ > Organ System > Organism
+> 
+> statement > method > class > package > program
+
 Key Systems
 - [Nervous System](../psychology/nervous.md) `aka how brain works`
 - [Circulatory System](#circulatory-system)

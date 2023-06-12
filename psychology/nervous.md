@@ -1,13 +1,6 @@
 # Nervous System
 > It's hard to seperate hardware from application, but this note focus more on hardware.
 
-> Programming Analogy
->
-> Cell > Tissue > Organ > Organ System > Organism
-> 
-> statement > method > class > package > program
-
-
 # Organ System
 > I think so far there are only 2 nervous system we awares.
 
@@ -72,24 +65,23 @@
   - taste sensation
 
 ## Mammal Brain
-> aka Mid Brain; Decision Control, habbit formation, long term memory, and emotion.
+> Decision Control, habbit formation, long term memory, and emotion.
 >
 > Mammal Brain workflow: **safety** >  **body language** > **perceive emotions**
 > 
 > Default Response order: Freeze > Run > Fight
 
 > Mammal Brain advantage over Cortex are speedy process input, immediate action, focus safety, better communication;
+>
+> Mammal Brain uses [Peripheral Nervous System](./../biology/anatomy.md#peripheral-nervous-system-pns) directly express body language.
 
 - [Pituitary Gland](../biology/anatomy.md#endocrine-system)
-- [Basal Ganglia](#basal-ganglia) `Action Selection`
+- [**Basal Ganglia**](#basal-ganglia) `Action Selection`
 - Hypothalamus `regulate basic needs through hormones: sleep, sex, eat, rest;`
 - Amygdala `flight or fight`
 - Thalamus `relay station`
-- Hippocampus `convert short term memory into long term memory; Only create memory;`
+- [**Hippocampus**](#hippocampus) `convert short term memory into long term memory; read & write memory by pattern seperation;`
 
->
-> Mammal Brain uses [Peripheral Nervous System](./../biology/anatomy.md#peripheral-nervous-system-pns) directly express body language.
-> 
 All mammals have 6 Primary Emotions
 - Sad
 - Disgust
@@ -101,13 +93,12 @@ All mammals have 6 Primary Emotions
 > > Basel gangalia brain listen feedback from cortex, enhace & supress signal to thalamus;
 > 
 > > We should use [Parenting model](parent.md) to train mammal brain.
-> > Connection before correction.
 
 
 ## Reptilian brain
-> aka Hind Brain; basic body functions
+> basic body functions
 >
-> Survival Stuff; I think of Reptilian brain as driver for hardware.
+> Survival Stuff; Reptilian brain acts as driver for hardware.
 
 - Pons `regulation of sleep and wakefulness`
 - Medulla `control the muscles of the head and neck`
@@ -125,13 +116,33 @@ Consciousness state:
 ## Basal ganglia
 > Basal ganglia critical role in action selection. They receive input from the cortex and are involved in the coordination and execution of movements. The basal ganglia help in filtering out irrelevant actions and selecting the most relevant ones based on learned associations and reward feedback.
 
-> Action selection ability shows in cat, dogs, & human. Of course means basal ganglia is part of mammal brain(mid brain)
+> Action selection ability shows in cat, dogs, & human. Of course means basal ganglia is part of mammal brain
 
 > Basal ganglia output are GABA supress signal.
-- Direct Pathway `supress basal ganglia's output, aka stop supress right signal; This does NOT effect your decision. Rather make you more active/energetic on your decision.`
-- Indirect Pathway `increase basal ganalia's supression; Return to normal dependences on return normal from Indirect Pathway.`
+- Direct Pathway `aka go; supress basal ganglia's output, stop supress right signal; This does NOT effect your decision. Rather make you more active/energetic on your decision.`
+- Indirect Pathway `aka no go; increase basal ganalia's supression; Return to normal dependences on return normal from Indirect Pathway.`
+- Hyperdirect `aka stop.`
+
+> Kravtiz et al; Natrue, 2010
 
 > Though & Self Control is 2 different things.
+
+## Hippocampus
+> Memory, Mood, Stress, Pattern Seperation;
+
+> Different location hippocampal neurons have different application.
+
+- Subgranular Zone (SGZ)
+- hippocampal neurons; neurons that growth in SGZ.
+
+- radiology stem cells
+- neurogenesis `new neuron that grow into mature neurons`
+- Pattern Seperation `able to pick up more attributes from context. aka bigger hash size.`
+> More hippocampal neurons will have better pattern seperation.
+
+> Less hippocampal neurons will easier to addict to drugs.
+
+> Isoxazole-9 drug?
 
 # Cell
 
@@ -147,7 +158,7 @@ Neuron Cell
 - Synapse
 
 
-## Axon Guidance
+### Axon Guidance
 > "Growth cone" has receptor detects near by "molecular cues", molecular cues attracts more mRNA is direction, which produces more protiens to steer axon growth path.
 >
 > Effectness of cue by measure degrees anagle it changes axon.
@@ -173,7 +184,7 @@ Mature:
 synaptic transmission?
 axon survival?
 
-## Axonal plasticity
+### Axonal plasticity
 > Donald Hebb `Neuron fire together wired together, fire apart wired apart`
 
 > If down stream neuron just fired before(20ms) upstream neuron, then upstream signal mostly lost due to lack of recepator.
@@ -182,6 +193,19 @@ Neuron switch transmitter under stress
 
 burst mode `rapid neuron fires, strong signal but not accurate; usually trigger by cue`
 tonic mode `normal neuron communcation`
+
+## Glial
+> Supporting and maintaining neurons. Glial cell most likely a part brain function in a complex way.
+
+> Glial are involved in processes such as neurogenesis (generation of new neurons), neuronal migration, and synapse formation.
+
+- Glial Cell Tumors `most common brain Tumors`
+
+other Glial Cell functions:
+- Structural Support
+- Maintenance of Homeostasis
+- Myelination
+- Immune Response
 
 # Questions:
 
