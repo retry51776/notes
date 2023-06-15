@@ -70,7 +70,7 @@
 ## Mammal Brain
 > Decision Control, habbit formation, long term memory, and emotion.
 >
-> Mammal Brain workflow: **safety** >  **body language** > **perceive emotions**
+> Mammal Brain piroty: **safety** >  **body language** > **perceive emotions**
 > 
 > Default Response order: Freeze > Run > Fight
 
@@ -91,11 +91,20 @@ All mammals have 6 Primary Emotions
 - Happy
 - Surprise
 - Anger
-- Fear.
+- Fear
 
+
+### Habits
+> We are just a collection of habits. Habits are store in basal ganglia, center of brain. Rational decision are in outer layer of brain. In a way be rational is a habit.
+>
+> Basal ganglia is almost like kernal of OS. The rational part (cortex) is more a plugin/3rd party software of OS.
+>
+> Habbit Workflow: `Cue > Desire > Action > Reware`
+>
+> Develop Habit: `Obsessive > Attritive > Easy > Satisfy`
+>
+> Inhibit Habit: `Invisible > Disgusting > Difficult > Unsatisfied` 
 > > Basel gangalia brain listen feedback from cortex, enhace & supress signal to thalamus;
-> 
-> > We should use [Parenting model](parent.md) to train mammal brain.
 
 
 ## Reptilian brain

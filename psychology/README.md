@@ -6,7 +6,6 @@
 > >
 > > [Emotional mammal brain](nervous.md#mammal-brain);
 > 
-> I focus exclusively on processes within the [Central Nervous System Processes](nervous.md#central-nervous-system), which are rational and based on [**Psychology**](./psychology.md).
 >
 > Inspired by Ray Dalio's Principal and Positive discipline by Jane Nelsen.
 > > IMO: Both book have same idea, develop & enforce processes.
