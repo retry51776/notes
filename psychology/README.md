@@ -21,8 +21,8 @@
 
 [**Desire**](#desire), [**Awareness**](#awareness), [**Experience**](#experience) are important factors that influence decision process.
 
-## Habbit Process
-> Cue > [**Desire**](#desire) > Action > Reward
+## Mammal Brain Process
+> Cue > [**Desire**](#desire) > Action > [**Reward**](#reward)
 
 </br></br>
 
@@ -37,6 +37,12 @@
 >
 > Dopamine ≈ desires; 80% neurol cell have receptors to dipamine.
 
+## Reward
+> Reward or satisfaction is DIFFERENT than desire.
+>
+> Serotonin ≈ happy & Satiety.
+>
+> Raphe nuclei are clusters of neurons located in the brainstem that are the primary source of serotonin projections to the rest of the brain.
 
 ## Awareness
 > Awareness can break down to [**Attention**](./psychology.md#1-attention) > [Sensation](./psychology.md#2-sensation) > [**Perception**](./psychology.md#3-perception)

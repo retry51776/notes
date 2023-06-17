@@ -143,6 +143,15 @@ dophmine producer:
 - Indirect Pathway `aka no go; increase basal ganalia's supression; Return to normal dependences on return normal from Indirect Pathway.`
 - Hyperdirect `aka stop.`
 
+> Basal ganglia components:
+- Striatum
+- Nucleus Accumbens(NAc)
+- Subthalamic nucleus (STN)
+- Globus Pallidus (GP)
+- Substantia nigra
+  - Pars Compacta (SNc)
+  - Pars Reticulata (SNr)
+
 > Kravtiz et al; Natrue, 2010
 
 > Though & Self Control is 2 different things.
@@ -159,13 +168,20 @@ dophmine producer:
 > Depaminergic connections between the Ventral Tegmental Area(VTA) and hippocampus can modulate memory after reward, suprise, or novelty.
 
 > Restabilize memory requries protein synthesis, which can take several hours. `aka edit memory is slow`
+- Dentate gyrus `input area`
+- CA1 `pattern consolidation`
+- CA2 `social memory`
+- CA3 `pattern completion`
+- Subiculum `output area`
+
 - engrams `memory traces`
 - Subgranular Zone (SGZ)
 - hippocampal neurons; neurons that growth in SGZ.
 
 - radiology stem cells
 - neurogenesis `new neuron that grow into mature neurons`
-- Pattern Completion `makes input signal similar to past experiences`
+- Pattern Completion `CA3: associate memory develop by strength feature neuron synataxs; Later single feature will cause all associated features fired;`
+- Pattern Sequence `CA3 can rewire signal back to dentate gyrus to reprocess; aka recurrent function to chain events.`
 > As we age, we think similar things are same.
 - Pattern Seperation `able to pick up more attributes from context. aka hash features.`
 > More hippocampal neurons will have better pattern seperation.
