@@ -74,12 +74,11 @@
 > Decision Control, habbit formation, long term memory, and emotion.
 >
 > Mammal Brain piroty: **safety** >  **body language** > **perceive emotions**
-> 
-> Default Response order: Freeze > Run > Fight
+
 
 > Mammal Brain advantage over Cortex are speedy process input, immediate action, focus safety, better communication;
 >
-> Mammal Brain uses [Peripheral Nervous System](./../biology/anatomy.md#peripheral-nervous-system-pns) directly express body language.
+> Mammal Brain uses [Peripheral Nervous System](#peripheral-nervous-system) directly express facial expression.
 
 - [Pituitary Gland](../biology/anatomy.md#endocrine-system)
 - [**Basal Ganglia**](#basal-ganglia) `Action Selection`
@@ -115,6 +114,8 @@ All mammals have 6 Primary Emotions
 >
 > Survival Stuff; Reptilian brain acts as driver for hardware.
 
+> Default Response order: Freeze > Run > Fight
+
 - Ventral Tegmental Area(VTA) `reward feedback`
 - Pons `regulation of sleep and wakefulness`
 - Medulla `control the muscles of the head and neck`
@@ -129,6 +130,9 @@ Consciousness state:
 dophmine producer:
 - Ventral Tegmental Area
 - Substantia Nigra `movement`
+
+> [Body Language](psychology.md#body-language) is already shown in lobster.
+> > Body Language includes Facial language. which it's addtional output from Mammal Brain.
 
 # Tissue
 > I consider sub modules of brain are tissue here.

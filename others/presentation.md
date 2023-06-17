@@ -7,3 +7,6 @@ TODO: create some slides
 
 # Python Tips, Tricks & Traps
 TODO: create some slides
+
+# Brain
+https://docs.google.com/presentation/d/1EkeAD4Rhue24Y5wl-29BhFKHio9t_ajKnecBporC65E/edit?usp=sharing

@@ -111,8 +111,6 @@ Ex Personal Values from google:
 - Repetition training is most effective way to change. `Not talking about memory, just habits.`
 
 - We have two minds, the rational mind `human brain/cortex`, and the emotional mind `mammal brain`.
-> Mammal brain express through body language, has 6 primary emotions.
-> 
 > Rational mind just pattern recognition machine.
 >
 > People communication often neglected emotional mind`both self & other`. 

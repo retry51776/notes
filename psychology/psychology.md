@@ -182,7 +182,7 @@ Touch sensations:
 
 
 ## Body Language
-> aka Mammal Brain Output; Non-verbose communication;
+> aka Non-verbose communication;
 
 > Our bodies are similar to cars, with speech being the equivalent of honking and non-verbal communication being like the turning signals and headlights. To reach our destination, we need to learn how to navigate social interactions in the same way we learn traffic patterns.
 
