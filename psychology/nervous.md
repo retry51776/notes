@@ -67,6 +67,9 @@
 > I like Carl Wernicke Brain Theroy that each lob process some aspects of object. There is NO SINGLE PLACE in brain store all meaning of a object. Meaning of object are distribute in many areas of brain. There is "a hub" that these aspects of object must grather in order to process & make decision.
 > > Consciousness is degrees that brain integrate different attributes. If only response by very few areas of brain, then the person is not very Consciousness.
 
+### Frontal lob
+- Ventromedial PFC `moral`
+
 ## Mammal Brain
 > Decision Control, habbit formation, long term memory, and emotion.
 >
@@ -108,10 +111,11 @@ All mammals have 6 Primary Emotions
 
 
 ## Reptilian brain
-> basic body functions
+> (Mid Brain & Hind Brain) perform basic body functions
 >
 > Survival Stuff; Reptilian brain acts as driver for hardware.
 
+- Ventral Tegmental Area(VTA) `reward feedback`
 - Pons `regulation of sleep and wakefulness`
 - Medulla `control the muscles of the head and neck`
 - Cerebellum `Movement Control`
@@ -121,6 +125,10 @@ Consciousness state:
 - Drug Alter `Depressant; Stimulants; Hallucinogens`
 - Hypnosis `calm, trance-like state during which you tend to have **heightened concentration and focus**, and in which you're typically more open to suggestion.`
 - Sleeping `recuperation; growth; mental function;`
+
+dophmine producer:
+- Ventral Tegmental Area
+- Substantia Nigra `movement`
 
 # Tissue
 > I consider sub modules of brain are tissue here.
@@ -144,6 +152,14 @@ Consciousness state:
 
 > Different location hippocampal neurons have different application.
 
+> Suprise will increase write memory effectness immediately.
+>
+> memory contextual details stores in cortex.
+>
+> Depaminergic connections between the Ventral Tegmental Area(VTA) and hippocampus can modulate memory after reward, suprise, or novelty.
+
+> Restabilize memory requries protein synthesis, which can take several hours. `aka edit memory is slow`
+- engrams `memory traces`
 - Subgranular Zone (SGZ)
 - hippocampal neurons; neurons that growth in SGZ.
 
@@ -157,6 +173,9 @@ Consciousness state:
 > Less hippocampal neurons will easier to addict to drugs.
 
 > Isoxazole-9 drug?
+
+> Attention? Which organs?
+> Attentional Blink(AB) is multiple stimuli is one after another will fight for limited attentional resource;(500ms)
 
 # Cell
 

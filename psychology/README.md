@@ -8,33 +8,34 @@
 > 
 >
 > Inspired by Ray Dalio's Principal and Positive discipline by Jane Nelsen.
-> > IMO: Both book have same idea, develop & enforce processes.
 
 </br></br>
-## Forward Propagation Decision Processes
-aka decision process
+## Forward Propagation Decision Process
 
 > [Desire](#desire) > Problem > [**Awareness**](#awareness) > [**Experience**](#experience) > [**Evaluation**](#reflection-process) > Action
 
 
-## Backward Propagation Decision Processes
-aka [reflection process](#reflection-process)
+## Backward Propagation Decision Process
+[reflection process details](#reflection-process)
 > Result > [Evaluation](#reflection-process) > [Diagnosis](#diagnose) > [Design](#design) > [Implementation](#implementation)
 
-[**Desire**](#desire), [**Awareness**](#awareness), [**Experience**](#experience) are important factors that influence decision processes.
+[**Desire**](#desire), [**Awareness**](#awareness), [**Experience**](#experience) are important factors that influence decision process.
 
+## Habbit Process
+> Cue > [**Desire**](#desire) > Action > Reward
 
 </br></br>
 
 # Definitions
-
 
 ## Desire
 > There is a natural psychological desire within us to **belong** and have **power**.
 >
 > Remember power comes with responsibility, ask your self when you desire something, are you ready for responsibility.
 >
-> It is difficult to change desires, so it is easier to simply avoid the things that trigger desire.
+> It is difficult to change desires, so it is easier to simply avoid the CUE that trigger desire.
+>
+> Dopamine ≈ desires; 80% neurol cell have receptors to dipamine.
 
 
 ## Awareness
@@ -94,7 +95,7 @@ Acquired Experience:
 
 
 # Reflection Process
-> [Reflection Process](#backward-propagation-decision-processes) is backward propagation decision processes.
+> [Reflection Process](#backward-propagation-decision-process) is backward propagation decision process.
 
 ## Evaluation #1: Do nothing.
   - 1.1 Don't recognized problem.
