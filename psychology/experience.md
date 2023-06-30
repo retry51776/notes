@@ -80,9 +80,10 @@ Ex Personal Values from google:
     - CSI
   - The Standard Model
   - Theoretical physics
-- Chemistry
-- Biology
-- Psychology
+  - Chemistry
+    - Biology
+      - Psychology
+      - Neurologist
 
 
 # Principal
