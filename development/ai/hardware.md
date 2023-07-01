@@ -1,4 +1,8 @@
-# Tools
+## Hardware
+- near memory design:
+- reconfigurable dataflow hardware vs parallelism on top of existing computation
+
+> At the end of the day, only limitation is space; space either assign to computation(flexible or efficiency) or storage(latency or throughput);
 
 ## Training
 - cuDNN
@@ -16,3 +20,9 @@
 
 ## Inference
 - 
+
+
+## Dataset
+- BooksCorpus
+- WebText
+- Common Crawl

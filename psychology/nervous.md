@@ -274,6 +274,8 @@ Frequency & Amplitude
 
 > Glial are involved in processes such as neurogenesis (generation of new neurons), neuronal migration, and synapse formation.
 
+> 60 billion glia to 16 billion neurons within the cortex, but only 16 billion glia to 69 billion neurons in the cerebellum.
+> 
 - Glial Cell Tumors `most common brain Tumors`
 
 other Glial Cell functions:
@@ -281,6 +283,30 @@ other Glial Cell functions:
 - Maintenance of Homeostasis
 - Myelination
 - Immune Response
+
+### Oligodendrocytes
+> metabolic suport, maintain myelin sheath
+### Microglia
+> small white blood cell
+### Ependymal
+> blood filter generates cerebrospinal fluid(CSF)
+### Astrocytes
+> can NOT progagate Action Potentials
+> graded response
+
+- Protoplasmic
+  - Majority
+  - Grey Matter Layer 2-6
+  - Envelops Synapses
+  - Get more blood flow
+- Fibrous
+  - White matter tracts
+  - Regulates BBB
+- Interlaminar
+  - Move between lamina
+  - Layer 1 - layer 4
+- Varicose
+  - Layer 5 & 6
 
 # Questions:
 

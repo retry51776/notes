@@ -2,13 +2,6 @@
 > I think the fundamental idea of AI is past determent future.
 > > What I mean is AI extract pattern from past data, assumes those pattern will most likely works in future problem.
 
-
-## Hardware
-- near memory design:
-- reconfigurable dataflow hardware vs parallelism on top of existing computation
-
-> At the end of the day, only limitation is space; space either assign to computation(flexible or efficiency) or storage(latency or throughput);
-
 ## Basic Terms:
 - Learning Workflow
   - Forward Propagation
@@ -35,11 +28,13 @@
 - https://beta.elevenlabs.io/voice-lab
 - https://you.com/
 - midjourney
+- Heygen.com `video generation ai`
 
 
 ## IMO
 - There isn't a correct hidden state, rather these problem has similar feature sets. `CNN first layer recognized edges, then lines, then organs.`
 
+- I think we need more localized, more parrell algorthims. I think back propergation is too global. My guess is unfired neuron stack up voltage cause correction. 
 
 - List of Human ability/skills that AI need to learn
   - Not much progress
@@ -77,10 +72,6 @@
 >
 > People lives in a house; Sames for AI, AI lives on hardware; Some AI can squeeze in small PC, of course can't do as much.
 
-## Dataset
-- BooksCorpus
-- WebText
-- Common Crawl
 
 ## Datastore
 > high-dimensional vector search; Similar to pandas specialized libraries for data process;
