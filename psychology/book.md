@@ -19,3 +19,9 @@
 
 - A Thousand Brains by Jeff Hawkins
 > https://www.numenta.com/resources/research-publications/papers/
+
+> I think each col has more output than just regonized item.
+
+> Do we really need each sensation area with its reference frame? or just single golbal reference frame?
+
+> Hafting et al. (2005) [1] suggested that a place code is computed in the entorhinal cortex and fed into the hippocampus, which may make the associations between place and events that are needed for the formation of memories

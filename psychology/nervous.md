@@ -56,10 +56,13 @@
   - touch sensation `nerve input processor;`
 - Occipital lob
   - vision sensation`vision; its associate logic area to understand concealed information`
-- **Temporal lob** `logic; pattern; memory;`
+- **Temporal lob** `logic; pattern; memory; location & path;`
   - sound sensation
   - speech
   - comprehension
+  - entorhinal cortex
+    - Grid Cell
+    - Head Direction(HD) cells
 - Insular cortex
   - taste sensation
 
@@ -83,8 +86,9 @@
 - [**Basal Ganglia**](#basal-ganglia) `Action Selection`
 - Hypothalamus `regulate basic needs through hormones: sleep, sex, eat, rest;`
 - Amygdala `flight or fight`
-- Thalamus `relay station`
+- Thalamus `relay station, amplifying sensory signals`
 - [**Hippocampus**](#hippocampus) `convert short term memory into long term memory; read & write memory by pattern seperation;`
+  - Place Cell
 
 All mammals have 6 Primary Emotions
 - Sad
@@ -221,6 +225,9 @@ Short Term Memory
 Long Term Memory
 > New Dendrites & Terminals Structure.
 
+synaptic specificity?
+Path integration?
+
 ### Axon Guidance
 > "Growth cone" has receptor detects near by "molecular cues", molecular cues attracts more mRNA is direction, which produces more protiens to steer axon growth path.
 >
@@ -274,6 +281,10 @@ Frequency & Amplitude
 
 > Glial are involved in processes such as neurogenesis (generation of new neurons), neuronal migration, and synapse formation.
 
+
+> can NOT progagate Action Potentials
+> graded response
+
 > 60 billion glia to 16 billion neurons within the cortex, but only 16 billion glia to 69 billion neurons in the cerebellum.
 > 
 - Glial Cell Tumors `most common brain Tumors`
@@ -284,15 +295,16 @@ other Glial Cell functions:
 - Myelination
 - Immune Response
 
+### Astrocytes
+> ATP production; Remove neurotransmitters; Helps BBB;
+
 ### Oligodendrocytes
 > metabolic suport, maintain myelin sheath
+
 ### Microglia
 > small white blood cell
 ### Ependymal
 > blood filter generates cerebrospinal fluid(CSF)
-### Astrocytes
-> can NOT progagate Action Potentials
-> graded response
 
 - Protoplasmic
   - Majority
@@ -307,6 +319,9 @@ other Glial Cell functions:
   - Layer 1 - layer 4
 - Varicose
   - Layer 5 & 6
+
+## Blood-Brain Barrier
+> Blood-Brain Barrier (BBB) a highly specialized structure that separates the bloodstream from the brain and central nervous system (CNS). It is primarily formed by the endothelial cells that line the blood vessels in the brain.
 
 # Questions:
 

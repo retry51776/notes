@@ -20,6 +20,40 @@
 
 - Language Model is statical model of large text db. AI usually very agreeable/static basie.
 
+- Sparse Autoencoders
+> Brain uses Sparse Repr, it save energy, residliant to noise
+
+### Sparse Modeling
+> The goal is reduce input dimensional space to reduce noise.
+> The lose function of Sparse Modeling has extra Regularization to encourage sparsity in the network
+
+x = D * α
+- x `input signal`
+- Dictionary (D) `n(input size) by k matrix; Think as collection of basic feature sets;`
+- n `flaten input(x) size; also dictionary's width`
+- k `dictionary's columns, usually bigger n`
+- α `multi hot encoding vector;`
+- l0 `norm is counting the non-zero in α`
+- atom `a column from dictionary; think as a basic feature set;`
+> input = collection of atoms from Dictionary 
+
+> The goal is find a dictionary where each data will repr by a few atoms from dictionary.
+
+Relaxation (Basic Pursuit)
+Go Greedy (Matching Pursuit)
+
+Predefined dictionary: steerable, wavelet, curvelet, contourlets, bandlets.
+
+Sparse Indentification of NoneLinear Dynamics(SINDy) converts time-series data to sparse model
+
+sparse optimization algorithm
+- Least Absolute Shrinkage and Selection Operator(Lasso)
+- Orthogonal Matching Pursuit (OMP)
+- Basis Pursuit (BP)
+- Matching Pursuit (MP)
+- Elastic Net
+- Hard Thresholding
+
 
 ## Cool AIs
 - CodeFormer `Image/movie recover & enhance AI`
