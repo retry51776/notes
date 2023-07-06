@@ -10,3 +10,6 @@ TODO: create some slides
 
 # Brain
 https://docs.google.com/presentation/d/1EkeAD4Rhue24Y5wl-29BhFKHio9t_ajKnecBporC65E/edit?usp=sharing
+
+# React
+https://docs.google.com/presentation/d/130UdZ9o-XHSRdclumusGkQ4zEWq_eBEBUPDptebHwDo/edit?usp=sharing

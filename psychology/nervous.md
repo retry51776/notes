@@ -294,6 +294,7 @@ other Glial Cell functions:
 - Maintenance of Homeostasis
 - Myelination
 - Immune Response
+- Synaptogenic `how new connections form`
 
 ### Astrocytes
 > ATP production; Remove neurotransmitters; Helps BBB;

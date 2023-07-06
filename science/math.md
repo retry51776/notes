@@ -26,6 +26,20 @@
 - Principle `The underline idea/concept`
 - Algorithm `The serials of steps to resolve problem`
 
+## Staticts
+probability distributions:
+- Normal Distribution (Gaussian Distribution)
+- Bernoulli Distribution (unbalance Gaussian)
+- Exponential Distribution
+- Binomial Distribution `individual events combines`
+- Poisson Distribution `event happens within a period`
+- Uniform Distribution `continues variable`
+- Gamma Distribution
+- Beta Distribution:
+- Log-Normal Distribution
+
+l2 regulation `Ridge regulazation enforce smooth slope`
+
 # IMO
 > Encryption just make one path much harder than other paths.
 > > Will increase action space good enough to protect secrets? AI seems have stronger ability to run through large action space than human.
