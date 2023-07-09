@@ -13,3 +13,9 @@ https://docs.google.com/presentation/d/1EkeAD4Rhue24Y5wl-29BhFKHio9t_ajKnecBporC
 
 # React
 https://docs.google.com/presentation/d/130UdZ9o-XHSRdclumusGkQ4zEWq_eBEBUPDptebHwDo/edit?usp=sharing
+
+
+
+
+# By Others
+https://docs.google.com/presentation/d/11KzOK2adg6cfId5-t951gKhxGs3WQ9yxk-Ji5u4Tymk/edit#slide=id.p

@@ -149,3 +149,17 @@ AI sucks at Abbreviation.
 Once major differences is NN can do backward propagation. But neuron synapse only fire single direction.
 
 what is some top news happens in recent months? to check when AI model trained at
+
+# Tech
+- Tiling `calculation by smaller block, uses scaler to rescale each row to combine whole`
+- Recomputation `Don't store, recomputate to save RAM`
+
+- compute is NOT the bottleneck, rather is Memory size.
+
+- Mixture of Expert(MOE) `combine smaller models`
+- Multi Query Attention `reduce attention head to output to increase speed
+
+- L1 regularization `L1 regularization penalizes the sum of the absolute values of the weights in the network. This encourages the network to use a smaller number of weights, and it can also help to prevent overfitting.`
+- L2 regularization `L2 regularization penalizes the sum of the squares of the weights in the network. This also encourages the network to use a smaller number of weights, and it can also help to improve the generalization performance of the network.`
+
+- https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard

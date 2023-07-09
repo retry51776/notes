@@ -228,6 +228,11 @@ Long Term Memory
 synaptic specificity?
 Path integration?
 
+new neurons in brain
+- Dentate Gyrus
+- Subventricular Zone
+- Striatum
+
 ### Axon Guidance
 > "Growth cone" has receptor detects near by "molecular cues", molecular cues attracts more mRNA is direction, which produces more protiens to steer axon growth path.
 >

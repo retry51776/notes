@@ -141,4 +141,5 @@ Check & balance of B & T Lymphicyte is important
 # Maintenance
 - Heartflow Test `aka put color dye into blood, then ct scan how blood flow in heart`
 - Chanca Piedra Kidney Stone Breaker
-- 
+- Calcium Coronary Scan `test before Heartflow Test`
+- prophylactic statin `reduce LDL cholesterol in blood`

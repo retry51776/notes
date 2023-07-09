@@ -4,7 +4,9 @@
 "Human-level performance in multi-task reinforcement learning" by Volodymyr Mnih, et al. (2015): This paper presents the "DQN" algorithm, which was able to achieve human-level performance on a suite of Atari 2600 games using reinforcement learning. This was a significant achievement in the field of reinforcement learning, and it laid the foundation for many subsequent advances in the area.
 
 "Attention Is All You Need" by Vaswani, et al. (2017): This paper introduces the "Transformer" model, which is a type of neural network that is particularly well-suited for natural language processing tasks. The Transformer model has had a significant impact on the field of NLP, and it has been used in a variety of applications, including machine translation and language modeling.
+> Position encoding is similar how external ear changes noise a little for brain detecte position.
 > GPT4 has 220 billions parameters; 16 way mixture model; 8 set of weights;
+
 
 Filter query step:
 The idea is embedding layer encoded w position info. Then train attention matrix(n^2) to capture relationship weights; Then attention matrix times embedding layer to get filtered input.
@@ -15,4 +17,19 @@ The idea is embedding layer encoded w position info. Then train attention matrix
 
 - The Lottery Ticket Hypothesis `reuses pruned large network's connection & weights; iterator pruning; some network only need 3% weights same performance.`
 
+> Deconstructing Lottery Tickets: magitude_increase is best, large final is easy & pretty good. 
+
 - Dynamic Routing Between Capsules `Capsule Networks`
+
+- Attention with Linear Biases (ALiBi) `ALiBi addresses this problem by adding a linear bias to the attention scores between each query and key. The bias is inversely proportional to the distance between the query and key, so that closer tokens have a higher attention weight than more distant tokens. This helps to ensure that the model focuses on the most relevant tokens, even when the sequence is very long.`
+
+- Flash Attention achieves its speed and memory efficiency by using a number of techniques, including:
+
+Tiling: The attention computation is divided into smaller tiles, which are computed in parallel.
+Sparse matrix multiplication: The attention scores are computed using sparse matrix multiplication, which is more efficient than dense matrix multiplication.
+IO-awareness: The attention computation is carefully designed to minimize the number of memory reads and writes.
+
+- Retrieval Enhanced Transformers (RETRO) are a type of language model that combines the strengths of both retrieval-based and generative models. RETRO models first retrieve a set of relevant documents from a large corpus, and then use a generative model to generate text that is consistent with the retrieved documents.
+
+# Ideas
+pick radom top weight neurons, take input from (important & far aways) neuron's output; repeat winning lottery?
