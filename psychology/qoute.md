@@ -1,6 +1,7 @@
 # Quote
 > Esse Est Percepi `aka To be to Be Perceived by George Berkeley`
 
+> Man Can Do What He Wants, but He Cannot Will What He Wants; `Arthur Schopenhauer`
 ## Life
 
 > Great power comes great responsibility`spider-man`

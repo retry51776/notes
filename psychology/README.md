@@ -31,16 +31,16 @@
 ## Desire
 > There is a natural psychological desire within us to **belong** and have **power**.
 >
-> Remember power comes with responsibility, ask your self when you desire something, are you ready for responsibility.
+> Dopamine ≈ desires; 80% neuronal cell have receptors to dopamine.
 >
-> It is difficult to change desires, so it is easier to simply avoid the CUE that trigger desire.
+> Man can do what he desire, but can't will his desire; It's easier to simply avoid the CUE that trigger desire.
 >
-> Dopamine ≈ desires; 80% neurol cell have receptors to dipamine.
+> > Remember power comes with responsibility, ask your self when you desire something, are you ready for responsibility.
 
 ## Reward
 > Reward or satisfaction is DIFFERENT than desire.
 >
-> Serotonin ≈ happy & Satiety.
+> Serotonin ≈ happy & satisfaction.
 >
 > Raphe nuclei are clusters of neurons located in the brainstem that are the primary source of serotonin projections to the rest of the brain.
 

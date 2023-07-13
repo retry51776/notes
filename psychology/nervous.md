@@ -203,6 +203,14 @@ dophmine producer:
 
 # Cell
 
+## Neuronmodulator
+> Unlike neurotransmitters communcation locally, neuronmodulator effect large section of brain at once.
+- Dopamine `Desire, time perception`
+- Serotonin `full or satisfaction`
+- Norepinephrine `arousal or alertness`
+- Acetylcholine `learning, memory, attention; muscle movement`
+- GABA `anxiety, sleep, inhibitor`
+
 ## Neuron
 > We know computation & memory functions are implemented by Neuron. But devil is in the detail.
 
@@ -359,3 +367,5 @@ spinal thalamic?
 
 ## IMO
 > Each cortex lob acts as a worker/node of mammal brain. Usually each cortex lob assign same function, sometime different cortex lob can switch its function(Ex: touch, sound, shape, color ...). Each lob neuron dendrites connects to other lobs related attributes. Mammal brain acts as controller, that grather all infos in cortex lobs, made a decision & send signal to rest of body.
+
+> Should we consider city, bussiness district similar to brain? some cells/people specilized in some area?
