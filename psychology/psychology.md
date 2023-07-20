@@ -54,6 +54,8 @@ Touch sensations:
 > 
 > 90% info input by vision
 
+> Threhold: > 60ms we can see; < 40ms we can't see; 30ms is 100% can't see.
+
 - Depth Perception
 - Monocular cues `size of what we see`
   - relative size and height

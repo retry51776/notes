@@ -52,7 +52,7 @@ Ex Personal Values from google:
 - Most things have recursive property.
 > Ex: Wealth, Knowledge, Ability, Social Skill
 
-- Heard < Seen < Used < Understand < Improve < Trust yourself < Others trust you
+- Unconsciousness < Heard < Seen < Used < Understand < Improve < Trust yourself < Others trust you
 > or knowing < remembering < understanding < communicating
 
 - Intelligence is equilibrium of supply `often too much focus` and demand `often overlook`.

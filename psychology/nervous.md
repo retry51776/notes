@@ -69,6 +69,8 @@
 > I like Carl Wernicke Brain Theroy that each lob process some aspects of object. There is NO SINGLE PLACE in brain store all meaning of a object. Meaning of object are distribute in many areas of brain. There is "a hub" that these aspects of object must grather in order to process & make decision.
 > > Consciousness is degrees that brain integrate different attributes. If only response by very few areas of brain, then the person is not very Consciousness.
 
+> attentional binding? is selection & access
+
 ### Frontal lob
 - Ventromedial PFC `moral`
 
@@ -203,11 +205,17 @@ dophmine producer:
 
 # Cell
 
-## Neuronmodulator
-> Unlike neurotransmitters communcation locally, neuronmodulator effect large section of brain at once.
+## Neuromodulator
+> Unlike neurotransmitters communcation locally, neuromodulator effect large section of brain at once.
+
+Extrapersonal/Far Neuromodulator
 - Dopamine `Desire, time perception`
+
+Here & Now Neuromodulator
 - Serotonin `full or satisfaction`
-- Norepinephrine `arousal or alertness`
+- Norepinephrine `arousal or alertness; aka endorphine; make from Dopamine;`
+- Oxytocin `love female`
+- Vasopressin `good husband hormone`
 - Acetylcholine `learning, memory, attention; muscle movement`
 - GABA `anxiety, sleep, inhibitor`
 
@@ -348,6 +356,7 @@ other Glial Cell functions:
   > I think brain is very much like OS, reptile brain acts as linux kernal, and mammal brain acts as applications installed in OS. Rational just one of many installed software.
 
 - Where desire comes from?
+ > We have dopamine (future)circuit to indicates desire, attention, plan, time preception; Also have other modulator (Here & Now)circuit to indicate statfacation, relationship, awake; We are seesaw between these 2 circuits;
 
 - What is ego/pride?
   > Ego/pride most likely a kernal feture. Even loster, animals existed before human have ego.
@@ -366,6 +375,16 @@ spinal thalamic?
 
 
 ## IMO
+> Funny how AI turn out start from top instead bottom of stacks; IMO transfomer model already support conscious & intelligence. It's unconscious that current AI havn't resolve. Ex vision that processed in unconscious level. 
+
 > Each cortex lob acts as a worker/node of mammal brain. Usually each cortex lob assign same function, sometime different cortex lob can switch its function(Ex: touch, sound, shape, color ...). Each lob neuron dendrites connects to other lobs related attributes. Mammal brain acts as controller, that grather all infos in cortex lobs, made a decision & send signal to rest of body.
 
-> Should we consider city, bussiness district similar to brain? some cells/people specilized in some area?
+> Consider neuron as people; people forms city, bussiness, and other specilized district similar some neuron specilized reps some knowledge.
+> > Maybe neuron communicate to create local consensus; Gobal working space(government) can decide 1) take majority consesus by sample then select 2) supress majority consensus, let minority voice growth & become new consensus. (do step 1, then require focus to supress, the reason is hard to think)
+
+> or consider congressman(corital column) able to propose legislation(though); Only the legislation passed congress(the rest of neocortex) consensus send to executive branch(mammal brain). emotion as judicial branch?
+> Is executive branch(mammal brain) only do confirm & supress enough to suppose sophisticated thoughts?
+
+> humm, dophmine is very similar to credit! Desire & Control. Over similar desire circurt(Argentina) interference with control circurt(Production), or make it out of touch(Progressive). Lack of dophmine(NK, SSRS) will also cause under Production.
+
+> Brain wide info share. The winning coalition. (neurons form a group reps an object)

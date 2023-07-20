@@ -31,6 +31,7 @@
 
 > Donald Hebb `Neuron fire together wired together, fire apart wired apart`; I think this applied more than neuron. Also individual, which explain communities(both online & offline).
 
+> Stanislas Dehaene: The unconscious mind proposes; The conscious mind selects;
 
 ## Questions:
 1. Why you are alive? What will you willing to die for?
