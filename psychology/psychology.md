@@ -52,9 +52,28 @@ Touch sensations:
 ## Vision
 > Convolutional neural network(CNN)
 > 
-> 90% info input by vision
+> 90% info input by vision;
 
 > Threhold: > 60ms we can see; < 40ms we can't see; 30ms is 100% can't see.
+
+- Primary Visiual Area(V1)
+  - Parvocellular layers (4 P Layers) `color, detail, still, slow`
+  - Magnocellular layers (2 M Layers) `detect motions`
+- Dorsal stream `process spatial info`
+- Ventral stream `process shape & color`
+  - motion(MT)
+  - shape(LOC)
+  - color(CC), 
+  - face(Fusiform Face Area)
+  - places(Parahippocampal Place Area) `shape of envirenment`
+  - body(Extrastriate Body Area)
+- Hippocampus
+  - Place Cell(Here cell) `fire rapidly, regardless direction, 3D place field`
+  - Direction Cell
+  - Grid Cell
+  - Boarder Cell
+
+
 
 - Depth Perception
 - Monocular cues `size of what we see`

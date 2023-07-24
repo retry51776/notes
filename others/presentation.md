@@ -12,14 +12,16 @@ TODO: create some slides
 https://docs.google.com/presentation/d/1EkeAD4Rhue24Y5wl-29BhFKHio9t_ajKnecBporC65E/edit?usp=sharing
 
 # AI
+TODO: Split some slides from brain; Add more stuff about AI models, AI math theory.
 
 # React
 https://docs.google.com/presentation/d/130UdZ9o-XHSRdclumusGkQ4zEWq_eBEBUPDptebHwDo/edit?usp=sharing
 
 # Money
-TODO: create some slides how money created
+https://docs.google.com/presentation/d/1fqcgQOBNSjLvfLbuqgE186pUl1tTOhS66uRoRBqE7hk/edit?usp=sharing
 
 
 
 # By Others
+AI SF meetup
 https://docs.google.com/presentation/d/11KzOK2adg6cfId5-t951gKhxGs3WQ9yxk-Ji5u4Tymk/edit#slide=id.p
