@@ -8,6 +8,18 @@
 > (Go template language)[https://pkg.go.dev/text/template]
 > 
 > (YAML)[https://helm.sh/docs/chart_template_guide/yaml_techniques/]
+
+## Helm Lifecycle
+```yaml
+metadata:
+  annotations:
+    # Event Ex: pre-install, pre-upgrade, pre-rollback, test ...
+    "helm.sh/hook": post-install
+    # Lower number execute first
+    "helm.sh/hook-weight": "-5"
+    "helm.sh/hook-delete-policy": "hook-succeeded,before-hook-creation,hook-failed"
+```
+
 ## Helm CMDs
 ```bash
 brew install helm
@@ -20,6 +32,7 @@ helm plugin install https://github.com/lrills/helm-unittest
 helm repo add stable https://charts.helm.sh/stable
 helm repo add traefik https://helm.tra
 efik.io/traefik
+# If chart is broken, fix chart by
 helm repo update
 
 # You got to check source chart yourself
@@ -109,4 +122,11 @@ data:
   {{ . }}: |-
         {{ $files.Get . }}
   {{- end }}
+```
+
+```yaml
+# tpl will render variable, not inject variable str value
+{{ tpl .Values.str_template . }} 
+{{ - .Values.str_w_space - }}
+
 ```

@@ -12,6 +12,7 @@
   - Weight
   - Bias `a value that is added to the output of a neuron before it is passed to the next layer.`
 - Prompt Engineering `aka use beginning statement to set context for AI`
+- Auto Model Compression `pruning as reinforcement learning problem`
 
 ## Architecture
 > Think of AI as a kid, we are designing games to see which game `architecture` help AI `kid` grow;
@@ -66,8 +67,6 @@ sparse optimization algorithm
 
 
 ## IMO
-- There isn't a correct hidden state, rather these problem has similar feature sets. `CNN first layer recognized edges, then lines, then organs.`
-
 - I think we need more localized, more parrell algorthims. I think back propergation is too global. My guess is unfired neuron stack up voltage cause correction. 
 
 - List of Human ability/skills that AI need to learn
@@ -161,5 +160,11 @@ what is some top news happens in recent months? to check when AI model trained a
 
 - L1 regularization `L1 regularization penalizes the sum of the absolute values of the weights in the network. This encourages the network to use a smaller number of weights, and it can also help to prevent overfitting.`
 - L2 regularization `L2 regularization penalizes the sum of the squares of the weights in the network. This also encourages the network to use a smaller number of weights, and it can also help to improve the generalization performance of the network.`
+
+- Parameter Efficient Fine Tuning(PEFT)
+- LoRa `Attach extra weight to orginal model feedforward layer, then train these extra weight; usually mb size`
+- Prefix Tuning
+- P tuning
+- Prompt Tuning
 
 - https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard

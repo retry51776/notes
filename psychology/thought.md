@@ -35,3 +35,29 @@ Single Fire direction mean infomation only goes one way, lost info must reattach
 It's more like frontal lob tag extra info ON TOP vision and other sensation, NOT sensation pass info to frontal lob;
 
 > Neuron near by has similar (not same) preference
+
+
+# Youtube Analogy
+> Youtube server system is brain; Each Youtuber is a neuron; Youtuber(neuron) watch(input) & publish(output) videos;
+
+> Fire together wires together;
+> > Similar content videos(fires together) Youtube (brain) will recommend together(wired together);
+
+> > Why neoron sync fire rate? I bet there is some kind "view count" signal send back to publisher(output neuron) to let it know its signal is popular. Samething as Youtuber make similar video because they knew there is a demand for it.
+
+> Youtuber(neuron) gets bore when no video(no input); Then youtuber(neuron) looks for other videos(new connections); Which cause youtuber changed its output videos(function);
+
+> I think Youtube(brain) will eliminate youtuber(neuron) by view count(other neuron watchs your output)
+
+> Many popular videos get "clone"/"republish" in Youtube(brain); Similar how brain distrubute computation neurons in different regions of brain.
+
+> Youtuber(neuron) can watch one video at 
+
+## Questions
+- How viewer pick which videos they watch? How to simulate in AI neuron?
+- How to simulate new connection? I think we need to develop async ai model before connection problem.
+
+## IMO
+- Current AI computation by connection is right direction;
+- Current AI store info by connection strength.
+- In a way, AI is a compression alg; Because it store world model is compessed format with some lost. So multi purpose in neuron/connection will have better performance in compression.

@@ -167,6 +167,8 @@ dophmine producer:
 > Though & Self Control is 2 different things.
 
 ## Hippocampus
+> Hippocampus seems like cache/buffer of SSD. It does retain memory, then clone memory multiple places in cortex.
+
 > Memory, Mood, Stress, Pattern Seperation & Pattern Completion;
 
 > Different location hippocampal neurons have different application.
@@ -368,3 +370,9 @@ other Glial Cell functions:
 
 ## Study more
 spinal thalamic?
+
+
+### Criticial Phase Theory
+> Neuron in brain always close to criticial phase point. Neuron spike avalanches; 
+
+> Power Law: scale invariance. Ex: brain works regressless size of brain.

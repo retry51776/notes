@@ -19,7 +19,7 @@
 - DGX server have sister product (HGX server)High-Performance GPU (Graphics Processing Unit) eXtensible
 
 ## Inference
-- 
+- https://huggingface.co/TheBloke
 
 
 ## Dataset

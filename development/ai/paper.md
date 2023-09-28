@@ -31,5 +31,9 @@ IO-awareness: The attention computation is carefully designed to minimize the nu
 
 - Retrieval Enhanced Transformers (RETRO) are a type of language model that combines the strengths of both retrieval-based and generative models. RETRO models first retrieve a set of relevant documents from a large corpus, and then use a generative model to generate text that is consistent with the retrieved documents.
 
+- SynFlow prune network connection by assign score to each connection. score = dervitity_lose / dervitity_weight * weight; Because we want to prune connection auto balance between layers(I am not 100% agrees here.)
+
+- Quantized is normalized weight & activation input & output. But outlier weight is problem. maybe need split out outlier process.
 # Ideas
-pick radom top weight neurons, take input from (important & far aways) neuron's output; repeat winning lottery?
+- pick radom top weight neurons, take input from (important & far aways) neuron's output; repeat winning lottery?
+- prune combines with quantized? or can we quantized only subset network?

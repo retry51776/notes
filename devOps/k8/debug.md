@@ -36,6 +36,10 @@ chmox +x xxx.sh
 
 # Look into Nginx Log
 kubectl logs -n ingress-nginx -l app.kubernetes.io/name=ingress-nginx
+
+# check nginx config
+nginx -t
+
 # Read more in Networking.md
 ping xxx-service
 curl -k 1.1.1.1

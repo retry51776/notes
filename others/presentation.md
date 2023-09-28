@@ -20,7 +20,8 @@ https://docs.google.com/presentation/d/130UdZ9o-XHSRdclumusGkQ4zEWq_eBEBUPDptebH
 # Money
 https://docs.google.com/presentation/d/1fqcgQOBNSjLvfLbuqgE186pUl1tTOhS66uRoRBqE7hk/edit?usp=sharing
 
-
+# LLM
+https://docs.google.com/presentation/d/1tgv_vvEyyNG326FuaPclCKDyZVclEH5426dsuJNkKkI/edit#slide=id.g25dbfb29946_0_0
 
 # By Others
 AI SF meetup
