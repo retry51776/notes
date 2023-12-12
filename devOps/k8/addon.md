@@ -5,6 +5,7 @@
 - kubeadm `Install production k8`
 - kubespray/kargo (base off Ansible)
 - kops
+- k9s
 
 // K8 local dev
 - minikube `Full k8 single cluster single node`

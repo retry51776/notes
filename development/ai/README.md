@@ -1,6 +1,7 @@
 # AI
 > I think the fundamental idea of AI is past determent future.
 > > What I mean is AI extract pattern from past data, assumes those pattern will most likely works in future problem.
+> > AI research is find general algorthims to calculate some artifacts regarless input. (which can repeat, combine with other algorthims)
 
 ## Basic Terms:
 - Learning Workflow

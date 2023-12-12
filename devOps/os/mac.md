@@ -5,6 +5,9 @@ Press Command + Shift + . (period)
 
 # Continue Invalid SSL website
 Type 'thisisunsafe' on page
+
+# Clear Bash History
+history -c
 ```
 
 # Networking

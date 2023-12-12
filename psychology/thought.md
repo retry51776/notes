@@ -1,6 +1,10 @@
 
 
 ## IMO
+
+> Sleep is required in all animals. It takes up 30% our life time, yet we don't know how/what it's doing. Understand sleep will have huge impact AI.
+> > I assumed dreams are byproduct of brain learning. Maybe hippocampus clone its memory to cortext's side effect. Is there a way to increase dreams? I'd like to fully understand sleep.
+
 > Funny how AI turn out start from top instead bottom of stacks; IMO transfomer model already support conscious & intelligence. It's unconscious that current AI havn't resolve. Ex vision that processed in unconscious level. 
 
 > Each cortex lob acts as a worker/node of mammal brain. Usually each cortex lob assign same function, sometime different cortex lob can switch its function(Ex: touch, sound, shape, color ...). Each lob neuron dendrites connects to other lobs related attributes. Mammal brain acts as controller, that grather all infos in cortex lobs, made a decision & send signal to rest of body.
@@ -35,6 +39,29 @@ Single Fire direction mean infomation only goes one way, lost info must reattach
 It's more like frontal lob tag extra info ON TOP vision and other sensation, NOT sensation pass info to frontal lob;
 
 > Neuron near by has similar (not same) preference
+
+Problem in transfomer must be position encoding.
+1. We don't have global attention system(even & global). Our attention effects by position, emotion, and partical.
+2. There must be some kind segmentation & rejoin process in brain, which requires different position encoding.
+3.
+
+# Changes
+> Changes is hard because complexity system need process to filter out/narrow down change.
+
+> In a way, it's NOT changes is hard. But alternative thinking is easy.
+>> Maybe improve doing always need sacrifice of thinking? Ex: baby to adult; in Brain improve function takes room, something else always have to gives.
+
+> Change not only requires alternative neuron path(may not even exists yet), but also reroute existing signal to new neuron path.
+
+> Analogy: There is already existing highway(habbit). In order to change, you need to build alternative highway(alternative habbit) which takes time. And reroute existing traffic(block traffic use highway, and force them use new road), and destory the old highway(or let it decave).
+>
+>> To practis change, we always should slowly, no rush while action/decision (avoid pressure force neuron takes fastest path which it's existing path/behavior).
+>
+>> Repeat alternative path to strength road. Build road(neuron pathway) takes time. It's a construction project, not a decision.
+>
+>> What are good blockcade? or good ways destory existing path?
+
+> I don't think minumized lost is human goal. Rather generate fastest response or something.
 
 
 # Youtube Analogy

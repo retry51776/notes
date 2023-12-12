@@ -20,6 +20,14 @@
 - Failed Mount
 - Kubelet crash
 
+## TLS Issue
+- Is Ingress defined? inspect ingress
+- Is service defined & running?
+- Is TLS secrets created? is it valid?
+- Have cert-manager running?
+- Is ingress annotation missing?
+- Is there cert issuer? or reach issue limitation? mismatch ClusterIssuer name?
+
 ## Debugging Inside POD
 ```bash
 # Start a busybox

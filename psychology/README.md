@@ -12,10 +12,10 @@
 </br></br>
 ## Forward Propagation Decision Process
 
-> [Desire](#desire) > Problem > [**Awareness**](#awareness) > [**Experience**](#experience) > [**Evaluation**](#reflection-process) > Action
+> [Cue](#cue) > [Desire](#desire) > Problem > [**Awareness**](#awareness) > [**Experience**](#experience) > [**Evaluation**](#reflection-process) > Action
 
 
-## Backward Propagation Decision Process
+## Backward Propagation Reflection Process
 [reflection process details](#reflection-process)
 > Result > [Evaluation](#reflection-process) > [Diagnosis](#diagnose) > [Design](#design) > [Implementation](#implementation)
 
@@ -27,6 +27,10 @@
 </br></br>
 
 # Definitions
+
+## Cue
+> Any sensation that trigger habbit loop.
+> > Very important controllable variable in our life.
 
 ## Desire
 > There is a natural psychological desire within us to **belong** and have **power**.
