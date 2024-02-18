@@ -98,11 +98,16 @@ Owner Structures:
 - Prefer stock
 > private company will issues prefer stock to investor, so in case bankruptcy, investor will get pay out first, when IPO, prefer stock will convert to common stock
 
-- Convertible debt/note/bond
-> company borrow money, allow lender to choose 1. pay back later 2. allow lender convert to stock in future w set price 3. stock options in set price
+- SAFE Note
+> Only 3 Variables: Valuation CAP, Discount, Major investor right
+
+- Convertible Note
+> aka Safe Note + interest rate
 
 - 409A
 > 409A is an independent appraisal of the fair market value (FMV) of a private company's common stock
+
+Safe >(before) options pool > New investment
 
 - Learning Curve pricing `max production rate to expose all possible problems`
 - Addressable Market `The potentials of market `

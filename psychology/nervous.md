@@ -1,17 +1,17 @@
 # Nervous System
-> It's hard to seperate hardware from application, but this note focus more on hardware.
+> It's hard to separate hardware from application, but this note focus more on hardware.
 
 # Organ System
 
 ## Central Nervous System
-> Control system that process thought, emotion, survial, generatly fast response time.
+> Control system that process thought, emotion, survival, generally fast response time.
 - [**Human Brain**](#human-brain)
 - [**Mammal Brain**](#mammal-brain)
 - [**Reptilian Brain**](#reptilian-brain)
 - Brain Stem `aka Spinal Cord; breathing, heart, blood pressure, wakefulness;`
 
 ## Peripheral Nervous System
-> Control system independently from CNS, but also operate together, generatly slower response time.
+> Control system independently from CNS, but also operate together, generally slower response time.
 
 - Somatic Nervous System `voluntary control skeletal muscle`
 - Autonomic Nervous System `involuntary`
@@ -33,7 +33,7 @@
 
 
 # Organ
-> 3 brains. There is no orgin within PNS.
+> 3 brains. There is no organ within PNS.
 
 ## Human Brain
 > aka Neocortex; 4 lobs + Association Area + Insular cortex;
@@ -66,7 +66,7 @@
 - Insular cortex
   - taste sensation
 
-> I like Carl Wernicke Brain Theroy that each lob process some aspects of object. There is NO SINGLE PLACE in brain store all meaning of a object. Meaning of object are distribute in many areas of brain. There is "a hub" that these aspects of object must grather in order to process & make decision.
+> I like Carl Wernicke Brain Theory that each lob process some aspects of object. There is NO SINGLE PLACE in brain store all meaning of a object. Meaning of object are distribute in many areas of brain. There is "a hub" that these aspects of object must gather in order to process & make decision.
 > > Consciousness is degrees that brain integrate different attributes. If only response by very few areas of brain, then the person is not very Consciousness.
 
 > attentional binding? is selection & access
@@ -75,9 +75,9 @@
 - Ventromedial PFC `moral`
 
 ## Mammal Brain
-> Decision Control, habbit formation, long term memory, and emotion.
+> Decision Control, habit formation, long term memory, and emotion.
 >
-> Mammal Brain piroty: **safety** >  **body language** > **perceive emotions**
+> Mammal Brain priority: **safety** >  **body language** > **perceive emotions**
 
 
 > Mammal Brain advantage over Cortex are speedy process input, immediate action, focus safety, better communication;
@@ -93,12 +93,18 @@
   - Place Cell
 
 All mammals have 6 Primary Emotions
-- Sad
-- Disgust
-- Happy
-- Surprise
-- Anger
-- Fear
+- Sad (current- & future- & safety-)
+- Disgust (future- & current= & safety=)
+- Happy (future+ & current+ & safety=)
+- Surprise (current+ & future= & safety=)
+- Anger (safety= & future- & current-)
+- Fear (safety- & future- & current*)
+
+Maybe all emotions are generated under 3 dimensions:
+- current
+- future
+- safety
+
 
 
 ### Habits
@@ -106,12 +112,12 @@ All mammals have 6 Primary Emotions
 >
 > Basal ganglia is almost like kernal of OS. The rational part (cortex) is more a plugin/3rd party software of OS.
 >
-> Habbit Workflow: `Cue > Desire > Action > Reware`
+> Habit Workflow: `Cue > Desire > Action > Reward`
 >
-> Develop Habit: `Obsessive > Attritive > Easy > Satisfy`
+> Develop Habit: `Obsessive > Attractive > Easy > Satisfy`
 >
 > Inhibit Habit: `Invisible > Disgusting > Difficult > Unsatisfied` 
-> > Basel gangalia brain listen feedback from cortex, enhace & supress signal to thalamus;
+> > Basel ganglia brain listen feedback from cortex, enhance & suppress signal to thalamus;
 
 
 ## Reptilian brain
@@ -132,12 +138,12 @@ Consciousness state:
 - Hypnosis `calm, trance-like state during which you tend to have **heightened concentration and focus**, and in which you're typically more open to suggestion.`
 - Sleeping `recuperation; growth; mental function;`
 
-dophmine producer:
+dopamine producer:
 - Ventral Tegmental Area
 - Substantia Nigra `movement`
 
 > [Body Language](psychology.md#body-language) is already shown in lobster.
-> > Body Language includes Facial language. which it's addtional output from Mammal Brain.
+> > Body Language includes Facial language. which it's additional output from Mammal Brain.
 
 # Tissue
 > I consider sub modules of brain are tissue here.
@@ -149,8 +155,8 @@ dophmine producer:
 
 > Basal ganglia output are GABA supress signal.
 
-- Direct Pathway `aka go; supress basal ganglia's output, stop supress right signal; This does NOT effect your decision. Rather make you more active/energetic on your decision.`
-- Indirect Pathway `aka no go; increase basal ganalia's supression; Return to normal dependences on return normal from Indirect Pathway.`
+- Direct Pathway `aka go; suppress basal ganglia's output, stop suppress right signal; This does NOT effect your decision. Rather make you more active/energetic on your decision.`
+- Indirect Pathway `aka no go; increase basal ganalia's suppression; Return to normal dependence on return normal from Indirect Pathway.`
 - Hyperdirect `aka stop.`
 
 > Basal ganglia components:
@@ -169,17 +175,17 @@ dophmine producer:
 ## Hippocampus
 > Hippocampus seems like cache/buffer of SSD. It does retain memory, then clone memory multiple places in cortex.
 
-> Memory, Mood, Stress, Pattern Seperation & Pattern Completion;
+> Memory, Mood, Stress, Pattern Separation & Pattern Completion;
 
 > Different location hippocampal neurons have different application.
 
-> Suprise will increase write memory effectness immediately.
+> Surprise will increase write memory effeteness immediately.
 >
 > memory contextual details stores in cortex.
 >
 > Depaminergic connections between the Ventral Tegmental Area(VTA) and hippocampus can modulate memory after reward, suprise, or novelty.
 
-> Restabilize memory requries protein synthesis, which can take several hours. `aka edit memory is slow`
+> Restabilize memory requires protein synthesis, which can take several hours. `aka edit memory is slow`
 - Dentate gyrus `input area`
 - CA1 `pattern consolidation`
 - CA2 `social memory`
@@ -195,8 +201,8 @@ dophmine producer:
 - Pattern Completion `CA3: associate memory develop by strength feature neuron synataxs; Later single feature will cause all associated features fired;`
 - Pattern Sequence `CA3 can rewire signal back to dentate gyrus to reprocess; aka recurrent function to chain events.`
 > As we age, we think similar things are same.
-- Pattern Seperation `able to pick up more attributes from context. aka hash features.`
-> More hippocampal neurons will have better pattern seperation.
+- Pattern Separation `able to pick up more attributes from context. aka hash features.`
+> More hippocampal neurons will have better pattern separation.
 
 > Less hippocampal neurons will easier to addict to drugs.
 
@@ -215,7 +221,7 @@ Extrapersonal/Far Neuromodulator
 
 Here & Now Neuromodulator
 - Serotonin `full or satisfaction`
-- Norepinephrine `arousal or alertness; aka endorphine; make from Dopamine;`
+- Norepinephrine `arousal or alertness; aka endorphins; make from Dopamine;`
 - Oxytocin `love female`
 - Vasopressin `good husband hormone`
 - Acetylcholine `learning, memory, attention; muscle movement`
@@ -285,7 +291,7 @@ axon survival?
 Neuron switch transmitter under stress
 
 burst mode `rapid neuron fires, strong signal but not accurate; usually trigger by cue`
-tonic mode `normal neuron communcation`
+tonic mode `normal neuron communication`
 
 ### Brain Waves
 > Neural oscillations, are rhythmic patterns of electrical activity generated by the brain. These electrical signals are produced by the collective behavior of billions of neurons firing in synchrony.
@@ -304,6 +310,7 @@ Frequency & Amplitude
 
 > Glial are involved in processes such as neurogenesis (generation of new neurons), neuronal migration, and synapse formation.
 
+> Guess: Neuron fires trigger its Glial Cell increase blood supply, then neurotransmitters in blood supply flowed into target cell area, interact with target neurons & glial cell to increase blood supply long term(aka confirm process), then because long term increase blood supply, target neurons get bigger.
 
 > can NOT progagate Action Potentials
 > graded response
@@ -328,7 +335,8 @@ other Glial Cell functions:
 ### Microglia
 > small white blood cell
 ### Ependymal
-> blood filter generates cerebrospinal fluid(CSF)
+> blood filter generates cerebrospinal fluid(CSF) wash Interstitial Fluid (ISF) aka waste flue generate by cell
+> to Glymphatic system
 
 - Protoplasmic
   - Majority
@@ -355,24 +363,24 @@ other Glial Cell functions:
 
 
 - What/How is Brain Process overall architecture?
-  > I think brain is very much like OS, reptile brain acts as linux kernal, and mammal brain acts as applications installed in OS. Rational just one of many installed software.
+  > I think brain is very much like OS, reptile brain acts as linux kernel, and mammal brain acts as applications installed in OS. Rational just one of many installed software.
 
 - Where desire comes from?
- > We have dopamine (future)circuit to indicates desire, attention, plan, time preception; Also have other modulator (Here & Now)circuit to indicate statfacation, relationship, awake; We are seesaw between these 2 circuits;
+ > We have dopamine (future)circuit to indicates desire, attention, plan, time perception; Also have other modulator (Here & Now)circuit to indicate statfacation, relationship, awake; We are seesaw between these 2 circuits;
 
 - What is ego/pride?
-  > Ego/pride most likely a kernal feture. Even loster, animals existed before human have ego.
+  > Ego/pride most likely a kernel feature. Even lobster, animals existed before human have ego.
 
 - How Hippocampus works? Maybe is help AI development.
 
 - Is all memory have 6 emotional tags?
-  > Memory is encoded into neuron synapse (structure & connection) `Envirenment Activity -> Neural Activity -> microRNA -> neuron synapse changes -> changes to Neural Activity` Suprise increase efficient write memory.
+  > Memory is encoded into neuron synapse (structure & connection) `Environment Activity -> Neural Activity -> microRNA -> neuron synapse changes -> changes to Neural Activity` Surprise increase efficient write memory.
 
 ## Study more
 spinal thalamic?
 
 
 ### Criticial Phase Theory
-> Neuron in brain always close to criticial phase point. Neuron spike avalanches; 
+> Neuron in brain always close to critical phase point. Neuron spike avalanches; 
 
 > Power Law: scale invariance. Ex: brain works regressless size of brain.

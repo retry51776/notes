@@ -170,6 +170,17 @@ so view can check in compile time if variable has methods
     > app level instance
 
 
+```c#
+BlockingCollection bc - new BlockingCollection();
+bc.Add();
+bc.Add();
+bc.CompleteAdding();
+
+foreach (var x in bc.GetConsumingEnumerable())
+{
+    // task x
+}
+```
 
 ### MiniProfiler
 > shows stack run time

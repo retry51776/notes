@@ -1,6 +1,7 @@
 # Experience
 > Try to organize my [experience](README.md#experience) here.
 - Natural
+  - [Risk & Reward](#risk-reward)
   - [Personal Value](#personal-value)
   - [Conclusion](#conclusion)
 - Acquired
@@ -8,31 +9,22 @@
   - [Principal](#principal)
   - [Framework](#framework)
 
+# Risk Reward
+<strong>Natural is about Risk & Reward Management.</strong>
+> In a well balance market, more risk correlates with more reward.
+
+> Why rich get richer? It's not rich get richer, it's those with resource able to handle more risk in order capture more reward.
+
+> Society doesn't pay people by their hard work, we get paid by the risk we handle.
+
+> Ex: we are risk 20+ years time for education. In a way, we risk 20+ year to be not productive, for increase productive rest of our live. We assume there is food & safety for 20+ years, and we live more than 50+ years to capture rewards.
+
+> Cost & Benefit Model is subset of risk & reward model determined in time period. 
+
+Poker is one of best game about Risk & reward. Many well develop theory to analysis risk & reward.
+
 # Personal Value
-> It is recommended that you prioritize your top 10 personal values and strive to live by them.
-> 
-> By living in accordance with your values, you may find that you feel happier, have more confidence in your decisions, and have a clearer direction in your life.
-
-Ex Personal Values from google:
-- Personal growth
-- Dependability
-- Adaptability
-- Well-being
-- Altruism
-- Compassion
-- Integrity
-- Generosity
-- Courage
-- Gratitude
-- Sustainability
-- Frugality
-- Loyalty
-- Family
-- Humility
-- Assertiveness
-- Uniqueness
-- Sustainability
-
+> Personal Value just different dimensions to measure risk & rewards.
 
 # Conclusion
 `aka Recognized patterns.`
@@ -202,6 +194,8 @@ Ex Personal Values from google:
 1. There is no solution, only tradeoff.
 2. Decision fatigue.
 3. Cause and effect are difficulty to determent, but correlation is easier to detect.
+4. As a system get more complex, changes in system requires more complexiity.
+
 > We must make decision because we can't have everything.
 > We have limited capability to make decision.
 > There are so many decisions in complex problem/product;
@@ -212,6 +206,9 @@ Ex Personal Values from google:
 > Engineer uses correlation to guess, improve solution.
 > There isn't a scientific way to predict solution for complex problem in future`past result isn't prove`.
 > We assume investor willing to put their money on the line in aggregate result in good prediction.
+
+> If complexiity in sytem makes changes difficult, and there is no way around it(IMO). Then this explain why life has dead.
+> That's why I always value simplicity in system. 
 
 ## Drive to the future
 1. The road is NOT always straight, with limited visibility.

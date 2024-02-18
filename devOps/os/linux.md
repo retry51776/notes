@@ -120,6 +120,9 @@ chomd [owner][group][other] file_name
     - w:2:write
     - x:1:excute
 
+# These two files defines noroot user
+# /etc/subuid
+# /etc/subgid
 ```
 
 ## Service / Cronjob / Dev

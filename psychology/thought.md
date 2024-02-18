@@ -45,6 +45,8 @@ Problem in transfomer must be position encoding.
 2. There must be some kind segmentation & rejoin process in brain, which requires different position encoding.
 3.
 
+why all animals have similar emotion?
+
 # Changes
 > Changes is hard because complexity system need process to filter out/narrow down change.
 
