@@ -11,15 +11,26 @@
 
 # Risk Reward
 <strong>Natural is about Risk & Reward Management.</strong>
-> In a well balance market, more risk correlates with more reward.
 
-> Why rich get richer? It's not rich get richer, it's those with resource able to handle more risk in order capture more reward.
+> In a well balance market, more risk correlates with more reward.
+>
+> > Ex1: More power(reward) comes with more responsibility(risk)
+>
+> > Ex2: Cost(risk) vs Benefit(reward)
+>
+> > Ex3: animals reproduction
+>
+> > Ex4: There is no solution, only tradeoff.
+>
+> > Ex5: Witty speaker, instead of talk directly(low risk, low reward), they took a far route(high risk, high reward).
+
+
+> Why rich get richer? It's not rich get richer. It's those with resource able to handle more risk in order capture more reward.
 
 > Society doesn't pay people by their hard work, we get paid by the risk we handle.
 
 > Ex: we are risk 20+ years time for education. In a way, we risk 20+ year to be not productive, for increase productive rest of our live. We assume there is food & safety for 20+ years, and we live more than 50+ years to capture rewards.
 
-> Cost & Benefit Model is subset of risk & reward model determined in time period. 
 
 Poker is one of best game about Risk & reward. Many well develop theory to analysis risk & reward.
 
@@ -100,6 +111,8 @@ Poker is one of best game about Risk & reward. Many well develop theory to analy
 
 - Past can't change; Only reflect if you intended change yourself for future.
 > Change your path is easier than change what your desire.
+>
+> Just like poker, you can't change past; But readjust risk & reward model can improve future games.
 
 - Repetition training is most effective way to change. `Not talking about memory, just habits.`
 
@@ -126,6 +139,8 @@ Poker is one of best game about Risk & reward. Many well develop theory to analy
 > Most parent mistakes root from parent value correct behavior OVER child's psychology process.
 >
 > Don't go for perfect answer. Rather focus on constance improvement of existing process.
+>
+> Train kid risk & reward model.
 
 
 - 2 approaches to solution
@@ -194,7 +209,7 @@ Poker is one of best game about Risk & reward. Many well develop theory to analy
 1. There is no solution, only tradeoff.
 2. Decision fatigue.
 3. Cause and effect are difficulty to determent, but correlation is easier to detect.
-4. As a system get more complex, changes in system requires more complexiity.
+4. As a system get more complex, changes in system requires more complexity.
 
 > We must make decision because we can't have everything.
 > We have limited capability to make decision.
@@ -207,7 +222,7 @@ Poker is one of best game about Risk & reward. Many well develop theory to analy
 > There isn't a scientific way to predict solution for complex problem in future`past result isn't prove`.
 > We assume investor willing to put their money on the line in aggregate result in good prediction.
 
-> If complexiity in sytem makes changes difficult, and there is no way around it(IMO). Then this explain why life has dead.
+> If complexity in system makes changes difficult, and there is no way around it(IMO). Then this explain why life has dead.
 > That's why I always value simplicity in system. 
 
 ## Drive to the future
@@ -241,4 +256,6 @@ Poker is one of best game about Risk & reward. Many well develop theory to analy
 4. Unchangeable destiny.
 5. At first technology matter the most, but at the end relationship are most important.
 6. Puzzle movie.
-7. Tessellation; Most classic literary have tessellation; There are some side characters with few details; Yet indicates they follow same rule & pattern that main character follow. Ex: 红楼梦 皇帝>贾府>赖管家
+- More clues as movie goes on;
+- Fragmentation; Ex: West World season 1;
+7. Tessellation; Most classic literary have tessellation; There are some side characters with few details; Yet indicates they follow same rule & pattern that main character follow. Ex: 红楼梦 皇帝>贾府>赖管家 (Aka recursive story)

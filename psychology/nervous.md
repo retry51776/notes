@@ -37,11 +37,11 @@
 
 ## Human Brain
 > aka Neocortex; 4 lobs + Association Area + Insular cortex;
-> > Neocortex is latin "neo" means new and "cortext" means bark or rind. Aka new bark wraped around tree.
+> > Neocortex is latin "neo" means new and "cortex" means bark or rind. Aka new bark wrapped around tree.
 > 
-> > Neocortex has 6 layers neurons. Layer 1(outter most) mostly dendrites of other layers, very few neorons. 2-3 layers work together.
+> > Neocortex has 6 layers neurons. Layer 1(outer most) mostly dendrites of other layers, very few neurons. 2-3 layers work together.
 
-> Common cortical circuit: `Because different cortex can adpat different functions, this indicates there is a common design neuron.`
+> Common cortical circuit: `Because different cortex can adapts different functions, this indicates there is a common design neuron.`
 - **Association Areas** `link memory to sensor or processor; key thing we develop in life`
   - correlation
   - learning
@@ -89,7 +89,7 @@
 - Hypothalamus `regulate basic needs through hormones: sleep, sex, eat, rest;`
 - Amygdala `flight or fight`
 - Thalamus `relay station, amplifying sensory signals`
-- [**Hippocampus**](#hippocampus) `convert short term memory into long term memory; read & write memory by pattern seperation;`
+- [**Hippocampus**](#hippocampus) `convert short term memory into long term memory; read & write memory by pattern separation;`
   - Place Cell
 
 All mammals have 6 Primary Emotions
@@ -110,11 +110,12 @@ Maybe all emotions are generated under 3 dimensions:
 ### Habits
 > We are just a collection of habits. Habits are store in basal ganglia, center of brain. Rational decision are in outer layer of brain. In a way be rational is a habit.
 >
-> Basal ganglia is almost like kernal of OS. The rational part (cortex) is more a plugin/3rd party software of OS.
+> Basal ganglia is almost like kernel of OS. The rational part (cortex) is more a plugin/3rd party software of OS.
 >
-> Habit Workflow: `Cue > Desire > Action > Reward`
+> Habit Workflow: `Cue > Desire > (Risk & Reward Analysis, then Action) > Reward`
 >
 > Develop Habit: `Obsessive > Attractive > Easy > Satisfy`
+> > I just realize missing piece of Habit Loop: Risk; Most of Atomic Habit focus on Reward, but not consider adjust Risk calculation;
 >
 > Inhibit Habit: `Invisible > Disgusting > Difficult > Unsatisfied` 
 > > Basel ganglia brain listen feedback from cortex, enhance & suppress signal to thalamus;

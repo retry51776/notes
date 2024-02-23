@@ -10,14 +10,13 @@
 > Inspired by Ray Dalio's Principal and Positive discipline by Jane Nelsen.
 
 </br></br>
-## Forward Propagation Decision Process
+## Forward Propagation Process
 
-> [Cue](#cue) > [Desire](#desire) > Problem > [**Awareness**](#awareness) > [**Experience**](#experience) > [**Evaluation**](#reflection-process) > Action
+> [Cue](#cue) > [Desire](#desire) > Problem > [**Awareness**](#awareness) > [**Experience**](#experience) > [**Action**](#action)
 
 
-## Backward Propagation Reflection Process
-[reflection process details](#reflection-process)
-> Result > [Evaluation](#reflection-process) > [Diagnosis](#diagnose) > [Design](#design) > [Implementation](#implementation)
+## Backward Propagation Process
+> Result > [**Action**](#action) > [Diagnosis](#diagnose) > [Design](#design) > [Implementation](#implementation)
 
 [**Desire**](#desire), [**Awareness**](#awareness), [**Experience**](#experience) are important factors that influence decision process.
 
@@ -81,7 +80,7 @@ Natural Experience:
 
 Acquired Experience:
 ### Skill
-> **Skills** are learned [**Actions**](#reflection-process);
+> **Skills** are learned [**Action**](#action);
 > > Procedural Memory. Most people able obtain.
 >
 > > Both [verbal and nonverbal communication](nervous.md#mammal-brain) skills will improve [**Perception**](./psychology.md#3-perception).
@@ -103,21 +102,23 @@ Acquired Experience:
 > 
 > > It is rare, but sometime new framework to lead to the development of new personal values.
 
+# Action
+- 1 Risk & Reward Analysis(TODO: research poker theory)
+  - Risk
+  - Reward
+- 2 Choice 1 of 4 Actions
+  - a: Do nothing.
+    - a.1 Don't recognized problem.
+    - a.2 Ignore problem.
+  - b: Avoid problem.
+    - b.1 Change path
+    - b.2 Change desires
+  - c: [Self improvement](#self-improvement).
+  - d: Outsource Problem.
+    - d.1 Reliance on people
+    - d.2 Reliance on machine
 
-# Reflection Process
-> [Reflection Process](#backward-propagation-decision-process) is backward propagation decision process.
-
-## Evaluation #1: Do nothing.
-  - 1.1 Don't recognized problem.
-  - 1.2 Ignore problem.
-
-
-## Evaluation #2: Avoid problem.
-  - 2.1 Change path
-  - 2.2 Change desires
-
-
-## Evaluation #3: Self improvement.
+## Self improvement.
   ### Diagnose
   - 3.1 Diagnose `listen other; reexamine experience`
     - 3.1.2 [Desire](#desire) `Belong or Power?`
@@ -162,15 +163,10 @@ Acquired Experience:
   ### Implementation
   - 3.5 Training
     - 3.5.1 confirm improvement
-    - 3.5.2 repeatation is the key
+    - 3.5.2 repetition is the key
   - 3.6 Conclusion
     - 3.6.1 Identify problem, solution, progress, lesson
     - 3.6.2 explore alternative
     - 3.6.3 document [adjustment of experience](#experience)
       - Ex: skill, conclusion, principal, personal value
     - 3.6.4 develop trust `internal & external`
-
-
-## Evaluation #4: Outsource Problem.
-  - 4.1 Reliance on people
-  - 4.2 Reliance on machine
