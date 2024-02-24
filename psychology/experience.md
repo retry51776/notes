@@ -1,13 +1,17 @@
 # Experience
 > Try to organize my [experience](README.md#experience) here.
 - Natural
+  - [Memory & Emotion](#memory--emotion)
+  - [Conclusion](#conclusion)
   - [Risk & Reward](#risk-reward)
   - [Personal Value](#personal-value)
-  - [Conclusion](#conclusion)
 - Acquired
   - [Skill](#skill)
   - [Principal](#principal)
   - [Framework](#framework)
+
+### Memory & Emotion
+> [**Memory & Emotion**](nervous.md#mammal-brain) includes Working Memory & Long Term Memory & Emotion.
 
 # Risk Reward
 <strong>Natural is about Risk & Reward Management.</strong>
@@ -34,10 +38,22 @@
 
 Poker is one of best game about Risk & reward. Many well develop theory to analysis risk & reward.
 
+
 # Personal Value
-> Personal Value just different dimensions to measure risk & rewards.
+> **Personal Value** are ways we evaluate the internal & external action & result. Or some dimension to measure risk & reward. `aka KPI for evaluation; Or NN Loss Functions;`
+> > It is rare for individuals to change their personal values because these values are typically developed during early childhood.
+> 
+> > The new personal value require compatibility with existing personal value & conclusion.
 
 # Conclusion
+> **Conclusion** is recognized pattern derived from past observation.
+> > It's difficult to change our conclusion because it's based on many different results, which makes it hard to dilute the existing conclusion.
+>
+> > We are always be `bias` because we all only experiences subset of realities.
+> 
+> > Conclusion is guidance for action.
+>
+> > The very reason we love story, story lead to conclusion.
 `aka Recognized patterns.`
 
 - All knowledge build on top assumptions, aware assumption can be invalidated.
@@ -72,25 +88,20 @@ Poker is one of best game about Risk & reward. Many well develop theory to analy
 - writing < speech < though < awareness < body < physic < spacetime
 
 # Skill
-`IDK, just too many to list`
-- Math
-  - Algebra
-  - Discrete Math
-  - Probability
-  - Calculus
-- Physic
-  - Classic Physic
-    - CSI
-  - The Standard Model
-  - Theoretical physics
-  - Chemistry
-    - Biology
-      - Psychology
-      - Neurologist
+> **Skills** are learned [**Action**](README.md#action);
+> > Procedural Memory. Most people able obtain.
+>
+> > Both [verbal and nonverbal communication](nervous.md#mammal-brain) skills will improve [**Perception**](./psychology.md#3-perception).
 
 
 # Principal
-`aka belief/guidance/assumption.`
+> **Principals** are core beliefs that guide actions & [explain other conclusions](experience.md#conclusion);
+> > Metaphor: algorithms transform unknown equation into solvable equation
+> 
+> > Principal won't have conflict w other principals `under some premises`.
+> 
+> > IMO discrete math has many basic Principal, should be taught in HS.
+
 
 - Discrete math
 1. Proven & Disprove theory `Proposition, Negation, Conjunction ...etc`
@@ -153,8 +164,17 @@ Poker is one of best game about Risk & reward. Many well develop theory to analy
 - When leader w strong ego, leader's ability is ceiling of their team.
 
 
-# Framework
-> Some well know framework/relationship that can apply in different areas;
+
+### Frameworks
+> **Frameworks** are collection of principals & conclusions to explain reality. `aka mental construction of reality.`
+> > A good framework should able steelman argue `or explain` for every subject's action `aka people's POV`;
+> 
+> > Framework most likely in 2 types: Top-down VS Bottom-Up
+> 
+> > IMO: Most things in life can fit into small number of [frameworks](experience.md#framework)
+> 
+> > It is rare, but sometime new framework to lead to the development of new personal values.
+
 
 ## Life Framework
 > Life is a video game

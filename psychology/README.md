@@ -1,35 +1,41 @@
 # Learning Process
-> Just write down my understand of psychological process;
->
+> Just like computer, our brain have biology(hardware) & psychology(software).
+> 
+> Inspired by Ray Dalio's Principal and Positive discipline by Jane Nelsen.
+
+## Biology
 > I categorize the [brain](nervous.md#brain) into two parts:
 > > [Rational human brain](nervous.md#human-brain);
 > >
 > > [Emotional mammal brain](nervous.md#mammal-brain);
-> 
->
-> Inspired by Ray Dalio's Principal and Positive discipline by Jane Nelsen.
-
-</br></br>
-## Forward Propagation Process
-
-> [Cue](#cue) > [Desire](#desire) > Problem > [**Awareness**](#awareness) > [**Experience**](#experience) > [**Action**](#action)
 
 
-## Backward Propagation Process
+## Psychology
+### Forward Propagation Process
+
+> [**Awareness**](#awareness) > [Desire](#desire) > [**Action**](#action) > [**Reward**](#reward)
+
+
+### Backward Propagation Process
 > Result > [**Action**](#action) > [Diagnosis](#diagnose) > [Design](#design) > [Implementation](#implementation)
 
-[**Desire**](#desire), [**Awareness**](#awareness), [**Experience**](#experience) are important factors that influence decision process.
+[**Awareness**](#awareness), [**Action**](#action) are important factors that influence decision process.
 
-## Mammal Brain Process
-> Cue > [**Desire**](#desire) > Action > [**Reward**](#reward)
+[Desire](#desire), [Reward](#reward) are less in our control.
 
 </br></br>
 
-# Definitions
+# Psychology Definitions
 
-## Cue
-> Any sensation that trigger habbit loop.
-> > Very important controllable variable in our life.
+## Awareness
+> Awareness can break down to [**Attention**](./psychology.md#1-attention) > [Sensation](./psychology.md#2-sensation) > [**Perception**](./psychology.md#3-perception)
+>
+> If you lack of some awareness, most likely your personal value doesn't prioritize it.
+> > Prioritize [personal value](#personal-value), then learn [skills](#skill) to improve [Perception](psychology.md#3-perception);
+
+### Cue
+> Any sensation that trigger habit loop.
+
 
 ## Desire
 > There is a natural psychological desire within us to **belong** and have **power**.
@@ -47,65 +53,10 @@
 >
 > Raphe nuclei are clusters of neurons located in the brainstem that are the primary source of serotonin projections to the rest of the brain.
 
-## Awareness
-> Awareness can break down to [**Attention**](./psychology.md#1-attention) > [Sensation](./psychology.md#2-sensation) > [**Perception**](./psychology.md#3-perception)
->
-> If you lack of some awareness, most likely your personal value doesn't prioritize it.
-> > Prioritize [personal value](#personal-value), then learn [skills](#skill) to improve [Perception](psychology.md#3-perception);
-
-## Experience
-> [Experiences](experience.md) are accumulate state `RNN hidden state` of CNS Process;
-> 
-> I categorizes experience into Natural & Acquired.
-
-Natural Experience:
-### Memory & Emotion
-> [**Memory & Emotion**](nervous.md#mammal-brain) includes Working Memory & Long Term Memory & Emotion.
-
-### Conclusion
-> [**Conclusion**](experience.md#conclusion) is recognized pattern derived from past observation.
-> > It's difficult to change our conclusion because it's based on many different results, which makes it hard to dilute the existing conclusion.
->
-> > We are always be `bias` because we all only experiences subset of realities.
-> 
-> > Conclusion is guidance for action.
->
-> > The very reason we love story, story lead to conclusion.
-
-### Personal Value
-> [**Personal Value**](experience.md#personal-value) are ways we evaluate the internal & external action & result.`aka KPI for evaluation; Or NN Loss Functions;`
-> > It is rare for individuals to change their personal values because these values are typically developed during early childhood.
-> 
-> > The new personal value require compatibility with existing personal value & conclusion.
-
-Acquired Experience:
-### Skill
-> **Skills** are learned [**Action**](#action);
-> > Procedural Memory. Most people able obtain.
->
-> > Both [verbal and nonverbal communication](nervous.md#mammal-brain) skills will improve [**Perception**](./psychology.md#3-perception).
-### Principal
-> **Principals** are [**core beliefs**](experience.md#principal) that guide actions & [explain other conclusions](experience.md#conclusion);
-> > Metaphor: algorithms transform unknown equation into solvable equation
-> 
-> > Principal won't have conflict w other principals `under some premises`.
-> 
-> > IMO discrete math has many basic Principal, should be taught in HS.
-
-### Frameworks
-> [**Frameworks**](#framework) are collection of principals & conclusions to explain reality. `aka mental construction of reality.`
-> > A good framework should able steelman argue `or explain` for every subject's action `aka people's POV`;
-> 
-> > Framework most likely in 2 types: Top-down VS Bottom-Up
-> 
-> > IMO: Most things in life can fit into small number of [frameworks](experience.md#framework)
-> 
-> > It is rare, but sometime new framework to lead to the development of new personal values.
-
 # Action
-- 1 Risk & Reward Analysis(TODO: research poker theory)
-  - Risk
-  - Reward
+- 1 [Risk & Reward Analysis](experience.md#risk-reward)
+  - [From Past Experience](#experience)
+  - From Logic Deduction
 - 2 Choice 1 of 4 Actions
   - a: Do nothing.
     - a.1 Don't recognized problem.
@@ -118,19 +69,23 @@ Acquired Experience:
     - d.1 Reliance on people
     - d.2 Reliance on machine
 
+## Experience
+> [Experiences](experience.md) are accumulate state `RNN hidden state` of CNS Process;
+> > There is no such thing as believer, nor non-believer; Just many past experience moves you from 0.01% non-believer to 99.99% believer.
+
 ## Self improvement.
   ### Diagnose
   - 3.1 Diagnose `listen other; reexamine experience`
     - 3.1.2 [Desire](#desire) `Belong or Power?`
       - Increase:
-        - reprioritize personal value;
+        - re-prioritize personal value;
         - convert emotion to motivation
       - Decrease:
         - [avoid](#evaluation-2-avoid-problem)
         - power comes w responsibility
     - 3.1.2 [Awareness](#awareness)
       - [attention?](psychology.md#1-attention)
-        - reprioritize personal value;
+        - re-prioritize personal value;
         - improve process design;
         - more process training;
       - [sensation?](psychology.md#2-sensation)
