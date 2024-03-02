@@ -23,6 +23,18 @@
 
 [Desire](#desire), [Reward](#reward) are less in our control.
 
+
+> Most the time brain take in CURRENT INPUT to decide [**CURRENT ACTION**](#action);
+> 
+> We often forgot to take PAST INPUT(**history**) to predict [**past action**](#action); Then evaluate against historical record. The greatest benefit of study history is have more data & cheaper evaluation.
+
+> Logic Formulary
+> 
+> Current + Action = Desire
+>
+> Desire - Current = Action
+> 
+> Desire - Action = Current
 </br></br>
 
 # Psychology Definitions
@@ -34,7 +46,7 @@
 > > Prioritize [personal value](#personal-value), then learn [skills](#skill) to improve [Perception](psychology.md#3-perception);
 
 ### Cue
-> Any sensation that trigger habit loop.
+> Any [**Perception**](./psychology.md#3-perception) that trigger habit loop.
 
 
 ## Desire

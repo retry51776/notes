@@ -21,7 +21,7 @@
 Selective Attention
 
 Way to change attention?
-- Reprioritize Personal Values
+- Prioritize Personal Values
 - reduce distraction
   - avoid trigger
   - change path/environment
@@ -54,7 +54,7 @@ Touch sensations:
 > 
 > 90% info input by vision;
 
-> Threhold: > 60ms we can see; < 40ms we can't see; 30ms is 100% can't see.
+> Threshold: > 60ms we can see; < 40ms we can't see; 30ms is 100% can't see.
 
 - Primary Visiual Area(V1)
   - Parvocellular layers (4 P Layers) `color, detail, still, slow`
@@ -173,7 +173,7 @@ Touch sensations:
 > Memory & Emotion are related.
 > > If you want to memorize something, tie them to a feeling
 
-> Memory will break into different aspects, then store its corresponse areas of brain.
+> Memory will break into different aspects, then store its corresponded areas of brain.
 
 ### Working memory
 - Capacity: 7 items +-2
@@ -242,4 +242,4 @@ Tips:
 >
 > Brain function is localized, that is reason when we doing same thing we get tried & bored` feedback system avoid over use`. Also the same reason we need diversify desires.
 
-> Maybe we should split brain by application: long term memory, short term memory, emotion, through, action controller, movement, pattern seperation, pattern completion
+> Maybe we should split brain by application: long term memory, short term memory, emotion, through, action controller, movement, pattern separation, pattern completion

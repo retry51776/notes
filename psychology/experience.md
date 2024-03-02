@@ -16,8 +16,14 @@
 # Risk Reward
 <strong>Natural is about Risk & Reward Management.</strong>
 
-> In a well balance market, more risk correlates with more reward.
->
+Five parts in Risk Reward Analysis
+- Player `Each player has its own value system & its own risk reward preference`
+- Action `Choices in game; each choices with its own Risk Reward outcome`
+  - Bad player usually because unaware possible action, or stuck same actions.
+- Turn `Opportunities that player can choice action; Ex: stop risk/game.`
+- Risk `Risk can combine together, 'gate keeper' of reward.`
+- Reward `Reward usually correlate to risk; because (high reward & low risk) draw players which reduce reward; (low reward & high risk) repeal player to increase reward.`
+
 > > Ex1: More power(reward) comes with more responsibility(risk)
 >
 > > Ex2: Cost(risk) vs Benefit(reward)
