@@ -85,6 +85,8 @@ Poker is one of best game about Risk & reward. Many well develop theory to analy
 - Decision fatigue
 > The reason for Brand, Company, Representative; If we solved/expand this humanity BOTTLENECK`reliance on computer?`, we will make great improvement.
 
+- What you DESIRE is DIFFERENT than what you NEED.
+
 - Often structure determent properties.
 
 - All evolutionary ideas are breaking our assumptions.

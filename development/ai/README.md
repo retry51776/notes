@@ -1,7 +1,22 @@
 # AI
 > I think the fundamental idea of AI is past determent future.
 > > What I mean is AI extract pattern from past data, assumes those pattern will most likely works in future problem.
-> > AI research is find general algorthims to calculate some artifacts regarless input. (which can repeat, combine with other algorthims)
+> > AI research is find general algorithms to calculate some artifacts regardless input. (which can repeat, combine with other algorithms)
+
+## Workflow
+- 1. What are we modeling?
+  - Study human? or Study physic? Ex: color is only human biology, in reality just wave freq.
+- 2. Curate Data
+  - The biggest bottleneck; Both human & robot data collection limited by reality.
+- 3. Design AI Architecture
+  - Dark magic? Ask AI expert
+  - Symmetry within model (Ex: time, left vs right, position,)
+  - Kind like structure engineer
+- 4. Craft Loss Function
+  - Relates to #1, from which perspective?
+  - Physic law can embed within lost function to ensure Model learn physic law.
+- 5. Optimization
+  - This solution may be another AI itself?
 
 ## Basic Terms:
 - Learning Workflow
@@ -14,6 +29,7 @@
   - Bias `a value that is added to the output of a neuron before it is passed to the next layer.`
 - Prompt Engineering `aka use beginning statement to set context for AI`
 - Auto Model Compression `pruning as reinforcement learning problem`
+- Physics Informed Machine Learning
 
 ## Architecture
 > Think of AI as a kid, we are designing games to see which game `architecture` help AI `kid` grow;
@@ -22,8 +38,8 @@
 
 - Language Model is statical model of large text db. AI usually very agreeable/static basie.
 
-- Sparse Autoencoders
-> Brain uses Sparse Repr, it save energy, residliant to noise
+- Sparse Auto Encoders
+> Brain uses Sparse Repr, it save energy, resilient to noise
 
 ### Sparse Modeling
 > The goal is reduce input dimensional space to reduce noise.
@@ -32,7 +48,7 @@
 x = D * α
 - x `input signal`
 - Dictionary (D) `n(input size) by k matrix; Think as collection of basic feature sets;`
-- n `flaten input(x) size; also dictionary's width`
+- n `flatten input(x) size; also dictionary's width`
 - k `dictionary's columns, usually bigger n`
 - α `multi hot encoding vector;`
 - l0 `norm is counting the non-zero in α`
@@ -46,7 +62,7 @@ Go Greedy (Matching Pursuit)
 
 Predefined dictionary: steerable, wavelet, curvelet, contourlets, bandlets.
 
-Sparse Indentification of NoneLinear Dynamics(SINDy) converts time-series data to sparse model
+Sparse Identification of NoneLinear Dynamics(SINDy) converts time-series data to sparse model
 
 sparse optimization algorithm
 - Least Absolute Shrinkage and Selection Operator(Lasso)
@@ -65,10 +81,45 @@ sparse optimization algorithm
 - https://you.com/
 - midjourney
 - Heygen.com `video generation ai`
+- https://app.suno.ai/ `music ai`
 
+
+## OPENAI
+> OpenAI can be think of "University for AI"; How OpenAI measure/test AI, what course they teach/train AI, how OpenAI get feedback from AI?
+>
+> It's NOT graduated student from University makes University valuable. It's graduated student proven University's education process.
+>
+> Diff: OPENAI can design student. I don't know if AI design matter a lot or little.
+
+> My guess OpenAI train AI with more output layers; More output layers force AI to have deeper understanding.
+- Virtual World Output
+  - Language Output
+    - Token => Token
+    - Speech Output(Converted from text)
+  - Image Output
+    - Recover corruption
+  - Video
+    - frames => Caption
+    - frame + caption => next frame
+  - Game
+    - Game Movement Output
+    - Game Controller Output
+  - Abstract Count
+    - Subject Count
+    - Subject Grouping
+- Robot Output
+  - Sound(Ex: Music, talk w motional)
+  - Facial Expression
+  - Movement(Ex: from point A to point B)
+  - Action(Ex: Pick up Apple)
+  - Object manipulation
+  - Social Awareness
+  - Social manipulation
 
 ## IMO
-- I think we need more localized, more parrell algorthims. I think back propergation is too global. My guess is unfired neuron stack up voltage cause correction. 
+- I think we need more localized, more parallel algorithms. I think back propagation is too global. My guess is unfired neuron stack up voltage cause correction.
+
+- Healthy people are more flexible movement; Won't trick by trick questions; A key measurement for AI should be same thing, how hard to trick AI. 
 
 - List of Human ability/skills that AI need to learn
   - Not much progress
@@ -152,18 +203,18 @@ what is some top news happens in recent months? to check when AI model trained a
 
 # Tech
 - Tiling `calculation by smaller block, uses scaler to rescale each row to combine whole`
-- Recomputation `Don't store, recomputate to save RAM`
+- Recomputation `Don't store, recompute to save RAM`
 
 - compute is NOT the bottleneck, rather is Memory size.
 
 - Mixture of Expert(MOE) `combine smaller models`
 - Multi Query Attention `reduce attention head to output to increase speed
 
-- L1 regularization `L1 regularization penalizes the sum of the absolute values of the weights in the network. This encourages the network to use a smaller number of weights, and it can also help to prevent overfitting.`
+- L1 regularization `L1 regularization penalizes the sum of the absolute values of the weights in the network. This encourages the network to use a smaller number of weights, and it can also help to prevent over fitting.`
 - L2 regularization `L2 regularization penalizes the sum of the squares of the weights in the network. This also encourages the network to use a smaller number of weights, and it can also help to improve the generalization performance of the network.`
 
 - Parameter Efficient Fine Tuning(PEFT)
-- LoRa `Attach extra weight to orginal model feedforward layer, then train these extra weight; usually mb size`
+- LoRa `Attach extra weight to original model feed forward layer, then train these extra weight; usually mb size`
 - Prefix Tuning
 - P tuning
 - Prompt Tuning
