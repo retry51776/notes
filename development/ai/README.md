@@ -3,6 +3,8 @@
 > > What I mean is AI extract pattern from past data, assumes those pattern will most likely works in future problem.
 > > AI research is find general algorithms to calculate some artifacts regardless input. (which can repeat, combine with other algorithms)
 
+> Best way measure understanding(both human & AI) is operation/alteration after compression.
+
 ## Workflow
 - 1. What are we modeling?
   - Study human? or Study physic? Ex: color is only human biology, in reality just wave freq.
@@ -120,6 +122,11 @@ sparse optimization algorithm
 - I think we need more localized, more parallel algorithms. I think back propagation is too global. My guess is unfired neuron stack up voltage cause correction.
 
 - Healthy people are more flexible movement; Won't trick by trick questions; A key measurement for AI should be same thing, how hard to trick AI. 
+
+- AI can think of compression algorithm. In fact it may be too good. A lot knowledge able to compress into 20GB model. Maybe the problem is we COMPRESS too much! That's why bigger model shows better intelligence.
+
+> Why AI need so much computation? Interesting to compare traditional Lossy Compression Algorithms which uses very few computation.
+>> Compression Algorithms start from data to away from data, AI start from randomness to target. Perception Coding
 
 - List of Human ability/skills that AI need to learn
   - Not much progress

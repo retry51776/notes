@@ -3,6 +3,8 @@
 > 
 > Inspired by Ray Dalio's Principal and Positive discipline by Jane Nelsen.
 
+> Life is compression compression algorithms; Compress sensation to form reaction, from reaction to develop habit, from habit to instincts, from instincts to knowledge.
+
 ## Biology
 > I categorize the [brain](nervous.md#brain) into two parts:
 > > [Rational human brain](nervous.md#human-brain);

@@ -7,6 +7,7 @@
 > Position encoding is similar how external ear changes noise a little for brain detecte position.
 > GPT4 has 220 billions parameters; 16 way mixture model; 8 set of weights;
 
+"Scaling Laws for Neural Language Models"
 
 Filter query step:
 The idea is embedding layer encoded w position info. Then train attention matrix(n^2) to capture relationship weights; Then attention matrix times embedding layer to get filtered input.

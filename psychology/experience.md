@@ -13,6 +13,13 @@
 ### Memory & Emotion
 > [**Memory & Emotion**](nervous.md#mammal-brain) includes Working Memory & Long Term Memory & Emotion.
 
+> Living is collection of habits(process modes) derivate from collection of memory patches, each memory patch with its own emotion weight.
+>> Memory can be short, yet have hug emotion weight. Or long memory with small weight.
+>
+>> We don't have timeline memory, just more memory patches in recent time, and less memory patches in older time.
+>
+>> The older we get, time fly faster. Time did NOT move faster, but we form LESS memory patches! which makes us have less changes/learning because learning is compression from memory patches.
+
 # Risk Reward
 <strong>Natural is about Risk & Reward Management.</strong>
 
@@ -33,6 +40,8 @@ Five parts in Risk Reward Analysis
 > > Ex4: There is no solution, only tradeoff.
 >
 > > Ex5: Witty speaker, instead of talk directly(low risk, low reward), they took a far route(high risk, high reward).
+>
+> > Ex6: Most intelligence animals will PAUSE & THINK & WORRY when there is huge reward in front of them WITHOUT EFFORT/RISK. Because intelligence have natural instinct to measure risk & reward. Huge reward usually indicate huge risk.
 
 
 > Why rich get richer? It's not rich get richer. It's those with resource able to handle more risk in order capture more reward.
@@ -41,6 +50,10 @@ Five parts in Risk Reward Analysis
 
 > Ex: we are risk 20+ years time for education. In a way, we risk 20+ year to be not productive, for increase productive rest of our live. We assume there is food & safety for 20+ years, and we live more than 50+ years to capture rewards.
 
+> Often chinese history put cause/effect of history event on somebody. We should avoid that, they just play an odd game. Failure doesn't make their decision bad, success doesn't justify their actions.
+
+> I don't like to promote charity, karmas, or deed. Every action should measure by risk & reward. It's rational/good to consider reward even if reward is NOT yours. Charity is promote selfless action. IMO we should promote ALL action have positive reward, regardless beneficiary.
+>> Ex: Education is mostly self benefic, yet it's most likely positive reward for self & society. So even education is "selfish", we should still promote it.
 
 Poker is one of best game about Risk & reward. Many well develop theory to analysis risk & reward.
 
