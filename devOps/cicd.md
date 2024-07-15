@@ -56,6 +56,16 @@ generate_docu:
   only:
   - master
 ```
+## Bitbucket
+- pipelines - define condictions & order of steps
+  - step - aka `docker-compose.yml`
+    - services - aka `container`
+      - memory - RAM of each service
+    - script - aka `command`
+    - artifacts - aka `vol`
+    - image
+
+- definitions - aka common templates
 
 ### Jenkinsfile.develop
 ```bash
