@@ -1,9 +1,15 @@
 # AI
-> I think the fundamental idea of AI is past determent future.
-> > What I mean is AI extract pattern from past data, assumes those pattern will most likely works in future problem.
-> > AI research is find general algorithms to calculate some artifacts regardless input. (which can repeat, combine with other algorithms)
+> My opinion of neural network is a lossy compression model.
 
 > Best way measure understanding(both human & AI) is operation/alteration after compression.
+
+## CICD
+- Modeling
+- Deployment
+- Versioning
+- Orchestration
+- Compute
+- Data
 
 ## Workflow
 - 1. What are we modeling?
@@ -20,6 +26,8 @@
 - 5. Optimization
   - This solution may be another AI itself?
 
+- Identify object
+- Assign object properties
 ## Basic Terms:
 - Learning Workflow
   - Forward Propagation

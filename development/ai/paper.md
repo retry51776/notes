@@ -22,6 +22,8 @@ The idea is embedding layer encoded w position info. Then train attention matrix
 
 - Dynamic Routing Between Capsules `Capsule Networks`
 
+- TransformerFAM: Feedback attention is working memory
+
 - Attention with Linear Biases (ALiBi) `ALiBi addresses this problem by adding a linear bias to the attention scores between each query and key. The bias is inversely proportional to the distance between the query and key, so that closer tokens have a higher attention weight than more distant tokens. This helps to ensure that the model focuses on the most relevant tokens, even when the sequence is very long.`
 
 - Flash Attention achieves its speed and memory efficiency by using a number of techniques, including:
@@ -35,6 +37,12 @@ IO-awareness: The attention computation is carefully designed to minimize the nu
 - SynFlow prune network connection by assign score to each connection. score = dervitity_lose / dervitity_weight * weight; Because we want to prune connection auto balance between layers(I am not 100% agrees here.)
 
 - Quantized is normalized weight & activation input & output. But outlier weight is problem. maybe need split out outlier process.
+
+
 # Ideas
-- pick radom top weight neurons, take input from (important & far aways) neuron's output; repeat winning lottery?
+- pick radom top weight neurons, take input from (important & far away) neuron's output; repeat winning lottery?
 - prune combines with quantized? or can we quantized only subset network?
+
+
+
+> The age of pre-training is over.

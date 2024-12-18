@@ -95,17 +95,19 @@ Owner Structures:
 
 # BuzzWords
 
-- Prefer stock
-> private company will issues prefer stock to investor, so in case bankruptcy, investor will get pay out first, when IPO, prefer stock will convert to common stock
+- Prefer stock `private company will issues prefer stock to investor, so in case bankruptcy, investor will get pay out first, when IPO, prefer stock will convert to common stock`
 
-- SAFE Note
-> Only 3 Variables: Valuation CAP, Discount, Major investor right
+- SAFE Note ` Only 3 Variables: Valuation CAP, Discount, Major investor right`
 
-- Convertible Note
-> aka Safe Note + interest rate
+- Convertible Note `aka Safe Note + interest rate`
 
-- 409A
-> 409A is an independent appraisal of the fair market value (FMV) of a private company's common stock
+- 409A `409A is an independent appraisal of the fair market value (FMV) of a private company's common stock`
+
+- VC Exit
+  - IPO
+  - Public
+  - M & N
+  - Private Buyout
 
 Safe >(before) options pool > New investment
 
@@ -184,3 +186,10 @@ Giftcard Meeting
 
 # Quotes
 > Top tier company implement standard & direction; 2nd tier company develop their brand; 3rd tier company focus on product
+
+Goal & Time matrix
+|      |         |         | TIME    |   |
+|------|---------|---------|---------|---|
+|      |         | NOW     | FUTURE  |   |
+| GOAL | DESIRE  | /       | IMPROVE |   |
+|      | CURRENT | RESTORE | PREVENT |   |

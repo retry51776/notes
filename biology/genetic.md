@@ -14,6 +14,7 @@
 - Epigenomes `beyond genetic; Reservable change; aka CICD;`
   - Transcription `DNA to RNA; aka CI;`
     - RNA `.pyc file, Compiled Python Code;`
+      - MicroRNA `very short RNA that in current growth stage, it will attach to next stage RNA, so prevent next stage RNA Translation to produce next stage Protein. aka exclusion resource lock`
     - chromatin fiber `Chain Histones/chromatin together`
     - Histones `The protein DNA wrapped around; control accessability of gene; aka archive source code;`
       - concentration of Cell Molecules `Environment Variable`

@@ -20,6 +20,8 @@
 
 ### Backward Propagation Process
 > Result > [**Action**](#action) > [Diagnosis](#diagnose) > [Design](#design) > [Implementation](#implementation)
+> > The reason we need practices IS because brain don't have NN Backward Propagation;
+> > Learning are neurons syncing fire timing to strengthens synapse connection. The basic form learning are association. Once bad habit formed, it's very hard to change.
 
 [**Awareness**](#awareness), [**Action**](#action) are important factors that influence decision process.
 

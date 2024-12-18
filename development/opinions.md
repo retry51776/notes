@@ -9,7 +9,8 @@
 >> `onXXX` that passed into useXXX() is like custom request `similar to tell coffee machine before it cook, do x, y z; If machine doesn't support custom request, then you have to either try to see if you can modify add water after you got coffee, or pick another machine`
 
 > Event base:
-> 
+
+> Talk is cheap, show me your code.
 
 # Prediction
 1. future developer(within 10 yrs) will write/describe MVP code, then give to AI compiler to optimize code; AI compiler may ask developer can it make some assumption/clarification, then compile production code able to way faster;
@@ -105,6 +106,13 @@ here are common trade offs
 
 > Understand common actions unit, and its rough estimate of cost(Time, Space).
 ---
+## Difficult Things to Document
+- Reality Mapping
+- Technical Decision
+- Requirement Change
+
+
+---
 ## Developer Metaphor
 - Business logic & data defines architecture.
 - Usage determent house structure and foundation.
@@ -148,7 +156,7 @@ here are common trade offs
 
 # Application Language
 # SQL
-> It's NOT a standard when it suppose to be a standard.
+> It's NOT a standard when it‘s suppose to be a standard.
 > 
 > If function is such bad for performance, why make it so powerful. It's like putting poisons in nice soda can.
 # Python
