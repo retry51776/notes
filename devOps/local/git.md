@@ -44,6 +44,11 @@ git reset --hard
 git reset HEAD
 git reset --hard HEAD~1
 
+# Force sync with remote
+git fetch origin
+git reset --hard origin/your-branch 
+git pull
+
 # Squash last 3 commits
 git reset --soft HEAD~3
 git commit

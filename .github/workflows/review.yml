@@ -1,0 +1,45 @@
+name: PR Review with LLM
+
+on:
+  push:
+    branches:
+      - main
+      - '**' # Run on any branch
+    paths-ignore:
+      - '**/*.md' # Optional: Ignore changes in markdown files
+
+jobs:
+  review-commit:
+    name: Review Commit with LLM
+    if: "contains(github.event.head_commit.message, '@review')"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Get Commit Diff
+        id: commit_diff
+        run: |
+          echo "Fetching Commit Diff..."
+          git diff HEAD~1 HEAD > commit_diff.txt
+
+      - name: Send Diff to Local LLM # For heavy load, send to queue
+        id: llm_review
+        run: |
+          echo "Sending diff to local LLM API..."
+          RESPONSE=$(curl --max-time 900 -X POST -H "Content-Type: application/json" \
+            -d "{\"prompt\": \"Summarize and review the following git diff:\n$(cat commit_diff.txt)\"}" \
+            http://localhost:8000)
+          
+          echo "LLM Response: $RESPONSE"
+          echo "review_comment=$RESPONSE" >> $GITHUB_ENV
+
+      - name: Comment on Commit
+        if: env.review_comment != ''
+        run: |
+          echo "Posting review comment to commit..."
+          gh api repos/${{ github.repository }}/commits/${{ github.sha }}/comments \
+            -F body="${{ env.review_comment }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
