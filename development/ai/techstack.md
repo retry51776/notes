@@ -1,25 +1,5 @@
 # Tech stack
 
-## Optical Character Recognition (OCR)
-- Gemini 2.0 Flash `Very Good, but not open source`
-- meta-llama/Llama-3.2-11B-Vision-Instruct `can do basic extra, but has error`
-- https://llamaocr.com/ `on top meta-llama, better, still error`
-
-
-## PDF process
-> This is very hard, is it text content focus? does it have OCR problem? or both?
-
-## Text process
-- Understanding
-  - llama3.1 `very good`
-  - gemini 2 flash `very good`
-<hr>
-
-## Inference Stacks
-> Machine Learning Frameworks(PyTorch) > Acceleration Driver(cuDNN) > Hardware(GPU)
-
-
-
 - Machine Learning Frameworks
   - LLM model formats
     - .bin `binary file to store llm models`
@@ -99,6 +79,12 @@ Filters can implement use cases like translation, logging, or toxicity filtering
 
 ## ollama
 > Run LLM locally, seems like just a docker wrapper.
+
+An Ollama model package includes:
+	1.	Model Weights: The actual neural network weights (in a proprietary format).
+	2.	Tokenizer Configuration: Required for text encoding/decoding.
+	3.	Model Configuration: Metadata, quantization details, parameters, etc.
+	4.	Runtime Instructions: Optimizations for model execution.
 
 https://docs.openwebui.com/
 
