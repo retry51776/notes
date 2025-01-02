@@ -57,6 +57,9 @@
 - Physics Informed Machine Learning
 - Stable diffusion: add noise to image, let AI recover image;
 
+> Netron: Interactive model graph exploration.
+https://www.neuron.app/
+
 ## linear representation
 > Currently(2024) common agreement is AI uses linear representation to store concepts. (evident by man - women = king - queen)
 
