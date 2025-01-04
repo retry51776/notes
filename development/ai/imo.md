@@ -7,7 +7,7 @@
 - strong opinions
 - weak opinions `require many conditions to be true`
 - random ideas
-- cray notes
+- crazy notes
 
 ## Strong Opinions
 >
@@ -58,8 +58,16 @@
 
 > Language Model is statical model of large text db. AI usually very agreeable/static basie.
 
-> AI sucks at Abbreviation.
+**LLM Tips**
 
-## crazy notes
+- For extraction task, tell LLM assigned default value when no info, and do not make any assumptions.
+- AI sucks at Abbreviation, expand all abbreviation before understanding task.
+
+
+## Crazy notes
 >
 > Best way measure understanding(both human & AI) is operation/alteration after compression.
+
+
+- pick radom top weight neurons, take input from (important & far away) neuron's output; repeat winning lottery?
+- prune combines with quantized? or can we quantized only subset network? Proven Idea now! haha

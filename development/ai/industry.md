@@ -11,6 +11,7 @@
   - Post Training
     - Low-Rank Adaptation (LoRA)
     - Fine-Tuning
+  - Inference Compute `aka thinking models`
 
 - Inference Engines
   - llama.cpp `most popular 24`
@@ -20,15 +21,19 @@
   - TensorRT (NVIDIA)
   - vLLM
 
-<hr\>
+<hr/>
 
 **By Applications**
+
+## LLM
+
+- <https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard>
 
 ## Optical Character Recognition (OCR)
 
 - Gemini 2.0 Flash `Very Good, but not open source`
 - meta-llama/Llama-3.2-11B-Vision-Instruct `can do basic extra, but has error`
-- <https://llamaocr.com/> `on top meta-llama, better, still error`
+- <https://llamaocr.com/> `fine tunned meta-llama, better, still error`
 
 ## PDF process
 >
@@ -40,21 +45,15 @@
   - llama3.1 `very good`
   - gemini 2 flash `very good`
 
+## Audio
+
+- Whisper `by open ai`
+
 ## Codings
 >
 > VS code has many plugins to support llm; Ex: continue.dev
 >> Continue.dev autocomplete templates: https://github.com/continuedev/continue/blob/aa02e0bd630fa5700d8cb48f17b5e624b940f095/core/autocomplete/templating/AutocompleteTemplate.ts
 >> Different llm have different templates.
-
-```
-    { "name": "code", "params": {} },
-    { "name": "docs", "params": {} },
-    { "name": "diff", "params": {} },
-    { "name": "terminal", "params": {} },
-    { "name": "problems", "params": {} },
-    { "name": "folder", "params": {} },
-    { "name": "codebase", "params": {} }
-```
 
 - Variables
   - context
@@ -104,6 +103,7 @@ features:
 - Orchestration
 - Compute
 - Data
+- Debug & Monitor
 
 
 ## Deployment Stacks
@@ -239,3 +239,8 @@ open-webui serve
 ## Citation
 >
 > Just run classic similarly search compare output vs input.
+
+## Debug
+
+- Jaeger `distributed tracing tool`
+- glitchtip `General monitor & error tracking`
