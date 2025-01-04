@@ -43,6 +43,8 @@
 ## Codings
 >
 > VS code has many plugins to support llm; Ex: continue.dev
+>> Continue.dev autocomplete templates: https://github.com/continuedev/continue/blob/aa02e0bd630fa5700d8cb48f17b5e624b940f095/core/autocomplete/templating/AutocompleteTemplate.ts
+>> Different llm have different templates.
 
 ```
     { "name": "code", "params": {} },
@@ -62,10 +64,10 @@
   - codellama `I prefer for now, but slow`
   - qwen2.5-coder `okayish, not super impressive`
   - starcoder `very bad`
-- Chat model `normal llm`
-- Voice to Text(VS Code Speech ⌥⌘V or "Hey Code")
+- instruct model `normal llm`
+- Voice to Text(VS Code Speech ⌥⌘V or "Hey Code"), or mac f5
 
-## Workflow
+## Workflow Platform
 
 frameworks:
 
@@ -75,24 +77,16 @@ frameworks:
 features:
 
 - structure output parser
+  - `system instruction & output parser & llm need to work together, test & qa before workflow successful.`
 - system message
 - Prompt-Embedded Tools  VS Explicit tools Parameter
   - (Ex: llama3-groq-tool-use, because llama3.1 doesn't support it)
+- presence_penalty & frequency_penalty `I prefer turn this on`
 
-> system instruction & output parser & llm need to work together, test & qa before workflow successful.
-
-```
-docker pull flowiseai/flowise
-docker run -d --name flowise -p 3000:3000 flowiseai/flowise
-
-
-```
 
 ## Cool AIs
 
 - CodeFormer `Image/movie recover & enhance AI`
-- ChatGPT `Everyone knows`
-- Quillbot `Rephrase text`
 - <https://beta.elevenlabs.io/voice-lab>
 - <https://you.com/>
 - midjourney
@@ -101,19 +95,6 @@ docker run -d --name flowise -p 3000:3000 flowiseai/flowise
 
 <hr>
 
-**By Company**
-
-## OPENAI
->
-> OpenAI can be think of "University for AI"; How OpenAI measure/test AI, what course they teach/train AI, how OpenAI get feedback from AI?
->
-> It's NOT graduated student from University makes University valuable. It's graduated student proven University's education process.
->
-> Diff: OPENAI can design student. I don't know if AI design matter a lot or little.
-
-> My guess OpenAI train AI with more output layers; More output layers force AI to have deeper understanding.
-
-<hr>
 
 # CICD
 
@@ -124,24 +105,6 @@ docker run -d --name flowise -p 3000:3000 flowiseai/flowise
 - Compute
 - Data
 
-## Modeling
-
-- 1. What are we modeling?
-  - Study human? or Study physic? Ex: color is only human biology, in reality just wave freq.
-- 2. Curate Data
-  - The biggest bottleneck; Both human & robot data collection limited by reality.
-- 3. Design AI Architecture
-  - Dark magic? Ask AI expert
-  - Symmetry within model (Ex: time, left vs right, position,)
-  - Kind like structure engineer
-- 4. Craft Loss Function
-  - Relates to #1, from which perspective?
-  - Physic law can embed within lost function to ensure Model learn physic law.
-- 5. Optimization
-  - This solution may be another AI itself?
-
-- Identify object
-- Assign object properties
 
 ## Deployment Stacks
 
@@ -158,6 +121,22 @@ docker run -d --name flowise -p 3000:3000 flowiseai/flowise
 
 - Chain: predetermine workflow
 - Agent: undetermined workflow
+  - Orchestra Agent `most open source llm not yet specially train for`
+    - Analysis Problem
+    - Decompose Task
+    - Alternative Proposal
+    - Evaluation & Correction
+  - Sub Agent
+    - Transform Agent `transform input into usable format`
+      - OCR
+      - PDF
+      - Image
+      - Audio
+    - Tool Agent `decide which tool, generate input into tools`
+      - Tools `utilities for llm`
+    - Database Agent `crud again database`
+
+
 - Source Grounded AI - `AI that reference some documents to answer chats`
   - Citation = `AI able to refer back where it get source`
   - Separation - `AI able to understand structure of source`
@@ -198,6 +177,7 @@ Filters can implement use cases like translation, logging, or toxicity filtering
 > Run LLM locally, seems like just a docker wrapper.
 
 An Ollama model package includes:
+
  1. Model Weights: The actual neural network weights (in a proprietary format).
  2. Tokenizer Configuration: Required for text encoding/decoding.
  3. Model Configuration: Metadata, quantization details, parameters, etc.

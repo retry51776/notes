@@ -1,10 +1,30 @@
 # Academic
+
 - General
 - Biology
 - Analogy
 - Training
 
 ## General
+
+### Modeling Steps
+
+- 1. What are we modeling?
+  - Study human? or Study physic? Ex: color is only human biology, in reality just wave freq.
+- 2. Curate Data
+  - The biggest bottleneck; Both human & robot data collection limited by reality.
+- 3. Design AI Architecture
+  - Dark magic? Ask AI expert
+  - Symmetry within model (Ex: time, left vs right, position,)
+  - Kind like structure engineer
+- 4. Craft Loss Function
+  - Relates to #1, from which perspective?
+  - Physic law can embed within lost function to ensure Model learn physic law.
+- 5. Optimization
+  - This solution may be another AI itself?
+
+### Neural Network Terms
+
 - Learning Workflow
   - Forward Propagation
   - Backward Propagation
@@ -14,7 +34,6 @@
   - Weight
   - Bias `a value that is added to the output of a neuron before it is passed to the next layer.`
 - Auto Model Compression `pruning as reinforcement learning problem`
-
 
 - Tiling `calculation by smaller block, uses scaler to rescale each row to combine whole`
 - Recomputation `Don't store, recompute to save RAM`
@@ -30,18 +49,20 @@
 - Parameter Efficient Fine Tuning(PEFT)
 - LoRa `Attach extra weight to original model feed forward layer, then train these extra weight; usually mb size`
 
-- https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard
+- <https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard>
 
-# Biology
+## Biology
+>
 > Human have 100 trillion connections, to process related small experiences. LLM currently have 10 trillion connection to process all human writings.
 
 > Brain uses Sparse Repr, it save energy, resilient to noise
 
 > One major differences is NN can do backward propagation. But neuron synapse only fire single direction.
 
-# Analogy
-- Weights = binary of programs. 
-- Activation = memory/state of programs. 
+## Analogy
+
+- Weights = binary of programs.
+- Activation = memory/state of programs.
 - Neuron = assembly instructions.
 - Architecture = VM/compiler/Runtime of program.
 
@@ -52,50 +73,52 @@
 <hr>
 
 # Mechanistic interpretability
+>
 > AI mechanistic interpretability is a field that will give a lot insight of how human brain works.
 
 - Physics Informed Machine Learning
 - Stable diffusion: add noise to image, let AI recover image;
 
 > Netron: Interactive model graph exploration.
-https://www.neuron.app/
+<https://www.neuron.app/>
 
 ## linear representation
+>
 > Currently(2024) common agreement is AI uses linear representation to store concepts. (evident by man - women = king - queen)
 
 - feature/latent `single neuron only fires when a concept exists: Ex: DJT, NY`
-    - feature visualization `also call Activation Maximization: Determent a feature neuron, then generate a input to maximize the feature neuron's output. Look that input represent. https://openai.com/index/microscope/ `
-    - high low frequency detector `many AIs uses this to find how sharp, smooth to find boundary `
+  - feature visualization `also call Activation Maximization: Determent a feature neuron, then generate a input to maximize the feature neuron's output. Look that input represent. https://openai.com/index/microscope/`
+  - high low frequency detector `many AIs uses this to find how sharp, smooth to find boundary`
 - circuit
 
 > Feature Frequencies matters a LOT for SAE(Sparse Auto Encoder), infrequence features SAE may not learn.
 
 > Feature can inhabit another feature.
 
-
-
 ## Superposition
+>
 > One neuron → Multiple features; Math explanation: in higher dimensions, vectors are likely about about 90 degree(ALMOST perpendicular to another vector); Therefore as dimensions increase, the numbers of ideas can store increase exponentially.
 > > Just think in 2D, relax perpendicular constrain will leave 2 small triangles space near Y axis. These 2 small triangles space in 3D will become 2 "walls", many vectors can lives in these 2 "walls". As dimensions increase, more space available for ALMOST perpendicular vectors.
 
-> https://www.alignmentforum.org/posts/iGuwZTHWb6DFY3sKB/fact-finding-attempting-to-reverse-engineer-factual-recall
+> <https://www.alignmentforum.org/posts/iGuwZTHWb6DFY3sKB/fact-finding-attempting-to-reverse-engineer-factual-recall>
 
 - Circuitry `neuron connections`
-    - AIs shows some common Circuitry across different models seems be useful. `IMO, Circuitry = habit; Promote Engineer = Cue; fine-tunning = repeat to strengthen;`
-    - Steering LLM `Forcefully fire llm features/neurons`
-    - Superposition `One neuron → Multiple features; also explain why llm get confused when similar ideas present at once.`
+  - AIs shows some common Circuitry across different models seems be useful. `IMO, Circuitry = habit; Promote Engineer = Cue; fine-tunning = repeat to strengthen;`
+  - Steering LLM `Forcefully fire llm features/neurons`
+  - Superposition `One neuron → Multiple features; also explain why llm get confused when similar ideas present at once.`
 - Feature Visualization
-    - Attention Mechanism Analysis – Understanding how attention layers in transformers allocate focus.
-	- Activation Engineering – Analyzing and modifying neuron activations in neural networks.
-	- Token-level Interpretability – Studying how individual tokens influence model outputs.
-	- Representation Learning Analysis – Exploring the embeddings and internal representations learned by AI models.
-	- Gradient-based Interpretability – Using gradients to understand decision-making processes.
+  - Attention Mechanism Analysis – Understanding how attention layers in transformers allocate focus.
+    - Activation Engineering – Analyzing and modifying neuron activations in neural networks.
+    - Token-level Interpretability – Studying how individual tokens influence model outputs.
+    - Representation Learning Analysis – Exploring the embeddings and internal representations learned by AI models.
+    - Gradient-based Interpretability – Using gradients to understand decision-making processes.
 - Model Debugging
-    - causals intervention is great tool to exam AI features
+  - causals intervention is great tool to exam AI features
 - AI Alignment
 - AI Safety
 
 # Paper
+
 "Toy Models of Superposition” by Anthropic (2022)
 "Scaling Laws for Neural Language Models"
 
@@ -110,12 +133,11 @@ https://www.neuron.app/
 Filter query step:
 The idea is embedding layer encoded w position info. Then train attention matrix(n^2) to capture relationship weights; Then attention matrix times embedding layer to get filtered input.
 
-
 "GPT-3: Language Models are Few-Shot Learners" by Alec Radford, et al. (2021): This paper introduces the "GPT-3" language model, which is one of the largest and most powerful language models to date. GPT-3 has been able to achieve state-of-the-art results on a variety of NLP tasks, and it has been used in a number of interesting applications, including machine translation, text summarization, and question answering.
 
 - The Lottery Ticket Hypothesis `reuses pruned large network's connection & weights; iterator pruning; some network only need 3% weights same performance.`
 
-> Deconstructing Lottery Tickets: magitude_increase is best, large final is easy & pretty good. 
+> Deconstructing Lottery Tickets: magitude_increase is best, large final is easy & pretty good.
 
 - The Dark Matter of Neural Networks `By Chris Olah; explore NN features.`
 
@@ -141,21 +163,50 @@ IO-awareness: The attention computation is carefully designed to minimize the nu
 
 - Quantized is normalized weight & activation input & output. But outlier weight is problem. maybe need split out outlier process.
 
-
 # Ideas
+
 - pick radom top weight neurons, take input from (important & far away) neuron's output; repeat winning lottery?
 - prune combines with quantized? or can we quantized only subset network?
 
 > The age of pre-training is over.
 
-> https://docs.neuronpedia.org/ inspect llm neuron meaning.
+Open AI Imagines AGI in 5 phrases:
 
+- Chatbot
+- Reasoning and Planning
+- Agent able analysis & take actions
+- Innovation able to Innovate
+- Organization
+
+Reinforcement Learning for "Open AI Strawberry" components
+- 1. Policy Initialization
+- 2. Reward Design
+- 3. Search
+- 4. Learning
+
+- Goal qualification
+  - Outcome Reward Maximization (ORM) `reward by final outcome`
+  - Process Reward Maximization (PRM) `reward per step, good for Math, coding`
+- Task Decomposition
+- Alternative proposal
+- Solution generation `llm bad at`
+    - Best of n sample | Beam Search | Monte Carlo Tree Search | Sequential Revision
+    - self evaluation `llm good at`
+    - Solution Level Search, Step Level Search, Token Level Search
+- self correction
+
+Training more likely Beam Search, inference more likely Sequential Revision
+
+
+> <https://docs.neuronpedia.org/> inspect llm neuron meaning.
 
 # SAE
+>
 > The goal is reduce input dimensional space to reduce noise.
 > The lose function of Sparse Modeling has extra Regularization to encourage sparsity in the network
 
 x = D * α
+
 - x `input signal`
 - Dictionary (D) `n(input size) by k matrix; Think as collection of basic feature sets;`
 - n `flatten input(x) size; also dictionary's width`
@@ -163,7 +214,8 @@ x = D * α
 - α `multi hot encoding vector;`
 - l0 `norm is counting the non-zero in α`
 - atom `a column from dictionary; think as a basic feature set;`
-> input = collection of atoms from Dictionary 
+
+> input = collection of atoms from Dictionary
 
 > The goal is find a dictionary where each data will repr by a few atoms from dictionary.
 
@@ -175,6 +227,7 @@ Predefined dictionary: steerable, wavelet, curvelet, contourlets, bandlets.
 Sparse Identification of NoneLinear Dynamics(SINDy) converts time-series data to sparse model
 
 sparse optimization algorithm
+
 - Least Absolute Shrinkage and Selection Operator(Lasso)
 - Orthogonal Matching Pursuit (OMP)
 - Basis Pursuit (BP)
