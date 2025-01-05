@@ -49,6 +49,7 @@ if not os.path.exists(db_path):
 else:
     db = FAISS.load_local(db_path, embeddings)
 
+
 # system_template = """
 # context: {context}
 # history: {history}
