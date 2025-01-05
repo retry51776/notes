@@ -27,7 +27,13 @@
 
 ## LLM
 
-- <https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard>
+<https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard>
+
+- Understanding
+  - llama3.1 `very good`
+  - gemini 2 flash `very good`
+- LLM train by Reinforcement Learning
+  - No open source llm yet
 
 ## Optical Character Recognition (OCR)
 
@@ -39,12 +45,6 @@
 >
 > This is very hard, is it text content focus? does it have OCR problem? or both?
 
-## Text process
-
-- Understanding
-  - llama3.1 `very good`
-  - gemini 2 flash `very good`
-
 ## Audio
 
 - Whisper `by open ai`
@@ -53,6 +53,8 @@
 >
 > VS code has many plugins to support llm; Ex: continue.dev
 >> Continue.dev autocomplete templates: https://github.com/continuedev/continue/blob/aa02e0bd630fa5700d8cb48f17b5e624b940f095/core/autocomplete/templating/AutocompleteTemplate.ts
+>
+>> https://github.com/continuedev/continue/blob/aa02e0bd630fa5700d8cb48f17b5e624b940f095/core/context/providers/DiffContextProvider.ts#L8
 >> Different llm have different templates.
 
 - Variables
@@ -64,7 +66,9 @@
   - qwen2.5-coder `okayish, not super impressive`
   - starcoder `very bad`
 - instruct model `normal llm`
-- Voice to Text(VS Code Speech ⌥⌘V or "Hey Code"), or mac f5
+- Voice to Text
+  - VS Code Speech `⌥⌘V or "Hey Code"`
+  - Mac Dictation `press F5`  
 
 ## Workflow Platform
 
