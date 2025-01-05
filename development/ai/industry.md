@@ -64,6 +64,7 @@
 - fill-in-the-middle (FIM) `aka autocomplete model, usually smaller`
   - codellama `I prefer for now, but slow`
   - qwen2.5-coder `okayish, not super impressive`
+  - deepseek-coder:1.3b-base `fast, but not smart`
   - starcoder `very bad`
 - instruct model `normal llm`
 - Voice to Text
