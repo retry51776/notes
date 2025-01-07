@@ -2,7 +2,8 @@
 
 - General
 - Biology
-- Analogy
+- Mechanistic Interpretability
+- Paper
 - Training
 
 ## General
@@ -49,6 +50,8 @@
 - Parameter Efficient Fine Tuning(PEFT)
 - LoRa `Attach extra weight to original model feed forward layer, then train these extra weight; usually mb size`
 
+- Position Interpolation `extend context window without`
+
 ## Biology
 >
 > Human have 100 trillion connections, to process related small experiences. LLM currently have 10 trillion connection to process all human writings.
@@ -57,20 +60,9 @@
 
 > One major differences is NN can do backward propagation. But neuron synapse only fire single direction.
 
-## Analogy
-
-- Weights = binary of programs.
-- Activation = memory/state of programs.
-- Neuron = assembly instructions.
-- Architecture = VM/compiler/Runtime of program.
-
-> Think of AI as a kid, we are designing games to see which game `architecture` help AI `kid` grow;
-
-> LLM is similar to foreigner that can see & draw picture with 1409 points;
-
 <hr>
 
-# Mechanistic interpretability
+## Mechanistic Interpretability
 >
 > AI mechanistic interpretability is a field that will give a lot insight of how human brain works.
 
@@ -80,7 +72,7 @@
 > Netron: Interactive model graph exploration.
 <https://www.neuron.app/>
 
-## linear representation
+### Linear representation
 >
 > Currently(2024) common agreement is AI uses linear representation to store concepts. (evident by man - women = king - queen)
 
@@ -93,7 +85,7 @@
 
 > Feature can inhabit another feature.
 
-## Superposition
+### Superposition
 >
 > One neuron → Multiple features; Math explanation: in higher dimensions, vectors are likely about about 90 degree(ALMOST perpendicular to another vector); Therefore as dimensions increase, the numbers of ideas can store increase exponentially.
 > > Just think in 2D, relax perpendicular constrain will leave 2 small triangles space near Y axis. These 2 small triangles space in 3D will become 2 "walls", many vectors can lives in these 2 "walls". As dimensions increase, more space available for ALMOST perpendicular vectors.
@@ -117,102 +109,7 @@
 
 <hr>
 
-# Paper
-
-> Break into 4 types
-
-- Classic `Great Improvement`
-- New Research `Not proven`
-- Tech Improve `Small improvement`
-
-### Classic
-
-- "Scaling Laws for Neural Language Models" by OpenAI
-
-- "Toy Models of Superposition” by Anthropic (2022)
-
-- "Explaining and Harnessing Adversarial Examples" by Ian Goodfellow, et al. (2014)
-
-- "Human-level performance in multi-task reinforcement learning" by Volodymyr Mnih, et al. (2015)
-
-- "Attention Is All You Need" by Vaswani, et al. (2017):
-  > Position encoding is similar how external ear changes noise a little for brain detecte position.
-  > GPT4 has 220 billions parameters; 16 way mixture model; 8 set of weights;
-
-  > Filter query step:
-  The idea is embedding layer encoded w position info. Then train attention matrix(n^2) to capture relationship weights; Then attention matrix times embedding layer to get filtered input.
-
-- "The Lottery Ticket Hypothesis" `reuses pruned large network's connection & weights; iterator pruning; some network only need 3% weights same performance.`
-
-  > Deconstructing Lottery Tickets: magitude_increase is best, large final is easy & pretty good.
-
-- The Dark Matter of Neural Networks `By Chris Olah; explore NN features.`
-
-### Tech Improve
-
-- "GPT-3: Language Models are Few-Shot Learners" by Alec Radford, et al. (2021)
-
-- Tree of Through
-
-- Anthropic’s “Scaling Monosemanticity”
-
-### New Research
-
-- Just forward passes
-
-- Dynamic Routing Between Capsules `Capsule Networks`
-
-- TransformerFAM: Feedback attention is working memory
-
-- Attention with Linear Biases (ALiBi) `ALiBi addresses this problem by adding a linear bias to the attention scores between each query and key. The bias is inversely proportional to the distance between the query and key, so that closer tokens have a higher attention weight than more distant tokens. This helps to ensure that the model focuses on the most relevant tokens, even when the sequence is very long.`
-
-- Flash Attention achieves its speed and memory efficiency by using a number of techniques, including:
-
-  > Tiling: The attention computation is divided into smaller tiles, which are computed in parallel.
-  Sparse matrix multiplication: The attention scores are computed using sparse matrix multiplication, which is more efficient than dense matrix multiplication.
-  IO-awareness: The attention computation is carefully designed to minimize the number of memory reads and writes.
-
-- Retrieval Enhanced Transformers (RETRO) are a type of language model that combines the strengths of both retrieval-based and generative models. RETRO models first retrieve a set of relevant documents from a large corpus, and then use a generative model to generate text that is consistent with the retrieved documents.
-
-- SynFlow prune network connection by assign score to each connection. score = dervitity_lose / dervitity_weight * weight; Because we want to prune connection auto balance between layers(I am not 100% agrees here.)
-
-- Quantized is normalized weight & activation input & output. But outlier weight is problem. maybe need split out outlier process.
-
-# Open AI Ideas
-
-> The age of pre-training is over.
-
-Open AI Imagines AGI in 5 phrases:
-
-- Chatbot
-- Reasoning and Planning
-- Agent able analysis & take actions
-- Innovation able to Innovate
-- Organization
-
-Reinforcement Learning for "Open AI Strawberry" components
-
-- 1. Policy Initialization
-- 2. Reward Design
-- 3. Search
-- 4. Learning
-
-- Goal qualification
-  - Outcome Reward Maximization (ORM) `reward by final outcome`
-  - Process Reward Maximization (PRM) `reward per step, good for Math, coding`
-- Task Decomposition
-- Alternative proposal
-- Solution generation `llm bad at`
-  - Best of n sample | Beam Search | Monte Carlo Tree Search | Sequential Revision
-  - self evaluation `llm good at`
-  - Solution Level Search, Step Level Search, Token Level Search
-- self correction
-
-Training more likely Beam Search, inference more likely Sequential Revision
-
-- Scaling of Search and Learning: A Roadmap to Reproduce o1 from Reinforcement Learning Perspective
-
-> <https://docs.neuronpedia.org/> inspect llm neuron meaning.
+## Paper
 
 # SAE
 >

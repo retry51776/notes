@@ -11,6 +11,8 @@
   - Post Training
     - Low-Rank Adaptation (LoRA)
     - Fine-Tuning
+    - Human Feedback Reinforcement Learning
+    - Synthetic AI Data
   - Inference Compute `aka thinking models`
 
 - Inference Engines
@@ -25,21 +27,65 @@
 
 **By Applications**
 
+## Robot
+
+- Physical Intelligence `openai & tesla ceo`
+  - Pi Zero `Opensource physical engine`
+- Boston Dynamics `google robot`
+- Unitree `chinese robot`
+- Cosmos `Nvidia Physical Model`
+
 ## LLM
 
 <https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard>
+
+> usage statistics by Claude.ai Clio Project: <https://www.anthropic.com/research/clio>
+> > Conversation -> Privatized Summary & Tags -> Cluster Groups -> Hierarchical Tree
+
+- develop Web & mobile applications 10.4%
+- Content Creation & Communication 9.2%
+- Academic Research 7.2%
+- Education & Career 7.1%
+- Advanced AI/ML Applications 6.0%
+- Business Strategy 5.6%
+- Language Translation 4.5%
+- DevOps 3.9%
+- Digital Marketing 3.7%
+- Data Visualization 3.5%
 
 - Understanding
   - llama3.1 `very good`
   - gemini 2 flash `very good`
 - LLM train by Reinforcement Learning
   - No open source llm yet
+- Context
+  - System Instructions
+  - Working Context `Function Executor`
+  - FIFO Queue `Queue Manager`
+  - Output Tokens
 
-## Optical Character Recognition (OCR)
+Variables:
 
-- Gemini 2.0 Flash `Very Good, but not open source`
-- meta-llama/Llama-3.2-11B-Vision-Instruct `can do basic extra, but has error`
-- <https://llamaocr.com/> `fine tunned meta-llama, better, still error`
+- roles `“system,” “user,” and “assistant”`
+
+LLM Response Evaluation
+
+- Factuality
+- Sentiment
+- Semantic Similarity
+- String Matching
+- JSON Schema Validation
+- Grammar and Syntax
+- Relevance and Context Adherence
+- Security and Safety Checks
+- Hallucination Detection
+
+## Vision
+
+- Optical Character Recognition (OCR)
+  - Gemini 2.0 Flash `Very Good, but not open source`
+  - meta-llama/Llama-3.2-11B-Vision-Instruct `can do basic extra, but has error`
+  - <https://llamaocr.com/> `fine tunned meta-llama, better, still error`
 
 ## PDF process
 >
@@ -50,16 +96,22 @@
 - Whisper `by open ai`
 
 ## Codings
->
-> VS code has many plugins to support llm; Ex: continue.dev
->> Continue.dev autocomplete templates: https://github.com/continuedev/continue/blob/aa02e0bd630fa5700d8cb48f17b5e624b940f095/core/autocomplete/templating/AutocompleteTemplate.ts
->
->> https://github.com/continuedev/continue/blob/aa02e0bd630fa5700d8cb48f17b5e624b940f095/core/context/providers/DiffContextProvider.ts#L8
->> Different llm have different templates.
+
+Products:
+
+- Cursor.sh `close source IDE`
+- codium `close source IDE`
+- Aider `shell IDE with llm support`
+- Continue.dev `vs code plugin`
+
+  - Continue.dev autocomplete templates: https://github.com/continuedev/continue/blob/aa02e0bd630fa5700d8cb48f17b5e624b940f095/core/autocomplete/templating/AutocompleteTemplate.ts
+  - https://github.com/continuedev/continue/blob/aa02e0bd630fa5700d8cb48f17b5e624b940f095/core/context/providers/DiffContextProvider.ts#L8
+
 
 - Variables
   - context
   - Speed vs Ability
+  - template `FIM template`
 
 - fill-in-the-middle (FIM) `aka autocomplete model, usually smaller`
   - codellama `I prefer for now, but slow`
@@ -67,6 +119,7 @@
   - deepseek-coder:1.3b-base `fast, but not smart`
   - starcoder `very bad`
 - instruct model `normal llm`
+- Composer `shift + cmd + i; only cursor.sh, multi file edit`
 - Voice to Text
   - VS Code Speech `⌥⌘V or "Hey Code"`
   - Mac Dictation `press F5`  
@@ -75,8 +128,12 @@
 
 frameworks:
 
-- FlowiseAI
-- <https://n8n.io/>
+- low code
+  - FlowiseAI
+  - <https://n8n.io/>
+- python chains
+  - smolagents
+  - langchain
 
 features:
 
@@ -97,8 +154,7 @@ features:
 - Heygen.com `video generation ai`
 - <https://app.suno.ai/> `music ai`
 
-<hr>
-
+<hr >
 
 # CICD
 
@@ -109,7 +165,7 @@ features:
 - Compute
 - Data
 - Debug & Monitor
-
+  - langfuse
 
 ## Deployment Stacks
 
@@ -120,7 +176,7 @@ features:
   - UI interface
   - API/CLI Access
   - Model Management
-- Other data services
+- AI fine tunning & QA services 
 
 ## Tools
 

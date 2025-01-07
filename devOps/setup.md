@@ -21,6 +21,9 @@
   - Preference/Setting
     - Default Formatter: Prettier
     - Format On Save Mode: file
+    - Autocomplete trigger
+      - Commit characters
+      - keyboard shortcut(trigger suggest)
 - Chrome
   - react dev
   - redux dev
