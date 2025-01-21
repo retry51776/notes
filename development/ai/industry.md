@@ -2,13 +2,20 @@
 >
 > Only put tech stacks, companies, products here.
 
+- General
+- By Applications
+
+## General
+
+<https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard>
+
 - Machine Learning Frameworks
   - LLM model formats
     - .bin `binary file to store llm models`
     - .gguf `GGUF Format to store llama.cpp models`
     - .safetensors `support pytorch`
-  - Pre Training
-  - Post Training
+  - Pre Training `Build the whole model`
+  - Post Training `Adjust part of model`
     - Low-Rank Adaptation (LoRA)
     - Fine-Tuning
     - Human Feedback Reinforcement Learning
@@ -22,22 +29,6 @@
   - ONNX (open-source)
   - TensorRT (NVIDIA)
   - vLLM
-
-<hr/>
-
-**By Applications**
-
-## Robot
-
-- Physical Intelligence `openai & tesla ceo`
-  - Pi Zero `Opensource physical engine`
-- Boston Dynamics `google robot`
-- Unitree `chinese robot`
-- Cosmos `Nvidia Physical Model`
-
-## LLM
-
-<https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard>
 
 > usage statistics by Claude.ai Clio Project: <https://www.anthropic.com/research/clio>
 > > Conversation -> Privatized Summary & Tags -> Cluster Groups -> Hierarchical Tree
@@ -57,7 +48,7 @@
   - llama3.1 `very good`
   - gemini 2 flash `very good`
 - LLM train by Reinforcement Learning
-  - No open source llm yet
+  - DeepSeek-R1
 - Context
   - System Instructions
   - Working Context `Function Executor`
@@ -80,22 +71,40 @@ LLM Response Evaluation
 - Security and Safety Checks
 - Hallucination Detection
 
-## Vision
+<hr/>
+
+## By Applications
+
+### Robot
+
+- Physical Intelligence `openai & tesla ceo`
+  - Pi Zero `Opensource physical engine`
+- Boston Dynamics `google robot`
+- Unitree `chinese robot`
+- Cosmos `Nvidia Physical Model`
+
+### Vision
 
 - Optical Character Recognition (OCR)
   - Gemini 2.0 Flash `Very Good, but not open source`
   - meta-llama/Llama-3.2-11B-Vision-Instruct `can do basic extra, but has error`
   - <https://llamaocr.com/> `fine tunned meta-llama, better, still error`
 
-## PDF process
+- Pixtral 12B `open source vision engine`
+- DeepSeek
+
+
+### PDF process
 >
 > This is very hard, is it text content focus? does it have OCR problem? or both?
 
-## Audio
+### Audio
 
-- Whisper `by open ai`
+- Whisper `text to speech by open ai`
 
-## Codings
+> No open source audio to audio model yet. Even o4 is audio -> text -> audio.
+
+### Codings
 
 Products:
 
@@ -103,10 +112,10 @@ Products:
 - codium `close source IDE`
 - Aider `shell IDE with llm support`
 - Continue.dev `vs code plugin`
+- Cline (prev. Claude Dev) `vs code plugin, llm edit the whole repo; similar to Cursor composer`
 
-  - Continue.dev autocomplete templates: https://github.com/continuedev/continue/blob/aa02e0bd630fa5700d8cb48f17b5e624b940f095/core/autocomplete/templating/AutocompleteTemplate.ts
-  - https://github.com/continuedev/continue/blob/aa02e0bd630fa5700d8cb48f17b5e624b940f095/core/context/providers/DiffContextProvider.ts#L8
-
+  - Continue.dev autocomplete templates: <https://github.com/continuedev/continue/blob/aa02e0bd630fa5700d8cb48f17b5e624b940f095/core/autocomplete/templating/AutocompleteTemplate.ts>
+  - <https://github.com/continuedev/continue/blob/aa02e0bd630fa5700d8cb48f17b5e624b940f095/core/context/providers/DiffContextProvider.ts#L8>
 
 - Variables
   - context
@@ -122,13 +131,14 @@ Products:
 - Composer `shift + cmd + i; only cursor.sh, multi file edit`
 - Voice to Text
   - VS Code Speech `⌥⌘V or "Hey Code"`
-  - Mac Dictation `press F5`  
+  - Mac Dictation `press F5`
+- Manage Context Provider (MCP)
 
 ## Workflow Platform
 
 frameworks:
 
-- low code
+- low code `always has problem with 3rd party libraries`
   - FlowiseAI
   - <https://n8n.io/>
 - python chains
@@ -142,6 +152,7 @@ features:
 - system message
 - Prompt-Embedded Tools  VS Explicit tools Parameter
   - (Ex: llama3-groq-tool-use, because llama3.1 doesn't support it)
+  - Also llama3.1:8b sucks on `tool_calls`, but 70b works fine
 - presence_penalty & frequency_penalty `I prefer turn this on`
 
 
@@ -156,20 +167,31 @@ features:
 
 <hr >
 
-# CICD
+## CICD
 
-- Modeling
-- Deployment
-- Versioning
-- Orchestration
-- Compute
-- Data
-- Debug & Monitor
-  - langfuse
+1. Modeling
+    - Pytorch
+    - Tensorflow
+2. Deployment
+    - NIM
+3. Versioning
+4. Orchestration
+    - K8s
+5. Compute
+    - NVIDIA
+      - DGX
+      - RTX
+    - AMD
+    - Apple
+6. Data
+    - <https://site.financialmodelingprep.com/playground>
+7. Post Deployment Services
+    - Langfuse
+    - Lunary
 
 ## Deployment Stacks
 
-- NIM
+- Nvidia Interface Microservice (NIM)
 - Local AI Workbenches
   - Model Loader(llama.cpp) `loading models & executing inference computations`
     - GPU Acceleration (CUDA, Metal)
@@ -277,6 +299,8 @@ ollama pull llama2:7b
 ollama run llama2:7b
 
 http://localhost:11434
+ 
+http://host.docker.internal:11434
 
 
 curl http://localhost:11434/api/chat -d '{
@@ -287,6 +311,37 @@ curl http://localhost:11434/api/chat -d '{
       "content": "why is the sky blue?"
     }
   ],
+  "stream": false,
+  "tools": [
+    {
+      "type": "function",
+      "function": {
+        "name": "get_current_weather",
+        "description": "Get the current weather for a location",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "location": {
+              "type": "string",
+              "description": "The location to get the weather for, e.g. San Francisco, CA"
+            },
+            "format": {
+              "type": "string",
+              "description": "The format to return the weather in, e.g. 'celsius' or 'fahrenheit'",
+              "enum": ["celsius", "fahrenheit"]
+            }
+          },
+          "required": ["location", "format"]
+        }
+      }
+    }
+  ]
+}'
+
+curl http://localhost:11434/api/generate -d '{
+  "model": "llama3.2",
+  "prompt": "What color is the sky at different times of the day? Respond using JSON",
+  "format": "json",
   "stream": false
 }'
 
@@ -297,11 +352,43 @@ open-webui serve
 
 ```
 
-## Citation
+## Retrival Augmented Generation(RAG)
+
+strategy:
+- Reranking
+- Query Expansion
+- Agentic `Given Tools; Ex: Web Crawler, Code Executor`
+- LPG（Labeled Property Graph)
+- RDF（Resource Description Framework）
+
+Citation
 >
 > Just run classic similarly search compare output vs input.
 
+- OpenSPG (Open Stochastic Process Graph)
 ## Debug
 
 - Jaeger `distributed tracing tool`
-- glitchtip `General monitor & error tracking`
+- Langfuse `similar to sentry.io but for LLM`
+- GraphRAG `knowledge graphs`
+
+
+
+## Evaluation
+
+- Sentiment
+- Conversation Length
+- Grounding
+  - LLM -> Chat with user
+  - Physical AI -> Physical World Response
+  = Coder -> execute code
+
+Prompts:
+- How many words are in your response to this prompt?
+- Guess cup game, multi round.
+
+
+## Beyond static LLM
+
+- open socket interruption
+- context caching

@@ -1,5 +1,6 @@
 # useful packages
-- argparse
+- argparse `standard lib for CLI applications`
+- typer `package help develop CLI applications`
 - tenacity
 - retry
 

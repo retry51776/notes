@@ -59,10 +59,23 @@
 
 > Language Model is statical model of large text db. AI usually very agreeable/static basie.
 
+> True Negative is SO HARD for LLM. True Positive is very easy.
+
 **LLM Tips**
 
 - For extraction task, tell LLM assigned default value when no info, and do not make any assumptions.
 - AI sucks at Abbreviation, expand all abbreviation before understanding task.
+
+- Prompt Order
+  - 1) Context
+    - LLM prefer Json, Array to let LLM understand relationship
+    - Use text section splitter
+    - json.dumps(xxx, indent=4) for better readability
+  - 2) Instruction
+    - Do NOT provider script, or steps to solve 
+    - Please respond **strictly** in the following JSON format, without additional keys or text:
+    - expected value for each key
+    - Always return a json dictionary, define key, value is type.
 
 ### Analogy
 

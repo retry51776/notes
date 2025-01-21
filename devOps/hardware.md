@@ -48,6 +48,7 @@
 ## GPU
 > simple small, but many cores
 
+> CPU -> 3D object position desire -> Vertex & Index Buffer -> Vertex Shader -> Raster -> PixelShader -> Alpha Blend
 > Hardware -> Driver -> Developer Framework -> Application
 
 > Render Driver

@@ -16,6 +16,8 @@
 
 xCom `similar to artifacts; max 48kb`
 
+# Windmill
+- All in one
 
 # Apache Nifi
 

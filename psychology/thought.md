@@ -40,7 +40,7 @@ It's more like frontal lob tag extra info ON TOP vision and other sensation, NOT
 
 > Neuron near by has similar (not same) preference
 
-Problem in transfomer must be position encoding.
+Problem in transformer must be position encoding.
 1. We don't have global attention system(even & global). Our attention effects by position, emotion, and partical.
 2. There must be some kind segmentation & rejoin process in brain, which requires different position encoding.
 3.

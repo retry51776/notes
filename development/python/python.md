@@ -1,7 +1,42 @@
 # Python
+
 > battery included because python comes with std lib
 
+## Python Managers
+
+|  | Manages Python | Manages Packages | Start Command                      | Change |
+|----------------|----------------|-----------------|------------------------------------|-----------------|
+| Anaconda      | ✅ Yes          | ✅ Yes          | `conda activate <environment_name>` | Python Path |
+| Conda         | ✅ Yes          | ✅ Yes          | `conda activate <environment_name>` | Python Path |
+| Pipenv        | ✅ Yes          | ✅ Yes          | `pipenv shell`                      | |
+| Pyenv         | ✅ Yes          | ✅ Yes          | `pyenv activate <environment_name>` | Python Path |
+| Virtualenv    | ✅ Yes          | ❌ No           | `source <environment_name>/bin/activate` | |
+| Venv          | ✅ Yes          | ❌ No           | `source <environment_name>/bin/activate` | Python Path |
+| Poetry        | ❌ No           | ✅ Yes          | `poetry shell`                      | |
+| Pip           | ❌ No           | ✅ Yes          | N/A (Pip doesn't manage environments) | |
+
+
+
+## Python Scope
+
+> Package has 2 types: 
+> need either `setup.py` or `pyproject.toml`
+> 
+> > Executable package: has __main__.py in root as entrypoint, `python -m folder_name`
+> 
+> > Library package: (often with __init__.py in root)
+
+- Package Manager
+  - Package
+    - Module `xx.py`
+      - Global Scope
+        - Built-in
+        - Custom `imports xxx` & `def xxx()` & `class XX`
+          - Enclosing Scope `lambda x: y`
+
+
 ## Change Logs
+
 - 3.0
   - 3 / 2 = 1.5
   - str & unicode
@@ -24,8 +59,9 @@
   - tomlib
 
 **Frustration**
+
 - ~~destructure like es6 `const {a, b, ...others} = obj;`~~
-    > new python 3.10 supports this https://docs.python.org/release/3.10.0/whatsnew/3.10.html
+    > new python 3.10 supports this <https://docs.python.org/release/3.10.0/whatsnew/3.10.html>
 - get_in like methods or null chaining
 - decorator acts as interceptor, takes func as args, return func
 - function params's default value should be standard type
@@ -40,10 +76,8 @@
 - `__init__` doesn't support different params
 - `setattr()` won't have IDE auto suggestion
 
-## TODO:
-- build retry decorator
-- 
 **Working on library**
+
 ```py
 Install local package steps:
     1. copy source code into docker container's root folder
@@ -55,7 +89,6 @@ Install local package steps:
 
 `python3 -m build`
 > Build library
-
 
 `python3 setup.py sdist`
 > Publish package
@@ -69,8 +102,8 @@ Install local package steps:
 module docstring in `__init__.py` or `beginning of *.py`
 function docstring in first line of function
 
-
 # To debug Ram & time
+>
 > `time -f python3 test.py`
 
 > `from time import timeit #@timeit`
@@ -78,16 +111,16 @@ function docstring in first line of function
 > No such file or directory execute 'python' `#!/usr/bin/env python`
 
 ## type checks
-- myPy - 
+
+- myPy
 - pytype: google
 - pyre: facebook
 - pyright: microsoft
 
 `def test(a: str) -> str | None:`
 
-# Python Codes
+## Standard Type
 
-## Starndard Type
 ```py
 import sys
 sys.maxint
@@ -115,6 +148,7 @@ f'Format to {date.today():%Y-%m-%d}'
 ```
 
 ## Attriabutes
+
 ```py
 dir(class_object) # show all attriabutes
 getattr(Abc, 'xyz') # only work w class
@@ -125,6 +159,7 @@ vars(class) # retrun Object
 ```
 
 ## Property
+
 ```py
 {}.get('xyz') # only works w obj
 
@@ -146,6 +181,7 @@ z=3
 ```
 
 ## Build in functions
+
 ```py
 all()
 any([0, 1, 0])
@@ -157,8 +193,8 @@ time -f python3 test.py # debug script Ram & time
 #cProfile, pstats takes more setup, but better audit whole project
 ```
 
-
 ## dunder|magic methods, decorator
+
 ```py
 def cust_decorator(func):
     def wrapper(*args, **kargs):
@@ -204,8 +240,8 @@ __lt__
 __le__
 ```
 
-
 ## loop
+
 ```py
 # Sort by 1 key
 array = sorted(
@@ -247,6 +283,7 @@ i1, i2, i3 = itertools.tee(i, 3)
 ```
 
 ## custom utilities
+
 ```py
 # round(2.50) == 2, wtf
 # Python round have funny behavior
@@ -292,9 +329,10 @@ def get_in(obj, keys=None, default=None):
         return default
 ```
 
-
 # Buzzwords Zoo
+
 Python Enhancement Proposals(PEP)
+
 - .wheel is python binary file(2012), .egg is old binary format(2004)
 - odbcinst.ini `registry and configuration file for ODBC drivers in an environment`
 - Since Py3, object’s type = its class `type(obj) is obj.__class__`
