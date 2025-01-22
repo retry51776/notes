@@ -220,6 +220,8 @@ features:
     - Database Agent `crud again database`
 
 
+- LanceDB `similar to SQLite, support embedded query, store files & binary data, also graph`
+  - graph `nodes in a table, relationship store in another table`
 - Source Grounded AI - `AI that reference some documents to answer chats`
   - Citation = `AI able to refer back where it get source`
   - Separation - `AI able to understand structure of source`
@@ -365,7 +367,7 @@ Citation
 >
 > Just run classic similarly search compare output vs input.
 
-- OpenSPG (Open Stochastic Process Graph)
+
 ## Debug
 
 - Jaeger `distributed tracing tool`
@@ -386,9 +388,15 @@ Citation
 Prompts:
 - How many words are in your response to this prompt?
 - Guess cup game, multi round.
+- Jake is walking to store that is 100 meter from him, every 1 second he walks 5 meter forward, then jump 1 meter back. How many seconds will take Jake walk to store.
 
 
 ## Beyond static LLM
 
 - open socket interruption
 - context caching
+
+
+### Python
+
+- litellm https://pypi.org/project/litellm/ `Common SDK`

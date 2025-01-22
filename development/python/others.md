@@ -3,6 +3,7 @@
 - typer `package help develop CLI applications`
 - tenacity
 - retry
+- rich `rich text formatting in the terminal; better traceback, progress bar...`
 
 - glom
 - loguru
@@ -32,4 +33,5 @@ python -m ptvsd flask run -wait
 ```
 
 # Interesting Pattern
+
 https://github.com/python-gitlab/python-gitlab/blob/336ee21779a55a1371c94e0cd2af0b047b457a7d/gitlab/client.py#L34

@@ -13,8 +13,23 @@
 
 ## Repo Structure
 
-- /development `Application language`
-  - /ai `The hottest topic 24`
-- /database
-- /devOps `This is hard to define, includes network admin, CI/CD/CT;`
-- /psychology `both biology & rational thoughts`
+```
+notes
+├── biology
+│   └── anatomy.md
+├── business
+├── crypto
+├── database
+├── development
+│   └── ai
+│   └── python
+│   └── js
+│   └── dotnet
+├── devOps
+├── others
+├── psychology
+│   └── nervous.md
+│   └── psychology.md
+│   └── README.md
+└── static
+```
