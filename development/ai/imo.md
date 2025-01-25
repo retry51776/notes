@@ -61,10 +61,15 @@
 
 > True Negative is SO HARD for LLM. True Positive is very easy.
 
+> We need to increase embedding token size, width of network, not the deep of network.
+
 **LLM Tips**
 
 - For extraction task, tell LLM assigned default value when no info, and do not make any assumptions.
 - AI sucks at Abbreviation, expand all abbreviation before understanding task.
+- LLM is very TALKY, it will do instruction, but it also need a lot monolog between it's output.
+  - `Format each xxx in a new line as ("xxx"{tuple_delimiter}<p1>{tuple_delimiter}<p2>{tuple_delimiter}<p3>{tuple_delimiter}<record_delimiter>)`
+  - `Add {start_delimiter} & {end_delimiter}`
 
 - Prompt Order
   - 1) Context
@@ -72,7 +77,7 @@
     - Use text section splitter
     - json.dumps(xxx, indent=4) for better readability
   - 2) Instruction
-    - Do NOT provider script, or steps to solve 
+    - Do NOT provider script, or steps to solve
     - Please respond **strictly** in the following JSON format, without additional keys or text:
     - expected value for each key
     - Always return a json dictionary, define key, value is type.
@@ -92,10 +97,8 @@
 >
 > Best way measure understanding(both human & AI) is operation/alteration after compression.
 
-
 - pick radom top weight neurons, take input from (important & far away) neuron's output; repeat winning lottery?
 - prune combines with quantized? or can we quantized only subset network? Proven Idea now! haha
-
 
 ## Physical Intelligent
 
@@ -108,22 +111,19 @@
 - Movement Control
 - Balance & Gravity Center
 - Classify Object
-    - Size
-    - Shape
-    - Volume
-    - Mass distribution
-    - Strength/Texture
-    - Reflectivity/Transparency
-    - Wetness/Dryness
-    - Material
-    - Hardness/Softness
-    - Temperature
-    - Fragility
-    - Stiffness
-    - Chemical Properties
-
-
-
+  - Size
+  - Shape
+  - Volume
+  - Mass distribution
+  - Strength/Texture
+  - Reflectivity/Transparency
+  - Wetness/Dryness
+  - Material
+  - Hardness/Softness
+  - Temperature
+  - Fragility
+  - Stiffness
+  - Chemical Properties
 
 > Break into 4 types
 
@@ -143,7 +143,7 @@
 
 - "Attention Is All You Need" by Vaswani, et al. (2017):
   > Position encoding is similar how external ear changes noise a little for brain detect position.
-  > Position encoding solve the Transpose bias  problem in attention head, where x*y = y*x; 
+  > Position encoding solve the Transpose bias  problem in attention head, where x*y = y*x;
   > GPT4 has 220 billions parameters; 16 way mixture model; 8 set of weights;
 
   > Filter query step:

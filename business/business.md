@@ -1,63 +1,79 @@
 # Business
+>
 > A lot buzzwords, I never remember them.
 
-# FrontEnd Business
+## FrontEnd Business
 
-## Marketing
+### Marketing
+
 Stacks:
+
 - Google Analytics
 - Email marketing software
 - Video conferencing software
 
 Buzzwords:
+
 - cold lead
 - campaign
 - Webinar
 - cost per one thousand impressions(CPM) `advertisement cost`
 
-## Sales
+### Sales
+
 Stacks:
+
 - SalesForce
 - Hubspot
 - GoogleInvite
 
-## Implementation
+### Implementation
+
 Stacks:
+
 - docusign
 
 Buzzwords:
+
 - Contract
 - Backfills/Tourial
 
 <br />
 
-# Backend Bussiness
+## Backend Business
 
-## Accounting
+### Accounting
+
 Stacks:
+
 - QuickBook
 - Oracle NetSuite
 - Sage
 - ChartMogul `analyst on sass metric`
 
 Buzzwords:
+
 - Tax
 - Invoice
 - AP/AR
 
+### HR
 
-## HR
 Stacks:
+
 - Sage
 - QuickBook
 - isolved
 
-## Support
+### Support
+
 Stacks:
+
 - zendesk
 - ServiceNow
 
-## Engineer
+### Engineer
+
     - FullStack
         - FrontEnd
         - BackEnd
@@ -68,8 +84,10 @@ Stacks:
 
 <hr />
 
-# Business Leaders
+## Business Leaders
+
 Titles:
+
 - CEO
 - CTO
 - CFO
@@ -78,6 +96,7 @@ Titles:
 - COO – Chief Operating Officer
 
 Owner Structures:
+
 - sole proprietorship
   - difficult to transfer
   - liability will cover owner's property
@@ -93,11 +112,11 @@ Owner Structures:
 
 <hr />
 
-# BuzzWords
+## BuzzWords
 
 - Prefer stock `private company will issues prefer stock to investor, so in case bankruptcy, investor will get pay out first, when IPO, prefer stock will convert to common stock`
 
-- SAFE Note ` Only 3 Variables: Valuation CAP, Discount, Major investor right`
+- SAFE Note `Only 3 Variables: Valuation CAP, Discount, Major investor right`
 
 - Convertible Note `aka Safe Note + interest rate`
 
@@ -112,7 +131,7 @@ Owner Structures:
 Safe >(before) options pool > New investment
 
 - Learning Curve pricing `max production rate to expose all possible problems`
-- Addressable Market `The potentials of market `
+- Addressable Market `The potentials of market`
 - Blocker strategy `prevent competitor's move`
 - SAAS Metrics
   - Customer Churn `opposite to customer retention rate; used to calculate average user time`
@@ -149,6 +168,7 @@ Acquisition vs Buildout
 Company Brand vs Solution Brand
 
 # Bankruptcy
+
 - Chapter 13 bankruptcy `delay debt`
 - Chapter 11 bankruptcy `reorganization plan`
 - Chapter 7 bankruptcy `liquidate assets`
@@ -156,17 +176,20 @@ Company Brand vs Solution Brand
 <hr />
 
 ## Lead Direction/Tradeoff
+>
 > High production rate solve low production yield
 
 > Improved robustness vs performance
 
-# Good Idea
+## Good Idea
+
 Giftcard Meeting
 
-# Business Applications
+## Business Applications
+
 - Microsoft Project
 - Trello
-- https://www.notion.so
+- <https://www.notion.so>
 - Sizzy
   > online web design test tool
 - PandaDoc
@@ -178,16 +201,19 @@ Giftcard Meeting
 - hubspot
   > sales pipeline
 - bill.com
-- https://tools.pdf24.org/en/
+- <https://tools.pdf24.org/en/>
 
-# Interview Tools
+## Interview Tools
+
 - codeinterview.io
-- www.codewars.com
+- <www.codewars.com>
 
-# Quotes
+## Quotes
+>
 > Top tier company implement standard & direction; 2nd tier company develop their brand; 3rd tier company focus on product
 
 Goal & Time matrix
+
 |      |         |         | TIME    |   |
 |------|---------|---------|---------|---|
 |      |         | NOW     | FUTURE  |   |

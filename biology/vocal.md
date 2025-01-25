@@ -1,6 +1,7 @@
 # Vocal
 
 Voice Component
+
 - Frequency
 - Resonance
 - Projection
@@ -20,6 +21,7 @@ Chinese letter speak length is same(isochrony, or syllable-timed)
 English is streed-time language
 
 International Phonetic Alphabet
+
 - DJ(Daniel Jone) International
 - KK(Keny, Knott) US [https://www.youtube.com/watch?v=-QkyTe27_1Q]
 - Webster
@@ -27,12 +29,11 @@ International Phonetic Alphabet
 DeEssing
 > usually to reduce ssss sounds
 
+## Apps
 
-
-# Apps
 - singer's studio
 - nail your pitch
 
+## Bio Tech
 
-# Bio Tech
 - Cochlear: `Implant that directly send (20 sound frequencies) electric signal to cochlea.`

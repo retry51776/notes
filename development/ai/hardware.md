@@ -29,6 +29,10 @@
 - QSFP (Quad Small Form-factor Pluggable)
 - Fiber Optic Cables
 
+## Groq
+
+> inference workloads only. PyTorch model to ONNX, then ONNX compiled into Groq hardware.
+
 ## Google
 
 - TPU `Google design hardware`
@@ -36,6 +40,8 @@
 ## Apple
 
 > MLX is an array framework designed for efficient and flexible machine learning research on Apple silicon.
+
+CUDA vs. Mac Interpolation Support
 
 ## AMD
 
@@ -59,10 +65,10 @@
     - DLSS 3 (Deep Learning Super Sampling 3)
     - DLSS 4 `switch CNN to Transformer`
   - Tensor Core `Matrix Only`
-    	- Volta (first generation)
-      - Turing (improved with INT8 and INT4 support)
-      - Ampere (added sparsity support)
-      - Ada Lovelace (further efficiency improvements)
+    - Volta (first generation)
+    - Turing (improved with INT8 and INT4 support)
+    - Ampere (added sparsity support)
+    - Ada Lovelace (further efficiency improvements)
   - RT cores: `For ray tracing, enhancing realistic lighting and shadows in graphics.`
   - Raster units: `For converting vector graphics to raster images.`
   - Texture units: `For texture mapping, which applies images to 3D models.`
@@ -114,10 +120,10 @@ Nvidia Software Terms:
 ```
 nvdia-smi
 ```
+
 Create VM steps:
 
 1. Define hardware profile
 2. Software `NVD guess driver & container toolkit`
 3. App Config `aka volume, container, software, etc. Analogy: room blueprint`
 4. Template Config `reusable blueprint; Analogy: house blueprint`
-

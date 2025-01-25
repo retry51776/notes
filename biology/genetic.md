@@ -1,5 +1,7 @@
+# Genetic
 
 ## Analogy
+>
 > Just distinct biology features reminds me programming terms;
 
 > Human have about 200 distinct cell types;
@@ -19,19 +21,18 @@
     - Histones `The protein DNA wrapped around; control accessability of gene; aka archive source code;`
       - concentration of Cell Molecules `Environment Variable`
       - Molecules wrap around DNA `packing logic`
- - Translation `RNA to Protein; aka CD;`
-    - Ribosome `Python Run Time; read 3 RNA code to 1 amino acids;`
-    - Protein `Molecules made from 20 amino acids`
-    - Enzymes `Helper Method`
+- Translation `RNA to Protein; aka CD;`
+  - Ribosome `Python Run Time; read 3 RNA code to 1 amino acids;`
+  - Protein `Molecules made from 20 amino acids`
+  - Enzymes `Helper Method`
 - Cell `Class`
 - hormone `Redux Action Event`
 - hormone receptors `Redux Event Reducer`
 
 - Regulatory Gene `webpack`
 
-
-
 ## RNA
+>
 > RNA, or ribonucleic acid, plays several roles in biology, including coding, decoding, regulation, and expression of genes. Here are the main types of RNA:
 
 - Messenger RNA (mRNA): These molecules carry the genetic information from the DNA in the nucleus to the ribosomes in the cytoplasm, where proteins are synthesized.
@@ -55,4 +56,3 @@
 - Circular RNA (circRNA): These are a type of non-coding RNA which, unlike other RNAs, form a covalently closed continuous loop and are associated with gene regulation in the cytoplasm and potentially in the nucleus.
 
 - Enhancer RNA (eRNA): These are a type of non-coding RNA produced at enhancer sites, and they play a role in gene expression regulation.
-

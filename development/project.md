@@ -3,11 +3,9 @@
 - User Acceptant Test (UAT)
 
 Why process PDF is pain in ass.
-https://github.com/py-pdf/pypdf/blob/main/docs/user/extract-text.md
-
+<https://github.com/py-pdf/pypdf/blob/main/docs/user/extract-text.md>
 
 > PDF Portfolios is a special type of PDF file that acts as a container for multiple files.
-
 
 ## Windmill
 
@@ -28,4 +26,4 @@ wmill sync pull
 
 > Variable max len 15000 chars
 
-https://www.windmill.dev/docs/apps/app_configuration_settings/app_component_library
+<https://www.windmill.dev/docs/apps/app_configuration_settings/app_component_library>
