@@ -1,4 +1,5 @@
 # AI
+>
 > I break down my AI notes into:
 
 - Academic
@@ -7,16 +8,16 @@
 - IMO
 - code
 
-
 ## Human ability
+
 - Input
   - ~~Hearing~~
   - Taste `limited by hardware`
   - Smell `limited by hardware`
   - Visual Perception
-      - ~~Read~~
-      - ~~Body Language Perception~~
-      - Surrounding Awareness `Tesla already achieved`
+    - ~~Read~~
+    - ~~Body Language Perception~~
+    - Surrounding Awareness `Tesla already achieved`
   - Touch `Very hard for robot`
     - pressure
     - warmth
@@ -37,7 +38,7 @@
   - ~~Read/Write~~
   - Taste & Smell `limited by hardware`
   - Mobility `hard to achieve, Boston Dynamics`
-      - Touch `hard`
-      - Proprioception `body position`
-      - ~~Body Language Expression~~
-      - Stamina `biology is very effective`
+    - Touch `hard`
+    - Proprioception `body position`
+    - ~~Body Language Expression~~
+    - Stamina `biology is very effective`

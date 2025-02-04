@@ -167,6 +167,8 @@
 
 > instead of using positions [1, 2, 3, 4, 5, 6, 7, 8, 9 … L] where L is the pre-trained sequence length, we use [1, 1, 1, 1, 2, 2, 2, 2,… L, L, L, L]
 
+- <https://omnihuman-lab.github.io/>
+
 ### New Research
 
 - Leave no Context behind. `Google extend context`

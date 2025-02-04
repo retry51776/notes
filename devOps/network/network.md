@@ -1,4 +1,5 @@
 # Network Layers
+
 - Physical layer(vehicle) `normal copper wires needs repeater under 1 kilometer; fiber usually able to goes miles`
 
 - Data Link `traffic path, Ex: road`
@@ -9,10 +10,11 @@
 > OSI `breaks Application layer into: Session, Presentation, Application`
 
 ## Buzzwords
+
 - networkID,
 - hostID,
 - subnet `break up large network`
-   - subnet mask `mask value determent available Sub IPs`
+  - subnet mask `mask value determent available Sub IPs`
   - Demarcation point `IP that one network end & another begin`
 - Classless Inter-Domain Routing (CIDR)
 router `will keep IP datagram, but replace ethernet frame`
@@ -20,6 +22,7 @@ router `will keep IP datagram, but replace ethernet frame`
 - IBM advance firewall
 
 ### Routing Table Columns
+
 - Destination network
 - Next hop
 - Total hops
@@ -29,7 +32,9 @@ Distance protocol, old school hop calculation
 Link State protocol, router will get stats farther router, to able react faster
 
 ---
+
 # Transport
+
 Multiplexer/Demultiplexer is key to horizontal scaling
 
 Port: 16 bit direct application
@@ -43,31 +48,37 @@ TCP confirm(ack) every messages,
 UDP (connestionless), no ack, but faster
 
 ---
+
 ## DHCP
+
 Dynamic Host Configuration protocol (DHCP) `is application layer protocol auto config host`
-   - Dynamic, 
-   - Automatic allocation `try to keep ip`
-   - Fix allocation: 
+
+- Dynamic,
+- Automatic allocation `try to keep ip`
+- Fix allocation:
   
 Network Address Translation (NAT) `rewrite source IP, enable port forwarding, allows None-routable Addr Space to communicate`
 
 VPN tunnel `Proxy Server do traffic control, reverse proxy to scale web server, hardware specialized to decryption,  includes gateway,`
 
-
 Non-routable Addresses Space (NAT)
+
 - 10.0.0.0/8
 - 197.16.0.0/12
 - 192.168.0.0/16
-https://jodies.de/ipcalc
+<https://jodies.de/ipcalc>
 
 # Http History
+
 - http 1.0 `start 1996, each request needs its TCP connection`
 - http 1.1 `1997, keep-alive reuse TCP connection; pipeline allow multi requests before response`
 - http 2.0 `2015, stream enable multi request on same connection; stream doesn't effect other streams; server push;`
 - http 3.0 `2022, QUIC replace TCP, connection id enable switch network interface`
 
 ---
+
 ## CMDs
+
 ```bash
 # uses ttl field
 traceroute
@@ -80,8 +91,8 @@ nslookup google.com
 curl ifconfig.co //get public_ip
 ```
 
-
 ## Setup Domain Controller
+
 1. Create VM
    a. rename PC name to (DomainController or something)
    b. config network adaptor properties, disable IPv6, IPv4 with static IP
@@ -91,21 +102,22 @@ curl ifconfig.co //get public_ip
 4. Add role DNS Service (convert url to ip)
 5. Add role DHCP (manage IP address assignment)
 
-
 ## Add PC to Domain
+
 1. Control Panel / System and Security / System / change setting
 2. rename PC name & domain
 3. change DNS service to DC ip
 
 ## LDAP Analogy
+>
 > Lightweight Directory Access Protocol (LDAP)`Just a protocol; similar to http`
-> 
-> Active Directory(AD) `similar to flask` 
-> 
+>
+> Active Directory(AD) `similar to flask`
+>
 > Joint Engine Technology (JET) `similar to SQL`
 
-
 # Buzzwords
+
 - Internet Gateway(IGW)
 - Network Access Control List(Network ACL) `base of IP control`
 - Security Group `AWS Security Group is stateful`

@@ -109,8 +109,6 @@
 
 <hr>
 
-## Paper
-
 # SAE
 >
 > The goal is reduce input dimensional space to reduce noise.

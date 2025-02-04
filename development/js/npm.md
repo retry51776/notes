@@ -1,9 +1,11 @@
-# NPM 
+# NPM
+>
 > libtrends.info/npm-compare
 
-> https://bundlephobia.com/
+> <https://bundlephobia.com/>
 
 ### semantic versioning
+
 `~` only update patch
 
 `^` update minor & path
@@ -11,8 +13,11 @@
 > remember reset lower level when increase major or minor
 
 - major.minor.patch
+
 > `npm update` to upgrade latest library
+
 - package.lock.json
+
 > force npm install library target version
 
 To build library
@@ -26,6 +31,7 @@ Only run `npm install` to init Project, then always `npm ci`
 Node Package Execute `npx allow excute without install`
 
 Other npm cmds
+
 ```js
 // Ignore npm v7+ peer deps checks
 npm install xxx --legacy-peer-deps
@@ -45,7 +51,8 @@ npm start --prefix folderA
 npm update
 ```
 
-**Reset private registry **
+**Reset private registry**
+
 ```bash
 npm config list  
 npm config delete registry  
@@ -54,7 +61,8 @@ registry = "http://npm.private_npm_server:4873/"
 /.npmrc
 ```
 
-**Setup Dependence Library within Project **
+**Setup Dependence Library within Project**
+
 ```dockerfile
 Step 1: Mount Library Source into Container  
 Dockerfile  
@@ -73,6 +81,7 @@ unsafeCache: /assets/,
 ```
 
 Windows ESLint failed permission
+
 ```powershell
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
 ```

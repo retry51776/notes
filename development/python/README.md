@@ -53,10 +53,13 @@
   - pattern matching
   - Type Operator `isinstance(1, int | str)`
 - 3.11 beta
-  - expression error trackstack, add_note(), ExceptionGroup
+  - expression error traceback, add_note(), ExceptionGroup
   - self type
   - Performance increase 15%
   - tomlib
+- 3.12
+  - `f'His name is {name=}'`
+  - Typing Enhancements
 
 **Frustration**
 
@@ -65,7 +68,7 @@
 - get_in like methods or null chaining
 - decorator acts as interceptor, takes func as args, return func
 - function params's default value should be standard type
-    > don't reference type `[]` or `{}`, any modify reference will presists default value in next function call
+    > don't reference type `[]` or `{}`, any modify reference will persists default value in next function call
 - don't delete in loop
 - falsely values & or, need similar `or` for `None` only, I hate `if else`
 - Python allow integer as key of object, but JSON file requires key as string. Can be surprised load object is different.

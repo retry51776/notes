@@ -1,13 +1,19 @@
 # Docker
+>
 > Docker each container has its namespaces
-> 
+>
 > Control groups protect host resources
-> 
+>
 > SELinux  deal with containers communication, between containers or to host
 
 ## Frustration
+
 - Docker will complicate about port conflict within containers; But if host machine have process took port, docker will silently continue; without warning!
+- libseccomp `Docker component` will block container system api calls; default `seccomp profile`
+- Docker error `invalid signature was encountered` when disk is full, so misleading!
+
 ## Docker Scripts
+
 ```bash
 # Image Ops: Build, push, pull, list
 docker build -t docker.xxx/repo_name:terry . 
@@ -24,6 +30,7 @@ docker run -it --rm [images-tag] sh sleep infinity
 ```
 
 ## Debug
+>
 > VS plugin, mount VS code into container (Remote - Containers)
 > Python plugin, (debugpy)
 
@@ -35,6 +42,7 @@ docker cp container-name:/opt/app/node_modules .
 ```
 
 ## Maintain
+
 ```bash
 sudo docker container rm $(docker container ls -aq)
 docker system prune
@@ -48,6 +56,7 @@ docker scan image_name
 ```
 
 ## Dockerfile
+
 ```dockerfile
 # aka localhost for docker network
 host.docker.internal 
@@ -59,7 +68,8 @@ COPY no[^d]* # All files that start with 'no', but not 'nod'
 > Docker Multi Stage Build `can create temp image to do unit test, compile code`
 > Runtime Stage vs Build Stage
 
-- 
+-
+
 ```dockerfile
 From python AS test
 Add . /src
@@ -70,6 +80,7 @@ COPY --from=test /src /src
 ```
 
 > Avoid Root User
+
 ```dockerfile
 USER node
 
@@ -81,40 +92,41 @@ CMD node index.js
 ```
 
 ## docker-compose
+
 ```yaml
 # docker-compose -f docker-compose.dev.yml up
 version: '3.9'
 services:
     my-app:
         build:
-			context: ./dockerfile
-			target: runtime
+   context: ./dockerfile
+   target: runtime
         command: python3 start.py api-service -d
-		restart: unless-stopped
+  restart: unless-stopped
         container_name: my-app
         image: python10
         ports:
             - '4000:80'
         volumes:
             - .:/app
-		environment:
-			xx: xx
-		healthcheck:
-			test: ["curl" "google.com"]
-			interval: 10
-			timeout: 10s
-			retries: 3
-		depends_on:
-			xx-db:
-				condition: service_healthy
-		# only trigger when docker-compose up -d xx-profile
-		profiles:
-			- xx-profile
-			- yyyy
+  environment:
+   xx: xx
+  healthcheck:
+   test: ["curl" "google.com"]
+   interval: 10
+   timeout: 10s
+   retries: 3
+  depends_on:
+   xx-db:
+    condition: service_healthy
+  # only trigger when docker-compose up -d xx-profile
+  profiles:
+   - xx-profile
+   - yyyy
 networks:
     default:
         name: local-network
-		external: true
+  external: true
 
 ```
 
@@ -122,16 +134,18 @@ networks:
 --env normal_start=19500000
 -v /home/terry/tensorflow/app:/app
 depends_on:
-	- redis
+ - redis
 networks:
-	- simple-network
+ - simple-network
 ```
 
 # Other
+
 - Codacy Badge `Codacy/repo/Setting/General`
 - Github Action Badge `Github/repo/action/xxx_action/.../Create Action Badge`
 
 # Full Virtual OS
+
 - VirtualBox (not support m1)
 - VMware Fusion Player (not usable)
 - UTM (free, usable)

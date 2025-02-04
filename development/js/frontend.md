@@ -8,15 +8,17 @@
 > Component level fetching
 > Server side fetching
 
-
 ## UI Libraries
-- CSS enhancement `SASS, LESS, Tailwind`
-- Behavior Libraries `React, ReactTable, ReactQuery, headlessui`
-- Style Systems `Bootstrap, TailwindUI, DaisyUI`
 
-- styled-components `Define css in react component`
+3 types:
+
+- UI enhancement `Only enhance UI, not logic; Ex: SASS, LESS, Tailwind`
+- Behavior Libraries `Only logic, not UI; Ex: React, ReactTable, ReactQuery, headlessui`
+- Style Systems `Both UI & logic; Ex: Bootstrap, TailwindUI, DaisyUI`
+  - styled-components `Define css in react component`
 
 ## Redux
+>
 > Avoid redux connect() to reduces unnecessary props
 
 > Avoid using redux at all, just uses react context hook
@@ -54,14 +56,15 @@ dispatch('ACTION_XYZ');
 ```
 
 ## React Component
+>
 > key:
 >> unique id from SIBLING, react uses key to reuses element, which is WHY bad idea to use index as key
 
 > ref:
 >> for focus, or 3rd party lib; NextJS ServerSide caching using Ref to scope cache
   
-
 > ### React Reconciliation
+>>
 >> determent which node of DOM tree needs replace
 >
 >> type changed? generate new DOM
@@ -71,6 +74,7 @@ dispatch('ACTION_XYZ');
 >> try to reused DOM by key. Only in silbing
 >
 > ### Rendering by ReactDom or ReactNative
+>>
 >> React Fiber, none blocking, support abort rending, dynamic import
 
 `$$typeof:Symbol(react.element) // react internal id`
@@ -90,14 +94,14 @@ structural sharing
 
 > save memory(still uses more than single variables)
 
-
 Maybe Immer? new dev could break things, but no new APIs
 
 ## React
+>
 > Functional component is truely immutable, but class component's state is mutable; Because hooks allow true decouple of state
 
-
 ### Component Prefer Orders
+
 1. Component States
 2. Redux Store
 3. Web actions
@@ -105,6 +109,7 @@ Maybe Immer? new dev could break things, but no new APIs
 5. UI Components
 
 - wouter is alterative to React Router
+
 ```js
 /* React router pass in history & match*/
 const Abc = ({ history, match }) => {
@@ -157,6 +162,7 @@ const TerryContext = createContext(null);
 ```
 
 ## Upload File
+
 ```js
 import JSZip from 'jszip';
 import Dropzone from 'react-dropzone';
@@ -166,8 +172,10 @@ JSZip.loadAsync(files[0])
 ```
 
 ## moment
+>
 > it's dead 2020 Aug, uses dayjs instead
-https://twitter.com/addyosmani/status/1304676118822174721
+<https://twitter.com/addyosmani/status/1304676118822174721>
+
 ```js
 import moment from 'moment';
 moment
@@ -181,7 +189,9 @@ moment().add('day', 1).subtract('year', 1);
 ```
 
 ## react-query & react-table
+>
 > avoid column accessor 'xxx.xx' , instead 'xxx-xx'
+
 ```js
 const {
   data,
@@ -214,13 +224,14 @@ const edit = useMutation(postEdit, {
 **mouseflow**
 > Page tracking plugin
 
-
 ## Formik
+>
 > Created Each Form Input in its own file
-> 
+>
 > Then Have a FormikController similar react_router
 >
 > Another dead popular repo
+
 ```js
 const formik = useFormik({
   initialValues: {
@@ -266,6 +277,7 @@ const formik = useFormik({
 ```
 
 # Yup
+
 ```js
 // Yup as schema
 //string().oneOf([Yup.ref('password'), ''])
@@ -287,8 +299,11 @@ const validationSchema = Yup.object({
   }
 })
 ```
+
 ## Chakra UI
-> https://chakra-ui.com/docs/components
+>
+> <https://chakra-ui.com/docs/components>
+
 ```js
 
 // Input
@@ -314,8 +329,9 @@ import { Input, FormControl, FormLabel, FormErrorMessage } from '@chakra-ui/core
 ```
 
 ## react-hook-form (RHF)
+>
 > TODO: figure how it work
-> https://react-hook-form.com/api/useform/formstate/
+> <https://react-hook-form.com/api/useform/formstate/>
 
 ```js
 import { Controller, useForm } from "react-hook-form";

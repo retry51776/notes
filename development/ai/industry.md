@@ -2,15 +2,33 @@
 >
 > Only put tech stacks, companies, products here.
 
+- Rule of thumb
 - General
 - By Applications
 
+## Rule of thumb
+
+- Training needs 4X RAM as inference
+- RAM size > RAM speed > GPU speed
+- H100 from $2/hr to $4/hr; H100 is common unit; Use 700 watts
+- Data Warehouse size: 30 thousands A100 @ 2024 is Top tier, 100k @ 2025, 300k-700k @2026;
+- Power to Chip `PUE` from 1.1(effective) to 1.8(wasteful);
+- Total Cost Ownership `TCO` 10% Data Center, 15% Power, 75% GPU
+- YOLO RUN(huge run) 2-4X of research runs;
+- Token per second
+  - 4090 on 8b llama 60-80tps;
+  - 5090 on 8b llama 80-100tps; on 32b uses 24GB RAM @ 30-50tps
+  - m3 max 50-70tps; MLX will 60-80tps;
+  - m4 on llama 90b 7tps
+
 ## General
 
-[oobabooga](https://oobabooga.github.io/benchmark.html)
+<https://semianalysis.com/>
 
-[aider for code]https://aider.chat/docs/leaderboards/
+<https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard>
 
+<https://huggingface.co/spaces/hf-accelerate/model-memory-usage>
+> Add 3GB extra memory on top estimator result. `3rd party models need RAM too`
 
 - Machine Learning Frameworks
   - LLM model formats
@@ -18,6 +36,7 @@
     - .gguf `GGUF Format to store llama.cpp models`
     - .safetensors `support pytorch`
   - Pre Training `Build the whole model`
+    - deep speed `reduce RAM for training`
   - Post Training `Adjust part of model`
     - Low-Rank Adaptation (LoRA)
     - Fine-Tuning
@@ -99,7 +118,6 @@ LLM Response Evaluation
 - Tools:
   - Gephi `Graph Visualization`
 
-
 ### PDF process
 >
 > This is very hard, is it text content focus? does it have OCR problem? or both?
@@ -161,7 +179,6 @@ features:
   - Also llama3.1:8b sucks on `tool_calls`, but 70b works fine
 - presence_penalty & frequency_penalty `I prefer turn this on`
 
-
 ## Cool AIs
 
 - CodeFormer `Image/movie recover & enhance AI`
@@ -204,7 +221,7 @@ features:
   - UI interface
   - API/CLI Access
   - Model Management
-- AI fine tunning & QA services 
+- AI fine tunning & QA services
 
 ## Tools
 
@@ -224,7 +241,6 @@ features:
     - Tool Agent `decide which tool, generate input into tools`
       - Tools `utilities for llm`
     - Database Agent `crud again database`
-
 
 - LanceDB `similar to SQLite, support embedded query, store files & binary data, also graph`
   - graph `nodes in a table, relationship store in another table`
@@ -274,29 +290,10 @@ An Ollama model package includes:
  3. Model Configuration: Metadata, quantization details, parameters, etc.
  4. Runtime Instructions: Optimizations for model execution.
 
-```
-# Example ollama Model File Definition
-
-MODEL_FILE ./mymodel.gguf
-
-# Explicitly define runtime parameters
-PARAMETER temperature 0.7
-PARAMETER top_p 0.9
-PARAMETER context_length 2048
-
-# Define system prompt (optional)
-SYSTEM "You are a custom fine-tuned AI model, ready to assist."
-
-# Set tokenizer path explicitly if needed
-TOKENIZER ./tokenizer.model
-```
-
-<https://docs.openwebui.com/>
-
-
 ## Retrival Augmented Generation(RAG)
 
 strategy:
+
 - Reranking
 - Query Expansion
 - Agentic `Given Tools; Ex: Web Crawler, Code Executor`
@@ -307,14 +304,15 @@ Citation
 >
 > Just run classic similarly search compare output vs input.
 
+Problems:
+
+- Information Sparsity `occurs when incomplete extraction result; aka context loss`
 
 ## Debug
 
 - Jaeger `distributed tracing tool`
 - Langfuse `similar to sentry.io but for LLM`
 - GraphRAG `knowledge graphs`
-
-
 
 ## Evaluation
 
@@ -326,20 +324,16 @@ Citation
   = Coder -> execute code
 
 Prompts:
+
 - How many words are in your response to this prompt?
 - Guess cup game, multi round.
 - Jake is walking to store that is 100 meter from him, every 1 second he walks 5 meter forward, then jump 1 meter back. How many seconds will take Jake walk to store.
-
 
 ## Beyond static LLM
 
 - open socket interruption
 - context caching
-- thinking model
-  - thinking interruptions
-
 
 ### Python
 
-- litellm https://pypi.org/project/litellm/ `Common SDK`
-- pydantic `I don't like it, structure output parser`
+- litellm <https://pypi.org/project/litellm/> `Common SDK`

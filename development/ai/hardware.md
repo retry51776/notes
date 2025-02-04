@@ -1,6 +1,6 @@
 # Hardware
 
-> Machine Learning Frameworks(PyTorch) > Acceleration Driver(cuDNN) > Hardware(GPU)
+> Machine Learning Frameworks(PyTorch) > Acceleration Driver(cuDNN) > Parallel Thread Execution(PTX: assembly code) > Streaming ASSembly (SASS: machine code) > Hardware(GPU)
 
 > Different hardware needs its custom version llama.cpp. Ex(Metal llama.cpp, ROCm llama.cpp, CUDA llama.cpp)
 
@@ -29,9 +29,17 @@
 - QSFP (Quad Small Form-factor Pluggable)
 - Fiber Optic Cables
 
-## Groq
+## OpenSouce
 
-> inference workloads only. PyTorch model to ONNX, then ONNX compiled into Groq hardware.
+- Exo Labs `AI clusters software`
+
+## Inference Hardware
+>
+> Usually they all use In Memory Compute instead HBM
+
+- Groq `inference workloads only. PyTorch model to ONNX, then ONNX compiled into Groq hardware.`
+- Etched ``
+- D-Matrix ``
 
 ## Google
 
@@ -47,9 +55,14 @@ CUDA vs. Mac Interpolation Support
 
 > AMD uses Hipify to convert CUDA into AMD HIP.
 
+## CoreWeave
+
+> Bunch top finical ground funded Cloud AI warehouse.
+
 ## Nvidia
 
-> A100 cost at least $10k
+> H100 cost at least $30k; standard unit;
+> NVIDIA makes 1-2 million H100 per year.
 > DGX cost at least $350k, includes 8 A100 GPUs
 
 - Product Lines:
