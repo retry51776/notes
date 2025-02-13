@@ -23,6 +23,13 @@
 
 - DGX server have sister product (HGX server)High-Performance GPU (Graphics Processing Unit) eXtensible
 
+- Data Parallelism (DP) `Clone the whole Model`
+- Pipeline Parallelism (PP) `Split the model across layers; Deep Model`
+- Sequence Parallelism (SP) `Long Input token`
+- Tensor Parallelism (TP) `very bad idea`
+- State Batch `Sync Back Props loss`
+- Master Weight
+
 ## Networking
 
 - Ethernet Cable `Color (OrgWhite, Org, GreenWhite, Blue, BlueWhite, Green, BrownWhite, Brown), Only need (1,2,3,6) to work, but limited to 100mb`
@@ -40,6 +47,12 @@
 - Groq `inference workloads only. PyTorch model to ONNX, then ONNX compiled into Groq hardware.`
 - Etched ``
 - D-Matrix ``
+
+## Amazon
+
+- Trainium `Amazon design hardware supports CUDA`
+
+> anthropic works with Amazon.
 
 ## Google
 
@@ -59,11 +72,15 @@ CUDA vs. Mac Interpolation Support
 
 > Bunch top finical ground funded Cloud AI warehouse.
 
+## Haiwei
+
+> Ascend910 Inference Hardware
+
 ## Nvidia
 
 > H100 cost at least $30k; standard unit;
 > NVIDIA makes 1-2 million H100 per year.
-> DGX cost at least $350k, includes 8 A100 GPUs
+> DGX cost at least $350k, includes 8 A100 GPUs; Commonly call a node.
 
 - Product Lines:
   - GeForce Series (Gaming and Consumer GPUs)

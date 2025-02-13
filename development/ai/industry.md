@@ -15,11 +15,13 @@
 - Power to Chip `PUE` from 1.1(effective) to 1.8(wasteful);
 - Total Cost Ownership `TCO` 10% Data Center, 15% Power, 75% GPU
 - YOLO RUN(huge run) 2-4X of research runs;
+- Output Token(generate sequential) is 4X cost of Input Token(batch process)
 - Token per second
   - 4090 on 8b llama 60-80tps;
   - 5090 on 8b llama 80-100tps; on 32b uses 24GB RAM @ 30-50tps
   - m3 max 50-70tps; MLX will 60-80tps;
   - m4 on llama 90b 7tps
+  - H100 on 8b llama 2000tps
 
 ## General
 
@@ -107,20 +109,23 @@ LLM Response Evaluation
 
 ### Vision
 
-- Optical Character Recognition (OCR)
+- multi-models-LLM
   - Gemini 2.0 Flash `Very Good, but not open source`
   - meta-llama/Llama-3.2-11B-Vision-Instruct `can do basic extra, but has error`
   - <https://llamaocr.com/> `fine tunned meta-llama, better, still error`
+  - Pixtral 12B `open source vision engine`
+  - DeepSeek VL
 
-- Pixtral 12B `open source vision engine`
-- DeepSeek
+- Optical Character Recognition (OCR) `I don't think OCR is right approach, Directly multi models LLM should replace OCR`
+  - Google tesseract-ocr
+  - EasyOcr
+- Document process
+  - Amazon Textaction
+  - Google Document AI
+  - pymupdf4llm
 
 - Tools:
   - Gephi `Graph Visualization`
-
-### PDF process
->
-> This is very hard, is it text content focus? does it have OCR problem? or both?
 
 ### Audio
 

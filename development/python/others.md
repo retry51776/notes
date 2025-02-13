@@ -1,4 +1,5 @@
 # useful packages
+
 - argparse `standard lib for CLI applications`
 - typer `package help develop CLI applications`
 - tenacity
@@ -14,7 +15,8 @@
 - pytest-watch
 - pyfakerfs
 
-- ptvsd 
+- ptvsd
+
 ```py
 python -m ptvsd flask run -wait
 {
@@ -34,4 +36,4 @@ python -m ptvsd flask run -wait
 
 # Interesting Pattern
 
-https://github.com/python-gitlab/python-gitlab/blob/336ee21779a55a1371c94e0cd2af0b047b457a7d/gitlab/client.py#L34
+<https://github.com/python-gitlab/python-gitlab/blob/336ee21779a55a1371c94e0cd2af0b047b457a7d/gitlab/client.py#L34>

@@ -22,6 +22,23 @@
 
 > NN connection is too static. Human neurons can create new connection. Need dynamic connection ability in NN.
 
+- AI is similar to Chemistry/Physical in 1800. There's some set logic/mechanism(usable metal); We play around data(Iron Ore) with some computation process(refine ore). Maybe the remaining data AKA model(Iron/steel) is what we desire. So value of the data is NOT determent by amount, but the data contains logic/mechanism we desires.
+  - Mining & Extraction = Data Collection & Scraping
+  - Computation = Heat
+  - Data Center = Blast Furnace
+  - Data = Iron Ore
+  - Model = Iron
+  - Fine-Tuning (Specialized Model Training) = Alloying (Adding Carbon to Make Steel)
+  - Inference & Deployment = Rolling & Shaping Steel
+  - AI Evaluation (Benchmarks, Alignment, RLHF) = Quality Testing & Hardening
+  - AI Applications = Bridges, Cars, Tools
+  - Smart AI answer's is info density = Purity Iron weight more `Same As Human`
+
+  - Text data -> logic
+  - ?? -> physical mechanism
+  - DNA -> biology mechanism
+  - social data -> human society mechanism?
+
 - I think we need more localized, more parallel algorithms. I think back propagation is too global. My guess is unfired neuron stack up voltage cause correction.
 
 - Most likely llm's problem is there is a single intermediate state that holds though, planning, intentions, understanding,
@@ -155,7 +172,19 @@
 
 - The Dark Matter of Neural Networks `By Chris Olah; explore NN features.`
 
+- [Deepseek V3 Tech Report]<https://arxiv.org/pdf/2412.19437>
+  - Multi-Head Latent Attention (MLA) `Combine token_d's key & value of Attention into c*d(c is < 1) single embedding; Aka 2d -> 0.7d; c*d concatenated(NOT Add) RoPE -> Attention Head`
+  - 8/32 MOE auxiliary-loss-free strategy `Load balance without loss`
+  - Multi-Token Prediction (MTP) `Use next_token_prediction (expect_token) + next_token(reality_token) to predict new_token`
+
+- Distilling the Knowledge in a Neural Network
+  - Hard Label(Human label) doesn't capture reality, Soft Label(LLM statical probability) capture more detail/relationship of reality.
+  - Label Smoothing have another model learn from Soft Label instead Hard Label.
+  - 64 experts
+
 ### Tech Improve
+
+- KV Cache `Query(latest token) change every token, but Key & Value(of past token) are static`
 
 - "GPT-3: Language Models are Few-Shot Learners" by Alec Radford, et al. (2021)
 
