@@ -16,12 +16,23 @@
 - Total Cost Ownership `TCO` 10% Data Center, 15% Power, 75% GPU
 - YOLO RUN(huge run) 2-4X of research runs;
 - Output Token(generate sequential) is 4X cost of Input Token(batch process)
-- Token per second
+- Token per second (>10tps be useable)
   - 4090 on 8b llama 60-80tps;
   - 5090 on 8b llama 80-100tps; on 32b uses 24GB RAM @ 30-50tps
   - m3 max 50-70tps; MLX will 60-80tps;
   - m4 on llama 90b 7tps
   - H100 on 8b llama 2000tps
+- Precision
+  - Quantization
+    - Formats
+      - AWQ `Focus on activation weights`
+      - GGUF `Focus on CPU`
+      - GPTQ `Focus on GPU`
+    - Precisions
+      - BF16 (Brain Floating Point)
+      - FP16 (Floating Point)
+      - FP4 (Ollama default)
+  - LLM parameter count
 
 ## General
 
@@ -123,9 +134,12 @@ LLM Response Evaluation
   - Amazon Textaction
   - Google Document AI
   - pymupdf4llm
+  - marker
+  - Pali Gemma 2 mix
 
 - Tools:
   - Gephi `Graph Visualization`
+  - mermaidchart `Flowchart Visualization`
 
 ### Audio
 
@@ -299,11 +313,14 @@ An Ollama model package includes:
 
 strategy:
 
-- Reranking
-- Query Expansion
-- Agentic `Given Tools; Ex: Web Crawler, Code Executor`
-- LPG（Labeled Property Graph)
-- RDF（Resource Description Framework）
+- Context Optimization
+  - Reranking
+  - Query Expansion
+  - Fake Answer Search
+  - Agentic `Given Tools; Ex: Web Crawler, Code Executor`
+  - LPG（Labeled Property Graph)
+  - RDF（Resource Description Framework）
+- LLM Intelligent/Behavior Optimization
 
 Citation
 >

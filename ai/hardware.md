@@ -9,6 +9,20 @@
 
 > At the end of the day, only limitation is space; space either assign to computation(flexible or efficiency) or storage(latency or throughput);
 
+## RAM
+
+> RAM size & speed & throughput is key bottleneck of AI training & inference.
+
+- RAM
+  - Dynamic RAM (DRAM) `capacitors`
+    - HBM
+    - DDR1-5
+    - LPDDR
+    - GDDR
+  - Static RAM (SRAM) `flip-flops (latches)`
+    - L1, L2, L3 cache
+- Flash
+
 ## Training
 
 - cuDNN
@@ -36,7 +50,7 @@
 - QSFP (Quad Small Form-factor Pluggable)
 - Fiber Optic Cables
 
-## OpenSouce
+## OpenSource
 
 - Exo Labs `AI clusters software`
 
@@ -51,6 +65,7 @@
 ## Amazon
 
 - Trainium `Amazon design hardware supports CUDA`
+- Bedrock `LLM SSAS provider`
 
 > anthropic works with Amazon.
 
@@ -60,7 +75,7 @@
 
 ## Apple
 
-> MLX is an array framework designed for efficient and flexible machine learning research on Apple silicon.
+> MLX is an array framework designed for efficient and flexible machine learning research on Apple silicon. But only support 4 & 8 bits
 
 CUDA vs. Mac Interpolation Support
 

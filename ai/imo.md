@@ -49,6 +49,8 @@
 
 - AI can think of compression algorithm. In fact it may be too good. A lot knowledge able to compress into 20GB model. Maybe the problem is we COMPRESS too much! That's why bigger model shows better intelligence.
 
+> Quantization indicate LLM understand by relativity comparison; Aka we understand by contrast, not absolute value.
+
 > Why AI need so much computation? Interesting to compare traditional Lossy Compression Algorithms which uses very few computation.
 >> Compression Algorithms start from data to away from data, AI start from randomness to target. Perception Coding
 
@@ -70,6 +72,10 @@
 
 > My guess OpenAI train AI with more output layers; More output layers force AI to have deeper understanding.
 
+> efficiency & flexibility trade off are fundamental. In AI, in memory compute are fast but not flexible. GPU & CPU are more flexible, but slower.
+>> Also there are indicator in human too. 3 year old we have most neurons, can learn anything. Yet as we get older, we process fast, yet not able to learn/adapt. We have less neurons, bigger neurons.
+>> We should research how brain neuron replace  surrounding neurons, that give us clubs to have same size LLM but smarter/faster(in  expense of flexibility because we break matrix size).
+
 ## Weak Opinions
 >
 > Another cue is human train to response faster, rational thinking is slower. Seem like AI just have "instinct" right now.
@@ -87,6 +93,7 @@
 - LLM is very TALKY, it will do instruction, but it also need a lot monolog between it's output.
   - `Format each xxx in a new line as ("xxx"{tuple_delimiter}<p1>{tuple_delimiter}<p2>{tuple_delimiter}<p3>{tuple_delimiter}<record_delimiter>)`
   - `Add {start_delimiter} & {end_delimiter}`
+- Let LLM response in markdown section, Problem with json response is that it constrain verbosity of LLM response. Both input & output should be markdown, because LLM usually prefer markdown than json in my experience.
 
 - Prompt Order
   - 1) Context
@@ -116,6 +123,14 @@
 
 - pick radom top weight neurons, take input from (important & far away) neuron's output; repeat winning lottery?
 - prune combines with quantized? or can we quantized only subset network? Proven Idea now! haha
+
+- distilled LLM is similar how pet display intelligent response yet not fully understand the reasoning
+
+> We need a multi model AI that can generate text/speech/diagram for documentation.
+>> Or is text a fundamental unit to derivate speech & diagram?
+ • If speed & efficiency → Text wins.
+ • If long-form engagement → Audio is easier to consume.
+ • If complex ideas → Diagrams & multimedia work best.
 
 ## Physical Intelligent
 
@@ -184,7 +199,7 @@
 
 ### Tech Improve
 
-- KV Cache `Query(latest token) change every token, but Key & Value(of past token) are static`
+- KV Cache `Query(latest token) change every token, but Key(past sentences) & Value(of past sentences' meaning) are static`
 
 - "GPT-3: Language Models are Few-Shot Learners" by Alec Radford, et al. (2021)
 

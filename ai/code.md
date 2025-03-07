@@ -50,6 +50,14 @@ export NGC_APU_KEY=xxx
 export LOCAL_NIM_CACHE=/tmp/.cache/nim
 '''
 
+## Huggingface
+
+> default path `~.cache/huggingface/hub/`
+
+```
+[WARNING] Generating with a model that requires 134570 MB which is close to the maximum recommended size of 98304 MB. This can be slow. See the documentation for possible work-arounds: https://github.com/ml-explore/mlx-examples/tree/main/llms#large-models
+```
+
 ## Ollama
 
 > Pretty much Docker for LLM containerization; layer cache, build from layers. Support OLLAMA_KV_CACHE_TYPE by default across all Models.
@@ -124,4 +132,25 @@ open-webui serve
 
 /Users/xxx/miniconda3/lib/python3.11/site-packages/open_webui
 
+```
+
+## Pytorch
+
+```py
+import torch
+import gc
+
+gc.collect()
+torch.cuda.empty_cache()
+```
+
+## PDF
+
+```
+# Max 12G RAM
+# pip install marker-pdf
+# apt-get install -y libgl1-mesa-glx
+from marker.converters.pdf import PdfConverter
+from marker.models import create_model_dict
+from marker.output import text_from_rendered
 ```

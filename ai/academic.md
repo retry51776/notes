@@ -34,8 +34,10 @@
   - Activation function
   - Weight
   - Bias `a value that is added to the output of a neuron before it is passed to the next layer.`
+    - Many transformer implementations (like LLaMA, for example) intentionally disable biases
 - Auto Model Compression `pruning as reinforcement learning problem`
 
+- Sharded `Split LLM into chucks`
 - Tiling `calculation by smaller block, uses scaler to rescale each row to combine whole`
 - Recomputation `Don't store, recompute to save RAM`
 
