@@ -77,7 +77,11 @@
 
 > MLX is an array framework designed for efficient and flexible machine learning research on Apple silicon. But only support 4 & 8 bits
 
+> CoreML is Apple’s optimized AI inference engine for running ML models on Apple devices. It supports ANE (Apple Neural Engine) for maximum efficiency.
+
 CUDA vs. Mac Interpolation Support
+
+Apple Neural Engine(ANE) is not accessible to MLX or PyTorch directly.
 
 ## AMD
 

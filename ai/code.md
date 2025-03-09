@@ -54,8 +54,33 @@ export LOCAL_NIM_CACHE=/tmp/.cache/nim
 
 > default path `~.cache/huggingface/hub/`
 
-```
-[WARNING] Generating with a model that requires 134570 MB which is close to the maximum recommended size of 98304 MB. This can be slow. See the documentation for possible work-arounds: https://github.com/ml-explore/mlx-examples/tree/main/llms#large-models
+```py
+# Ex: error when out of RAM
+#[WARNING] Generating with a model that requires 134570 MB which is close to the maximum recommended size of 98304 MB. This can be slow. See the documentation for possible work-arounds: https://github.com/ml-explore/mlx-examples/tree/main/llms#large-models
+
+brew install git-lfs
+
+# pip install datasets
+from datasets import Dataset
+
+data = Dataset.from_dict({
+    "question": ["What is 2+2?", "Capital of France?"],
+    "answer": ["4", "Paris"]
+})
+
+data.push_to_hub("your-username/your-benchmark")
+
+lm-eval \
+    --model ggml \
+    --model_args pretrained=local,base_url=http://localhost:1234 \
+    --tasks piqa \
+    --batch_size 8
+
+lm-eval \
+    --model hf \
+    --model_args pretrained=your-model-name \
+    --tasks boolq \
+    --batch_size 8
 ```
 
 ## Ollama

@@ -338,6 +338,21 @@ Problems:
 
 ## Evaluation
 
+> By Methods
+
+- Multiple-Choice (MCQ)
+  - MMLU
+- Free-Form Answer
+  - GSM8K
+  - TruthfulQA
+- Softmax Probability Differences
+- Code Generation
+  - HumanEval
+- Long-Context
+  - Needle in a Haystack
+
+> By Application
+
 - Sentiment
 - Conversation Length
 - Grounding
@@ -345,6 +360,10 @@ Problems:
   - Physical AI -> Physical World Response
   = Coder -> execute code
 
+> Products
+
+- Arize-ai/ phoenix
+- lm-eval
 Prompts:
 
 - How many words are in your response to this prompt?

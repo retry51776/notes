@@ -15,13 +15,13 @@
 
 ```
 notes
+├── ai
 ├── biology
 │   └── anatomy.md
 ├── business
 ├── crypto
 ├── database
 ├── development
-│   └── ai
 │   └── python
 │   └── js
 │   └── dotnet

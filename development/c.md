@@ -1,41 +1,66 @@
-# C
-> `xxx.c` is source code, `xxx.h` is interface def
-> compiled shared module in windows is `xxx.dll`; in linux is `xxx.so`
+# C Language Essentials
 
-> linux default share module path `/usr/local/lib`, env is `export LD_LIBRARY_PATH="${pwd}"`
+## File Types
 
-> `makefile` define modules linkage
-### sections
-- header
-- .text
-- .data
-- ...
-- .reloc
+- **`.c`**: Source code files  
+- **`.h`**: Header files (interface definitions)  
 
+## Shared Modules
 
-## CMDs
+### Platforms
+
+| OS      | File Extension | Default Path           |
+|---------|----------------|------------------------|
+| Linux   | `.so`          | `/usr/local/lib`       |
+| Windows | `.dll`         | (OS-dependent)         |
+
+### Environment Setup
+
 ```bash
-# Compile shared module from math.c into libmath.so
-gcc -shared -fPIC math.c -o libmath.so
-
-# Compile
-gcc main.o math.o -o main
-
-# Compile executable & reference shared module
-gcc main.c -lmath -L. -o main
-
-# Check executable meta info
-readelf -h main.o
-
-# check executable sections
-readelf -S
-
-# Check compiled ddl dependence
-readelf -d xxx_script | grep NEEDED
+# Temporarily add current directory to library path (Linux)
+export LD_LIBRARY_PATH="${pwd}"
 ```
 
-## Buzzwords
-- Global Offset Table (GOT) `Memory table store shared module`
-- Position Independent Code (PIC) `-fPIC flags shared module uses GOT`
-- Executable and Linkable Format (ELF) `Linux`
-- Portable Executable (PE) `Windows`
+## Compilation
+
+### Key Commands
+
+```bash
+# Create shared library from math.c (Linux)
+gcc -shared -fPIC math.c -o libmath.so
+
+# Link static libraries
+gcc main.o math.o -o main
+
+# Link shared library dynamically
+gcc main.c -L. -lmath -o main  # Searches current dir for libmath.so
+
+# Debugging Tools
+readelf -h main.o    # Display ELF header info  
+readelf -S main      # List sections of executable  
+readelf -d xxx_script | grep NEEDED  # Show dependencies
+```
+
+## Memory Layout (ELF Format)
+
+### Key Sections
+
+- `.text`: Executable code  
+- `.data`: Initialized global variables  
+- `.bss`: Uninitialized static storage  
+- `.rodata`: Constants/readonly data  
+- `.reloc`: Relocation entries (dynamic linking)  
+
+## Core Concepts
+
+| Term       | Description                                                                 |
+|------------|-----------------------------------------------------------------------------|
+| **GOT**    | Global Offset Table: Stores addresses for shared library symbols             |
+| **PIC**    | Position Independent Code (-fPIC flag): Enables shared libraries to load anywhere in memory |
+| **ELF**    | Executable and Linkable Format (Linux/Unix)                                |
+| **PE**     | Portable Executable format (Windows)                                       |
+
+## Build Tools
+
+- **Makefiles**: Define build rules for compiling/linking modules  
+  *(Example: `target: dependencies` pattern)*
