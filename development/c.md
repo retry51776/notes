@@ -1,9 +1,9 @@
-# C Language Essentials
+# C
 
 ## File Types
 
-- **`.c`**: Source code files  
-- **`.h`**: Header files (interface definitions)  
+- **`.c`**: Source code files
+- **`.h`**: Header files (interface definitions)
 
 ## Shared Modules
 
@@ -14,36 +14,11 @@
 | Linux   | `.so`          | `/usr/local/lib`       |
 | Windows | `.dll`         | (OS-dependent)         |
 
-### Environment Setup
+> Temporarily add current directory to library path (Linux)
 
-```bash
-# Temporarily add current directory to library path (Linux)
 export LD_LIBRARY_PATH="${pwd}"
-```
-
-## Compilation
-
-### Key Commands
-
-```bash
-# Create shared library from math.c (Linux)
-gcc -shared -fPIC math.c -o libmath.so
-
-# Link static libraries
-gcc main.o math.o -o main
-
-# Link shared library dynamically
-gcc main.c -L. -lmath -o main  # Searches current dir for libmath.so
 
 # Debugging Tools
-readelf -h main.o    # Display ELF header info  
-readelf -S main      # List sections of executable  
-readelf -d xxx_script | grep NEEDED  # Show dependencies
-```
-
-## Memory Layout (ELF Format)
-
-### Key Sections
 
 - `.text`: Executable code  
 - `.data`: Initialized global variables  

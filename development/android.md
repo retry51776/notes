@@ -6,6 +6,8 @@
 - **Magisk**: Module for granting root access without modifying system partitions.
 - **ADB (Android Debug Bridge)**: Command-line tool for developer debugging and device interaction.
 
+## CMDs
+
 ```bash
 # Connect to wireless ADB
 adb connect 192.168.1.233:5555
