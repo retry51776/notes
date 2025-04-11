@@ -33,6 +33,13 @@
       - FP16 (Floating Point)
       - FP4 (Ollama default)
   - LLM parameter count
+- Open-Source vs. Optimized Model
+
+## Provider
+
+- <www.runpod.io>
+- together.ai
+- classic cloud providers
 
 ## General
 
@@ -56,14 +63,25 @@
     - Human Feedback Reinforcement Learning
     - Synthetic AI Data
   - Inference Compute `aka thinking models`
+    - Prefill phase `Process input tokens`
+    - autoregressive decoding phase `Generate output one token at a time`
 
 - Inference Engines
-  - llama.cpp `most popular 24`
-  - build in engine by Machine Learning Frameworks `slower`
-  - JAX (Google)
-  - ONNX (open-source)
-  - TensorRT (NVIDIA)
-  - vLLM
+  - Research
+    - pip packages
+      - transformers `by hugging face, needs CUDA & Python`
+        - PyTorch
+        - Tensorflow
+        - flash-attn
+    - llama.cpp `most popular, no Python or CUDA dependency`
+  - Production
+    - JAX (Google)
+    - ONNX (open-source)
+    - TensorRT (NVIDIA)
+    - vLLM
+    - SGLang `faster continues batching`
+
+- Speculative Decoding `speed up inference tps`
 
 > usage statistics by Claude.ai Clio Project: <https://www.anthropic.com/research/clio>
 > > Conversation -> Privatized Summary & Tags -> Cluster Groups -> Hierarchical Tree
@@ -197,6 +215,18 @@ features:
   - (Ex: llama3-groq-tool-use, because llama3.1 doesn't support it)
   - Also llama3.1:8b sucks on `tool_calls`, but 70b works fine
 - presence_penalty & frequency_penalty `I prefer turn this on`
+
+## Agent
+
+- AutoGen `Microsoft`
+- ADK `Google`
+
+## Protocol
+
+- MCP `Model Context Protocol, aka Tool json in remote server, no prompt specification`
+- A2A `Agent 2 Agent` <https://google.github.io/A2A/#/documentation> `async, similar to assign task to worker, can get task status or callback`
+  - `input-required` aka interrupt status, agent needs input
+  - `tasks/sendSubscribe` uses http streaming for ongoing task
 
 ## Cool AIs
 
@@ -363,7 +393,7 @@ Problems:
 > Products
 
 - Arize-ai/ phoenix
-- lm-eval
+- lm-evaluation-harness
 Prompts:
 
 - How many words are in your response to this prompt?

@@ -76,6 +76,17 @@
 >> Also there are indicator in human too. 3 year old we have most neurons, can learn anything. Yet as we get older, we process fast, yet not able to learn/adapt. We have less neurons, bigger neurons.
 >> We should research how brain neuron replace  surrounding neurons, that give us clubs to have same size LLM but smarter/faster(in  expense of flexibility because we break matrix size).
 
+> Right now LLM still small that most new models are train from scratch. But at some point model will be so big that training from scratch is too expensive. At that point(EX: deepseek v3 -> R1), we will see similar to evolution methods to improve models.
+
+> RNN = (hidden_state * reflection + read_component + output_component)
+>> (transformer - softmax) = (RNN - reflection) = Linear Attention
+>
+>> key `which part of memory(hidden_state) to write`
+>> value `what to store in memory(hidden_state)`
+>> query `what to read from memory`
+
+> Brain neurons doesn't do multiplication, seems like brain proves only addition should enough. My intuition seems like softmax layers & multiplication layers counter each other.
+
 ## Weak Opinions
 >
 > Another cue is human train to response faster, rational thinking is slower. Seem like AI just have "instinct" right now.
@@ -98,7 +109,7 @@
 - Prompt Order
   - 1) Context
     - LLM prefer Json, Array to let LLM understand relationship
-    - Use text section splitter
+    - Use text section splittGFer
     - json.dumps(xxx, indent=4) for better readability
   - 2) Instruction
     - Do NOT provider script, or steps to solve
@@ -106,6 +117,11 @@
     - expected value for each key
     - Always return a json dictionary, define key, value is type.
 
+- LLM future improvement
+  - habit simulation
+    - Learned Gating Mechanisms
+    -
+  
 ### Analogy
 
 - Weights = binary of programs.
@@ -131,6 +147,18 @@
  • If speed & efficiency → Text wins.
  • If long-form engagement → Audio is easier to consume.
  • If complex ideas → Diagrams & multimedia work best.
+
+> Assume answer = step_n(step_2(step_1(prompt))); Often time LLM output the wrong answer because answer_1 = step_1(prompt) is decoded too late.  Ex: NN has 100 layers, answer_1 if decoded before layer_10, then final_answer is correct, but if answer_1 was decoded after layer_20, then most likely final_answer will be wrong.
+>> <https://arxiv.org/abs/2406.12775>
+
+> We really need to look deep into Query, Key, Value system in transformer. And look into how human brain works in similar way according book Atomic Habit(Cue"Query" -> craving"Past Key?" -> reward"Future Key?" -> action"Value")
+
+> Human Brain seems stores selected experiences(filtered input), but most thoughts at the process/event(output of LLM) aren't store. Brain seems like stores feelings(internal hidden state).
+
+> Soon we will need SEO but for LLM. The content needs to be format that easier to convince LLM.
+
+> LLM external knowledge vs internal knowledge is important topic. Also conclusion will be very useful on people too.
+>> There are research shows LLM seems beveled more on LLM's text than human text.
 
 ## Physical Intelligent
 
@@ -174,6 +202,7 @@
 - "Human-level performance in multi-task reinforcement learning" by Volodymyr Mnih, et al. (2015)
 
 - "Attention Is All You Need" by Vaswani, et al. (2017):
+  > This paper did NOT invent attention, rather it said only attention mechanism is what matters.
   > Position encoding is similar how external ear changes noise a little for brain detect position.
   > Position encoding solve the Transpose bias  problem in attention head, where x*y = y*x;
   > GPT4 has 220 billions parameters; 16 way mixture model; 8 set of weights;
@@ -196,6 +225,8 @@
   - Hard Label(Human label) doesn't capture reality, Soft Label(LLM statical probability) capture more detail/relationship of reality.
   - Label Smoothing have another model learn from Soft Label instead Hard Label.
   - 64 experts
+
+- On the Biology of a Large Language Model <https://transformer-circuits.pub/2025/attribution-graphs/biology.html> `LLM works by givens context to each world, in here context includes relevant info & logic`
 
 ### Tech Improve
 
@@ -236,6 +267,8 @@
 - SynFlow prune network connection by assign score to each connection. score = dervitity_lose / dervitity_weight * weight; Because we want to prune connection auto balance between layers(I am not 100% agrees here.)
 
 - Quantized is normalized weight & activation input & output. But outlier weight is problem. maybe need split out outlier process.
+
+- generative agents interactive simulacra of human behavior `Agent with remember, plan, react, and reflect interact with other agents with some environment`
 
 ## OpenAI Opinion
 

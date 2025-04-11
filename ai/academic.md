@@ -1,12 +1,28 @@
 # Academic
 
 - General
+- Architecture
 - Biology
 - Mechanistic Interpretability
 - Paper
 - Training
 
 ## General
+
+> Model just 2 components: Architecture(design) & Parameter(learned)
+
+### History
+
+Stage:
+
+- pre 2018: Encoder + Decoder Components `There are different components of model, different task needs different components`
+- 2020-2022: LLM that needs fine tune `LLM is not reliable, fine tune required`
+- 2023: General Model handle different tasks
+- 2025: Async Model `Model can continuously take input, change action base off new input(observation) while its outputting; Not like current LLM is turn base.`
+  - Parallel Output `paralyzed LLM output, maybe generate outline first, then generate each subsection by batch`
+  - Decouple Input & Output
+  - Output interruption & Input interruption
+- ??: dynamic model
 
 ### Modeling Steps
 
@@ -22,6 +38,7 @@
     - Relates to #1, from which perspective?
     - Physic law can embed within lost function to ensure Model learn physic law.
 5. Optimization
+    - Adaptive Moment Estimation (ADAM)
     - This solution may be another AI itself?
 
 ### Neural Network Terms
@@ -54,6 +71,44 @@
 
 - Position Interpolation `extend context window without`
 
+## Architecture
+
+- Residual Connection `It works by smoothing lost gradient, nn that too deep will have complex lost geometry, which optimizer easier to stuck in local minimum, not global minimum`
+
+📦 KV Cache Structure
+
+For a model with:
+
+- L  layers (transformer blocks)
+- H  heads per layer
+- S  sequence length (number of tokens)
+- d_head  = head dimension
+
+ Total size ∝ L × H × S × d_head × 2  # (×2 because K and V)
+
+residual stream/latent space `The intermediate output between NN layers`
+
+```
+model.model.layers ModuleList(
+  (0-63): 64 x Qwen2DecoderLayer(
+    (self_attn): Qwen2Attention(
+      (q_proj): Linear(in_features=5120, out_features=5120, bias=True)
+      (k_proj): Linear(in_features=5120, out_features=1024, bias=True)
+      (v_proj): Linear(in_features=5120, out_features=1024, bias=True)
+      (o_proj): Linear(in_features=5120, out_features=5120, bias=False)
+    )
+    (mlp): Qwen2MLP(
+      (gate_proj): Linear(in_features=5120, out_features=27648, bias=False)
+      (up_proj): Linear(in_features=5120, out_features=27648, bias=False)
+      (down_proj): Linear(in_features=27648, out_features=5120, bias=False)
+      (act_fn): SiLU()
+    )
+    (input_layernorm): Qwen2RMSNorm((5120,), eps=1e-05)
+    (post_attention_layernorm): Qwen2RMSNorm((5120,), eps=1e-05)
+  )
+)
+```
+
 ## Biology
 >
 > Human have 100 trillion connections, to process related small experiences. LLM currently have 10 trillion connection to process all human writings.
@@ -61,6 +116,8 @@
 > Brain uses Sparse Repr, it save energy, resilient to noise
 
 > One major differences is NN can do backward propagation. But neuron synapse only fire single direction.
+
+> Human don't receive error, we get feedback from interaction. But error can back propagation, but how to back propagation feedback? Maybe that's why positive discipline works, maybe success is easier back propagation than failure. (I don't think it's success or failure matter, rather emotional level) <https://arxiv.org/abs/2406.08747>
 
 <hr>
 
@@ -74,6 +131,16 @@
 > Netron: Interactive model graph exploration.
 <https://www.neuron.app/>
 
+Techs:
+
+- Patchscopes `Swap activations from a clean run into a corrupted run to test causality.`
+- vocabulary projection
+- Feature Attribution Methods (Gradient-based)
+
+Tools:
+
+- TransformerLens
+
 ### Linear representation
 >
 > Currently(2024) common agreement is AI uses linear representation to store concepts. (evident by man - women = king - queen)
@@ -81,7 +148,7 @@
 - feature/latent `single neuron only fires when a concept exists: Ex: DJT, NY`
   - feature visualization `also call Activation Maximization: Determent a feature neuron, then generate a input to maximize the feature neuron's output. Look that input represent. https://openai.com/index/microscope/`
   - high low frequency detector `many AIs uses this to find how sharp, smooth to find boundary`
-- circuit
+- circuit `prune/SAE`
 
 > Feature Frequencies matters a LOT for SAE(Sparse Auto Encoder), infrequence features SAE may not learn.
 
@@ -147,3 +214,7 @@ sparse optimization algorithm
 - Hard Thresholding
 
 > Sparse Auto Encoders(SAE) can find a lot (maybe most) of features, but for sure some LLM understand features are not found in SAE.
+
+## Math
+
+- ε (epsilon) `a tiny constant (typically 1e-5 or 1e-6)`

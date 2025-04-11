@@ -61,7 +61,7 @@
 >>
 >> - OpenGL Shading Language (GLSL) `C-style language; open platform; easier`
 >> - DirectX `C++; start as direct3D; only in windows;`
->> - Metal `C++; apple's directX; only in mac system`
+>> - Metal (MSL) `C++; apple's directX; only in mac system`
 >>
 >>> Geometric Primitive: smallest build unit [point, line, triangle, Cube, Cone, Cylinder ...]
 
