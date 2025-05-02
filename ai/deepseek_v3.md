@@ -1,5 +1,9 @@
 # DeepseekV3ForCausalLM
 
+<https://huggingface.co/deepseek-ai/DeepSeek-V3-0324/blob/main/modeling_deepseek.py>
+
+> This architecture implementation in python published by Deepseek. It can either come from the open source community or from the Model Publisher.
+
 Original LLM head (for generation)
 
 `lm_head = nn.Linear(hidden_size, vocab_size)`
@@ -47,3 +51,7 @@ Each expert assigns to a GPU by `ep_rank` aka GPU group;
 Each expert are MLP with 2048
 
 # DeepseekV3Attention
+
+- past_key_value `kv_cache`
+
+# DeepseekV3FlashAttention2

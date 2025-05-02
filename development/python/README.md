@@ -14,16 +14,15 @@
 | Venv          | ✅ Yes          | ❌ No           | `source <environment_name>/bin/activate` | Python Path |
 | Poetry        | ❌ No           | ✅ Yes          | `poetry shell`                      | |
 | Pip           | ❌ No           | ✅ Yes          | N/A (Pip doesn't manage environments) | |
-
-
+| uv            | ❌ No           | ✅ Yes          | N/A (Package Manger written in Rust) | |
 
 ## Python Scope
 
-> Package has 2 types: 
+> Package has 2 types:
 > need either `setup.py` or `pyproject.toml`
-> 
+>
 > > Executable package: has __main__.py in root as entrypoint, `python -m folder_name`
-> 
+>
 > > Library package: (often with __init__.py in root)
 
 - Package Manager
@@ -33,7 +32,6 @@
         - Built-in
         - Custom `imports xxx` & `def xxx()` & `class XX`
           - Enclosing Scope `lambda x: y`
-
 
 ## Change Logs
 
@@ -61,7 +59,7 @@
   - `f'His name is {name=}'`
   - Typing Enhancements
 
-**Frustration**
+__Frustration__
 
 - ~~destructure like es6 `const {a, b, ...others} = obj;`~~
     > new python 3.10 supports this <https://docs.python.org/release/3.10.0/whatsnew/3.10.html>
@@ -79,7 +77,7 @@
 - `__init__` doesn't support different params
 - `setattr()` won't have IDE auto suggestion
 
-**Working on library**
+__Working on library__
 
 ```py
 Install local package steps:

@@ -90,3 +90,7 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
 npm install @openapitools/openapi-generator-cli
 npx @openapitools/openapi-generator-cli generate -g typescript-axios -i http://xxx:/v1/schema/ -o /ajax
 ```
+
+## packages
+
+- commander.js `similar to pip typer`

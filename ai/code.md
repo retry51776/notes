@@ -467,3 +467,10 @@ class Qwen2Config:
 config = Qwen2Config()
 model = Qwen2Model(config)
 ```
+
+## MCP
+
+```bash
+uv run mcp install weather.py
+
+```

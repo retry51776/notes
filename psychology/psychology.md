@@ -17,7 +17,7 @@
 
 > Attention is a multiplier of sensation
 
-> [Personal Value](README.md#personal-value) is a important variable in Attention.
+> [Personal Value](README.md#personal-value) is an important variable in Attention.
 
 Selective Attention
 
@@ -43,7 +43,7 @@ Way to change attention?
 ## Touch
 >
 > Touch is VERY important sensation. `proven by Harry Harlow’s Wire Monkey Mother Experiment`
-> > First sensation to commutate between others, develop trust?
+> > First sensation to communicate between others, develop trust?
 >
 > > Sex is just extreme form of touch
 
@@ -63,7 +63,7 @@ Touch sensations:
 
 > Threshold: > 60ms we can see; < 40ms we can't see; 30ms is 100% can't see.
 
-- Primary Visiual Area(V1)
+- Primary Visual Area(V1)
   - Parvocellular layers (4 P Layers) `color, detail, still, slow`
   - Magnocellular layers (2 M Layers) `detect motions`
 - Dorsal stream `process spatial info`
@@ -72,7 +72,7 @@ Touch sensations:
   - shape(LOC)
   - color(CC),
   - face(Fusiform Face Area)
-  - places(Parahippocampal Place Area) `shape of envirenment`
+  - places(Parahippocampal Place Area) `shape of environment`
   - body(Extrastriate Body Area)
 - Hippocampus
   - Place Cell(Here cell) `fire rapidly, regardless direction, 3D place field`
@@ -92,7 +92,7 @@ Touch sensations:
 > It's useful, but not required perception.
 
 **Smell**
-> Directly to brain, only sense that by pass Thalamus.
+> Directly to brain, only sense that bypass Thalamus.
 
 **Taste**
 > Processed by the gustatory system.
@@ -117,7 +117,7 @@ Touch sensations:
 ## Psychology Perception
 >
 > Ability to read (Self & Other) body language through [body expression](#mammal-brain).
-> > Women usually out perform men on reading body language.
+> > Women usually outperform men on reading body language.
 
 ## Biology Perception
 >
@@ -145,7 +145,7 @@ Touch sensations:
 >
 > [**Past Experience**](README.md#experience) project your [**Action**](README.md#action)
 
-> Sleep resets [Association Areas](#brain); `why we dream; Neuron trys to fire all its synapse; That's why a get new ideas after sleep;`
+> Sleep resets [Association Areas](#brain); `why we dream; Neuron trys to fire all its synapse; That's why I get new ideas after sleep;`
 > > Older people sleep less. That is reason as we get older, we harder to change the way we think.
 
 > Association Learning links certain events, behaviors, or stimuli together in the process of conditioning

@@ -26,6 +26,8 @@
 - RAM
   - Dynamic RAM (DRAM) `capacitors`
     - HBM
+      - PCIe 5 `128 GB/s`
+      - SXM `600 GB/s`
     - DDR1-5
     - LPDDR
     - GDDR

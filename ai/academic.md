@@ -22,6 +22,7 @@ Stage:
   - Parallel Output `paralyzed LLM output, maybe generate outline first, then generate each subsection by batch`
   - Decouple Input & Output
   - Output interruption & Input interruption
+  - Improve LLM from understand to apply tools `aka from understand to doing`
 - ??: dynamic model
 
 ### Modeling Steps
@@ -124,6 +125,11 @@ model.model.layers ModuleList(
 ## Mechanistic Interpretability
 >
 > AI mechanistic interpretability is a field that will give a lot insight of how human brain works.
+
+> higher-level concepts or computations reside in the middle of graphs
+>> detokenization → abstract features → retokenization
+
+<https://transformer-circuits.pub/2025/attribution-graphs/biology.html>
 
 - Physics Informed Machine Learning
 - Stable diffusion: add noise to image, let AI recover image;

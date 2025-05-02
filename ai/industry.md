@@ -47,6 +47,8 @@
 
 <https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard>
 
+<https://aider.chat/docs/leaderboards/>
+
 <https://huggingface.co/spaces/hf-accelerate/model-memory-usage>
 > Add 3GB extra memory on top estimator result. `3rd party models need RAM too`
 
@@ -134,6 +136,39 @@ LLM Response Evaluation
   - Pi Zero `Opensource physical engine`
 - Boston Dynamics `google robot`
 - Unitree `chinese robot`
+  - G1 `$24k basic, EDU $60k`
+    - Hardware
+      - LiDAR
+        - KISS-ICP
+      - CPUs
+        - 192.168.123.161 `low level control; runs c++ in 2ms loop;`
+        - 192.168.123.164 `high level Jetson control; python give high level demand`
+    - FSM
+      - command
+      - fsm_id
+        - 0 `zero torque`
+        - 1 `damp`
+        - 2 `squat`
+        - 3 `sit`
+        - 4 `stand-up`
+        - 200 `start: in command operation`
+        - 702 `lie to stand`
+        - 706 `squat-to-stand-up`
+      - mode
+        - 0 `static`
+        - 1 `dynamic/gait`
+        - 2 `feet un-loaded / airborn`
+      - state <https://github.com/unitreerobotics/unitree_rl_gym/blob/757b05158058a2a8005810c2bb2e1e8667cf3f17/legged_gym/envs/g1/g1_env.py#L8>
+        - damp `quiet gravity compensation`
+        - stand_up `extend legs & arms; FSM Mode from 1 to 4`
+        - balance_stand `continues self balances`
+        - continuous_gait `free up previous demand & set to balance_stand`
+          - `mode = 1` can move
+        - start `FSM 200;`
+          - custom commands
+          - balance_stand
+        - stop
+        - continuous_gait
 - Cosmos `Nvidia Physical Model`
 
 ### Vision
@@ -220,10 +255,38 @@ features:
 
 - AutoGen `Microsoft`
 - ADK `Google`
+- Coding Agent
+  - CLI Agent
+    - claude cli
+    - codex
+      - agent logic <https://github.com/openai/codex/blob/7ac633b69ca92ed8a3860fdc7fed0b74342dde31/codex-cli/src/utils/agent/agent-loop.ts#L381>
+      - prompt <https://github.com/openai/codex/blob/3eba86a55353f6b6f0efee19704b8d11e683b4ad/codex-cli/src/utils/agent/agent-loop.ts#L1140>
+      - ~/.codex/config.yaml
+      - ~/.codex/instructions.md
+      - patch format `to edit files through bash`
+  - GUI Agent
+    - continue.dev
+    - cursor
+    - windsurf
 
 ## Protocol
 
-- MCP `Model Context Protocol, aka Tool json in remote server, no prompt specification`
+- MCP `Model Context Protocol, aka inject System Prompt instruction & tool_desc & resp format; Cons: uses too much tokens, needs smart LLM.`
+  - MCP Client `LLM Invoker`
+    - LLM API
+      - `add role:system instruction; <tool_name><parameter1_name>xx</parameter1_name></parameter1_value>`
+    - config.json
+      - type `stdio(bash) or sse(http)`
+      - cmd or URL `how to start/reach MCP Server`
+    - MCP Inspector `npx @modelcontextprotocol/inspector node build/index.js`
+      - MCP Inspector UI 6274
+      - MCP Proxy 6277
+  - FastMCP Server `connection management, protocol compliance, and message routing`
+    - Tool `aka endpoint`
+      - args
+      - desc≈
+    - default local MCP proxy <http://127.0.0.1:6277/health>
+
 - A2A `Agent 2 Agent` <https://google.github.io/A2A/#/documentation> `async, similar to assign task to worker, can get task status or callback`
   - `input-required` aka interrupt status, agent needs input
   - `tasks/sendSubscribe` uses http streaming for ongoing task

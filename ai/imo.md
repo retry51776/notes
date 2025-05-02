@@ -97,31 +97,6 @@
 
 > We need to increase embedding token size, width of network, not the deep of network.
 
-**LLM Tips**
-
-- For extraction task, tell LLM assigned default value when no info, and do not make any assumptions.
-- AI sucks at Abbreviation, expand all abbreviation before understanding task.
-- LLM is very TALKY, it will do instruction, but it also need a lot monolog between it's output.
-  - `Format each xxx in a new line as ("xxx"{tuple_delimiter}<p1>{tuple_delimiter}<p2>{tuple_delimiter}<p3>{tuple_delimiter}<record_delimiter>)`
-  - `Add {start_delimiter} & {end_delimiter}`
-- Let LLM response in markdown section, Problem with json response is that it constrain verbosity of LLM response. Both input & output should be markdown, because LLM usually prefer markdown than json in my experience.
-
-- Prompt Order
-  - 1) Context
-    - LLM prefer Json, Array to let LLM understand relationship
-    - Use text section splittGFer
-    - json.dumps(xxx, indent=4) for better readability
-  - 2) Instruction
-    - Do NOT provider script, or steps to solve
-    - Please respond **strictly** in the following JSON format, without additional keys or text:
-    - expected value for each key
-    - Always return a json dictionary, define key, value is type.
-
-- LLM future improvement
-  - habit simulation
-    - Learned Gating Mechanisms
-    -
-  
 ### Analogy
 
 - Weights = binary of programs.
@@ -142,6 +117,8 @@
 
 - distilled LLM is similar how pet display intelligent response yet not fully understand the reasoning
 
+- It's very interesting that LLM & Human has internal mechanism to be lazy(stop work early). That needs multiple agent/llm, or some kind prompt injection to force (human & llm) to finish the task. All llm api should have parameter to control llm stop work's probability.
+
 > We need a multi model AI that can generate text/speech/diagram for documentation.
 >> Or is text a fundamental unit to derivate speech & diagram?
  • If speed & efficiency → Text wins.
@@ -159,6 +136,8 @@
 
 > LLM external knowledge vs internal knowledge is important topic. Also conclusion will be very useful on people too.
 >> There are research shows LLM seems beveled more on LLM's text than human text.
+
+> Maybe transformer just predict the next token has leakage. During batching training, llm will have foresee result before it suppose to. Ex: 2 + 3 = 5; 4 + 7 = 11; in 7th batch(2 + 3 = 5; 4) as input, llm learned 2 + 3 = 5; Maybe info leakage here?
 
 ## Physical Intelligent
 
