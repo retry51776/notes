@@ -299,34 +299,29 @@ def basic_round(x, d=0, as_decimal=False):
     round_digit = Decimal(10) ** -d
     rounded = Decimal(str(x)).quantize(round_digit, rounding=ROUND_HALF_UP)
     return rounded if as_decimal else float(rounded)
+from collections.abc import Mapping, Sequence
+from typing import Any, Iterable, Union
 
-def get_in(obj, keys=None, default=None):
+def get_in(
+    obj: Any,
+    keys: Iterable[Union[int, str]] = (),
+    default: Any = None,
+) -> Any:
+    """
+    Safely navigate nested dicts/lists.
+    """
     try:
-        if obj is None or keys is None:
-            return default
-        first_key = keys[0]
-
-        if isinstance(first_key, int) and isinstance(obj, list):
-            if len(obj) <= first_key:
+        for key in keys:
+            if isinstance(obj, Mapping):
+                obj = obj.get(key, default)
+            elif isinstance(obj, Sequence) and not isinstance(obj, (str, bytes)) and isinstance(key, int):
+                obj = obj[key] if 0 <= key < len(obj) else default
+            else:
                 return default
-            elif len(keys) == 1:
-                return obj[first_key]
-            else:
-                return get_in(obj[first_key], keys[1:], default)
-
-        # Try convert key to str to find in object
-        if first_key not in obj:
-            first_key = str(first_key)
-        has_first_key = first_key in obj
-
-        if has_first_key:
-            if len(keys) == 1:
-                return obj[first_key] if obj[first_key] is not None else default
-            else:
-                return get_in(obj[first_key], keys[1:], default)
-        else:
-            return default
-    except Exception:
+            if obj is None:
+                return default
+        return obj
+    except (KeyError, IndexError, TypeError):
         return default
 ```
 

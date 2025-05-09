@@ -12,14 +12,42 @@
   - [Principal](#principal)
   - [Framework](#frameworks)
 
-## Memory & Emotion
->
-> [**Memory & Emotion**](nervous.md#mammal-brain) includes Working Memory & Long Term Memory & Emotion.
+## Memory
 
-> Living is a collection of habits (process modes) derived from a collection of memory patches, each memory patch with its own emotion weight.
->> Memory can be short, yet have huge emotion weight. Or long memory with small weight.
+- Sensory Memory
+- Short Term Memory
+- Long Term Memory `from hippocampus to neocortex`
+  - Declarative Memory
+    - Read
+      - emotion enhancer `cue sequences triggers emotion, need loading time`
+      - without emotion enhance less recall memory
+    - Write
+      - emotion enhancer `by amygdala, increase LTP`
+  - Procedural memory
+    - `by striatum`
+
+[**Emotions**](nervous.md#mammal-brain) are optional ENHANCES MECHANISM(both write & read effect) to bind fragments of declarative memories together, creating a coherent narrative. `Trigger for Memory Chains`
+
+> Read: Memory cue trigger whole memory section. Emotions at the time of retrieval influence which memories are accessed, creating a "glue" between current affective states and past experiences.
+
+> Write: Surprise/Strong emotion proven to strong write memory effects in psychology. Emotion can even reinforce memories BEFORE emotion triggered(backfill past memory).
+
+>> When recall memory, initially emotion enhance effect & time has exponential relationship(load past memory, then somehow amygdala release some enhance effect ).
+
+> Animals needs fast responses(≈ query + business_logic) base off memory(large data), since business_logic ≈ past_experiences + biological_experiences, responses_action ≈ query_memory.
+
+All mammals have 6 Primary Emotions:
+
+- Sad
+- Disgust
+- Happy
+- Surprise
+- Anger
+- Fear
+
+> Life is collection of habits (process modes) derived from a collection of declarative & procedure memory.
 >
->> We don't have timeline memory, just more memory patches in recent time, and less memory patches in older time.
+>> We don't have timeline memory, just more dense memory patches in recent time, and sparse memory patches in older time.
 >
 >> The older we get, time fly faster. Time did NOT move faster, but we form LESS memory patches! which makes us have less changes/learning because learning is compression from memory patches.
 

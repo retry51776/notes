@@ -13,6 +13,8 @@
 
 > Talk is cheap, show me your code.
 
+> Make it work, make it right, make it fast.
+
 > Computation is moving data, just with a inseverable move.
 
 ## Prediction
@@ -155,14 +157,20 @@ here are common trade offs
 - ABAC
   > attribute based access control
 
-## ASCII vs UTF8 vs UTF16
+## Encoding
 >
 > encoder is like html
->
-> common encoder formats:
->> ASCII is old 7 bit character mapping
->> UTF8 is most common 8 bit mapping
->> UTF16 is larger room 16 bit mapping
+
+common encoder formats:
+
+- ASCII `old 7 bit character mapping; invented in US`
+- Unicode `universal character encoding standard, each region has its prefix`
+  - UTF8 `most common 8 bit mapping`
+  - UTF16 `larger room 16 bit mapping`
+
+- MessagePack `backward support UTF`
+- Avro `Apache custom schema, each communication sends schemas`
+- Protobuf `breaking unicode, Google custom schema, only send schema once`
 
 > font is like css
 

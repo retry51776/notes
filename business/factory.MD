@@ -1,8 +1,9 @@
 # Factory
+>
 > Stuff I learn in manufactory.
 
-
 ## Buzzwords
+
 - Bill of materials (BOM)
 - Bill of Lading (BOL) `for carrier`
 - Bill of Lading (BOL)
@@ -12,11 +13,14 @@
 - Return Material Authorization (RMA)
 - Supply Chain Management (SCM)
 - Accountability Mechanism
+- Delivered Duty Paid(DDP) `Factory price to lower traffic`
 
 Street words
+
 - Golden Sample `Sample is better than actual delivery`
 
 ## ERP Modules
+
 - HR
 - Shop Floor `Clock in Time, schedule`
 - General Ledger (GL)

@@ -9,6 +9,11 @@
   - `Add {start_delimiter} & {end_delimiter}`
 - Let LLM response in markdown section, Problem with json response is that it constrain verbosity of LLM response. Both input & output should be markdown, because LLM usually prefer markdown than json in my experience.
 
+- special instructions embedded in prompts
+  - adds `/no_think` before prompt to disable thinking mode (In qwen3)
+  - `/fast` or `/quick`
+  - `/no_history`
+
 - Prompt Order
   - 0) Avoid & Deny List
   - 1) Context

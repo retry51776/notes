@@ -14,6 +14,9 @@
 >
 > I don't beveled human brain is the only way to achieve intelligent. Many ppl still consider llm just auto complete, just evident by llm failed simple human task. But that assumes intelligent must follow human path.
 
+> Verifiable is most important, both AI training, & life in general. Ex: development coding style, KPI
+>> The fact that LLM still programming in higher languages only because human verification.
+
 > IMO: most important in AI is right question `aka desire` & measurement of progress `aka value`.
 
 > My opinion of neural network is a lossy compression model.
@@ -96,6 +99,8 @@
 > True Negative is SO HARD for LLM. True Positive is very easy.
 
 > We need to increase embedding token size, width of network, not the deep of network.
+
+> Attention has fundamental bottleneck(maybe no work around): when one token relationship has high attention score, other relationships ALWAYS reduces attentions. (Maybe build many to many relationship matrix to support complex relationship attention?)
 
 ### Analogy
 

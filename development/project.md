@@ -1,5 +1,31 @@
 # Project Misc stuff
 
+## Dependency
+
+> Prefer projects from Open sources foundations, should be mature, less breaking changes
+
+- Linux Foundation
+- Apache Software Foundation
+- Open Source Initiative
+- Eclipse Foundation `mostly java`
+
+> Prefer projects under Corporations for long life time, but more breaking changes
+
+- vscode from MS
+- mongodb
+- react
+
+> Check maintainer
+
+- Check most controversial github issue
+  - how maintainer response to issues
+  - what are issues itself
+- Check maintainers counts
+- Commit frequency & project length
+- Check stars
+
+## Architecture
+
 - User Acceptant Test (UAT)
 
 Why process PDF is pain in ass.

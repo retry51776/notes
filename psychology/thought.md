@@ -1,25 +1,24 @@
-
+# Thought
 
 ## IMO
 
-> Sleep is required in all animals. It takes up 30% our life time, yet we don't know how/what it's doing. Understand sleep will have huge impact AI.
-> > I assumed dreams are byproduct of brain learning. Maybe hippocampus clone its memory to cortext's side effect. Is there a way to increase dreams? I'd like to fully understand sleep.
+> Emotion bind fragments of memories(sensory, spatial, and temporal) together, creating a coherent narrative.
 
-> Funny how AI turn out start from top instead bottom of stacks; IMO transformer model already support conscious & intelligence. It's unconscious that current AI haven't resolve. Ex vision that processed in unconscious level. 
+> Memories usually are facts & events, optional with event_origin, event_artefact, and sensory_memory. But facial memory are easily lost, also timestamp. Seems like memory distrusted from hippocampus to neocortex will lost timestamp info.
 
-> Each cortex lob acts as a worker/node of mammal brain. Usually each cortex lob assign same function, sometime different cortex lob can switch its function(Ex: touch, sound, shape, color ...). Each lob neuron dendrites connects to other lobs related attributes. Mammal brain acts as controller, that grather all infos in cortex lobs, made a decision & send signal to rest of body.
+> Sleep is required in all animals. It takes up 30% our life time, yet we don't know how/what sleep doing. Understand sleep will have huge impact AI.
+> > I assumed dreams are byproduct of brain learning(older less dreams). Maybe hippocampus distribute memory to neocortex side effect. Is there a way to increase dreams?
 
-> Consider neuron as people; people forms city, bussiness, and other specilized district similar some neuron specilized reps some knowledge.
-> > Maybe neuron communicate to create local consensus; Gobal working space(government) can decide 1) take majority consesus by sample then select 2) supress majority consensus, let minority voice growth & become new consensus. (do step 1, then require focus to supress, the reason is hard to think)
+> Funny how AI turn out start from top instead bottom of stacks; IMO transformer model already support conscious & intelligence. It's unconscious that current AI haven't resolve. Ex vision that processed in unconscious level.
 
-> or consider congressman(corital column) able to propose legislation(though); Only the legislation passed congress(the rest of neocortex) consensus send to executive branch(mammal brain). emotion as judicial branch?
-> Is executive branch(mammal brain) only do confirm & supress enough to suppose sophisticated thoughts?
+> Each cortex lob acts as a worker/node of mammal brain. Usually each cortex lob assign same function, sometime different cortex lob can switch its function(Ex: touch, sound, shape, color ...). Each lob neuron dendrites connects to other lobs related attributes. Mammal brain acts as controller, that gather all infos in cortex lobs, made a decision & send signal to rest of body.
 
-> humm, dophmine is very similar to credit! Desire & Control. Over similar desire circurt(Argentina) interference with control circurt(Production), or make it out of touch(Progressive). Lack of dophmine(NK, SSRS) will also cause under Production.
+> Consider neuron as people; people forms city, business, and other specialized district similar some neuron specialized reps some knowledge.
+> > Maybe neuron communicate to create local consensus; Global working space(government) can decide 1) take majority consensus by sample then select 2) suppress majority consensus, let minority voice growth & become new consensus. (do step 1, then require focus to suppressed, the reason is hard to think)
 
 > Brain wide info share. The winning coalition. (neurons form a group reps an object)
 
-> How many demension for neuron differentiate information? time, location, fire vs no fire; frequence? fire streng?
+> How many dimension for neuron differentiate information? time, location, fire vs no fire; frequency? fire strength?
 
 - Time: because Hebbian rule; fire together wire together; How far is range, I assumed not that far? Hebbian rule = Group operation?
 
@@ -27,27 +26,28 @@ CNN pool layer lost position info; Have another group op layer point to grid cel
 
 Maybe instead thinking Feature extraction as first step, think stabilization & fill gap with group op first.
 
-Depth preception must be a part of object seperation, but not required.
+Depth perception must be a part of object separation, but not required.
 
-
-baby face hide game indicate object seperation must be learn.
+baby face hide game indicate object separation must be learn.
 Another Evident from MIT course
-https://youtu.be/qVDRUiIduEQ?t=593
+<https://youtu.be/qVDRUiIduEQ?t=593>
 
-Single Fire direction mean infomation only goes one way, lost info must reattach back.
+Single Fire direction mean information only goes one way, lost info must reattach back.
 
-It's more like frontal lob tag extra info ON TOP vision and other sensation, NOT sensation pass info to frontal lob;
+It's more like frontal lob tag extra info ON TOP visions and other sensation, NOT sensation pass info to frontal lob;
 
 > Neuron near by has similar (not same) preference
 
 Problem in transformer must be position encoding.
+
 1. We don't have global attention system(even & global). Our attention effects by position, emotion, and partical.
 2. There must be some kind segmentation & rejoin process in brain, which requires different position encoding.
 3.
 
 why all animals have similar emotion?
 
-# Changes
+## Changes
+>
 > Changes is hard because complexity system need process to filter out/narrow down change.
 
 > In a way, it's NOT changes is hard. But alternative thinking is easy.
@@ -55,7 +55,7 @@ why all animals have similar emotion?
 
 > Change not only requires alternative neuron path(may not even exists yet), but also reroute existing signal to new neuron path.
 
-> Analogy: There is already existing highway(habbit). In order to change, you need to build alternative highway(alternative habbit) which takes time. And reroute existing traffic(block traffic use highway, and force them use new road), and destory the old highway(or let it decave).
+> Analogy: There is already existing highway(habit). In order to change, you need to build alternative highway(alternative habit) which takes time. And reroute existing traffic(block traffic use highway, and force them use new road), and destroy the old highway(or let it decade).
 >
 >> To practice change, we always should slowly, no rush while action/decision (avoid pressure force neuron takes fastest path which it's existing path/behavior).
 >
@@ -65,28 +65,30 @@ why all animals have similar emotion?
 
 > I don't think minimized lost is human goal. Rather generate fastest response or something.
 
-
-# Youtube Analogy
+## Youtube Analogy
+>
 > Youtube server system is brain; Each Youtuber is a neuron; Youtuber(neuron) watch(input) & publish(output) videos;
 
 > Fire together wires together;
 > > Similar content videos(fires together) Youtube (brain) will recommend together(wired together);
 
-> > Why neoron sync fire rate? I bet there is some kind "view count" signal send back to publisher(output neuron) to let it know its signal is popular. Samething as Youtuber make similar video because they knew there is a demand for it.
+> > Why neuron sync fire rate? I bet there is some kind "view count" signal send back to publisher(output neuron) to let it know its signal is popular. Same thing as Youtuber make similar video because they knew there is a demand for it.
 
 > Youtuber(neuron) gets bore when no video(no input); Then youtuber(neuron) looks for other videos(new connections); Which cause youtuber changed its output videos(function);
 
-> I think Youtube(brain) will eliminate youtuber(neuron) by view count(other neuron watchs your output)
+> I think Youtube(brain) will eliminate youtuber(neuron) by view count(other neuron watch your output)
 
-> Many popular videos get "clone"/"republish" in Youtube(brain); Similar how brain distrubute computation neurons in different regions of brain.
+> Many popular videos get "clone"/"republish" in Youtube(brain); Similar how brain distribute computation neurons in different regions of brain.
 
-> Youtuber(neuron) can watch one video at 
+> Youtuber(neuron) can watch one video at
 
 ## Questions
+
 - How viewer pick which videos they watch? How to simulate in AI neuron?
 - How to simulate new connection? I think we need to develop async ai model before connection problem.
 
 ## IMO
+
 - Current AI computation by connection is right direction;
 - Current AI store info by connection strength.
-- In a way, AI is a compression alg; Because it store world model is compessed format with some lost. So multi purpose in neuron/connection will have better performance in compression.
+- In a way, AI is a compression alg; Because it store world model is compress format with some lost. So multi purpose in neuron/connection will have better performance in compression.
