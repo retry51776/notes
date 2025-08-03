@@ -65,6 +65,8 @@
 > Not only in Training there is a lot redundancy computation, also during inference phrase.
 >> Maybe runtime compute will be faster if we store key layer's state, & forward to next compute cycle. Ex: if there are 2 opinion words/route with similar probability, compute both, or if rejected first opinion by user, use next one.
 
+> Deep Learning main difference to classic compute is storage & compute are done in same unit.
+
 **OPENAI**
 
 > OpenAI can be think of "University for AI"; How OpenAI measure/test AI, what course they teach/train AI, how OpenAI get feedback from AI?
@@ -100,7 +102,18 @@
 
 > We need to increase embedding token size, width of network, not the deep of network.
 
-> Attention has fundamental bottleneck(maybe no work around): when one token relationship has high attention score, other relationships ALWAYS reduces attentions. (Maybe build many to many relationship matrix to support complex relationship attention?)
+> Attention has fundamental bottleneck(maybe no work around)
+
+- when one token relationship has high attention score, it ALWAYS reduces other attentions. (Maybe build many to many relationship matrix to support complex relationship attention?)
+- Attention right now is too detail(token to token level) that makes it too slow.
+- Attention KV cache is append only. Need mechanism to reprocess edit/insert/delete output token(maybe only inside </think> tokens)
+  - Option 1: LLM have adjustable cursor(right now always at the end), that can insert token anywhere, `<strike>` acts as delete, `<strike> + insert` act as edit
+    - Cons: very hard to train, training data need to generated.
+    - Pro: same LLM context window can handle larger amount info
+  - Option 2: Keep Append KV cache(won't recompute attention), just increase context window
+  - Option 3: Agent workflow that compress(edit + insert + delete) history into summary
+    - Pro: Existed LLM can achieve, workflow/history can be keep/ interpretable
+    - Con: Extra computation on compress cycle, dropped/compressed history will hard to recover. (Maybe have llm has git history on its thought)
 
 ### Analogy
 
@@ -214,7 +227,17 @@
 
 ### Tech Improve
 
-- KV Cache `Query(latest token) change every token, but Key(past sentences) & Value(of past sentences' meaning) are static`
+- Cache
+  - Agentic Phase
+    - Embedding Cache `For similarity search ONLY, very limited, do NOT saving LLM token cost`
+  - Prefill Phase
+    - Tokenizer Cache `The very first step, very small saving, order does NOT matters`
+    - Prompt Cache `Require prefix match exactly, ONLY for Prefill phase`
+  - Autoregressive Decoding Phase
+    - **KV Cache** `ONLY for token generation. Query(latest token) changes on every token, but Key(past sentences) & Value(of past sentences' meaning) are static`
+      - implicit cache `LLM provider auto cache`
+      - explicit cache `need programmed`
+    - FlashAttention Cche `KV cache + softmax`
 
 - "GPT-3: Language Models are Few-Shot Learners" by Alec Radford, et al. (2021)
 
@@ -289,3 +312,4 @@ Training more likely Beam Search, inference more likely Sequential Revision
 - Scaling of Search and Learning: A Roadmap to Reproduce o1 from Reinforcement Learning Perspective
 
 > <https://docs.neuronpedia.org/> inspect llm neuron meaning.
+FF

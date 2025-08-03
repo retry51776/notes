@@ -403,6 +403,13 @@ An Ollama model package includes:
  4. Runtime Instructions: Optimizations for model execution.
 
 ## Retrival Augmented Generation(RAG)
+>
+> Context Size vs RAG
+
+- summarization can't be done by RAG, only by context size
+- translation task
+
+But training larger context size llm can't just increase LLM parameters, but keep same dataset. Larger context LLM requires longer dataset data.
 
 strategy:
 

@@ -35,6 +35,8 @@ Why process PDF is pain in ass.
 
 ## Windmill
 
+> Windmill worker uses `nsjail`, `nsjail` supports “loader_file” in that job directory handle setup env.
+
 ```bs
 -- Install Windmill CLI
 npm install -g windmill-cli

@@ -8,5 +8,6 @@
     ],
     "python.testing.pytestEnabled": false,
     "python.testing.unittestEnabled": true,
-    "cody.autocomplete.advanced.provider": "experimental-ollama"
+    "cody.autocomplete.advanced.provider": "experimental-ollama",
+    "editor.emptySelectionClipboard": false
 }

@@ -17,6 +17,8 @@
 
 - ptvsd
 
+- yt-dlp `video downloader`
+
 ```py
 python -m ptvsd flask run -wait
 {

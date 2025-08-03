@@ -6,6 +6,20 @@
 >
 > SELinux  deal with containers communication, between containers or to host
 
+## Podman
+>
+> rootless docker replacement, can mount multiple containers into same pod; docker-compose just spin multiple pods, not containers inside same pod.
+
+```ps
+podman run -d --pod my-pod --name mongodb docker.io/library/mongo-express
+
+# generate docker-compose file
+podman generate kube my-pod>my-pod.yaml
+
+# aka docker-compose up
+podman paly kube my-pod.yaml 
+```
+
 ## Frustration
 
 - Docker will complicate about port conflict within containers; But if host machine have process took port, docker will silently continue; without warning!

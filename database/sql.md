@@ -1,45 +1,55 @@
 # SQL
+>
 > atomicity, consistency, isolation, durability (ACID)
 
+- Data Definition Language (DDL)
+- Data Manipulation Language (DML)
+- Data Control Language (DCL)
+- Data Query Language (DQL)
+- Transaction Control Language (TCL)
+
 ## Tips
+
 - IN MSSQL & MySQL before 5.8 will NOT multiple NULL values on unique constrain.
 - in where caluse, avoid using function on table columns
-    - Bad: `where ISNULL(sales.enddate, '2999-12-31') > @enddate` 
-    - Good: `where sales.enddate is NULL or sales.enddate > @enddate`
+  - Bad: `where ISNULL(sales.enddate, '2999-12-31') > @enddate`
+  - Good: `where sales.enddate is NULL or sales.enddate > @enddate`
 - break nested query into temp table SQL
+
 ```sql
 select b, sum(a) into #temp1 where a > 2 group by b;
 select * from c join #temp1 on c.b = temp1.b;
 ```
-- make sure filter value is excatly same type as column
+
+- make sure filter value is exactly same type as column
 - always query from smallest result set(not always smallest table) to largest;
 - Query Planner often can opitmized it, but not guarante
 
 - Avoid Wild card is beginning, cost table scan EX `like %12`
 - Query plan Tips
-    - If cost above 5, SQL will try parellarism
-    - Right click select check memory usage
-    - Don't use table variable
+  - If cost above 5, SQL will try parellarism
+  - Right click select check memory usage
+  - Don't use table variable
 
 - Implicit conversion
 - TempDB spill
 
-
 **Temp table|CTE|Var table**
+
 - Table variable is RAM only, can rewrite, no session, but needs more code
 - Temp table less code, requires drop, but lives within session
 
-
 ## Index
+
 - Cluster index is unique index, row is store by cluster index
 - None cluster index(index storage) is always store cluster index(reduce look up)
 - Cover index is none cluster index including other columns
 
-
 ## Common Operators
+
 - Table scan is slow
 - Index Scan is touch every pages
-- Index Seek is get qualified pages 
+- Index Seek is get qualified pages
 - Key Lookup is get other columns
 
 - Nested Loop is cursor, fastest
@@ -50,21 +60,30 @@ select * from c join #temp1 on c.b = temp1.b;
 - Hash aggregate is blocking op
 
 ## Maintain
+>
 > single user mode vs offline mode
-> 
+>
 > I'd remote into DB server, turn to offline mode
-> 
+>
 > be careful on single user mode, no recommend
 
-
 ## Under the hood
+>
 > Query optimizer builds a good enough query plan
-> 
+>
 > Plan cache story query plans
-> 
+>
 > Cardinality Estimator Is generate table stats
 
 # MSSQL
+
+> Jokes `It saids all in the name, it's MY sql, NOT yours!`
+
+*Bugs*
+
+- index with foreign key will causes all columns in that index be lock when foreign key updates.
+- Transaction will NOT undo DDL(Data Definition Language, aka create/drop tables) commands
+- Trigger will NOT trigger when foreign key changed
 
 ```sql
 sp_who2 active
@@ -95,6 +114,7 @@ SELECT @InsertQmId = @@IDENTITY
 - Polyphase will allow mssql query other dB, ex: mongodb, Oracle, spark
 
 # MySQL
+
 ```sql
 create
     definer = terry@`%` procedure x_proc(IN xxx varchar, OUT tt int)
@@ -125,6 +145,7 @@ select @tt
 ```
 
 # SQLlite
+
 ```sql
 SELECT Column1, group_concat(Column2) FROM Table GROUP BY Column1
 ```

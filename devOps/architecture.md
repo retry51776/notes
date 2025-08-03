@@ -1,10 +1,13 @@
 # Architecture
+>
 > I worked for small company. We don't have everything listed here. I wish we have half of stuffs here.
 
 ## WebService
+
 DNS > loadbalancer > gunicorn instance > gunicorn workers > flask
 
 ## CI / CD / Continue Tracking (CT)
+
 1. Source
    1. linting
    2. unit test
@@ -44,6 +47,7 @@ DNS > loadbalancer > gunicorn instance > gunicorn workers > flask
       4. canary
       5. a/b
       6. shadow (Android app, critical engine & service)
+      7. geo-base rollout
 6. [Monitor/Tracking](./cloud/monitor.md)
    1. Logs (ELK)
    2. Capture runtime error (Sentry.io)
@@ -65,9 +69,10 @@ DNS > loadbalancer > gunicorn instance > gunicorn workers > flask
          2. run tests
    4. publish image/package
 
+# Blackbox Metrics
 
-# Blackbox Metrics:
-## response metric:
+## response metric
+
 1. Mean time to detect (MTTD)
 2. Mean time to acknowledge (MTTA)
 3. Mean time to recovery (MTTR)
@@ -77,6 +82,7 @@ DNS > loadbalancer > gunicorn instance > gunicorn workers > flask
 7. Mean time between failures (MTBF)
 
 ## Performance Metrics
+
 1: REQUEST PER MINUTE (RPM) ...
 2: AVERAGE AND MAX LATENCY. ...
 3: ERRORS PER MINUTE. ...
@@ -87,18 +93,21 @@ DNS > loadbalancer > gunicorn instance > gunicorn workers > flask
 8: UNIQUE API CONSUMERS.
 
 ### Logs DBs
+
 - prometheus `time-series database`
 - elasticsearch `search engine, fast agg, support language`
 - Splunk `Bank of American uses it`
 - MongoDB `agg slow because single thread mapReducer`
 
 # Testing
+
 - Top Down
 - Bottom Up
 - Big Bang
 - Sandwich
 
 # Migration Strategy
+
 - Rehost `Lift & Shift`
 - Refactor `minor app changes`
 - Revise `med app changes`
@@ -106,24 +115,25 @@ DNS > loadbalancer > gunicorn instance > gunicorn workers > flask
 - Replace `Maybe better this way`
 
 # API Versioning Strategy
+
 - url pattern
 - custom header
 - QueryParameterVersioning
 
 # Buzzwords
-- Access Patter
-   - Random
-   - Sequential
-- Product Hygiene `Features that not necessary for core function, but reduce possible problems; Platform management, Input validation;`
 
+- Access Patter
+  - Random
+  - Sequential
+- Product Hygiene `Features that not necessary for core function, but reduce possible problems; Platform management, Input validation;`
 
 - Direct Memory Access(DMA)
 - proximity service `Common bushiness request`
 
-
 ## collaborative editing `Multi user mode, Ex: google doc, etherpad`
+>
 > Pessimistic Control `aka lock`
 
-> Optimistic Concurrency Control `Versioning, & merge `
+> Optimistic Concurrency Control `Versioning, & merge`
 >> Operational Transformation/Event Passing `Each operation is an event, client needs to convert other events into op_delta before merge into client's state`
 >> Differential Sync `aka git`

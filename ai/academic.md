@@ -55,6 +55,7 @@ Stage:
     - Many transformer implementations (like LLaMA, for example) intentionally disable biases
 - Auto Model Compression `pruning as reinforcement learning problem`
 
+- Hill climbing `strong signal, LLM training`
 - Sharded `Split LLM into chucks`
 - Tiling `calculation by smaller block, uses scaler to rescale each row to combine whole`
 - Recomputation `Don't store, recompute to save RAM`
@@ -72,6 +73,8 @@ Stage:
 
 - Position Interpolation `extend context window without`
 
+- gradient descent `Compute batch avg lose, nudge a little by batch avg lose direction. It works because unlike it stuck at local min, stuck requires all dimensions are at local minimum at the same time`
+
 ## Architecture
 
 - Residual Connection `It works by smoothing lost gradient, nn that too deep will have complex lost geometry, which optimizer easier to stuck in local minimum, not global minimum`
@@ -88,6 +91,15 @@ For a model with:
  Total size ∝ L × H × S × d_head × 2  # (×2 because K and V)
 
 residual stream/latent space `The intermediate output between NN layers`
+
+### Transformer
+
+- x `input tokens`
+- len(x) `input length`
+- Q `Q = x * Wq, positional specific`
+- K `K = x * Wk, position agnostic`
+- V `V = x * Wv, position agnostic; each token possible meanings(need filter by contextual score)`
+- $ QK^T $ `d_model * len(x), contextual score`
 
 ```
 model.model.layers ModuleList(
@@ -151,7 +163,7 @@ Tools:
 
 ### Linear representation
 >
-> Currently(2024) common agreement is AI uses linear representation to store concepts. (evident by man - women = king - queen)
+> Currently(2024) common agreement is AI uses linear representation to store concepts. (`vector analogies` man - women = king - queen)
 
 - feature/latent `single neuron only fires when a concept exists: Ex: DJT, NY`
   - feature visualization `also call Activation Maximization: Determent a feature neuron, then generate a input to maximize the feature neuron's output. Look that input represent. https://openai.com/index/microscope/`

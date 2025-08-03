@@ -470,6 +470,8 @@ model = Qwen2Model(config)
 
 ## MCP
 
+<https://context7.com/>
+
 ```bash
 uv run mcp install weather.py
 

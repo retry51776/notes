@@ -299,6 +299,7 @@ def basic_round(x, d=0, as_decimal=False):
     round_digit = Decimal(10) ** -d
     rounded = Decimal(str(x)).quantize(round_digit, rounding=ROUND_HALF_UP)
     return rounded if as_decimal else float(rounded)
+
 from collections.abc import Mapping, Sequence
 from typing import Any, Iterable, Union
 

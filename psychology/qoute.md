@@ -1,15 +1,19 @@
 # Quote
+>
 > Esse Est Percepi `aka To be to Be Perceived by George Berkeley`
 
 > Man Can Do What He Wants, but He Cannot Will What He Wants; `Arthur Schopenhauer`
+>
 ## Life
 
 > Great power comes great responsibility`spider-man`
 
 > Value > Ability > Skill `quote from Rai Dalio`
 
+> War is decided by by whoever has the least loss tolerance.
+
 > Addiction is a progressive narrowing of the things that bring you pleasure. A good life is a progressive expansion of the things to bring you pleasure.
-` from Dr. Andrew Huberman`
+`from Dr. Andrew Huberman`
 
 > Think of your brain is like a car, with both gas paddle(desire motivation) & break paddle(self control). A good driver won't just floor gas paddle all the time, and make sure break paddle works;
 
@@ -33,5 +37,6 @@
 
 > Stanislas Dehaene: The unconscious mind proposes; The conscious mind selects;
 
-## Questions:
+## Questions
+
 1. Why you are alive? What will you willing to die for?

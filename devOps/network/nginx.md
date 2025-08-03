@@ -1,19 +1,24 @@
 # Nginx
+>
 > most common load balancer
 > Default Logs path `/var/log/nginx/access.log or error.log`
 
 #### proxy_pass vs redirect
-redirect means tell client look someplace else
-proxy_pass is server get stuff from elsewhere & client's url doesn't change
+
+`redirect` means tell client look someplace else
+`proxy_pass` is server get stuff from elsewhere & client's url doesn't change
 
 #### Add custom format to ngnix
+
 ```
 log_format custom_log  '$remote_addr - $remote_user [$time_local] "$request" $status "$http_referer" '
                                '"$http_user_agent" "$http_x_forwarded_for"';
 
 access_log /var/log/nginx/xxxx custom_log;
 ```
+
 ## Address can be
+
 - domain name
 - ip
 - port
@@ -22,12 +27,14 @@ access_log /var/log/nginx/xxxx custom_log;
 - variable
 
 ## scope level
+
 - http
 - server
 - location
 - upstream
 
 ## upstream
+
 ```bash
 upstream notes {
     # ip_hash
@@ -48,6 +55,7 @@ http://notes
 ```
 
 ## Common Header Operations
+
 ```bash
 proxy_set_header Host $host;
 proxy_set_header X-Real-IP $remote_addr;

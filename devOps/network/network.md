@@ -11,6 +11,10 @@
 
 ## Buzzwords
 
+- Internet Gateway(IGW)
+- Network Access Control List(Network ACL) `base of IP control`
+- Security Group `AWS Security Group is stateful`
+- SSL termination `helps speed the decryption process and reduces the processing burden on backend servers.`
 - networkID,
 - hostID,
 - subnet `break up large network`
@@ -115,10 +119,3 @@ curl ifconfig.co //get public_ip
 > Active Directory(AD) `similar to flask`
 >
 > Joint Engine Technology (JET) `similar to SQL`
-
-# Buzzwords
-
-- Internet Gateway(IGW)
-- Network Access Control List(Network ACL) `base of IP control`
-- Security Group `AWS Security Group is stateful`
-- SSL termination `helps speed the decryption process and reduces the processing burden on backend servers.`
