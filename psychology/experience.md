@@ -10,7 +10,7 @@
 ## Opinion
 >
 > An **opinion** is a recognised pattern derived from past observations.
-> > It’s difficult to change our opinions because they are based on many different life experiences, which makes it hard to dilute an existing opinion.
+> > It’s difficult to change our opinions because they are based on many different life experiences, which makes it hard to alter an existing opinion.
 >
 > > We are always biased because we each experience only a subset of reality.
 >
