@@ -4,4 +4,6 @@
 .DS_Store
 .DS_Store
 /self-improvement/private
+# Ignore all aider files
+.aider.*
 /*/private
