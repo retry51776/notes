@@ -1,10 +1,10 @@
 # Experience
 >
-> Try to organise my [experience](README.md#experience) here.
+> Try to organize my [experience](README.md#experience) here.
 
 - [Opinion](#opinion) — not a common consensus
 - [Philosophy](#philosophy) — self‑guidance
-- [Framework](#frameworks) — belief system
+- [Frameworks](#frameworks) — belief system
 - Team
 
 ## Opinion
@@ -25,9 +25,9 @@
 >
 >> As we get older, time seems to fly faster. Time does not actually speed up; rather we form fewer memory patches, which reduces the amount of change or learning because learning is the compression of those patches.
 >
-> >Perhaps this also explains why we need less sleep as we age. My theory is that sleep normalises neuronal firing strength and frequency.”
+> >Perhaps this also explains why we need less sleep as we age. My theory is that sleep normalizes neuronal firing strength and frequency.
 
-- There is no solution, only tradeoff.
+- There is no solution, only trade-off.
 
 - Understand the mechanics by either collecting statistics or applying logic.
 
@@ -37,23 +37,23 @@
 
 - Intelligence is an equilibrium between supply (often over‑focused) and demand (often overlooked).
 
-- Most things have recursive property.
+- Most things have a recursive property.
 
 > Ex: Wealth, Knowledge, Ability, Social Skill
 
-- Structure often determines properties.
+- Structure often determines the properties.
 
 - Assuming supply is unlimited, quality versus price follows an exponential relationship, whereas quantity versus price follows a logarithmic relationship.
 
 - We have two ‘minds’: the rational mind (the human cortex) and the emotional mind (the more primitive mammalian brain).
 
-- We develop heuristics first—optimising based on statistical bias—and later create algorithms, i.e., frameworks that explain all possible paths.
+- We develop heuristics first—optimizing based on statistical bias—and later create algorithms, i.e., frameworks that explain all possible paths.
 
 ## Philosophy
 >
 > Philosophy is a way of evaluating internal and external actions and results—a dimension for measuring risk and reward (akin to KPIs or neural‑network loss functions).
 >
-> > It is rare for individuals to change their philosophy because it is usually formed in early childhood.
+> > It is rare for individuals to change their philosophy because it is usually formed during early childhood.
 >
 > > Philosophy is guidance for action.
 >
@@ -63,15 +63,15 @@
 
 - Seek satisfaction, not happiness.
 
-> Most people are happy when they acquire a new ability.
+> Most people are happy when they acquire new abilities.
 >
-> That’s why children are often happier than adults; children unlock new abilities far more frequently.
+> That’s why children are often happier than adults; they unlock new abilities far more frequently.
 
 <hr/>
 
 - Unconsciousness < Heard < Seen < Used < Understand < Improve < Trust yourself < Others trust you `Just different levels of trust`
 
-> This is the reason for brands, companies and representatives: if we solve or expand this human bottleneck—our reliance on computers—we could achieve a huge improvement.
+> This is the reason for brands, companies, and representatives: if we solve or expand this human bottleneck—our reliance on computers—we could achieve a huge improvement.
 
 - Your focus should be proportional to your ability to effect change.
 
@@ -79,18 +79,18 @@
 
 - All evolutionary ideas challenge our assumptions.
 
-> Ex: Einstein E=mc^2 means energy and mass is same thing.
+> Ex: Einstein's E=mc^2 means energy and mass are the same thing.
 > Ex: Newton establish science.
 
-> > Guide your action with philosophy is develop consistent/TRUST between others and yourself.
+> > Guide your actions with philosophy to develop consistent TRUST between others and yourself.
 >
-> > Principal won't have conflict w other principals `under some premises`.
+> > Principles won't have conflict with other principles `under some premises`.
 >
-> > IMO discrete math has many basic Principal, should be taught in HS.
+> > IMO discrete math has many basic principles and should be taught in high school.
 
-- Don't trust, verify.
+- Don't trust; verify.
 
-- Discrete math
+- Discrete Math
 
 1. Proven & Disprove theory `Proposition, Negation, Conjunction ...etc`
 2. Truth Table / Logic Tree
@@ -104,61 +104,61 @@
 
 ## Quotes
 
-- Repetition training is most effective way to change. `Not talking about memory, just habits.`
+- Repetition training is the most effective way to change. `Not talking about memory, just habits.`
 
-> Rational mind just pattern recognition machine.
+> The rational mind is just a pattern recognition machine.
 >
-> People communication often neglected emotional mind`both self & other`.
+> People often neglect the emotional mind in communication `both self & other`.
 >
-> We reverted to reptilian brain in time of conflict.
-> > Hack around by delay response. `aka cool off period`
+> We revert to the reptilian brain in times of conflict.
+> > Hack around by delaying response. `aka cool off period`
 
 - Pain + Reflection = Progress
 
 ## Frameworks
 >
 > **Frameworks** are collection of philosophy to explain reality.
-> > A good framework should able steelman argue `or explain` for every subject's action `aka people's POV`;
+> > A good framework should be able to steelman argue `or explain` for every subject's action `aka people's POV`;
 >
-> > Framework most likely in 2 types: Top-down VS Bottom-Up
+> > Frameworks are most likely in 2 types: Top-down VS Bottom-Up
 >
-> > IMO: Most things in life can fit into small number of [frameworks](experience.md#framework)
+> > IMO: Most things in life can fit into a small number of [frameworks](experience.md#framework)
 >
-> > It is rare, but sometime new framework to lead to the development of new philosophy.
+> > It is rare, but sometimes a new framework can lead to the development of a new philosophy.
 
 ### Trust & Habit are past artifacts of Risk & Reward
 
-> <strong> Biology nature is about Risk & Reward Management.</strong> Habit and Trust are the same nature, summary of past experiences.
->> Any living thing, as older they get less flexibility/change. It's because new opinion is hard to dilute too many past experiences.
+> <strong> Biological nature is about Risk & Reward Management.</strong> Habit and Trust are of the same nature, a summary of past experiences.
+>> Any living thing, as it gets older, has less flexibility/change. It's because new opinions are hard to dilute due to too many past experiences.
 
 - Connection before correction. `by Jane Nelsen`
 
-- Life are collections of habits.
+- Life is a collection of habits.
 
 - All interactions(communication, trade, between person, pets, countries) requires **validation**. Validation, in its broadest sense, is the sum of past experiences that shape current event's expectation.
 >
->> **Consensus** is common individual validation, war happens when no consensus both side.
+>> **Consensus** is common individual validation; war happens when there is no consensus on both sides.
 >
->> Trust is have validation of your past. Trust yourself prerequisite is remember & reflect on your past.
+>> Trust is having validation of your past. Trusting yourself requires remembering & reflecting on your past.
 >
-> Before you persuade others, have you been validate by others?
+> Before you persuade others, have you been validated by others?
 
 <details>
   <summary>Risk Reward Examples</summary>
 
 Five parts in Risk Reward Analysis
 
-> IMO: Common problem is people's desire for power, money, and position without assuming responsibility.
+> IMO: A common problem is people's desire for power, money, and position without assuming responsibility.
 >
-> > Parenting should base on equal respect; Make kid understand more power comes with more responsibility.
+> > Parenting should be based on equal respect; make kids understand that more power comes with more responsibility.
 
-- Player `Each player has its own philosophy & its own risk reward preference`
-- Action `Choices in game; each choices with its own Risk Reward outcome`
-  - Bad player usually because unaware possible action, or stuck same actions.
-- Turn `Opportunities that player can choice action; Ex: stop risk/game.`
-- Risk `Risk can combine together, 'gate keeper' of reward.`
-- Result `Action requires time, other causes => result. Result correlate to risk.`
-- Trust `Sum of past relevant result`
+- Player `Each player has its own philosophy & its own risk-reward preference`
+- Action `Choices in the game; each choice has its own Risk Reward outcome`
+  - A bad player is usually unaware of possible actions or stuck with the same actions.
+- Turn `Opportunities that a player can choose action; Ex: stop risk/game.`
+- Risk `Risk can combine together, 'gatekeeper' of reward.`
+- Result `Action requires time, other causes => result. Result correlates to risk.`
+- Trust `Sum of past relevant results`
 
 > > Ex1: Great power comes great responsibility. `from spider-man`
 >
@@ -168,45 +168,45 @@ Five parts in Risk Reward Analysis
 >
 > > Ex4: There is no solution, only tradeoff.
 >
-> > Ex5: Witty speaker, instead of talk directly(low risk, low reward), they took a far route(high risk, high reward).
+> > Ex5: A witty speaker, instead of talking directly (low risk, low reward), takes a far route (high risk, high reward).
 >
-> > Ex6: Most intelligence animals will PAUSE & THINK & WORRY when there is huge reward in front of them WITHOUT EFFORT/RISK. Because intelligence have natural instinct to measure risk & reward. Huge reward usually indicate huge risk.
+> > Ex6: Most intelligent animals will PAUSE & THINK & WORRY when there is a huge reward in front of them WITHOUT EFFORT/RISK. Because intelligence has a natural instinct to measure risk & reward. A huge reward usually indicates a huge risk.
 
-> Why rich get richer? It's not rich get richer. It's those with resource able to handle more risk in order capture more reward.
+> Why do the rich get richer? It's not that the rich get richer. It's those with resources who are able to handle more risk in order to capture more reward.
 
-> Society doesn't pay people by their hard work, we get paid by the risk we handle.
+> Society doesn't pay people for their hard work; we get paid for the risk we handle.
 
-> Ex: we are risk 20+ years time for education. In a way, we risk 20+ year to be not productive, for increase productive rest of our live. We assume there is food & safety for 20+ years, and we live more than 50+ years to capture rewards.
+> Ex: we risk 20+ years of time for education. In a way, we risk 20+ years of being not productive, to increase productivity for the rest of our lives. We assume there is food & safety for 20+ years, and we live more than 50+ years to capture rewards.
 
-> Often chinese history put cause/effect of history event on somebody. We should avoid that, they just play an odd game. Failure doesn't make their decision bad, success doesn't justify their actions.
+> Often Chinese history puts the cause/effect of historical events on somebody. We should avoid that; they just play an odd game. Failure doesn't make their decision bad, and success doesn't justify their actions.
 
-> I don't like to promote charity, karmas, or deed. Every action should measure by risk & reward. It's rational/good to consider reward even if reward is NOT yours. Charity is promote selfless action. IMO we should promote ALL action have positive reward, regardless beneficiary.
->> Ex: Education is mostly self benefic, yet it's most likely positive reward for self & society. So even education is "selfish", we should still promote it.
+> I don't like to promote charity, karma, or deeds. Every action should be measured by risk & reward. It's rational/good to consider the reward even if the reward is NOT yours. Charity promotes selfless action. IMO we should promote ALL actions that have a positive reward, regardless of the beneficiary.
+>> Ex: Education is mostly self-beneficial, yet it's most likely a positive reward for self & society. So even if education is "selfish", we should still promote it.
 
-Poker is one of best game about Risk & reward. Many well develop theory to analysis risk & reward. Picking your starting hands are the most critical.
+Poker is one of the best games about Risk & Reward. Many well-developed theories analyze risk & reward. Picking your starting hands is the most critical.
 </details>
 
 ### Life is a video game
 
-> You `player` have to make decision what you want to collect `or not collect`, where you explore, which equipments to carry `RIGHT equipments > more equipments`, which relationships to establish;
+> You `player` have to make decisions about what you want to collect `or not collect`, where you explore, which equipment to carry `RIGHT equipment > more equipment`, and which relationships to establish;
 >
-> During the game, your character may collect equipments `Money, Skill, Principal, Philosophy`;
+> During the game, your character may collect equipment `Money, Skill, Principal, Philosophy`;
 >
->> IMO: Too many `equipments` will be counter productive, just like too many junks in hoarder house. Right principle is determent by your **PROBLEM** `game`.
+>> IMO: Too much `equipment` will be counterproductive, just like too much junk in a hoarder's house. The right principle is determined by your **PROBLEM** `game`.
 >
->> IMO: Money amplify person true nature `Money is like mushroom in super mario, turn you bigger`.
+>> IMO: Money amplifies a person's true nature `Money is like a mushroom in Super Mario, turning you bigger`.
 >
->> IMO: Hardest problem to overcome is player control bug `mental disability`.
+>> IMO: The hardest problem to overcome is the player control bug `mental disability`.
 >
->> IMO: Lack of education & recognize pattern `Player don't know game rule/pattern`.
+>> IMO: Lack of education & pattern recognition `Player doesn't know game rules/patterns`.
 >
-> Happiness comes from player, not character in game; Many player don't understand player himself, or confused between player and character.
+> Happiness comes from the player, not the character in the game; Many players don't understand themselves, or are confused between the player and the character.
 >
-> The only resource player have is time.
+> The only resource a player has is time.
 
 ### Society & Time
 >
-> Society can be compared to a rope, with the population representing its thinness and the length of time being its length. Individuals are like fibers within this rope, carrying the opinion, experiences, and knowledge `aka force`. These force `pattern/experience/knowledge` can either pass on to next generation, or pass on to friends & families, or coworker; Natural diaster is like external force will sudden hit the rope; Rope always has strands that lead to nowhere.
+> Society can be compared to a rope, with the population representing its thinness and the length of time being its length. Individuals are like fibers within this rope, carrying opinions, experiences, and knowledge `aka force`. These forces `pattern/experience/knowledge` can either pass on to the next generation, or pass on to friends & families, or coworkers; Natural disasters are like external forces that suddenly hit the rope; The rope always has strands that lead to nowhere.
 
 ### Science pyramid
 
@@ -224,12 +224,12 @@ Poker is one of best game about Risk & reward. Many well develop theory to analy
 3. Producer -> Consumer -> xth Consumer
 4. Network effect
 
-> Tiger is very powerful, but also very limited in their living area; They must live in area w enough food support them; Everything has its constrain/tradeoff.
+> Tigers are very powerful, but also very limited in their living area; They must live in an area with enough food to support them; Everything has its constraints/trade-offs.
 
 ### Brain Characteristic
 
-1. Rational(slow but accurate) vs emotion(fast but guess)
-2. Parenting(cortex parenting cerebrum)
+1. Rational (slow but accurate) vs emotion (fast but guess)
+2. Parenting (cortex parenting cerebrum)
 3. Connection before correction
 4. Decision fatigue
 
@@ -238,55 +238,55 @@ Poker is one of best game about Risk & reward. Many well develop theory to analy
 1. Loss/Mistake & forward vs backward propagation
 2. Structure determent algorithm
 
-> I wish to be expert in this area, this will reveal so much about human brain; Our main bottleneck & how to bypass them
+> I wish to be an expert in this area, as this will reveal so much about the human brain; Our main bottleneck & how to bypass it
 
 ### Difficulty w Complexity
 
 1. There is no solution, only tradeoff.
 2. Decision fatigue.
-3. Cause and effect are difficulty to determent, but correlation is easier to detect.
-4. As a system get more complex, changes in system requires more complexity(to narrow down exact part).
+3. Cause and effect are difficult to determine, but correlation is easier to detect.
+4. As a system gets more complex, changes in the system require more complexity (to narrow down the exact part).
 
-> We must make decision because we have limited resources.
-> We have limited capability to make decision.
-> There are so many decisions in complex problem/product;
+> We must make decisions because we have limited resources.
+> We have limited capability to make decisions.
+> There are so many decisions in complex problems/products;
 >
-> People uses TRUST brand/representatives to simplify(abstraction) to work around complex problem;
-> > In 2020 we have a lot debate about platform immunity; fundamentally problem is product owner makes decisions for user because user can't/won't/avoid make all decision.  
+> People use TRUST brands/representatives to simplify (abstraction) to work around complex problems;
+> > In 2020 we had a lot of debate about platform immunity; the fundamental problem is product owners make decisions for users because users can't/won't/avoid making all decisions.  
 >
-> Engineer uses correlation to guess, improve solution.
-> There isn't a scientific way to predict solution for complex problem in future`past result isn't prove`.
-> We assume investor willing to put their money on the line in aggregate result in good prediction.
+> Engineers use correlation to guess and improve solutions.
+> There isn't a scientific way to predict solutions for complex problems in the future `past results aren't proof`.
+> We assume investors are willing to put their money on the line in aggregate results in good predictions.
 
-> If complexity in system makes changes difficult, and there is no way around it(IMO). Then this explain why life has dead.
-> That's why I always value simplicity in system.
+> If complexity in a system makes changes difficult, and there is no way around it (IMO), then this explains why life has death.
+> That's why I always value simplicity in systems.
 
 ### Drive to the future
 
 1. The road is NOT always straight, with limited visibility.
-2. Driver have some control of car.
-3. Car have momentum from past acceleration.
+2. Drivers have some control of the car.
+3. Cars have momentum from past acceleration.
 
-> Just because we currently heading in wrong direction, doesn't mean it's wrong path;
+> Just because we are currently heading in the wrong direction, doesn't mean it's the wrong path;
 >
-> World ending predictions always wrong because they assume future won't change, and their calculation based on current direction and momentum;
+> World-ending predictions are always wrong because they assume the future won't change, and their calculations are based on current direction and momentum;
 
 > The most important thing we can do are
 > >
 > > 1. Increase visibility as far as we can. `aka better prediction`
-> > 2. Increase car controllability. `aka better production tech, storage tech, better resp system`
+> > 2. Increase car controllability. `aka better production tech, storage tech, better response system`
 > > 3. Have a backup system.
 
-> Better not only mean cost less, but more reliable, diverse, less unknown impact;
-> Also that means we may not want to drive as fast as we can.
+> Better not only means costing less, but being more reliable, diverse, and having less unknown impact;
+> Also, that means we may not want to drive as fast as we can.
 
 ### Mathematics theory
 >
 > Mathematics theory(Principal) build on top of axioms(Philosophy);
 >
-> Mathematician by creativity think(Ability) + math tools(Principal & Philosophy) => develop algorithm to resolve problem(Mistake)
+> Mathematicians by creativity think (Ability) + math tools (Principal & Philosophy) => develop algorithms to resolve problems (Mistakes)
 >
-> Formula is condensed version of Mathematics law/theory(Principal);
+> A formula is a condensed version of Mathematics law/theory (Principal);
 
 ## Common Movie design pattern
 
@@ -297,10 +297,10 @@ Poker is one of best game about Risk & reward. Many well develop theory to analy
 5. At first technology matter the most, but at the end relationship are most important.
 6. Puzzle movie.
 
-- More clues as movie goes on;
-- Fragmentation; Ex: West World season 1;
+- More clues as the movie goes on;
+- Fragmentation; Ex: Westworld season 1;
 
-7. Tessellation; Most classic literary have tessellation; There are some side characters with few details; Yet indicates they follow same rule & pattern that main character follow. Ex: 红楼梦 皇帝>贾府>赖管家 (Aka recursive story)
+7. Tessellation; Most classic literature has tessellation; There are some side characters with few details; Yet indicates they follow the same rule & pattern that the main character follows. Ex: 红楼梦 皇帝>贾府>赖管家 (Aka recursive story)
 
 ## Team
 >
@@ -308,26 +308,26 @@ Poker is one of best game about Risk & reward. Many well develop theory to analy
 
 - Transparency accelerate learning process.
 
-- If you want to go fast, go alone, if you want to go far, go together.
+- If you want to go fast, go alone; if you want to go far, go together.
 
-- Goal is not important, execution path is the key. The skill to navigate in path and understand the tradeoffs is what makes different.
+- The goal is not important; the execution path is the key. The skill to navigate the path and understand the trade-offs is what makes the difference.
 
-- Establish goal & rule in advanced, and transparent environment.
+- Establish goals & rules in advance, and create a transparent environment.
 
-- Better process is more valuable than correct answer.
+- A better process is more valuable than a correct answer.
 
-> Most parent mistakes root from parent value correct behavior OVER child's psychology process.
+> Most parental mistakes root from valuing correct behavior OVER the child's psychological process.
 >
-> Don't go for perfect answer. Rather focus on constance improvement of existing process.
+> Don't go for the perfect answer. Rather focus on constant improvement of existing processes.
 >
-> Train kid risk & reward model.
+> Train kids in the risk & reward model.
 
 - 2 approaches to solution
 
 > Top down approach
-> > List possible causes, then start eliminate causes by logic.
+> > List possible causes, then start eliminating causes by logic.
 >
 > Bottom up approach
-> > Start from what I can do, build a module at a time, then start combine module.
+> > Start from what I can do, build a module at a time, then start combining modules.
 
 - When leader w strong ego, leader's ability is ceiling of their team.
