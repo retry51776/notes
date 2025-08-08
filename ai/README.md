@@ -6,7 +6,7 @@
 - Industry
 - Hardware
 - IMO
-- code
+- Code
 
 ## Human ability
 
@@ -24,15 +24,15 @@
     - cold
     - pain
   - Kinesthesis `senses body movement and position`
-  - Vestibular `monitor head's position and balance`
+  - Vestibular `monitors head's position and balance`
 - State
-  - Desire `do we want AI has its own desire?`
-  - Understanding `AI already does; But we don't even know how brain makes conclusion, how we jude AIs' conclusions? Is it computation or storage?`
+  - Desire `Do we want AI to have its own desire?`
+  - Understanding `AI already does; but we don't even know how the brain makes conclusions, how we judge AIs' conclusions? Is it computation or storage?`
     - holding state across time `runtime compute`
-    - AIs self conclusion
+    - AI's self‑conclusion
     - human conclusion
-    - physical world conclusion `will soon better than human`
-    - visual understanding `But not understand yet; One day a AI watch all Youtube Videos will smarter than any human`
+    - physical world conclusion `will soon be better than human`
+    - visual understanding `But not understood yet; one day an AI that watches all YouTube videos will be smarter than any human`
 - Output
   - ~~Listen & Speak~~
   - ~~Read/Write~~
