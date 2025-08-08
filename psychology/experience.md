@@ -9,12 +9,12 @@
 
 ## Opinion
 >
-> An **opinion** is a recognised pattern derived from past observations.
+> An **opinion** is a recognized pattern derived from past observations.
 > > It’s difficult to change our opinions because they are based on many different life experiences, which makes it hard to alter an existing opinion.
 >
 > > We are always biased because we each experience only a subset of reality.
 >
-> > That is why we love stories; stories lead to conclusions.
+> > That is why we love stories: stories lead to conclusions.
 `aka Recognized patterns.`
 >
 > Ex: `import this #python's opinion`
@@ -25,7 +25,7 @@
 >
 >> As we get older, time seems to fly faster. Time does not actually speed up; rather we form fewer memory patches, which reduces the amount of change or learning because learning is the compression of those patches.
 >
-> >Perhaps this also explains why we need less sleep as we age. My theory is that sleep normalizes neuronal firing strength and frequency.
+> > Perhaps this also explains why we need less sleep as we age. My theory is that sleep normalizes neuronal firing strength and frequency.
 
 - There is no solution, only trade-off.
 
@@ -35,7 +35,7 @@
 
 - Decision fatigue
 
-- Intelligence is an equilibrium between supply (often over‑focused) and demand (often overlooked).
+- Intelligence is an equilibrium between supply (often over-focused) and demand (often overlooked).
 
 - Most things have a recursive property.
 
@@ -45,13 +45,13 @@
 
 - Assuming supply is unlimited, quality versus price follows an exponential relationship, whereas quantity versus price follows a logarithmic relationship.
 
-- We have two ‘minds’: the rational mind (the human cortex) and the emotional mind (the more primitive mammalian brain).
+- We have two 'minds': the rational mind (the human cortex) and the emotional mind (the more primitive mammalian brain).
 
 - We develop heuristics first—optimizing based on statistical bias—and later create algorithms, i.e., frameworks that explain all possible paths.
 
 ## Philosophy
 >
-> Philosophy is a way of evaluating internal and external actions and results—a dimension for measuring risk and reward (akin to KPIs or neural‑network loss functions).
+> Philosophy is a way of evaluating internal and external actions and results—a dimension for measuring risk and reward (akin to KPIs or neural-network loss functions).
 >
 > > It is rare for individuals to change their philosophy because it is usually formed during early childhood.
 >
@@ -80,7 +80,7 @@
 - All evolutionary ideas challenge our assumptions.
 
 > Ex: Einstein's E=mc^2 means energy and mass are the same thing.
-> Ex: Newton establish science.
+> Ex: Newton established science.
 
 > > Guide your actions with philosophy to develop consistent TRUST between others and yourself.
 >
@@ -98,9 +98,9 @@
 
 - Past can't change; Only reflect if you intended change yourself for future.
 
-> Change your path is easier than change what your desire.
+> Changing your path is easier than changing what you desire.
 >
-> Just like poker, you can't change past; But readjust risk & reward model can improve future games.
+> Just like poker, you can't change the past; But readjusting the risk & reward model can improve future games.
 
 ## Quotes
 
@@ -117,7 +117,7 @@
 
 ## Frameworks
 >
-> **Frameworks** are collection of philosophy to explain reality.
+> **Frameworks** are collections of philosophy to explain reality.
 > > A good framework should be able to steelman argue `or explain` for every subject's action `aka people's POV`;
 >
 > > Frameworks are most likely in 2 types: Top-down VS Bottom-Up
@@ -135,7 +135,7 @@
 
 - Life is a collection of habits.
 
-- All interactions(communication, trade, between person, pets, countries) requires **validation**. Validation, in its broadest sense, is the sum of past experiences that shape current event's expectation.
+- All interactions (communication, trade, between person, pets, countries) require **validation**. Validation, in its broadest sense, is the sum of past experiences that shape current event's expectation.
 >
 >> **Consensus** is common individual validation; war happens when there is no consensus on both sides.
 >
@@ -164,9 +164,9 @@ Five parts in Risk Reward Analysis
 >
 > > Ex2: Cost(risk) vs Benefit(reward)
 >
-> > Ex3: animals reproduction
+> > Ex3: animal reproduction
 >
-> > Ex4: There is no solution, only tradeoff.
+> > Ex4: There is no solution, only trade-off.
 >
 > > Ex5: A witty speaker, instead of talking directly (low risk, low reward), takes a far route (high risk, high reward).
 >
@@ -219,8 +219,8 @@ Poker is one of the best games about Risk & Reward. Many well-developed theories
 
 ### Bio ecosystem
 
-1. Bio diversity
-2. Auto balance between hunter & pray
+1. Biodiversity
+2. Auto balance between hunter & prey
 3. Producer -> Consumer -> xth Consumer
 4. Network effect
 
@@ -236,13 +236,13 @@ Poker is one of the best games about Risk & Reward. Many well-developed theories
 ### Neural network
 
 1. Loss/Mistake & forward vs backward propagation
-2. Structure determent algorithm
+2. Structure determines algorithm
 
 > I wish to be an expert in this area, as this will reveal so much about the human brain; Our main bottleneck & how to bypass it
 
 ### Difficulty w Complexity
 
-1. There is no solution, only tradeoff.
+1. There is no solution, only trade-off.
 2. Decision fatigue.
 3. Cause and effect are difficult to determine, but correlation is easier to detect.
 4. As a system gets more complex, changes in the system require more complexity (to narrow down the exact part).
@@ -271,7 +271,7 @@ Poker is one of the best games about Risk & Reward. Many well-developed theories
 >
 > World-ending predictions are always wrong because they assume the future won't change, and their calculations are based on current direction and momentum;
 
-> The most important thing we can do are
+> The most important things we can do are
 > >
 > > 1. Increase visibility as far as we can. `aka better prediction`
 > > 2. Increase car controllability. `aka better production tech, storage tech, better response system`
@@ -282,7 +282,7 @@ Poker is one of the best games about Risk & Reward. Many well-developed theories
 
 ### Mathematics theory
 >
-> Mathematics theory(Principal) build on top of axioms(Philosophy);
+> Mathematics theory (Principal) builds on top of axioms (Philosophy);
 >
 > Mathematicians by creativity think (Ability) + math tools (Principal & Philosophy) => develop algorithms to resolve problems (Mistakes)
 >
@@ -294,7 +294,7 @@ Poker is one of the best games about Risk & Reward. Many well-developed theories
 2. Try to search for some secret that is sitting in plain sight.
 3. Ending with religion stuff.
 4. Unchangeable destiny.
-5. At first technology matter the most, but at the end relationship are most important.
+5. At first technology matters the most, but at the end relationships are most important.
 6. Puzzle movie.
 
 - More clues as the movie goes on;
@@ -306,7 +306,7 @@ Poker is one of the best games about Risk & Reward. Many well-developed theories
 >
 > Teamwork Philosophy
 
-- Transparency accelerate learning process.
+- Transparency accelerates the learning process.
 
 - If you want to go fast, go alone; if you want to go far, go together.
 
@@ -324,10 +324,10 @@ Poker is one of the best games about Risk & Reward. Many well-developed theories
 
 - 2 approaches to solution
 
-> Top down approach
+> Top-down approach
 > > List possible causes, then start eliminating causes by logic.
 >
-> Bottom up approach
+> Bottom-up approach
 > > Start from what I can do, build a module at a time, then start combining modules.
 
-- When leader w strong ego, leader's ability is ceiling of their team.
+- When a leader has a strong ego, the leader's ability is the ceiling of their team.
