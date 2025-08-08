@@ -1,91 +1,83 @@
 # Experience
 >
-> Try to organize my [experience](README.md#experience) here.
+> Try to organise my [experience](README.md#experience) here.
 
-- [Opinion](#opinion) `not common consensus`
-- [Philosophy](#philosophy) `self guidance`
-- [Framework](#frameworks) `believe system`
+- [Opinion](#opinion) — not a common consensus
+- [Philosophy](#philosophy) — self‑guidance
+- [Framework](#frameworks) — belief system
 - Team
 
 ## Opinion
 >
-> **Opinion** is recognized pattern derived from past observation.
-> > It's difficult to change our opinion because opinion is based off many different life experiences, which makes it hard to dilute the existing opinion.
+> An **opinion** is a recognised pattern derived from past observations.
+> > It’s difficult to change our opinions because they are based on many different life experiences, which makes it hard to dilute an existing opinion.
 >
-> > We are always be `bias` because we all only experiences subset of realities.
+> > We are always biased because we each experience only a subset of reality.
 >
-> > The very reason we love story, story lead to conclusion.
+> > That is why we love stories; stories lead to conclusions.
 `aka Recognized patterns.`
 >
 > Ex: `import this #python's opinion`
 
-- All positive interactions(communication, trade, between person, pets, countries) requires trust. Trust, in its broadest sense, is the sum of past experiences that shape current event's expectation.
-
-### Memory Path
+### Memory Patch
 >
-> We don't have memory timeline, just more dense memory patches in recent time, and sparse memory patches in older time.
+> We don’t have a continuous memory timeline; we have denser memory patches for recent events and sparser ones for older times.
 >
->> The older we get, time fly faster. Time did NOT move faster, rather we form LESS memory patches! which makes us have less changes/learning because learning is compression from memory patches. Maybe also explain reduce sleep as older `My theory is sleep normalize neuron fire strength & frequency`.
-
-> All interaction requires **trust**.
+>> As we get older, time seems to fly faster. Time does not actually speed up; rather we form fewer memory patches, which reduces the amount of change or learning because learning is the compression of those patches.
 >
->> Trust, is sum of past similar experiences. Trust is not a neutral word, **consensus** will be more precise.
->
->> Trust yourself prerequisite is remember your past. Have a consensus on what happened?
->
-> Before you persuade others, do others have trust in you?
+> >Perhaps this also explains why we need less sleep as we age. My theory is that sleep normalises neuronal firing strength and frequency.”
 
 - There is no solution, only tradeoff.
 
-- Understand **mechanic** by either collect statistics, or by logic;
+- Understand the mechanics by either collecting statistics or applying logic.
 
-- You CAN NOT connect the dots looking forward(because result/ conjunction point not happened), you only connect the dots looking backward(expect result happened).
+- You cannot connect the dots when looking forward (because the result/conjunction point has not yet occurred); you can only connect them when looking backward (after the result has happened).
 
 - Decision fatigue
 
-- Intelligence is equilibrium of supply `often too much focus` and demand `often overlook`.
+- Intelligence is an equilibrium between supply (often over‑focused) and demand (often overlooked).
 
 - Most things have recursive property.
 
 > Ex: Wealth, Knowledge, Ability, Social Skill
 
-- Often structure determent properties.
+- Structure often determines properties.
 
-- Assume supply is not limited. Quality vs Price has exponential relationship, Quantity vs Price has logarithm relationship.
+- Assuming supply is unlimited, quality versus price follows an exponential relationship, whereas quantity versus price follows a logarithmic relationship.
 
-- We have two minds, the rational mind `human brain/cortex`, and the emotional mind `mammal brain`.
+- We have two ‘minds’: the rational mind (the human cortex) and the emotional mind (the more primitive mammalian brain).
 
-- We develop heuristics first, `optimize based of statistical bias`, then algorithms `framework explain all possible paths`;
+- We develop heuristics first—optimising based on statistical bias—and later create algorithms, i.e., frameworks that explain all possible paths.
 
 ## Philosophy
 >
-> **Philosophy** are ways we evaluate the internal & external action & result. Or some dimension to measure risk & reward. `aka KPI for evaluation; Or NN Loss Functions;`
-> > It is rare for individuals to change their philosophy because these philosophy are typically developed during early childhood.
+> Philosophy is a way of evaluating internal and external actions and results—a dimension for measuring risk and reward (akin to KPIs or neural‑network loss functions).
+>
+> > It is rare for individuals to change their philosophy because it is usually formed in early childhood.
 >
 > > Philosophy is guidance for action.
 >
-> > The new philosophy require compatibility with existing philosophy & conclusion.
+> > A new philosophy must be compatible with the existing one and its conclusions.
 
 - Everything has its mechanic.
 
 - Seek satisfaction, not happiness.
 
-> Most people happy when they have new ability.
+> Most people are happy when they acquire a new ability.
 >
-> That's why kid way happier than adult, kid unlock new ability more frequents than adult.
+> That’s why children are often happier than adults; children unlock new abilities far more frequently.
+
 <hr/>
 
 - Unconsciousness < Heard < Seen < Used < Understand < Improve < Trust yourself < Others trust you `Just different levels of trust`
 
-> or knowing < remembering < understanding < communicating
+> This is the reason for brands, companies and representatives: if we solve or expand this human bottleneck—our reliance on computers—we could achieve a huge improvement.
 
-> The reason for Brand, Company, Representative; If we solved/expand this humanity BOTTLENECK`reliance on computer?`, we will make great improvement.
+- Your focus should be proportional to your ability to effect change.
 
-- Focus proportional to YOUR ability to change it.
+- What you DESIRE is DIFFERENT from what you NEED.
 
-- What you DESIRE is DIFFERENT than what you NEED.
-
-- All evolutionary ideas are breaking our assumptions.
+- All evolutionary ideas challenge our assumptions.
 
 > Ex: Einstein E=mc^2 means energy and mass is same thing.
 > Ex: Newton establish science.
@@ -134,12 +126,22 @@
 >
 > > It is rare, but sometime new framework to lead to the development of new philosophy.
 
-### Risk & Reward build Trust, Habit
+### Trust & Habit are past artifacts of Risk & Reward
 
 > <strong> Biology nature is about Risk & Reward Management.</strong> Habit and Trust are the same nature, summary of past experiences.
 >> Any living thing, as older they get less flexibility/change. It's because new opinion is hard to dilute too many past experiences.
 
 - Connection before correction. `by Jane Nelsen`
+
+- Life are collections of habits.
+
+- All interactions(communication, trade, between person, pets, countries) requires **validation**. Validation, in its broadest sense, is the sum of past experiences that shape current event's expectation.
+>
+>> **Consensus** is common individual validation, war happens when no consensus both side.
+>
+>> Trust is have validation of your past. Trust yourself prerequisite is remember & reflect on your past.
+>
+> Before you persuade others, have you been validate by others?
 
 <details>
   <summary>Risk Reward Examples</summary>
