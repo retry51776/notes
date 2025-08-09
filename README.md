@@ -7,9 +7,9 @@
 
 ## Terry's Cheatsheet
 
-> There are too many things to remember! You don't write it down, you don't remember.
+> There are too many things to remember! If you don't write them down, you won't remember.  
 >
-> This is a trunk base repo for obvious reasons!
+> This is a trunk‑based repository for obvious reasons!
 
 ## Repo Structure
 
@@ -33,3 +33,4 @@ notes
 │   └── README.md
 └── static
 ```
+```​​````
