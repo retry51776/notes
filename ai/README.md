@@ -26,6 +26,7 @@
   - Kinesthesis `senses body movement and position`
   - Vestibular `monitors head's position and balance`
 - State
+  - Continues Learning `rapid update from action & result`
   - Desire `Do we want AI to have its own desire?`
   - Understanding `AI already does; but we don't even know how the brain makes conclusions, how we judge AIs' conclusions? Is it computation or storage?`
     - holding state across time `runtime compute`

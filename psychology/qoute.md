@@ -6,6 +6,17 @@
 >
 ## Life
 
+- Repetition training is the most effective way to change. `Not talking about memory, just habits.`
+
+> The rational mind is just a pattern recognition machine.
+>
+> People often neglect the emotional mind in communication `both self & other`.
+>
+> We revert to the reptilian brain in times of conflict.
+> > Hack around by delaying response. `aka cool off period`
+
+- Pain + Reflection = Progress
+
 > Great power comes great responsibility`spider-man`
 
 > Value > Ability > Skill `quote from Rai Dalio`

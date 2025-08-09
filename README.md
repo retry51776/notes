@@ -29,8 +29,9 @@ notes
 ├── others
 ├── psychology
 │   └── nervous.md
-│   └── psychology.md
+│   └── experience.md
 │   └── README.md
 └── static
 ```
+
 ```​​````

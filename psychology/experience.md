@@ -59,6 +59,8 @@
 >
 > > A new philosophy must be compatible with the existing one and its conclusions.
 
+- Bayesian statisticians
+
 - Everything has its mechanic.
 
 - Seek satisfaction, not happiness.
@@ -101,19 +103,6 @@
 > Changing your path is easier than changing what you desire.
 >
 > Just like poker, you can't change the past; But readjusting the risk & reward model can improve future games.
-
-## Quotes
-
-- Repetition training is the most effective way to change. `Not talking about memory, just habits.`
-
-> The rational mind is just a pattern recognition machine.
->
-> People often neglect the emotional mind in communication `both self & other`.
->
-> We revert to the reptilian brain in times of conflict.
-> > Hack around by delaying response. `aka cool off period`
-
-- Pain + Reflection = Progress
 
 ## Frameworks
 >

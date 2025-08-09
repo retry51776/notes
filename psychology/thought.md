@@ -1,4 +1,6 @@
 # Thought
+>
+> Here are collection of random idea.
 
 ## IMO
 
@@ -92,3 +94,17 @@ why all animals have similar emotion?
 - Current AI computation by connection is right direction;
 - Current AI store info by connection strength.
 - In a way, AI is a compression alg; Because it store world model is compress format with some lost. So multi purpose in neuron/connection will have better performance in compression.
+
+## Common Movie design pattern
+
+1. Shows misleading ending first, then start from beginning, then show end with a twist.
+2. Try to search for some secret that is sitting in plain sight.
+3. Ending with religion stuff.
+4. Unchangeable destiny.
+5. At first technology matters the most, but at the end relationships are most important.
+6. Puzzle movie.
+
+- More clues as the movie goes on;
+- Fragmentation; Ex: Westworld season 1;
+
+7. Tessellation; Most classic literature has tessellation; There are some side characters with few details; Yet indicates they follow the same rule & pattern that the main character follows. Ex: 红楼梦 皇帝>贾府>赖管家 (Aka recursive story)
