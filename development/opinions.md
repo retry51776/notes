@@ -1,253 +1,235 @@
 # Software Analogy
 >
-> Old school windows software deployment is like `send you big coffee machine to you house. Manufactory can't clean it because they don't have access. User can't clean machine, or adjust coffee concentration because user can't open it(Closed source)`
+> Old‑school Windows software deployment is like “sending you a big coffee machine to your house. The manufacturer can't clean it because they don't have access. The user can't clean the machine or adjust the coffee concentration because the user can't open it (closed source).”
 
-> Then open source dev is like `we publish coffee machine parts(motor, pump, electric switches) design to public, user can make their own parts & wired them together. Now user knows how to take it apart & clean it. But now user needs to figure out what parts & how to wired parts together`
+> Open‑source development is like “we publish the coffee‑machine parts (motor, pump, electric switches) design to the public; users can make their own parts and wire them together. Now the user knows how to take it apart and clean it. But the user now needs to figure out which parts to use and how to wire them together.”
 
-> Modern Hook libraries is like `we send you smart coffee machine(w touch screen) supports limited adjustment (callback parameters); Hope user able to find coffee machine that does everything you need.`
->> `const { /* here is where user pick up coffee */ } = useXXX(/* telling machine how to cook */)`
->> `useXXX()` is the machine
->> `onXXX` that passed into useXXX() is like custom request `similar to tell coffee machine before it cook, do x, y z; If machine doesn't support custom request, then you have to either try to see if you can modify add water after you got coffee, or pick another machine`
+> Modern hook libraries are like “we send you a smart coffee machine (with a touch screen) that supports limited adjustments (callback parameters). The hope is that the user can find a coffee machine that does everything they need.”
+>> `const { /* here is where the user picks up coffee */ } = useXXX(/* telling the machine how to brew */)`
+>> `useXXX()` is the machine.
+>> `onXXX` passed into `useXXX()` is like a custom request—similar to telling the coffee machine before it brews, “do X, Y, Z.” If the machine doesn't support a custom request, then you either try to see if you can add water after you get coffee, or pick another machine.
 
-> Event base:
+> Event‑based:
 
-> Talk is cheap, show me your code.
+> Talk is cheap; show me your code.
 
 > Make it work, make it right, make it fast.
 
-> Computation is moving data, just with a inseverable move.
+> Computation is moving data, just with an inseparable move.
 
 ## Prediction
 
-1. future developer(within 10 yrs) will write/describe MVP code, then give to AI compiler to optimize code; AI compiler may ask developer can it make some assumption/clarification, then compile production code able to way faster;
-2. Everything will be event base; `except DB`
-3. DB will support all types, like time serial, no sql, sql, language, graph; Maybe cloud service, w accelerated hardware;
+1. In the future (within 10 years), developers will write/describe MVP code and give it to an AI compiler for optimization. The AI compiler may ask the developer for assumptions or clarifications, then compile production‑ready code much faster.
+2. Everything will be event‑based; **except** databases.
+3. Databases will support all types—time series, NoSQL, SQL, graph, etc.—perhaps as cloud services with accelerated hardware.
 
-# There is no solution, only tradeoffs
+# There is no solution, only trade‑offs
 
-here are common trade offs
+Here are common trade‑offs:
 
-- CPU vs Memory
-  > AKA space time trade offs
-- Speed vs Accuracy
-- Latency vs. Throughput
-- consistency or availability
-  > DB high availability problem
-- features or scalability
-  > SQL vs no SQL
-- complexity or flexibility
+- CPU vs Memory  
+  > AKA space–time trade‑off
+- Speed vs Accuracy
+- Latency vs Throughput
+- Consistency or availability  
+  > Database high‑availability problems
+- Features or scalability  
+  > SQL vs NoSQL
+- Complexity or flexibility
 
 ## Architecture
 
-- Monolithic/layered
-- Service Base/microservice
-- distribute/event driven
+- Monolithic / layered
+- Service‑based / microservice
+- Distributed / event‑driven  
 
-> IMO these just 3 basic architectures mixed together
+> IMO these are the three basic architectures, often mixed together.
 
-- MicroKernel/Plug-in
+- Microkernel / plug‑in  
   > Core system & plugins
-- Service-Oriented
-- Space-based
+- Service‑oriented
+- Space‑based
 
 **Key Properties**
 
-- (API or Service)? (Internal or External)? UI?
-  > API: External service without UI
-
-  > Service: Internal service without UI
-
-  > UI: repo has client side, can be internal or external
+- (API or Service)? (Internal or External)? UI?  
+  > API: external service without UI  
+  > Service: internal service without UI  
+  > UI: repository has client side, can be internal or external
 
 ## Backend Pattern
 
-- /Engine
-  > any async service, crons, Pub/Sub
-  - Manager
-    > Creates msgs, keep track job status
-  - Worker
-    > Consumer of msgs
-
-- /Calculator
-  > Just business logic
-
-  > NO network connections
-- /Service
-  > handle network connections, data retrieve
-
-  > application level cache
-  
-  > init Calculator Class instance
-- /Script
-  > One off job, Ex: test  
+- `/Engine`  
+  > Any async service, cron jobs, Pub/Sub
+  - `Manager` – creates messages, tracks job status
+  - `Worker` – consumes messages
+- `/Calculator`  
+  > Business logic only  
+  > **No** network connections
+- `/Service`  
+  > Handles network connections and data retrieval  
+  > Application‑level cache  
+  > Instantiates a `Calculator` class
+- `/Script`  
+  > One‑off jobs, e.g., tests
 
 # Application Design
 >
-> Database is usually is the first bottleneck of application design
+> The database is usually the first bottleneck in application design.
 
-- Disk/Network IO
-  > more fields or sister table
+- Disk / Network I/O  
+  > More fields or larger tables; nested fields or child tables
+- CPU  
+  > Store calculated fields in the DB, or aggregate in the DB
+- Deadlock & constraints  
+  > Enforce constraints in the DB or at the application level. Constraints can reduce DB performance and cause more deadlocks.
 
-  > nested field or child table
-- CPU
-  > Store calculated field in DB, or aggs by DB
-- DeadLock & Constrain
-  > Enforce table constrain, or enforce in application level
-
-  > Constrain will reduce DB performance, cause more deadlock
->
 ---
-> Business Logic & workflow
 
-- response time? request volumes?
-- where business logic
-  - compute @ engine, store in DB
-  - compute @ DB proc
-  - compute @ service endpoint
-  - compute @ client side
-- exposed to Internal or External or both?
-- cache everywhere
-- workflow interference & trigger DB bottleneck
+> Business logic & workflow
 
-> FE distributed in Content Deliver Network(CDN) is at good as it gets, maybe dynamics import too
+- Response time? Request volume?
+- Where does business logic run?  
+  - Compute in engine, store in DB  
+  - Compute in DB stored procedure  
+  - Compute in service endpoint  
+  - Compute on client side
+- Exposed to internal or external users—or both?
+- Cache everywhere
+- Workflow interference & DB bottlenecks
 
-> Horizontal scaling service & engine, most of works in here
+> Front‑end distribution via CDN is as good as it gets; dynamic imports may also be used.
 
-> Global DB is very hard, beyond me
+> Horizontal scaling of services and engines handles most workloads.
 
-> Example Act as documentation & test
+> Global databases are very hard—beyond my current scope.
 
-> Understand common actions unit, and its rough estimate of cost(Time, Space).
+> Example: act as documentation & test.
+
+> Understand common actions, their rough cost (time, space).
+
 ---
 
 ## Difficult Things to Document
 
-- Reality Mapping
-- Technical Decision
-- Requirement Change
+- Reality mapping
+- Technical decisions
+- Requirement changes
 
 ---
 
 ## Developer Metaphor
 
-- Business logic & data defines architecture.
-- Usage determent house structure and foundation.
+- Business logic & data define architecture.
+- Usage determines house structure and foundation.
 
-- Carpenter is determent by right tools and usage
-- Common Developer problems:
-  - didn't know the right tool/didn't familiar with tool
-    - reinvent the tool
-    - wrong approach the problem
-  - bring too much tools
-    - performance problem
-    - over engineering
-  - forgot to bring all the tools at once
-    - tons DB query when they need it
+- The carpenter is determined by the right tools and usage.
 
-<hr />
+Common developer problems:
 
-> Compare Developer to car, sport car(senior dev) 0-60 is faster than corolla(jr dev), where it make differences is on max speed(dev don't aware their mistakes until review mirror).
->
+- Not knowing the right tool / unfamiliar with a tool  
+  - Reinvent the tool  
+  - Take the wrong approach
+- Bringing too many tools  
+  - Performance problems  
+  - Over‑engineering
+- Forgetting to bring all needed tools at once  
+  - Resulting in excessive DB queries when they are needed
+
+---
+
+> Compare a developer to a car: a sports car (senior dev) accelerates 0–60 faster than a Corolla (junior dev); the difference lies in top speed. Developers often don’t notice their mistakes until they look in the rear‑view mirror.
+
 ## Security
 
-- URL
-  - expose static link on secure resource
-  - open redirect
-  - expose application structure
-- ABAC
-  > attribute based access control
+- URL  
+  - Expose static links on secure resources  
+  - Open redirects  
+  - Reveal application structure
+- ABAC  
+  > Attribute‑Based Access Control
 
 ## Encoding
 >
-> encoder is like html
+> An encoder is like HTML.
 
-common encoder formats:
+Common encoding formats:
 
-- ASCII `old 7 bit character mapping; invented in US`
-- Unicode `universal character encoding standard, each region has its prefix`
-  - UTF8 `most common 8 bit mapping`
-  - UTF16 `larger room 16 bit mapping`
+- ASCII – old 7‑bit character mapping; invented in the US
+- Unicode – universal character encoding standard; each region has its prefix  
+  - UTF‑8 – most common 8‑bit mapping  
+  - UTF‑16 – larger 16‑bit space
+- MessagePack – backward‑compatible with UTF
+- Avro – Apache custom schema; each communication sends schemas
+- Protobuf – Google’s custom schema; sends the schema once
 
-- MessagePack `backward support UTF`
-- Avro `Apache custom schema, each communication sends schemas`
-- Protobuf `breaking unicode, Google custom schema, only send schema once`
+> A font is like CSS.
 
-> font is like css
-
-### Docker VS VM
+### Docker vs VM
 >
-> docker just using linux kernel namespace partitions
-
-> VM have overhead from virtual hardware, virtual OS
+> Docker uses Linux kernel namespaces for partitioning.  
+> VMs have overhead from virtual hardware and a virtual OS.
 
 # Application Language
 
-# SQL
+## SQL
 >
-> It's NOT a standard when it‘s suppose to be a standard.
->
-> If function is such bad for performance, why make it so powerful. It's like putting poisons in nice soda can.
->
-# Python
->
-> It's slow, but 90% bushiness use cases accepts horizontal scaling to mitigate problem.
->
-> Typescript like feature on Python will be cool.
->
-> I love snake_case variable naming. Every language should use it.
+> It's **not** a standard when it’s supposed to be a standard.  
+> If a function is so bad for performance, why make it so powerful? It’s like putting poison in a nice soda can.
 
-# JS
+## Python
 >
-> Very big ecosystem, now it's problem.
->
-> Too many framework, even JS engines & JS runtime have more than I want to learn.
->
-> At the end of day, it's single thread process. Similar max performance issue like Python.
->
-> I want all browser support typescript, sass by default. I can dream.
->
-> I don't like UpperCamelCase or LowerCamelCase
+> It’s slow, but 90 % of business use cases accept horizontal scaling to mitigate the problem.  
+> Adding TypeScript‑like features to Python would be cool.  
+> I love `snake_case` variable naming; every language should use it.
 
-# C++
+## JS
 >
-> The reason c++ is fast because good coder will reduce work `Ex: python get val from dict always generate hash, but in c++ if you already gen hash, just reused hash`
-> But in the same time, developer have to manager more details
-> Think of driving, the more direct control over car engine faster you can drive. But I love automatic transmission!
+> Very large ecosystem—now that’s a problem.  
+> Too many frameworks; even JS engines and runtimes exceed what I want to learn.  
+> At the end of the day, it’s a single‑threaded process, similar performance issues as Python.  
+> I wish all browsers supported TypeScript and Sass by default. I can dream.  
+> I don’t like UpperCamelCase or lowerCamelCase.
 
-## .Net
+## C++
 >
-> One major thing I don't like about .net: isn't very clear what calls what, where code/DI from. I have to read micro docs, but there just too many versions w no clear differences.
+> C++ is fast because good programmers reduce work (e.g., Python gets a hash for every dict lookup, but in C++ you can reuse a pre‑computed hash).  
+> At the same time, developers must manage more details. Think of driving: the more direct control over the car engine, the faster you can drive. But I love automatic transmission!
+
+## .NET
+>
+> One major thing I don’t like about .NET is that it isn’t very clear what calls what, where code/DI comes from. I have to read micro‑docs, but there are just too many versions with no clear differences.
 
 ## Perl
 >
-> Who able to read this crap?
+> Who can read this crap?
 
 ## YAML
 >
-> YAML itself indentation already messy and unreadable, now Helm workflow control on TOP of this mess? Why? It's ugly! Easy to make mistakes. I want my good old json format back :(
-> I get it, it's easy make parser if we can trust indent. I hope someone build better parser & different format.
+> YAML’s indentation is already messy and unreadable; now Helm workflow adds another layer of mess? Why? It’s ugly! Easy to make mistakes. I want my good old JSON format back.  
+> I get it—parsers are easier when you can trust indentation. I hope someone builds a better parser and a different format.
 
-<hr />
+---
 
-# other
+# Other Topics
 
-## gRPC | webtransport
+## gRPC | WebTransport
 >
-> grpc(Google) remote procedure call
-make client request looks like function, replaces rest, webhook
+> gRPC (Google) remote procedure call makes client requests look like functions, replacing REST/webhooks.  
 
-> web socket cons: each new message type needs new socket; server can't create new connection;
+> WebSocket cons: each new message type needs a new socket; the server can’t create a new connection.
 
 ## Tailwind
 >
-> 2019 css framework, I like it, make sense
+> 2019 CSS framework—I like it; it makes sense.
 
 ## Browser IDE
 >
-> very cool, just live on 10-21-2021
-<https://vscode.dev/>
+> Very cool; just live on 2021‑10‑21  
+> <https://vscode.dev/>
 
-# Buzzword
+# Buzzwords
 
-- Unique Resource Identifier (URI)
-- REpresenatinal State Transfer(REST)
+- Uniform Resource Identifier (URI)
+- Representational State Transfer (REST)
+
