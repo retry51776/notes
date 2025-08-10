@@ -1,48 +1,46 @@
-# Project Misc stuff
+# Project Misc Stuff
 
 ## Dependency
 
-> Prefer projects from Open sources foundations, should be mature, less breaking changes
+> Prefer projects from open‑source foundations; they should be mature and have fewer breaking changes.
 
 - Linux Foundation
 - Apache Software Foundation
 - Open Source Initiative
-- Eclipse Foundation `mostly java`
+- Eclipse Foundation `mostly Java`
 
-> Prefer projects under Corporations for long life time, but more breaking changes
+> Prefer projects backed by corporations for long lifetimes, though they may introduce more breaking changes.
 
-- vscode from MS
-- mongodb
-- react
+- VS Code (Microsoft)
+- MongoDB
+- React
 
-> Check maintainer
+> Check maintainer activity:
 
-- Check most controversial github issue
-  - how maintainer response to issues
-  - what are issues itself
-- Check maintainers counts
-- Commit frequency & project length
-- Check stars
+- Review the most controversial GitHub issues and how maintainers respond.
+- Count the number of maintainers.
+- Examine commit frequency and project age.
+- Look at star count.
 
 ## Architecture
 
-- User Acceptant Test (UAT)
+- User Acceptance Test (UAT)
 
-Why process PDF is pain in ass.
+Why processing PDFs is a pain:
 <https://github.com/py-pdf/pypdf/blob/main/docs/user/extract-text.md>
 
-> PDF Portfolios is a special type of PDF file that acts as a container for multiple files.
+> PDF portfolios are a special type of PDF file that act as containers for multiple files.
 
 ## Windmill
 
-> Windmill worker uses `nsjail`, `nsjail` supports “loader_file” in that job directory handle setup env.
+> The Windmill worker uses `nsjail`; `nsjail` supports the “loader_file” option in the job directory to set up the environment.
 
-```bs
--- Install Windmill CLI
+```bash
+# Install Windmill CLI
 npm install -g windmill-cli
 wmill --version
 
--- Setup
+# Setup
 export BASE_INTERNAL_URL=http://localhost
 export WM_TOKEN=xxx
 export WM_WORKSPACE=xxx
@@ -52,6 +50,6 @@ wmill workspace add test-llm test-llm http://localhost/
 wmill sync pull
 ```
 
-> Variable max len 15000 chars
+> Variable maximum length: 15 000 characters.
 
 <https://www.windmill.dev/docs/apps/app_configuration_settings/app_component_library>
