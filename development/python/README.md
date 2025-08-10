@@ -16,7 +16,7 @@
 | Pip           | ❌ No           | ✅ Yes          | N/A (Pip doesn't manage environments) | |
 | uv            | ❌ No           | ✅ Yes          | N/A (Package Manger written in Rust) | |
 
-## Python Scope
+## Package Scope
 
 > Package has 2 types:
 > need either `setup.py` or `pyproject.toml`
@@ -59,7 +59,7 @@
   - `f'His name is {name=}'`
   - Typing Enhancements
 
-__Frustration__
+## Frustration
 
 - ~~destructure like es6 `const {a, b, ...others} = obj;`~~
     > new python 3.10 supports this <https://docs.python.org/release/3.10.0/whatsnew/3.10.html>
@@ -77,7 +77,7 @@ __Frustration__
 - `__init__` doesn't support different params
 - `setattr()` won't have IDE auto suggestion
 
-__Working on library__
+## Working on library
 
 ```py
 Install local package steps:
@@ -103,7 +103,7 @@ Install local package steps:
 module docstring in `__init__.py` or `beginning of *.py`
 function docstring in first line of function
 
-# To debug Ram & time
+## Debug
 >
 > `time -f python3 test.py`
 
