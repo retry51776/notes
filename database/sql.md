@@ -8,6 +8,11 @@
 - Data Query Language (DQL)
 - Transaction Control Language (TCL)
 
+## Frustrations
+
+- It's **not** a standard when it’s supposed to be a standard.
+- If a function is so bad for performance, why make it so powerful? It’s like putting poison in a nice soda can.
+
 ## Tips
 
 - IN MSSQL & MySQL before 5.8 will NOT multiple NULL values on unique constrain.

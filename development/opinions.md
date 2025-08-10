@@ -1,4 +1,8 @@
-# Software Analogy
+# Opinions
+>
+> Here are collections of my random opinions.
+
+## Software Analogy
 >
 > Old‑school Windows software deployment is like “sending you a big coffee machine to your house. The manufacturer can't clean it because they don't have access. The user can't clean the machine or adjust the coffee concentration because the user can't open it (closed source).”
 
@@ -11,19 +15,15 @@
 
 > Event‑based:
 
+> Computation is moving data, just with an inseparable move.
+
+## Philosophy
+
 > Talk is cheap; show me your code.
 
 > Make it work, make it right, make it fast.
 
-> Computation is moving data, just with an inseparable move.
-
-## Prediction
-
-1. In the future (within 10 years), developers will write/describe MVP code and give it to an AI compiler for optimization. The AI compiler may ask the developer for assumptions or clarifications, then compile production‑ready code much faster.
-2. Everything will be event‑based; **except** databases.
-3. Databases will support all types—time series, NoSQL, SQL, graph, etc.—perhaps as cloud services with accelerated hardware.
-
-# There is no solution, only trade‑offs
+> There is no solution, only trade‑offs
 
 Here are common trade‑offs:
 
@@ -36,6 +36,12 @@ Here are common trade‑offs:
 - Features or scalability  
   > SQL vs NoSQL
 - Complexity or flexibility
+
+## Prediction
+
+1. In the future (within 10 years), developers will write/describe MVP code and give it to an AI compiler for optimization. The AI compiler may ask the developer for assumptions or clarifications, then compile production‑ready code much faster.
+2. Everything will be event‑based; **except** databases.
+3. Databases will support all types—time series, NoSQL, SQL, graph, etc.—perhaps as cloud services with accelerated hardware.
 
 ## Architecture
 
@@ -73,7 +79,7 @@ Here are common trade‑offs:
 - `/Script`  
   > One‑off jobs, e.g., tests
 
-# Application Design
+## Application Design
 >
 > The database is usually the first bottleneck in application design.
 
@@ -170,13 +176,6 @@ Common encoding formats:
 > Docker uses Linux kernel namespaces for partitioning.  
 > VMs have overhead from virtual hardware and a virtual OS.
 
-# Application Language
-
-## SQL
->
-> It's **not** a standard when it’s supposed to be a standard.  
-> If a function is so bad for performance, why make it so powerful? It’s like putting poison in a nice soda can.
-
 ## Python
 >
 > It’s slow, but 90 % of business use cases accept horizontal scaling to mitigate the problem.  
@@ -211,8 +210,6 @@ Common encoding formats:
 
 ---
 
-# Other Topics
-
 ## gRPC | WebTransport
 >
 > gRPC (Google) remote procedure call makes client requests look like functions, replacing REST/webhooks.  
@@ -227,9 +224,3 @@ Common encoding formats:
 >
 > Very cool; just live on 2021‑10‑21  
 > <https://vscode.dev/>
-
-# Buzzwords
-
-- Uniform Resource Identifier (URI)
-- Representational State Transfer (REST)
-

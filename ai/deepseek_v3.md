@@ -55,3 +55,7 @@ Each expert are MLP with 2048
 - past_key_value `kv_cache`
 
 # DeepseekV3FlashAttention2
+
+## OpenAI OSS
+
+<https://github.com/huggingface/transformers/blob/main/src/transformers/models/gpt_oss/modeling_gpt_oss.py>

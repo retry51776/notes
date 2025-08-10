@@ -1,8 +1,9 @@
 # Database
+>
 > POV from application developer;
 
+## TODO
 
-### TODO
 - common DB data structure, b tree
 - common algo
 - common bad query & fixes
@@ -11,12 +12,12 @@
 ## Data
 
 - Things to consider:
-    - Data Structure
-    - Data Volume
-    - Ephemeral `last very short`
-    - Latency Tolerance
-    - Security
-    - Aggregation & Query Demand
+  - Data Structure
+  - Data Volume
+  - Ephemeral `last very short`
+  - Latency Tolerance
+  - Security
+  - Aggregation & Query Demand
 
 ## NoSQL DB
 

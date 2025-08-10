@@ -128,9 +128,16 @@
 >
 >> **Consensus** is common individual validation; war happens when there is no consensus on both sides.
 >
+>>`Consensus Stability ≈ (Breadth of Validation) × (Accuracy of Information Flow) / (Decision‑making Speed)`
+>>
+>>> Democracy is about increase numbers of individual validation. Pro side is Consensus are more resilient.
+>>> Dictatorship just small group consensus, maybe able rapid decision, with downside consensus be unstable. Ex: Rapid changes in Chinese policy
+>
 >> Trust is having validation of your past. Trusting yourself requires remembering & reflecting on your past.
 >
 > Before you persuade others, have you been validated by others?
+>
+>>
 
 <details>
   <summary>Risk Reward Examples</summary>
@@ -276,20 +283,6 @@ Poker is one of the best games about Risk & Reward. Many well-developed theories
 > Mathematicians by creativity think (Ability) + math tools (Principal & Philosophy) => develop algorithms to resolve problems (Mistakes)
 >
 > A formula is a condensed version of Mathematics law/theory (Principal);
-
-## Common Movie design pattern
-
-1. Shows misleading ending first, then start from beginning, then show end with a twist.
-2. Try to search for some secret that is sitting in plain sight.
-3. Ending with religion stuff.
-4. Unchangeable destiny.
-5. At first technology matters the most, but at the end relationships are most important.
-6. Puzzle movie.
-
-- More clues as the movie goes on;
-- Fragmentation; Ex: Westworld season 1;
-
-7. Tessellation; Most classic literature has tessellation; There are some side characters with few details; Yet indicates they follow the same rule & pattern that the main character follows. Ex: 红楼梦 皇帝>贾府>赖管家 (Aka recursive story)
 
 ## Team
 >
