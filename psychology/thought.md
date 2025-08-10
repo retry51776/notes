@@ -3,6 +3,9 @@
 > Here are collection of random idea.
 
 ## IMO
+>
+> > That is why we love stories: stories lead to conclusions.
+`aka Recognized patterns.`
 
 > Emotion bind fragments of memories(sensory, spatial, and temporal) together, creating a coherent narrative.
 

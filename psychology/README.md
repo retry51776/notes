@@ -1,10 +1,10 @@
-# Learning Process
+# Psychology
 >
 > Just like a computer, our brain has biology (hardware) & psychology (software).
 >
-> Inspired by Ray Dalio's Principles and Positive Discipline by Jane Nelsen.
+> Inspired by Ray Dalio's Principles
 
-> Life is like compression algorithms; compress sensation to form reaction, from reaction to develop habit, from habit to instincts, from instincts to knowledge.
+> Life is a compression algorithms, compress life experience to form collections of habits.
 
 ## Biology
 >
@@ -50,8 +50,8 @@
 >
 > Awareness can be broken down into [**Attention**](./psychology.md#1-attention) > [Sensation](./psychology.md#2-sensation) > [**Perception**](./psychology.md#3-perception)
 >
-> If you lack some awareness, most likely your personal value doesn't prioritize it.
-> > Prioritize [personal value](#personal-value), then learn [skills](#skill) to improve [Perception](psychology.md#3-perception).
+> If you lack some awareness, most likely your philosophy doesn't prioritize it.
+> > Prioritize [philosophy](./experience.md#philosophy) to improve [Perception](psychology.md#3-perception).
 
 ### Cue
 >
@@ -92,11 +92,6 @@
     - d.1 Reliance on people
     - d.2 Reliance on machine
 
-## Experience
->
-> [Experiences](experience.md) are accumulated states `RNN hidden state` of CNS Process;
-> > There is no such thing as a believer, nor a non-believer; just many past experiences move you from 0.01% non-believer to 99.99% believer.
-
 ## Self improvement
 
 ### Diagnose
@@ -104,7 +99,7 @@
 - 3.1 Diagnose `listen to others; reexamine experience`
   - 3.1.2 [Desire](#desire) `Belong or Power?`
     - Increase:
-      - re-prioritize personal value;
+      - readjust personal philosophy
       - convert emotion to motivation
     - Decrease:
       - [avoid](#evaluation-2-avoid-problem)

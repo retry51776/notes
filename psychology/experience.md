@@ -5,17 +5,14 @@
 - [Opinion](#opinion) — not a common consensus
 - [Philosophy](#philosophy) — self‑guidance
 - [Frameworks](#frameworks) — belief system
-- Team
+- [Teamwork](#teamwork)
 
 ## Opinion
 >
 > An **opinion** is a recognized pattern derived from past observations.
 > > It’s difficult to change our opinions because they are based on many different life experiences, which makes it hard to alter an existing opinion.
 >
-> > We are always biased because we each experience only a subset of reality.
->
-> > That is why we love stories: stories lead to conclusions.
-`aka Recognized patterns.`
+> > We(includes AI) are always biased because we each experience only a subset of reality.
 >
 > Ex: `import this #python's opinion`
 
@@ -27,11 +24,17 @@
 >
 > > Perhaps this also explains why we need less sleep as we age. My theory is that sleep normalizes neuronal firing strength and frequency.
 
+> > There is no such thing as a believer, nor a non-believer; just many past experiences move you from 0.01% non-believer to 99.99% believer.
+
+> Just like a computer, our brain has biology (hardware) & psychology (software).
+
 - There is no solution, only trade-off.
 
 - Understand the mechanics by either collecting statistics or applying logic.
 
 - You cannot connect the dots when looking forward (because the result/conjunction point has not yet occurred); you can only connect them when looking backward (after the result has happened).
+
+- It is human nature to want to be **belong** and have **power**.
 
 - Decision fatigue
 
@@ -49,6 +52,8 @@
 
 - We develop heuristics first—optimizing based on statistical bias—and later create algorithms, i.e., frameworks that explain all possible paths.
 
+- Everything has its mechanic.
+
 ## Philosophy
 >
 > Philosophy is a way of evaluating internal and external actions and results—a dimension for measuring risk and reward (akin to KPIs or neural-network loss functions).
@@ -60,8 +65,6 @@
 > > A new philosophy must be compatible with the existing one and its conclusions.
 
 - Bayesian statisticians
-
-- Everything has its mechanic.
 
 - Seek satisfaction, not happiness.
 
@@ -118,7 +121,7 @@
 ### Trust & Habit are past artifacts of Risk & Reward
 
 > <strong> Biological nature is about Risk & Reward Management.</strong> Habit and Trust are of the same nature, a summary of past experiences.
->> Any living thing, as it gets older, has less flexibility/change. It's because new opinions are hard to dilute due to too many past experiences.
+>> Any living thing, as it gets older, has less flexibility/change. It's because new experience are hard to dilute many past experiences.
 
 - Connection before correction. `by Jane Nelsen`
 
@@ -136,8 +139,10 @@
 >> Trust is having validation of your past. Trusting yourself requires remembering & reflecting on your past.
 >
 > Before you persuade others, have you been validated by others?
+>> To persuade others, your opinion/conclusion should based off THEIR life experiences.
 >
->>
+>> Desired Consensus = Goal
+>> Ex: 刘邦斩丁公；Different goal at different time. At time of war, desired consensus is to defeat 项羽。After defeated 项羽，the desired consensus shifted to loyalty toward 刘邦.
 
 <details>
   <summary>Risk Reward Examples</summary>
@@ -284,7 +289,7 @@ Poker is one of the best games about Risk & Reward. Many well-developed theories
 >
 > A formula is a condensed version of Mathematics law/theory (Principal);
 
-## Team
+## Teamwork
 >
 > Teamwork Philosophy
 
@@ -293,6 +298,8 @@ Poker is one of the best games about Risk & Reward. Many well-developed theories
 - If you want to go fast, go alone; if you want to go far, go together.
 
 - The goal is not important; the execution path is the key. The skill to navigate the path and understand the trade-offs is what makes the difference.
+
+> Maybe think goal in consensus framework, rapid re-adjust consensus is important. Because desired consensus is what we want, which may NOT be what we need.
 
 - Establish goals & rules in advance, and create a transparent environment.
 
