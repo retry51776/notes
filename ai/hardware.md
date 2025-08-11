@@ -1,287 +1,175 @@
 # Hardware
 
-> At the end of the day, only limitation is chip space(Real estate); space either assign to computation(flexible or efficiency) or storage(latency or throughput);
+> Ultimately, the only limitation is chip real estate; space must be allocated to computation (flexible or efficient) or storage (latency or throughput).
 
-## Software
->
-> Machine Learning Frameworks(PyTorch) > Acceleration Driver(cuDNN) > Parallel Thread Execution(PTX: assembly code) > Streaming ASSembly (SASS: machine code) > Hardware(GPU)
+## Software Stack
 
-> Different hardware needs its custom version llama.cpp. Ex(Metal llama.cpp, ROCm llama.cpp, CUDA llama.cpp)
+> Machine‑learning frameworks (e.g., PyTorch) → acceleration drivers (cuDNN) → parallel thread execution (PTX assembly) → streaming assembly (SASS machine code) → hardware (GPU).
 
-> Each manufactory has its own Shading Language(SL).
+Different hardware needs its own version of `llama.cpp` (e.g., Metal, ROCm, CUDA).
 
-- near memory design:
-- reconfigurable dataflow hardware vs parallelism on top of existing computation
+Each manufacturer has its own shading language.
 
-## RAM
->
-> The real bottleneck is the memory hierarchy: the GPU has limited high-bandwidth memory (HBM or SRAM), and the model's parameters far exceed this capacity. This forces frequent data transfers between off-chip and on-chip memory.
+### Near‑Memory Design
 
-> > GPU hide its memory latency by WRAP handle multiple threads. Unlike CPU switch threads are slow & expensive, GPU thread are Lightweight Context, schedule by hardcore not OS.
+- Reconfigurable data‑flow hardware vs. parallelism on existing compute units.
 
-> RAM size & speed & throughput is key bottleneck of AI training & inference.
+## Memory Hierarchy
 
-> GRAM are high throughput, unlike CPU focus on low latency.
+> The real bottleneck is the memory hierarchy: GPUs have limited high‑bandwidth memory (HBM or SRAM), while model parameters far exceed this capacity, forcing frequent off‑chip transfers.
 
-- RAM
-  - Dynamic RAM (DRAM) `capacitors`
-    - HBM
-      - PCIe 5 `128 GB/s`
-      - SXM `600 GB/s`
-    - DDR1-5
-    - LPDDR
-    - GDDR
-  - Static RAM (SRAM) `flip-flops (latches)`
-    - L1, L2, L3 cache
-- Flash
+- **GPU memory** hides latency by interleaving many threads. Unlike CPUs, where context switches are expensive, GPU threads are lightweight and scheduled by hardware.
 
-## Network
+### RAM Types
 
-- InfiniBand
-  - Remote Direct Memory Access (RDMA) `by pass CPU, network card can directly store data into RAM
-  - Reliable Datagram Protocol (RDP)`
-- Ethernet
+| Type | Description |
+|------|-------------|
+| DRAM (dynamic) | Capacitor‑based; includes HBM (PCIe 5 ≈ 128 GB/s, SXM ≈ 600 GB/s), DDR1‑5, LPDDR, GDDR |
+| SRAM (static) | Flip‑flop based; L1/L2/L3 caches |
 
-## Training
+### Network
 
-- cuDNN
-- Deep Learning GPU eXtreme(DGX) A100 server = 8 (A100 80GB GPU)
-  - V(Volta)100 GPU
-    - original GPT trained w 10,000 V100 GPUs
-    - GV100, GA100, GH100,
-      - Tensor Core that specialize in matrix multi
-- HGX
-  - H(Hopper)100 GPU
-- APU
+- **InfiniBand** – Remote Direct Memory Access (RDMA) bypasses the CPU. Uses Reliable Datagram Protocol (RDP).  
+- **Ethernet** – Standard networking.
 
-- DGX server have sister product (HGX server)High-Performance GPU (Graphics Processing Unit) eXtensible
+## Training Infrastructure
 
-- Data Parallelism (DP) `Clone the whole Model`
-- Pipeline Parallelism (PP) `Split the model across layers; Deep Model`
-- Sequence Parallelism (SP) `Long Input token`
-- Tensor Parallelism (TP) `very bad idea`
-- State Batch `Sync Back Props loss`
-- Master Weight
+- **cuDNN**, **DeepSpeed** for large‑scale training.  
+- **DGX** servers: 8 × A100 80 GB GPUs.  
 
-## Networking
+### Parallelism Strategies
 
-- Ethernet Cable `Color (OrgWhite, Org, GreenWhite, Blue, BlueWhite, Green, BrownWhite, Brown), Only need (1,2,3,6) to work, but limited to 100mb`
-- QSFP (Quad Small Form-factor Pluggable)
-- Fiber Optic Cables
+| Strategy | Description |
+|----------|-------------|
+| Data Parallelism (DP) | Replicate the whole model on each GPU; split data batches. |
+| Pipeline Parallelism (PP) | Split the model across layers; each GPU processes a different stage. |
+| Sequence Parallelism (SP) | Partition long input sequences across GPUs. |
+| Tensor Parallelism (TP) | Split individual tensor operations across devices (often less efficient). |
 
-## Improvement
+## Networking Details
 
-| Optimization            | Key Idea                          | Benefit                                |
-|-------------------------|-----------------------------------|----------------------------------------|
-| Use Tensor Cores        | FP16/INT8 for matrix ops          | 10-20x speedup in matrix multiplication |
-| Memory Coalescing       | Align memory for efficient access | Avoids global memory latency           |
-| Kernel Fusion           | Merge multiple operations         | Reduces launch overhead                |
-| FlashAttention          | Compute attention in blocks       | Saves memory and speeds up inference   |
-| Lower Precision (FP16/INT8/FP8) | Reduce data size           | Faster compute, lower memory use       |
-| Persistent Kernels      | Keep threads active              | Reduces scheduling overhead            |
-| CUDA Graphs             | Precompute kernel calls           | Avoids CPU bottlenecks                 |
-| Multi-token Decoding    | Predict multiple tokens           | Speeds up text generation              |
+- Ethernet cable color codes: OrgWhite, Org, GreenWhite, Blue, BlueWhite, Green, BrownWhite, Brown; only pins 1,2,3,6 are used for 100 Mb/s.  
+- QSFP – Quad Small Form‑factor Pluggable.  
+- Fiber optics for high‑speed links.
 
-## OpenSource
+## Performance Optimizations
 
-- Exo Labs `AI clusters software`
+| Optimization | Key Idea | Benefit |
+|--------------|----------|---------|
+| Tensor Cores | Use FP16/INT8 for matrix ops | 10–20× speedup |
+| Memory Coalescing | Align memory accesses | Reduces latency |
+| Kernel Fusion | Merge multiple kernels | Lowers launch overhead |
+| FlashAttention | Blockwise attention computation | Saves memory, speeds inference |
+| Lower Precision (FP16/INT8/FP8) | Reduce data size | Faster compute, less memory |
+| Persistent Kernels | Keep threads alive | Cuts scheduling cost |
+| CUDA Graphs | Pre‑record kernel launches | Avoids CPU bottlenecks |
+| Multi‑token Decoding | Predict several tokens at once | Increases generation speed |
+
+## Open‑Source Ecosystem
+
+- **Exo Labs** – AI cluster management software.
 
 ## Inference Hardware
->
-> Usually they all use In Memory Compute instead HBM
 
-- Groq `inference workloads only. PyTorch model to ONNX, then ONNX compiled into Groq hardware.`
-- Etched ``
-- D-Matrix ``
+> Most inference hardware uses in‑memory compute rather than relying on external HBM.
 
-## Amazon
+- **Groq** – Converts PyTorch models to ONNX, then compiles for Groq ASICs.  
+- **Etched**, **D‑Matrix** – Emerging inference accelerators.
 
-- Trainium `Amazon design hardware supports CUDA`
-- Bedrock `LLM SSAS provider`
+## Cloud Providers
 
-> anthropic works with Amazon.
+### Amazon
 
-## Google
+- **Trainium** – Custom AWS hardware compatible with CUDA.  
+- **Bedrock** – Managed LLM service (works with Anthropic).
 
-- TPU `Google design hardware`
-- Colab `Google Jupiter notebook with FREE GPU`
+### Google
 
-## Apple
+- **TPU** – Tensor Processing Units, Google’s custom AI accelerator.  
+- **Colab** – Free notebooks with GPU/TPU access.
 
-> MLX is an array framework designed for efficient and flexible machine learning research on Apple silicon. But only support 4 & 8 bits
+### Apple
 
-> CoreML is Apple’s optimized AI inference engine for running ML models on Apple devices. It supports ANE (Apple Neural Engine) for maximum efficiency.
+- **MLX** – Efficient array framework for Apple silicon (supports 4‑ and 8‑bit).  
+- **Core ML** – Optimized inference engine; leverages the Apple Neural Engine (ANE).
 
-CUDA vs. Mac Interpolation Support
+> The ANE is not directly accessible from MLX or PyTorch.
 
-Apple Neural Engine(ANE) is not accessible to MLX or PyTorch directly.
+### AMD
 
-## AMD
+- Uses **HIP** to translate CUDA code to AMD GPUs.
 
-> AMD uses Hipify to convert CUDA into AMD HIP.
+### CoreWeave
 
-## CoreWeave
+- Cloud AI provider with GPU‑focused infrastructure.
 
-> Bunch top finical ground funded Cloud AI warehouse.
+### Haiwei
 
-## Haiwei
+- Ascend 910 – Inference hardware from Huawei.
 
-> Ascend910 Inference Hardware
+## NVIDIA Ecosystem
 
-## Open AI
+> H100 units cost at least $30k; the entire product line includes:
 
-> Triton is OpenAI alternative to CUDA.
+- **GeForce** – Consumer gaming GPUs.  
+- **Quadro** – Professional workstations.  
+- **DGX / HGX** – AI‑focused servers (e.g., DGX A100, HGX H100).  
+- **Jetson** – Edge AI and robotics.  
+- **Tegra** – Embedded/mobile GPUs.
 
-## Nvidia
+### GPU Architecture Components
 
-> H100 cost at least $30k; standard unit;
-> NVIDIA makes 1-2 million H100 per year.
-> DGX cost at least $350k, includes 8 A100 GPUs; Commonly call a node.
+| Component | Role |
+|-----------|------|
+| CUDA Core | General‑purpose compute unit |
+| Tensor Core | Matrix multiplication (FP16/INT8) |
+| RT Core | Ray tracing |
+| Raster Unit | Vector → pixel conversion |
+| Texture Unit | Apply textures to geometry |
+| Memory | GDDR5/6/6X, HBM2/2E |
+| NVLink | High‑speed GPU‑to‑GPU interconnect |
+| NVENC / NVDEC | Video encode/decode |
 
-- Product Lines:
-  - GeForce Series (Gaming and Consumer GPUs)
-  - Quadro Series (Professional Workstations)
-  - DGX & HGX (AI)
-  - Jetson Series (Edge AI and Robotics)
-  - Tegra Series (Embedded and Mobile GPUs)
+### Training Tools
 
-- GPU hardware units `Each unit has its generation architecture`
-  - CUDA Core `General propose unit`
-    - from 1.x -> CUDA 11.x
-    - DLSS 3 (Deep Learning Super Sampling 3)
-    - DLSS 4 `switch CNN to Transformer`
-  - Tensor Core `Matrix Only`
-    - Volta (first generation)
-    - Turing (improved with INT8 and INT4 support)
-    - Ampere (added sparsity support)
-    - Ada Lovelace (further efficiency improvements)
-  - RT cores: `For ray tracing, enhancing realistic lighting and shadows in graphics.`
-  - Raster units: `For converting vector graphics to raster images.`
-  - Texture units: `For texture mapping, which applies images to 3D models.`
-  - Memory
-    - GDDR5
-    - GDDR6
-    - GDDR6X
-    - HBM2
-  - NVLink: `For high-speed interconnects between GPUs.`
-  - Display Engine
-  - NVENC (Encoder) & NVDEC (Decoder)
+- **AI Enterprise** – NVIDIA’s AI suite.  
+  - **Triton Inference Server** (includes TensorRT).  
+  - **NVIDIA NeMo** – Model training framework.
 
-- Training Tools
-  - AI Enterprise (AIE) `charge by GPU`
-    - Triton Inference Server
-      - TensorRT `LLM runtime`
-    - NVIDIA NeMo `Training`
-  - AI Workbench
-    - Single GPU
-- Inference Tools
-  - NVIDIA Inference Microservices (NIM)
-    - Jupyter Notebook as Workbench
-    - Standardize RESTful APIs
+### Inference Tools
 
-Nvidia Hardware Terms:
-DGX -> DGX Base Pods -> DGX Super Pods -> DGX Cloud
-NVLink `within a server` vs InfiniBand `across servers`
+- **NVIDIA NIM** – Inference micro‑services.  
+- **Jupyter notebooks** for experimentation.  
 
-Baseboard Management Controller (BMC) `aka mother board`
-Quad Small Form-factor Pluggable (QSFP) `aka fast ethernet`
+## Management Controllers
 
-Terms
+- BMC – Baseboard Management Controller (motherboard management).  
+- QSFP – High‑speed optical/electrical interface.
 
-- CUDA compiler (nvcc)
-- Streaming Multiprocessors (SMs)
-- NVIDIA Collective Communications Library (NCCL)
-- cuda-gdb `debug`
-- mixed precision execution(runs 8 bit operations on 16 bit to maximize hardware usage)
+## CUDA Programming Concepts
 
-- Grid `each scope has its own memory; Grid won't free unless cudaFree(); reduce synchronization size.`
-  - Block `Set of threads; memory reset after finished.  max 1024 threads.`
-    - Thread `1 to 1 cuda core;`
-
-> Both Grid & Block supports up to 3 dimensions (x, y, z)
-
-> Each thread is map to single CUDA core
-
-> Only one kernel is execute, by default won't have multiple kernel run at once.
-
-```ps
-
-# Developer Perspective
-Grid (Many Blocks)
- ├── Block 0 (1024 Threads) `assign to single SM`
- |    ├── Warp 0 (32 Threads)
- |    │    ├── Thread 0 `assign to CUDA core`
- |    │    ├── ...
- |    │    ├── Thread 31
- |    ├── Warp 1 (32 Threads)
- |    │    ├── Thread 32
- |    │    ├── ...
- |    │    └── Thread 63
- |    ├── Warp 31
- |    │    ├── Thread 991
- |    │    ├── ...
- |    │    └── Thread 1023
- ├── Block 1 (Many Threads)
- │    ├── Thread 0
- │    ├── Thread 1
- │    ├── ...
- │    └── Thread 1023
- └── Block 255 (Many Threads)
-
-# Hardware Perspective
-GPU (H100)
- ├── SM 0 (SIMT) `Single Instruction, Multiple Threads`
- │    ├── CUDA Cores
- │    ├── Tensor Cores
- │    ├── Warp Schedulers (4)
- |    |   ├── Warp 0 (32 Threads) `rotate threads on SM to increase occupancy rate`
- |    |   ├── ...
- |    |   └── Warp N
- │    ├── SFUs (Trigonometric & special functions)
- |    ├── Load/Store Units (Memory operations)
- |    ├── L1 Cache & Shared Memory (228 KB)
- |    ├── RT Cores (if present) (For ray tracing)
- |    └── Texture Units (For graphical applications)
- ├── SM 1
- ├── ...
- ├── SM 131
- |
- ├── L2 Cache (50 MB, Shared across SMs, on chip memory)
- └── Global Memory (aka HBM RAM, 80GB)
+- **Grid** – Collection of blocks; can be 1‑3 dimensions.  
+- **Block** – Up to 1024 threads; also 1‑3 dimensions.  
+- **Warp** – 32 threads executed in lockstep.  
 
 ```
-
-Nvidia Software Terms:
-
-- AI Enterprise
-  - DGX OS `Ubuntu + custom tools & drivers`
-    - Tools:
-      - Nvidia Base Command `enough for most devs`
-      - Nvidia Base Command Manager `UI for base command`
-      - Nvidia Suit Command `edge vision deployment`
-    - Tech:
-      - Remote Direct Memory Access (RDMA)
-  - Nvidia GPU Cloud (NGC) `Only for Nvidia Hardwares`
-    - VCenter `Aka Nvidia Cloud console, create VM`
-      - WorkLoads `spin up container`
-      - DataSources
-  - Hyperscale GPU Accelerator (HGX) `Certified Servers for NVIDIA AI Enterprise`
-    - Dell PowerEdge Servers (e.g., R750xa, R760)
-    - HPE ProLiant Servers (e.g., DL380 Gen10, DL385 Gen11)
-    - Lenovo ThinkSystem Servers (e.g., SR670, SR650)
-    - Supermicro GPU Servers (e.g., SYS-420GP-TNAR, SYS-210GP-DNR)
-
+# Developer perspective
+Grid (many Blocks)
+ ├─ Block 0 (1024 Threads) → assigned to a single SM
+ │   ├─ Warp 0 (32 Threads)
+ │   └─ …
+ ├─ Block 1 (many Threads)
+ └─ Block N
 ```
 
-nvdia-smi
+- **SM** – Streaming Multiprocessor; contains CUDA cores, Tensor Cores, warp schedulers, SFUs, load/store units, L1 cache & shared memory.  
+- **L2 Cache** – Shared across SMs; large but slower than L1.  
+- **Global Memory** – HBM or GDDR attached to the GPU.
 
-```
+## NVIDIA Software Stack
 
-Create VM steps:
+- **AI Enterprise** → OS (Ubuntu + drivers) → Tools (Base Command, Base Command Manager, Suit Command).  
+- **NGC** – NVIDIA GPU Cloud for containers and pre‑built images.  
+- **HGX** – High‑performance GPU servers (e.g., Dell PowerEdge R750xa, HPE ProLiant DL380 Gen10, Lenovo SR670, Supermicro SYS‑420GP).````
 
-1. Define hardware profile
-2. Software `NVD guess driver & container toolkit`
-3. App Config `aka volume, container, software, etc. Analogy: room blueprint`
-4. Template Config `reusable blueprint; Analogy: house blueprint`
-
-Registers(8TB/s) < Shared (1.5TB/s `L1 cache`) < Const Memory(`immutable constance`) < Local(200GB/s) < Host (5GB/s)
+ai/code.md
