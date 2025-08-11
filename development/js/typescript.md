@@ -43,4 +43,3 @@ const funx = (a: number | null, b: number | string): void => {
   return;
 };
 ```
-```
