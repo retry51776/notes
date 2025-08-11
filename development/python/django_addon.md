@@ -1,93 +1,136 @@
 # Django REST framework (DRF)
-> DRF parses HttpRequest header & body into Python Dict; Uses Serializer to convert into different formats;
-> Authentication policies, Auto create OpenAPI endpoint from Model
-> Attach API by `path('/api', include('rest_framework.urls'))`
-> `drf_spectacular` auto generate openapi documentation
 
-- Router
-- View
-  - ViewSet
-    - serializer_class
-    - permission_classes
-    - authentication_classes
-    - filter_backends
-  - GenericViewSet
-    - get_object()
-    - get_queryset()
-  - ModelViewSet
-    - list()
-    - retrieve()
-    - create()
-    - destroy()
-- Parsers & Render & Pagination
-- `DEFAULT_PERMISSION_CLASSES` triggers by
-  - View.get_object() -> .check_object_permissions(request, obj)
+> DRF parses the `HttpRequest` header and body into a Python dict. It uses serializers to convert data into different formats.
+>
+> Features include authentication policies, automatic OpenAPI endpoint generation from models, and easy API attachment via  
+> `path('/api', include('rest_framework.urls'))`.
+>
+> `drf_spectacular` can automatically generate OpenAPI documentation.
 
+## Core Concepts
+
+- **Router**
+- **View**
+  - **ViewSet**
+    - `serializer_class`
+    - `permission_classes`
+    - `authentication_classes`
+    - `filter_backends`
+  - **GenericViewSet**
+    - `get_object()`
+    - `get_queryset()`
+  - **ModelViewSet**
+    - `list()`
+    - `retrieve()`
+    - `create()`
+    - `destroy()`
+- **Parsers, Renderers & Pagination**
+- `DEFAULT_PERMISSION_CLASSES` are triggered by  
+  `View.get_object()` → `.check_object_permissions(request, obj)`
 
 ## GenericViewSet
-```py
-def get_object()
-def get_queryset()
+
+```python
+def get_object(self):
+    ...
+
+def get_queryset(self):
+    ...
 ```
-## ModelViewSet
-```py
-# Default methods
+
+## ModelViewSet (default methods)
+
+```python
+# List objects
 def list(self, request):
+    ...
+
+# Create a new object
 def create(self, request):
+    ...
+
+# Retrieve a single object
 def retrieve(self, request, pk=None):
+    ...
+
+# Update an existing object
 def update(self, request, pk=None):
+    ...
+
+# Partially update an object
 def partial_update(self, request, pk=None):
+    ...
+
+# Delete an object
 def destroy(self, request, pk=None):
-def perform_create()
-def perform_update()
-def perform_destroy()
+    ...
+
+# Hooks that can be overridden
+def perform_create(self, serializer):
+    ...
+
+def perform_update(self, serializer):
+    ...
+
+def perform_destroy(self, instance):
+    ...
 ```
 
 ## Serializer
-```py
-# Google how to override to define fields, read_only_fields, attach event handler
-from rest_framework.serializers import ModelSerializer
-xyz = SerializerMethodField()
-def get_xyz():
-  return 1
 
-xxx = xxxSerializer(date={}, initial_data={}, validated_data={})
-xxx.is_valid()
-xxx.errors
-xxx.data
-xxx.validated_data
-xxx._writeable_fields
+```python
+# To override fields, read‑only fields, or attach event handlers,
+# consult the DRF documentation.
+from rest_framework.serializers import ModelSerializer, SerializerMethodField
+
+class MyModelSerializer(ModelSerializer):
+    xyz = SerializerMethodField()
+
+    def get_xyz(self, obj):
+        return 1
+
+# Usage example
+serializer = MyModelSerializer(data={}, initial_data={}, validated_data={})
+if serializer.is_valid():
+    # Access serialized data
+    print(serializer.data)
+else:
+    print(serializer.errors)
+
+# Internal attributes
+print(serializer._writable_fields)   # Note: this is a protected attribute.
 ```
 
-# Django Addons / Apps
-## Permission
-- django-guardian
-- drf-access-policy
-- django-rules `In memory`
-> `predicate` is function enforce permission logic
-> 
-> `Meta.rules_permissions = { 'xyz', is_admin }`
-```
-```
+## Django Add‑ons / Apps
 
+### Permission Packages
 
-### Django-cors-headers
+- **django-guardian**
+- **drf-access-policy**
+- **django-rules** (in‑memory)
+  > A *predicate* is a function that enforces permission logic.  
+  > Example: `Meta.rules_permissions = { 'xyz', is_admin }`
 
-### sentry
-> Runtime Error Tracking; sentry.io is paid version
-### Django GUID
-### Cookiecutter
+### Other Useful Packages
 
+- **django-cors-headers**
+- **sentry-sdk** – runtime error tracking (paid version on Sentry.io)
+- **django-guid**
+- **cookiecutter-django**
 
-### djangorestframework-version-transforms
-> 1. by header param `Accept: version=1`
-> 2. by url path `r'?(?P<pk>[0-9]+)/$'`
+### Versioning Strategies (`djangorestframework-version-transforms`)
 
+1. By header parameter: `Accept: version=1`
+2. By URL path, e.g., `r'(?P<pk>[0-9]+)/$'`
 
-# Testing
+## Testing
+
 ```bash
-# must install to test django
+# Install the Django test utilities
 pip install pytest-django
 ```
-## Factory-Boy
-unit test tool, similar to fixture
+
+### Factory‑Boy
+
+A factory library for creating test objects, similar to fixtures.
+
