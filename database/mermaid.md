@@ -13,5 +13,4 @@ timeline
     section Journey
         Departure: Begin journey on the planned route
         Adventure: Enjoy the road trip with friends
-
 ```

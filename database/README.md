@@ -1,24 +1,23 @@
 # Database
->
-> POV from application developer;
+
+> Perspective of an application developer.
 
 ## TODO
 
-- common DB data structure, b tree
-- common algo
-- common bad query & fixes
-- list of tradeoffs on different dbs
+- Common DB data structures (e.g., B‑tree)  
+- Common algorithms  
+- Typical bad queries & fixes  
+- Trade‑offs of different databases  
 
-## Data
+## Considerations
 
-- Things to consider:
-  - Data Structure
-  - Data Volume
-  - Ephemeral `last very short`
-  - Latency Tolerance
-  - Security
-  - Aggregation & Query Demand
+- Data structure  
+- Data volume  
+- Ephemeral “last very short” data  
+- Latency tolerance  
+- Security  
+- Aggregation & query demand  
 
-## NoSQL DB
+## NoSQL Databases
 
-- BloomFilter `common algorithm search data contain some element, either no, or most likely yes; hash all set into single bit arrays, store all hashed dataset into array bits; check hashed target bits are on in array bits;`
+- **Bloom filter** – a probabilistic algorithm that determines whether an element is *possibly* in a set or definitely not. It hashes elements into a bit array; checking involves testing the relevant bits.

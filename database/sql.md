@@ -1,156 +1,127 @@
 # SQL
->
-> atomicity, consistency, isolation, durability (ACID)
 
-- Data Definition Language (DDL)
-- Data Manipulation Language (DML)
-- Data Control Language (DCL)
-- Data Query Language (DQL)
-- Transaction Control Language (TCL)
+> ACID: Atomicity, Consistency, Isolation, Durability.
 
-## Frustrations
+## Languages
 
-- It's **not** a standard when it’s supposed to be a standard.
-- If a function is so bad for performance, why make it so powerful? It’s like putting poison in a nice soda can.
+- Data Definition Language (DDL)  
+- Data Manipulation Language (DML)  
+- Data Control Language (DCL)  
+- Data Query Language (DQL)  
+- Transaction Control Language (TCL)  
+
+## Common Frustrations
+
+- It’s **not** a standard when it *should* be one.  
+- Powerful functions can be performance killers; they should be used sparingly.
 
 ## Tips
 
-- IN MSSQL & MySQL before 5.8 will NOT multiple NULL values on unique constrain.
-- in where caluse, avoid using function on table columns
-  - Bad: `where ISNULL(sales.enddate, '2999-12-31') > @enddate`
-  - Good: `where sales.enddate is NULL or sales.enddate > @enddate`
-- break nested query into temp table SQL
+- In MSSQL & MySQL < 5.8, multiple `NULL` values are allowed on a unique constraint.  
+- Avoid wrapping column references in functions within `WHERE` clauses.  
+
+  **Bad:** `WHERE ISNULL(sales.enddate, '2999‑12‑31') > @enddate`  
+  **Good:** `WHERE sales.enddate IS NULL OR sales.enddate > @enddate`
+
+- Break complex queries into temporary tables:
 
 ```sql
-select b, sum(a) into #temp1 where a > 2 group by b;
-select * from c join #temp1 on c.b = temp1.b;
+SELECT b, SUM(a) INTO #temp1 FROM source WHERE a > 2 GROUP BY b;
+SELECT * FROM c JOIN #temp1 ON c.b = temp1.b;
 ```
 
-- make sure filter value is exactly same type as column
-- always query from smallest result set(not always smallest table) to largest;
-- Query Planner often can opitmized it, but not guarante
+- Ensure filter values have the same data type as the column.  
+- Query from the smallest result set to the largest; let the optimizer do its job.  
 
-- Avoid Wild card is beginning, cost table scan EX `like %12`
-- Query plan Tips
-  - If cost above 5, SQL will try parellarism
-  - Right click select check memory usage
-  - Don't use table variable
+### Index Usage
 
-- Implicit conversion
-- TempDB spill
+- **Clustered index** – stores rows physically in order of the key.  
+- **Non‑clustered index** – separate structure that points to rows.  
+- **Covering index** – non‑clustered index that includes all needed columns.
 
-**Temp table|CTE|Var table**
+### Common Operators
 
-- Table variable is RAM only, can rewrite, no session, but needs more code
-- Temp table less code, requires drop, but lives within session
+| Operator          | Description                              |
+|-------------------|------------------------------------------|
+| Table Scan        | Full scan of the table (slow)            |
+| Index Scan        | Reads every page in an index             |
+| Index Seek        | Directly fetches qualifying pages       |
+| Key Lookup        | Retrieves remaining columns after a seek |
+| Nested Loop Join  | Cursor‑based, often fastest for small sets|
+| Merge Join        | Sorted merge; fast but CPU‑intensive     |
+| Hash Join         | Builds hash table; CPU intensive         |
+| Stream Aggregate  | Requires sorted input                    |
+| Hash Aggregate    | Blocking operation                       |
 
-## Index
+### Maintenance
 
-- Cluster index is unique index, row is store by cluster index
-- None cluster index(index storage) is always store cluster index(reduce look up)
-- Cover index is none cluster index including other columns
+- Single‑user mode vs. offline mode: be cautious when taking a database offline.  
 
-## Common Operators
+## Under the Hood
 
-- Table scan is slow
-- Index Scan is touch every pages
-- Index Seek is get qualified pages
-- Key Lookup is get other columns
-
-- Nested Loop is cursor, fastest
-- Merge Join is fast, but slightly CPU
-- Hash Match cost a lot CPU
-
-- Stream Aggregate required sorted
-- Hash aggregate is blocking op
-
-## Maintain
->
-> single user mode vs offline mode
->
-> I'd remote into DB server, turn to offline mode
->
-> be careful on single user mode, no recommend
-
-## Under the hood
->
-> Query optimizer builds a good enough query plan
->
-> Plan cache story query plans
->
-> Cardinality Estimator Is generate table stats
+- The query optimizer builds an execution plan that is “good enough.”  
+- Plans are cached for reuse.  
+- Cardinality estimator generates table statistics.
 
 # MSSQL
 
-> Jokes `It saids all in the name, it's MY sql, NOT yours!`
+> Jokes: “It says all in the name, it’s **MY** SQL, NOT yours!”
 
-*Bugs*
+### Gotchas
 
-- index with foreign key will causes all columns in that index be lock when foreign key updates.
-- Transaction will NOT undo DDL(Data Definition Language, aka create/drop tables) commands
-- Trigger will NOT trigger when foreign key changed
+- Indexes that support foreign keys can cause locking on all indexed columns during FK updates.  
+- DDL statements are not rolled back by transactions.  
+- Triggers do not fire when a foreign‑key column changes.
 
 ```sql
-sp_who2 active
-KILL session_id
+sp_who2 active;
+KILL <session_id>;
 
 SELECT conn.session_id, host_name, program_name,
-    nt_domain, login_name, connect_time, last_request_end_time 
+       nt_domain, login_name, connect_time, last_request_end_time 
 FROM sys.dm_exec_sessions AS sess
 JOIN sys.dm_exec_connections AS conn
-   ON sess.session_id = conn.session_id;
+  ON sess.session_id = conn.session_id;
 
-Windows Function Example:
-select
-original_uid,
-version,
-row_number() over
-    (partition by original_uid order by version desc) row_num
-from template
-where template.provider_uids <@ ARRAY[{}]::integer[]
-group by 1, 2
-
-
-DECLARE @InsertQmId int
-SELECT @InsertQmId = @@IDENTITY
+-- Window function example
+SELECT original_uid,
+       version,
+       ROW_NUMBER() OVER (PARTITION BY original_uid ORDER BY version DESC) AS row_num
+FROM template;
 ```
 
-- TempDB is configable since 2016
-- Polyphase will allow mssql query other dB, ex: mongodb, Oracle, spark
+- `TempDB` is configurable since SQL 2016.  
+- PolyBase allows querying external data sources such as MongoDB, Oracle, Spark.
 
 # MySQL
 
 ```sql
-create
-    definer = terry@`%` procedure x_proc(IN xxx varchar, OUT tt int)
+CREATE PROCEDURE x_proc(IN xxx VARCHAR(255), OUT tt INT)
 BEGIN
-    declare _xx int(5);
-    declare done int default false;
-    declare xx_cursor CURSOR FOR
-        SELECT xx FROM YY WHERE zz = xxx;
-    declare continue handler for not found set done = TRUE;
+    DECLARE _xx INT(5);
+    DECLARE done BOOLEAN DEFAULT FALSE;
+    DECLARE xx_cursor CURSOR FOR SELECT xx FROM YY WHERE zz = xxx;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
 
-    open xx_cursor;
-    xx_loop: LOOP
-        fetch xx_cursor INTO _xx;
-
-        if done THEN
-            LEAVE xx_loop
-        else
-            //whatever
-        end if;
-    end loop xx_loop;
-    close xx_cursor;
-    set tt = 2
-    leave x_proc;
+    OPEN xx_cursor;
+    read_loop: LOOP
+        FETCH xx_cursor INTO _xx;
+        IF done THEN
+            LEAVE read_loop;
+        ELSE
+            -- do something with _xx
+        END IF;
+    END LOOP read_loop;
+    CLOSE xx_cursor;
+    SET tt = 2;
 END;
 
-call x_proc('test', @tt)
-select @tt
+CALL x_proc('test', @tt);
+SELECT @tt;
 ```
 
-# SQLlite
+# SQLite
 
 ```sql
-SELECT Column1, group_concat(Column2) FROM Table GROUP BY Column1
+SELECT Column1, GROUP_CONCAT(Column2) FROM Table GROUP BY Column1;
 ```

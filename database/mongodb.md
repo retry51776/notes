@@ -1,7 +1,9 @@
 # MongoDB
-> Is's not very fast on aggregation
-**Python**
-```js
+
+> It's not very fast for aggregation.
+
+## Python
+```python
 self.mongodb = MongoClient(MONGODB_URI)[DB]
 self.mongodb[COLLECTION].update_one(
     {'_id': ObjectId('123123')},
@@ -10,32 +12,28 @@ self.mongodb[COLLECTION].update_one(
     }
 )
 
-.find_one({'_id': ObjectId('123123')}, {"_id": 1, "uid": 1})
-.count()
-.insert_one(XX).inserted_id
-.delete_many()
-
-
+self.mongodb[COLLECTION].find_one({'_id': ObjectId('123123')}, {"_id": 1, "uid": 1})
+self.mongodb[COLLECTION].count_documents({})
+self.mongodb[COLLECTION].insert_one(XX).inserted_id
+self.mongodb[COLLECTION].delete_many(filter)
 ```
 
-
-**JS**
-```js
-
-mgCols = {
+## JavaScript
+```javascript
+const mgCols = {
   $project: {
     company_uid: true,
     new_residents: { $size: '$new_residents' },
   },
-}
+};
 
-// aggregate can do nested sub buckets, read offical docs
-.db()
-.collection(ZZ)
-.aggregate([
-  mgCols,
-  { $match: { deleted: { $ne: true } } },
-])
+// Aggregation can do nested sub‑buckets; see the official docs.
+db()
+  .collection(ZZ)
+  .aggregate([
+    mgCols,
+    { $match: { deleted: { $ne: true } } },
+  ]);
 
-Promise.all(threePromises).spread((xx, yy, zz) => whatever(xx, yy, xx));
+Promise.all(threePromises).spread((xx, yy, zz) => whatever(xx, yy, zz));
 ```

@@ -1,87 +1,96 @@
 # Prometheus
 
-3 types:
-- counter
-- Gauge
-- Histogram
+## Types of Metrics
+- Counter  
+- Gauge  
+- Histogram  
 
 ## Components
-- alert manager
-- kube state metrics
-- node exporter
-- pushgateway
-- prometheus server
+- Alertmanager  
+- kube‑state‑metrics  
+- node exporter  
+- pushgateway  
+- Prometheus server  
 
 ```bash
-# Data sample
+# Sample data
 kubectl get --raw /metrics
+```
 
-# Install Metric Server
+### Install Metric Server
+```bash
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+```
 
-# https://docs.aws.amazon.com/eks/latest/userguide/prometheus.html
+### Deploy Prometheus with Helm
+```bash
+# Create namespace
 kubectl create namespace prometheus
+
+# Add Helm repo
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+
+# Install / upgrade
 helm upgrade -i prometheus prometheus-community/prometheus \
     --namespace prometheus \
     --set alertmanager.persistentVolume.storageClass="gp2",server.persistentVolume.storageClass="gp2"
-
-# localhost:9090
 ```
 
+The UI is available at `http://localhost:9090`.
 
-Exporters: convert data into Prometeus understand format, then expose it /metrics endpoint
+## Exporters
+Exporters convert data into a format Prometheus understands and expose it on a `/metrics` endpoint.
 
-Push system, defined by prometheus.yml
-PromQL
+## Pushgateway
+Used for short‑lived jobs that cannot be scraped directly.
 
-https://github.com/google/re2/wiki/Syntax
+## PromQL Basics
 
-```js
-metrix_name{
-    [label]=[value],
-    label=~"text1|text2"
-    label!="text"
-    label=~"text[1-9]"
+```promql
+metric_name{
+    label="value",
+    other_label=~"regex|alternatives",
+    another_label!="excluded"
 } offset 1w
-
-count by (label_x) ( rate(mextrix_name {
-    label = "xxx"
-} [5m])) > 500 //range vector
-
-rate() * 60 default is by seconds,
-# Series <op>
-() > 1
 ```
 
-constMetrics
-## Exporter
-> don't do match to create metrics
+### Example Queries
+```promql
+count by (label_x) (
+    rate(metric_name{label="xxx"}[5m])
+) > 500
+```
 
-> don't put unit in metric name, put it in metrics's label
-```py
-# Pyramid Service: Metric Configuration
-# mapping is DB
+* `rate()` returns per‑second values; multiply by 60 to get per‑minute.
+* Use range vectors (`[5m]`) for rates over a time window.
+
+## Writing Exporter Code (Python example)
+
+```python
+from prometheus_client import CollectorRegistry, Gauge
+
 def configure_metrics(mapping):
-    registry = CollectorRegistry() # Defined Schema
-    mapping['prometheus_registry'] = registry # Tight Schema to DB
-    mapping['level'] = Gauge( # Defined metrics/column
+    registry = CollectorRegistry()
+    mapping['prometheus_registry'] = registry
+    mapping['level_gauge'] = Gauge(
         'level',
-        'The Level',
-        registry= registry
-    ) 
+        'The level metric',
+        registry=registry
+    )
 
 def updater(request):
-
-    request.resigtry['hits'].inc()
-    request.resigtry['level'].set(x)
-    registry = request.resigtry['prometheus_registry']
+    request.registry['hits'].inc()
+    request.registry['level_gauge'].set(x)
+    registry = request.registry['prometheus_registry']
     return Response(
-        generate_latest(resistry),
-        content_type=xxx
+        generate_latest(registry),
+        content_type='text/plain; version=0.0.4'
     )
 ```
-# Grafana
+
+## Grafana
+Use the following pattern for metric names:
+
 ```
 {{server}}_{{label}}
 ```
