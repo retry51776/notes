@@ -1,7 +1,9 @@
 # dotnet core
+
 - Common Language Specification (CLS)
 - Framework Class Library (FCL) `package in python, EX: ASP.NET(flask), WinForm, ADO.Net`
   - Base Class Library (BCL) `aka standard lib, Ex: system, os, io`
+
 > .net core is new open source version
 
 > linq XXX.foreach have bad performance.
@@ -14,6 +16,7 @@ use foreach XXX instead
 > services.AddXXX Usually is setup service `similar flask app.xxx = YYY`
 
 ## Folder Structure
+
 - /wwwroot `to store static files`
 - /appsetting.json `azureKeyValut to overwrite appsetting.json values`
 - /Properties `similar to .vscode`
@@ -22,7 +25,9 @@ use foreach XXX instead
 - /Views
 
 # Deployment & Development
+>
 > Ways to set ASPNETCORE_ENVIRONMENT
+
 ```
 # 1. Default location
 /Properties/launchSettings.json
@@ -38,21 +43,21 @@ appsettings.json # Define Apps, kind replaced .sln file
 ```
 >
 ## ASP.NET Application Workflow
+
 - Main()
 - Host.CreateDefaultBuilder
 - Startup.cs
-    - ConfigureServices()
-        - AddDbContext()
-        - AddControllers()
-        - AddCors()
-        - AddSession()
-        - AddSingleton()
-        - AddScoped()
-    - Configure()
-        - UseRouting() `aka BluePrint`
-        - UseCors()
-        - UseSession()
-
+  - ConfigureServices()
+    - AddDbContext()
+    - AddControllers()
+    - AddCors()
+    - AddSession()
+    - AddSingleton()
+    - AddScoped()
+  - Configure()
+    - UseRouting() `aka BluePrint`
+    - UseCors()
+    - UseSession()
 
 ## /Controller `same for .net standard`
 
@@ -64,7 +69,7 @@ appsettings.json # Define Apps, kind replaced .sln file
 
 > (except controller)file names doesn't matter, only name space matter
 
-> name space conflict will trigger during compile 
+> name space conflict will trigger during compile
 
 > requestContext `requestContext.HttpContext.Request.Url`
 
@@ -74,21 +79,26 @@ appsettings.json # Define Apps, kind replaced .sln file
 4. return ActionResult (View or JsonNet or FileResult)
 
 ## /.vscode
+
     /launch.json
     /settings.json
     /task.json
     /extensions.json
 
 ## /Services
+>
 > complex business logic `most likely init during ConfigureServices(), then refereed in controller`
 
 ## /Models
+>
 > defined Datasource structure
 
 ## /Properties
+>
 > launchSettings.json store different envs, will overwrite in Production
 
 # Coding
+
 **Conversion Jason <==> Data Model**
 
 - Dictionary.TryGetValue()
@@ -99,8 +109,8 @@ appsettings.json # Define Apps, kind replaced .sln file
   - new JavaScriptSerializer().Serialize(ModelVariable)
   - new JavaScriptSerializer().Deserialize(string, typeof(ModelClass))
 
-
 ## Ajax Request with .Net
+
 ```cs
 var request = new HttpRequestMessage(HttpMethod.Get, uri);
 request.Headers.Add("username", username);
@@ -109,7 +119,6 @@ using (var response = Client.SendAsync(request).Result)
     return response.Content.ReadAsStringAsync().Result;
 }
 ```
-
 
 ```bash
 dotnet list package
@@ -122,6 +131,7 @@ dotnet watch run
 dotnet watch --project XXX.csproj run XXX.csproj
 
 ```
+
 XXX.csproj
 
     - StartupObject // webpack.entry
@@ -129,22 +139,24 @@ XXX.csproj
 **None HTTP**
 
 HostBuilder = (NodeJS express) bare bond server
+
 - ConfigureHostConfiguration()
 - ConfigureAppConfiguration()
 - UseSerilog()
 - ConfigureServices()
-    - services.AddOptions()  ?
-    - services.AddHttpClient() ?
-    - services.Configure<ClassName>(setting) 
-    - services.AddDbContext()
-    - services.AddSingleton()
-    - services.AddScoped()
-    - services.AddTransient()
-    - services.AddHostedService<BackgroundService>();
+  - services.AddOptions()  ?
+  - services.AddHttpClient() ?
+  - services.Configure<ClassName>(setting)
+  - services.AddDbContext()
+  - services.AddSingleton()
+  - services.AddScoped()
+  - services.AddTransient()
+  - services.AddHostedService<BackgroundService>();
 
 > use appSetting.json property
 
 > context.Configuration.GetSection(appSettings.json.props)
+
 ```cs
 EX: RabbitMqService<RequestModel, Processor>
     protected override Task ExecuteAsync
@@ -169,7 +181,6 @@ so view can check in compile time if variable has methods
 - AddSingleton(Interface, Instance)
     > app level instance
 
-
 ```c#
 BlockingCollection bc - new BlockingCollection();
 bc.Add();
@@ -183,7 +194,9 @@ foreach (var x in bc.GetConsumingEnumerable())
 ```
 
 ### MiniProfiler
+>
 > shows stack run time
+
 ```
 1. Install
 2. StartUp.cs create instance `services.AddMiniProfiler()`
@@ -193,6 +206,7 @@ foreach (var x in bc.GetConsumingEnumerable())
 ```
 
 # Tech stack
+>
 > new relic is monitor software
 
 - IIS Tilde Enumeration
@@ -208,5 +222,6 @@ public interface IXXX
 ```
 
 ## Naming Pattern
+
 - onXXX `takes event as param`
 - xxxHandler `callback`
