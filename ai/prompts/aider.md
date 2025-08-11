@@ -28,6 +28,11 @@ aider --model lm_studio/openai/gpt-oss-120b
 git restore --source=abcb3187b27257798a6417523f7281ce4717b0f2^ -- /Users/terry/Documents/GitHub/notes/devOps/k8/traffic.md
 git add /Users/terry/Documents/GitHub/notes/devOps/k8/traffic.md
 git commit --amend --no-edit
+
+# .aider.conf.yml
+auto-commits: false
+dirty-commits: false
+model: lm_studio/openai/gpt-oss-120b
 ```
 
 execute_generator_loop
