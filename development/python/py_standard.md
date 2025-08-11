@@ -8,9 +8,9 @@ from dateutil.relativedelta import relativedelta
 from dateutil.parser import parse
 
 parse('2019-01-01').date().strftime('%Y-%m-%d')
-# less than month unit
+# less than a month unit
 date(2018, 9, 30).replace(day=31) + timedelta(days=1)
-# more than month unit
+# more than a month unit
 date.today() + relativedelta(months=1)
 date.max
 date.min
@@ -397,4 +397,3 @@ import json     # Store JSON data
 ```
 
 > `httpx` is often faster than the built‑in `urllib` for multiple network requests.
-

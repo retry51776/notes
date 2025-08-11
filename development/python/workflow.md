@@ -1,32 +1,31 @@
 # Workflow Framework
 
 ## Airflow
->
-> python file defines DAG object
+
+> Python file defines a DAG object.
 
 ### Scheduler & Executor
->
-> monitor, trigger, executes, cleanup
 
-### WebServer & API
->
-> secrets, ui,
+> Monitors, triggers, executes, and cleans up tasks.
 
-### DB
->
-> state
+### Web Server & API
 
-- DAG `Directed Acyclic Graph`
-- Task `task relationship, dependencies`
-- Operator `Bash, python script, docker`
+> Handles secrets and provides the UI.
 
-xCom `similar to artifacts; max 48kb`
+### Database
+
+> Stores state information.
+
+- **DAG** – Directed Acyclic Graph
+- **Task** – Represents task relationships and dependencies
+- **Operator** – Bash, Python script, Docker, etc.
+- **XCom** – Similar to artifacts; maximum size 48 KB
 
 ## Windmill
 
-- All in one
+All‑in‑one workflow platform.
 
-## Apache Nifi
+## Apache NiFi
 
 ## Argo Workflow
 
@@ -36,6 +35,6 @@ xCom `similar to artifacts; max 48kb`
 
 ### Argo Server (UI & API)
 
-### Artifact Repo
+### Artifact Repository
 
 ### Archive Database
