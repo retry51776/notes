@@ -1,40 +1,41 @@
+
 # Monitor
-> Common DevOps monitor tools
+> Common DevOps monitoring tools
 
-## Grafana & its components
-> Prometheus `is time serious database`
->> Loki `is store logs(same as elastic search)`
-> PromQl `is query language of Prometheus`
-> Grafana `is UI interface, similar kibana`
+## Grafana & Its Components
+- **Prometheus** – time‑series database  
+- **Loki** – log storage (similar to Elasticsearch)  
+- **PromQL** – query language for Prometheus  
+- **Grafana** – UI, similar to Kibana  
 
-> OpenTelemetry `standard for trace front end.`
-> Tempo; `trace backend storage; 100% trace storage`
-opentelemetry -> prometheus -> garfanar
+Additional ecosystem:
+- **OpenTelemetry** – standard for tracing front‑end services  
+- **Tempo** – trace backend storage; provides 100 % trace retention  
+
+`opentelemetry → prometheus → grafana`
 
 ## Zabbix
-> Older, smaller scale than Grafana stacks
+Older, smaller‑scale monitoring solution compared with Grafana stacks.
 
 ## ELK
-> elasticseach, Logstash, Kibana
-> For Logging, similar to stackdriver
+Elasticsearch, Logstash, Kibana – used for logging, similar to Stackdriver.
 
-## zipkin 
-> distributed tracing system, keep stack trace
+## Zipkin
+Distributed tracing system that keeps stack traces.
 
-## sentry.io
-> Web base, runtime error tracking
+## Sentry.io
+Web‑based runtime error tracking.
 
 ## Datadog
-> Infrastructure monitor tool, complex alert, integration, w Jira
+Infrastructure monitoring tool with complex alerts and many integrations (e.g., Jira).
 
-> Datadog Components:
->> Datadog Agent: CPU, Disk IO, Latency, 15s default, auto backfill
->> API: 
->> Integration: 
+**Datadog components**
+- **Datadog Agent** – collects CPU, disk I/O, latency, etc. (default interval 15 s, auto backfill)  
+- **API** – programmatic access  
+- **Integrations** – built‑in connectors for many services  
 
+## Opsgenie
+Simple alert manager.
 
-## opsgeny
-> Simple Alert manager
-
-### Other Tools:
+### Other Tools
 - Stackdriver

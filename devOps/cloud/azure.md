@@ -1,62 +1,65 @@
+
 # Azure
 > https://azure.microsoft.com/en-us/services/
 
-# Computation
-- VM `$70/month general vm 2CPU, 8GB, 16GB disk`
-- App Service `old name: Web App`
-- Container Instances `single container`
-- Batch
-- Azure Kubernetes Service (AKS)
-- Web App for Containers
+## Computation
+- **VM** – `$70/month` for a general‑purpose VM (2 CPU, 8 GB RAM, 16 GB disk)  
+- **App Service** – formerly “Web App”  
+- **Container Instances** – single container  
+- **Batch**  
+- **Azure Kubernetes Service (AKS)**  
+- **Web App for Containers**  
 
-- Service Fabric
-- Cloud Services
-- Mobile App
+- **Service Fabric**  
+- **Cloud Services**  
+- **Mobile Apps**  
 
-- Logic App `Is it step function?`
-- Azure Functions `Similar cloud function`
-- Azure LoadBalancer `very basic, don't support regex routing, throttle req`
+- **Logic Apps** – similar to Step Functions  
+- **Azure Functions** – serverless functions  
+- **Azure Load Balancer** – basic; does not support regex routing or request throttling  
 
 ## Storage
-- Online Transactional Procesing (OLTP)
-  - Azure SQL DB `microsoft's product`
-  - Other Opensource DBs
+### Online Transactional Processing (OLTP)
+- Azure SQL DB – Microsoft’s relational database service  
+- Other open‑source databases  
 
-  - Azure Cosmos DB `Nosql DB, microsoft product`
-  - Azure Cache for Redis
+- Azure Cosmos DB – NoSQL offering from Microsoft  
+- Azure Cache for Redis  
 
-  - Azure Storage `aka S3`
-    - File `alt S3`
-    - Blob `flat folder`
-    - Disk
-    - Queue
-- Online Analytical Processing (OLAP)
-  - SQL Warehouse
-  - Data Lake Storage `specialize for hadoop`
+- **Azure Storage** (S3 equivalent)  
+  - File – alternative to S3  
+  - Blob – flat‑folder storage  
+  - Disk  
+  - Queue  
 
-# Security
-- Azure AD
+### Online Analytical Processing (OLAP)
+- SQL Warehouse  
+- Data Lake Storage – specialised for Hadoop workloads  
 
-# Network
-- VNet `Microsoft Account Scope`
-  - VNet peering `similar to VPN tunnel but allow 2 VNets communicate`
-  - VPN `Encrypt Traffic to VNet through public internet`
-  - ExpressRoute `Dedicated connection to VNet, usually offer by data center`
-- Load balancer `Expose VNet to public`
+## Security
+- Azure Active Directory (AD)
 
-- Available Region `1 data center`
-- Available Zone `more than 3 data centers`
+## Network
+- **VNet** – Microsoft account scope  
+  - VNet peering – similar to a VPN tunnel but allows two VNets to communicate directly  
+  - VPN – encrypts traffic to a VNet over the public internet  
+  - ExpressRoute – dedicated private connection to a VNet, usually offered by data‑center providers  
+
+- Load Balancer – exposes a VNet to the public  
+
+- **Availability**  
+  - Region – one data centre location  
+  - Zone – multiple data centres within a region (typically > 3)  
 
 ### Private Link
 > https://docs.microsoft.com/en-us/azure/private-link/
 
-
 ## Billing
-- Billing Account `Company Account`
-  - Subscription `By Dept, or By Team, By brand`
-    - Resource Group `Functions, VMs, DBs; or By Product `
+- **Billing Account** – company‑level account  
+  - **Subscription** – can be organised by department, team, or brand  
+    - **Resource Group** – logical container for functions, VMs, databases, etc.  
 
-> Spot `save money by let microsoft shut down whenever`
+> Spot instances – cheaper; Azure may shut them down at any time.
 
 ```bash
 az group list 
@@ -66,46 +69,38 @@ az webapp config appsettings list --name xxxx --resource-group xxx
 az webapp config container show --name xxx --resource-group xxx
 ```
 
-https://learn.microsoft.com/en-us/azure/virtual-machines/acu
-1vcpu = 1 core
-
-Pricing Tier Categories:
-- Shared `Ex: F1, D1`
-  - Can't scale out
-  - Shared VM
-- Dedicated `Ex: B1, B2, B3`
-  - Own VM
-  - Scale Out
-- Isolated
-  - Dedicated Virtual Network
-  - Max scale out
+### VM Pricing Tiers
+- **Shared** (e.g., F1, D1) – cannot scale out; shared VM resources  
+- **Dedicated** (e.g., B1, B2, B3) – own VM; can scale out  
+- **Isolated** – dedicated virtual network with maximum scaling  
 
 ## Development
 ```bash
-# dot sdk default C:\program files(x86)\dotnet; Add to path env
+# .NET SDK default path: C:\Program Files (x86)\dotnet
+# Add to PATH environment variable
 
 npm install -g azurite
 azurite start
 
-# download & install Microsoft Azure Storage Explore
-# click connect/local storage emulator/connect
+# Download & install Microsoft Azure Storage Explorer
+# Click “Connect” → “Local storage emulator” → Connect
 ```
 
 ## App Service
-> Kind like VM w [C#, php, java, javascript, Python, Ruby, Docker] already installed; AD supported; default path `/home/site/www.root/`
+> Provides a managed runtime for languages such as C#, PHP, Java, JavaScript, Python, Ruby, and Docker. AD integration is supported. Default path: `/home/site/wwwroot/`.
 
-- App Service Plan `resource limit; auto scale up & out; pick runtime;`
-  - Service (host machine that run webapp or container)
-  - Application Insight `aka Google Analysis`
-  - DeploymentSlot `kind like BlueGreen`
-  - Application Configuration `config`
-    - Key Vault Reference `secrets`
-  - Custom Domain  `attach domain`
-  - Configuration `aka Environment`
-  - Adv Tool
-    - ssh
-    - logs
-      - id `host log`
-      - id_default `aka container log`
-      - id_msi `aka proxy log`
-  - w3wp process
+- **App Service Plan** – defines resource limits; supports auto‑scale up & out; selects runtime  
+  - Service (the host machine that runs the web app or container)  
+  - Application Insights – analytics (similar to Google Analytics)  
+  - Deployment Slots – e.g., blue‑green deployments  
+  - Application Configuration – environment settings  
+    - Key Vault reference – secret management  
+
+- **Custom Domain** – attach a domain name  
+- **Configuration** – environment variables, etc.  
+
+Advanced tools:
+- SSH  
+- Logs (host log, container default log, MSI proxy log)  
+
+Process: `w3wp` (IIS worker process)

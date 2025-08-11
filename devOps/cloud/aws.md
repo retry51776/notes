@@ -1,183 +1,184 @@
+
 # AWS
 docs.aws.amazon.com
 
-AWS support prefer screen share
+AWS support prefers screen sharing.
 
-Edit permission will allow ticket creation
+Edit permissions will allow ticket creation.
 
-CloudWatch + CloudTrail = stackdriver
+CloudWatch + CloudTrail = Stackdriver equivalent.
 
 ### Apps
-- S3 `Disk Storage`
-- Cloudfront `CDN`
-- Route 53 `DNS`
-- API Gateway `10,000 RPS (requests per second)` + Lambda `cloud function`
-- App Load Balancer + EC2 `old VM`
-- App Load Balancer `+100,000 RPS, since 16` + ECS `container`
-- EKS `K8`
-- Elastic Load Balancer (ELD) `since 09, container-based`
+- **S3** – object storage  
+- **CloudFront** – CDN  
+- **Route 53** – DNS  
+- **API Gateway** – 10,000 RPS (requests per second) + Lambda (serverless functions)  
+- **Application Load Balancer** + EC2 – classic VMs  
+- **Application Load Balancer** – > 100 000 RPS (since 16) + ECS (containers)  
+- **EKS** – Kubernetes  
+- **Elastic Load Balancer (ELB)** – container‑based (available since 09)
 
 ### Lambda
-> test with serverless or SAM
+> Test with Serverless Framework or SAM.
 
-> job less than 15 mins
+> Max execution time: 15 minutes.  
 
-> not very good at application level cache(because AWS only keep function alive for 30-45mins)
+> Not ideal for application‑level caching (AWS keeps a function warm for only 30–45 min).  
 
-> slow if lambda needs preload large dataset
+> Cold starts are slower when the function runs in a VPC.  
 
-> slower running in VPC
+> You can keep functions warm manually, but AWS does not provide a built‑in option.
 
-> manually keep warm, why aws don't give a config options?
-```js
+```python
 def xxx_handler(event, context):
     id = event['queryStringParameters']['id']
     return {
         'statusCode': 200,
         'headers': {
-            'Content-Type': 'json'
+            'Content-Type': 'application/json'
         },
         'body': json.dumps({})
-
     }
+```
 
+```bash
 sam local invoke -e ./xx.json XXX_Function
 sam local start-api
+```
 
+```yaml
 AWSTemplateFormatVersion: '2010-01-01'
 Transform: AWS::Serverless-2010-01-01
 Description: >
-    xxx
+  xxx
 
 Resources:
-    LambdaDemoFunction:
-        Type: AWS::Serverless::Function
+  LambdaDemoFunction:
+    Type: AWS::Serverless::Function
     Properties:
-        CodeUri: lambda/
-        Handler: lambda.xxx_handler
-        Runtime: python3.10
+      CodeUri: lambda/
+      Handler: lambda.xxx_handler
+      Runtime: python3.10
 ```
 
-## Step Function
-> Sudo business logic
-state machine
-```
+## Step Functions
+> Server‑side business logic state machine.
+
+```json
 {
-    "StartAt": "x_step",
-    "States": {
-        "x_step": {
-            "Type": "Choice",
-            "Choices": [{
-                "Variables": "$.choice",
-                "StringEquals": "Confirmed",
-                "Next": "confirmed"
-            }]
-        },
-        "confirmed": {
-            "Type": "Task",
-            "Resource": "confirm_lambda_function"
-            "End": true
+  "StartAt": "x_step",
+  "States": {
+    "x_step": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "$.choice",
+          "StringEquals": "Confirmed",
+          "Next": "confirmed"
         }
+      ]
+    },
+    "confirmed": {
+      "Type": "Task",
+      "Resource": "confirm_lambda_function",
+      "End": true
     }
+  }
 }
 ```
+
 ### Elastic Container Service (ECS)
 
-### Elastic Kubenete Service (EKS)
+### Elastic Kubernetes Service (EKS)
 
-### DBs
+## DBs
 https://aws.amazon.com/products/databases/
 
-- RDS `amazon version mysql`
-- Aurora
+- **RDS** – Amazon‑managed MySQL, PostgreSQL, etc.  
+- **Aurora**  
 
-### Orchestration
-Step Functions
-SNS - `similar rabbitmq`
-SQS - `simple message & consum` 
-Cloud Formation
+## Orchestration
+- Step Functions  
+- SNS – similar to RabbitMQ  
+- SQS – simple queue service  
+- CloudFormation  
 
 ## AWS Enterprise Support
-> Always keep ticket #
+> Always keep the ticket number.  
+> Always attach the resource ID.  
+> Cross‑account issues require tickets in both accounts.
 
-> always attch resource_id
-
-> Cross Account needs open tickets in both accounts
-
-Response Time
-business critical 15min
-Production System Down 1h
-Production Impaired 4h
-System Impaired 12h
-Guidance 24h
+**Response Times**
+- Business‑critical: 15 min  
+- Production system down: 1 h  
+- Production impaired: 4 h  
+- System impaired: 12 h  
+- Guidance: 24 h  
 
 Enterprise Discount Program (EDP)
 
 ### Pricing Models
-- On Demand
-- Saving Plans
-- Reserved Instances
-- Spot Instances
-- Dedicated Host
-
+- On‑Demand  
+- Savings Plans  
+- Reserved Instances  
+- Spot Instances  
+- Dedicated Host  
 
 ```
 ~/.aws/credentials
 [default]
 aws_access_key_id=xxx
 aws_secret_access_key=yyy
+```
 
+```bash
 kubeconfig default /Users/xxx/.kube/config
 
-//brew tap weaveworks/tap
+# brew tap weaveworks/tap
 apt-get install eksctl
 ```
 
-# Aws Course
+# AWS Course
 - AWS Cloud Practitioner Essentials
 
 #### AWS CLI
-```
+```bash
 aws ec2 run-instances
 ```
 
 ### Direct Connect
-> Private connection between data center to AWS
+> Private connection between a data centre and AWS.
 
-### Amz Elatics Block Storage(EBS)
-database storage
+### Amazon Elastic Block Store (EBS)
+Database storage.
 
-## simple storage classes (S3)
+## Simple Storage Classes (S3)
+
 ### S3 Standard
-    (11 9s) of data durability
-S3 lifecyle management `auto move data between tiers`
+(11 9s) of data durability.
 
-# AWS Lake Formation
-- Athena `big query console`
-- AWS Glue
-  - Data Catalog DataBases `Storage for crawler`
-  - Crawler `detect S3 folder changes & create DB`
-  - Kinesis Firehose
-  - Job `Create ETL engine, do mapping or join query`
-    - Spark
-    - Streaming ETL
-    - Python shell
+S3 lifecycle management – automatically moves data between tiers.
+
+## AWS Lake Formation
+- Athena – interactive query service  
+- Glue – data catalog and ETL  
+  - Data Catalog databases – storage for crawlers  
+  - Crawler – detects S3 folder changes & creates tables  
+  - Kinesis Firehose  
+  - Job – creates ETL pipelines (Spark, streaming, Python shell)
 
 ## AWS IAM
-- Groups
-    - User
-- Role `temporarily access`
-- Policy
-    - Effect: [allow, deny]
-    - Action: xxx_api
-    - Resource: xxx_resource
-- Identity Federation `link LDAP?`
+- Groups → users  
+- Role – temporary access  
+- Policy  
+  - Effect: Allow or Deny  
+  - Action: `xxx_api`  
+  - Resource: `xxx_resource`  
 
-## Key Management Service (KMS)
-## Inspector
+### Key Management Service (KMS)
+
+### Inspector
 
 ## CloudWatch
-- Dashboard
+- Dashboard  
 - Alarm
-
-## CloudTrail

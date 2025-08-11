@@ -1,21 +1,25 @@
+
 # Others
-hashcorp vault generate dynamic credentials
+HashiCorp Vault – generate dynamic credentials.
 
-morpheus gui for none dev people to scale project
-
+Morpheus – GUI for non‑technical users to scale projects.
 
 ## Buzzwords
-- Rolebase Access control (RBAC)
-- operational maturity
+- Role‑Based Access Control (RBAC)  
+- Operational maturity  
 
-- Infrastructure-as-a-Service (IaaS)
-- Platform-As-A-Service (PaaS)
-- Logic-as-a-Service (LaaS)
+### Service Models
+- Infrastructure as a Service (IaaS)  
+- Platform as a Service (PaaS)  
+- Logic as a Service (LaaS)  
 
-- Online Transactional Processing (OLTP)
-- Online Analytical Processing (OLAP)
+### Processing Types
+- Online Transactional Processing (OLTP)  
+- Online Analytical Processing (OLAP)  
 
-- service-level agreement (SLA)
-- service level objective (SLO)
-- Service-Level Indicator (SLI)
-- runbook `predefined procedures to achieve a specific outcome`
+### Reliability Terms
+- Service‑Level Agreement (SLA)  
+- Service‑Level Objective (SLO)  
+- Service‑Level Indicator (SLI)  
+
+**Runbook** – predefined procedures to achieve a specific outcome.
