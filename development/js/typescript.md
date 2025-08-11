@@ -1,38 +1,46 @@
-# Typescript
-> 2 way type def: (implicit, explicitly)
-> 
-> https://www.typescriptlang.org/docs/
-> 
-# Structure
-/tsconfig.config
-```js
+# TypeScript
+
+> Two ways to define types: implicit and explicit.
+
+## Documentation
+
+<https://www.typescriptlang.org/docs/>
+
+## Project Structure
+
+`tsconfig.json`
+
+```json
 {
-    "compilerOptions": {
-        "watch": true
-    }
+  "compilerOptions": {
+    "watch": true
+  }
 }
 ```
-## CMDs
+
+## Commands
+
 ```bash
-tsc index.js
+tsc index.ts
 ```
 
+## Example Types
 
-## Scripts
-```js
-type GreetFunction = (a: string |  'hhh') => void;
+```ts
+type GreetFunction = (a: string | 'hhh') => void;
 type CustomType2 = [number?, string?, boolean?, any?];
 type CustomType1 = 'yes' | 'no';
 let x: CustomType1 = 'yes';
 
 interface Sale {
-    id: int,
-    amount: number,
-    cust: string,
-    [key: string]: any
+  id: number;
+  amount: number;
+  cust: string;
+  [key: string]: any;
 }
 
-const funx = (a: number | null, b: number | string):void => {
-    return
-}
+const funx = (a: number | null, b: number | string): void => {
+  return;
+};
+```
 ```

@@ -1,15 +1,18 @@
-# Coolest kid in the block
-> Everyday there is new JS frameworkS. I can't keep up w frontend stuff.
-- fresh `next nextjs? lol`
-- deno `node replacement, typescript buildin support, but we still need webpack to compile for front end`
+# Coolest Kid in the Block
 
-- react-admin
-- json-server
+> Every day there is a new JavaScript framework. I can't keep up with frontend stuff.
 
+- **fresh** – “next nextjs? lol”
+- **deno** – Node replacement; TypeScript support built‑in, but we still need Webpack to compile for the browser
+- **react-admin**
+- **json-server**
 
 ## Mystery Errors
-> I know what it mean, but never find out the source of leakage!
-1. Memory Issue
+
+> I know what they mean, but I never find the source of the leak!
+
+1. **Memory Issue**
+
 ```
 error: Forever detected script was killed by signal: SIGKILL
 ```

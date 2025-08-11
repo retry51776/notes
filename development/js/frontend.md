@@ -4,46 +4,43 @@
 | --- | --- |
 | state & UI transitions | only state |
 
-> Page level fetching
-> Component level fetching
-> Server side fetching
+> Page‑level fetching  
+> Component‑level fetching  
+> Server‑side fetching
 
 ## UI Libraries
 
-3 types:
+Three types:
 
-- UI enhancement `Only enhance UI, not logic; Ex: SASS, LESS, Tailwind`
-- Behavior Libraries `Only logic, not UI; Ex: React, ReactTable, ReactQuery, headlessui`
-- Style Systems `Both UI & logic; Ex: Bootstrap, TailwindUI, DaisyUI`
-  - styled-components `Define css in react component`
+- **UI enhancement** – only enhances UI, not logic (e.g., SASS, LESS, Tailwind)
+- **Behavior libraries** – only provides logic, not UI (e.g., React, React Table, React Query, Headless UI)
+- **Style systems** – includes both UI and logic (e.g., Bootstrap, Tailwind UI, DaisyUI)  
+  - *styled‑components* – define CSS inside a React component
 
 ## Redux
->
-> Avoid redux connect() to reduces unnecessary props
+> Avoid `connect()` to reduce unnecessary props.  
+> Prefer using the React context hook instead of Redux when possible.  
 
-> Avoid using redux at all, just uses react context hook
-
-> react -> dispatch(action) -> (middleware) -> reducer -> store -> react
+> Flow: `react → dispatch(action) → (middleware) → reducer → store → react`
 
 ```js
-// 1. Setup Actions: function return {type: 'xxx'}
+// 1. Setup actions – functions that return { type: 'XXX' }
 
-// 2. Setup Reducer: (state, action => {do_your_thing})
+// 2. Setup reducer – (state, action) => { /* do your thing */ }
 
-// 3. Optional: create middleware, redux-devtools-extension(WTF they thinking, read latest doc)
+// 3. Optional: create middleware; note the Redux DevTools extension is optional.
 import { compose, createStore, applyMiddleware } from 'redux';
 
-// 4. Define Store
+// 4. Define store
 const store = createStore(
-  reducer, /* preloadedState, */
+  reducer,
+  // preloadedState can be passed here
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-
-// 5. uses Redux in component
+// 5. Use Redux in a component
 import { useSelector, useDispatch } from 'react-redux';
 
-// As long as redux will refresh same components, otherwise don't be lazy
 const [printing, periodEnd] = useSelector(state => [
   state.ABC.getIn(['ABC', 'printing']) || '[]',
   state.XYZ.getIn(['EFG', 'xyz']),
@@ -52,68 +49,45 @@ const [printing, periodEnd] = useSelector(state => [
 const dispatch = useDispatch();
 
 dispatch('ACTION_XYZ');
-
 ```
 
 ## React Component
->
-> key:
->> unique id from SIBLING, react uses key to reuses element, which is WHY bad idea to use index as key
+> **key** – a unique identifier among siblings; React uses it to reuse elements. Using an index as a key is discouraged.  
+> **ref** – for focusing or integrating third‑party libraries; Next.js server‑side caching can use refs to scope cache.
 
-> ref:
->> for focus, or 3rd party lib; NextJS ServerSide caching using Ref to scope cache
-  
-> ### React Reconciliation
->>
->> determent which node of DOM tree needs replace
->
->> type changed? generate new DOM
->
->> props changed? update effected DOM
->
->> try to reused DOM by key. Only in silbing
->
-> ### Rendering by ReactDom or ReactNative
->>
->> React Fiber, none blocking, support abort rending, dynamic import
+### React Reconciliation
+- Determines which DOM nodes need replacement.
+- If the element type changes, a new DOM node is created.
+- If props change, the existing DOM node is updated.
+- Keys allow reuse of DOM nodes among siblings.
 
-`$$typeof:Symbol(react.element) // react internal id`
+### Rendering (ReactDOM vs. React Native)
+- Uses React Fiber for non‑blocking rendering, supports aborting renders and dynamic imports.
+
+`$$typeof: Symbol(react.element) // internal React identifier`
 
 ## ImmutableJS
-
-> Why? Fewer moving parts, performance(on cost of RAM), decouple logic
-
-DX/UX mullet
-> Immediate Mode in front, Retained Mode in back
-
-persistent immutable data structure
-> hash each data level for read, search (performance)
-
-structural sharing
-> changes will make a new object, with references of values havn't changed
-
-> save memory(still uses more than single variables)
-
-Maybe Immer? new dev could break things, but no new APIs
+> Benefits: fewer moving parts, performance (at the cost of RAM), decoupled logic.  
+> Persistent immutable data structures enable structural sharing; unchanged parts are reused, saving memory despite higher overall usage.  
+> Consider Immer for convenience, but be aware it introduces new APIs.
 
 ## React
->
-> Functional component is truely immutable, but class component's state is mutable; Because hooks allow true decouple of state
+> Functional components are truly immutable; class component state is mutable. Hooks provide true separation of state and logic.
 
-### Component Prefer Orders
+### Component Preference Order
 
-1. Component States
-2. Redux Store
+1. Component state
+2. Redux store
 3. Web actions
-4. Events Handler
-5. UI Components
+4. Event handlers
+5. UI components
 
-- wouter is alterative to React Router
+- `wouter` is an alternative to React Router.
 
 ```js
-/* React router pass in history & match*/
+/* React router passes in history & match */
 const Abc = ({ history, match }) => {
-  return 'xxx'
+  return 'xxx';
 };
 
 Abc.propTypes = {
@@ -126,39 +100,36 @@ import React, { useMemo, useCallback, useEffect } from 'react';
 // useCallback(fn, deps) is equivalent to useMemo(() => fn, deps).
 const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 
-// Uses for HOC chain multiple different lifted states together
+// Example of a higher‑order component chain
 useEffect(() => {
   console.log('Similar to componentDidMount');
   return () => {
     console.log('Clean up listener');
   };
-}, [])
+}, []);
 
-React.createElement(
-  type,
-  [props],
-  [...children]
-);
-React.cloneElement(
-  element,
-  [config],
-  [...children]
-);
+React.createElement(type, props, ...children);
+React.cloneElement(element, config, ...children);
 
-// React.StrictMode 
+// React.StrictMode
 
-useRef // Auto focus, or scoping sever side reference
-forwardRef // reassign ref
-useImperativeHandle // Specialize Event Handler when ref is changed
+const ref = useRef(); // auto‑focus or server‑side reference
+const forwardRefComponent = forwardRef(...);
+useImperativeHandle(ref, () => ({
+  /* expose methods */
+}));
 
-const [updating, startUpdate] = useTransition();
+const [isUpdating, startUpdate] = useTransition();
 
-useId() generate hash
-componentDidCatch(error, errorInfo) {
+const id = useId(); // generates a stable ID
+
+function componentDidCatch(error, errorInfo) {
+  // handle errors
+}
+
 import { useContext, createContext } from 'react';
-
 const TerryContext = createContext(null);
-<GrouperContext.Provider value={}
+<TerryContext.Provider value={/* ... */} />
 ```
 
 ## Upload File
@@ -166,31 +137,30 @@ const TerryContext = createContext(null);
 ```js
 import JSZip from 'jszip';
 import Dropzone from 'react-dropzone';
+
 JSZip.loadAsync(files[0])
   .then(zip => setZip(zip))
   .catch(err => zipError(error));
 ```
 
 ## moment
->
-> it's dead 2020 Aug, uses dayjs instead
-<https://twitter.com/addyosmani/status/1304676118822174721>
+> `moment` is effectively dead (2020). Use `dayjs` instead.  
+> <https://twitter.com/addyosmani/status/1304676118822174721>
 
 ```js
 import moment from 'moment';
-moment
-  .utc(backfill.get('ts'))
-  .local()
-  .format('YYYY-MM-DD @ HH:mm:ss a');
-moment().add('day', 1).subtract('year', 1);
-.startOf('day')
-.endOf('month')
-.isSame(xxx, 'year')
+
+moment.utc(backfill.get('ts')).local().format('YYYY-MM-DD @ HH:mm:ss a');
+moment()
+  .add(1, 'day')
+  .subtract(1, 'year')
+  .startOf('day')
+  .endOf('month')
+  .isSame(xxx, 'year');
 ```
 
-## react-query & react-table
->
-> avoid column accessor 'xxx.xx' , instead 'xxx-xx'
+## react‑query & react‑table
+> Avoid column accessor strings like `'xxx.xx'`; use `'xxx-xx'` instead.
 
 ```js
 const {
@@ -199,78 +169,55 @@ const {
   isFetching,
   status,
   refetch,
-} = useQuery('abc', axios_promise, {
+} = useQuery('abc', axiosPromise, {
   refetchOnWindowFocus: false,
   throwOnError: true,
-  initialData: undefined, // initialData will have staleTime too
-  placeholderData: Map(), // use placeholderData, almost never use initialData
-  staleTime: 60 * 60 * 24, // how long until data is dirty
-  cacheTime: 60 * 60, // stay in cache even left page
+  initialData: undefined,
+  placeholderData: new Map(),
+  staleTime: 60 * 60 * 24, // one day
+  cacheTime: 60 * 60, // one hour
 });
 
 useEffect(() => {
   if (data?.hasMore) {
-    queryClient.prefetchQuery(['xxx', page + 1], doFetch(page + 1))
+    queryClient.prefetchQuery(['xxx', page + 1], () => doFetch(page + 1));
   }
-}, [data, page])
+}, [data, page]);
 
 const edit = useMutation(postEdit, {
   onSuccess: () => {
-    queryClient.invalidateQueries('abc')
-  }
-})
+    queryClient.invalidateQueries('abc');
+  },
+});
 ```
 
-**mouseflow**
-> Page tracking plugin
+**mouseflow** – page‑tracking plugin.
 
 ## Formik
->
-> Created Each Form Input in its own file
->
-> Then Have a FormikController similar react_router
->
-> Another dead popular repo
+> Create each form input in its own file.  
+> Use a `FormikController` similar to React Router.  
+> Note that many older repos are no longer maintained.
 
 ```js
 const formik = useFormik({
-  initialValues: {
-    'field': 'xyz'
-  },
+  initialValues: { field: 'xyz' },
   onSubmit: values => {},
   validate: values => {
-    let errors = {
-      field: 'Always Error'
-    };
+    const errors = { field: 'Always Error' };
     return errors;
-  },//or
-  //validationSchema
-})
+  },
+});
 
-//formik.values.field one of "", {}, []
-//formik.handleSubmit uses ref.name
-//formik.error.field ? 'Bad' : null
-
-//formik.handleBlur & formik.touched.field
-//{...formik.getFieldProps('field')}
-
-//FastField decode state change, only rerender when sub state it uses changed
-<Formik
-  initialValues={}
-  validationSchema={}
-  onSubmit={}
->
+<Formik initialValues={{}} validationSchema={Yup.object({})} onSubmit={() => {}}>
   <Form>
-    <Field name="field" type="text" placeholder="xx">
-    <Field as="textarea" name="text1" placeholder="xx">
+    <Field name="field" type="text" placeholder="xx" />
+    <Field as="textarea" name="text1" placeholder="xx" />
     <ErrorMessage name="field" />
     <FieldArray name="">
-      {
-        props => {
-          const { push, remove, form } = props;
-          return form?.values?.map(x => x)
-        }
-      }
+      {props => {
+        const { push, remove, form } = props;
+        return form?.values?.map(x => x);
+      }}
     </FieldArray>
   </Form>
 </Formik>
@@ -279,76 +226,58 @@ const formik = useFormik({
 # Yup
 
 ```js
-// Yup as schema
-//string().oneOf([Yup.ref('password'), ''])
-//.test('test-id', 'error-msg', val=>!val)
+// Yup schema example
 const validationSchema = Yup.object({
-  field: Yup.string().required('Must field'),
+  field: Yup.string().required('Must provide a value'),
   complex_field: {
-    initialValue: {
-      label: 'Texas',
-      value: 'TX',
-    },
-    type: object()
+    initialValue: { label: 'Texas', value: 'TX' },
+    type: Yup.object()
       .nullable()
       .when('field', {
-        'is': 'Test',//can also be () => {}
-        then: string().required('field = Test, complex_field must fill')
+        is: 'Test',
+        then: Yup.string().required('When field = Test, complex_field must be filled')
       }),
     description: 'cccc'
   }
-})
+});
 ```
 
 ## Chakra UI
->
-> <https://chakra-ui.com/docs/components>
+> Documentation: <https://chakra-ui.com/docs/components>
 
 ```js
-
-// Input
-// 
-import { theme, ThemeProvider } from '@chakra-ui/core';
-<ThemeProvider them={them}>
+import { ThemeProvider, theme } from '@chakra-ui/core';
+<ThemeProvider theme={theme}>
   <MyFormikForm />
-</ThemeProvider>
+</ThemeProvider>;
 
 import { Field } from 'formik';
 import { Input, FormControl, FormLabel, FormErrorMessage } from '@chakra-ui/core';
+
 <Field name="my_field">
-  {
-    ((field, form)) => {
-      return (
-        <FormControl>
-          <Input />
-        </FormControl>
-      );
-    }
-  }
-</Field>
+  {(field, form) => (
+    <FormControl>
+      <Input {...field} />
+    </FormControl>
+  )}
+</Field>;
 ```
 
-## react-hook-form (RHF)
->
-> TODO: figure how it work
-> <https://react-hook-form.com/api/useform/formstate/>
+## react‑hook‑form (RHF)
 
 ```js
-import { Controller, useForm } from "react-hook-form";
-// register manually
-const { register } = useForm();
-<input {...register("fName")} />
+import { Controller, useForm } from 'react-hook-form';
 
-// Controller
+// Register manually
+const { register } = useForm();
+<input {...register('fName')} />;
+
+// Using Controller
 <Controller
   render={props => (
-    <TextField
-      label={name}
-      error={errors[name]}
-      {...props}
-    />
+    <TextField label={name} error={errors[name]} {...props} />
   )}
   control={control}
   name={name}
-/>
+/>;
 ```

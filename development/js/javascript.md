@@ -1,82 +1,77 @@
-# ES6 stuff
-> I don't keep up w JS too much, but I am sure 20 years later JS still lives on.
+# ES6 Stuff
 
+> I don't keep up with JavaScript much, but I'm sure it will still be around 20 years from now.
 
-**Frustration**
-- Why not support name parameter? `test(name='a', age=3)`
-- `const` only works with basic type. like string or number.
-- `null` & `undefined`, I get it, but hate it. Python just have None, much easier
-- To store large dataset in Json `JSON.parse("{XXX}")` is faster than `test = {XXX}`
+## Frustrations
 
-## Emerscript Changes
-- ES1 `1997`
-- ES2 `1998`
-- ES3 `1999 Try/Catch, Regx`
-  - ES3.1 `microsoft drama`
-- ES5 `2009 JSON, Array, Common StandardLib methods`
-- ES6 `2015 for of; ()=>{}; Modules`
-- ES7 `2016 @decorator(); observe; includes`
-- ES8 `2017 Async Await`
-- ES9 `2018 {...others};`
-- TS
+- Why isn’t there named parameters? `test(name='a', age=3)`
+- `const` only works for primitive types like strings or numbers.
+- The distinction between `null` and `undefined` is confusing; Python’s single `None` feels simpler.
+- To store large datasets in JSON, `JSON.parse("{...}")` is faster than assigning an object literal.
 
+## ECMAScript History
 
-JS modules(import/export)
-CommonJS (require/exports)
+- **ES1** (1997)
+- **ES2** (1998)
+- **ES3** (1999) – try/catch, RegExp
+  - ES3.1 – Microsoft‑specific extensions
+- **ES5** (2009) – JSON, Array methods, common standard library
+- **ES6** (2015) – `for…of`, arrow functions, modules
+- **ES7** (2016) – decorators, `includes`
+- **ES8** (2017) – async/await
+- **ES9** (2018) – spread operator `{...others}`
+- **TS** – TypeScript
 
-**callback vs Promise vs async/await**  
-- callback
-  > callback hell
-- Promise
-  > `new Promise((resolve, reject) => {}); XXX.then().catch()`   very bad read if multi nest, Promise(`blocking code`).then(`not blocking code`)
+## Modules
 
-  > Promise.all(threePromises).spread((xx, yy, zz) => whatever(xx, yy, xx));`
-- `async await, try, catch`
-  > cleaner read, but still complex
+- **CommonJS** – `require` / `exports`
+- **ES6 modules** – `import` / `export`
 
-  > `await` must have `async` decorator, but call `async` function can invoke without `await`
+## Callback vs. Promise vs. async/await  
 
-**Usefully Features**
-- Destruct Object `const { rules, ...otherProps } = this.props;`
-- Rename destruct array `const [a1, a2] = [1, 2];`
-- Nullish coalescing operator `const test = 0 ?? '-';`
-- Optional chaining `const test = {}?.a?.b?.c;`
-- Merge unique items from arrays `[...new Set([...array1, ...array2])]`
+- **Callback** – leads to “callback hell”.
+- **Promise** – `new Promise((resolve, reject) => { … })`; chaining with `.then().catch()` can become hard to read.
+- **async/await** – cleaner syntax, but still requires proper error handling.
 
+## Useful Features
 
+- Destructuring objects: `const { rules, ...otherProps } = this.props;`
+- Renaming array elements: `const [a1, a2] = [1, 2];`
+- Nullish coalescing: `const test = 0 ?? '-';`
+- Optional chaining: `const test = obj?.a?.b?.c;`
+- Merging unique items from arrays: `[...new Set([...array1, ...array2])]`
 
-## ES6
+## ES6 Examples
+
 ```js
-// ES6 build in supports, most browser, webpack will auto figure file type
+// Import (ES6)
 import getXYZ from 'xyz.js';
-// dynamic import
-async componentDidMount() {
+
+// Dynamic import
+async function componentDidMount() {
   const { ABC } = await import('./ABC');
   this.setState({ ABC });
 }
 
-// Common JS module function, can be dynamics run
-module.export = {};
-require('./xyz.js')
+// CommonJS module export
+module.exports = {};
+require('./xyz.js');
 
-// Format
-xxx.toFixed()
-xxx.toLocalString({
+// Number formatting
+(1234.5).toFixed(2);
+(1234.5).toLocaleString({
   minimumFractionDigits: 2,
   maximumFractionDigits: 2,
-})
+});
 
-// Types
-Number.isNan()
-typeof xx === 'boolean'
+// Type checks
+Number.isNaN(NaN);
+typeof xx === 'boolean';
 ```
 
 # Buzzwords
-- JWT is value base token, cookie is reference base token
-- Import Relative Path : <https://www.youtube.com/shorts/WpgZKBtW_t8>
-- JS Guide : <https://github.com/airbnb/javascript/tree/master/react>
-- Javascript VM instance
-- Tokenlized
-- Abs Structure Tree
-- Binary Code
-- Optimizer
+
+- JWT – value‑based token; cookies – reference‑based token
+- Import relative paths: <https://youtu.be/shorts/WpgZKBtW_t8>
+- JavaScript style guide: <https://github.com/airbnb/javascript/tree/master/react>
+- VM … etc.

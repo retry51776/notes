@@ -7,27 +7,29 @@
 ## CommonJS
 
 > Does not work in browsers.
->
-> Each file has its own scope, allowing conditional loading.
+
+Each file has its own scope, allowing conditional loading.
 
 ```js
 module.exports = {
-    s: 0,
+  s: 0,
 };
 
 exports.x = 1;
 
 if (true) {
-    const s = require('./export_file_name');
-    console.log(s.x);
+  const s = require('./export_file_name');
+  console.log(s.x);
 }
 ```
 
 ## ES6 Modules
 
 > Supported by most modern browsers.
->
-> Requires the `.js` file extension and must be imported from a top‑level script. Tree‑shaking means only the code you actually use is bundled.
+
+- Requires the `.js` file extension.  
+- Must be imported from a top‑level script.  
+- Tree shaking removes unused code during bundling.
 
 ```js
 // Exporting values

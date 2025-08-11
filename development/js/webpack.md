@@ -1,7 +1,6 @@
 # Module Bundler
 
-> Think of a modern website as a puzzle presented to the user.  
-> The module bundler (e.g., Webpack) is the process that assembles the pieces in the puzzle factory.
+> Think of a modern website as a puzzle presented to the user. The module bundler (e.g., Webpack) assembles the pieces in the factory.
 
 ## Alternatives
 
@@ -32,8 +31,8 @@
 - `node-sass` provides bindings for Node.js to **LibSass**, a Sass compiler.  
 - `sass-loader` compiles SCSS/Sass files for Webpack.  
 - `style-loader` injects styles into the DOM at runtime.  
-- `css-loader` interprets `@import` and `url()` statements and resolves them.  
-- `mini-css-extract-plugin` extracts CSS from the JavaScript bundle into a separate file, which is essential for production builds.
+- `css-loader` interprets `@import` and `url()` statements; resolves them.  
+- `mini‑CSS‑extract-plugin` extracts CSS from the JavaScript bundle into a separate file, essential for production builds.
 
 ### JavaScript
 
@@ -44,24 +43,24 @@
 
 For full configuration options see the [Webpack documentation](https://webpack.js.org/configuration/resolve/).
 
-> Source maps (e.g., `bundle.js.map`) link compiled code back to the original source lines, making debugging easier.
+> Source maps (e.g., `bundle.js.map`) link compiled code back to original source lines, making debugging easier.
 
 ```js
 const webpack = require('webpack');
 const path = require('path');
 // const merge = require('webpack-merge');
-// process.env.npm_lifecycle_event
 
 module.exports = {
   context: path.join(__dirname, 'xyz/'),
   entry: {
-    /* Multi‑entry will enable code splitting */
+    // Multi‑entry will enable code splitting
   },
-  output: {},
+  output: {}
+  ,
   module: {
     rules: [
       {
-        test: /* regex to find target files */,
+        test: /regex/,
         use: [/* loaders */],
       },
     ],
@@ -87,4 +86,3 @@ module.exports = {
   },
 };
 ```
-```​```

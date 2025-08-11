@@ -1,6 +1,8 @@
 # HTML
 
-Keep text format
+## Example JSON Payload (displayed as preformatted text)
+
+```html
 <pre>
 {
   "data": {
@@ -13,32 +15,41 @@ Keep text format
   "id": 50
 }
 </pre>
+```
 
-<input type="color">
+## Form Elements
 
-<img src="www.jpg" loading="lazy"/>
+```html
+<input type="color" />
+<img src="www.jpg" loading="lazy" />
+<progress value="5" max="10"></progress>
 
-<progress value="5" max="10">
-</progress>
+<h2>H<sub>2</sub>O</h2>
+<p>n<sup>2</sup></p>
+```
 
+## Meta Tags
 
-H<sub>2</sub>O
+> `<meta>` Open Graph tags provide page metadata for Facebook embeds.
 
-n<sup>2</sup>
-
-
-> <meta> og(open graph) tags have page meta for FB embed
 ---
-# CSS
+
+# CSS (Tailwind example)
+
 ```css
 .btn-green {
-    @apply text-white bg-green-500 hover:bg-green-700;
+  @apply text-white bg-green-500 hover:bg-green-700;
 }
 ```
 
-> Scalable Vector Graphics(SVG)
-- Figma
-- Illustrator
+## SVG
 
-# Junk Box Area
-> PHP is the first language embed HTML(IMO was a bad idea)
+Scalable Vector Graphics are useful for icons and illustrations. Tools:
+
+- Figma  
+- Illustrator  
+
+## Miscellaneous Notes
+
+> PHP was the first language to embed HTML (in my opinion, a questionable design choice).
+

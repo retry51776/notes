@@ -2,13 +2,14 @@
 
 ```js
 describe('XYZ', () => {
-    it.todo('Test that never builded');
+  it.todo('Test that never built');
 
-    it('test 1', () => {
-        expect(1).toBe(1);
-    });
-    it('test 2', () => {
-        expect({}).toEqual({});
-    });
-}) 
+  it('test 1', () => {
+    expect(1).toBe(1);
+  });
+
+  it('test 2', () => {
+    expect({}).toEqual({});
+  });
+});
 ```
