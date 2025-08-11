@@ -36,11 +36,13 @@ Food container/packaging technology; able to package food and prove its cleanlin
 > Cryptoeconomics uses economic incentives to provide guarantees about applications.
 
 ## Private Communication
+
 - Asymmetric encryption
 - Proxy re‑encryption
 - Access control
 
 ## Solana
+
 - Separate transaction throughput from consensus?
 - I don't get it; the white paper is poor.
 
@@ -48,6 +50,7 @@ Food container/packaging technology; able to package food and prove its cleanlin
 Launched February 2019. Interest rates are calculated every block; there are no fixed rates.
 
 ## Fiat System
+>
 > The fiat system is similar to an IP system we have. For network admins, this will make sense!
 
 > Imagine a world where we live in a company and trade with IP addresses.
@@ -65,6 +68,7 @@ Only when you trade with someone outside your bank (other banks) does your bank 
 Most people assume `private_ip` (bank credit) = `public_ip` (cash or federal_reserve_credit), which is **not** true. In fact, ordinary people do **not** have access to federal reserve credit.
 
 People also don’t realise the different types of credits:
+
 - Cash — printed by the US government.
 - Federal‑reserve credit — digits in the Federal Reserve’s computer.
 - Bank credit — digits in a commercial bank’s computer.
@@ -74,11 +78,12 @@ Most people make this wrong assumption because banks can usually convert `privat
 When banks create too many private IPs (bank credits) without enough public IPs (cash), the risk of failed conversions (failed cash withdrawals) rises. Fear spreads, triggering a bank run and causing more failures.
 
 ## My Thoughts
+>
 > Should we abandon this multi‑layer tree structure— which inherently allows some groups to create credit (stealing purchasing power from those who can’t)—and replace it with a flatter system where credit goes to the ledger maintainer under preset rules, hoping it eventually reaches equilibrium?
 
 > IMO, BTC distribution is messy; over time it will improve. Bitcoin’s incentive model encourages cooperation. Accurate accounting is a problem in the current system, and Bitcoin handles it well. We don’t need a perfect system, just a better one.
+>> As I get older, I realize no distribution will be prefect, because population are dynamic. We hope BTC distribution will be naturally balances by personal ability.
 
 > My hope is for a peer‑to‑peer crypto network that the whole world trusts (don’t trust, verify!), providing fair opportunities to everyone. This would encourage contributions to automation, research, and equitable distribution.
 
 > BTC was born from libertarian ideals. It was never about getting rich fast. I really hope BTC continues its original goal.
-

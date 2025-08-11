@@ -1,13 +1,19 @@
-# Airflow
+# Workflow Framework
+
+## Airflow
+>
 > python file defines DAG object
 
-## Scheduler & Executor
+### Scheduler & Executor
+>
 > monitor, trigger, executes, cleanup
 
-## WebServer & API
-> secrets, ui, 
+### WebServer & API
+>
+> secrets, ui,
 
-## DB
+### DB
+>
 > state
 
 - DAG `Directed Acyclic Graph`
@@ -16,16 +22,20 @@
 
 xCom `similar to artifacts; max 48kb`
 
-# Windmill
+## Windmill
+
 - All in one
 
-# Apache Nifi
+## Apache Nifi
 
-# Argo Workflow
-## Workflow (CRD)
-## Workflow Controller
-## Argo Server (UI & API)
+## Argo Workflow
 
-## Artifact Repo
-## Archive Database
+### Workflow (CRD)
 
+### Workflow Controller
+
+### Argo Server (UI & API)
+
+### Artifact Repo
+
+### Archive Database

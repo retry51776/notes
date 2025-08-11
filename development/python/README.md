@@ -19,6 +19,7 @@
 ## Package Scope
 
 > Packages have two types:
+>
 > - Need either `setup.py` **or** `pyproject.toml`.
 
 > Executable package: has a `__main__.py` at the root as an entry point, runnable with `python -m <folder_name>`.
@@ -77,6 +78,8 @@
 - ``setattr()`` offers no IDE autocomplete.
 
 ## Working on a Library
+
+`uv pip install -e .` will see changes immediately.
 
 ```bash
 # Install local package steps:
