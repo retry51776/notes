@@ -1,120 +1,126 @@
-# dotnet core
+// development/dotnet/dotnet.md
+# .NET Core
 
-- Common Language Specification (CLS)
-- Framework Class Library (FCL) `package in python, EX: ASP.NET(flask), WinForm, ADO.Net`
-  - Base Class Library (BCL) `aka standard lib, Ex: system, os, io`
+- **Common Language Specification (CLS)**
+- **Framework Class Library (FCL)** – analogous to Python packages, e.g., ASP.NET (Flask), WinForms, ADO.NET  
+  - **Base Class Library (BCL)** – the standard library (`System`, `IO`, etc.)
 
-> .net core is new open source version
+> .NET Core is the new open‑source version.
 
-> linq XXX.foreach have bad performance.
-use foreach XXX instead
+> LINQ’s `ForEach` has poor performance; use a regular `foreach` loop instead.
 
-> base = super
+> `base = super`
 
-> app.UseXXX ususally is middleware
+> `app.UseXXX` is usually middleware.
 
-> services.AddXXX Usually is setup service `similar flask app.xxx = YYY`
+> `services.AddXXX` typically registers a service (similar to `app.xxx = YYY` in Flask).
 
 ## Folder Structure
 
-- /wwwroot `to store static files`
-- /appsetting.json `azureKeyValut to overwrite appsetting.json values`
-- /Properties `similar to .vscode`
-- /Controllers
-- /Models
-- /Views
+- `/wwwroot` – static files  
+- `appsettings.json` – configuration (Azure Key Vault can overwrite values)  
+- `/Properties` – similar to `.vscode` settings  
+- `/Controllers`  
+- `/Models`  
+- `/Views`
 
 # Deployment & Development
->
-> Ways to set ASPNETCORE_ENVIRONMENT
 
-```
+### Ways to set `ASPNETCORE_ENVIRONMENT`
+
+```bash
 # 1. Default location
 /Properties/launchSettings.json
-# 2. Go into container & change it
+
+# 2. Inside a container
 $Env:ASPNETCORE_ENVIRONMENT = "Development"
-# 3. During publish package
+
+# 3. During publish
 dotnet publish -c Debug -r win-x64 /p:EnvironmentName=Development
-# 4. Though docker-development.env
+
+# 4. Via environment file (e.g., docker-development.env)
 ASPNETCORE_ENVIRONMENT=Development
-
-
-appsettings.json # Define Apps, kind replaced .sln file
 ```
->
+
+`appsettings.json` defines application settings and replaces the old `.sln` configuration.
+
 ## ASP.NET Application Workflow
 
-- Main()
-- Host.CreateDefaultBuilder
-- Startup.cs
-  - ConfigureServices()
-    - AddDbContext()
-    - AddControllers()
-    - AddCors()
-    - AddSession()
-    - AddSingleton()
-    - AddScoped()
-  - Configure()
-    - UseRouting() `aka BluePrint`
-    - UseCors()
-    - UseSession()
+- `Main()`
+- `Host.CreateDefaultBuilder`
+- `Startup.cs`
+  - `ConfigureServices()`
+    - `AddDbContext()`
+    - `AddControllers()`
+    - `AddCors()`
+    - `AddSession()`
+    - `AddSingleton()`
+    - `AddScoped()`
+  - `Configure()`
+    - `UseRouting()` – “blueprint” for endpoints  
+    - `UseCors()`
+    - `UseSession()`
 
-## /Controller `same for .net standard`
+## Controllers (same for .NET Standard)
 
-> Controller's File name, & method name IS part of route
+- The controller’s file name and method name are part of the route.  
+- Custom routes can be defined in `/App_Config/RouteConfig.cs`.  
+- All files are imported according to their namespace; only namespaces matter, not file names.  
+- Namespace conflicts cause compile‑time errors.
 
-> Custom Route can be defined in `/App_Config/RouteConfig.cs`
+### Typical Request Flow
 
-> every files will be import according to their namespace
+1. `AsyncController(requestContext)` – analogous to Flask’s `requestContext = req`  
+2. Check session  
+3. Execute business logic  
+4. Return an `ActionResult` (View, JSON, or File)
 
-> (except controller)file names doesn't matter, only name space matter
+## VS Code Configuration (`/.vscode`)
 
-> name space conflict will trigger during compile
+- `launch.json`
+- `settings.json`
+- `tasks.json`
+- `extensions.json`
 
-> requestContext `requestContext.HttpContext.Request.Url`
+## Services
 
-1. AsyncController(requestContext) `in flask requestContext = req`
-2. check session
-3. business logic
-4. return ActionResult (View or JsonNet or FileResult)
+Complex business logic is usually initialized in `ConfigureServices()` and then referenced in controllers.
 
-## /.vscode
+## Models
 
-    /launch.json
-    /settings.json
-    /task.json
-    /extensions.json
+Define data structures used throughout the application.
 
-## /Services
->
-> complex business logic `most likely init during ConfigureServices(), then refereed in controller`
+## Properties
 
-## /Models
->
-> defined Datasource structure
-
-## /Properties
->
-> launchSettings.json store different envs, will overwrite in Production
+`launchSettings.json` stores environment‑specific settings that are overridden in production.
 
 # Coding
 
-**Conversion Jason <==> Data Model**
+**Conversion JSON ↔ Data Model**
 
-- Dictionary.TryGetValue()
-- using Newtonsoft.Json;
-  - JsonConvert.SerializeObject(ModelVariable)
-  - JsonConvert.DeserializeObject<ModelName>(JsonObj)
-- System.Web.Script.Serialization
-  - new JavaScriptSerializer().Serialize(ModelVariable)
-  - new JavaScriptSerializer().Deserialize(string, typeof(ModelClass))
+```csharp
+// Serialize
+var json = JsonConvert.SerializeObject(modelInstance);
 
-## Ajax Request with .Net
+// Deserialize
+var model = JsonConvert.DeserializeObject<ModelType>(json);
+```
 
-```cs
+- `Dictionary.TryGetValue()`
+- Using `Newtonsoft.Json` (`JsonConvert`)  
+- Using `System.Web.Script.Serialization`:
+  ```csharp
+  var serializer = new JavaScriptSerializer();
+  string json = serializer.Serialize(modelInstance);
+  var obj = serializer.Deserialize<ModelType>(json);
+  ```
+
+## Ajax Request with .NET
+
+```csharp
 var request = new HttpRequestMessage(HttpMethod.Get, uri);
 request.Headers.Add("username", username);
-using (var response = Client.SendAsync(request).Result)
+using (var response = client.SendAsync(request).Result)
 {
     return response.Content.ReadAsStringAsync().Result;
 }
@@ -122,106 +128,104 @@ using (var response = Client.SendAsync(request).Result)
 
 ```bash
 dotnet list package
---verbose #Flag to get more detail
+--verbose   # Flag to get more detail
 
-# Must must *.csproj in root folder
-# Or add --project XXX.csproj 
+# Must have a *.csproj file in the root folder,
+# or specify one with --project <file.csproj>
 dotnet run
 dotnet watch run
-dotnet watch --project XXX.csproj run XXX.csproj
-
+dotnet watch --project <file.csproj> run
 ```
 
-XXX.csproj
+### Example `XXX.csproj`
 
-    - StartupObject // webpack.entry
-
-**None HTTP**
-
-HostBuilder = (NodeJS express) bare bond server
-
-- ConfigureHostConfiguration()
-- ConfigureAppConfiguration()
-- UseSerilog()
-- ConfigureServices()
-  - services.AddOptions()  ?
-  - services.AddHttpClient() ?
-  - services.Configure<ClassName>(setting)
-  - services.AddDbContext()
-  - services.AddSingleton()
-  - services.AddScoped()
-  - services.AddTransient()
-  - services.AddHostedService<BackgroundService>();
-
-> use appSetting.json property
-
-> context.Configuration.GetSection(appSettings.json.props)
-
-```cs
-EX: RabbitMqService<RequestModel, Processor>
-    protected override Task ExecuteAsync
-    public virtual void ConnectMessageQueue
-    public virtual void SetupQueue
-    public virtual void SubscribeMessageQueueEvents
-    public virtual void UnsubscribeMessageQueueEvents
-    public virtual void DisconnectMessageQueue
-    public virtual void HandleMessage
-    public virtual async Task HandleMessageAsync
-    public void HandleMessageError
-    public void HandleMessageRetry
+```xml
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <!-- ... -->
+</Project>
 ```
 
-Interface define data structure,
-so view can check in compile time if variable has methods
+## Non‑HTTP Host Builder (similar to a bare Node.js Express server)
 
-- AddTransient(Interface, Instance)
-    > controller & view will get new instance
-- AddScoped(Interface, Instance)
-    > each request get new instance
-- AddSingleton(Interface, Instance)
-    > app level instance
+- `ConfigureHostConfiguration()`
+- `ConfigureAppConfiguration()`
+- `UseSerilog()`
+- `ConfigureServices()`
+  - `services.AddOptions()`
+  - `services.AddHttpClient()`
+  - `services.Configure<ClassName>(settings)`
+  - `services.AddDbContext()`
+  - `services.AddSingleton()`
+  - `services.AddScoped()`
+  - `services.AddTransient()`
+  - `services.AddHostedService<BackgroundService>()`
 
-```c#
-BlockingCollection bc - new BlockingCollection();
-bc.Add();
-bc.Add();
+> Use `appsettings.json` for configuration values.  
+> Access them via `context.Configuration.GetSection("sectionName")`.
+
+```csharp
+// Example usage with RabbitMQ
+public class RabbitMqService<RequestModel, Processor>
+{
+    protected override Task ExecuteAsync(CancellationToken stoppingToken) { /* ... */ }
+    public virtual void ConnectMessageQueue() { /* ... */ }
+    public virtual void SetupQueue() { /* ... */ }
+    public virtual void SubscribeMessageQueueEvents() { /* ... */ }
+    public virtual void UnsubscribeMessageQueueEvents() { /* ... */ }
+    public virtual void DisconnectMessageQueue() { /* ... */ }
+    public virtual void HandleMessage() { /* ... */ }
+    public virtual async Task HandleMessageAsync() { /* ... */ }
+    public void HandleMessageError(Exception ex) { /* ... */ }
+    public void HandleMessageRetry() { /* ... */ }
+}
+```
+
+### Service Lifetimes
+
+- `AddTransient(Interface, Implementation)` – a new instance per injection (controller & view get a fresh instance).  
+- `AddScoped(Interface, Implementation)` – a new instance per request.  
+- `AddSingleton(Interface, Implementation)` – one instance for the entire application.
+
+```csharp
+var bc = new BlockingCollection<int>();
+bc.Add(1);
+bc.Add(2);
 bc.CompleteAdding();
 
 foreach (var x in bc.GetConsumingEnumerable())
 {
-    // task x
+    // Process item x
 }
 ```
 
 ### MiniProfiler
->
-> shows stack run time
 
-```
-1. Install
-2. StartUp.cs create instance `services.AddMiniProfiler()`
-3. Add decorator before inspect method
-4. Add <mini-profiler /> to view
-5. Go to view
-```
+> Shows stack execution time.
 
-# Tech stack
->
-> new relic is monitor software
+1. Install the package.  
+2. In `Startup.cs`, add `services.AddMiniProfiler()`.  
+3. Decorate methods you want to profile.  
+4. Add `<mini-profiler />` to your view.  
+5. Open the view in a browser to see profiling results.
 
-- IIS Tilde Enumeration
-    > IIS support wildcard in URL, which can expose application structure
+# Tech Stack
 
-```cs
+- New Relic – monitoring software.
+
+## IIS Tilde Enumeration
+
+> IIS supports wildcards in URLs, which can expose application structure.
+
+```csharp
 public interface IXXX
 {
-    String xx { get; set; }
-    bool enable { get; set; }
-    String toHTML();  `return String.Format(<h1>{0}</h1>, "Test")`
+    string Xx { get; set; }
+    bool Enable { get; set; }
+    string ToHTML(); // Returns formatted HTML, e.g., $"<h1>{value}</h1>"
 }
 ```
 
-## Naming Pattern
+## Naming Conventions
 
-- onXXX `takes event as param`
-- xxxHandler `callback`
+- `OnXxx` – event handler that takes an event argument.  
+- `XxxHandler` – callback method.

@@ -1,9 +1,11 @@
-> Most the code will be .net core
+// development/dotnet/web.md
+> Most of the code will be .NET Core
 
 ### Session
 ```cs
-SessionStore.isAuthenticated()
+SessionStore.IsAuthenticated()
 ```
+
 ### Generate JWT
 ```cs
 using JWT.Builder;
@@ -13,25 +15,25 @@ var payload = new Dictionary<string, object>()
 {
     {"xxx", 123},
     {"yyy", 123},
-}
+};
 
 return new JwtBuilder()
-    .WithAlgorithm(new xxxAlgorithm())
-    .WithSecret('123')
+    .WithAlgorithm(new XxxAlgorithm())
+    .WithSecret("123")
     .AddClaims(payload)
     .Encode();
 ```
 
 ### URI
-> Request, Response will auto injected by .net core (I dont like it, no idea where it came from)
+> Request and response will be auto‑injected by .NET Core (I don’t like it; I have no idea where it came from).
+
 ```cs
-print(Request.QueryString['q']);
+print(Request.QueryString["q"]);
 
-
-UriBuilder req = new UriBuilder('google.com?q=abc');
+var req = new UriBuilder("https://google.com?q=abc");
 var query = HttpUtility.ParseQueryString(req.Query);
-query['q'] = 'efg';
+query["q"] = "efg";
 req.Query = query.ToString();
-// req.Path = '';
-Response.Redirect(req.Uri.ToString())
+// req.Path = "";
+Response.Redirect(req.Uri.ToString());
 ```
