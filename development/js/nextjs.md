@@ -1,13 +1,15 @@
 # NextJs
+>
 > allow bot scan, faster load time, able CDN
 
 ## Structure
+
 - /pages `file name routing`
-    - /api `similar express default (req, res) => {}`
-    - /sales
-        - index.js
-        - /[id].js `/sales/123`
-    - _app.js `global context, or flask current_app`
+  - /api `similar express default (req, res) => {}`
+  - /sales
+    - index.js
+    - /[id].js `/sales/123`
+  - _app.js `global context, or flask current_app`
 
 ```js
 import { useRouter } from 'next/router';
