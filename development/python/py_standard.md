@@ -2,7 +2,7 @@
 
 ## dates
 
-```py
+```python
 from datetime import date, timedelta
 from dateutil.relativedelta import relativedelta
 from dateutil.parser import parse
@@ -16,295 +16,385 @@ date.max
 date.min
 ```
 
-# bisect
+## bisect
 
-```py
-# get idx that value will be sort
+```python
+import bisect
+
+# Get the index where a value should be inserted to keep the list sorted
 idx = bisect.bisect(array, value)
 
-# insert into sorted array & keep order
-bisect.insert(array, value)
+# Insert into a sorted array while keeping order
+bisect.insort(array, value)
 ```
 
-# os, socket module
+## os and socket modules
 
-```py
+```python
 from pprint import pprint
-print(object)
-print(object, depth=2) # only print 2nd nested level
-
-# Set linux envirement variables
-export URL=test //set env
 import os
-# all envirement variables
-os.environ
-# current dir
-os.getcwd()
-# 
-os.walk('/')
-os.path.exists('/etc')
-os.remove("/etc/test.txt")
-os.rmdir("/folder")
-
 import socket
+import traceback
+
+# Print an object (pretty‑printed)
+pprint(obj)
+
+# Print an object with limited depth
+pprint(obj, depth=2)  # only prints two nested levels
+
+# Set a Linux environment variable
+os.environ['URL'] = 'test'  # set env var
+
+# List all environment variables
+print(os.environ)
+
+# Current working directory
+print(os.getcwd())
+
+# Walk the filesystem
+for root, dirs, files in os.walk('/'):
+    print(root, dirs, files)
+
+# Check if a path exists
+os.path.exists('/etc')
+
+# Remove a file
+os.remove('/etc/test.txt')
+
+# Remove an empty directory
+os.rmdir('/folder')
+
+# Get hostname and IP address
 hostname = socket.gethostname()
-ip = socket.gethostbyname(hostname)
+ip_address = socket.gethostbyname(hostname)
+print(f'Hostname: {hostname}, IP: {ip_address}')
 
-
-# logging show stacktrace
-stack_info=True
+# Show stack trace (useful for debugging)
 for line in traceback.format_stack():
     print(line.strip())
 ```
 
 ## Custom Data Types
 
-```py
+```python
 from dataclasses import dataclass, field
+from enum import Enum
+
 @dataclass(order=True)
 class Xyz:
     id: int
     text: str = field(default="xxx")
-    def __lt__(self, element):
-        return self.id > element.id;
 
-from enum import Enum
+    def __lt__(self, other):
+        return self.id > other.id  # reversed order for demonstration
+
+
 class Color(Enum):
     RED = 0
     GREEN = 1
     BLUE = 2
 
-
+# Pattern matching (Python 3.10+)
+color = Color.RED
 match color:
     case Color.RED:
-        print("")
+        print("Red")
     case _:
-        print ('no match')
+        print("No match")
 
-# Store variables into binary
+# Store variables into binary format
 import struct
-x = struct.pack('111', 11, 22)
 
-(a, b, c) = struct.unpack(x)
+packed = struct.pack('ii', 11, 22)          # pack two integers
+a, b = struct.unpack('ii', packed)         # unpack them again
+print(a, b)
 ```
 
 ## functools
 
-```py
-functools.partial(xxx_func, 1, 2, 3) # prefill xxx_func w params
-@functools.wraps(func) # assign __name__, __doc__ attributes in the wrapping function before returning it (think of update 'this = super' in js)
-@functools.cache # only 3.10
+```python
+import functools
+from functools import lru_cache
+
+# Partially apply arguments to a function
+partial_func = functools.partial(some_func, 1, 2, 3)
+
+# Preserve metadata when wrapping a function
+@functools.wraps(func)
+def wrapper(*args, **kwargs):
+    return func(*args, **kwargs)
+
+# Cache results (Python 3.10+)
+@functools.cache
+def expensive_computation(x):
+    ...
+
+# LRU cache with a maximum size
 @lru_cache(maxsize=32)
+def another_expensive_func(y):
+    ...
 
-functools.reduce(lambda a, b: a+b, lis, 100)
+# Reduce a sequence
+result = functools.reduce(lambda a, b: a + b, [1, 2, 3], 0)
 
+# Simple logging decorator
 def logged(func):
+    @functools.wraps(func)
     def with_logging(*args, **kwargs):
-        print(func.__name__ + " was called")
+        print(f"{func.__name__} was called")
         return func(*args, **kwargs)
     return with_logging
 ```
 
-## Itertools
+## itertools
 
-```py
-# requires array already sorted by key
-for key, group in itertools.groupby(array_json, key_func)
+```python
+import itertools
 
-# really only uses in quiz
-combinations_with_replacement
-combinations
+# Group consecutive items by a key function (requires sorted input)
+for key, group in itertools.groupby(sorted_array, key=key_func):
+    print(key, list(group))
 
-random.shuffle
-itertools.chain # join list
-for x, y in itertools.product([x_arr, y_arr])
+# Combinations with replacement
+list(itertools.combinations_with_replacement([1, 2, 3], 2))
 
-# islice('ABCDEFG', 2) --> A B
-# islice('ABCDEFG', 2, 4) --> C D
-# islice('ABCDEFG', 2, None) --> C D E F G
-# islice('ABCDEFG', 0, None, 2) --> A C E G
+# Simple combinations
+list(itertools.combinations([1, 2, 3], 2))
+
+# Shuffle a list (in‑place)
+import random
+random.shuffle(my_list)
+
+# Chain multiple iterables together
+combined = itertools.chain(list1, list2)
+
+# Cartesian product
+for x, y in itertools.product([1, 2], ['a', 'b']):
+    print(x, y)
+
+# Slice an iterator (islice)
+list(itertools.islice('ABCDEFG', 2))            # A B
+list(itertools.islice('ABCDEFG', 2, 4))         # C D
+list(itertools.islice('ABCDEFG', 2, None))      # C D E F G
+list(itertools.islice('ABCDEFG', 0, None, 2))   # A C E G
 ```
 
 ## collections
 
-```py
-from collections import defaultdict
-obj = defaultdict(int) # default int, no more  key error!! super
+```python
+from collections import defaultdict, Counter, deque
 
-from collections import Counter
+# Default dictionary with int default (avoids KeyError)
+counts = defaultdict(int)
+counts['apple'] += 1
 
-c = Counter(list)
-c.keys() # set of list values
-c.values() # repeat count
-c.most_common(5) // top 5 counts, :-2:-1 to get least count
-c.total() == len(list)
-c.subtract(an_other_counter) # will modify c
+# Counter for frequency counting
+c = Counter(['a', 'b', 'a', 'c'])
+print(c.most_common(5))   # top 5 most common elements
+print(c.total())          # total number of items counted
+c.subtract(Counter({'a': 2}))  # subtract counts
 
-from collections import deque
-# stack methods
-t = deque()
-t.append(0)
-t.append(1)
-t.pop()
+# Deque as a stack or queue
+stack = deque()
+stack.append(0)      # push
+stack.append(1)
+stack.pop()          # pop
 
-t.popleft()
+queue = deque()
+queue.append('first')
+queue.popleft()      # dequeue
 ```
 
-> Counter is super, but counter WON'T change with array. Uses heap instead
+> `Counter` is very efficient, but note that it does **not** automatically update when the underlying list changes.
 
 ## queue
 
-```py
+```python
 from queue import PriorityQueue
-q = PriorityQueue()
 
+q = PriorityQueue()
 q.put((5, 'Write'))
 q.put((1, 'Code'))
 q.put((3, 'Study'))
-q.qsize()
 
 while not q.empty():
-    next_item = q.get()
-    print(next_item) # smalest first
+    priority, task = q.get()
+    print(f'Priority {priority}: {task}')
 ```
 
 ## heapq
 
-```py
+```python
 import heapq
-heapq.heapify(list_unorder)
-heapq.heappush(
-heapq.heappop( # smallest
 
-heapq.nlargest(n:int, iterable, key:None) # key similar to sort(list, key)
-heapq.nsmallest()
+heap = [5, 1, 3]
+heapq.heapify(heap)          # Transform list into a heap in‑place
+heapq.heappush(heap, 2)      # Push new item
+smallest = heapq.heappop(heap)  # Pop smallest item
 
+# Largest n elements
+largest_three = heapq.nlargest(3, iterable)
+
+# Smallest n elements
+smallest_three = heapq.nsmallest(3, iterable)
 ```
 
 ## importlib
 
-```py
-module_name = "some_package_name.module_a"
-module_a = importlib.import(module_name, ".")
+```python
+import importlib
+
+module_name = "some_package.module_a"
+module = importlib.import_module(module_name)
 ```
 
-## CSV
+## csv
 
-```py
+```python
 import csv
 
-with open("numbers.csv") as f:
-    r = csv.reader(f)
-    for row in r:
-        print row
+with open('numbers.csv', newline='') as f:
+    reader = csv.reader(f)
+    for row in reader:
+        print(row)
 ```
 
-## Multi Process
+## Multiprocessing and Threading
 
-- Multi Thread cost time for context switch
-- Multi Process cost more CPU
-- Cooperative Multi Task (similar single event loop)
-  - Coroutine `A variant of functions that enables concurrentcy via Cooperative Multi Task`
+### General notes
 
-```py
-# Multi-Process
-# Note: ProcessPoolExecutor print will not work, logs must return to main process
+- **Multithreading** incurs context‑switch overhead.
+- **Multiprocessing** uses more CPU but avoids the GIL.
+- **Cooperative multitasking** (async/await) is similar to a single‑threaded event loop.
+
+```python
 from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor, as_completed
+
+def some_function(arg1, arg2):
+    ...
+
+# Using threads
 with ThreadPoolExecutor(max_workers=5) as executor:
- worker = executor.submit(funcion_x, arg1, arg2)
- for worker in as_completed([worker]):
-  print(worker.result())
+    future = executor.submit(some_function, 'a', 'b')
+    for result in as_completed([future]):
+        print(result.result())
 
+# Using processes
+with ProcessPoolExecutor() as executor:
+    futures = [executor.submit(some_function, i) for i in range(10)]
+    for f in as_completed(futures):
+        print(f.result())
+```
+
+### Threading example
+
+```python
 import threading
-x = threading.Thread(target=thread_function, args=(1,))
-x.start()
-# similar JS await
-x.join()
 
+def thread_function(name):
+    print(f"Thread {name} starting")
+    # do work here
+    print(f"Thread {name} finished")
+
+t = threading.Thread(target=thread_function, args=('A',))
+t.start()
+t.join()  # Wait for the thread to finish
+```
+
+### Multiprocessing example
+
+```python
 import multiprocessing
-pool = multiprocessing.Pool(multiprocessing.cpu_count())
-def xxx_func(whatever):
-    return whatever
 
-result = pool.map(xxx_func, frame.iterrows())
-pool.close()
-pool.join()
+def worker(x):
+    return x * x
 
+with multiprocessing.Pool() as pool:
+    results = pool.map(worker, range(10))
+    print(results)
 
-def xx(counter):
-    counter.value += 1
+# Shared value example
 counter = multiprocessing.Value('i', 0)
-tsk = multiprocessing.Process(target=xx, args(counter))
+
+def increment(counter):
+    with counter.get_lock():
+        counter.value += 1
+
+p = multiprocessing.Process(target=increment, args=(counter,))
+p.start()
+p.join()
+print(counter.value)
+```
+
+### Running external commands
+
+```python
 import subprocess
-subprocess.run()
+
+subprocess.run(['ls', '-l'])
 ```
 
 ## contextlib
 
-```py
+```python
 from contextlib import contextmanager
-class DB():
-    def __exit__(self, exc_type, exc_val, exc_traceback):
-        self.disconnect_db()
 
-    def init_db(self):
-        self.db_engine = create_engine(self.config.XXX_URI, pool_pre_ping=True, pool_size=self.pool_size)
-        self.session_mk = sessionmaker(bind=self.db_engine)
+@contextmanager
+def managed_resource():
+    # Setup code
+    resource = acquire_resource()
+    try:
+        yield resource
+    finally:
+        # Teardown code
+        release_resource(resource)
 
-    def disconnect_db(self):
-        if hasattr(self, 'session_mk') and self.session_mk:
-            self.session_mk.close_all()
-        if hasattr(self, 'db_engine') and self.db_engine:
-            self.db_engine.dispose()
-
-    @contextmanager
-    def get_session(self):
-        session = None
-        for i in range(1, 4):
-            try:
-                session = self.session_mk()
-                break
-            except Exception:
-                self.logger.exception(f'Reconnecting to XXX. {i}th attempted')
-                self.init_db()
-        yield session
-        if session:
-            session.close()
+# Usage
+with managed_resource() as res:
+    # work with res
+    pass
 ```
 
 ## argparse
 
-```py
+```python
 import argparse
-parser.add_argument('-d', '--debug', help='XXX', action='store_true')
+
+parser = argparse.ArgumentParser(description='Example script')
+parser.add_argument('-d', '--debug', help='Enable debug mode', action='store_true')
 args = parser.parse_args()
 
-import sys
-print(sys.argv[1])
+if args.debug:
+    print('Debug mode is on')
 ```
 
 ## asyncio
 
-```py
+```python
+import asyncio
+
 async def what():
     print('before sleep')
-    await asyncio.slee(2)
+    await asyncio.sleep(2)
     print('after sleep')
     return 0
 
-asyncio.run(what()) # runs in MAIN branch
-task = asyncio.create_task(what()) # runs off branch
-await task # similar thread.join()
+# Run the coroutine in the main thread
+asyncio.run(what())
 
+# Create a task that runs concurrently
+task = asyncio.create_task(what())
+await task  # In an async context, wait for completion
 ```
 
-## others standard lib
+## Other standard‑library utilities
 
-```py
+```python
 from pathlib import Path
 from urllib.request import urlopen
-import pickle // store in binary
-import json // store in json
+import pickle   # Store binary data
+import json     # Store JSON data
 ```
 
-> httpx grather is faster multiple network requests
+> `httpx` is often faster than the built‑in `urllib` for multiple network requests.
+
