@@ -1,91 +1,84 @@
 # Crypto
 
-Think of computation is cooking food.
+Think of computation as cooking food.
 
-data -> food
-Software As Service (SAS) -> take out restaurant with closed kitchen
+- data → food  
+- Software As Service (SaaS) → take‑out restaurant with a closed kitchen  
 
-> You don't know how, who, cook the food; You just trust brand
+> You don't know how, who, or cooks the food; you just trust the brand.
 
+In‑house server → home cook  
 
-inhouse server -> home cook
+> Messy, and do you have a clean/updated kitchen?
 
-> messy, and do you have clean/updated kitchen?
+Cloud vendor → commercial landlord  
 
+> Provided by the landlord; they can take it away or have a backdoor. Usually clean & well equipped.
 
-cloud vendor -> commercial landlord
+Blockchain → open kitchen  
 
-> provide by landlord, they can take it away, or have a backdoor; usually clean & well equipped
+> Anyone can be cooking in the kitchen (miner), but all dishes (blocks) need public review before being shipped (node verification).
 
-blockchain -> open kitchen
+**Homomorphic encryption**  
+Plastic wrap/glove for food/data; allows processing data without touching it.
 
-> Anyone can be kitchen cooking(miner), but all dishes(block) needs public review before shipped(node verification)
+**zk‑SNARK**  
+Food container/packaging technology; able to package food and prove its cleanliness just by the package.
 
+- Merkle tree
+- Block header
+- Consensus
+  - Proof of work
+  - Proof of stake
+- Transaction ledger vs. balance ledger
+- Scalability trilemma: security, decentralisation, scalability
 
-homographic encryption
-> plastic wrap/glove for food/data; Able process data without touch data;
-
-zk-snark
-> food container/ packaging technology; able to package food, and able to proven cleanness just by package.
-
-
-- merkle tree
-- block header
-- consensus
-  - proof of work
-  - proof of stake
-- transaction ledger vs balance ledger
-- scalability trilemma: security, decentralized, scalable
-
-  
-> cryptoeconomics is use economic incentives to provider guarantee about application
+> Cryptoeconomics uses economic incentives to provide guarantees about applications.
 
 ## Private Communication
-- Asy encryption
-- Proxy Re-encryption
-- Access Control
-
+- Asymmetric encryption
+- Proxy re‑encryption
+- Access control
 
 ## Solana
-- separate transaction throughput from consensus?
-- I don't get it, white paper sucks
+- Separate transaction throughput from consensus?
+- I don't get it; the white paper is poor.
 
-**Compound**
-2019-Feb launch
-Interest Rate is calculate every block, no fix rates
+**Compound**  
+Launched February 2019. Interest rates are calculated every block; there are no fixed rates.
 
 ## Fiat System
-> Fiat System is similar to IP system we have. For network admin, this will make sense!
+> The fiat system is similar to an IP system we have. For network admins, this will make sense!
 
-> Image a world where we lives at Company, trade with IP address
+> Imagine a world where we live in a company and trade with IP addresses.
 
 - Federal Reserve (Internet Assigned Numbers Authority)
 - 12 Federal Reserve Banks (Internet Service Providers)
-- Commercial Banks (Company)
-- public_ip (cash or federal_reserve_credit)
-- private_ip (bank_credit)
-- transaction (transfer ip ownership)
+- Commercial banks (companies)
+- `public_ip` (cash or federal_reserve_credit)
+- `private_ip` (bank_credit)
 
-When you trade w someone in same bank(Company), bank(Company) will creates private_ip(bank_credit) for the transaction(transfer ip ownership).
+When you trade with someone in the same bank (company), the bank creates a `private_ip` (bank credit) for the transaction.
 
-Only when you trade w someone outside bank(Other banks), then bank(Your Bank) will give public_ip (cash or federal_reserve_credit) to outside bank(Other banks).
+Only when you trade with someone outside your bank (other banks) does your bank give a `public_ip` (cash or federal_reserve_credit) to the other bank.
 
-Most people assumed private_ip(bank_credit) = public_ip(cash or federal_reserve_credit), which is NOT true. In fact normal people do NOT have access federal_reserve_credit.
+Most people assume `private_ip` (bank credit) = `public_ip` (cash or federal_reserve_credit), which is **not** true. In fact, ordinary people do **not** have access to federal reserve credit.
 
-Most people also doesn't realized different credits
-- cash `printed by US gov.`
-- federal_reserve_credit `digits in federal_reserver computer`
-- bank_credit `digit in commercial bank's computer`
+People also don’t realise the different types of credits:
+- Cash — printed by the US government.
+- Federal‑reserve credit — digits in the Federal Reserve’s computer.
+- Bank credit — digits in a commercial bank’s computer.
 
-Most people made these wrong assumption because most the time Banks(Company) able to convert private_ip(bank_credit) to public_ip(cash)
+Most people make this wrong assumption because banks can usually convert `private_ip` (bank credit) to `public_ip` (cash).
 
-When Banks(Company) creates too many private_ip (bank_credit) without public_ip (cash or federal_reserve_credit), this will increase changes of failed conversation(failed cash withdraw); Then as fear spread, this trigger bank run(cause more failures)
+When banks create too many private IPs (bank credits) without enough public IPs (cash), the risk of failed conversions (failed cash withdrawals) rises. Fear spreads, triggering a bank run and causing more failures.
 
 ## My Thoughts
-> Should we abandon this multi-layer trees structure `inherently allow some groups create credit(steal purchase power from those can't), and a smaller group w major leverage of whole system`, replace with some kind flat layer system `credit goes to ledger maintainer w preset rules, hope eventually go to equilibrium`?
+> Should we abandon this multi‑layer tree structure— which inherently allows some groups to create credit (stealing purchasing power from those who can’t)—and replace it with a flatter system where credit goes to the ledger maintainer under preset rules, hoping it eventually reaches equilibrium?
 
-> IMO, BTC distribution is very mess up, in defense BTC distribution will get better as time goes. I think credit system is meant to encourage ppl work together. Accurate accounting is definitely problem in current system, and BTC is very good at it. We don't need a prefect system, just a better one.
+> IMO, BTC distribution is messy; over time it will improve. Bitcoin’s incentive model encourages cooperation. Accurate accounting is a problem in the current system, and Bitcoin handles it well. We don’t need a perfect system, just a better one.
 
-> My hope is some peer to peer crypto network the whole world trust(Don't trust, verify!), gives fare opportunities to everyone in world. Which will encourage everyone contributed to automation, research, fare distribution.
+> My hope is for a peer‑to‑peer crypto network that the whole world trusts (don’t trust, verify!), providing fair opportunities to everyone. This would encourage contributions to automation, research, and equitable distribution.
 
-> BTC is born from libertarians ideals. It was never about get rich fast. I really hope BTC continue on its goal.
+> BTC was born from libertarian ideals. It was never about getting rich fast. I really hope BTC continues its original goal.
+

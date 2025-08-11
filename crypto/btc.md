@@ -1,60 +1,61 @@
 ## Bitcoin Structure
-- block header (80 bytes)
-  - block version (4)
-  - prev block hash (32)
-  - merkle root (32)
-  - timestamp (4)
-  - target (4)
-  - nonce (4)
-- Transaction Counter (1-9)
-- Trans
-  - version number (4)
-  - input counter (1-9)
-  - inputs
-    - prev trans hash
-    - prev trans index
-    - tran sign length
-    - tran sign
-    - seq
-  - output counter
-  - output
-    - value
-    - trans out len
-    - trans out script
-  - lock time (4)
+- Block header (80 bytes)
+  - Version (4 bytes)
+  - Previous block hash (32 bytes)
+  - Merkle root (32 bytes)
+  - Timestamp (4 bytes)
+  - Target (4 bytes)
+  - Nonce (4 bytes)
+- Transaction counter (1–9 bytes, varint)
+- Transactions
+  - Version number (4 bytes)
+  - Input counter (1–9 bytes, varint)
+  - Inputs
+    - Previous transaction hash
+    - Previous output index
+    - Script length
+    - Signature script
+    - Sequence
+  - Output counter (varint)
+  - Outputs
+    - Value (8 bytes)
+    - Pubkey script length
+    - Pubkey script
+  - Lock time (4 bytes)
 
-- private key is 1 to 1 with public key
-- 160 bit address = `ripemd160(sha256(256_bit_public_key))`
-- secp256k1 elliptical curve
+- Private key ↔ public key (1‑to‑1 mapping)
+- Address = `RIPEMD160(SHA256(public_key))` (160 bits)
+- secp256k1 elliptic curve
 
-- Unspent Transaction Output (UTXO)
-- Lighting network is a protocol uses BTC as bank reserves note.
-- longest chain
-- 10 min per block, block body 1mb
-- calculate difficulty every 2 week (2,016 blocks)
-- timestamp is NOT reliable in blockchain
+- Unspent Transaction Output (UTXO) model
+- Lightning Network – a protocol that uses BTC as bank reserve notes.
+- Longest chain rule
+- ~10 minutes per block; block size ≈ 1 MB
+- Difficulty adjusts every two weeks (2,016 blocks)
+- Timestamp is **not** reliable in blockchain consensus
 
-## vulnerability
-- 51% attack `stop all trans, double spent, `
-- time wrap attack
-
-- OP_CHECKMULTISIG extra 1 pop off stack
+## Vulnerabilities
+- 51 % attack – can halt transactions and enable double‑spending.
+- Time‑warp attack.
+- `OP_CHECKMULTISIG` consumes an extra stack element.
 
 # Source Code Structure
-> . h files, or header files, are used to list the publicly accessible instance variables
+> `.h` files (header files) list publicly accessible variables.  
+> `.cpp` files implement the methods and use those variables.
 
-> .cpp files, or implementation files, are used to actually implement those methods and use those instance variables
+```
+src/
+├─ validation.cpp   # ~5,000 lines of logic – TODO: break into smaller functions
+├─ index/
+│  └─ base.cpp
+├─ node/
+│  └─ miner.cpp
+├─ secp256k1/
+│  └─ include/secp256k1_preallocated.h
+└─ consensus/
+   ├─ consensus.h
+   ├─ validation.h
+   ├─ tx_verify.cpp
+   └─ merkle.cpp
+```
 
-- /src
-  - /validation.cpp `5000 lines logics, TODO: break down methods`
-  - /index
-    - /base.cpp
-  - /node
-    - /miner.cpp
-  - /secp256k1
-    - /include/secp256k1_preallocated.h
-  - /consensus
-    - /consensus.h
-    - /validation.h
-    - tx_verify.cpp
-    - merkle.cpp
