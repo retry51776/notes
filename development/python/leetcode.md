@@ -1,63 +1,64 @@
-# I hate leetcode
-# Quiz
-- The Minion Game
-- DateTime label
+# I Hate LeetCode
 
-**75 blind questions types**
+## Quiz Topics
+- The Minion Game  
+- DateTime label  
 
-- Array/Matrix
-  - Quick Search|Sort
-  - Window Slicing
-- Recursive
-  - Divide and Conquer
-    > Merge sort is easy to parallel
+**75 blind question types**
 
-  - Dynamic Programming
-    - Tree
-      > Only single path from root to any node
+### Categories
 
-      > Depth-first search
-        - Preorder is priority is left, node, right
-        - Inorder is started from leftest leave, then root, at last right subtree
-        - Postorder is started from leftest leave, then sibling, at last parent
+#### Array / Matrix
+- Quick Search | Sort
+- Sliding Window
 
-      > Breadth-first search(level order) priory is lower level scan first
-      - Heap
-        > Tree structure that will self reorder when add/poll node
-      - Sufflix Trie
-        > Tree structure that store string by letter, reduced space cost, useful for substring search
+#### Recursive
+- Divide and Conquer  
+  > Merge sort is easy to parallelize.
 
-# Stuck?
-> started from solution, extract key variables that calculated solution
+#### Dynamic Programming
+- **Tree**
+  - Only a single path exists from the root to any node.
+  - Depth‑first search (DFS)
+    - Preorder: left → node → right  
+    - Inorder: leftmost leaf → root → right subtree  
+    - Postorder: leftmost leaf → siblings → parent
+  - Breadth‑first search (BFS, level order): scans lower levels first.
 
-> Question/Input properties?
+- **Heap**
+  > A tree structure that reorders itself when nodes are added or removed.
 
-> cache redone steps, common in tree, recursive
+- **Suffix Trie**
+  > Stores strings character by character; reduces space and is useful for substring searches.
 
-> Dynamic Programming or Recursive
+## Getting Unstuck
+> Start from the solution and extract the key variables used to compute it.
 
-> For most, longest, shortest, max, min question. Prefer solution that each computation step reduce possibility
+- Identify question/input properties.  
+- Cache repeated steps (common in tree/recursive problems).  
+- Decide between DP or plain recursion.  
 
-  - Ex: max question: only keep track of local max result, throw away past calculation
+### Typical Patterns
 
+#### Pointer / Sliding‑Window Questions
+1. Initialise result.  
+2. Create extra pointers that do **not** interfere with each other.  
+3. Divide the task into:
+   - Setup phase  
+   - Process phase  
+   - Reset phase  
+4. Mark variable scopes: per‑cycle vs. global.
 
-### For Pointer, sliding windows Questions:
-
-- init result,
-- always create extra operation pointer `avoid pointer interfior with  each other`
-- divide task into setup up phase, process phase, reset phase,
-- mark variables types: reset each cycle, cycles/global state
-
-
-```py
-for x in zip(*['abc', 'def', 'ghi'])
-    //x = ['a', 'd', 'g']
+```python
+for x in zip(*['abc', 'def', 'ghi']):
+    # x == ('a', 'd', 'g')
+    pass
 ```
 
-### For Divide & Conquer Questions:
-> Often a prefer solution in Production because predictable runtime & able parallel process
+#### Divide & Conquer Questions
+> Often preferred in production because runtime is predictable and the approach can be parallelised.
 
-Always at least 2 parts:
-1. division `create pointers, recursive function`
-2. merge `where logic happens`
+Always consists of at least two parts:
+1. **Division** – create pointers, define a recursive function.  
+2. **Merge** – combine results where the main logic resides.
 

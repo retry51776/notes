@@ -1,139 +1,152 @@
-# ML
+# Machine Learning (ML)
 
-> Find data correlation
-Pearson's coefficient
+> Find data correlations using Pearson's coefficient.  
 
-ANOVA stands for Analysis of Variance
-
+ANOVA stands for Analysis of Variance.
 
 ## Libraries
-numpy
-pandas
-scikit learn
+- NumPy
+- pandas
+- scikit‑learn
 
-## Components
-Loss function
-    - square error
-    - accuracy_score
-Feature Engineer
-Alg.
-    LinearRegression
-    DecisionTree
-        - RandomForest
+## Core Components
+- **Loss functions**
+  - Squared error  
+  - Accuracy score
+- **Feature engineering**
+- **Algorithms**
+  - LinearRegression
+  - DecisionTree
+    - RandomForest
 
-# AI
+# Artificial Intelligence (AI)
+
 ## Libraries
-pyTorch
-Tensorflow
+- PyTorch
+- TensorFlow
 
-```py
-# take out feature at a time
-recursive feature removal
+```python
+# Feature selection: recursive feature elimination
+```
 
-# KubeFlow decorator
+### KubeFlow Decorators
+```python
 @component()
 def get_df(project_id):
-	ddf.to_csv(data_out.path)
-
-pipeline is compile into json
-
-@kfp.dsl.pipeline(name="", pipeline_root=xxx):
-	xxxx = xxx.
+    ddf.to_csv(data_out.path)
 ```
-## Models
-- dropout
-- Convolution Neural Network (CNN)
-- (RRN)
-- BiDirection
-- ResNetwork
+> A pipeline is compiled into JSON.
 
-- LSTM
-Transformer generate embedding
-Bidirectional Encoder Representation Transformers(BERT)
-> Question Answering
-> Sentiment Analysis
-> Text Summarization
+```python
+@kfp.dsl.pipeline(name="", pipeline_root=xxx)
+def pipeline():
+    xxxx = xxx  # define steps here
+```
 
-# Dats Sample
-Ensemble Sampling
+## Model Types
+- Dropout  
+- Convolutional Neural Network (CNN)  
+- Recurrent Neural Network (RNN)  
+- Bidirectional RNN  
+- Residual Networks (ResNet)  
+- LSTM  
+- Transformer (generates embeddings)  
+- BERT (Bidirectional Encoder Representations from Transformers)
 
-# Trainning
-- Masked Language Modeling (MLM) fill in blank
-- Next Sentence Prediction (NSP) figure context
+> Applications: Question Answering, Sentiment Analysis, Text Summarization
+
+## Data Sampling
+- Ensemble sampling
+
+## Training Objectives
+- Masked Language Modeling (MLM) – fill‑in‑the‑blank  
+- Next Sentence Prediction (NSP) – infer context  
 
 ## Vertex AI
-### Setup Pipeline
-```py
+
+### Setup a Pipeline
+```python
 from kfp.v2 import compiler
-@kfp.dsl.pipeline(name, pipeline_root)
+import kfp.dsl as dsl
+
+@dsl.pipeline(name="my-pipeline", pipeline_root="gs://my-bucket/pipelines")
 def pipeline():
-    df = xxx; // already clean
+    df = xxx  # already cleaned
     step1_out = step1.do_x(df)
     step2_out = step2.do_y(step1_out.outputs['out'])
 
-compiler.Compiler().compile(pipeline_func=pipeline, package_path)
+compiler.Compiler().compile(pipeline_func=pipeline, package_path="pipeline.json")
 ```
 
-```py
-from kfp.v2.dsl import component, Dataset, Input, Output
-@component(case_image='', packages_to_install=[])
+```python
+from kfp.v2.dsl import component, Dataset, Input, Output, Artifact
+
+@component(
+    base_image='python:3.9',
+    packages_to_install=['pandas']
+)
 def step1(num1: float, x_in: Input[Dataset], out: Output[Artifact]):
     import pandas as pd
     with open(out.path, 'w') as f:
         f.write('xxx')
+```
 
+```python
 from sqlalchemy.sql import select, text
 ```
 
 # Tesla AI Networks
-- Occupancy Network
-- Lane Network
-- Traffic Control 
-- Road Sign Network
-- Moving Object Network
-- Path Planning Network
 
-## Occupancy - `Level convert Raw data to base geometry layer; aka things near me, but don't identify things`
-> roduce 3d vector_space, determent object is stable or in motion; Also predict motion of object without determent object; Runs every 10ms;
+- Occupancy Network  
+- Lane Network  
+- Traffic Control  
+- Road Sign Network  
+- Moving Object Network  
+- Path Planning Network  
 
-#### Dataflow
-- 8 Camera raw data input
-- RegNets & BiFPNs `get features`
-- Spatial Attention `focus on select features; spatial query & mutlicam query embedding`
-- Temporal Alignment `Join w car's own telemetry generate spatiotemporal features`
-- Occupancy & Occupancy Flow `using deconvolutions_network generate volume output; aka my current surrounding & surrounding prediction`
-- Drivable Surface & Queryable Output `For downstream processes`
+## Occupancy
+> Converts raw sensor data into a base geometry layer (i.e., things near the vehicle without identifying them).  
+> Produces a 3‑D vector space, determines whether objects are static or moving, and predicts motion of unidentified objects. Runs every 10 ms.
 
-NeRF State `3D reconstruction from Occupancy`
+### Dataflow
+1. 8 camera streams → raw data.  
+2. RegNets & BiFPNs extract features.  
+3. Spatial Attention focuses on selected features (spatial & multi‑camera query embeddings).  
+4. Temporal Alignment joins vehicle telemetry to create spatio‑temporal features.  
+5. Occupancy & Occupancy Flow generate volumetric output via deconvolution networks (current surroundings + predictions).  
+6. Drivable Surface & Queryable Output feed downstream processes.  
 
-## Lane & Object - `Identify things & predict future motion`
-- predict lane & predict future behavior
-- Lane Connectivity `Tesla uses satellite & drive path to generate lane connectivity; Lane Connectivity can generate tranning data, or input data for Planning;`
-- Tesla has world lanes Connectivity `join multi-trip, aka answer, or world map, too big embed into car; Course Alignment, Pairwise Matching; Joint Optimization; Surface Refinement; Auto Detect new trips;`
-- car has smaller Lane Detection Network with 12 mil params `High precision Trajectory`
-- Embedding Table * One_hot_encoding = token
+*NeRF*: 3‑D reconstruction from occupancy data.
 
-#### Dataflow
-- 8 camera row data input -> Geometry
-- Mix w Navigation Map -> Lane Guidance Module
-- World Tensor -> Lanes Graphs & Adjacency Matrix
+## Lane & Object Detection
+- Predict lanes and future object behavior.  
+- Lane connectivity uses satellite maps to generate lane graphs; these can produce training data or serve as input for planning.  
+- Tesla aggregates global lane maps (world‑scale) by merging trips, performing pairwise matching, surface refinement, and auto‑detecting new routes.  
 
-## Path Planning - `Decision layer makes decision every 50ms`
-> Think all possible interactions, align planning to interaction cost 10ms
-> Goal Candidates `most likely solution`
-> Seed Trajectories `other subject's most likely trajectories; aka predict others`
-> Interaction Search `Seed_Trajectories join Goal_Candidates produces many Interactions; Planning needs to score each Interactions & pick a Goal_Candidate; That needs Interaction search engine(Neural Planner); Seed_Trajectories will predict Ghost_Object that car can't see but able to predict`
+### Dataflow
+1. 8 camera streams → geometry extraction.  
+2. Combine with navigation map → Lane Guidance Module.  
+3. World tensor → lane graphs & adjacency matrix.
 
-## Auto Label
-> label lanes, planner, object, shape, Occupancy, just like factory, has yield, quality, quantity, inventory
+## Path Planning (Decision Layer)
+> Makes decisions every 50 ms.
 
-## Simulation
-inputs
-- lane graph
-- weather
-- things in road
-- trophy
+- Considers all possible interactions and aligns planning to interaction cost (~10 ms).  
+- **Goal Candidates**: most likely solutions.  
+- **Seed Trajectories**: predicted trajectories of other agents.  
+- **Interaction Search**: combines seed trajectories with goal candidates; scores each interaction and selects the best goal candidate using a neural planner.  
 
-## Data
-> Find wrong prediction dataset(Challenge Case), find similar dataset
-Vehicle Signal `Sub network detect car status`
+## Auto‑Labeling
+> Labels lanes, planners, objects, shapes, occupancy, etc., similar to a factory line (yield, quality, quantity, inventory).
+
+## Simulation Inputs
+- Lane graph  
+- Weather conditions  
+- Road participants  
+- Scenarios (e.g., trophies)
+
+## Data Management
+> Identify problematic prediction datasets (“challenge cases”) and find similar examples.  
+
+Vehicle signals are detected by sub‑networks that infer car status.
+

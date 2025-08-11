@@ -1,57 +1,63 @@
 # Message Broker
-> It's fast because zero-copy uses linux system call `sendfile()` directly transfer os cache into NIC buffer; and sequential I/O is append only db
 
-> Improves decoupling, fault tolerance, scalability
+> It's fast because zero‑copy uses the Linux system call `sendfile()` to directly transfer the OS cache into the NIC buffer; sequential I/O is append‑only.
 
-> Queue : consumed once
+> Improves decoupling, fault tolerance, and scalability.
 
-> Pub Sub: consumed many time
+- **Queue**: consumed once  
+- **Pub/Sub**: can be consumed many times  
 
-> Decision Pipeline
+## Decision Pipeline
 
-> multi message same queue & engine VS different queue w its engine
+- Multiple messages in the same queue & engine vs. different queues with their own engines.
 
-> From my experience 3 mins to publish 5,000 small message
-### Protocol
-- AMQP
-  > Advanced Message Queuing Protocol, move message between applications.
-  
-  > Pika is python implementation AMQP 0.9.1
-- MQTT
-- STOMP
+> From my experience, it takes about 3 minutes to publish 5,000 small messages.
+
+### Protocols
+
+- **AMQP**
+  > Advanced Message Queuing Protocol; moves messages between applications.  
+  > Pika is a Python implementation of AMQP 0.9.1.
+- **MQTT**
+- **STOMP**
 
 ---
 
-# RabbitMQ
-> AMQP protocol
+## RabbitMQ
+> Uses the AMQP protocol.  
 
-> 3.9 support stream
+> Version 3.9 adds stream support.
 
-- Virtual Host
-  - Exchange
-      - Queue
-      > fanout/direct/topic/header/nameless
+### Concepts
+- **Virtual Host**
+- **Exchange**
+  - Types: `fanout`, `direct`, `topic`, `header`, nameless.
+- **Queue**
+  - Bindings such as `topic/routing_key` (many‑to‑many).
 
-      > topic/routing_key (M to M) Queue
-
-```py
+```python
 def __process(ch, method, property, body):
     t = Thread(target=do_work)
     t.start()
-    //method.message_count
+    # method.message_count
 
 conn.add_callback_threadsafe(ack_message)
-ch.queue_declare('xxx', durable=True, arguments={
-    'x-delivery-limit': 3,
-    'x-dead-letter-exchange': 'nnn',
-    'x-dead-letter-routing-key': 'xxx',
-})
+
+ch.queue_declare(
+    'xxx',
+    durable=True,
+    arguments={
+        'x-delivery-limit': 3,
+        'x-dead-letter-exchange': 'nnn',
+        'x-dead-letter-routing-key': 'xxx',
+    },
+)
 ch.queue_bind()
 ch.basic_publish(
     exchange='xxx',
     routing_key='yyy',
     body=json.dumps({}),
-    properties=pika.BasicProperties(delivery_mode=2) # very slow
+    properties=pika.BasicProperties(delivery_mode=2)  # very slow
 )
 consumer_tag = ch.basic_consume('yyy', __process, auto_ack=False)
 ch.confirm_delivery()
@@ -60,33 +66,30 @@ ch.basic_cancel(consumer_tag)
 ch.basic_ack(delivery_tag=method.delivery_tag)
 ch.basic_get()
 ch.queue_unbind()
-ch.start_consuming() # I forgets this
+ch.start_consuming()  # I forgot this
 ```
 
-# Kafka
-  - topic
-    - partition
-    > partition is append only log
+## Kafka
+- **Topic**
+  - **Partition** – an append‑only log.
+    > By default, messages are distributed randomly across partitions; you can use a hash key to control placement.  
+    > Ordering is guaranteed only at the partition level, not across the whole topic.  
+    > Offsets are also per‑partition.
 
-    > by default topic randomly send to partition, can set to hash
+- `.avsc` files define schemas.  
+- Uses a custom binary protocol over TCP.  
 
-    > order is guaranty is partition level, not topic level
+### Python Clients
+- `kafka-python`
+- `confluent-kafka-python`
 
-    > offset is partition level
+### Stream Processing
+- Faust is a stream‑processing library.
 
-> .avsc is schema file
-
-> custom binary protocol over TCP
-
-> kafka-python
-
-> confluent-kafka-python
-
-> Faust is a stream processing library
-```py
+```python
 class Order(faust.Record):
     sales_id: int
-    sales_amt: double
+    sales_amt: float
 
 @app.agent(app.topic('orders'), value_type=Order)
 async def proc_order(orders: faust.Stream):
@@ -94,28 +97,31 @@ async def proc_order(orders: faust.Stream):
         print(order.sales_id)
 ```
 
+> Zookeeper is complex and can bring down the server if misconfigured.
 
-> zookeeper is complex, & able bring down server
+[RabbitMQ consumer exclusivity documentation](https://www.rabbitmq.com/consumers.html#exclusivity)
 
-https://www.rabbitmq.com/consumers.html#exclusivity
-
-queue.method.message_count
-## Java
+### Java Example
 ```java
-xxxStream.groupByKey().aggregate(() -> 0.0,
-    (key, order, total) -> total + order.getPrice(),
-    Materialized.with(Serdes.String(), Serdes.Double()))
+xxxStream.groupByKey()
+    .aggregate(
+        () -> 0.0,
+        (key, order, total) -> total + order.getPrice(),
+        Materialized.with(Serdes.String(), Serdes.Double())
+    )
     .toStream()
-    .to(xxxTopic, Produced.with(Serdes.String(), Serdes.Double()))
+    .to(xxxTopic, Produced.with(Serdes.String(), Serdes.Double()));
 ```
 
-partition append-only 
-order only guarantee in partition
+*Partition append‑only; ordering guaranteed only within a partition.*
 
-Faust is Robinhood stream python library
+Faust is a Robinhood‑style stream library for Python.
 
-topic/routing key & queue is m to m relationship
+**Topic/routing key ↔ queue** is a many‑to‑many relationship.
 
-Site Reliable Engineer (SRE)
+---
 
-"incremental" aggregation functions include `count()`, `sum()`, `min()`, and `max()`
+## Site Reliability Engineering (SRE)
+
+> Incremental aggregation functions include `count()`, `sum()`, `min()`, and `max()`.
+
