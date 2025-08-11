@@ -1,37 +1,42 @@
-# js
+# JavaScript
 
-## Frustrate
+## Frustrations
 
-- in `node` shell, can't import, prevent dynamic development in shell.
+- In the Node.js REPL you cannot import modules directly, which hinders rapid experimentation.
 
 ## CommonJS
+
+> Does not work in browsers.
 >
-> Don't work in browser;
->
-> Each file has its own scope; allow conditional loading
+> Each file has its own scope, allowing conditional loading.
 
 ```js
 module.exports = {
-    's': 0
+    s: 0,
 };
+
 exports.x = 1;
 
 if (true) {
-    const s = require('./export_file_name')
-    console.log(s.x)
+    const s = require('./export_file_name');
+    console.log(s.x);
 }
 ```
 
-# ES6
+## ES6 Modules
+
+> Supported by most modern browsers.
 >
-> most browser supports; must have file extension; must import in root level; tree shackable means only import files you used.
+> Requires the `.js` file extension and must be imported from a top‑level script. Tree‑shaking means only the code you actually use is bundled.
 
 ```js
-const s = 0,
-    x = 1;
+// Exporting values
+export const s = 0;
+export const x = 1;
 
-export { s, x, } from "./xxx";
+// Default export (optional)
 export default s;
 
+// Importing values
 import { s, x } from './export_file_name.js';
 ```
