@@ -1,30 +1,30 @@
-# Learn how to sales
+# Learn How to Sell
 
 ## Tools
 
-- Linkedin Sales Savigator
+- LinkedIn Sales Navigator
 
-### Effective sales person
+### Effective Salesperson
 
-1. read ppl
-2. have process & follow through
-3. engage conversation in systematic approach
-4. solve customer challenges, see their expectation
-5. be their peer & trustworthy
-6. know first 30 seconds
+1. Read people.
+2. Have a process and follow through.
+3. Engage in conversation systematically.
+4. Solve customer challenges and understand their expectations.
+5. Be a peer and trustworthy partner.
+6. Master the first 30 seconds.
 
 ## Ops Tips
 >
-> If customer stop by cost, ask them what they spent on similar amount $.
-
-> Always ask them any possible way change their mind
+> If a customer stops at cost, ask what they spent on a similar amount.
+>
+> Always ask if there is any possible way to change their mind.
 
 ## Product Tip
 >
-> have some hidden advance features, that only shows to big fish
-
-> Expensive stuff can be anything, but CHEAP stuffs are known. Find a way to convert CHEAP stuffs into expensive products.
+> Have some hidden advanced features that only show to big‑fish customers.
+>
+> Expensive items can be anything, but cheap items are well known. Find a way to turn cheap items into expensive products.
 
 ## Phase
 >
-> nickel and dime the deal
+> Nickel and dime the deal.

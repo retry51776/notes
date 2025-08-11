@@ -1,12 +1,12 @@
 # Prediction
 >
-> Things I beveled will happen in 20yr
+> Things I believe will happen in 20 years.
 
-1. weather control
-   1. reduce/guide hurricane/tornado damage by block sun light
-   2. rain control, china already does it; But as space tech price reduce, I expect long term solution will develop
-   3. city sunlight increase / reduce by 50%; Not only reduce heating & cooling, maybe even reduce cancer probability
+1. Weather control
+   1. Reduce or guide hurricane/tornado damage by blocking sunlight.
+   2. Rain control – China already does it; as space‑tech prices drop, I expect long‑term solutions to develop.
+   3. Increase or decrease city sunlight by up to 50 %; this could reduce heating & cooling needs and possibly lower cancer risk.
 2. Cellular agriculture
-   1. no longer need large corn/soybean farm; glucose will product in factory just like gas
-   2. reduction of animals farms, some kind cell production will cheaper than chicken
-3. AI took over
+   1. No longer need large corn/soybean farms; glucose will be produced in factories like gasoline.
+   2. Reduction of animal farms – cell‑based production may become cheaper than chicken.
+3. AI takeover

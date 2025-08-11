@@ -1,6 +1,6 @@
 # Business
 
-> IMO business similar to development
+> In my opinion, business is similar to development.
 
 ## Frontend
 
@@ -13,14 +13,14 @@
 
 - HR
 - Accounting
-- Logistic
-- Engineer Departments
+- Logistics
+- Engineering Departments
   - IT
   - QA
 
 ## DevOps
->
-> implement ERP, new process, new program
+
+> Implement ERP, new processes, and new programs.
 
 - CEO
 - CFO

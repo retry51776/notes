@@ -1,27 +1,27 @@
 # Construction
 >
-> Construction Stuff.
+> Construction stuff.
 
-- level base
-- muds sill (treated lumber, )
+- Level base
+- Mud sill (treated lumber)
 - Beam
-- Joists (support floor) / Rim Joinst / Band
+- Joists (support floor) / Rim joist / Band
 - Subfloor
 - Plate
-- Stud,Stud Pack
+- Stud, stud pack
 
-## Sound Prove
+## Sound Proofing
 
-- Mass loaded Vinyl `heavy vinyl BLOCK noise`
-- Sound proven blanket
+- Mass‑loaded vinyl `heavy vinyl blocks noise`
+- Sound‑proof blanket
 
 ## Structure
 
 ****
 
-- Cripple Stud
-- Trimmer Stud / King Stud
-- Header(LVL)
+- Cripple stud
+- Trimmer stud / King stud
+- Header (LVL)
 
 ****
 
@@ -29,10 +29,10 @@
 - Plate
 -
 - Rafter
-- Ridge Board
+- Ridge board
 
-- Rafter Trailer / Overhang
+- Rafter trailer / Overhang
 
 ****
 
-- Roof Trust
+- Roof truss

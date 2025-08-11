@@ -1,57 +1,57 @@
 # Business
 >
-> A lot buzzwords, I never remember them.
+> A lot of buzzwords; I never remember them all.
 
-## FrontEnd Business
+## Front‑End Business
 
 ### Marketing
 
-Stacks:
+**Stacks**
 
 - Google Analytics
 - Email marketing software
 - Video conferencing software
 
-Buzzwords:
+**Buzzwords**
 
-- cold lead
-- campaign
+- Cold lead
+- Campaign
 - Webinar
-- cost per one thousand impressions(CPM) `advertisement cost`
+- Cost per mille (CPM) `advertising cost`
 
 ### Sales
 
-Stacks:
+**Stacks**
 
-- SalesForce
-- Hubspot
-- GoogleInvite
+- Salesforce
+- HubSpot
+- Google Invite
 
 ### Implementation
 
-Stacks:
+**Stacks**
 
-- docusign
+- DocuSign
 
-Buzzwords:
+**Buzzwords**
 
 - Contract
-- Backfills/Tourial
+- Backfills / Tutorial
 
-<br />
+<br/>
 
-## Backend Business
+## Back‑End Business
 
 ### Accounting
 
-Stacks:
+**Stacks**
 
-- QuickBook
+- QuickBooks
 - Oracle NetSuite
 - Sage
-- ChartMogul `analyst on sass metric`
+- ChartMogul `SaaS metric analytics`
 
-Buzzwords:
+**Buzzwords**
 
 - Tax
 - Invoice
@@ -59,34 +59,34 @@ Buzzwords:
 
 ### HR
 
-Stacks:
+**Stacks**
 
 - Sage
-- QuickBook
-- isolved
+- QuickBooks
+- iSolved
 
 ### Support
 
-Stacks:
+**Stacks**
 
-- zendesk
+- Zendesk
 - ServiceNow
 
-### Engineer
+### Engineering
 
-    - FullStack
-        - FrontEnd
-        - BackEnd
-    - Infrastructure
-      - DB Admin
-      - DevOps
-      - Networking
+- Full‑Stack
+  - Front‑End
+  - Back‑End
+- Infrastructure
+  - DB Admin
+  - DevOps
+  - Networking
 
-<hr />
+<hr/>
 
 ## Business Leaders
 
-Titles:
+**Titles**
 
 - CEO
 - CTO
@@ -95,127 +95,118 @@ Titles:
 - CIO – Chief Information Officer
 - COO – Chief Operating Officer
 
-Owner Structures:
+**Owner Structures**
 
-- sole proprietorship
-  - difficult to transfer
-  - liability will cover owner's property
-- partnership
-  - difficult to transfer
-  - liability will cover owner's property
-- corporation
-  - considered a legal person
-  - easy to transfer
-- LLC
-  - avoid double-taxation
-  - better protection in cost of complex setup
+- Sole proprietorship  
+  - Difficult to transfer  
+  - Liability covers the owner's property
+- Partnership  
+  - Difficult to transfer  
+  - Liability covers the owner's property
+- Corporation  
+  - Considered a legal person  
+  - Easy to transfer
+- LLC  
+  - Avoids double taxation  
+  - Better protection, though setup is more complex
 
-<hr />
+<hr/>
 
-## BuzzWords
+## Buzzwords
 
-- Prefer stock `private company will issues prefer stock to investor, so in case bankruptcy, investor will get pay out first, when IPO, prefer stock will convert to common stock`
-
-- SAFE Note `Only 3 Variables: Valuation CAP, Discount, Major investor right`
-
-- Convertible Note `aka Safe Note + interest rate`
-
-- 409A `409A is an independent appraisal of the fair market value (FMV) of a private company's common stock`
-
-- VC Exit
+- **Preferred stock** – Private companies issue preferred stock to investors; in bankruptcy, investors are paid first. When IPO occurs, preferred stock converts to common stock.
+- **SAFE note** – Only three variables: valuation cap, discount, and major investor rights.
+- **Convertible note** – AKA SAFE note plus interest rate.
+- **409A** – Independent appraisal of the fair market value (FMV) of a private company's common stock.
+- **VC exit**
   - IPO
-  - Public
-  - M & N
-  - Private Buyout
+  - Public listing
+  - M&A
+  - Private buyout
 
-Safe >(before) options pool > New investment
+*Safe → options pool → new investment*
 
-- Learning Curve pricing `max production rate to expose all possible problems`
-- Addressable Market `The potentials of market`
-- Blocker strategy `prevent competitor's move`
-- SAAS Metrics
-  - Customer Churn `opposite to customer retention rate; used to calculate average user time`
-  - Revenue Churn `similar to Customer Churn, but on Revenue;`
-  - Net MRR Churn `= (lost MRR + Contraction MRR - Expansion MRR - Reactivation ARR) / MRR Beginning of Period`
-  - Customer Lifetime Value (CLV) `CLV = Customer Value * Average Customer Lifespan`
-  > Average Purchase Value = total_revenue / number_order (within a year)
-  > Average Purchase Frequency = purchase_count / customer_count
-  > Customer Value = avg_purchase_value * avg_purchase_frequency
-  > Average Customer Lifespan = all_customers_lifespan / customer_count
+- **Learning‑curve pricing** – Max production rate to expose all possible problems.
+- **Addressable market** – The potential size of the market.
+- **Blocker strategy** – Prevent competitor moves.
+- **SaaS metrics**
+  - Customer churn `opposite of retention; used to calculate average user time`
+  - Revenue churn `similar to customer churn but for revenue`
+  - Net MRR churn  
+    `= (Lost MRR + Contraction MRR – Expansion MRR – Reactivation ARR) / MRR at period start`
+  - Customer Lifetime Value (CLV)  
+    `CLV = Customer Value × Average Customer Lifespan`  
 
-  - Customer Acquisition Cost (CAC) `CAC = marketing_spend / total_sales`
-  - Months to Recover CAC
-  - CAC-to-LTV Ratio `at least 3 X CAC`
-  - Customer Engagement Score `No standard, just uses GA to make up a report`
-  - Qualified Marketing Traffic `traffic excludes existed customer`
-  - Leads by Lifecycle Stage
-  > Lead > Market Qualified Lead(MQL) > Sales Qualified Lead(SQL) > Opportunity > Customer
-  - Lead-to-Customer Rate
-  - Customer Health Score
+    > Average Purchase Value = total_revenue / number_of_orders (within a year)  
+    > Average Purchase Frequency = purchase_count / customer_count  
+    > Customer Value = avg_purchase_value × avg_purchase_frequency  
+    > Average Customer Lifespan = all_customers_lifespan / customer_count
+  - Customer Acquisition Cost (CAC) `= marketing_spend / total_sales`
+  - Months to recover CAC
+  - CAC‑to‑LTV ratio `at least 3× CAC`
+  - Customer Engagement Score `no standard; often built from GA data`
+  - Qualified Marketing Traffic `excludes existing customers`
+  - Leads by lifecycle stage  
+    `Lead → MQL → SQL → Opportunity → Customer`
+  - Lead‑to‑Customer rate
+  - Customer health score
   - Average Revenue Per User (ARPU)
-
-  - Monthly recurring revenue (MRR)
-  - Annual recurring revenue (ARR)
-  - Contraction revenue (signed contract)
-  - Expansion revenue (up sales)
+  - Monthly Recurring Revenue (MRR)
+  - Annual Recurring Revenue (ARR)
+  - Contraction revenue `signed contracts that shrink`
+  - Expansion revenue `upsells`
   - Reactivation revenue
 
-reserve Prefer stock for employee
+Reserve preferred stock for employees.
 
-Evergreen Stock proposal -> equity compensation plan
+Evergreen stock proposal → equity compensation plan.
 
-Acquisition vs Buildout
-Company Brand vs Solution Brand
+**Acquisition vs. Build‑out**  
+Company brand vs. solution brand.
 
 # Bankruptcy
 
-- Chapter 13 bankruptcy `delay debt`
-- Chapter 11 bankruptcy `reorganization plan`
-- Chapter 7 bankruptcy `liquidate assets`
+- Chapter 13 bankruptcy – Delays debt.
+- Chapter 11 bankruptcy – Reorganization plan.
+- Chapter 7 bankruptcy – Liquidates assets.
 
-<hr />
+<hr/>
 
-## Lead Direction/Tradeoff
+## Lead Direction / Trade‑off
 >
-> High production rate solve low production yield
-
-> Improved robustness vs performance
+> High production rate solves low production yield.  
+> Improved robustness vs. performance.
 
 ## Good Idea
 
-Giftcard Meeting
+Gift‑card meetings.
 
 ## Business Applications
 
 - Microsoft Project
 - Trello
 - <https://www.notion.so>
-- Sizzy
-  > online web design test tool
-- PandaDoc
-  > sign docs
-- chargebee
-  > Invoice tool, replace Quickbook
-- zulip
-  > free chat app
-- hubspot
-  > sales pipeline
-- bill.com
+- Sizzy – online web design test tool
+- PandaDoc – sign documents
+- Chargebee – invoicing, replaces QuickBooks
+- Zulip – free chat app
+- HubSpot – sales pipeline
+- Bill.com
 - <https://tools.pdf24.org/en/>
 
 ## Interview Tools
 
 - codeinterview.io
-- <www.codewars.com>
+- <https://www.codewars.com>
 
 ## Quotes
 >
-> Top tier company implement standard & direction; 2nd tier company develop their brand; 3rd tier company focus on product
+> Top‑tier companies implement standards & direction; second‑tier companies develop their brand; third‑tier companies focus on product.
 
-Goal & Time matrix
+### Goal & Time Matrix
 
-|      |         |         | TIME    |   |
-|------|---------|---------|---------|---|
-|      |         | NOW     | FUTURE  |   |
-| GOAL | DESIRE  | /       | IMPROVE |   |
-|      | CURRENT | RESTORE | PREVENT |   |
+|          |         |         | TIME   |
+|----------|---------|---------|--------|
+|          |         | NOW     | FUTURE |
+| GOAL     | DESIRE  | /       | IMPROVE|
+|          | CURRENT | RESTORE | PREVENT|
