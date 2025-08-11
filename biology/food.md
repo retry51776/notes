@@ -1,11 +1,11 @@
-# food
->
-> I want to put all new tech related to food here.
+# Food
 
-## Cellular agriculture
+> I want to collect all new tech related to food here.
+
+## Cellular Agriculture
 >
-> manufactory food in cell level
+> Manufacturing food at the cellular level.
 
 ## IMO
 >
-> Soon most the food will produce in small numbers of factories, similar to oil.
+> Soon most food will be produced in a small number of factories, similar to oil production.

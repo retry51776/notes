@@ -1,39 +1,36 @@
 # Vocal
 
-Voice Component
+Voice Components
 
 - Frequency
 - Resonance
 - Projection
 
-note frequency table
-vocal range
+### Note Frequency Table
 
-octave means 7 pitches higher
+- Octave means 7 pitches higher
+- 1 note ≈ 4 Hz
+- A2 ≈ 110 Hz
+- A3 ≈ 220 Hz
+- A4 ≈ 440 Hz
 
-1 note ≈ 4hz
-A2 ≈ 110Hz
-A3 ≈ 220Hz
-A4 ≈ 440Hz
+Intonation, rhythm  
+Chinese is an iso‑chronous (syllable‑timed) language; English is stress‑timed.
 
-intonation, thythm
-Chinese letter speak length is same(isochrony, or syllable-timed)
-English is streed-time language
+### International Phonetic Alphabet
 
-International Phonetic Alphabet
-
-- DJ(Daniel Jone) International
-- KK(Keny, Knott) US [https://www.youtube.com/watch?v=-QkyTe27_1Q]
+- DJ (Daniel Jones) – International
+- KK (Kenyon & Knott) – US system [https://www.youtube.com/watch?v=-QkyTe27_1Q]
 - Webster
 
-DeEssing
-> usually to reduce ssss sounds
+#### De‑essing
+> Usually applied to reduce excessive “s” sounds.
 
 ## Apps
 
-- singer's studio
-- nail your pitch
+- Singer’s Studio
+- Nail Your Pitch
 
-## Bio Tech
+## Bio‑Tech
 
-- Cochlear: `Implant that directly send (20 sound frequencies) electric signal to cochlea.`
+- Cochlear implant: `Implant that directly sends 20 sound frequencies as electric signals to the cochlea.`
