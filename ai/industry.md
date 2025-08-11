@@ -12,6 +12,7 @@
 - Total Cost of Ownership: 10 % data center, 15 % power, 75 % GPU.  
 - Large runs cost 2–4× more than research runs.  
 - Output tokens are ~4× as expensive as input tokens (sequential generation).
+- 128k ~ 100k words ~ agent handle 3-5 source files
 
 ### Token‑per‑second Benchmarks
 

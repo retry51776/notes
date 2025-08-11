@@ -7,3 +7,4 @@
 # Ignore all aider files
 .aider.*
 /*/private
+.aider*
