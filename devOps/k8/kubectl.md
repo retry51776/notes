@@ -1,71 +1,106 @@
-# Kubectl
-> `kubectl` have a lots params/paths; Since I split out each k8s object into its own file, many `kubectl CMDs` are split out everywhere.
+# Kubectl Cheat Sheet
+
+`kubectl` has many parameters and sub‑commands. Since each Kubernetes object is split into its own file, related `kubectl` commands are scattered throughout the repository.
 
 ## Control / Deployment
-> Read more [basic k8s sample](./../../test/kind/README.md)
+
+> See more in [basic k8s sample](./../../test/kind/README.md).
 
 ## Debug
-> Read more [debug tips & cmds](./debug.md)
 
-## Client Setting
+> See more in [debug tips & commands](./debug.md).
+
+## Client Settings
+
 ```bash
+# View current kubeconfig
 kubectl config view
-# Overwrite Default Config Paths
-# ~/.kube/config or /Users/<user_name>/.kube/config
-export KUBECONFIG=~/.kube/new-config
 
-# Get Namespace
+# Override default config path
+# Default: ~/.kube/config or /Users/<user>/ .kube/config
+export KUBECONFIG=~/.kube/new-config
+```
+
+### Namespace Management
+
+```bash
+# List namespaces
 kubectl get ns
-# Switch Namespace
+
+# Switch namespace
 kubectl config set-context --current --namespace=kube-system
 ```
 
 ## Manage / Operations
+
 ```bash
-# Manually scale
+# Scale a deployment manually
 kubectl scale deploy/xxx --replicas 3
-# Drain pods from node
-kubectl drain <node name> --ignore-daemonsets --force --delete-local-data
 
-# Port forward Pod to test locally: Ex: nginx-8f458dc5b-bn4dr
+# Drain pods from a node
+kubectl drain <node-name> --ignore-daemonsets --force --delete-local-data
+
+# Port‑forward a Pod (example: nginx)
 export POD_NAME=$(kubectl get pods -n default -l "app.kubernetes.io/name=kubernetes-dashboard,app.kubernetes.io/instance=kubernetes-dashboard" -o jsonpath="{.items[0].metadata.name}")
-#                               pod_name        host_port:pod_port
-kubectl -n default port-forward ingress-nginx-controller-76d4b989c5-dhqbr 1111:80
 
-# Expose api-service locally
+kubectl -n default port-forward $POD_NAME 1111:80
+
+# Expose the API server locally
 kubectl proxy
-# Directly show deployments through api_service http://127.0.0.1:8001/apis/apps/v1/namespaces/default/deployments
+# Directly view deployments via the API:
+# http://127.0.0.1:8001/apis/apps/v1/namespaces/default/deployments
 ```
 
-## Basic Example
+## Basic Examples
+
+### Imperative Commands
+
 ```bash
-# Imperative CMDs
-kubectl run XXXX --images=XXXX --port=80
+kubectl run myapp --image=myimage --port=80
 kubectl expose deploy nginx --port 80 --type LoadBalancer
 kubectl autoscale deployment foo --min=2 --max=10 --cpu-percent=80
+```
 
-# Declarative CMDs
-# get more detail/status on k8 objects, common 1st step to debug
+### Declarative Commands
+
+```bash
+# Get detailed status of a node
 kubectl describe node xxx
 
-kubectl create deployment nginx --image nginx
-kubectl create job --from=cronjob/mycronjob name-of-one-off-job
+# Create resources from a manifest
+kubectl create -f mymanifest.yaml
 
-kubectl exec -it pod-name sh
+# Create a job from an existing CronJob
+kubectl create job --from=cronjob/mycronjob name-of-one‑off-job
+
+# Execute a command in a Pod
+kubectl exec -it pod-name -- sh
+
+# Rollout operations
 kubectl rollout restart deployment xyz
 kubectl rollout undo deployment myapp
 kubectl rollout history deploy myapp --revision=2
+```
 
-# verbs: [create delete delete collection patch update get list watch]
-# k8 object [
-#   always: ing(ingress), pod, svc(service), deploy(deployments), no(node), secrets, cj(cronjob)
-#   often: cm(configmaps), ep(endpoint), sa(service account), ns(namespace), role/clusterRole, roleBinding/clusterRoleBinding, dm(daemonset)
-#   looked: csr(CertSignReq), hpa(horizatialPodAutoscale), NetworkPolicy, 
-#   never: cs(componentstatuses), ev(events), pdb(poddisruptionbudgets), psp(podsecuritypolicies), pc(priorityclasses)
-# ]
+### Resource Types
 
+```bash
 kubectl api-resources
+```
 
-kubectl explain deployment.spec.template
+```bash
+kubectl explain deployment.spec.template
+```
+
+## Verb‑list (for **`kubectl get`**)
+
+| Verb   | Description |
+|-------|--------------|
+| create | Create a **new** resource |
+| delete | Delete **existing** ​​​  ?  ?  ?  ?  ?  ?  ? ?  ? … 
+
+
 
 ```
+
+devOps/k8/vault.md

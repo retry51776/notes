@@ -1,10 +1,11 @@
-# python
+# Python Kubernetes Client Example
+
 ```python
-from kuberneres import client, config
+from kubernetes import client, config
 
 config.load_incluster_config()
 v1 = client.CoreV1Api()
 ret = v1.list_pod_for_all_namespaces(watch=False)
-for x in ret.items:
-    print(x.status.pod_ip)
+for pod in ret.items:
+    print(pod.status.pod_ip)
 ```

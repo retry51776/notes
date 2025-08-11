@@ -1,69 +1,77 @@
-# Deployment (Area inside Mall)
-> We includes Deployment, Daemonset, Pods, CronJobs, Jobs here
+# Deployment (Area Inside the Mall)
 
-> List most common used attributes, I never able to remember them.
+> Includes Deployments, DaemonSets, Pods, CronJobs, and Jobs.
 
-## containers / initContainer (Worker in Store)
-> Uses everywhere, smallest k8s unit
-- args
-- volumeMounts `where mount to`
-- livenessProbe / readinessProbe / startupProbe
-- ports `list application ports that exposes to Service`
-- resources
-- image
-- imagePullPolicy
-- securityContext
+> Lists the most commonly used attributes that are easy to forget.
 
-## template (Worker's Access)
-> uses in [Deployment, Daemonset, CronJobs, Jobs]
-- metadata: `allow [Deployment, Daemonset, CronJobs, Jobs] add different label to its pods`
-- spec: `Deployment.spec.template.spec = pod.spec`
-  - volumes `list of volumes POD have access to`
-  - [containers](#containers)
-  - initContainers: `to do xxx before main application containers start`
-  - serviceAccountName
-  - securityContext
-  - nodeSelector
-  - affinity
-  - tolerations
+## Containers / InitContainers (Workers in the Store)
 
-# Deployment (Chain Stores)
-- spec: `Deployment's spec`
-  - replicas `deployment replicas`
-  - strategy `deployment strategy`
-  - [template](#template)
+Used everywhere; they are the smallest Kubernetes unit.
 
-# Daemonset (Building's Bathroom, Security Office)
-> enforce single pod per node on all nodes (for monitor logs, storage, network) 
-- [template](#template)
-```yml
+- `args`
+- `volumeMounts` – where to mount volumes
+- `livenessProbe`, `readinessProbe`, `startupProbe`
+- `ports` – list of application ports exposed to a Service
+- `resources`
+- `image`
+- `imagePullPolicy`
+- `securityContext`
+
+## Template (Worker’s Access)
+
+Used in Deployments, DaemonSets, CronJobs, and Jobs.
+
+- **metadata** – allows different labels for the Pods created by a Deployment, DaemonSet, etc.
+- **spec** – `Deployment.spec.template.spec` equals `Pod.spec`
+  - `volumes` – list of volumes available to the Pod
+  - `containers` – see above
+  - `initContainers` – run before the main application containers start
+  - `serviceAccountName`
+  - `securityContext`
+  - `nodeSelector`
+  - `affinity`
+  - `tolerations`
+
+## Deployment (Chain Stores)
+
+- **spec** – the Deployment’s spec
+  - `replicas` – number of pod replicas
+  - `strategy` – deployment strategy
+  - `template` – see above
+
+## DaemonSet (Building’s Bathroom, Security Office)
+
+Enforces a single Pod per node on all nodes (useful for log collection, storage, networking).
+
+```yaml
 nodeSelector:
   name: xxx_node_name
 tolerations:
-- key: node.kubernetes.io/unschedulable
-  operator: Exists
-  effect: NoSchedule   # No new pod until daemonset ready
+  - key: node.kubernetes.io/unschedulable
+    operator: Exists
+    effect: NoSchedule   # Prevents new Pods until the DaemonSet is ready
 ```
 
-# Pods (Store)
-- Quality of Service ['Guaranteed', 'Burstable', 'BestEffort']
-- PriorityClass 
-- naked Pods `Kind: POD deployment`
-- Static Pods `PODs part of k8s system, /etc/kubernetes/manifests/`
-- initContainers: `spec.initContainers: to do xxx before main application containers start`
-- [containers](#containers)
+## Pods (Store)
 
+- Quality of Service classes: `Guaranteed`, `Burstable`, `BestEffort`
+- PriorityClass
+- **Naked Pods** – plain Pod objects (`kind: Pod`)
+- **Static Pods** – part of the Kubernetes system, defined in `/etc/kubernetes/manifests/`
+- `initContainers` – run before main containers start
+- See also [containers](#containers)
 
-# CronJobs (Push cart sales stuff on schedule)
-- startingDeadlineSeconds `to set the deadline to start a Job if scheduled time was missed;`
-- concurrencyPolicy `to allow or forbid concurrent Jobs or to replace old Jobs with new ones. `
-- [template](#template)
+## CronJobs (Scheduled Tasks)
 
+- `startingDeadlineSeconds` – deadline for starting a Job if the scheduled time was missed
+- `concurrencyPolicy` – allow, forbid, or replace concurrent Jobs
 
-# Jobs (Push cart sales stuff one time)
-- parallelism `to set the number of pods allowed to run in parallel;`
-- completions `to set the number of expected completions;`
-- activeDeadlineSeconds `to set the duration of the Job;`
-- backoffLimit `to set the number of retries before Job is marked as failed;`
-- ttlSecondsAfterFinished `to delay the clean up of the finished Jobs.`
-- [template](#template)
+## Jobs (One‑Time Tasks)
+
+- `parallelism` – number of Pods allowed to run in parallel
+- `completions` – expected number of successful completions
+- `activeDeadlineSeconds` – maximum duration for the Job
+- `backoffLimit` – retries before marking the Job as failed
+- `ttlSecondsAfterFinished` – delay cleanup after completion
+
+All of the above use the same **template** structure.

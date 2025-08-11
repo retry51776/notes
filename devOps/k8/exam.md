@@ -1,5 +1,5 @@
-# Exam
-> One Page API Ref https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/
+# Exam Preparation
 
+> One‑page API reference: <https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/>
 
-> https://killer.sh/
+> Practice platform: <https://killer.sh/>

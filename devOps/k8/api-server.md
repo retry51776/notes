@@ -1,35 +1,39 @@
 # API Server
-> takes 20-40 seconds for api-server restart
 
-> config is store in master node `/etc/kubernetes/manifests/kube-apiserver.yaml`
-- Prefer Version `store format`
+> Takes 20–40 seconds for an api‑server restart.
 
-## CMDs
+> Configuration is stored on the master node at `/etc/kubernetes/manifests/kube-apiserver.yaml`.
+- Prefer versioned store format.
+
+## Commands
+
 ```bash
-# list resources
+# List resources
 kubectl api-resources
 
-# Access ApiServer
-# 1. By cert
-curl http://localhost:6443 -k
-    --key admin.key
-    --cert admin.crt
+# Access API Server
+# 1. Using certificates
+curl http://localhost:6443 -k \
+    --key admin.key \
+    --cert admin.crt \
     --cacert ca.crt
-# 2. By kubectl proxy
-kubectl proxy 
-localhost:8001
-```
-# api-groups
-- /api
-  - /v1 `k8s version`
-    - core groups `[ns, pod, rc, event, ep, nodes, bindings, pv, pvc, cm, secrets, service]`
-      - v1 `core group version`
-        - resource ``
-- /apis
-  - /v1
-    - api groups `[apps, extensions, networking.k8s.io, storage.k8.io, authentication.k8s.io]`
-      - v1
-        - resource
-# Add extra param to apiserver
-`sudo cp /etc/kubernetes/manifests/kube-apiserver.yamml /kube-apiserver-backup`
 
+# 2. Via kubectl proxy
+kubectl proxy   # Serves at localhost:8001
+```
+
+### API Groups
+
+- `/api`
+  - `/v1` – core groups (e.g., `ns`, `pod`, `rc`, `event`, `ep`, `nodes`, `bindings`, `pv`, `pvc`, `cm`, `secrets`, `service`)
+    - v1 – core group version
+      - resources: *(list omitted)*
+- `/apis`
+  - `/v1` – additional API groups (`apps`, `extensions`, `networking.k8s.io`, `storage.k8.io`, `authentication.k8s.io`)
+    - v1 – resources: *(list omitted)*
+
+### Add an Extra Parameter to the API Server
+
+```bash
+sudo cp /etc/kubernetes/manifests/kube-apiserver.yaml /kube-apiserver-backup
+```
