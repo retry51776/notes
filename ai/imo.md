@@ -8,7 +8,7 @@
 
 - **8/32 MOE auxiliary‑loss‑free strategy** – load balancing without additional loss.
 
-- **Multi‑Token Prediction (MTP)** – use `next_token_prediction` (expected token) + `next_token` (reality token) to predict a new token.
+- **Multi‑Token Prediction (MTP)** – use `next_token_prediction` (expected token) + `next_token` (actual token) to predict a new token.
 
 ## Knowledge Distillation
 
@@ -32,8 +32,8 @@ LLMs work by providing each “world” with context, which includes relevant in
 |---------------------------|---------------------|-------------|
 | **Agentic**               | Embedding Cache     | Used only for similarity search; very limited. Does **not** save LLM token cost. |
 | **Prefill**               | Tokenizer Cache     | First step; small savings; order does not matter. |
-|                           | Prompt Cache        | Requires exact prefix match; works only during the prefill phase. |
-| **Autoregressive Decoding** | KV Cache            | Used for token generation. Query (latest token) changes each step, while Key and Value (past tokens) remain static.<br>• Implicit cache – handled automatically by the LLM provider.<br>• Explicit cache – must be programmed. |
+|                           | Prompt Cache        | Requires an exact prefix match; works only during the prefill phase. |
+| **Autoregressive Decoding** | KV Cache            | Used for token generation. The query (latest token) changes each step, while the key and value (past tokens) remain static.<br>• Implicit cache – handled automatically by the LLM provider.<br>• Explicit cache – must be programmed. |
 |                           | FlashAttention Cache| Combines KV cache with softmax optimization. |
 
 ### Notable Papers & Ideas
@@ -94,9 +94,9 @@ LLMs work by providing each “world” with context, which includes relevant in
 ### Task Decomposition & Solution Generation
 
 - **Self‑Evaluation** – LLMs excel at evaluating their own outputs.  
-- **Solution Level Search**, **Step Level Search**, **Token Level Search** – Different granularities of search during inference.
+- **Solution‑Level Search**, **Step‑Level Search**, **Token‑Level Search** – Different granularities of search during inference.
 
-Training often uses Beam Search, while inference favors Sequential Revision.
+Training often uses beam search, while inference favors sequential revision.
 
 ---
 
