@@ -1,52 +1,49 @@
 # Developer Setup
->
-> Checklist for setup my env, my host os still windows or mac, even I works w linux a lot; There are too many linux, and when things goes wrong harder to google solution.
+> Checklist for setting up my environment. My host OS may be Windows or macOS, though I work with Linux a lot. There are many Linux variations, and when things go wrong it’s harder to find solutions.
 
 ## Applications
 
-- Sublime
-- VS Code & Plugins
-  - remote container
-  - python
-  - eslint
-  - prettier
-  - docker
-  - C#
-  - .net core essentials
-  - Thunder Client
-  - Base64
-  - Code Spell Checker `Must Install`
-  - Kubernetes `Official plugin let VS view k8 objects`
-  - Kubernetes Support `the code snippets wasn't full k8 sets, i hate it`
-  - Kubernetes Templates `code snippets`
-  - Helm intellisense
-  - Preference/Setting
-    - Default Formatter: Prettier
-    - Format On Save Mode: file
-    - Autocomplete trigger
-      - Commit characters
-      - keyboard shortcut(trigger suggest)
-- Chrome
-  - react dev
-  - redux dev
-  - google analytics
-  - [chrome://net-internals](chrome://net-internals/)
-- Windows Terminal
-- Docker
-  > remove windows path if CMD run slow
+- Sublime Text  
+- VS Code & Plugins  
+  - Remote Containers  
+  - Python  
+  - ESLint  
+  - Prettier  
+  - Docker  
+  - C#  
+  - .NET Core Essentials  
+  - Thunder Client  
+  - Base64  
+  - Code Spell Checker *(must install)*  
+  - Kubernetes (official plugin to view K8s objects)  
+  - Kubernetes Support (code snippets)  
+  - Kubernetes Templates (snippets)  
+  - Helm IntelliSense  
 
-  > WSL2 could have IO bottleneck
-- WSL
-  - debian
-- OpenVPN
-- MobaXTerms
-- Putty
-- DataGrid
-- Homebrew
-  - minikube `https://minikube.sigs.k8s.io/docs/start/`
-  - kind
+- Chrome  
+  - React DevTools  
+  - Redux DevTools  
+  - Google Analytics  
+  - `chrome://net-internals/`
 
-## VS code setting
+- Windows Terminal  
+- Docker  
+  > Remove Windows PATH entries if CMD runs slowly.  
+
+  > WSL 2 can have I/O bottlenecks.
+
+- WSL  
+  - Debian  
+
+- OpenVPN  
+- MobaXterm  
+- PuTTY  
+- DataGrid  
+- Homebrew  
+  - minikube – <https://minikube.sigs.k8s.io/docs/start/>  
+  - kind  
+
+## VS Code Settings
 
 ```json
 {
@@ -54,73 +51,72 @@
 }
 ```
 
-## Cool resources
+## Useful Resources
 
-- [Icons] <https://gist.github.com/rxaviers/7360908>
-- [Cron Guru] <https://crontab.guru/>
-- [Tech Stacks] <https://stackshare.io/>
-- [Company Investor] <https://www.crunchbase.com/>
+- Icons: <https://gist.github.com/rxaviers/7360908>  
+- Cron Guru: <https://crontab.guru/>  
+- Tech Stacks: <https://stackshare.io/>  
+- Company Investor Info: <https://www.crunchbase.com/>
 
-- [Create bots]<https://web.axiom.ai/recipes>
-- [Math] <https://www.wolframalpha.com/>
-- [PDF & other tools] <https://tinywow.com/>
-- [Form Template] jotform.com
-- [SASS product] <https://www.opensourcealternative.to/>
+- Create bots: <https://web.axiom.ai/recipes>  
+- Math: <https://www.wolframalpha.com/>  
+- PDF & other tools: <https://tinywow.com/>  
+- Form templates: jotform.com  
+- SASS products: <https://www.opensourcealternative.to/>
 
-## Datatool
+## Data Tools
 
-- HDFView #view tool for .h5
-- R-Studio is hardware data recovery
-- winhex
-- mrtlab needs special hardware
+- HDFView – view `.h5` files  
+- R‑Studio – hardware data recovery  
+- WinHex  
+- MRTLab – requires special hardware  
 
-# UI Tool
+## UI Tools
 
-- [Figma: Design Pic](https://www.figma.com/)
-- <https://videohive.net/>
+- Figma – design mockups (<https://www.figma.com/>)  
+- Videohive – stock video assets (<https://videohive.net/>)
 
 ## Linux GUI Tools
 
-- Stacer
-  > Similar PC manager
-- Gnome Tweak Tool
-  > Manage Windows Theme
+- Stacer – system manager  
+- GNOME Tweak Tool – manage window themes  
 
-# Security/DevOps
+## Security / DevOps
 
-- Vulnerability Scoring <https://www.first.org/cvss/>
-- netspy (Pen/Penetration testing)
-- checkmarx `check code`
-- Rapid7
-- whitesource (check software dep security versions has security bugs)
-  > GPL 2/3 are often deny, MIT is prefer
+- Vulnerability Scoring: <https://www.first.org/cvss/>  
+- NetSpy – penetration testing  
+- Checkmarx – code analysis  
+- Rapid7  
+- WhiteSource – checks for vulnerable dependencies (GPL 2/3 often denied; MIT preferred)
 
-# Project Apps
+## Project Apps
 
-- Selenium
+- Selenium – browser automation with richer UI interaction than Scrapy  
 
-> automation of web browsers, more features(EX: UI interaction) than scrapy
+## Workflow Tools
 
-# Workflow
+- Visio  
+- Draw.io  
 
-- Visio
-- Draw.io
+## Mock Data Generators
 
-# Mock Data
+- Test data: <https://www.mockaroo.com/>  
+- Mock APIs: <https://mockapi.io/>
 
-- Generate test data <https://www.mockaroo.com/>
-- <https://mockapi.io/>
+### Windows Subsystem for Linux (WSL)
 
-**Windows Sub Linux**
+1. Enable the feature:  
+   ```powershell
+   Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+   ```
+2. Install Debian from the Microsoft Store.
 
-1. `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`
-2. Go to Microsoft Store & get Debian
+> `~/.bashrc` contains Bash settings.  
+> `PS` is the prompt string, similar to Python’s `export PS="\t"`.
 
-> ~/.bashrc is bash setting
-> PS = Prompt String, just like python `Export PS ="\t"`
-Try remove windows path from WSL if cmd in WSL is slow
+**Remove Windows PATH from WSL** if commands are slow:
 
-- In `/etc/wsl.conf` add
+Add to `/etc/wsl.conf`:
 
 ```bash
 [interop]

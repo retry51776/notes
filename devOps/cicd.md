@@ -1,43 +1,48 @@
 # CI & CD
-> Example of stuff in CI/CD. A lots tools in this space.
+> Examples of stuff in CI/CD. There are many tools in this space.
 
-> Funny thing about CI & CD is automate process, testing code to be more reliable. Yet CI & CD itself is the MOST UNRELIABLE thing ever.
+> Funny thing about CI/CD is that it automates processes and testing code to be more reliable, yet the CI/CD pipeline itself is often the most unreliable component.
+
 ## [Bash](/devOps/local/bash.md)
-> Works w linux.
-## [GO](/development/go.md)
-> A lots devOps tools written in GO.
+> Works with Linux.
+
+## [Go](/development/go.md)
+> Many DevOps tools are written in Go.
+
 ## [Python](/development/python/python.md)
-> Duct tape of devOps
-## [Terraform](./cloud/terraform.md)
-> It's industry standard tool. Most likely the biggest coverage devOps toolbox.
+> The duct‑tape of DevOps.
+
+## [Terraform](/cloud/terraform.md)
+> Industry‑standard tool; probably the most widely used in the DevOps toolbox.
+
 ## Ansible
-> Old, but similar tools to Terraform
+> Old, but similar in purpose to Terraform.
 
-## Github Action
-> default path `/.github/workflows/docker-publish.yml`
+## GitHub Actions
+> Default path: `/.github/workflows/docker-publish.yml`
 
-```yml
-# TODO: These should moved to /test or /example folder
+```yaml
+# TODO: Move these examples to /test or /example folder
 {{ github.event.release.tag_name }}
 - id: get_branch
-shell: bash
-run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+  shell: bash
+  run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
 ---
 - name: Build and push
-uses: docker/build-push-action@v2.7.0
-with:
-  context: .
-  build-args: |
-    ENV=prod
-  platforms: linux/amd64
-  tags: |
-    terry.test.local/hello:${{ steps.get_branch.outputs.branch }}${{ github.run_number }}
+  uses: docker/build-push-action@v2.7.0
+  with:
+    context: .
+    build-args: |
+      ENV=prod
+    platforms: linux/amd64
+    tags: |
+      terry.test.local/hello:${{ steps.get_branch.outputs.branch }}${{ github.run_number }}
 ---
 clean-working-directory:
   runs-on: []
   needs: build
   steps:
-    -name: Clean
+    - name: Clean
       shell: bash
       run: |
         cd $RUNNER_WORKSPACE
@@ -48,26 +53,26 @@ generate_docu:
   image: node
   stage: deploy
   script:
-  - npm install -g redoc-cli
-  - redoc-cli bundle -o /public/doc.html xxx_swagger.yml
+    - npm install -g redoc-cli
+    - redoc-cli bundle -o /public/doc.html xxx_swagger.yml
   artifacts:
     paths:
-    -public
+      - public
   only:
-  - master
+    - master
 ```
-## Bitbucket
-- pipelines - define condictions & order of steps
-  - step - aka `docker-compose.yml`
-    - services - aka `container`
-      - memory - RAM of each service
-    - script - aka `command`
-    - artifacts - aka `vol`
-    - image
 
-- definitions - aka common templates
+## Bitbucket Pipelines
+- Define conditions & order of steps  
+  - Step (aka `docker-compose.yml`)  
+    - Services (containers)  
+    - Memory allocation per service  
+    - Script (commands)  
+    - Artifacts (volumes)  
+
+- Definitions – reusable templates
 
 ### Jenkinsfile.develop
 ```bash
-# TODO: needs to find some examples from Web
+# TODO: Add example content from the web
 ```

@@ -1,62 +1,61 @@
 # FAB Frontend Process
-> Make first layer of waver, aka transistor layer.
+> Make the first layer of wafer, aka transistor layer.
 
-## wafer
+## Wafer
 8" or 12"
 
-## lithography (光刻机)
-light source
-mask
-projection optics (40% cost)
-diffraction based overlay & alignment
-wafer platform(twin scan enable measurement & exposure happens same time)
+## Lithography (光刻机)
+- Light source  
+- Mask  
+- Projection optics (40% cost)  
+- Diffraction‑based overlay & alignment  
+- Wafer platform (twin scan enables measurement & exposure at the same time)
 
+- Rayleigh's Criterion: `CD = k(λ/NA)`  
+  Numerical Aperture (NA) is the lens size; λ is the light source wavelength; k accounts for other influences.
 
-- Rayleigh's Criterion `CD = k(λ/NA)` Numerical Aperture(NA) is len size; λ is light source; k is other influences;
-
-
-## photoresist（光刻胶）
-- Postive
-- Negative
+## Photoresist（光刻胶）
+- Positive  
+- Negative  
 
 ## Etching (刻蚀)
-Slow, uses many materials;
-- Wet `by liquate`
-- Dry `by air`
+Slow, uses many materials:
+- Wet `by liquid`  
+- Dry `by gas`
 
-measurement:
-  - Depth measurement: how fast dissolve?
-  - Sidewall angle measurement: 
-  - Selectivity measurement: dissolve different on different materials
+**Measurement:**
+  - Depth measurement: how fast does it dissolve?  
+  - Sidewall angle measurement  
+  - Selectivity measurement: different dissolution rates for different materials
 
 ## Deposition （沉积）
-Chemical Vapor Deposition(CVD)
+Chemical Vapor Deposition (CVD)
 
-## Ion implantation (离子注入)
+## Ion Implantation (离子注入)
 
-## ChemicalMechanical Polishing (化学机械打磨)
+## Chemical‑Mechanical Polishing (化学机械打磨)
 
 ### Single Cycle Steps
-1. wafer clean & vapor prime
-2. spin coat
-3. soft bake
-4. alignment & exposure
-5. post exposure bake
-6. develop & rinse
-7. hard bake
-8. inspection
+1. Wafer clean & vapor prime  
+2. Spin coat  
+3. Soft bake  
+4. Alignment & exposure  
+5. Post‑exposure bake  
+6. Develop & rinse  
+7. Hard bake  
+8. Inspection  
 
-# FAB BackEnd Process
-> aka wire transistors. Support power & signal.
+# FAB Backend Process
+> aka wire transistors. Supports power & signal.
 
 ## Metal Stack
 
-- Central Sculpta 
+- Central Sculpta  
 
-装焊(Flip Chip)、 晶圆级封装(WLP)
+装焊 (Flip Chip)、晶圆级封装 (WLP)
 
-2.5D封装（Interposer）`aka stack same components`
+2.5D 封装（Interposer）`aka stack same components`
 
-3D封装(TSV) `aka stack different components`
+3D 封装 (TSV) `aka stack different components`
 
 ## QA

@@ -1,25 +1,28 @@
 # Network Admin
-> Stuff Network Admin should know
+> Things a network admin should know.
 
-## hypervisors
-> Type 1 Hypervisor `install directly on top of a physical server`
+## Hypervisors
+> Type 1 hypervisor: installed directly on top of physical hardware.
 
-type 1 hypervisors / vendor
-- VMware vSphere with ESX/ESXi
-- KVM (Kernel-Based Virtual Machine)
-- Microsoft Hyper-V `Microsoft grant Hyper-V independence os access`
-- Oracle VM
-- Citrix Hypervisor (formerly known as Xen Server)
+**Type 1 hypervisors / vendors**
+- VMware vSphere with ESX/ESXi  
+- KVM (Kernel‑Based Virtual Machine)  
+- Microsoft Hyper‑V – “Microsoft grants Hyper‑V independence from OS access”  
+- Oracle VM  
+- Citrix Hypervisor (formerly XenServer)
 
-> Type 2 Hypervisor (hosted hypervisors) `install on top host os`
-- VirtualBox
-- Windows Virtual PC
-- Parallels
+> Type 2 hypervisor (hosted): installed on top of a host OS.
 
-## hashicorp
-> They were the cool kids before k8s, Terraform & Vault still pretty popular;
-- Packer `Build OS image(Not Docker image) tool`
-- [Terraform](./cloud/terraform.md)
-- Nomad `workload orchestrator`
-- Vault `secrets management`
-- Consul `management and discovery of services`
+**Type 2 hypervisors**
+- VirtualBox  
+- Windows Virtual PC  
+- Parallels  
+
+## HashiCorp
+> They were the cool kids before Kubernetes; Terraform & Vault remain popular.
+
+- Packer – builds OS images (not Docker images)  
+- [Terraform](./cloud/terraform.md)  
+- Nomad – workload orchestrator  
+- Vault – secrets management  
+- Consul – service discovery and configuration

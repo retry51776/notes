@@ -1,143 +1,90 @@
 # Computer Analogy
->
-> Think of Process Data is like making a cake from scratch;
-> > CPU master cooks that can make any cake, but expensive salary;
->
-> > GPU are cooks can do a lot cakes, cheaper salary;
->
-> > FPGA is smart machine makes couple types of cakes;
->
-> > ASIC is machine that only makes one type cake, but very fast;
->
-> RAM is kitchen table;
->
-> Disk is supermarket;
->
-> The idea is avoid cook waiting of supermarket deliver, avoid walking around, and kitchen arrangement to optimize cook workflow.
+> Think of process data like making a cake from scratch:
+> - **CPU**: Master chef that can make any cake, but commands a high salary.  
+> - **GPU**: Multiple chefs that can bake many cakes in parallel, cheaper per chef.  
+> - **FPGA**: Specialized machine that makes a few types of cakes very efficiently.  
+> - **ASIC**: Dedicated machine that only makes one type of cake, but does it extremely fast.
+
+- **RAM** is the kitchen table.  
+- **Disk** is the supermarket.
+
+The goal is to avoid waiting for supermarket deliveries, minimize walking around, and arrange the kitchen to optimize workflow.
 
 ## Chip Architecture
->
-> These day everything is going to be System on Chip (SOC) design; 4 main chip architectures [CPU, GPU, FPGA, ASIC]
->
-## CPU
+> Nowadays everything is moving toward System‑on‑Chip (SoC) designs. The four main architectures are CPU, GPU, FPGA, and ASIC.
 
-- CISC
-  - x86
-    > Access memory prior instruction, & different instruction size, makes out of order execution hard,
+### CPU
 
-    > Variable length instructions
+**CISC**
+- **x86**
+  - Accesses memory before execution; variable‑length instructions make out‑of‑order execution harder.
+  - Fewer registers, larger & more complex instructions, multi‑cycle operations.
 
-    > Can perform arithmetic & access memory in a instruction
+**RISC**
+- **MIPS**, **ARM**, **RISC‑V**
+  - Fixed instruction length enables easy preloading and out‑of‑order execution.
+  - Simpler instructions, more registers, single‑cycle operations.
 
-    > fewer registers
+### GPU
+> Simple, small cores but many of them.
 
-    > larger & complexer instructions
+Graphics pipeline:
+1. Vertex & Index Buffer → Vertex Shader → Rasterizer → Pixel Shader → Alpha Blend
 
-    > multi cycle instruction
-- RISC
-  - MIPS
-  - Arm
-  - RISC5
-      > Fixed Instruction Length allows preload & preprocessed easy, out of order execution
+**Render Driver Stack**
+- **OpenGL Shading Language (GLSL)** – C‑style, cross‑platform.  
+- **DirectX** – C++, Windows only.  
+- **Metal (MSL)** – C++, Apple’s counterpart.
 
-      > simple instruction & same instruction size makes decoder easy to scale
+**Geometric Primitives:** point, line, triangle, cube, cone, cylinder…
 
-      > memory & arithmetic instructions are separate
+**Game Engines**
+- Unity → compiles to OpenGL or DirectX  
+- Unreal Engine 5 → supports high‑poly scenes, realistic lighting, etc.  
+- GameMaker – beginner‑friendly 2D engine
 
-      > more registers
+#### Terms
+- **Level of Detail (LOD)** – lower detail uses billboards.  
+- **Dynamic Level of Detail (DLD)** – adjusts polygon count based on distance.  
+- **Foliage**, **Nanite Foliage**  
 
-      > less instruction
+### FPGA
+> Originally designed for debugging and testing in FABs. Before computation, a compiled design is loaded onto the device.
 
-      > single cycle instruction
->
-## GPU
->
-> simple small, but many cores
+Hardware Description Languages:
+- RTL, VHDL, Verilog, SystemVerilog
 
-> CPU -> 3D object position desire -> Vertex & Index Buffer -> Vertex Shader -> Raster -> PixelShader -> Alpha Blend
-> Hardware -> Driver -> Developer Framework -> Application
-
-> Render Driver
->>
->> - OpenGL Shading Language (GLSL) `C-style language; open platform; easier`
->> - DirectX `C++; start as direct3D; only in windows;`
->> - Metal (MSL) `C++; apple's directX; only in mac system`
->>
->>> Geometric Primitive: smallest build unit [point, line, triangle, Cube, Cone, Cylinder ...]
-
->> Game Engine `Render framework enable user works w physical engine, shapes, light, texture; higher level unit than driver`
->>>
->>> - Unity `can compile into OpenGL or DirectX`
->>> - unreal `unreal engine 5 support crazy real 3D render. such as unlimited polygons, glass effect(reflection & see through)`
->>> - gamemaker `beginner friendly 2D game engine`
-
-### Terms
-
-- Level of Detail (LOD) `Each object with its level detail, lowest level uses billboard;`
-- Dynamic Level Detail (DLD) `new way handle LOD; reduce polygons size to inverse to distance;`
-- Foliage `create cluster w same module as a component; Ex: generate tree base of leaves,`
-- Nanite Foliage
-
->> Computer-aided design (CAD)
->> OpenCV `Library for Computer Vision, take vision as input, not output! Support C++; Python; Java; Written C++;`
->>> Facial Recognition
->>> Object Detection
->>> Activity Recognition
-
->> Compute Unified Device Architecture (CUDA) `2006 Nvidia C extension only works on Nvidia GPU`
-
-## Field programmable Gate Array (FPGA)
->
-> FPGA original design to debug & test in FAB; Each time before compute, it needs to load compiled design, then execute; It's great for process stream data;
-
-- Hardware description language
-  - RTL (Register Transfer Language)
-  - VHDL
-  - Verilog
-  - System Verilog
-
-## Application Specific Integrated Circuit (ASIC)
->
-> Kind like hardcode programming, but in hardware; Because everything is hardcoded, there is only 1 or few application;
+### ASIC
+> Hard‑coded circuitry for a single (or few) applications; extremely fast but inflexible.
 
 ## Buzzwords
-
-- EDA `is hardware design software`
-- Standard Cell Library `Group of transistor gates, Ex: And, Or, Add operation`
-- Track Height `Standard Cell Library KPI`
-- Design for Manufacturability -> Design Technology Co-Optimization
-- multi-patterning `multi mask on single layer`
-- half-pitch `length of gate`
-- Resolution Enhancement Techniques `Similar to special font to improve readability of bad print`
-- Power, Performance, Area, Cost `chip KPI`
-- Transceiver `is network modern for fiber`
-- Translation Lookaside Buffer (TLB) `is a memory cache that stores recent translations of virtual memory to physical addresses for faster retrieval`
+- **EDA** – hardware design software.  
+- **Standard Cell Library** – pre‑designed logic gates (AND, OR, ADD).  
+- **Track Height**, **Design for Manufacturability**, **Multi‑patterning**, **Half‑pitch**, **Resolution Enhancement Techniques**.  
+- **Power / Performance / Area / Cost (PPAC)** metrics.  
+- **Transceiver** – high‑speed fiber networking.  
 
 # Fabrication (FAB)
 
-> The industrial is so siloed. Maybe some day some AI knows the whole stacks. Most of power is spent on moving data around, not on computing(20%).
+> The industry is highly siloed. One day AI might understand the whole stack. Most power is spent moving data, not computing.
 
 ## Frontend
-
-- design
-- produce
+- Design  
+- Produce  
 
 ## Backend
+- Cut  
+- SIP (封装)  
+- Chiplet  
+- Interposer  
+- 3D NAND  
+  - 2014: 24 layers  
+  - 2016: 48 layers  
+  - 2020: ~100+ layers
 
-- cut
-- Sip(封装)
-- chiplet
-- interposer
-- 3D Nand
-  - 2014 24 layers
-  - 2016 48 layers
-  - 2020 1XX layers
+# Other Topics
 
-# Others
+**Battery**
+- **Anode** – graphite, lithium (negative)  
+- **Cathode** – cobalt, nickel, manganese (positive)
 
-Battery
-
-- Anode : negative terminal
-  - graphite, lithium
-- Cathode : positive terminal
-  - cobalt, nickel and manganese

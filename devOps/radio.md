@@ -1,26 +1,25 @@
 # Radio
 
-Simplex Channel `aka walky talky channel`
-TX: 146.520
-RX: 446.000
+Simplex Channel `aka walkie‑talkie channel`  
+TX: 146.520 MHz  
+RX: 446.000 MHz  
 
-- Power `from 5w to`
-- Frequency `wave length from 2 m to 70 cm; line of sight range: 1 - 10 miles;`
-- Channel
+- Power: up to 5 W (adjustable)  
+- Frequency range: 2 m to 70 cm; line‑of‑sight range 1–10 mi  
+- Channel selection  
 
+- Repeater – offsets your transmission  
+- Satellites  
+- FTDI programming cable  
+- [CHIRP](https://chirp.danplanet.com/projects/chirp/wiki/Home) – universal programming tool  
+- SSTB vs. Baofeng  
+- APRS to phone  
 
-- Repeater `offset your transmission,`
-- Satellites
-- FDTI programming cable
-- [CHIRP](https://chirp.danplanet.com/projects/chirp/wiki/Home) `universal programming`
-- SSTB vs Baofeng
-- APRS to phone
+> Unintended harmonics can appear because cheap radios lack proper filtering.
 
-> unintended harmonics because cheap radio missing electric filtering
-
-- Sub Auditable Tone
-- Timeout Timer (TOT)
-- Memory (MR)
-- Memory Channel (MEM-CH)
-- (SFT-D) `either + or -`
-- Transmit-CTCS(T-CTCS)
+- Sub‑audible tone  
+- Timeout Timer (TOT)  
+- Memory (MR)  
+- Memory Channel (MEM‑CH)  
+- SFT‑D – “either + or -”  
+- Transmit CTCSS (T‑CTCS)

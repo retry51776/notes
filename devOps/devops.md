@@ -1,63 +1,53 @@
 # DevOps
-> Fancy words goes here, because DevOps have tons of them.
+> Fancy words go here, because DevOps has tons of them.
 
-# Operational Burdens
-- CI / CD
-- Production Stability (CT)
-- Meeting
-- Stack Maintain
-- Documentation
-- Unit test
+## Operational Burdens
+- CI / CD  
+- Production stability (CT)  
+- Meetings  
+- Stack maintenance  
+- Documentation  
+- Unit testing  
 
+## DevOps Metrics
+- Deployment frequency  
+- Lead time *from commit to master to deployment*  
+- Mean Time to Recovery  
+- Change Failure Rate *hotfixes / deployments*  
+- Cycle time *aka development time, which most managers care about*
 
-# DevOps Metrics
-- Deployment Freq
-- Lead Time `committed to master to deployment`
-- Mean Time Recovery
-- Change Failure Rate `hotfix/deployment`
-- Cycle time `aka dev time, most mgr care about`
+### Four Fundamental Topologies
+- **Stream‑aligned team**: aligned to a flow of work from a specific business domain.  
+- **Enabling team**: helps a stream‑aligned team overcome obstacles and fills missing capabilities.  
+- **Complicated subsystem team**: required for areas needing deep expertise (e.g., complex mathematics).  
+- **Platform team**: provides an internal product that accelerates delivery for stream‑aligned teams.
 
-## Four Fundamental Topologies
-- Stream-aligned team: `Aligned to a flow of work from (usually) a segment of the business domain.`
-- Enabling team: `Helps a stream-aligned team to overcome obstacles. Also detects missing capabilities.`
-- Complicated subsystem team: `Where significant mathematics/calculation or hard to-find niche technical expertise is needed full-time.`
-- Platform team: `A grouping of other team types that provide a compelling internal product to accelerate delivery by stream-aligned teams.`
+## Project Checklist
+- Install  
+- Config *developers often forget to document*  
+- Provision  
+- Deploy  
 
-## Project CheckList
-- install
-- config `devs always forgets to tell devOps`
-- provision
-- deploy
+- Security  
+- Monitoring  
+- Backup & restore  
 
-- security
-- monitor
-- backup & restore
+- Network  
+- High availability  
+- Scalability  
+- Performance  
 
-- network
-- HA
-- scalability
-- performance
+- Cost  
+- Documentation  
+- Testing  
 
-- cost
-- documentation
-- test
+### Deployment Strategies
+- **Blue‑Green** – swap all at once; K8s service mesh VirtualService.  
+- **Rolling update** – run different versions simultaneously.  
+- **Recreate** – offline gap during deployment.  
+- **Canary** – roll out to a small subset of users, then increase.  
+- **A/B** – target specific subjects for updates.  
+- **Shadow** – duplicate traffic to a test version.
 
-
----
-## Deployment strategy
-- Blue Green
-  > swaps all at once; K8s service mesh VirtualService
-- Rolling update
-  >  Different Version at same time
-- Recreate
-  > Offline gap
-- Canary
-  > some user, slowly move over; K8s service mesh VirtualService
-- A/B
-  > target subject get updates 
-- Shadow
-
-
-# JIRA
-- RELEASE MANAGEMENT `auto generate release notes`
-
+## JIRA
+- RELEASE MANAGEMENT – auto‑generate release notes
