@@ -2,13 +2,13 @@
 
 ## 行政区划
 - 中央
-- (23)省，(5)自治区，(4)直辖市,(2)特别行政区
-- 地级市， 自治州
+- 23 省，5 自治区，4 直辖市，2 特别行政区
+- 地级市、自治州
 - 县
 - 乡
 
 ## 行政级别
-> 正副 dependence on 党委level
+> 正副 depends on 党委 level  
 - 国家级
 - 省部级
 - 厅局级
@@ -17,91 +17,90 @@
 
 ## 国家部门
 - 政府 `CEO；`
-- 人大 `stockholder；yearly 2 week meeting；`
-- 政协 `consultant；政协委`
+- 人大 `股东；每年两周会议；`
+- 政协 `顾问；政协委员`
 
 ## 党部门
-- 党委 `board；(1)党总书记 (7)常委 (25)中央政治局 (204)中央委员会 (2280)党代表 (90 million)党员`
-- 军队 `security；军委`
-- 中宣部 `marketing;`
-- 政法系统 `HR；政法委`
-
+- 党委 `董事会；(1) 党总书记 (7) 常委 (25) 中央政治局 (204) 中央委员会 (2280) 党代表 (9 0 million) 党员`
+- 军队 `安全；军委`
+- 中宣部 `营销；`
+- 政法系统 `人力资源；政法委`
 
 # US
 
 ## Executive
-- President
+- President  
 
-> 1st Monday of Feb President request budget from Oct 1st;
-> 15th Apr Congress budget resolution `aka blueprint; total amount`;
-> 15th May Congress appropriations bills; `aka markup bill; 12 subcommittees;`
-> If appropriations bills no ready before Oct 1st; Congress uses Continuing Resolution(CR) to temporary fund gov. 
-> authorization
+> 1st Monday of February – President requests budget (starting Oct 1).  
+> 15 April – Congress passes budget resolution (“blueprint”).  
+> 15 May – Congress passes appropriations bills (“markup bill”, 12 subcommittees).  
+> If appropriations are not ready by Oct 1, Congress uses a Continuing Resolution (CR) to temporarily fund the government.
 
 ## Legislative
-> 35 weeks session; Trying to get money whenever they lunch or call;
->
-> Wednesday legislative markup;
-> Thursday & Friday usually vote; `roll & call`
+> 35‑week session; legislation is often introduced or debated at any time.  
 
-Interests Group -> any congress man proposal -> speaker of house assign to committee -> committee -> chair decide topic -> mark up -> pass by majority of committee -> vote by congress -> sign by president
+- Wednesday – legislative markup  
+- Thursday & Friday – voting (`roll call`)
+
+**Process:** Interest group → member of Congress → Speaker assigns to committee → committee chair decides topic → markup → committee vote → full House/Senate vote → President signs.
 
 ### Staff
-> aka those actually work & write law;
-- Individual Staff
-- Congressional Research Service
-- Government Accountability Office
-- Congressional Budget Office
+> Those who actually write the law.  
+- Individual staff  
+- Congressional Research Service  
+- Government Accountability Office  
+- Congressional Budget Office  
 
 ### Committee
-- standing committees `aka by topic`
-    - Steering Committee `HR`, Appropriations Committee `Accounting`, Foreign Affairs Committee;
-    - 20 for house & 16 for senate
-    - Chair
-    - House Rule Committee `Only for house`
-- select committees `aka temporary issue`
-  - Advisor Only has no legislative power
-- joint committees `aka both Senator & House`
-  - Conference Committee `adj bill for both houses`
+- Standing committees `by topic`  
+  - Examples: HR, Appropriations (Accounting), Foreign Affairs  
+  - 20 for the House, 16 for the Senate  
+  - Chairperson  
+  - House Rules Committee `only for the House`
+- Select committees `temporary issue` – advisors only, no legislative power
+- Joint committees `both Senate & House`  
+  - Conference committee – reconciles bills from both chambers
 
 ### Caucus
-> aka small party within party
+> Small party within a larger party.
 
-- Senator `state right; appointment confirmation;`
-  - Vice President
-  - Majority leader
-> Monday 5:30am first vote;
-> Tuesday afternoon lunch & plan for both parties.
-- House `budget;`
-  - Speak of House
-  - Party whip
-  - Majority leader
-> Monday more time for house gather;
-> 6:30am Tuesday first vote;
+- **Senate** – confirms appointments, etc.  
+  - Vice President  
+  - Majority leader  
+
+> Monday 5:30 am – first vote; Tuesday afternoon – lunch & planning.
+
+- **House** – budget matters  
+  - Speaker of the House  
+  - Party whip  
+  - Majority leader  
+
+> Monday – longer deliberation; 6:30 am Tuesday – first vote.
+
 ## Judicial
-> Interpret Constitution
+> Interprets the Constitution.
 
-## Federal Government
-- Make money
+## Federal Government Functions
+- Make money (currency)
 - Declare war
 - Manage foreign relations
-- Oversee trade between states and with other countries
+- Oversee interstate and international trade
+
 ## State Governments
-- Ratify amendments 
-- Manage public health and safety
-- Oversee trade in the state
+- Ratify amendments  
+- Manage public health and safety  
+- Regulate intrastate commerce  
 
-## Shares
-- Making and enforcing laws
-- Making taxes
-- Borrowing money
+## Shared Responsibilities
+- Making and enforcing laws  
+- Taxation  
+- Borrowing money  
 
-
-> IMO, government is similar to software development;
-> Open Source(Democracy) vs Close Source(Dictatorship)
-> Linting Standard (Human right, citizen right, state right;)
-> Architecture (Constitution & other gov pattern)
-> Hardware (Population, Land, Resource)
-> Workload (War & conflicts)
-> Existed Data (Wealth & influence)
-> Developer Quality (Leadership)
+> **Analogy:** Government is similar to software development:  
+> - Open source (democracy) vs. closed source (dictatorship)  
+> - Linting standards → human rights, citizen rights, state rights  
+> - Architecture → constitution & other governance patterns  
+> - Hardware → population, land, resources  
+> - Workload → war & conflicts  
+> - Existing data → wealth & influence  
+> - Developer quality → leadership

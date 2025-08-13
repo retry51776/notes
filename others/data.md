@@ -1,15 +1,20 @@
 # GAS
-@ 2019
-54% Crud oil
-18% fed tax
-15% distribution & marketing
-13% Refining cost & profit
 
-5 Petroleum Admin Defense Districts
-East Coast 7
-Mid West 24
-Mid South 52
-Rocket Mnt 15
-West Coast 26
+**2019**
 
-imply odd is gambling term
+- 54 % crude oil
+- 18 % federal tax
+- 15 % distribution & marketing
+- 13 % refining cost & profit
+
+**Petroleum Administrative Districts**
+
+| District                     | Count |
+|------------------------------|-------|
+| East Coast                   | 7     |
+| Midwest                      | 24    |
+| Mid‑South                    | 52    |
+| Rocket Mountain              | 15    |
+| West Coast                   | 26    |
+
+*Note: “imply odd” is a gambling term.*

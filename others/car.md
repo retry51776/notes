@@ -1,49 +1,50 @@
 # Car
 
 ## Category
-- Drink
-  - Cooler & Ice block
+
+- **Drink**
+  - Cooler & ice block
   - Water
-- Food
-  - dry food
-  - nut & cracker for animals
-- Tool
-  - wrench
-  - sockets
-  - plier
-  - cutter
-  - wire brush
-  - air pump
-  - tire lock key
-  - jumper cable
-- Health & Clean
-  - wet wipe
-  - lunch bag
-  - trash bag
-  - car clean & towel
-  - sun screen
-  - ich cream
-  - hair brush & gel
-  - mask & safety glasses
-  - medical kit
-- Play
-  - skateboard
+- **Food**
+  - Dry food
+  - Nut & cracker for animals
+- **Tool**
+  - Wrench
+  - Sockets
+  - Pliers
+  - Cutter
+  - Wire brush
+  - Air pump
+  - Tire lock key
+  - Jumper cable
+- **Health & Clean**
+  - Wet wipe
+  - Lunch bag
+  - Trash bag
+  - Car cleaning cloth & towel
+  - Sunscreen
+  - Ice cream
+  - Hairbrush & gel
+  - Mask & safety glasses
+  - Medical kit
+- **Play**
+  - Skateboard
   - SUP
-  - kid car toys
-- Electronic
-  - power bank
-  - cables
-  - extension cable
-  - headset
-  - 12v to 110v convertor
-- Backup
-  - wallet & quarters
-  - Clothes & Shoe
-  - glasses
-  - expires license
-  - insurance paper
-  - AAA & insurance cell #
-- Safety
-  - paper spray
-  - Jacket & Blanket
-  - warning light
+  - Kid car toys
+- **Electronic**
+  - Power bank
+  - Cables
+  - Extension cable
+  - Headset
+  - 12 V to 110 V converter
+- **Backup**
+  - Wallet & quarters
+  - Clothes & shoes
+  - Glasses
+  - Expired license
+  - Insurance papers
+  - AAA & insurance contact number
+- **Safety**
+  - Pepper spray
+  - Jacket & blanket
+  - Warning light

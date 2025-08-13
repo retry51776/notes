@@ -30,7 +30,7 @@
 
 - There is no solution, only trade-off.
 
-- Understand the mechanics by either collecting statistics or applying logic.
+- Everything has its mechanic. Understand the mechanics by either collecting statistics or applying logic.
 
 - You cannot connect the dots when looking forward (because the result/conjunction point has not yet occurred); you can only connect them when looking backward (after the result has happened).
 
@@ -52,7 +52,7 @@
 
 - We develop heuristics first—optimizing based on statistical bias—and later create algorithms, i.e., frameworks that explain all possible paths.
 
-- Everything has its mechanic.
+- All evolutionary ideas challenge our assumptions.
 
 ## Philosophy
 >
@@ -81,8 +81,6 @@
 - Your focus should be proportional to your ability to effect change.
 
 - What you DESIRE is DIFFERENT from what you NEED.
-
-- All evolutionary ideas challenge our assumptions.
 
 > Ex: Einstein's E=mc^2 means energy and mass are the same thing.
 > Ex: Newton established science.
@@ -118,7 +116,7 @@
 >
 > > It is rare, but sometimes a new framework can lead to the development of a new philosophy.
 
-### Trust & Habit are past artifacts of Risk & Reward
+### Validation‑centric
 
 > <strong> Biological nature is about Risk & Reward Management.</strong> Habit and Trust are of the same nature, a summary of past experiences.
 >> Any living thing, as it gets older, has less flexibility/change. It's because new experience are hard to dilute many past experiences.
@@ -139,10 +137,12 @@
 >> Trust is having validation of your past. Trusting yourself requires remembering & reflecting on your past.
 >
 > Before you persuade others, have you been validated by others?
->> To persuade others, your opinion/conclusion should based off THEIR life experiences.
+>> 曹操问贾诩关于“立储”: To persuade others, your opinion/conclusion should based off THEIR life experiences.
 >
 >> Desired Consensus = Goal
 >> Ex: 刘邦斩丁公；Different goal at different time. At time of war, desired consensus is to defeat 项羽。After defeated 项羽，the desired consensus shifted to loyalty toward 刘邦.
+>
+>> Local Consensus = Culture
 
 <details>
   <summary>Risk Reward Examples</summary>

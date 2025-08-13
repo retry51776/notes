@@ -1,41 +1,43 @@
 # Rocket
 
-> Most notes from Everyday Astronaut
+> Notes from *Everyday Astronaut*  
 
-> Always run through first principle during design, make sure component must exist before opimized it
+> Always start with first principles during design; ensure each component is necessary before optimizing.
 
-1. reduce constrains & requirements
-2. delete part or process
-3. optimize
-4. product rate
-5. automate
+## Design Process
+1. Reduce constraints & requirements  
+2. Delete unnecessary parts or processes  
+3. Optimize remaining elements  
+4. Increase production rate  
+5. Automate where possible  
 
-Oxidizer-rich staged combustion `wast Ox`
-Fuel-rich staged combustion `wast fuel,`
-Full flow Staged `most eff, but required materiel`
-Merlin 
+### Combustion Cycles
+- Oxidizer‑rich staged combustion – wastes oxidizer  
+- Fuel‑rich staged combustion – wastes fuel  
+- Full‑flow staged combustion – most efficient, but requires advanced materials  
 
-Raptor 1 180 tons thrust
-Raptor 2 230-250 tons thrust w 300 bar pressure
-- Removed torch igniters
+**Engines**
+- Merlin (SpaceX)  
+- Raptor 1 – 180 t thrust  
+- Raptor 2 – 230–250 t thrust at 300 bar pressure (torch igniters removed)
 
 ## Components & Parts
-- oxy power head
-- fuel power head
-- preburner
-- start sequence
-- cross feed
-- combustion effeciency
-- swell injectors
-- actuators
-- kerosene
-- impeller
-- engine shroud `shield to block engine heat & winds`
-- power head `preburner, turbine, pump`
+- Oxypower head  
+- Fuel power head  
+- Preburner  
+- Start sequence  
+- Cross‑feed system  
+- Combustion efficiency hardware  
+- Swirl injectors  
+- Actuators  
+- Kerosene feed  
+- Impeller  
+- Engine shroud – shields engine heat and airflow  
+- Powerhead – contains preburner, turbine, pump  
 
 ### Metrics
-- Specific impulse (ISP)
-- area under forced vs time curve
-- chamber pressure plot
+- Specific impulse (Isp)  
+- Area under thrust‑vs‑time curve  
+- Chamber pressure profile  
 
-inlet -> gimbal -> inducer -> impeller stages -> turbine
+**Flow Path:** Inlet → gimbal → inducer → impeller stages → turbine.

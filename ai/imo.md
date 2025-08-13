@@ -10,6 +10,10 @@
 
 - **Multi‑Token Prediction (MTP)** – use `next_token_prediction` (expected token) + `next_token` (actual token) to predict a new token.
 
+- **Interactive Environment** - Percept -> Plan -> Action -> Reflection
+  - find & store intermediate relationships
+  - validate intermediate relationships
+
 ## Knowledge Distillation
 
 - Hard labels (human annotations) often miss nuances.  
@@ -19,6 +23,7 @@
 **64 experts** are employed in the current setup.
 
 ## Biology of Large Language Models
+
 [On the Biology of a Large Language Model](https://transformer-circuits.pub/2025/attribution-graphs/biology.html)  
 LLMs work by providing each “world” with context, which includes relevant information and logic.
 
@@ -89,7 +94,7 @@ LLMs work by providing each “world” with context, which includes relevant in
 1. **Policy Initialization**  
 2. **Reward Design** – Outcome Reward Maximization (ORM) vs. Process Reward Maximization (PRM).  
 3. **Search** – Beam Search, Monte Carlo Tree Search, Sequential Revision, etc.  
-4. **Learning**  
+4. **Learning**  - Skill(remember) & Adaptability(learn)
 
 ### Task Decomposition & Solution Generation
 
@@ -105,6 +110,6 @@ Training often uses beam search, while inference favors sequential revision.
 - **Scaling of Search and Learning: A Roadmap to Reproduce o1 from a Reinforcement Learning Perspective**  
 - **Neuronpedia** – Inspect neuron meanings: <https://docs.neuronpedia.org/>
 
---- 
+---
 
 *Document last updated: August 2025*
