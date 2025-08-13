@@ -1,71 +1,81 @@
 # Math
-- Analytic continuation 解析延拓
-- Index theory 指标理论
 
-## Key assumption
-> Which theorems? `Godel Incompleteness Theorems`
+- Analytic continuation 解析延拓  
+- Index theory 指标理论  
 
-> What are element? How logic operation effect element? `Group theory`
+## Key Assumptions
 
-> Is number continuous vs discrete?
->> discrete:
->>> Combinatorics
->>> Connection & Edge `Graph Theory`
->
->> continuous:
->>> Relationship between Change? `Calculus`
+> **Which theorems?** `Gödel Incompleteness Theorems`
 
-> Focus on Spaces relationship`Geometry, Topology`
+> **What are elements? How do logical operations affect elements?** `Group Theory`
 
-> Multi POV, or without full view? `Game theory`
+> **Is a number continuous or discrete?**
 
-> Is probability inheritance through time? `Monty Hall`
+>> **Discrete:**  
+>>> * Combinatorics  
+>>> * Connections & Edges – `Graph Theory`
 
-> Complex Variable is design to map states that in a loop.
-## Word Def
-- Principle `The underline idea/concept`
-- Algorithm `The serials of steps to resolve problem`
+>> **Continuous:**  
+>>> * Relationship between change – `Calculus`
 
-## Staticts
-probability distributions:
-- Normal Distribution (Gaussian Distribution)
-- Bernoulli Distribution (unbalance Gaussian)
-- Exponential Distribution
-- Binomial Distribution `individual events combines`
-- Poisson Distribution `event happens within a period`
-- Uniform Distribution `continues variable`
-- Gamma Distribution
-- Beta Distribution:
-- Log-Normal Distribution
+> **Focus on relationships of spaces** – `Geometry, Topology`
 
-l2 regulation `Ridge regulazation enforce smooth slope`
+> **Multiple points of view, or a single incomplete view?** `Game Theory`
+
+> **Is probability inherited through time?** `Monty Hall Problem`
+
+> **Complex variables are designed to map states that form loops.**
+
+## Word Definitions
+
+- **Principle** – *the underlying idea or concept*  
+- **Algorithm** – *a series of steps to solve a problem*
+
+## Statistics
+
+Probability distributions:
+
+- Normal Distribution (Gaussian)  
+- Bernoulli Distribution (unbalanced Gaussian)  
+- Exponential Distribution  
+- Binomial Distribution – `individual events combined`  
+- Poisson Distribution – `events occurring within a period`  
+- Uniform Distribution – `continuous variable`  
+- Gamma Distribution  
+- Beta Distribution  
+- Log‑Normal Distribution  
+
+**L2 regularization** (`Ridge regression`) enforces a smooth slope.
 
 # IMO
-> Encryption just make one path much harder than other paths.
-> > Will increase action space good enough to protect secrets? AI seems have stronger ability to run through large action space than human.
 
-> Problem w school is they focus on algorithm(skill); but not ability to prove algorithm(principal), nor underline premise(value), nor mistakes/need that lead to this new theory/principal.
- 
-> Calculus is focus on relationship. Instead geometry only focus on number answer.
+> Encryption creates one path that is much harder to traverse than other paths.  
 
-## Prime
-> x/ln(x) > prime_count > Gauss's Conjecture 1/log(x)
+> Will increasing the action space be sufficient to protect secrets? AI appears capable of exploring large action spaces more effectively than humans.
 
+> The problem with school curricula is that they focus on algorithms (skills) but not on the ability to **prove** algorithms (principles), nor on underlying premises (values), nor on the mistakes or needs that lead to new theories and principles.
 
-## Complex Number
-i * x = flip x 90 degree in complex plane;
+> Calculus focuses on relationships, whereas geometry often concentrates on numerical answers.
 
-rotate 30 degress = cos(pi/6) + i * sin(pi/6)
+## Prime Numbers
 
+> \(\displaystyle \frac{x}{\ln x} < \pi(x) < \text{Gauss's conjecture } \frac{x}{\log x}\)
 
-# Classes
-`aka my wish list; I'm not good w math, but I think there are many useful principals/idea from advance math courses;`
-- Topology `Connectedness, Holes, Compactness`
-> Homeomorphic is sub area Topology where one object can wrap into another object;
+## Complex Numbers
 
-- Partial Differential Equations (PDE)
-- Advanced Calculus
-- Number Theory
-- Graph Theory
-- Abstract Algebra `aka advance stuff`
+- \(i \times x\) rotates \(x\) by 90° in the complex plane.  
+- Rotating 30°: \(\cos(\pi/6) + i \sin(\pi/6)\).
+
+# Classes (Wish List)
+
+*I’m not strong in mathematics, but I think many advanced concepts are useful.*
+
+- **Topology** – Connectedness, holes, compactness  
+  > *Homeomorphic* is a sub‑area of topology where one object can be continuously deformed into another.
+
+- Partial Differential Equations (PDE)  
+- Advanced Calculus  
+- Number Theory  
+- Graph Theory  
+- Abstract Algebra – “advanced stuff”  
 - Cryptography

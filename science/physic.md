@@ -1,111 +1,110 @@
+# Physics
 
-# Physic
-> space-time trade-off: Cool physic fact, everything "moves same speed" in space-time, speed increase will slow down time;
-> > Apple is NOT falling to ground, but whopped timed bring earth & apple together;
+> **Space‑time trade‑off:** Everything moves at the same speed in space‑time; increasing spatial speed slows down time.  
+> *Apple does not fall because it moves toward Earth; rather, space‑time brings both together.*
 
-> observable cone means the farther we see the older it gets
+> An observable cone means that the farther we see, the older the light we receive.
 
-# Thoughts
-> What really is spacetime? Why single direction?`is it single direction? or we only sense forward?` Is space moving apart, or only light redshift?
+## Thoughts
 
+- What really is spacetime? Why does it have a single direction? *Is it truly unidirectional, or do we only perceive forward?*  
+- Is space expanding, or is the redshift of light merely an observational effect?
 
-> Is this means someone far away already seen our future? and our future already determined?
+- Does this imply that someone far away has already seen our future, and that our future is predetermined?
 
-> I feel like standard model have more applications, things far away most likely won't matter. We can't even get to Mars..
+- I feel the Standard Model has many applications, but distant phenomena may not matter to us. We can’t even reach Mars yet.
 
-> Why is space in Standard Model? I felt like Standard Model only desc how particle interact w other particles. There is got to explain why space grow & dark matter. I suspect both are  caused same physic.
+- Why does space appear in the Standard Model? The model describes how particles interact, but it doesn’t explain why space expands or what dark matter is. I suspect both arise from the same physics.
 
-> General relativity is a top-down theory, analyzes the reality as a whole, then break it down;
-> Standard Physic is bottom-up theory, analyzes the reality in smallest component, then group then back as a whole;
-> I think the reason Physic requires imaginary number because reality that we can observe is a subdomain of all realities(I don't beveled multi-verse); AKA I beveled there is the universal rule, but we stuck in some hard coded version;
+- General relativity is a top‑down theory: it analyzes reality as a whole before breaking it down.  
+  Conventional physics is bottom‑up: it studies the smallest components first, then builds up to larger structures.
 
-# General Relativity
+- Physics requires complex numbers because observable reality may be only a subdomain of all possible realities (not necessarily a multiverse). I believe there is a universal rule, but we are confined to a specific “hard‑coded” version.
 
-> The Einstein equation desc relationship between Content & Curvature
-$$
-R_μν − ½R  {g_μ}_ν = {8πG\over c4} T_μν
-$$
+## General Relativity
 
-- $R_μν$ `Ricci tensor curvature`
-- R `Ricci scalar curvature`
-- ${g_μ}_ν$ `metric tensor`
-- $T_μν$ `stress-energy tensor`
-- c `speed of light in a vacuum`
-- G `universal gravitational constant`
-- π `the famous constant from geometry`
+> The Einstein equation describes the relationship between **content** and **curvature**:
 
-### Energy momentum tensor
-> Content of space-time, right part Einstein equation, aka mass
-    constance = ${8πG\over c4} Tμν$
+\[
+R_{\mu\nu} - \tfrac{1}{2} R\, g_{\mu\nu} = \frac{8\pi G}{c^{4}} T_{\mu\nu}
+\]
 
-### Geodesics Equation 
-> geometry of space-time, left part Einstein equation, aka Curvature, How obj naturally move
+- \(R_{\mu\nu}\) – Ricci tensor (curvature)  
+- \(R\) – Ricci scalar curvature  
+- \(g_{\mu\nu}\) – Metric tensor  
+- \(T_{\mu\nu}\) – Stress‑energy tensor  
+- \(c\) – Speed of light in vacuum  
+- \(G\) – Gravitational constant  
+- \(\pi\) – The famous geometric constant  
 
-#### riemann curvature tensor (space curve)
-  - metric tensor (calculate distance)
-  - christopher symbols (how grid changes)
-  - richie tensor (tool compress riemann curvature tensor)
-  - richie scalar (avg curvature in all directions)
+### Energy–Momentum Tensor
+> Represents the content of space‑time (mass‑energy).  
+Constant factor: \(\displaystyle \frac{8\pi G}{c^{4}} T_{\mu\nu}\)
 
+### Geodesic Equation
+> Describes how objects move naturally in curved space‑time (the left side of Einstein’s equation).
 
-#### Calculation Metric
-1. Minkowski metric `for flat space time`
-2. Schwarzschild metric `for spherical mass`
-3. FLRW metric
-4. Morris-Thorne `wormhole`
-5. kerr `black hole`
+#### Riemann Curvature Tensor (space curvature)
+- Metric tensor – calculates distances  
+- Christoffel symbols – describe how the coordinate grid changes  
+- Ricci tensor – contraction of the Riemann tensor  
+- Ricci scalar – average curvature in all directions  
 
-#### Calculation Coordinate
-1. cartesian coordinates `Minkowski Metric`
-2. Schwarzschild coordinates `Schwarzschild Metric`
+#### Common Metrics
+1. Minkowski metric – flat space‑time  
+2. Schwarzschild metric – spherical mass  
+3. FLRW metric – expanding universe  
+4. Morris–Thorne metric – wormholes  
+5. Kerr metric – rotating black holes  
 
+#### Coordinate Systems
+1. Cartesian coordinates – used with the Minkowski metric  
+2. Schwarzschild coordinates – used with the Schwarzschild metric  
 
-# Standard Model
+## Standard Model
 
-> Fermions = matters; 3 generation(pair quarks) & (pair lepton)
->>  1. (up/down) (electron/electron neutrinos)
->>  2. (charm/strang) (muons/muon neutrinos)
->>  3. (top/bottom) (tau/tau neutrinos)
-> Bonson = Force
->>  gauge bonson
->>  - photon
->>  - gluon (strong force)
->>  - z0 w+ w- (weak force)
->>  - higgs (field create mass)
+> **Fermions** = matter (three generations of quark and lepton pairs)  
+>> 1. Up/Down quarks, electron/electron neutrino  
+>> 2. Charm/Strange quarks, muon/muon neutrino  
+>> 3. Top/Bottom quarks, tau/tau neutrino  
 
-Strong force caused cosmic inflation.
-In big bang, 4 force independence order: [gravity, strong force, week force, electromagnetism]
-<hr />
+> **Bosons** = forces  
+>> Gauge bosons:  
+>>> - Photon (electromagnetic)  
+>>> - Gluon (strong force)  
+>>> - \(Z^0\), \(W^\pm\) (weak force)  
+>>> - Higgs boson (field that gives particles mass)
 
-### Plaster
-- Ultracal 30 `strong, can be layer, longer`
-- Hydrocal `med, no layer`
-- USG pottery plaster `weakest`
+Strong force may have contributed to cosmic inflation. In the early universe, the four fundamental forces were independent in this order: gravity → strong → weak → electromagnetism.
 
-Bell Siphon `Using pressure to release fluid in a batch; EX: washing machine dispend washing flue;`
+---
 
-# Natural Gas
-Transportation
-- Pipe line `max length 700 miles under sea or 2200 miles on land`
-- LNG `ship in super cold liquid form`
+### Plaster Types
+- **Ultracal 30** – strong, can be layered, long‑lasting  
+- **Hydrocal** – medium strength, not suitable for layering  
+- **USG pottery plaster** – weakest  
 
-- Conventional Gas
-- Unconventional Gas `biproduct of fossil fuels well`
-  - Coal Seam Gas
-  - shell gas
+**Bell siphon:** Uses pressure to release fluid in a batch (e.g., washing machine discharge).
 
-# Nuclear
-> Fusion `merge atoms`
-> > By laser to donated small bomb; `higher pressure;`
-> 
-> > By Electric field; `higher temperature`
+### Natural Gas
+- **Transportation**
+  - Pipeline – up to 700 mi under sea or 2,200 mi on land  
+  - LNG – shipped as super‑cold liquid  
 
+- **Types**
+  - Conventional gas  
+  - Unconventional gas (by‑product of fossil fuel wells)  
+    - Coal seam gas  
+    - Shale gas  
 
-> Fission `split atoms`
-> > uranium `able to develop nuclear weapon`
-> 
-> > Plutonium `by product of uranium reaction, doesn't exist naturally`
-> 
-> > thorium `fertile rather than fissile`
->
-> Small Modular Reactor (SMR)
+### Nuclear Energy
+- **Fusion** – merging atoms  
+  - By laser → creates high pressure (“small bomb”)  
+  - By electric field → requires higher temperature  
+
+- **Fission** – splitting atoms  
+  - Uranium – can be used for nuclear weapons  
+  - Plutonium – by‑product of uranium reactions, not found naturally  
+  - Thorium – fertile (can be converted to fissile material)  
+
+**Small Modular Reactors (SMR)** are compact nuclear reactors designed for flexible deployment.
