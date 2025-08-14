@@ -60,6 +60,7 @@ LLMs work by providing each “world” with context, which includes relevant in
 - **Dynamic Routing Between Capsules** – Capsule Networks.  
 - **TransformerFAM** – Feedback attention as working memory.  
 - **Attention with Linear Biases (ALiBi)** – Adds a distance‑based linear bias to attention scores, giving higher weight to closer tokens.  
+- efficiency is part of the intelligent feature, keep increase token to solve solution is similar to brute force search.
 
 ### Flash Attention Techniques
 

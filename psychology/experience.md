@@ -1,11 +1,13 @@
 # Experience
 >
 > Try to organize my [experience](README.md#experience) here.
+>
+> Life experience -> Memory -> Opinion -> Philosophy -> Frameworks
 
 - [Opinion](#opinion) — not a common consensus
 - [Philosophy](#philosophy) — self‑guidance
+  - [Teamwork Philosophy](#teamwork-philosophy)
 - [Frameworks](#frameworks) — belief system
-- [Teamwork](#teamwork)
 
 ## Opinion
 >
@@ -24,9 +26,11 @@
 >
 > > Perhaps this also explains why we need less sleep as we age. My theory is that sleep normalizes neuronal firing strength and frequency.
 
-> > There is no such thing as a believer, nor a non-believer; just many past experiences move you from 0.01% non-believer to 99.99% believer.
+- There is no such thing as a believer, nor a non-believer; just many past experiences move you from 0.01% non-believer to 99.99% believer.
 
-> Just like a computer, our brain has biology (hardware) & psychology (software).
+- Just like a computer, our brain has biology (hardware) & psychology (software).
+
+- China is a role‑based society. Your responsibility and power come from your role rather than directly from personal choice. Hierarchical relationships arise from role assignments—for example: 君君臣臣，父父子子.
 
 - There is no solution, only trade-off.
 
@@ -54,6 +58,9 @@
 
 - All evolutionary ideas challenge our assumptions.
 
+> Ex: Einstein's E=mc^2 means energy and mass are the same thing.
+> Ex: Newton established science.
+
 ## Philosophy
 >
 > Philosophy is a way of evaluating internal and external actions and results—a dimension for measuring risk and reward (akin to KPIs or neural-network loss functions).
@@ -74,7 +81,7 @@
 
 <hr/>
 
-- Unconsciousness < Heard < Seen < Used < Understand < Improve < Trust yourself < Others trust you `Just different levels of trust`
+- Unconsciousness < Aware < Heard < Seen < Used < Understand < Improve < Trust yourself < Others trust you `Just different levels of trust`
 
 > This is the reason for brands, companies, and representatives: if we solve or expand this human bottleneck—our reliance on computers—we could achieve a huge improvement.
 
@@ -82,10 +89,7 @@
 
 - What you DESIRE is DIFFERENT from what you NEED.
 
-> Ex: Einstein's E=mc^2 means energy and mass are the same thing.
-> Ex: Newton established science.
-
-> > Guide your actions with philosophy to develop consistent TRUST between others and yourself.
+>> Guide your actions with philosophy to develop consistent TRUST between others and yourself.
 >
 > > Principles won't have conflict with other principles `under some premises`.
 >
@@ -105,6 +109,36 @@
 >
 > Just like poker, you can't change the past; But readjusting the risk & reward model can improve future games.
 
+### Teamwork Philosophy
+
+- Transparency accelerates the learning process.
+
+- If you want to go fast, go alone; if you want to go far, go together.
+
+- The goal is not important; the execution path is the key. The skill to navigate the path and understand the trade-offs is what makes the difference.
+
+> Maybe think goal in consensus framework, rapid re-adjust consensus is important. Because desired consensus is what we want, which may NOT be what we need.
+
+- Establish goals & rules in advance, and create a transparent environment.
+
+- A better process is more valuable than a correct answer.
+
+> Most parental mistakes root from valuing correct behavior OVER the child's psychological process.
+>
+> Don't go for the perfect answer. Rather focus on constant improvement of existing processes.
+>
+> Train kids in the risk & reward model.
+
+- 2 approaches to solution
+
+> Top-down approach
+> > List possible causes, then start eliminating causes by logic.
+>
+> Bottom-up approach
+> > Start from what I can do, build a module at a time, then start combining modules.
+
+- When a leader has a strong ego, the leader's ability is the ceiling of their team.
+
 ## Frameworks
 >
 > **Frameworks** are collections of philosophy to explain reality.
@@ -120,6 +154,8 @@
 
 > <strong> Biological nature is about Risk & Reward Management.</strong> Habit and Trust are of the same nature, a summary of past experiences.
 >> Any living thing, as it gets older, has less flexibility/change. It's because new experience are hard to dilute many past experiences.
+
+- Bayesian statisticians
 
 - Connection before correction. `by Jane Nelsen`
 
@@ -288,35 +324,3 @@ Poker is one of the best games about Risk & Reward. Many well-developed theories
 > Mathematicians by creativity think (Ability) + math tools (Principal & Philosophy) => develop algorithms to resolve problems (Mistakes)
 >
 > A formula is a condensed version of Mathematics law/theory (Principal);
-
-## Teamwork
->
-> Teamwork Philosophy
-
-- Transparency accelerates the learning process.
-
-- If you want to go fast, go alone; if you want to go far, go together.
-
-- The goal is not important; the execution path is the key. The skill to navigate the path and understand the trade-offs is what makes the difference.
-
-> Maybe think goal in consensus framework, rapid re-adjust consensus is important. Because desired consensus is what we want, which may NOT be what we need.
-
-- Establish goals & rules in advance, and create a transparent environment.
-
-- A better process is more valuable than a correct answer.
-
-> Most parental mistakes root from valuing correct behavior OVER the child's psychological process.
->
-> Don't go for the perfect answer. Rather focus on constant improvement of existing processes.
->
-> Train kids in the risk & reward model.
-
-- 2 approaches to solution
-
-> Top-down approach
-> > List possible causes, then start eliminating causes by logic.
->
-> Bottom-up approach
-> > Start from what I can do, build a module at a time, then start combining modules.
-
-- When a leader has a strong ego, the leader's ability is the ceiling of their team.

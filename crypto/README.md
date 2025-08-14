@@ -5,7 +5,7 @@ Think of computation as cooking food.
 - data → food  
 - Software As Service (SaaS) → take‑out restaurant with a closed kitchen  
 
-> You don't know how, who, or cooks the food; you just trust the brand.
+> You don't know how, who, or **what** cooks the food; you just trust the brand.
 
 In‑house server → home cook  
 
@@ -50,7 +50,7 @@ Food container/packaging technology; able to package food and prove its cleanlin
 Launched February 2019. Interest rates are calculated every block; there are no fixed rates.
 
 ## Fiat System
->
+
 > The fiat system is similar to an IP system we have. For network admins, this will make sense!
 
 > Imagine a world where we live in a company and trade with IP addresses.
@@ -65,7 +65,7 @@ When you trade with someone in the same bank (company), the bank creates a `priv
 
 Only when you trade with someone outside your bank (other banks) does your bank give a `public_ip` (cash or federal_reserve_credit) to the other bank.
 
-Most people assume `private_ip` (bank credit) = `public_ip` (cash or federal_reserve_credit), which is **not** true. In fact, ordinary people do **not** have access to federal reserve credit.
+Most people assume `private_ip` (bank credit) = `public_ip` (cash or federal_reserve_credit), which is **not** true. In fact, ordinary people do **not** have access to Federal Reserve credit.
 
 People also don’t realise the different types of credits:
 
@@ -78,11 +78,11 @@ Most people make this wrong assumption because banks can usually convert `privat
 When banks create too many private IPs (bank credits) without enough public IPs (cash), the risk of failed conversions (failed cash withdrawals) rises. Fear spreads, triggering a bank run and causing more failures.
 
 ## My Thoughts
->
+
 > Should we abandon this multi‑layer tree structure— which inherently allows some groups to create credit (stealing purchasing power from those who can’t)—and replace it with a flatter system where credit goes to the ledger maintainer under preset rules, hoping it eventually reaches equilibrium?
 
-> IMO, BTC distribution is messy; over time it will improve. Bitcoin’s incentive model encourages cooperation. Accurate accounting is a problem in the current system, and Bitcoin handles it well. We don’t need a perfect system, just a better one.
->> As I get older, I realize no distribution will be prefect, because population are dynamic. We hope BTC distribution will be naturally balances by personal ability.
+> IMO, BTC distribution is messy; over time it will improve. Bitcoin’s incentive model encourages cooperation. Accurate accounting is a problem in the current system, and Bitcoin handles it well. We don’t need a perfect system, just a better one.  
+> As I get older, I realize no distribution will be perfect, because populations are dynamic. We hope BTC distribution will naturally balance by personal ability.
 
 > My hope is for a peer‑to‑peer crypto network that the whole world trusts (don’t trust, verify!), providing fair opportunities to everyone. This would encourage contributions to automation, research, and equitable distribution.
 

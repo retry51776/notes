@@ -130,7 +130,8 @@ model.model.layers ModuleList(
 
 > One major differences is NN can do backward propagation. But neuron synapse only fire single direction.
 
-> Also LLM can slowly adapt from same situation(same input) by repeat multiple cycles, but animals usually only experience situation once.
+> Skill-Acquisition Efficiency (by Francois Chollet)
+>> Also LLM can slowly adapt from same situation(same input) by repeat multiple cycles, but animals usually only experience situation once.
 
 > Human don't receive error, we get feedback from interaction. But error can back propagation, but how to back propagation feedback? Maybe that's why positive discipline works, maybe success easier learned(back propagation) than failure. (I don't think it's success or failure matter, rather emotional level) <https://arxiv.org/abs/2406.08747>
 
