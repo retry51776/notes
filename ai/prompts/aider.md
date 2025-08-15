@@ -43,6 +43,7 @@ auto-commits: false
 dirty-commits: false
 model: lm_studio/openai/gpt-oss-120b
 
+# After complex feature instruction: Ask me 3 clarifying questions to help you make better decisions.
 ```
 
 execute_generator_loop

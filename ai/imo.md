@@ -14,6 +14,8 @@
   - find & store intermediate relationships
   - validate intermediate relationships
 
+- Skill != AGI `or AGI is unique set of skills that text data doesn't cover`
+
 ## Knowledge Distillation
 
 - Hard labels (human annotations) often miss nuances.  
@@ -60,7 +62,8 @@ LLMs work by providing each “world” with context, which includes relevant in
 - **Dynamic Routing Between Capsules** – Capsule Networks.  
 - **TransformerFAM** – Feedback attention as working memory.  
 - **Attention with Linear Biases (ALiBi)** – Adds a distance‑based linear bias to attention scores, giving higher weight to closer tokens.  
-- efficiency is part of the intelligent feature, keep increase token to solve solution is similar to brute force search.
+- efficiency is part of the intelligent feature, keep increase token to solve solution is similar to brute force search. Both DATA & COMPUTE Efficiency.
+- Maybe the problem LLM is aggregate learning. Human individual have memory system that can retrace in time. Maybe aggregate learning in training phrase prevent it have memory system. We need a training system that have strong memory module, and have llm reflect on those memories. `IMO current LLM still have very low memory absorption rate, it uses aggregate learning to compensate low memory absorption`
 
 ### Flash Attention Techniques
 

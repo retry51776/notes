@@ -13,8 +13,6 @@
 > >
 > > [Emotional mammal brain](nervous.md#mammal-brain)
 
-## Psychology
-
 ### Forward Propagation Process
 
 > [**Awareness**](#awareness) > [Desire](#desire) > [**Action**](#action) > [**Reward**](#reward)
@@ -75,7 +73,7 @@
 >
 > Raphe nuclei are clusters of neurons located in the brainstem that are the primary source of serotonin projections to the rest of the brain.
 
-# Action
+## Action
 
 - 1 [Risk & Reward Analysis](experience.md#risk-reward)
   - [From Past Experience](#experience)

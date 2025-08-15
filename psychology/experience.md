@@ -2,33 +2,20 @@
 >
 > Try to organize my [experience](README.md#experience) here.
 >
-> Life experience -> Memory -> Opinion -> Philosophy -> Frameworks
+> Life experience -> Memory -> Opinion -> Philosophy -> Framework
 
 - [Opinion](#opinion) — not a common consensus
+  - [Psychology Opinion](#psychology-opinion)
+  - [Economic Opinion](#economic-opinion)
 - [Philosophy](#philosophy) — self‑guidance
   - [Teamwork Philosophy](#teamwork-philosophy)
 - [Frameworks](#frameworks) — belief system
+  - [Bayesian statisticians](#bayesian-statisticians)
 
 ## Opinion
 >
 > An **opinion** is a recognized pattern derived from past observations.
 > > It’s difficult to change our opinions because they are based on many different life experiences, which makes it hard to alter an existing opinion.
->
-> > We(includes AI) are always biased because we each experience only a subset of reality.
->
-> Ex: `import this #python's opinion`
-
-### Memory Patch
->
-> We don’t have a continuous memory timeline; we have denser memory patches for recent events and sparser ones for older times.
->
->> As we get older, time seems to fly faster. Time does not actually speed up; rather we form fewer memory patches, which reduces the amount of change or learning because learning is the compression of those patches.
->
-> > Perhaps this also explains why we need less sleep as we age. My theory is that sleep normalizes neuronal firing strength and frequency.
-
-- There is no such thing as a believer, nor a non-believer; just many past experiences move you from 0.01% non-believer to 99.99% believer.
-
-- Just like a computer, our brain has biology (hardware) & psychology (software).
 
 - China is a role‑based society. Your responsibility and power come from your role rather than directly from personal choice. Hierarchical relationships arise from role assignments—for example: 君君臣臣，父父子子.
 
@@ -36,25 +23,45 @@
 
 - Everything has its mechanic. Understand the mechanics by either collecting statistics or applying logic.
 
-- You cannot connect the dots when looking forward (because the result/conjunction point has not yet occurred); you can only connect them when looking backward (after the result has happened).
-
-- It is human nature to want to be **belong** and have **power**.
-
-- Decision fatigue
-
-- Intelligence is an equilibrium between supply (often over-focused) and demand (often overlooked).
-
 - Most things have a recursive property.
 
 > Ex: Wealth, Knowledge, Ability, Social Skill
 
 - Structure often determines the properties.
 
-- Assuming supply is unlimited, quality versus price follows an exponential relationship, whereas quantity versus price follows a logarithmic relationship.
+### Psychology Opinion
+
+- Memory Patch
+>
+> We don’t have a continuous memory timeline; we have denser memory patches for recent events and sparser ones for older times.
+>
+>> As we get older, time seems to fly faster. Time does not actually speed up; rather we form fewer memory patches, which reduces the amount of change or learning because learning is the compression of those patches.
+>
+> > Perhaps this also explains why we need less sleep as we age. My theory is that sleep normalizes neuronal firing strength and frequency.
+>
+> > We(includes AI) are always biased because we each experience only a subset of reality.
+
+- There is no such thing as a believer, nor a non-believer; just many past experiences move you from 0.01% non-believer to 99.99% believer.
+
+- Just like a computer, our brain has biology (hardware) & psychology (software).
 
 - We have two 'minds': the rational mind (the human cortex) and the emotional mind (the more primitive mammalian brain).
 
 - We develop heuristics first—optimizing based on statistical bias—and later create algorithms, i.e., frameworks that explain all possible paths.
+
+- It is human nature to want to be **belong** and have **power**.
+
+- Decision fatigue
+
+- You cannot connect the dots when looking forward (because the result/conjunction point has not yet occurred); you can only connect them when looking backward (after the result has happened).
+
+- Intelligence is an equilibrium between supply (often over-focused) and demand (often overlooked).
+
+### Economic Opinion
+
+- (Diversity & Reliability) VS Efficiency. Ex: textile industry, car industry, stores; Because consumption doesn't scale with production.
+
+- Assuming supply is unlimited, quality versus price follows an exponential relationship, whereas quantity versus price follows a logarithmic relationship.
 
 - All evolutionary ideas challenge our assumptions.
 
@@ -71,6 +78,8 @@
 >
 > > A new philosophy must be compatible with the existing one and its conclusions.
 
+### Personal Philosophy
+
 - Bayesian statisticians
 
 - Seek satisfaction, not happiness.
@@ -79,11 +88,7 @@
 >
 > That’s why children are often happier than adults; they unlock new abilities far more frequently.
 
-<hr/>
-
 - Unconsciousness < Aware < Heard < Seen < Used < Understand < Improve < Trust yourself < Others trust you `Just different levels of trust`
-
-> This is the reason for brands, companies, and representatives: if we solve or expand this human bottleneck—our reliance on computers—we could achieve a huge improvement.
 
 - Your focus should be proportional to your ability to effect change.
 
@@ -91,17 +96,9 @@
 
 >> Guide your actions with philosophy to develop consistent TRUST between others and yourself.
 >
-> > Principles won't have conflict with other principles `under some premises`.
->
 > > IMO discrete math has many basic principles and should be taught in high school.
 
 - Don't trust; verify.
-
-- Discrete Math
-
-1. Proven & Disprove theory `Proposition, Negation, Conjunction ...etc`
-2. Truth Table / Logic Tree
-3. Boolean Logic
 
 - Past can't change; Only reflect if you intended change yourself for future.
 
@@ -150,18 +147,17 @@
 >
 > > It is rare, but sometimes a new framework can lead to the development of a new philosophy.
 
-### Validation‑centric
+### Bayesian statisticians
 
-> <strong> Biological nature is about Risk & Reward Management.</strong> Habit and Trust are of the same nature, a summary of past experiences.
->> Any living thing, as it gets older, has less flexibility/change. It's because new experience are hard to dilute many past experiences.
-
-- Bayesian statisticians
-
-- Connection before correction. `by Jane Nelsen`
+> <strong> Biological nature is about Risk & Reward Management with Bayesian statisticians.</strong>
 
 - Life is a collection of habits.
-
+  - Habit and Trust are of the same nature, artifacts of past experiences.
+- Changes & Learning
+  - Slow down when high‑impact evidence appears; give the Bayesian update process time to integrate it.
+  - Any living thing, as it gets older, has less flexibility/change. It's because new experience are hard to dilute many past experiences.
 - All interactions (communication, trade, between person, pets, countries) require **validation**. Validation, in its broadest sense, is the sum of past experiences that shape current event's expectation.
+  - Connection before correction. `by Jane Nelsen`
 >
 >> **Consensus** is common individual validation; war happens when there is no consensus on both sides.
 >
@@ -183,19 +179,9 @@
 <details>
   <summary>Risk Reward Examples</summary>
 
-Five parts in Risk Reward Analysis
-
 > IMO: A common problem is people's desire for power, money, and position without assuming responsibility.
 >
 > > Parenting should be based on equal respect; make kids understand that more power comes with more responsibility.
-
-- Player `Each player has its own philosophy & its own risk-reward preference`
-- Action `Choices in the game; each choice has its own Risk Reward outcome`
-  - A bad player is usually unaware of possible actions or stuck with the same actions.
-- Turn `Opportunities that a player can choose action; Ex: stop risk/game.`
-- Risk `Risk can combine together, 'gatekeeper' of reward.`
-- Result `Action requires time, other causes => result. Result correlates to risk.`
-- Trust `Sum of past relevant results`
 
 > > Ex1: Great power comes great responsibility. `from spider-man`
 >
@@ -203,11 +189,7 @@ Five parts in Risk Reward Analysis
 >
 > > Ex3: animal reproduction
 >
-> > Ex4: There is no solution, only trade-off.
->
-> > Ex5: A witty speaker, instead of talking directly (low risk, low reward), takes a far route (high risk, high reward).
->
-> > Ex6: Most intelligent animals will PAUSE & THINK & WORRY when there is a huge reward in front of them WITHOUT EFFORT/RISK. Because intelligence has a natural instinct to measure risk & reward. A huge reward usually indicates a huge risk.
+> > Ex4: Most intelligent animals will PAUSE & THINK & WORRY when there is a huge reward in front of them WITHOUT EFFORT/RISK. Because intelligence has a natural instinct to measure risk & reward. A huge reward usually indicates a huge risk.
 
 > Why do the rich get richer? It's not that the rich get richer. It's those with resources who are able to handle more risk in order to capture more reward.
 
