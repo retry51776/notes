@@ -1,267 +1,261 @@
 # Psychology
->
-> Psychology are ways of thinking and behaving.
-> > IMO: Psychology is similar to chip design; Workload & resource determent optimal design.
->
-> > I assumed brain assign neuron functionality based on neuron location`connections = computation`, sensor location, output location, supply routes, and workflow design? Is brain balance between least neuron and capture reality?
-> >
-> > I assume brain also use near memory computation design, there fore memory & functions are localized.
->
-> > Each cortex lob are registers; Association Areas is CPU`more like FPGA`; some cortex also acts as storage;
 
-# 1. Attention
->
-> Right now I beveled attention trigger by Basal ganglia neuron fires in burst mode.
+> Here are some notes that not been consolidate.
 
-> Most often problem is within this layer;
+> **IMO:** Psychology is similar to chip design; workload & resources determine optimal design.
 
-> Attention is a multiplier of sensation
+> I assumed the brain assigns neuron functionality based on neuron location, connections = computation, sensor location, output location, supply routes, and workflow design. Is the brain balanced between using the fewest neurons and capturing reality?  
+> I assume the brain also uses near‑memory computation design; therefore memory & functions are localized.
 
-> [Personal Value](README.md#personal-value) is an important variable in Attention.
+> Each cortical lobe is a register; association areas act like a CPU (more like an FPGA). Some cortex also serves as storage.
 
-Selective Attention
+## 1. Attention
 
-Way to change attention?
+> Right now I believe attention is triggered by basal ganglia neurons firing in burst mode.  
+> Most often the problem lies within this layer.  
+> Attention multiplies sensation.  
 
-- Prioritize Personal Values
-- reduce distraction
-  - avoid trigger
-  - change path/environment
-- **increase the consequences**
-  - increase reward
-  - increase/create punishment
-- training
+> **Personal Value** (`README.md#personal-value`) is an important variable in attention.
 
-# 2. Sensation
->
+### Selective Attention
+
+#### Ways to change attention
+
+- Prioritize personal values
+- Reduce distraction  
+  - Avoid triggers  
+  - Change path/environment
+- **Increase the consequences**  
+  - Increase reward  
+  - Increase/create punishment
+- Training
+
+## 2. Sensation
+
 > Sensations are the raw data that our brains receive from the outside world.
->
-> Absolute Threshold of sensation `min stimulation needs to register 50% of the time`
->
-> It's not absolute changes matter, but relative change.
 
-## Touch
->
-> Touch is VERY important sensation. `proven by Harry Harlow’s Wire Monkey Mother Experiment`
-> > First sensation to communicate between others, develop trust?
->
-> > Sex is just extreme form of touch
+> Absolute threshold of sensation: *minimum stimulation needed to register 50 % of the time*.
 
-Touch sensations:
+> It's not absolute changes that matter, but relative change.
 
-- pressure
-- warmth
-- cold
-- pain
+### Touch
 
-## Vision
->
-> Convolutional neural network(CNN)
->> Model Parameter sharing to avoid overfit
->
-> 90% info input by vision;
+> Touch is a very important sensation (proved by Harry Harlow’s wire‑monkey mother experiment).  
+> > First sensation to communicate between others; develops trust?  
 
-> Threshold: > 60ms we can see; < 40ms we can't see; 30ms is 100% can't see.
+> Sex is just an extreme form of touch.
 
-- Primary Visual Area(V1)
-  - Parvocellular layers (4 P Layers) `color, detail, still, slow`
-  - Magnocellular layers (2 M Layers) `detect motions`
-- Dorsal stream `process spatial info`
-- Ventral stream `process shape & color`
-  - motion(MT)
-  - shape(LOC)
-  - color(CC),
-  - face(Fusiform Face Area)
-  - places(Parahippocampal Place Area) `shape of environment`
-  - body(Extrastriate Body Area)
-- Hippocampus
-  - Place Cell(Here cell) `fire rapidly, regardless direction, 3D place field`
-  - Direction Cell
-  - Grid Cell
-  - Boarder Cell
+**Touch sensations**
 
-- Depth Perception
-- Monocular cues `size of what we see`
-  - relative size and height
-  - linear perspective
-  - texture gradient
-  - interposition
+- Pressure
+- Warmth
+- Cold
+- Pain
 
-## Hearing
->
-> It's useful, but not required perception.
+### Vision
 
-**Smell**
-> Directly to brain, only sense that bypass Thalamus.
+> Convolutional neural network (CNN)  
+>> Model parameter sharing to avoid overfitting.
 
-**Taste**
+Ninety percent of information input comes from vision.
+
+**Thresholds:** > 60 ms we can see; < 40 ms we cannot see; at 30 ms vision is completely blocked.
+
+- Primary Visual Area (V1)  
+  - Parvocellular layers (4 P layers): `color, detail, still, slow`  
+  - Magnocellular layers (2 M layers): `detect motion`
+- Dorsal stream: processes spatial info
+- Ventral stream: processes shape & color  
+  - Motion (MT)  
+  - Shape (LOC)  
+  - Color (CC)  
+  - Face (Fusiform Face Area)  
+  - Places (Parahippocampal Place Area): `shape of environment`  
+  - Body (Extrastriate Body Area)
+- Hippocampus  
+  - Place cells: fire rapidly, regardless of direction, with a 3‑D place field  
+  - Direction cells  
+  - Grid cells  
+  - Border cells
+
+**Depth perception**
+
+**Monocular cues** (`size of what we see`)
+
+- Relative size and height
+- Linear perspective
+- Texture gradient
+- Interposition
+
+### Hearing
+
+> It’s a useful sense, but not essential for perception.
+
+### Smell
+
+> Directly reaches the brain; it is the only sense that bypasses the thalamus.
+
+### Taste
+
 > Processed by the gustatory system.
 
-**Kinesthesis** `senses body movement and position`
+### Kinesthesis
 
-**Vestibular** `monitor head's position and balance`
+> Senses body movement and position.
 
-# 3. Perception
->
-> Perception is brain interpret the information from our senses. `aka sensory development`
->
-> Perceptions are core skills that develop other skills;
-> > Ex: baby's vision up side down; peekaboo game; We learn how to walk because we practices Proprioception;
->
-> Perception can break into 2 major categories: [Biology Perception](#biology-perception) & [Psychology Perception](#psychology-perception);
->
-> > Perception is where a lot information is dropped.`aka lead to MISTAKE;`
->
-> It is crucial to identify under performing perceptions, but it can be challenging to detect missing perceptions.
+### Vestibular
 
-## Psychology Perception
->
-> Ability to read (Self & Other) body language through [body expression](#mammal-brain).
-> > Women usually outperform men on reading body language.
+> Monitors head position and balance.
 
-## Biology Perception
->
-> Biology Perception processed by reptilian brain;
->
-### Nociception
->
-> the perception of pain;
->
-> Trigger to reflection
+## 3. Perception
 
-### Radiation
->
-> sense of color, sense of moods associated with color, sense of temperature
+> Perception is the brain interpreting information from our senses (also known as sensory development).  
+> Perceptions are core skills that enable the development of other abilities.  
+> > Example: a baby’s vision is upside‑down; peekaboo games; we learn to walk because we practice proprioception.
 
-### Thermoception
->
-> the sense of heat
+Perception can be divided into two major categories: **Biological perception** and **Psychological perception**.
 
-### Proprioception
->
-> the perception of body awareness
+> Perception is where a lot of information is dropped (`aka lead to mistakes`).  
+> It is crucial to identify under‑performing perceptions, but it can be challenging to detect missing ones.
 
-# 4. Experience
->
-> [**Past Experience**](README.md#experience) project your [**Action**](README.md#action)
+### Psychological perception
 
-> Sleep resets [Association Areas](#brain); `why we dream; Neuron trys to fire all its synapse; That's why I get new ideas after sleep;`
-> > Older people sleep less. That is reason as we get older, we harder to change the way we think.
+Ability to read one's own and others' body language through [body expression](#mammal-brain).  
+> Women usually outperform men at reading body language.
 
-> Association Learning links certain events, behaviors, or stimuli together in the process of conditioning
-> > Close mind people has strong preconception`from memory` that they can't change association;
+### Biological perception
 
-> Association Areas is where **mistake** happens too, is easier to noticed but **harder to change** compare to **Perception**
-> > Mistake/Forget is not a bug, but a feature enable people combine/decouple different ideas.
+Processed by the reptilian brain.
 
-> unaware preconception? `identify preconception cause problem, what causes association, how to reduce association`
+#### Nociception
 
-**ways to change association**
+The perception of pain; a trigger for reflection.
 
-1. avoid
-   1. increase awareness
-   2. avoid trigger
-2. dilution
-   1. create new memory replaced association
-   2. reedit memory
-3. Operant conditioning `aka training w positive and negative feedback`
-4. reevaluate associated subject
-   1. replace subject`or behavior`
-   2. break down subject`aka divide & conquer`
+#### Radiance perception
 
-## Vision Association
->
-> Often there is something blocked part of view, yet we still able detected blocked item;
->
-> Vision perception associates logic & pattern to interpret;
-> > We develop top-down view & bottom-up view from vision.
+Sense of color, mood associations with color, and perceived temperature.
 
-## Logic Association
->
-> IDK there is single area do all logic. `maybe Temporal lob?`
+#### Thermoception
 
-> Association **first**, then Logic **second**. `aka we are not always logical being`
+The sense of heat.
 
-## Memory Association
->
-> Memory & Emotion are related.
-> > If you want to memorize something, tie them to a feeling
+#### Proprioception
 
-> Memory will break into different aspects, then store its corresponded areas of brain.
+Perception of body awareness.
 
-### Working memory
+## 4. Experience
 
-- Capacity: 7 items +-2
-- Duration: 20-30s
-- Encoding: Visual and auditory last longer than verbal or written information
-  - The positional effect
-  - rehearsal `aka repeat`
-  - chunking `aka organized memory`
-  - mnemonic devices
-    - image `aka picturize memory`
-    - pegword `aka use story`
-    - location
-    - Acronym
-  - Self-Referencing
-  - Spacing `aka repeat study in large time gape`
-- Interference: Memory will interfered w each other
-- Transfer to long-term memory by Hippocampus
+> [**Past experience**](experience.md) projects onto **action** (`README.md#action`).  
 
-> Basic mechanics of short term memory is neuron associate different signal together. Increase voltage to create more neurotransmitters; The receptor will increase surface area to capture more neurotransmitters;
+Sleep re-normalize neuron; this explains new ideas after sleep.  
 
-### Long Term Memory
+Association learning links certain events, behaviors, or stimuli together in the process of conditioning.  
+> Closed‑mind people have strong preconceptions (`from memory`) that they can't change association.
 
-- Semantic Memory `knowledge`
-- Episodic Memory `Remember events by sensation`
-- Procedural Memory `How to do things`
+Association areas are where mistakes also occur; they are easier to notice but harder to change compared to perception.  
+> Mistake/forget is not a bug, but a feature enabling people to combine/decouple different ideas.
 
-> Long Term Memory & Emotion are created by Hippocampus, and store in different areas in cortex;
->
-> Long term memory is neuron develop new terminal directly connects to other neuron; serotonin cause neuron grew new terminal;
+**Ways to change association**
 
-## Body Language
->
-> aka Non-verbose communication;
+1. **Avoid**  
+   1. Increase awareness  
+   2. Avoid triggers
+2. **Dilution**  
+   1. Create new memory to replace the association  
+   2. Re‑edit memory
+3. **Operant conditioning** (`aka training with positive and negative feedback`)
+4. **Reevaluate associated subject**  
+   1. Replace subject (`or behavior`)  
+   2. Break down subject (`aka divide & conquer`)
 
-> Our bodies are similar to cars, with speech being the equivalent of honking and non-verbal communication being like the turning signals and headlights. To reach our destination, we need to learn how to navigate social interactions in the same way we learn traffic patterns.
+### Visual association
 
-Books:
+Often a portion of the view is blocked, yet we can still detect the hidden object. Vision perception associates logic & pattern to interpret; we develop top‑down and bottom‑up views from vision.
 
-- The Definitive Book of Body Language
-- Lie Detection 101
-- What every body saying
-- Atomic Habit
+### Logic association
 
-Rules:
+I don’t know if there is a single area that handles all logic—perhaps the temporal lobe?  
+Association comes first, then logic follows (i.e., we are not always purely logical beings).
 
-1. Closed vs Expand posture.
-2. The act of using a pacifier is similar to scratching an itch in the brain.
-   - a. Observes frequency changes.
+### Memory association
+
+Memory & emotion are related.  
+> If you want to memorize something, tie it to a feeling.
+
+Memory breaks into different aspects, which are stored in corresponding brain areas.
+
+#### Working memory
+
+- Capacity: ~7 ± 2 items
+- Duration: 20‑30 s
+- Encoding: visual and auditory information lasts longer than verbal or written information  
+  - Positional effect  
+  - Rehearsal (`aka repeat`)  
+  - Chunking (`aka organized memory`)  
+  - Mnemonic devices  
+    - Image (`aka picturize memory`)  
+    - Pegword (`aka use story`)  
+    - Location  
+    - Acronym  
+  - Self‑referencing  
+  - Spacing (`aka repeat study over a large time gap`)
+- Interference: memories interfere with each other
+- Transfer to long‑term memory via the hippocampus
+
+> The basic mechanism of short‑term memory involves neurons associating different signals. Increasing voltage creates more neurotransmitters; receptors expand their surface area to capture them.
+
+#### Long‑term memory
+
+- Semantic memory (`knowledge`)
+- Episodic memory (`remember events by sensation`)
+- Procedural memory (`how to do things`)
+
+> Long‑term memory and emotion are generated by the hippocampus and stored in different cortical regions.  
+> Long‑term memory forms as neurons develop new terminals that connect directly to other neurons; serotonin promotes this growth.
+
+### Body language
+
+Also known as non‑verbal communication.
+
+Our bodies are similar to cars, with speech being the equivalent of honking and non‑verbal communication like turning signals and headlights. To reach our destination, we need to learn how to navigate social interactions just as we learn traffic patterns.
+
+**Books**
+
+- *The Definitive Book of Body Language*
+- *Lie Detection 101*
+- *What Every Body Is Saying*
+- *Atomic Habits*
+
+**Rules**
+
+1. Closed vs. expanded posture.
+2. Using a pacifier is analogous to scratching an itch in the brain.  
+   - Observes frequency changes.
 3. Body position.
-4. Gravity Effect.
-5. Look for congruence. `aka find contradiction`
-   1. speech vs expression.
-   2. speech vs body position
-   3. left vs right; top vs bottom;
+4. Gravity effect.
+5. Look for congruence (`aka find contradiction`)  
+   1. Speech vs. expression.  
+   2. Speech vs. body position.  
+   3. Left vs. right; top vs. bottom.
 
-Tips:
+**Tips**
 
-1. Practice paused & think. `aka inaction`
+1. Practice pausing & thinking (`aka inaction`).
 2. Read gestures in clusters.
 3. Read gestures in context.
-4. Eye contact similar to service health check.
+4. Eye contact is similar to a service health check.
 
-> Look away while talking is for reduce distraction for clear thought.
+> Looking away while speaking reduces distraction and promotes clearer thinking.
 
-# Conclusion
->
-> We must be aware which brain level we operating on;
-> > Logic only works in higher level.
->
-> > When we talk to a person, imagine talking to 2 people, the logical one and the emotional one `connection before correction`
->
-> Try to resolve problem in wrong level is similar fixing bug in wrong area.
->
-> Brain function is localized, that is reason when we doing same thing we get tried & bored`feedback system avoid over use`. Also the same reason we need diversify desires.
+## Conclusion
 
-> Maybe we should split brain by application: long term memory, short term memory, emotion, through, action controller, movement, pattern separation, pattern completion
+We must be aware of which brain level we are operating on.  
+> Logic only works at higher levels.
+
+> When we talk to a person, imagine talking to two people: the logical one and the emotional one (`connection before correction`).
+
+Trying to resolve a problem at the wrong level is similar to fixing a bug in the wrong area.
+
+Brain function is localized; this explains why repetitive tasks lead to fatigue and boredom (a feedback system avoids overuse). It also underscores the need to diversify desires.
+
+Perhaps we should partition the brain by function: long‑term memory, short‑term memory, emotion, thought, action control, movement, pattern separation, and pattern completion.

@@ -1,23 +1,32 @@
 # Psychology
 >
+> Psychology is a way of thinking and behaving.  
+>
 > Just like a computer, our brain has biology (hardware) & psychology (software).
 >
 > Inspired by Ray Dalio's Principles
 
-> Life is a compression algorithms, compress life experience to form collections of habits.
+> Life is like a compression algorithm: it compresses life experiences to form collections of habits.
+
+## Table of Contents
+
+- [Biology](#biology)
+  - [Forward Propagation Process](#forward-propagation-process) `Reaction Process`
+  - [Backward Propagation Process](#backward-propagation-process) `Reflection Process`
+- [Psychology Definitions](#psychology-definitions)
+  - [Awareness](#awareness)
+  - [Desire](#desire)
+  - [Reward](#reward)
+  - [Action](#action)
+  - [Reflection](#reflection)
 
 ## Biology
 >
-> I categorize the [brain](nervous.md#brain) into two parts:
-> > [Rational human brain](nervous.md#human-brain)
-> >
-> > [Emotional mammal brain](nervous.md#mammal-brain)
+> [Rational human brain](nervous.md#human-brain) vs [Emotional mammal brain](nervous.md#mammal-brain)
 
 ### Forward Propagation Process
 
-> [**Awareness**](#awareness) > [Desire](#desire) > [**Action**](#action) > [**Reward**](#reward)
-
-> > We have many forward propagation processes compared to backward propagation processes.
+> [**Awareness**](#awareness) → [Desire](#desire) → [**Action**](#action) → [**Reward**](#reward)
 
 ### Backward Propagation Process
 >
@@ -33,29 +42,24 @@
 >
 > We often forget to take PAST INPUT (**history**) to predict [**past action**](#action); then evaluate against historical records. The greatest benefit of studying history is having more data & cheaper evaluation.
 
-> Logic Formulary
+> **Logic Formulary**
 >
-> Current + Action = Desire
->
-> Desire - Current = Action
->
-> Desire - Action = Current
-</br></br>
+> **Current + Action = Desire**
 
-# Psychology Definitions
+## Psychology Definitions
 
-## Awareness
+### Awareness
 >
-> Awareness can be broken down into [**Attention**](./psychology.md#1-attention) > [Sensation](./psychology.md#2-sensation) > [**Perception**](./psychology.md#3-perception)
+> Awareness can be broken down into [**Cue**](#cue) → [**Attention**](#awareness) → [Sensation](psychology.md#2-sensation) → [**Perception**](psychology.md#3-perception)
 >
 > If you lack some awareness, most likely your philosophy doesn't prioritize it.
 > > Prioritize [philosophy](./experience.md#philosophy) to improve [Perception](psychology.md#3-perception).
 
-### Cue
+#### Cue
 >
 > Any [**Perception**](./psychology.md#3-perception) that triggers a habit loop.
 
-## Desire
+### Desire
 >
 > There is a natural psychological desire within us to **belong** and have **power**.
 >
@@ -65,7 +69,7 @@
 >
 > > Remember power comes with responsibility; ask yourself when you desire something, are you ready for responsibility.
 
-## Reward
+### Reward
 >
 > Reward or satisfaction is DIFFERENT from desire.
 >
@@ -76,7 +80,7 @@
 ## Action
 
 - 1 [Risk & Reward Analysis](experience.md#risk-reward)
-  - [From Past Experience](#experience)
+  - [From Past Experience](experience.md)
   - From Logic Deduction
 - 2 Choice 1 of 4 Actions
   - a: Do nothing.
@@ -85,12 +89,12 @@
   - b: Avoid the problem.
     - b.1 Change path
     - b.2 Change desires
-  - c: [Self improvement](#self-improvement).
+  - c: [Self improvement](#reflection).
   - d: Outsource Problem.
     - d.1 Reliance on people
     - d.2 Reliance on machine
 
-## Self improvement
+## Reflection
 
 ### Diagnose
 

@@ -1,308 +1,373 @@
 # Experience
->
-> Try to organize my [experience](README.md#experience) here.
->
-> Life experience -> Memory -> Opinion -> Philosophy -> Framework
 
-- [Opinion](#opinion) — not a common consensus
+> Try to organize my [experience](README.md#experience) artifacts here.
+>
+> Life experience → Memory → Opinion → Philosophy → Framework
+
+---
+
+## Table of Contents
+
+- [Opinion](#opinion)
   - [Psychology Opinion](#psychology-opinion)
   - [Economic Opinion](#economic-opinion)
-- [Philosophy](#philosophy) — self‑guidance
+- [Philosophy](#philosophy)
+  - [Personal Philosophy](#personal-philosophy)
   - [Teamwork Philosophy](#teamwork-philosophy)
-- [Frameworks](#frameworks) — belief system
-  - [Bayesian statisticians](#bayesian-statisticians)
+  - [Practical Guidelines](#practical-guidelines)
+- [Frameworks](#frameworks)
+  - [Bayesian Statisticians](#bayesian-statisticians)
+  - [Life Is a Video Game](#life-is-a-video-game)
+  - [Society & Time](#society--time)
+  - [Science Pyramid](#science-pyramid)
+  - [Bio Ecosystem](#bio-ecosystem)
+  - [Brain Characteristics](#brain-characteristics)
+  - [Neural Network Analogy](#neural-network-analogy)
+  - [Difficulty with Complexity](#difficulty-with-complexity)
+  - [Drive to the Future](#drive-to-the-future)
+  - [Mathematics Theory](#mathematics-theory)
+
+---
 
 ## Opinion
->
-> An **opinion** is a recognized pattern derived from past observations.
-> > It’s difficult to change our opinions because they are based on many different life experiences, which makes it hard to alter an existing opinion.
+
+**Summary:**  
+
+- Opinions are patterns formed from past observations and experiences.  
+- They are hard to change because they integrate many life events, leading to entrenched beliefs.  
+
+> An **opinion** is a recognized pattern derived from past observations.  
+> *It’s difficult to change our opinions because they are based on many different life experiences, which makes it hard to alter an existing opinion.*
 
 - China is a role‑based society. Your responsibility and power come from your role rather than directly from personal choice. Hierarchical relationships arise from role assignments—for example: 君君臣臣，父父子子.
-
-- There is no solution, only trade-off.
-
+- There is no solution, only trade‑off.
 - Everything has its mechanic. Understand the mechanics by either collecting statistics or applying logic.
-
-- Most things have a recursive property.
-
-> Ex: Wealth, Knowledge, Ability, Social Skill
-
-- Structure often determines the properties.
+- Most things have a recursive property (e.g., wealth, knowledge, ability, social skill).
+- Structure often determines properties.
 
 ### Psychology Opinion
 
-- Memory Patch
->
-> We don’t have a continuous memory timeline; we have denser memory patches for recent events and sparser ones for older times.
->
->> As we get older, time seems to fly faster. Time does not actually speed up; rather we form fewer memory patches, which reduces the amount of change or learning because learning is the compression of those patches.
->
-> > Perhaps this also explains why we need less sleep as we age. My theory is that sleep normalizes neuronal firing strength and frequency.
->
-> > We(includes AI) are always biased because we each experience only a subset of reality.
+**Key Points:**  
 
-- There is no such thing as a believer, nor a non-believer; just many past experiences move you from 0.01% non-believer to 99.99% believer.
+- Memory exists as discrete patches; fewer patches with age make time feel faster.  
+- The brain functions like hardware (biology) plus software (psychology).  
+- Two minds: rational (cortex) and emotional (primitive brain).  
+- **Memory Patch**  
+  > We don’t have a continuous memory timeline; we have denser memory patches for recent events and sparser ones for older times.  
+  >> As we age, time seems to fly faster. Time does not actually speed up; rather we form fewer memory patches, which reduces the amount of change or learning because learning is the compression of those patches.  
+  > Perhaps this also explains why we need less sleep as we age—sleep may normalize neuronal firing strength and frequency.  
+  > We (including AI) are always biased because each of us experiences only a subset of reality.
 
-- Just like a computer, our brain has biology (hardware) & psychology (software).
-
-- We have two 'minds': the rational mind (the human cortex) and the emotional mind (the more primitive mammalian brain).
-
-- We develop heuristics first—optimizing based on statistical bias—and later create algorithms, i.e., frameworks that explain all possible paths.
-
-- It is human nature to want to be **belong** and have **power**.
-
-- Decision fatigue
-
-- You cannot connect the dots when looking forward (because the result/conjunction point has not yet occurred); you can only connect them when looking backward (after the result has happened).
-
-- Intelligence is an equilibrium between supply (often over-focused) and demand (often overlooked).
+- There is no such thing as a believer or a non‑believer; many past experiences move you from 0.01 % non‑believer to 99.99 % believer.
+- The brain is analogous to a computer: biology (hardware) + psychology (software).
+- Two “minds”: the rational mind (cortex) and the emotional mind (more primitive mammalian brain).
+- Heuristics develop first—optimizing based on statistical bias—and later we create algorithms/frameworks that explain all possible paths.
+- Human nature seeks **belonging** and **power**.
+- Decision fatigue is a real limitation.
+- You cannot connect the dots when looking forward (the result has not yet occurred); you can only connect them retrospectively.
+- Intelligence is an equilibrium between supply (often over‑focused) and demand (often overlooked).
 
 ### Economic Opinion
 
-- (Diversity & Reliability) VS Efficiency. Ex: textile industry, car industry, stores; Because consumption doesn't scale with production.
+**Key Points:**  
 
-- Assuming supply is unlimited, quality versus price follows an exponential relationship, whereas quantity versus price follows a logarithmic relationship.
+- Trade‑off between diversity/reliability and efficiency in production.  
+- Quality vs. price follows an exponential curve; quantity vs. price is logarithmic.  
+- **Diversity & Reliability vs. Efficiency**  
+  Example: textile industry, car industry, retail. Because consumption doesn’t scale linearly with production, a trade‑off exists between diversified small producers (reliability) and large‑scale efficient factories.
+  - Consumption = demand + credit (aka consensus). Demand is **not** the limiting factor; validated (credited) demand drives diversity, while efficiency favors concentration.
+    - Example: China High Speed Rail over‑built due to insufficient validation.
 
-- All evolutionary ideas challenge our assumptions.
+- Assuming unlimited supply, quality vs. price follows an exponential relationship, whereas quantity vs. price follows a logarithmic relationship.
+- All evolutionary ideas challenge our assumptions.  
+  > *Einstein*: E = mc² → energy and mass are equivalent.  
+  > *Newton*: established modern science.
 
-> Ex: Einstein's E=mc^2 means energy and mass are the same thing.
-> Ex: Newton established science.
+---
 
 ## Philosophy
->
-> Philosophy is a way of evaluating internal and external actions and results—a dimension for measuring risk and reward (akin to KPIs or neural-network loss functions).
->
-> > It is rare for individuals to change their philosophy because it is usually formed during early childhood.
->
-> > Philosophy is guidance for action.
->
-> > A new philosophy must be compatible with the existing one and its conclusions.
+
+**Summary:**  
+
+- Philosophy provides a framework for evaluating actions, risks, and rewards.  
+- It is typically formed early in life and guides decision‑making and trust building.  
+
+> Philosophy evaluates internal and external actions and results—a dimension for measuring risk and reward (akin to KPIs or neural‑network loss functions).  
+
+> *It is rare for individuals to change their philosophy because it is usually formed during early childhood.*  
+> *Philosophy is guidance for action.*  
+> *A new philosophy must be compatible with the existing one and its conclusions.*
 
 ### Personal Philosophy
 
-- Bayesian statisticians
+**Core Ideas:**  
 
-- Seek satisfaction, not happiness.
+- Treat life as Bayesian risk‑reward management.  
+- Prioritize satisfaction over fleeting happiness.  
+- Trust hierarchy: Unconscious < Aware < Heard < Seen < Used < Understand < Improve < Trust yourself < Others trust you.  
+- **Bayesian Statisticians** – treat life as risk‑reward management using Bayesian updating.
+- Seek satisfaction, not fleeting happiness.  
+  > Most people are happy when they acquire new abilities; children are often happier because they unlock abilities more frequently.
 
-> Most people are happy when they acquire new abilities.
->
-> That’s why children are often happier than adults; they unlock new abilities far more frequently.
+- Focus should be proportional to your ability to effect change.  
+  What you **DESIRE** is different from what you **NEED**.
 
-- Unconsciousness < Aware < Heard < Seen < Used < Understand < Improve < Trust yourself < Others trust you `Just different levels of trust`
+- Guide actions with philosophy to develop consistent **trust** between self and others.
 
-- Your focus should be proportional to your ability to effect change.
+- Discrete mathematics contains many fundamental principles; it should be taught in high school.
 
-- What you DESIRE is DIFFERENT from what you NEED.
+- **Don’t trust; verify.**
 
->> Guide your actions with philosophy to develop consistent TRUST between others and yourself.
->
-> > IMO discrete math has many basic principles and should be taught in high school.
+- The past cannot change; only reflection can inform future intent.
 
-- Don't trust; verify.
-
-- Past can't change; Only reflect if you intended change yourself for future.
-
-> Changing your path is easier than changing what you desire.
->
-> Just like poker, you can't change the past; But readjusting the risk & reward model can improve future games.
+- Changing your path is easier than changing what you desire.  
+  *Analogy*: In poker you can’t change the dealt cards, but you can adjust risk‑reward strategy.
 
 ### Teamwork Philosophy
 
-- Transparency accelerates the learning process.
+**Core Ideas:**  
 
-- If you want to go fast, go alone; if you want to go far, go together.
+- Transparency accelerates learning and builds trust.  
+- Collaborative progress (“go together”) outweighs individual speed.  
+- Process quality is more valuable than a single correct answer.  
+- Transparency accelerates learning.
+- “If you want to go fast, go alone; if you want to go far, go together.”
+- The goal itself is less important than the execution path. Mastering navigation and trade‑offs matters most.
 
-- The goal is not important; the execution path is the key. The skill to navigate the path and understand the trade-offs is what makes the difference.
+> Consider goals within a consensus framework: rapid re‑adjustment of consensus is crucial because desired consensus may differ from actual need.
 
-> Maybe think goal in consensus framework, rapid re-adjust consensus is important. Because desired consensus is what we want, which may NOT be what we need.
+- Establish goals & rules in advance; create a transparent environment.
+- A better process outweighs a correct answer.
 
-- Establish goals & rules in advance, and create a transparent environment.
+> Most parental mistakes stem from valuing the *correct behavior* **OVER** the child’s psychological process.  
+> Focus on continuous improvement of processes, not perfection.
 
-- A better process is more valuable than a correct answer.
+#### Approaches to Solution
 
-> Most parental mistakes root from valuing correct behavior OVER the child's psychological process.
->
-> Don't go for the perfect answer. Rather focus on constant improvement of existing processes.
->
-> Train kids in the risk & reward model.
+- **Top‑down** – List possible causes, then eliminate by logic.
+- **Bottom‑up** – Start with what you can do, build modules incrementally, then combine them.
+- When a leader’s ego is strong, the leader becomes the ceiling for the team’s ability.
 
-- 2 approaches to solution
+### Practical Guidelines
 
-> Top-down approach
-> > List possible causes, then start eliminating causes by logic.
->
-> Bottom-up approach
-> > Start from what I can do, build a module at a time, then start combining modules.
+**Actionable Advice:**  
 
-- When a leader has a strong ego, the leader's ability is the ceiling of their team.
+- Keep decision‑making processes visible.  
+- Favor collaboration and robust processes over speed.  
+- Use Bayesian updates to evaluate risk and reward.  
+- Verify before trusting; manage decision fatigue.  
+
+> Actionable advice distilled from the philosophical sections above.
+
+- **Transparency**: Keep decision‑making processes visible to all stakeholders; it accelerates learning and builds trust.
+- **Collaboration over Speed**: Prioritize long‑term collective progress (“go together”) rather than short‑term individual speed.
+- **Process Over Correctness**: Value a robust, repeatable process more than arriving at the “right” answer on the first try.
+- **Risk & Reward Evaluation**: Before acting, assess both potential gains and possible downsides; use Bayesian updating to refine estimates as new information arrives.
+- **Verification before Trust**: Adopt a “don’t trust; verify” mindset—seek evidence before accepting claims.
+- **Decision‑Fatigue Management**: Limit the number of high‑stakes decisions in a short period; automate or delegate routine choices where possible.
+- **Iterative Learning**: Treat failures as data points for Bayesian updates; slow down when high‑impact evidence appears to allow proper integration.
+- **Goal Setting**: Define clear goals and rules upfront, then remain flexible to adjust consensus as new information emerges.
+
+---
 
 ## Frameworks
->
-> **Frameworks** are collections of philosophy to explain reality.
-> > A good framework should be able to steelman argue `or explain` for every subject's action `aka people's POV`;
->
-> > Frameworks are most likely in 2 types: Top-down VS Bottom-Up
->
-> > IMO: Most things in life can fit into a small number of [frameworks](experience.md#framework)
->
-> > It is rare, but sometimes a new framework can lead to the development of a new philosophy.
 
-### Bayesian statisticians
+**Summary:**  
 
-> <strong> Biological nature is about Risk & Reward Management with Bayesian statisticians.</strong>
+- Frameworks are collections of philosophical principles that explain reality.  
+- Good frameworks can model diverse subjects and often fall into top‑down or bottom‑up approaches.  
 
-- Life is a collection of habits.
-  - Habit and Trust are of the same nature, artifacts of past experiences.
-- Changes & Learning
-  - Slow down when high‑impact evidence appears; give the Bayesian update process time to integrate it.
-  - Any living thing, as it gets older, has less flexibility/change. It's because new experience are hard to dilute many past experiences.
-- All interactions (communication, trade, between person, pets, countries) require **validation**. Validation, in its broadest sense, is the sum of past experiences that shape current event's expectation.
-  - Connection before correction. `by Jane Nelsen`
->
->> **Consensus** is common individual validation; war happens when there is no consensus on both sides.
->
->>`Consensus Stability ≈ (Breadth of Validation) × (Accuracy of Information Flow) / (Decision‑making Speed)`
->>
->>> Democracy is about increase numbers of individual validation. Pro side is Consensus are more resilient.
->>> Dictatorship just small group consensus, maybe able rapid decision, with downside consensus be unstable. Ex: Rapid changes in Chinese policy
->
->> Trust is having validation of your past. Trusting yourself requires remembering & reflecting on your past.
->
-> Before you persuade others, have you been validated by others?
->> 曹操问贾诩关于“立储”: To persuade others, your opinion/conclusion should based off THEIR life experiences.
->
->> Desired Consensus = Goal
->> Ex: 刘邦斩丁公；Different goal at different time. At time of war, desired consensus is to defeat 项羽。After defeated 项羽，the desired consensus shifted to loyalty toward 刘邦.
->
->> Local Consensus = Culture
+> **Frameworks** are collections of philosophy that explain reality.  
+
+> *A good framework should be able to steelman (or explain) every subject’s action (“people’s POV”).*  
+> *Frameworks usually fall into two types: Top‑down vs. Bottom‑up.*  
+> *Most things in life can fit into a small number of frameworks.*  
+> *Rarely, a new framework can lead to the development of a new philosophy.*
+
+### Bayesian Statisticians
+
+**Highlights:**  
+
+- Life is a collection of habits; validation (past experiences) underpins trust.  
+- Consensus stability depends on breadth of validation, information accuracy, and decision speed.  
+
+> **Biological nature is about risk & reward management with Bayesian statisticians.**
+
+- Life is a collection of habits.  
+  - Habit and trust share the same nature: artifacts of past experiences.
+- **Changes & Learning**  
+  - Slow down when high‑impact evidence appears; give the Bayesian update process time to integrate it.  
+  - Older organisms have less flexibility because new experiences must be diluted among many past ones.
+- All interactions (communication, trade, between persons, pets, countries) require **validation** – the sum of past experiences that shape current expectations.  
+  - “Connection before correction.” — *by Jane Nelsen*
+
+> **Consensus** is common individual validation; war occurs when there is no consensus on both sides.  
+
+> `Consensus Stability ≈ (Breadth of Validation) × (Accuracy of Information Flow) / (Decision‑making Speed)`
+
+- Democracy increases the number of individual validations, making consensus more resilient.  
+- Dictatorship has a small group consensus, enabling rapid decisions but with unstable consensus (e.g., rapid policy changes in China).
+
+> Trust is having validation of your past. Trusting yourself requires remembering & reflecting on your past.
+
+- Before you persuade others, have you been validated by others?  
+  > 曹操问贾诩关于“立储”: To persuade others, your opinion/conclusion should be based on **their** life experiences.
+
+- **Desired Consensus = Goal**  
+  Example: 刘邦斩丁公 – different goals at different times. At war, desired consensus is to defeat 项羽; after victory, the desired consensus shifts to loyalty toward 刘邦.
+
+- **Local Consensus = Culture**
 
 <details>
-  <summary>Risk Reward Examples</summary>
+  <summary>Risk‑Reward Examples</summary>
 
-> IMO: A common problem is people's desire for power, money, and position without assuming responsibility.
->
-> > Parenting should be based on equal respect; make kids understand that more power comes with more responsibility.
+- People often desire power, money, and position without assuming responsibility.  
+  - Parenting should be based on equal respect; teach kids that more power comes with more responsibility.  
+  - Great power → great responsibility (spider‑man).  
+  - Cost (risk) vs. Benefit (reward).  
+  - Animal reproduction as a natural risk‑reward system.  
+  - Intelligent animals pause & think when a huge reward appears without effort/risk because intelligence instinctively measures risk.
 
-> > Ex1: Great power comes great responsibility. `from spider-man`
->
-> > Ex2: Cost(risk) vs Benefit(reward)
->
-> > Ex3: animal reproduction
->
-> > Ex4: Most intelligent animals will PAUSE & THINK & WORRY when there is a huge reward in front of them WITHOUT EFFORT/RISK. Because intelligence has a natural instinct to measure risk & reward. A huge reward usually indicates a huge risk.
+- Why do the rich get richer? Those with resources can handle more risk to capture greater reward.
 
-> Why do the rich get richer? It's not that the rich get richer. It's those with resources who are able to handle more risk in order to capture more reward.
+- Society pays for risk handling, not merely hard work.
 
-> Society doesn't pay people for their hard work; we get paid for the risk we handle.
+- Education: we risk decades of time to increase lifelong productivity; society provides safety nets during that period.
 
-> Ex: we risk 20+ years of time for education. In a way, we risk 20+ years of being not productive, to increase productivity for the rest of our lives. We assume there is food & safety for 20+ years, and we live more than 50+ years to capture rewards.
+- Historical narratives often blame individuals; outcomes are products of complex interactions.
 
-> Often Chinese history puts the cause/effect of historical events on somebody. We should avoid that; they just play an odd game. Failure doesn't make their decision bad, and success doesn't justify their actions.
+- Charity vs. self‑interest: actions should be evaluated on net positive reward, regardless of who benefits.
 
-> I don't like to promote charity, karma, or deeds. Every action should be measured by risk & reward. It's rational/good to consider the reward even if the reward is NOT yours. Charity promotes selfless action. IMO we should promote ALL actions that have a positive reward, regardless of the beneficiary.
->> Ex: Education is mostly self-beneficial, yet it's most likely a positive reward for self & society. So even if education is "selfish", we should still promote it.
+- Poker exemplifies risk‑reward analysis; starting hand selection is critical.
 
-Poker is one of the best games about Risk & Reward. Many well-developed theories analyze risk & reward. Picking your starting hands is the most critical.
 </details>
 
-### Life is a video game
+### Life Is a Video Game
 
-> You `player` have to make decisions about what you want to collect `or not collect`, where you explore, which equipment to carry `RIGHT equipment > more equipment`, and which relationships to establish;
->
-> During the game, your character may collect equipment `Money, Skill, Principal, Philosophy`;
->
->> IMO: Too much `equipment` will be counterproductive, just like too much junk in a hoarder's house. The right principle is determined by your **PROBLEM** `game`.
->
->> IMO: Money amplifies a person's true nature `Money is like a mushroom in Super Mario, turning you bigger`.
->
->> IMO: The hardest problem to overcome is the player control bug `mental disability`.
->
->> IMO: Lack of education & pattern recognition `Player doesn't know game rules/patterns`.
->
-> Happiness comes from the player, not the character in the game; Many players don't understand themselves, or are confused between the player and the character.
->
+**Highlights:**  
+
+- Player (you) chooses resources, equipment, and relationships.  
+- Excess “equipment” can hinder progress; time is the ultimate resource.  
+
+> You, the *player*, decide what to collect, explore, equip, and which relationships to form.  
+> The character may acquire “equipment” (money, skill, principle, philosophy).
+
+- Too much equipment becomes counterproductive—like junk in a hoarder’s house. The right principle is determined by your **PROBLEM** (“game”).  
+- Money amplifies true nature: *Money is like a mushroom in Super Mario, making you bigger.*  
+- The hardest problem is the “player‑control bug” → mental disability.  
+- Lack of education & pattern recognition = player doesn’t know the game rules.
+
+> Happiness comes from the player, not the character. Many confuse the two.  
 > The only resource a player has is time.
 
 ### Society & Time
->
-> Society can be compared to a rope, with the population representing its thinness and the length of time being its length. Individuals are like fibers within this rope, carrying opinions, experiences, and knowledge `aka force`. These forces `pattern/experience/knowledge` can either pass on to the next generation, or pass on to friends & families, or coworkers; Natural disasters are like external forces that suddenly hit the rope; The rope always has strands that lead to nowhere.
 
-### Science pyramid
+**Highlights:**  
 
-1. Mathematics
-2. Physics
-3. Chemistry
-4. Biology
-5. Psychology
-6. Sociology
+- Society functions like a rope: population = thickness, time = length.  
+- Individuals are fibers transmitting opinions and knowledge across generations.  
 
-### Bio ecosystem
+> Society ≈ rope: population = thickness, time = length. Individuals are fibers carrying opinions, experiences, and knowledge. Forces can pass to next generations, friends, families, or coworkers. External shocks (natural disasters) are like sudden forces on the rope; some strands lead nowhere.
 
-1. Biodiversity
-2. Auto balance between hunter & prey
-3. Producer -> Consumer -> xth Consumer
-4. Network effect
+### Science Pyramid
 
-> Tigers are very powerful, but also very limited in their living area; They must live in an area with enough food to support them; Everything has its constraints/trade-offs.
+**Structure:**  
 
-### Brain Characteristic
+1. Mathematics → 2. Physics → 3. Chemistry → 4. Biology → 5. Psychology → 6. Sociology  
+1. Mathematics  
+2. Physics  
+3. Chemistry  
+4. Biology  
+5. Psychology  
+6. Sociology  
 
-1. Rational (slow but accurate) vs emotion (fast but guess)
-2. Parenting (cortex parenting cerebrum)
-3. Connection before correction
-4. Decision fatigue
+### Bio Ecosystem
 
-### Neural network
+**Key Elements:**  
 
-1. Loss/Mistake & forward vs backward propagation
-2. Structure determines algorithm
+- Biodiversity, auto‑balance of predator‑prey, trophic levels, network effects.  
 
-> I wish to be an expert in this area, as this will reveal so much about the human brain; Our main bottleneck & how to bypass it
+1. Biodiversity  
+2. Auto‑balance between hunter & prey  
+3. Producer → Consumer → … → Apex predator  
+4. Network effect  
 
-### Difficulty w Complexity
+> Tigers are powerful but limited by habitat; every organism faces constraints/trade‑offs.
 
-1. There is no solution, only trade-off.
-2. Decision fatigue.
-3. Cause and effect are difficult to determine, but correlation is easier to detect.
-4. As a system gets more complex, changes in the system require more complexity (to narrow down the exact part).
+### Brain Characteristics
 
-> We must make decisions because we have limited resources.
-> We have limited capability to make decisions.
-> There are so many decisions in complex problems/products;
->
-> People use TRUST brands/representatives to simplify (abstraction) to work around complex problems;
-> > In 2020 we had a lot of debate about platform immunity; the fundamental problem is product owners make decisions for users because users can't/won't/avoid making all decisions.  
->
-> Engineers use correlation to guess and improve solutions.
-> There isn't a scientific way to predict solutions for complex problems in the future `past results aren't proof`.
-> We assume investors are willing to put their money on the line in aggregate results in good predictions.
+**Core Traits:**  
 
-> If complexity in a system makes changes difficult, and there is no way around it (IMO), then this explains why life has death.
-> That's why I always value simplicity in systems.
+- Rational (slow, accurate) vs. Emotional (fast, heuristic).  
+- Cortex “parenting” of the cerebrum; connection before correction; decision fatigue.  
 
-### Drive to the future
+1. Rational (slow, accurate) vs. Emotional (fast, heuristic)  
+2. Parenting (cortex “parenting” of the cerebrum)  
+3. Connection before correction  
+4. Decision fatigue  
 
-1. The road is NOT always straight, with limited visibility.
-2. Drivers have some control of the car.
+### Neural Network Analogy
+
+**Core Traits:**  
+
+- Loss/mistake and forward/backward propagation mirror learning processes.  
+- Structure determines algorithmic behavior.  
+
+1. Loss/Mistake & forward vs. backward propagation  
+2. Structure determines algorithm  
+
+> Mastery of these concepts could unlock deeper understanding of the human brain and its bottlenecks.
+
+### Difficulty with Complexity
+
+**Key Points:**  
+
+- No perfect solutions, only trade‑offs; decision fatigue limits capacity.  
+- Correlation is easier to detect than causation; abstractions simplify complexity.  
+
+1. No solution, only trade‑offs.  
+2. Decision fatigue.  
+3. Cause ↔ effect is hard; correlation is easier to detect.  
+4. More complex systems require more complexity to modify specific parts.
+
+> We must decide because resources are limited; our decision‑making capacity is also limited.  
+
+- People use trusted brands/representatives as abstractions to simplify complexity.  
+  - Example: platform immunity debates (2020) – product owners make decisions for users who cannot/choose not to decide themselves.  
+- Engineers rely on correlation to improve solutions; there is no perfect scientific prediction for future complex problems.  
+- Investors collectively fund ventures, enabling better predictions.
+
+> If system complexity hinders change and there’s no workaround, it explains why life includes death. Hence, simplicity is valuable.
+
+### Drive to the Future
+
+**Key Points:**  
+
+- Visibility, controllability, and backup systems enhance resilience.  
+- Faster speed isn’t always optimal; balance cost, reliability, and diversity.  
+
+1. The road is not always straight; visibility is limited.  
+2. Drivers have some control of the car.  
 3. Cars have momentum from past acceleration.
 
-> Just because we are currently heading in the wrong direction, doesn't mean it's the wrong path;
->
-> World-ending predictions are always wrong because they assume the future won't change, and their calculations are based on current direction and momentum;
+> Heading in a “wrong” direction now doesn’t mean the path is wrong forever.  
+> End‑of‑world predictions fail because they assume a static future.
 
-> The most important things we can do are
-> >
-> > 1. Increase visibility as far as we can. `aka better prediction`
-> > 2. Increase car controllability. `aka better production tech, storage tech, better response system`
-> > 3. Have a backup system.
+**Key actions for resilience**
 
-> Better not only means costing less, but being more reliable, diverse, and having less unknown impact;
-> Also, that means we may not want to drive as fast as we can.
+1. Increase visibility (better prediction).  
+2. Improve controllability (better production, storage, response systems).  
+3. Maintain backup systems.
 
-### Mathematics theory
->
-> Mathematics theory (Principal) builds on top of axioms (Philosophy);
->
-> Mathematicians by creativity think (Ability) + math tools (Principal & Philosophy) => develop algorithms to resolve problems (Mistakes)
->
-> A formula is a condensed version of Mathematics law/theory (Principal);
+> “Better” means lower cost **and** higher reliability, diversity, and reduced unknown impact. We may not want to drive at maximum speed.
+
+### Mathematics Theory
+
+**Core Idea:**  
+
+- Mathematics builds on axioms (philosophy) to create principles and algorithms that solve problems.  
+
+> Mathematics theory (Principle) builds on axioms (Philosophy).  
+
+- Mathematicians combine creativity (ability) + tools (principle & philosophy) → algorithms that resolve problems (mistakes).  
+- A formula is a condensed version of a mathematical law/theory (principle).

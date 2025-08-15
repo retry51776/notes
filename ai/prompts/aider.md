@@ -42,8 +42,12 @@ git commit --amend --no-edit
 auto-commits: false
 dirty-commits: false
 model: lm_studio/openai/gpt-oss-120b
+# whole is default
+edit-format: diff
 
 # After complex feature instruction: Ask me 3 clarifying questions to help you make better decisions.
+
+# Reasoning: low in prefix to control
 ```
 
 execute_generator_loop
