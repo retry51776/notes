@@ -2,12 +2,34 @@
 
 > Here are some notes that not been consolidate.
 
-> **IMO:** Psychology is similar to chip design; workload & resources determine optimal design.
-
-> I assumed the brain assigns neuron functionality based on neuron location, connections = computation, sensor location, output location, supply routes, and workflow design. Is the brain balanced between using the fewest neurons and capturing reality?  
-> I assume the brain also uses near‑memory computation design; therefore memory & functions are localized.
-
-> Each cortical lobe is a register; association areas act like a CPU (more like an FPGA). Some cortex also serves as storage.
+## Table of Contents
+- [1. Attention](#1-attention)
+  - [Selective Attention](#selective-attention)
+    - [Ways to change attention](#ways-to-change-attention)
+- [2. Sensation](#2-sensation)
+  - [Touch](#touch)
+  - [Vision](#vision)
+  - [Hearing](#hearing)
+  - [Smell](#smell)
+  - [Taste](#taste)
+  - [Kinesthesis](#kinesthesis)
+  - [Vestibular](#vestibular)
+- [3. Perception](#3-perception)
+  - [Psychological perception](#psychological-perception)
+  - [Biological perception](#biological-perception)
+    - [Nociception](#nociception)
+    - [Radiance perception](#radiance-perception)
+    - [Thermoception](#thermoception)
+    - [Proprioception](#proprioception)
+- [4. Experience](#4-experience)
+  - [Ways to change association](#ways-to-change-association)
+  - [Visual association](#visual-association)
+  - [Logic association](#logic-association)
+  - [Memory association](#memory-association)
+    - [Working memory](#working-memory)
+    - [Long‑term memory](#long‑term-memory)
+  - [Body language](#body-language)
+- [IMO](#imo)
 
 ## 1. Attention
 
@@ -218,6 +240,15 @@ Memory breaks into different aspects, which are stored in corresponding brain ar
 Also known as non‑verbal communication.
 
 Our bodies are similar to cars, with speech being the equivalent of honking and non‑verbal communication like turning signals and headlights. To reach our destination, we need to learn how to navigate social interactions just as we learn traffic patterns.
+
+## IMO
+>
+> **IMO:** Psychology is similar to chip design; workload & resources determine optimal design.
+
+> I assumed the brain assigns neuron functionality based on neuron location, connections = computation, sensor location, output location, supply routes, and workflow design. Is the brain balanced between using the fewest neurons and capturing reality?  
+> I assume the brain also uses near‑memory computation design; therefore memory & functions are localized.
+
+> Each cortical lobe is a register; association areas act like a CPU (more like an FPGA). Some cortex also serves as storage.
 
 **Books**
 

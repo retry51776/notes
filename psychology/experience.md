@@ -67,21 +67,22 @@
 - You cannot connect the dots when looking forward (the result has not yet occurred); you can only connect them retrospectively.
 - Intelligence is an equilibrium between supply (often over‑focused) and demand (often overlooked).
 
+- All evolutionary ideas challenge our assumptions.  
+  > *Einstein*: E = mc² → energy and mass are equivalent.  
+  > *Newton*: established modern science.
+
 ### Economic Opinion
 
 **Key Points:**  
 
-- Trade‑off between diversity/reliability and efficiency in production.  
-- Quality vs. price follows an exponential curve; quantity vs. price is logarithmic.  
-- **Diversity & Reliability vs. Efficiency**  
-  Example: textile industry, car industry, retail. Because consumption doesn’t scale linearly with production, a trade‑off exists between diversified small producers (reliability) and large‑scale efficient factories.
-  - Consumption = demand + credit (aka consensus). Demand is **not** the limiting factor; validated (credited) demand drives diversity, while efficiency favors concentration.
-    - Example: China High Speed Rail over‑built due to insufficient validation.
-
 - Assuming unlimited supply, quality vs. price follows an exponential relationship, whereas quantity vs. price follows a logarithmic relationship.
-- All evolutionary ideas challenge our assumptions.  
-  > *Einstein*: E = mc² → energy and mass are equivalent.  
-  > *Newton*: established modern science.
+
+- Trade‑off between Redundancy–Efficiency in production.
+  - Redundancy Ex: China High Speed Rail over‑built due to insufficient validation. Military Industry.
+  - Efficiency Ex: Textile, Automotive, Datacenter, centralize 1950 -> 2020
+
+  - Production is centralize, inelastic;
+  - Consumption is decentralize, localized, volatile;
 
 ---
 
