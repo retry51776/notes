@@ -13,7 +13,6 @@
   - [Economic Opinion](#economic-opinion)
 - [Philosophy](#philosophy)
   - [Personal Philosophy](#personal-philosophy)
-  - [Teamwork Philosophy](#teamwork-philosophy)
   - [Practical Guidelines](#practical-guidelines)
 - [Frameworks](#frameworks)
   - [Bayesian Statisticians](#bayesian-statisticians)
@@ -84,6 +83,9 @@
   - Production is centralize, inelastic;
   - Consumption is decentralize, localized, volatile;
 
+- Technological progress fuels production efficiency, which concentrates markets; concentrated markets centralize consumption, creating the scale and resources that drive further technological progress.
+  - Technological Progress → Production Efficiency → Market Concentrate → Consumption Concentrate → Technological Progress
+
 ---
 
 ## Philosophy
@@ -123,25 +125,6 @@
 
 - Changing your path is easier than changing what you desire.  
   *Analogy*: In poker you can’t change the dealt cards, but you can adjust risk‑reward strategy.
-
-### Teamwork Philosophy
-
-**Core Ideas:**  
-
-- Transparency accelerates learning and builds trust.  
-- Collaborative progress (“go together”) outweighs individual speed.  
-- Process quality is more valuable than a single correct answer.  
-- Transparency accelerates learning.
-- “If you want to go fast, go alone; if you want to go far, go together.”
-- The goal itself is less important than the execution path. Mastering navigation and trade‑offs matters most.
-
-> Consider goals within a consensus framework: rapid re‑adjustment of consensus is crucial because desired consensus may differ from actual need.
-
-- Establish goals & rules in advance; create a transparent environment.
-- A better process outweighs a correct answer.
-
-> Most parental mistakes stem from valuing the *correct behavior* **OVER** the child’s psychological process.  
-> Focus on continuous improvement of processes, not perfection.
 
 #### Approaches to Solution
 
