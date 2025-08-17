@@ -1,5 +1,30 @@
 # AI Insights & Research Overview
 
+## IMO
+
+- AI is "crystallize intelligent". Similar to kinetic energy being converted into potential energy.
+- AI is similar to Chemistry/Physical in 1800. There's some set logic/mechanism(usable metal); We play around data(Iron Ore) with some computation process(refine ore). Maybe the remaining data AKA model(Iron/steel) is what we desire. So value of the data is NOT determent by amount, but the data contains logic/mechanism we desires.
+
+  > Mining & Extraction = Data Collection & Scraping
+  >
+  > Computation = Heat
+  >
+  > Data Center = Blast Furnace
+  >
+  > Data = Iron Ore
+  >
+  > Model = Iron
+  >
+  > Fine-Tuning (Specialized Model Training) = Alloying (Adding Carbon to Make Steel)
+  >
+  > Inference & Deployment = Rolling & Shaping Steel
+  >
+  > AI Evaluation (Benchmarks, Alignment, RLHF) = Quality Testing & Hardening
+  >
+  > AI Applications = Bridges, Cars, Tools
+  >
+  > Smart AI answer's is info density = Purity Iron weight more Same As Human
+
 ## Recent Concepts
 
 - **Combine token_d's key & value of Attention into a single embedding**  
@@ -115,5 +140,3 @@ Training often uses beam search, while inference favors sequential revision.
 - **Neuronpedia** – Inspect neuron meanings: <https://docs.neuronpedia.org/>
 
 ---
-
-*Document last updated: August 2025*

@@ -2,6 +2,41 @@
 >
 > It's hard to separate hardware from application, but this note focuses more on hardware.
 
+## Table of Contents
+
+- [Nervous System](#nervous-system)
+  - [Central Nervous System](#central-nervous-system)
+    - [Human Brain](#human-brain)
+      - [Frontal Lobe](#frontal-lobe)
+      - [Parietal Lobe](#parietal-lobe)
+      - [Occipital Lobe](#occipital-lobe)
+      - [Temporal Lobe](#temporal-lobe)
+      - [Insular Cortex](#insular-cortex)
+    - [Mammal Brain](#mammal-brain)
+      - [Habits](#habits)
+    - [Reptilian Brain](#reptilian-brain)
+      - [Cerebellum](#cerebellum)
+
+  - [Peripheral Nervous System](#peripheral-nervous-system)
+    - [Somatic Nervous System](#somatic-nervous-system)
+    - [Autonomic Nervous System](#autonomic-nervous-system)
+      - [Sympathetic Nervous System](#sympathetic-nervous-system)
+      - [Parasympathetic Nervous System](#parasympathetic-nervous-system)
+
+- [Tissue](#tissue)
+  - [Basal Ganglia](#basal-ganglia)
+  - [Striatum](#striatum)
+  - [Amygdala](#amygdala)
+  - [Hippocampus](#hippocampus)
+
+- [Cell](#cell)
+  - [Neuron](#neuron)
+  - [Axon Guidance](#axon-guidance)
+  - [Axonal Plasticity](#axonal-plasticity)
+  - [Brain Waves](#brain-waves)
+  - [Glial Cells](#glial-cells)
+  - [Blood–Brain Barrier](#blood–brain-barrier)
+
 ## Central Nervous System
 >
 > The control system that processes thought, emotion, survival, and generally provides fast response times.

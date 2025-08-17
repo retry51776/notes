@@ -9,6 +9,7 @@
 ## Table of Contents
 
 - [Opinion](#opinion)
+  - [China Opinion](#china-opinion)
   - [Psychology Opinion](#psychology-opinion)
   - [Economic Opinion](#economic-opinion)
 - [Philosophy](#philosophy)
@@ -32,47 +33,41 @@
 
 **Summary:**  
 
-- Opinions are patterns formed from past observations and experiences.  
-- They are hard to change because they integrate many life events, leading to entrenched beliefs.  
+> Opinions are patterns formed from past observations and experiences.  
+>
+> They are hard to change because they integrate many life events, leading to entrenched beliefs.  
 
-> An **opinion** is a recognized pattern derived from past observations.  
-> *It’s difficult to change our opinions because they are based on many different life experiences, which makes it hard to alter an existing opinion.*
-
-- China is a role‑based society. Your responsibility and power come from your role rather than directly from personal choice. Hierarchical relationships arise from role assignments—for example: 君君臣臣，父父子子.
 - There is no solution, only trade‑off.
 - Everything has its mechanic. Understand the mechanics by either collecting statistics or applying logic.
 - Most things have a recursive property (e.g., wealth, knowledge, ability, social skill).
 - Structure often determines properties.
-
-### Psychology Opinion
-
-**Key Points:**  
-
-- Memory exists as discrete patches; fewer patches with age make time feel faster.  
-- The brain functions like hardware (biology) plus software (psychology).  
-- Two minds: rational (cortex) and emotional (primitive brain).  
-- **Memory Patch**  
-  > We don’t have a continuous memory timeline; we have denser memory patches for recent events and sparser ones for older times.  
-  >> As we age, time seems to fly faster. Time does not actually speed up; rather we form fewer memory patches, which reduces the amount of change or learning because learning is the compression of those patches.  
-  > Perhaps this also explains why we need less sleep as we age—sleep may normalize neuronal firing strength and frequency.  
-  > We (including AI) are always biased because each of us experiences only a subset of reality.
-
-- There is no such thing as a believer or a non‑believer; many past experiences move you from 0.01 % non‑believer to 99.99 % believer.
-- The brain is analogous to a computer: biology (hardware) + psychology (software).
-- Two “minds”: the rational mind (cortex) and the emotional mind (more primitive mammalian brain).
-- Heuristics develop first—optimizing based on statistical bias—and later we create algorithms/frameworks that explain all possible paths.
-- Human nature seeks **belonging** and **power**.
-- Decision fatigue is a real limitation.
-- You cannot connect the dots when looking forward (the result has not yet occurred); you can only connect them retrospectively.
-- Intelligence is an equilibrium between supply (often over‑focused) and demand (often overlooked).
+- We (including AI) are always biased because each of us experiences only a subset of reality.
 
 - All evolutionary ideas challenge our assumptions.  
   > *Einstein*: E = mc² → energy and mass are equivalent.  
   > *Newton*: established modern science.
+>
+### China Opinion
+
+- China is a role‑based society. Your responsibility and power come from your role rather than directly from personal choice. Hierarchical relationships arise from role assignments—for example: 君君臣臣，父父子子. 打地主
+- Chinese Culture attempts to lock up human nature(不尊重人性). Ex: Buddhist can't marry nor eat meat; Communism eliminate personal profit;
+- Chinese history often attributes the cause or outcome of events to specific individuals. We should avoid this view—it. Life is similar to poker, perfect actions & still lose that hand. A failure does not necessarily mean a decision was wrong, just as success does not automatically justify an action.
+
+### Psychology Opinion
+
+- The brain is analogous to a computer: biology (hardware) + psychology (software).
+- Two “minds”: the rational mind (cortex) and the emotional mind (more primitive mammalian brain).
+- Human nature seeks **belonging** and **power**.
+- Memory exists as discrete patches; fewer patches with age make time feel faster.  
+  > We don’t have a continuous memory timeline; we have denser memory patches for recent events and sparser ones for older times.  
+  >> As we age, time seems to fly faster. Time does not actually speed up; rather we form fewer memory patches, which reduces the amount of change or learning because learning is the compression of those patches.  
+  > Perhaps this also explains why we need less sleep as we age—sleep may normalize neuronal firing strength and frequency.  
+
+- Decision fatigue is a real limitation.
+- You cannot connect the dots when looking forward (the result has not yet occurred); you can only connect them retrospectively.
+- Intelligence is an equilibrium between supply (often over‑focused) and demand (often overlooked).
 
 ### Economic Opinion
-
-**Key Points:**  
 
 - Assuming unlimited supply, quality vs. price follows an exponential relationship, whereas quantity vs. price follows a logarithmic relationship.
 
@@ -92,14 +87,9 @@
 
 **Summary:**  
 
-- Philosophy provides a framework for evaluating actions, risks, and rewards.  
-- It is typically formed early in life and guides decision‑making and trust building.  
-
-> Philosophy evaluates internal and external actions and results—a dimension for measuring risk and reward (akin to KPIs or neural‑network loss functions).  
-
-> *It is rare for individuals to change their philosophy because it is usually formed during early childhood.*  
-> *Philosophy is guidance for action.*  
-> *A new philosophy must be compatible with the existing one and its conclusions.*
+> Philosophy provides a way for evaluating actions, risks, and rewards.  
+>
+> It is typically formed early in life and guides decision‑making and trust building.
 
 ### Personal Philosophy
 
@@ -201,6 +191,7 @@
   Example: 刘邦斩丁公 – different goals at different times. At war, desired consensus is to defeat 项羽; after victory, the desired consensus shifts to loyalty toward 刘邦.
 
 - **Local Consensus = Culture**
+- Only pain & reflection will remove **False Validation**
 
 <details>
   <summary>Risk‑Reward Examples</summary>
@@ -210,15 +201,13 @@
   - Great power → great responsibility (spider‑man).  
   - Cost (risk) vs. Benefit (reward).  
   - Animal reproduction as a natural risk‑reward system.  
-  - Intelligent animals pause & think when a huge reward appears without effort/risk because intelligence instinctively measures risk.
+  - Too Good to be True Instinct in most mammals. Intelligent animals pause & think when a huge reward appears without effort/risk because intelligence instinctively measures risk.
 
 - Why do the rich get richer? Those with resources can handle more risk to capture greater reward.
 
 - Society pays for risk handling, not merely hard work.
 
 - Education: we risk decades of time to increase lifelong productivity; society provides safety nets during that period.
-
-- Historical narratives often blame individuals; outcomes are products of complex interactions.
 
 - Charity vs. self‑interest: actions should be evaluated on net positive reward, regardless of who benefits.
 
