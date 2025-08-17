@@ -13,9 +13,9 @@
 Three types:
 
 - **UI enhancement** – only enhances UI, not logic (e.g., SASS, LESS, Tailwind)
-- **Behavior libraries** – only provides logic, not UI (e.g., React, React Table, React Query, Headless UI)
-- **Style systems** – includes both UI and logic (e.g., Bootstrap, Tailwind UI, DaisyUI)  
-  - *styled‑components* – define CSS inside a React component
+- **Behavior libraries** – only provide logic, not UI (e.g., React, React Table, React Query, Headless UI)
+- **Style systems** – include both UI and logic (e.g., Bootstrap, Tailwind UI, DaisyUI)  
+  - *styled‑components* – defines CSS inside a React component
 
 ## Redux
 > Avoid `connect()` to reduce unnecessary props.  
@@ -281,3 +281,4 @@ const { register } = useForm();
   name={name}
 />;
 ```
+```​​```

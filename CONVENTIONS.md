@@ -1,6 +1,6 @@
 # LLM Conventions
 
-Here are conventions for LLMs edit different files.
+Here are conventions when edit different files.
 
 ---
 

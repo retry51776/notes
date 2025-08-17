@@ -87,3 +87,7 @@ When banks create too many private IPs (bank credits) without enough public IPs 
 > My hope is for a peer‑to‑peer crypto network that the whole world trusts (don’t trust, verify!), providing fair opportunities to everyone. This would encourage contributions to automation, research, and equitable distribution.
 
 > BTC was born from libertarian ideals. It was never about getting rich fast. I really hope BTC continues its original goal.
+
+- Stable Coin will makes commercial bank irrelevant.
+  - Reason 1: Think of Bank as Gym, bank makes money by take advantage of depositor low utilize rate. But stable coin maximize credit utilize rate.
+  - Reason 2: Bank operation cost is way higher than crypto, yet service coverage is way smaller.

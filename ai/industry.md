@@ -118,6 +118,7 @@ Speeds up inference by predicting multiple tokens ahead.
 
 ### Agent Features
 
+- instruction hierarchy (LLM able prioritize instruction base off roles)
 - Structured output parsers (system prompt + output parser).  
 - Tool usage vs. explicit tool calls (e.g., Llama 3.1 lacks native tool calls; 70B works fine).  
 - Penalties: presence & frequency can improve reasoning.

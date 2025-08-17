@@ -175,7 +175,16 @@
 - All interactions (communication, trade, between persons, pets, countries) require **validation** – the sum of past experiences that shape current expectations.  
   - “Connection before correction.” — *by Jane Nelsen*
 
-> **Consensus** is common individual validation; war occurs when there is no consensus on both sides.  
+> **Consensus** is common individual validation; war occurs when there is no consensus on both sides.
+
+>> ![Personality Landscape](./static/PrinciplesProfile.png)
+>>> Left → dismiss validation;
+>>>
+>>> Right → value validation;
+>>>
+>>> Top → seek external validation;
+>>>
+>>> Bottom → rely on internal validation.
 
 > `Consensus Stability ≈ (Breadth of Validation) × (Accuracy of Information Flow) / (Decision‑making Speed)`
 
