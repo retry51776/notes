@@ -2,44 +2,43 @@
 >
 > I break down my AI notes into:
 
-- Academic
-- Industry
-- Hardware
-- IMO
-- Code
+```
+/ai
+├── /prompts
+│   └── aider.md
+│   └── claude.md
+│   └── experience.md
+├── academic.md (Focus on theory)
+├── hardware.md
+├── imo.md
+└── industry.md
+```
 
-## Human ability
+## Analogy
 
-- Input
-  - ~~Hearing~~
-  - Taste `limited by hardware`
-  - Smell `limited by hardware`
-  - Visual Perception
-    - ~~Read~~
-    - ~~Body Language Perception~~
-    - Surrounding Awareness `Tesla already achieved`
-  - Touch `Very hard for robot`
-    - pressure
-    - warmth
-    - cold
-    - pain
-  - Kinesthesis `senses body movement and position`
-  - Vestibular `monitors head's position and balance`
-- State
-  - Continues Learning `rapid update from action & result`
-  - Desire `Do we want AI to have its own desire?`
-  - Understanding `AI already does; but we don't even know how the brain makes conclusions, how we judge AIs' conclusions? Is it computation or storage?`
-    - holding state across time `runtime compute`
-    - AI's self‑conclusion
-    - human conclusion
-    - physical world conclusion `will soon be better than human`
-    - visual understanding `But not understood yet; one day an AI that watches all YouTube videos will be smarter than any human`
-- Output
-  - ~~Listen & Speak~~
-  - ~~Read/Write~~
-  - Taste & Smell `limited by hardware`
-  - Mobility `hard to achieve, Boston Dynamics`
-    - Touch `hard`
-    - Proprioception `body position`
-    - ~~Body Language Expression~~
-    - Stamina `biology is very effective`
+- AI is similar to Chemistry/Physical in 1800. There's some set logic/mechanism(usable metal); We play around data(Iron Ore) with some computation process(refine ore). Maybe the remaining data AKA model(Iron/steel) is what we desire. So value of the data is NOT determent by amount, but the data contains logic/mechanism we desires.
+
+  > Mining & Extraction = Data Collection & Scraping
+  >
+  > Computation = Heat
+  >
+  > Data Center = Blast Furnace
+  >
+  > Data = Iron Ore
+  >
+  > Model = Iron
+  >
+  > Fine-Tuning (Specialized Model Training) = Alloying (Adding Carbon to Make Steel)
+  >
+  > Inference & Deployment = Rolling & Shaping Steel
+  >
+  > AI Evaluation (Benchmarks, Alignment, RLHF) = Quality Testing & Hardening
+  >
+  > AI Applications = Bridges, Cars, Tools
+  >
+  > Smart AI output token's info density = Iron density
+
+## Frustrations
+
+- Mechanistic Interpretability moves very slows while AI capability keep accelerating
+- Tech stacks are NOT decouple, hardware & software are most likely interlock.

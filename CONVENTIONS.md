@@ -19,7 +19,7 @@ Here are conventions when edit different files.
 
 ## 2. Python
 
-- Common methods should import from /utilities/xxx.py
+- Organized helper methods into utilities folder obj_utl.py, arr_utl.py, num_utl.py ...
 
 ---
 

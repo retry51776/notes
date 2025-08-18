@@ -3,27 +3,14 @@
 ## IMO
 
 - AI is "crystallize intelligent". Similar to kinetic energy being converted into potential energy.
-- AI is similar to Chemistry/Physical in 1800. There's some set logic/mechanism(usable metal); We play around data(Iron Ore) with some computation process(refine ore). Maybe the remaining data AKA model(Iron/steel) is what we desire. So value of the data is NOT determent by amount, but the data contains logic/mechanism we desires.
-
-  > Mining & Extraction = Data Collection & Scraping
-  >
-  > Computation = Heat
-  >
-  > Data Center = Blast Furnace
-  >
-  > Data = Iron Ore
-  >
-  > Model = Iron
-  >
-  > Fine-Tuning (Specialized Model Training) = Alloying (Adding Carbon to Make Steel)
-  >
-  > Inference & Deployment = Rolling & Shaping Steel
-  >
-  > AI Evaluation (Benchmarks, Alignment, RLHF) = Quality Testing & Hardening
-  >
-  > AI Applications = Bridges, Cars, Tools
-  >
-  > Smart AI answer's is info density = Purity Iron weight more Same As Human
+- The problem with pre-training is dense reward on every token. Only subset of token signal is True.
+- Human's ONLY advantage over AI is signal absorption rate is far HIGHER than AI.
+- Currently the problem in LLM is lifetime of context is short.
+  - We have session compression to lengthen lifetime of session, but still no good way to manipulate session like human does in conversation(partially reset, topic reset).
+    - We need to pre-train LLM ability to re-adjust session in each conversation, rather currently manually reset.
+  - Also text session most likely NOT enough.
+- Interestingly or scarily that LLM sometime already aware the input prompt is evaluation prompt.
+- Progressive model growth
 
 ## Recent Concepts
 
@@ -119,6 +106,9 @@ LLMs work by providing each “world” with context, which includes relevant in
 5. Organization  
 
 #### Reinforcement Learning Components (“Open AI Strawberry”)
+
+> Reinforcement Learning(sparse reward) compares to pre-training(dense reward).
+>> This also support principles in Positive Discipline by Jane.
 
 1. **Policy Initialization**  
 2. **Reward Design** – Outcome Reward Maximization (ORM) vs. Process Reward Maximization (PRM).  
