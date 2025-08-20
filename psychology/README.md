@@ -2,11 +2,12 @@
 >
 > Psychology is a way of thinking and behaving.  
 >
-> Just like a computer, our brain has biology (hardware) & psychology (software).
+> [Experience](experience.md) → Memory → [Opinion](experience.md#opinion) → [Philosophy](experience.md#philosophy) → [Framework](experience.md#frameworks) → Skill
+> > Analogy: Data → Storage → Statistic → Relationship → Causation → Formula
 >
-> Inspired by Ray Dalio's Principles
-
-> Life is like a compression algorithm: it compresses life experiences to form collections of habits.
+> > Growth Arc(Forward): Childhood experience → Personality (Instinct) → Skill → Later life experience → 🔄
+>
+> > Study Arc(Backward): Practice Skill → Test Memorization (school 🚫 here) → Intuitive Understanding (Framework) → Core Principals
 
 ## Table of Contents
 

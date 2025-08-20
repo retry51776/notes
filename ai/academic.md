@@ -9,15 +9,13 @@
 
 ## General
 
-> Model just 2 components: Architecture(design) & Parameter(learned)
-
 ### History
 
 Stage:
 
 - pre 2018: Encoder + Decoder Components `There are different components of model, different task needs different components`
 - 2020-2022: LLM that needs fine tune `LLM is not reliable, fine tune required`
-- 2023: General Model handle different tasks
+- 2023: Post Training w Reinforcement Learning: General Model handle different tasks
 - 2025: Async Model `Model can continuously take input, change action base off new input(observation) while its outputting; Not like current LLM is turn base.`
   - Parallel Output `paralyzed LLM output, maybe generate outline first, then generate each subsection by batch`
   - Decouple Input & Output
@@ -48,19 +46,17 @@ Stage:
   - Forward Propagation
   - Backward Propagation
     - Lost
+    - ε (epsilon) `a tiny constant (typically 1e-5 or 1e-6); learning rate unit`
 - Neuron `fundamental unit in a neural network that performs a simple mathematical operation on input data and passes the result to other neurons or output units`
   - Activation function
   - Weight
-  - Bias `a value that is added to the output of a neuron before it is passed to the next layer.`
-    - Many transformer implementations (like LLaMA, for example) intentionally disable biases
+  - Bias `Doesn't uses in attention blocks`
 - Auto Model Compression `pruning as reinforcement learning problem`
 
 - Hill climbing `strong signal, LLM training`
 - Sharded `Split LLM into chucks`
 - Tiling `calculation by smaller block, uses scaler to rescale each row to combine whole`
 - Recomputation `Don't store, recompute to save RAM`
-
-- compute is NOT the bottleneck, rather is Memory size.
 
 - Mixture of Expert(MOE) `combine smaller models`
 - Multi Query Attention `reduce attention head to output to increase speed
@@ -77,7 +73,7 @@ Stage:
 
 ## Architecture
 
-- Residual Connection `It works by smoothing lost gradient, nn that too deep will have complex lost geometry, which optimizer easier to stuck in local minimum, not global minimum`
+- Residual Connection `It works by smoothing lost gradient; Problem with training nn that too deep, is too much noise drawn out signal in back  propagation.`
 
 📦 KV Cache Structure
 
@@ -101,7 +97,7 @@ residual stream/latent space `The intermediate output between NN layers`
 - V `V = x * Wv, position agnostic; each token possible meanings(need filter by contextual score)`
 - $ QK^T $ `d_model * len(x), contextual score`
 
-```
+```py
 model.model.layers ModuleList(
   (0-63): 64 x Qwen2DecoderLayer(
     (self_attn): Qwen2Attention(
@@ -121,19 +117,6 @@ model.model.layers ModuleList(
   )
 )
 ```
-
-## Biology
->
-> Human have 100 trillion connections, to process related small experiences. LLM currently have 10 trillion connection to process all human writings.
-
-> Brain uses Sparse Repr, it save energy, resilient to noise
-
-> One major differences is NN can do backward propagation. But neuron synapse only fire single direction.
-
-> Skill-Acquisition Efficiency (by Francois Chollet)
->> Also LLM can slowly adapt from same situation(same input) by repeat multiple cycles, but animals usually only experience situation once.
-
-> Human don't receive error, we get feedback from interaction. But error can back propagation, but how to back propagation feedback? Maybe that's why positive discipline works, maybe success easier learned(back propagation) than failure. (I don't think it's success or failure matter, rather emotional level) <https://arxiv.org/abs/2406.08747>
 
 <hr>
 
@@ -197,9 +180,7 @@ Tools:
 - AI Alignment
 - AI Safety
 
-<hr>
-
-# SAE
+### SAE
 >
 > The goal is reduce input dimensional space to reduce noise.
 > The lose function of Sparse Modeling has extra Regularization to encourage sparsity in the network
@@ -236,6 +217,21 @@ sparse optimization algorithm
 
 > Sparse Auto Encoders(SAE) can find a lot (maybe most) of features, but for sure some LLM understand features are not found in SAE.
 
-## Math
+## Paper
 
-- ε (epsilon) `a tiny constant (typically 1e-5 or 1e-6)`
+### Notable Papers & Ideas
+
+- Attention is all you need
+- **“GPT‑3: Language Models are Few‑Shot Learners”** – Radford et al., 2021  
+- **Tree of Thought**  
+- **Anthropic’s “Scaling Monosemanticity”**  
+- **Position Interpolation for Extending Context Window in Transformers** – OpenAI, 2023  
+
+### New Research Directions
+
+- **Leave No Context Behind** – Google’s approach to extending context windows.  
+- **Dynamic Routing Between Capsules** – Capsule Networks.  
+- **TransformerFAM** – Feedback attention as working memory.  
+- **Attention with Linear Biases (ALiBi)** – Adds a distance‑based linear bias to attention scores, giving higher weight to closer tokens.  
+- efficiency is part of the intelligent feature, keep increase token to solve solution is similar to brute force search. Both DATA & COMPUTE Efficiency.
+- Maybe the problem LLM is aggregate learning. Human individual have memory system that can retrace in time. Maybe aggregate learning in training phrase prevent it have memory system. We need a training system that have strong memory module, and have llm reflect on those memories. `IMO current LLM still have very low memory absorption rate, it uses aggregate learning to compensate low memory absorption`

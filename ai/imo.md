@@ -11,6 +11,7 @@
   - Also text session most likely NOT enough.
 - Interestingly or scarily that LLM sometime already aware the input prompt is evaluation prompt.
 - Progressive model growth
+- compute is NOT the bottleneck, rather is Memory size.
 
 ## Recent Concepts
 
@@ -34,8 +35,6 @@
 - Soft labels (LLM statistical probabilities) capture richer relationships.  
 - Label smoothing lets a model learn from soft labels instead of hard ones.  
 
-**64 experts** are employed in the current setup.
-
 ## Biology of Large Language Models
 
 [On the Biology of a Large Language Model](https://transformer-circuits.pub/2025/attribution-graphs/biology.html)  
@@ -44,25 +43,6 @@ LLMs work by providing each “world” with context, which includes relevant in
 ---
 
 ## Technical Improvements
-
-### Cache Strategies
-
-| Phase                     | Cache Type          | Description |
-|---------------------------|---------------------|-------------|
-| **Agentic**               | Embedding Cache     | Used only for similarity search; very limited. Does **not** save LLM token cost. |
-| **Prefill**               | Tokenizer Cache     | First step; small savings; order does not matter. |
-|                           | Prompt Cache        | Requires an exact prefix match; works only during the prefill phase. |
-| **Autoregressive Decoding** | KV Cache            | Used for token generation. The query (latest token) changes each step, while the key and value (past tokens) remain static.<br>• Implicit cache – handled automatically by the LLM provider.<br>• Explicit cache – must be programmed. |
-|                           | FlashAttention Cache| Combines KV cache with softmax optimization. |
-
-### Notable Papers & Ideas
-
-- **“GPT‑3: Language Models are Few‑Shot Learners”** – Radford et al., 2021  
-- **Tree of Thought**  
-- **Anthropic’s “Scaling Monosemanticity”**  
-- **Position Interpolation for Extending Context Window in Transformers** – OpenAI, 2023  
-
-> Instead of using positions `[1, 2, 3, …, L]` (where *L* is the pre‑trained sequence length), we use repeated blocks such as `[1, 1, 1, 1, 2, 2, 2, 2, …, L, L, L, L]`.
 
 - **OmniHuman Lab** – <https://omnihuman-lab.github.io/>
 

@@ -1,10 +1,13 @@
 # Experience
 
-> Try to organize my [experience](README.md#experience) artifacts here.
+> Try to organize my thoughts here.
 >
-> Life experience → Memory → Opinion → Philosophy → Framework
+> Experience → Memory → Opinion → Philosophy → Framework → Skill
+> > Analogy: Data → Storage → Statistic → Relationship → Causation → Formula
 >
-> > Growth Arc: Childhood experience → Personality (default philosophy) → Career path → Later life experience → 🔄
+> > Growth Arc(Forward): Childhood experience → Personality [(Instinct)](#personal-philosophy) → Skill → Later life experience → 🔄
+>
+> > Study Arc(Backward): Practice Skill → Test Memorization (school 🚫 here) → Intuitive Understanding (Framework) → Core Principals
 
 ---
 
@@ -22,12 +25,9 @@
   - [Life Is a Video Game](#life-is-a-video-game)
   - [Society & Time](#society--time)
   - [Science Pyramid](#science-pyramid)
-  - [Bio Ecosystem](#bio-ecosystem)
   - [Brain Characteristics](#brain-characteristics)
-  - [Neural Network Analogy](#neural-network-analogy)
-  - [Difficulty with Complexity](#difficulty-with-complexity)
-  - [Drive to the Future](#drive-to-the-future)
-  - [Mathematics Theory](#mathematics-theory)
+  - [Drive toward Future](#drive-toward-future)
+- [Skills](#skills)
 
 ---
 
@@ -39,6 +39,7 @@
 >
 > They are hard to change because they integrate many life events, leading to entrenched beliefs.  
 
+- Discrete mathematics contains many fundamental principles; it should be taught in high school.
 - There is no solution, only trade‑off.
 - Everything has its mechanic. Understand the mechanics by either collecting statistics or applying logic.
 - Most things have a recursive property (e.g., wealth, knowledge, ability, social skill).
@@ -47,19 +48,20 @@
 
 - All evolutionary ideas challenge our assumptions.  
   > *Einstein*: E = mc² → energy and mass are equivalent.  
-  > *Newton*: established modern science.
+  > *Newton*: established modern science from religious era.
 >
 ### China Opinion
 
-- China is a role‑based society. Your responsibility and power come from your role rather than directly from personal choice. Hierarchical relationships arise from role assignments—for example: 君君臣臣，父父子子. 打地主
+- China is a role‑based society. Individual responsibility and power come from role rather than directly from personal choice. Hierarchical relationships arise from role assignments—for example: 君君臣臣，父父子子. 打地主
 - Chinese Culture attempts to lock up human nature(不尊重人性). Ex: Buddhist can't marry nor eat meat; Communism eliminate personal profit;孔子:克己复礼;
-- Chinese history often attributes the cause or outcome of events to specific individuals. We should avoid this view—it. Life is similar to poker, perfect actions & still lose that hand. A failure does not necessarily mean a decision was wrong, just as success does not automatically justify an action.
+- Chinese history often attributes the cause or outcome of events to specific individuals, which I disagrees. Life is similar to poker, perfect actions & still lose that hand. A failure does not necessarily mean a decision was wrong, just as success does not automatically justify an action.
 
 ### Psychology Opinion
 
 - The brain is analogous to a computer: biology (hardware) + psychology (software).
 - Two “minds”: the rational mind (cortex) and the emotional mind (more primitive mammalian brain).
 - Human nature seeks **belonging** and **power**.
+- Monkey see, Monkey do.
 - Instinct(Personality) just understanding of risk & reward in EARLY childhood, which embedding into brain as default thinking.
 - Don't trust what people said, observed their action.
 - Memory exists as discrete patches; fewer patches with age make time feel faster.  
@@ -97,30 +99,30 @@
 
 ### Personal Philosophy
 
-> Personal value is philosophy that individual understand in early childhood, which embedded into early layers of brain(similar to instinct).
+> I uses principle(guide) and philosophy(explain) interchangeably.
+>
+> Personal value is principle that individual understand in early childhood, which embedded into early layers of brain(similar to **instinct**).
 
-**Core Ideas:**  
+**Principles:**  
 
-- Treat life as Bayesian risk‑reward management.  
+- Focus should be proportional to your ability to effect change.  
+
+- What you **DESIRE** is different from what you **NEED**.
+  - Changing your path is easier than changing what you desire.  
+    *Analogy*: In poker you can’t change the dealt cards, but you can control starting hands.
+
 - Prioritize satisfaction over fleeting happiness.  
-- Trust hierarchy: Unconscious < Aware < Heard < Seen < Used < Understand < Improve < Trust yourself < Others trust you.  
+
 - **Bayesian Statisticians** – treat life as risk‑reward management using Bayesian updating.
+
 - Seek satisfaction, not fleeting happiness.  
   > Most people are happy when they acquire new abilities; children are often happier because they unlock abilities more frequently.
 
-- Focus should be proportional to your ability to effect change.  
-  What you **DESIRE** is different from what you **NEED**.
+- **Don’t trust; verify.** (Trust = verification)
+  - Guide actions with philosophy to develop consistent **trust** between self and others.
+  - Trust hierarchy: Unconscious < Aware < Heard < Seen < Used < Understand < Improve < Trust yourself < Others trust you.
 
-- Guide actions with philosophy to develop consistent **trust** between self and others.
-
-- Discrete mathematics contains many fundamental principles; it should be taught in high school.
-
-- **Don’t trust; verify.**
-
-- The past cannot change; only reflection can inform future intent.
-
-- Changing your path is easier than changing what you desire.  
-  *Analogy*: In poker you can’t change the dealt cards, but you can adjust risk‑reward strategy.
+- 不要和往事过不去，不要和现实过不去。The past cannot change; only reflection can inform future intent.
 
 #### Approaches to Solution
 
@@ -128,16 +130,7 @@
 - **Bottom‑up** – Start with what you can do, build modules incrementally, then combine them.
 - When a leader’s ego is strong, the leader becomes the ceiling for the team’s ability.
 
-### Practical Guidelines
-
-**Actionable Advice:**  
-
-- Keep decision‑making processes visible.  
-- Favor collaboration and robust processes over speed.  
-- Use Bayesian updates to evaluate risk and reward.  
-- Verify before trusting; manage decision fatigue.  
-
-> Actionable advice distilled from the philosophical sections above.
+### Practical Principles
 
 - **Transparency**: Keep decision‑making processes visible to all stakeholders; it accelerates learning and builds trust.
 - **Collaboration over Speed**: Prioritize long‑term collective progress (“go together”) rather than short‑term individual speed.
@@ -154,24 +147,17 @@
 
 **Summary:**  
 
-- Frameworks are collections of philosophical principles that explain reality.  
-- Good frameworks can model diverse subjects and often fall into top‑down or bottom‑up approaches.  
-
-> **Frameworks** are collections of philosophy that explain reality.  
-
-> *A good framework should be able to steelman (or explain) every subject’s action (“people’s POV”).*  
-> *Frameworks usually fall into two types: Top‑down vs. Bottom‑up.*  
-> *Most things in life can fit into a small number of frameworks.*  
-> *Rarely, a new framework can lead to the development of a new philosophy.*
+- **Frameworks** are collections of philosophical principles that explain reality.  
+- Good frameworks can model diverse subjects and often fall into top‑down or bottom‑up approaches.
+- **Skill** is a framework in crystallized, distilled form.
+  - Study Arc(Backward): Practice Skill → Test Memorization (school 🚫 here) → Intuitive Understanding (Framework) → Core Principals
 
 ### Bayesian Statisticians
 
-**Highlights:**  
+> **Biological nature is about risk & reward management with Bayesian statisticians.**
 
 - Life is a collection of habits; validation (past experiences) underpins trust.  
 - Consensus stability depends on breadth of validation, information accuracy, and decision speed.  
-
-> **Biological nature is about risk & reward management with Bayesian statisticians.**
 
 - Life is a collection of habits.  
   - Habit and trust share the same nature: artifacts of past experiences.
@@ -183,6 +169,9 @@
 
 > **Consensus** is common individual validation; war occurs when there is no consensus on both sides.
 
+- Democracy increases the number of individual validations, making consensus more resilient.  
+- Dictatorship has a small group consensus, enabling rapid decisions but with unstable consensus (e.g., rapid policy changes in China).
+>
 >> ![Personality Landscape](./static/PrinciplesProfile.png)
 >>> ← dismiss validation;
 >>>
@@ -192,15 +181,10 @@
 >>>
 >>> ↓ rely on internal validation;
 
-> `Consensus Stability ≈ (Breadth of Validation) × (Accuracy of Information Flow) / (Decision‑making Speed)`
-
-- Democracy increases the number of individual validations, making consensus more resilient.  
-- Dictatorship has a small group consensus, enabling rapid decisions but with unstable consensus (e.g., rapid policy changes in China).
-
 > Trust is having validation of your past. Trusting yourself requires remembering & reflecting on your past.
 
 - Before you persuade others, have you been validated by others?  
-  > 曹操问贾诩关于“立储”: To persuade others, your opinion/conclusion should be based on **their** life experiences.
+  > 曹操问贾诩关于“立储”: To persuade others, your advice should be support by **THEIR** life experiences.
 
 - **Desired Consensus = Goal**  
   Example: 刘邦斩丁公 – different goals at different times. At war, desired consensus is to defeat 项羽; after victory, the desired consensus shifts to loyalty toward 刘邦.
@@ -209,7 +193,7 @@
 - Only pain & reflection will remove **False Validation**
 
 <details>
-  <summary>Risk‑Reward Examples</summary>
+  <summary>Bayesian Examples</summary>
 
 - People often desire power, money, and position without assuming responsibility.  
   - Parenting should be based on equal respect; teach kids that more power comes with more responsibility.  
@@ -259,28 +243,7 @@
 
 ### Science Pyramid
 
-**Structure:**  
-
-1. Mathematics → 2. Physics → 3. Chemistry → 4. Biology → 5. Psychology → 6. Sociology  
-1. Mathematics  
-2. Physics  
-3. Chemistry  
-4. Biology  
-5. Psychology  
-6. Sociology  
-
-### Bio Ecosystem
-
-**Key Elements:**  
-
-- Biodiversity, auto‑balance of predator‑prey, trophic levels, network effects.  
-
-1. Biodiversity  
-2. Auto‑balance between hunter & prey  
-3. Producer → Consumer → … → Apex predator  
-4. Network effect  
-
-> Tigers are powerful but limited by habitat; every organism faces constraints/trade‑offs.
+1. Mathematics → 2. Physics → 3. Chemistry → 4. Biology → 5. Psychology → 6. Sociology
 
 ### Brain Characteristics
 
@@ -294,40 +257,7 @@
 3. Connection before correction  
 4. Decision fatigue  
 
-### Neural Network Analogy
-
-**Core Traits:**  
-
-- Loss/mistake and forward/backward propagation mirror learning processes.  
-- Structure determines algorithmic behavior.  
-
-1. Loss/Mistake & forward vs. backward propagation  
-2. Structure determines algorithm  
-
-> Mastery of these concepts could unlock deeper understanding of the human brain and its bottlenecks.
-
-### Difficulty with Complexity
-
-**Key Points:**  
-
-- No perfect solutions, only trade‑offs; decision fatigue limits capacity.  
-- Correlation is easier to detect than causation; abstractions simplify complexity.  
-
-1. No solution, only trade‑offs.  
-2. Decision fatigue.  
-3. Cause ↔ effect is hard; correlation is easier to detect.  
-4. More complex systems require more complexity to modify specific parts.
-
-> We must decide because resources are limited; our decision‑making capacity is also limited.  
-
-- People use trusted brands/representatives as abstractions to simplify complexity.  
-  - Example: platform immunity debates (2020) – product owners make decisions for users who cannot/choose not to decide themselves.  
-- Engineers rely on correlation to improve solutions; there is no perfect scientific prediction for future complex problems.  
-- Investors collectively fund ventures, enabling better predictions.
-
-> If system complexity hinders change and there’s no workaround, it explains why life includes death. Hence, simplicity is valuable.
-
-### Drive to the Future
+### Drive toward Future
 
 **Key Points:**  
 
@@ -349,13 +279,14 @@
 
 > “Better” means lower cost **and** higher reliability, diversity, and reduced unknown impact. We may not want to drive at maximum speed.
 
-### Mathematics Theory
+## Skills
+>
+> Books is collection of skills by author, which supports by their life experiences.
+> Ex: A formula(skill) is a condensed version of mathematical principles.
 
-**Core Idea:**  
+> Here are skills that contain important philosophies.
 
-- Mathematics builds on axioms (philosophy) to create principles and algorithms that solve problems.  
-
-> Mathematics theory (Principle) builds on axioms (Philosophy).  
-
-- Mathematicians combine creativity (ability) + tools (principle & philosophy) → algorithms that resolve problems (mistakes).  
-- A formula is a condensed version of a mathematical law/theory (principle).
+- discrete math
+- poker probability
+- Biodiversity
+- Psychology

@@ -24,6 +24,16 @@
 | Apple M3 Max | 50–70 |
 | NVIDIA H100 (8B LLaMA) | ~2000 |
 
+### Cache Strategies
+
+| Phase                     | Cache Type          | Description |
+|---------------------------|---------------------|-------------|
+| **Agentic**               | Embedding Cache     | Used only for similarity search; very limited. Does **not** save LLM token cost. |
+| **Prefill**               | Tokenizer Cache     | First step; small savings; order does not matter. |
+|                           | Prompt Cache        | Requires an exact prefix match; works only during the prefill phase. |
+| **Autoregressive Decoding** | KV Cache            | Used for token generation. The query (latest token) changes each step, while the key and value (past tokens) remain static.<br>• Implicit cache – handled automatically by the LLM provider.<br>• Explicit cache – must be programmed. |
+|                           | FlashAttention Cache| Combines KV cache with softmax optimization. |
+
 ### Precision & Quantization
 
 - **Quantization formats**  
@@ -177,5 +187,3 @@ Speeds up inference by predicting multiple tokens ahead.
 ### Python Ecosystem
 
 - `litellm` – common SDK for multiple providers.````
-
-ai/imo.md
