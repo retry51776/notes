@@ -58,12 +58,24 @@
 - **Pre‑training** – large‑scale training (e.g., DeepSpeed).  
 - **Post‑training** – LoRA, fine‑tuning, RLHF, synthetic data.
 
-### Inference Engines
+### Inference Framework
 
 | Category | Examples |
 |----------|----------|
 | Research | `transformers`, `llama.cpp` |
-| Production | JAX, ONNX, TensorRT, vLLM, SGLang |
+| Inference Engine | JAX, ONNX, TensorRT, vLLM, SGLang |
+| Inference Framework | llm-d, Ray |
+
+- **llm-d**: a Kubernetes-native high-performance distributed LLM inference framework; (ONLY CUDA/ROCm)
+  - Gateway
+  - Inference Scheduler (similar to nginx, at request level)
+  - KV Cache Indexer
+  - Inference-engine(vllm)
+    - NIXL (NVIDIA communication library designed for fast KV-cache)
+    - Prefill Engine
+    - Decode Engine
+  - ModelService Controller (Pod Controller)
+  - Prometheus (Monitor)
 
 ## Speculative Decoding
 

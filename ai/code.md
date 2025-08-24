@@ -476,3 +476,5 @@ model = Qwen2Model(config)
 uv run mcp install weather.py
 
 ```
+
+[Remote MCP servers](https://glama.ai/mcp/servers)

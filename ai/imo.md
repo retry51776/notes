@@ -1,9 +1,10 @@
-# AI Insights & Research Overview
+# AI Insights
 
 ## IMO
 
 - AI is "crystallize intelligent". Similar to kinetic energy being converted into potential energy.
 - The problem with pre-training is dense reward on every token. Only subset of token signal is True.
+- Most likely things evolution optimize for long time will be harder to achieve in AI.
 - Human's ONLY advantage over AI is signal absorption rate is far HIGHER than AI.
 - Currently the problem in LLM is lifetime of context is short.
   - We have session compression to lengthen lifetime of session, but still no good way to manipulate session like human does in conversation(partially reset, topic reset).
@@ -12,6 +13,7 @@
 - Interestingly or scarily that LLM sometime already aware the input prompt is evaluation prompt.
 - Progressive model growth
 - compute is NOT the bottleneck, rather is Memory size.
+- We have mathematical proof that 2 layer of NN can imitate any functions, but the problem is we don't know the way to optimize to that 2 layer NN.
 
 ## Recent Concepts
 
@@ -48,15 +50,6 @@ LLMs work by providing each “world” with context, which includes relevant in
 
 ---
 
-## New Research Directions
-
-- **Leave No Context Behind** – Google’s approach to extending context windows.  
-- **Dynamic Routing Between Capsules** – Capsule Networks.  
-- **TransformerFAM** – Feedback attention as working memory.  
-- **Attention with Linear Biases (ALiBi)** – Adds a distance‑based linear bias to attention scores, giving higher weight to closer tokens.  
-- efficiency is part of the intelligent feature, keep increase token to solve solution is similar to brute force search. Both DATA & COMPUTE Efficiency.
-- Maybe the problem LLM is aggregate learning. Human individual have memory system that can retrace in time. Maybe aggregate learning in training phrase prevent it have memory system. We need a training system that have strong memory module, and have llm reflect on those memories. `IMO current LLM still have very low memory absorption rate, it uses aggregate learning to compensate low memory absorption`
-
 ### Flash Attention Techniques
 
 1. **Tiling** – Divides attention computation into smaller parallel tiles.  
@@ -76,6 +69,21 @@ LLMs work by providing each “world” with context, which includes relevant in
 ## OpenAI Perspective
 
 > *The age of pre‑training is over.*
+
+- Self Taught Reasoner (STaR)
+
+  > Open AI reinforcement learning by study LLM verified & diverse solutions.
+  >
+  > Consistent answer that SUPPORT by REASONING. (Max Marginal Inference)
+  >
+  > Sample multiple times(use TOP n paths) vs generate multiple responses(n TIME MAX probability path)
+  >> The GOAL is find RIGHT answer & AVOID greedy decode.
+
+Guiding principles:
+
+- directly optimize what we want
+- Reliable verifier is the most crucial in RL finetuning, not the RL algorithm. by Rich Sutton
+  - After exhausted problems have Reliable verifier, LLM can study problem with solution has rough estimate.
 
 ### Five Pillars for AGI (according to OpenAI)
 

@@ -73,7 +73,19 @@ Stage:
 
 ## Architecture
 
-- Residual Connection `It works by smoothing lost gradient; Problem with training nn that too deep, is too much noise drawn out signal in back  propagation.`
+- Autoregressive Decoding `We need go beyond greedy decode.`
+  - Solution 1: Search different decoding paths for high confident answer
+  - Solution 2: Vote
+
+  > Prompt engineering = reshape LLM output distribution
+
+### Limitation of Back Propagation
+>
+> There’s a mathematical result showing that a neural network with just two layers can approximate any function. The challenge, however, is that we don’t know how to efficiently optimize the weights to reach those solutions.
+>> Ex: 2 layers nn often stuck on some error rate, no matter how much we increase width of nn.
+>
+> Problem with training nn that too deep, is too much noise drawn out signal in back propagation.
+>> Residual Connection `It works by smoothing lost gradient, shorten signal distinct.`
 
 📦 KV Cache Structure
 

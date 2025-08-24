@@ -29,13 +29,17 @@ Each manufacturer has its own shading language.
 
 ### Network
 
-- **InfiniBand** – Remote Direct Memory Access (RDMA) bypasses the CPU. Uses Reliable Datagram Protocol (RDP).  
+- **Unified Virtual Addressing** (UVA) - Share Memory across SINGLE NODE(Ex: a NVL72)
+
+- **InfiniBand** – Uses Remote Direct Memory Access (RDMA) bypasses the CPU. Uses Reliable Datagram Protocol (RDP) to share Memory across BETWEEN CLUSTER.  
 - **Ethernet** – Standard networking.
 
 ## Training Infrastructure
 
 - **cuDNN**, **DeepSpeed** for large‑scale training.  
-- **DGX** servers: 8 × A100 80 GB GPUs.  
+- **DGX Node**: 8 × A100 80 GB GPUs.
+- **NVL72 Cluster**: 72 × B200 GPUs.
+- **DGX SuperPOD**: n × NVL72 Nodes.
 
 ### Parallelism Strategies
 
@@ -151,6 +155,7 @@ Each manufacturer has its own shading language.
 - **Grid** – Collection of blocks; can be 1‑3 dimensions.  
 - **Block** – Up to 1024 threads; also 1‑3 dimensions.  
 - **Warp** – 32 threads executed in lockstep.  
+- Unified Virtual Addressing (UVA) - Share Memory across SINGLE NODE(Ex: a NVL72)
 
 ```
 # Developer perspective

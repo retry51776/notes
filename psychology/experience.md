@@ -3,6 +3,9 @@
 > Try to organize my thoughts here.
 >
 > Experience → Memory → Opinion → Philosophy → Framework → Skill
+>
+> Maybe should rename, but too much work: Experience → Memory → Opinion → Principal(Guidance) → Philosophy(Explain) → Skill(Formula)
+>
 > > Analogy: Data → Storage → Statistic → Relationship → Causation → Formula
 >
 > > Growth Arc(Forward): Childhood experience → Personality [(Instinct)](#personal-philosophy) → Skill → Later life experience → 🔄
