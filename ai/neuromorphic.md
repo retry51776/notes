@@ -19,3 +19,13 @@
 
 - Neuron Synapse Length
 - Neuron Oscillating Frequency
+
+## Speculation
+
+- Biologist shown people practice skill will REDUCE amount brain regions uses, but LLM ALWAYS has SAME activation paths, NO MATTER how many times LLM already processed same input.
+  - We need incentive/system LLM REDUCE its forward propagation path after repetition input.
+    - Maybe SAE/ observation NN to Shorten forward propagation path?
+    - Note: This system itself ALSO explain why human makes many mistakes
+
+- Most likely things evolution optimize for long time will be harder to achieve in AI.
+  - Parameter is similar to gene, DNA often has duplicate genes, allow intermediate modification without disrupt current process. More parameter in LLM allows more paths get to desire network.

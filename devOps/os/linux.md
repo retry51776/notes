@@ -1,12 +1,14 @@
-# Linux OS 
-> qubesOS is secure Linux 
+# Linux OS
+>
+> qubesOS is secure Linux
 
-> /proc is virtual file reflect process info
+> `/proc` is virtual file reflect process info
 linux make everything as file
 
 > CMDs `[application] [options] [command] [command options] [arguments...]`
 
 ## Boot Order
+
 1. On Power
 2. BIOS
 3. Boot Loader
@@ -18,21 +20,28 @@ linux make everything as file
    4. OpenRC
    5. runit
 
-# Linux Apps
+## Red Hat
 
-Free Software Foundation (FSF) 
+> `dnf` is package manager
+
+> `Dockerfile.ubi` Universal Base Image (UBI) from Red Hat
+
+## Linux Apps
+
+Free Software Foundation (FSF)
 
 GNU is list of open source linux components
 
 ### Compilers
+
 - make
   > Makefile: create rules, assign cmd to rule, chain rules
 - GNU Compiler Collection (GCC)
 
-
-## Package Manager 
+## Package Manager
+>
 > Think of apple app store, android app store
-> 
+>
 > Package Manager usually install /usr/bin
 
 - apt-get
@@ -42,9 +51,9 @@ GNU is list of open source linux components
 - pacman
 
 ```bash
-sudo apt install strace	#Debian/Ubuntu 
-# yum install strace		#RHEL/CentOS
-# dnf install strace		#Fedora 22+
+sudo apt install strace #Debian/Ubuntu 
+# yum install strace  #RHEL/CentOS
+# dnf install strace  #Fedora 22+
 
 which pg_config
 apk add pg_config
@@ -57,6 +66,7 @@ rpm
 ```
 
 ### OS CMDs
+
 ```bash
 # Current OS info
 cat /etc/os-release
@@ -105,6 +115,7 @@ history
 ```
 
 ### Permission
+
 ```bash
 # Change permission on file
 chmod -R 660 /app
@@ -126,6 +137,7 @@ chomd [owner][group][other] file_name
 ```
 
 ## Service / Cronjob / Dev
+
 ```bash
 # Show cronjobs
 crontab –l
@@ -163,6 +175,7 @@ resolved
 ```
 
 ### Network CMDs
+
 ```bash
 # do NOT include protocol http
 nslookup sss.local
@@ -181,9 +194,12 @@ journalctl -fu nginx
 ```
 
 ### Editors
+>
 > Don't know how to get out vim? It happened to me too, lol
+
 - tmux
 - vi/vim/nano
+
 ```bash
 :wq
 :q!
@@ -193,9 +209,11 @@ journalctl -fu nginx
 ```
 
 LVM (Logical Volume Manager)
+
 - LV (Logic Volume) `eqs to partition`
 - VG (Volume Group) `eqs to hard drive`
-- PV (Physical Volume) ` 1:1 to partition`
+- PV (Physical Volume) `1:1 to partition`
+
 ```bash
 # Disk Scan
 lvmdiskscan

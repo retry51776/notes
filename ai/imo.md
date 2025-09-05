@@ -3,8 +3,9 @@
 ## IMO
 
 - AI is "crystallize intelligent". Similar to kinetic energy being converted into potential energy.
+- LLM imitating human slow thinking, but not trained with human instinct. Maybe similar to `</think>` tag, we need LLM to generate `</instinct>` with subset NN.
 - The problem with pre-training is dense reward on every token. Only subset of token signal is True.
-- Most likely things evolution optimize for long time will be harder to achieve in AI.
+
 - Human's ONLY advantage over AI is signal absorption rate is far HIGHER than AI.
 - Currently the problem in LLM is lifetime of context is short.
   - We have session compression to lengthen lifetime of session, but still no good way to manipulate session like human does in conversation(partially reset, topic reset).

@@ -3,6 +3,7 @@
 > Try to organize my thoughts here.
 >
 > Experience → Memory → Opinion → Philosophy → Framework → Skill
+> > Experience ≠ Memory; There are proofs in neobiology studies.
 >
 > Maybe should rename, but too much work: Experience → Memory → Opinion → Principal(Guidance) → Philosophy(Explain) → Skill(Formula)
 >
@@ -47,6 +48,8 @@
 - Everything has its mechanic. Understand the mechanics by either collecting statistics or applying logic.
 - Most things have a recursive property (e.g., wealth, knowledge, ability, social skill).
 - Structure often determines properties.
+- Every problem can break into 2 components: search & verify.
+- Intelligence(Data) vs. Rationality(Radom Sample)
 - We (including AI) are always biased because each of us experiences only a subset of reality.
 
 - All evolutionary ideas challenge our assumptions.  
@@ -63,6 +66,7 @@
 
 - The brain is analogous to a computer: biology (hardware) + psychology (software).
 - Two “minds”: the rational mind (cortex) and the emotional mind (more primitive mammalian brain).
+  - cortex is slow, lazy & strong; mammalian brain is fast, restless, & gullible;
 - Human nature seeks **belonging** and **power**.
 - Monkey see, Monkey do.
 - Instinct(Personality) just understanding of risk & reward in EARLY childhood, which embedding into brain as default thinking.
@@ -75,6 +79,7 @@
 - Decision fatigue is a real limitation.
 - You cannot connect the dots when looking forward (the result has not yet occurred); you can only connect them retrospectively.
 - Intelligence is an equilibrium between supply (often over‑focused) and demand (often overlooked).
+- Statistic of outcome/result > Statistic of input/individual.
 
 ### Economic Opinion
 

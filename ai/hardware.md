@@ -29,9 +29,13 @@ Each manufacturer has its own shading language.
 
 ### Network
 
-- **Unified Virtual Addressing** (UVA) - Share Memory across SINGLE NODE(Ex: a NVL72)
+- **InfiniBand** – Uses Remote Direct Memory Access (RDMA) bypasses the CPU. Uses Reliable Datagram Protocol (RDP) to share Memory across BETWEEN CLUSTER.
+  - NCCL (NVIDIA Collective Communications Library) - specialize protocol for GPU, open source
+  - **NVSHMEM** - GPU threads directly put/get/update data in remote GPU memory without CPU involvement.
 
-- **InfiniBand** – Uses Remote Direct Memory Access (RDMA) bypasses the CPU. Uses Reliable Datagram Protocol (RDP) to share Memory across BETWEEN CLUSTER.  
+- OpenUCX (Unified Communication X) is a high-performance communication framework; Replaced **Mellanox**
+  - **Unified Virtual Addressing** (UVA) - Share Memory across SINGLE NODE(Ex: a NVL72)
+
 - **Ethernet** – Standard networking.
 
 ## Training Infrastructure
@@ -40,6 +44,7 @@ Each manufacturer has its own shading language.
 - **DGX Node**: 8 × A100 80 GB GPUs.
 - **NVL72 Cluster**: 72 × B200 GPUs.
 - **DGX SuperPOD**: n × NVL72 Nodes.
+- **DGX Cloud**: rent DGX node level(not GPU level)
 
 ### Parallelism Strategies
 
@@ -110,14 +115,16 @@ Each manufacturer has its own shading language.
 ### Haiwei
 
 - Ascend 910 – Inference hardware from Huawei.
+  - UE8M0 - (Unsigned Exponent, 8 bits, 0 mantissa) can only represent powers of two
 
 ## NVIDIA Ecosystem
 
-> H100 units cost at least $30k; the entire product line includes:
+> the entire product line includes:
 
 - **GeForce** – Consumer gaming GPUs.  
 - **Quadro** – Professional workstations.  
-- **DGX / HGX** – AI‑focused servers (e.g., DGX A100, HGX H100).  
+- **DGX / HGX** – AI‑focused servers (e.g., DGX A100, HGX H100).
+  - H100 units cost at least $30k; DGX has 8×H100
 - **Jetson** – Edge AI and robotics.  
 - **Tegra** – Embedded/mobile GPUs.
 
@@ -136,14 +143,14 @@ Each manufacturer has its own shading language.
 
 ### Training Tools
 
-- **AI Enterprise** – NVIDIA’s AI suite.  
-  - **Triton Inference Server** (includes TensorRT).  
-  - **NVIDIA NeMo** – Model training framework.
+- **AI Enterprise** – On Prem DGX Cloud.
+- **DGX Cloud** – NVIDIA’s AI suite. `Alternative to AWS, GPC, Azure` `https://build.nvidia.com/explore/discover`
 
-### Inference Tools
-
-- **NVIDIA NIM** – Inference micro‑services.  
-- **Jupyter notebooks** for experimentation.  
+  - **NVIDIA NIM** – Inference micro‑services.  `Custom fork of K8s`
+    - **Triton Inference Server** (includes TensorRT).
+    - **Jupyter notebooks** for experimentation.  
+    - **NVIDIA NeMo** – Model training framework.
+    - **TensorRT-LLM**
 
 ## Management Controllers
 

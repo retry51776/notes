@@ -6,13 +6,14 @@
 
 - Training requires ~4× the RAM needed for inference.  
 - RAM size > RAM speed > GPU speed.  
-- H100 costs $2–$4 per hour; it is a common unit and uses ~700 W.  
-- Data‑center scale (2024): ~30 k A100 GPUs; 2025: ~100 k; 2026: 300–700 k.  
+- H100 costs $2–$4 per hour; uses ~700 W.  
+- Data‑center scale: 2024: ~30k A100 GPUs; 2025: ~100k; 2026: 300–700k.  
 - Power‑to‑chip efficiency (`PUE`) improves from 1.8 (wasteful) to ~1.1 (effective).  
 - Total Cost of Ownership: 10 % data center, 15 % power, 75 % GPU.  
 - Large runs cost 2–4× more than research runs.  
-- Output tokens are ~4× as expensive as input tokens (sequential generation).
+- Output tokens(decode/RAM) are ~4× as expensive as input tokens (prefill/compute).
 - 128k ~ 100k words ~ agent handle 3-5 source files
+- 4k tokens ≈ ~10 GB KV cache
 - Measure LLM by training-data, energy per task(cost) vs human,
 
 ### Token‑per‑second Benchmarks
@@ -45,12 +46,6 @@
 
 - Model size matters as much as precision.
 
-## Providers
-
-- runpod.io  
-- together.ai  
-- Classic cloud providers  
-
 ## General Landscape
 
 - **Machine‑learning frameworks**: PyTorch, TensorFlow, FlashAttention.  
@@ -60,22 +55,30 @@
 
 ### Inference Framework
 
+> Exclude training framework, only inference.
+
 | Category | Examples |
 |----------|----------|
 | Research | `transformers`, `llama.cpp` |
 | Inference Engine | JAX, ONNX, TensorRT, vLLM, SGLang |
-| Inference Framework | llm-d, Ray |
+| Inference Orchestrate Framework | llm-d, Ray, NIM |
 
 - **llm-d**: a Kubernetes-native high-performance distributed LLM inference framework; (ONLY CUDA/ROCm)
   - Gateway
   - Inference Scheduler (similar to nginx, at request level)
+    - `xxx-instruct-epp-xxxx`
+    - attempt to uses last Decode Engine to avoid move KV cache
   - KV Cache Indexer
   - Inference-engine(vllm)
     - NIXL (NVIDIA communication library designed for fast KV-cache)
     - Prefill Engine
+      - `threshold 100 token`
     - Decode Engine
   - ModelService Controller (Pod Controller)
   - Prometheus (Monitor)
+
+- **NVIDIA Inference Microservices** (NIM)
+  - Triton Inference Engine
 
 ## Speculative Decoding
 
@@ -109,9 +112,14 @@ Speeds up inference by predicting multiple tokens ahead.
 - Whisper (OpenAI) – speech‑to‑text.  
 - No open‑source audio‑to‑audio models yet; most pipelines use speech‑to‑text → LLM → text‑to‑speech.
 
-### Coding Assistants
+### Coding Agent
 
-- Cursor.sh, Codium, Aider, Continue.dev, Claude Dev.  
+- Cursor.sh
+- Codium
+- Aider
+- Continue.dev
+- Claude Dev
+- Windsurf
 
 #### Prompt Engineering for Code Generation
 

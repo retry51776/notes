@@ -23,7 +23,9 @@
 
 ## Biology
 >
-> [Rational human brain](nervous.md#human-brain) vs [Emotional mammal brain](nervous.md#mammal-brain)
+> Daniel Kahanman's Thinking Fast and Slow
+>
+> [Rational human brain `System 2`](nervous.md#human-brain) vs [Emotional mammal brain `System 1`](nervous.md#mammal-brain)
 
 ### Forward Propagation Process
 

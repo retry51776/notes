@@ -34,6 +34,10 @@
 
 > It's not knowledge determent path, it's knowledge changes unknown, unknown determent path;
 
+> Intelligence is not only the ability to reason;
+it is also the ability to find relevant material in memory and to deploy
+attention when needed. `Thinking Fast & Slow`
+
 > Work starts on labor, then creator, then narrator;
 
 > When you told a child hundreds time & child repeat same mistake. It does NOT prove child's intellect, instead proven parent are dummy. It's parent that not realize their approach wasn't working, and search for alternative.

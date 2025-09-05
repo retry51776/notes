@@ -7,6 +7,11 @@
 > > That is why we love stories: stories lead to conclusions.
 `aka Recognized patterns.`
 
+> pupil dilating ≈ mental effort
+
+> Self control uses glucose same as exercise.
+>> Self control ≈ selective attention; Maybe self control is neuron increase fire frequency(explains glucose usage) to dominate unwanted impulse.
+
 > Emotion bind fragments of memories(sensory, spatial, and temporal) together, creating a coherent narrative.
 
 > Memories usually are facts & events, optional with event_origin, event_artefact, and sensory_memory. But facial memory are easily lost, also timestamp. Seems like memory distrusted from hippocampus to neocortex will lost timestamp info.
@@ -91,12 +96,7 @@ why all animals have similar emotion?
 
 - How viewer pick which videos they watch? How to simulate in AI neuron?
 - How to simulate new connection? I think we need to develop async ai model before connection problem.
-
-## IMO
-
-- Current AI computation by connection is right direction;
-- Current AI store info by connection strength.
-- In a way, AI is a compression alg; Because it store world model is compress format with some lost. So multi purpose in neuron/connection will have better performance in compression.
+- what is Zone/flow? is it some how attention is flexible?
 
 ## Common Movie design pattern
 
