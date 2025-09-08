@@ -2,6 +2,7 @@
 
 **LLM Tips**
 
+- """use parallel subagents to XXX"""
 - For extraction task, tell LLM assigned default value when no info, and do not make any assumptions.
 - AI sucks at Abbreviation, expand all abbreviation before understanding task.
 - LLM is very TALKY, it will do instruction, but it also need a lot monolog between it's output.

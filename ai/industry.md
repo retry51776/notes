@@ -18,8 +18,8 @@
 
 ### Token‑per‑second Benchmarks
 
-| Hardware | Model Size | Tokens/s |
-|----------|------------|----------|
+| Hardware  | Tokens/s |
+|----------|----------|
 | RTX 4090 (8B LLaMA) | 60–80 |
 | RTX 5090 (8B LLaMA) | 80–100 |
 | Apple M3 Max | 50–70 |
@@ -63,6 +63,9 @@
 | Inference Engine | JAX, ONNX, TensorRT, vLLM, SGLang |
 | Inference Orchestrate Framework | llm-d, Ray, NIM |
 
+- [JAX](https://developer.apple.com/metal/jax/)
+  - `pip install "jax==0.4.34" "jaxlib==0.4.34" "jax-metal==0.1.1"`
+  - AXLearn `Google's alternative Hugging Face transformers`
 - **llm-d**: a Kubernetes-native high-performance distributed LLM inference framework; (ONLY CUDA/ROCm)
   - Gateway
   - Inference Scheduler (similar to nginx, at request level)
@@ -73,7 +76,9 @@
     - NIXL (NVIDIA communication library designed for fast KV-cache)
     - Prefill Engine
       - `threshold 100 token`
+      - uses top spec GPUs
     - Decode Engine
+      - can done in smaller GPUs with enough RAM
   - ModelService Controller (Pod Controller)
   - Prometheus (Monitor)
 

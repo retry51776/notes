@@ -61,6 +61,11 @@
         - 6. Current Work:
         - 7. Optional Next Step:
 
+## flags
+
+- `--resume` restore last session
+- inside prompt `think` < `think hard` < `think harder` < `ultrathink`
+
 ## dependency
 
 - commander.js `similar to pip typer`
@@ -101,7 +106,8 @@ load_config()
   - Important Notes
 - session `~/.claude/statsig/statsig.session_id.[randomUUID].json`
   - state
-    - message
+    - message queue
+      - current message
     - history
     - todo.list `loop until done` `~/.claude/todos/[randomUUID].json`
     - invocation

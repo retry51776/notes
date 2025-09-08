@@ -9,6 +9,8 @@
 
 > pupil dilating ≈ mental effort
 
+> Anchor effect exists in both System1 & System2.
+
 > Self control uses glucose same as exercise.
 >> Self control ≈ selective attention; Maybe self control is neuron increase fire frequency(explains glucose usage) to dominate unwanted impulse.
 

@@ -24,6 +24,7 @@ aider --model lm_studio/openai/gpt-oss-120b
 /add xxx.py # immediately added xxx.py's text into llm context
 /clear # will NOT clear /add files
 /drop * # is required
+/web # uses Playwright to scrap webpage into "role:user" message
 
 /reset # = /clear + /drop *
 

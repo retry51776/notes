@@ -143,6 +143,7 @@ model.model.layers ModuleList(
 
 - Physics Informed Machine Learning
 - Stable diffusion: add noise to image, let AI recover image;
+  - KV Cache Incompatibility: old tokens can also attend to new token, which means the representations of all tokens must be recomputed.
 
 > Netron: Interactive model graph exploration.
 <https://www.neuron.app/>

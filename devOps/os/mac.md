@@ -1,4 +1,5 @@
 # Mac
+
 ```bash
 # Show hidden files
 Press Command + Shift + . (period)
@@ -10,7 +11,8 @@ Type 'thisisunsafe' on page
 history -c
 ```
 
-# Networking
+## Networking
+
 ```bash
 # Edit /etc/Hosts
 sudo killall -HUP mDNSResponder
@@ -36,4 +38,25 @@ server {
     }
 }
 sudo brew services restart nginx
+```
+
+## launchctl
+>
+> similar to service_management in windows
+
+`plutil -lint ~/Library/LaunchAgents/com.whisperf5.agent.plist`
+
+## Swift
+
+`package.swift/package.targets.path` → `folder/main.swift` | `@main` →
+
+```swift
+init()
+deinit()
+
+// Compiled path
+// ~/Library/Developer/Xcode/DerivedData/
+
+// Swift Package Manager (SPM)
+swift package resolve
 ```

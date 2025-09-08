@@ -74,6 +74,13 @@ Each manufacturer has its own shading language.
 | CUDA Graphs | Pre‑record kernel launches | Avoids CPU bottlenecks |
 | Multi‑token Decoding | Predict several tokens at once | Increases generation speed |
 
+- superkernel - reduce kernel swap by multi ops
+- microbatch - split training batch into smaller batches
+- flashcomm
+- compiler cache - kernel re-use
+- MTP - Multi-Token Prediction
+- Placement Driver (PD) dispatcher
+
 ## Open‑Source Ecosystem
 
 - **Exo Labs** – AI cluster management software.
@@ -101,6 +108,7 @@ Each manufacturer has its own shading language.
 
 - **MLX** – Efficient array framework for Apple silicon (supports 4‑ and 8‑bit).  
 - **Core ML** – Optimized inference engine; leverages the Apple Neural Engine (ANE).
+- **vllm** <https://medium.com/@rohitkhatana/installing-vllm-on-macos-a-step-by-step-guide-bbbf673461af>
 
 > The ANE is not directly accessible from MLX or PyTorch.
 
@@ -116,6 +124,7 @@ Each manufacturer has its own shading language.
 
 - Ascend 910 – Inference hardware from Huawei.
   - UE8M0 - (Unsigned Exponent, 8 bits, 0 mantissa) can only represent powers of two
+  - <https://github.com/omni-ai-npu/omni-infer>
 
 ## NVIDIA Ecosystem
 

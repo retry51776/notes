@@ -8,6 +8,7 @@ Here are conventions when edit different files.
 
 - Prefer consist, unique variable names for easy text search & replace
 - keep methods arguments under 8
+- Assume platform/framework/library are the latest version.
 
 ## 1. Markdown
 

@@ -1,8 +1,11 @@
 # Git
+>
 > Git is a database, smallest unit is File store as blob unit.
 
 > build number generator is global (share across branches)
-### Git object types:
+>
+### Git object types
+
 1. blob
 2. commit
 3. tree
@@ -10,6 +13,7 @@
 .git/hooks
 
 ## CMDs
+
 ```bash
 git log --abbrev-commit
 git log --graph --online --decorate
@@ -72,6 +76,7 @@ find . -name "*.pyc" -exec git rm -f "{}" \;
 ```
 
 #### Config
+
 ```bash
 # Convert Git repo end of line
 git config --global core.attributesfile ~/.gitattributes
@@ -87,14 +92,71 @@ git config --global user.email terrywuemail@gmail.com
 git clean -df
 ```
 
-# CI / CD Pipeline
+## Worktree
+
+> VERY useful feature of git in daily work. Allow to checkout multi branches in local repo as different subfolders.
+
+```bash
+
+# 1) Work on a feature without touching your main checkout
+git worktree add ../app-feature feature/login   # creates branch if it doesn't exist? (see tip 1)
+# `git worktree add ../app-feature` only create a new local branch `app-feature`, WON'T pull from remote branch
+
+cd ../app-feature
+# ...hack...
+git commit -am "feat: login screen"
+git push -u origin feature/login
+
+# 2) Hotfix on main while feature stays open
+cd ../app
+git pull
+git worktree add ../app-hotfix main
+cd ../app-hotfix
+# ...fix bug...
+git commit -am "fix: null crash"
+git push
+# backport or merge as needed
+
+# 3) Try out someone’s PR in a throwaway worktree
+cd ../app
+git fetch origin pull/123/head:pr-123
+git worktree add ../app-pr-123 pr-123
+# test/build here, then remove when done
+git worktree remove ../app-pr-123  # (use --force if dirty)
+
+# 4) Isolate a release build
+git worktree add ../app-release release/1.4
+cd ../app-release
+# run long build/tests without touching other trees
+
+# 5) Bisect without polluting your dev tree
+git worktree add ../app-bisect main
+cd ../app-bisect
+git bisect start v1.4 v1.3
+# ...bisect flow...
+git bisect reset
+git worktree remove ../app-bisect
+
+# 6) Docs site (orphan branch) in its own folder
+cd ../app
+git worktree add --orphan ../app-docs gh-pages
+cd ../app-docs
+# add static files, then:
+git commit -m "publish docs"
+git push origin gh-pages
+```
+
+## CI / CD Pipeline
+
 ## Github Vars
+
 ```bash
 GITHUB_REF
 GITHUB_SHA // full sha
 ```
 
 ## Jenkin Vars
+
 ```bash
 @echo off
 echo GIT_COMMIT %GIT_COMMIT% 
@@ -114,9 +176,11 @@ RUN echo $git_commit > /app/.githash
 Language Server Index Format (LSIF) - `enable github or gitlab code intelligence`
 
 ## Gitlab CI
+>
 > Executor is defined at runner level `/etc/gitlab-runner/config.toml`
 
 > deploy by gitlab-takeoff
+
 ```yml
 #.gitlab-ci.yml
 
@@ -128,9 +192,9 @@ stages:
 
 # Example Job 1
 run_something:
-	image: python:3.10
-	before_script:
-		- apt-get update && apt-install
+ image: python:3.10
+ before_script:
+  - apt-get update && apt-install
   script:
     - python3 start.py
   # Optional Settings
@@ -147,20 +211,22 @@ run_something:
 
 
 ```
+
 #### Gitlab System hooks
+
 - push_events
 - tag_push_events
 - merge_request_events
 - repository_update_events
 - enable_ssl_verification
 
-
 ## Github Vs Bitbucket Vs Gitlab
+
 - Github
-	- `charge per repo`
-	- `ruby on rail`
-	- `github action`
-	- `better text search`
+  - `charge per repo`
+  - `ruby on rail`
+  - `github action`
+  - `better text search`
 - Bitbucket
   - `charge per user`
   - `written in python & django`
