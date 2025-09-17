@@ -4,17 +4,18 @@
 
 ## Rules of Thumb
 
-- Training requires ~4× the RAM needed for inference.  
+- Training requires ~4× the RAM needed for inference(weight, gradient, Adam m, v).
 - RAM size > RAM speed > GPU speed.  
 - H100 costs $2–$4 per hour; uses ~700 W.  
 - Data‑center scale: 2024: ~30k A100 GPUs; 2025: ~100k; 2026: 300–700k.  
 - Power‑to‑chip efficiency (`PUE`) improves from 1.8 (wasteful) to ~1.1 (effective).  
 - Total Cost of Ownership: 10 % data center, 15 % power, 75 % GPU.  
 - Large runs cost 2–4× more than research runs.  
-- Output tokens(decode/RAM) are ~4× as expensive as input tokens (prefill/compute).
+- Output tokens(decode/RAM/slow) are ~4× as expensive as input tokens (prefill/compute/fast).
 - 128k ~ 100k words ~ agent handle 3-5 source files
-- 4k tokens ≈ ~10 GB KV cache
+- 4k tokens @ 8bit ≈ ~10 GB KV cache
 - Measure LLM by training-data, energy per task(cost) vs human,
+- Model FLOPs Utilization (MFU) > 30% good, > 40% excellent
 
 ### Token‑per‑second Benchmarks
 
@@ -42,9 +43,18 @@
   - GGUF – CPU‑focused.  
   - GPTQ – GPU‑focused.
 
-- **Precisions** – BF16, FP16, FP4 (default for Ollama).
+- **Precisions**
+  - BF16 - 8-bit exponent + 7-bit mantissa (+1 sign)
+  - FP16
+  - FP4 (Ollama default)
+  - NF4 - Hardcoded 16 numbers -1 to 1
+  - MXFP4
+  - NVFP4
 
-- Model size matters as much as precision.
+> Different components of Transformer has different precision needs.
+>> Q, K, V, FFN, early layers are less sensitive to precision; embedding, normalization, KV cache are sensitive to precision.
+
+> Model size matters as much as precision.
 
 ## General Landscape
 
@@ -57,12 +67,24 @@
 
 > Exclude training framework, only inference.
 
+**Things to consider**
+
+- intelligence
+- responsiveness
+- energy efficiency
+- cost
+- throughput
+
 | Category | Examples |
 |----------|----------|
 | Research | `transformers`, `llama.cpp` |
-| Inference Engine | JAX, ONNX, TensorRT, vLLM, SGLang |
-| Inference Orchestrate Framework | llm-d, Ray, NIM |
+| Inference Engine | JAX, ONNX, **TensorRT**, **vLLM**, SGLang |
+| Inference Orchestrate Framework | llm-d, Ray, Dynamo |
 
+- **TensorRT**
+  - SDK open source, but core close source. Covert pytorch modal to Nvidia kernel.
+  - builtin `fused kernels` or `micro kernels`
+  - 2–4× higher TPS to vllm
 - [JAX](https://developer.apple.com/metal/jax/)
   - `pip install "jax==0.4.34" "jaxlib==0.4.34" "jax-metal==0.1.1"`
   - AXLearn `Google's alternative Hugging Face transformers`
@@ -71,6 +93,7 @@
   - Inference Scheduler (similar to nginx, at request level)
     - `xxx-instruct-epp-xxxx`
     - attempt to uses last Decode Engine to avoid move KV cache
+    - prioritize kv cache match over workload
   - KV Cache Indexer
   - Inference-engine(vllm)
     - NIXL (NVIDIA communication library designed for fast KV-cache)
@@ -82,8 +105,9 @@
   - ModelService Controller (Pod Controller)
   - Prometheus (Monitor)
 
-- **NVIDIA Inference Microservices** (NIM)
+- **NVIDIA Inference Microservices** (NIM) - ~3GB `nvcr.io/nim/nvidia/llm-nim:latest`
   - Triton Inference Engine
+- **Dynamo** - 2+ nodes will 2X throughput tps
 
 ## Speculative Decoding
 
@@ -123,6 +147,7 @@ Speeds up inference by predicting multiple tokens ahead.
 - Codium
 - Aider
 - Continue.dev
+- Supermaven
 - Claude Dev
 - Windsurf
 

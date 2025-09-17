@@ -38,6 +38,8 @@ Stage:
     - Physic law can embed within lost function to ensure Model learn physic law.
 5. Optimization
     - Adaptive Moment Estimation (ADAM)
+      - magnitude $v_t = \beta_2 \cdot v_{t-1} + (1 - \beta_2) \cdot g_t^2$
+      - momentum $m_t = \beta_1 \cdot m_{t-1} + (1 - \beta_1) \cdot g_t$
     - This solution may be another AI itself?
 
 ### Neural Network Terms
@@ -131,6 +133,40 @@ model.model.layers ModuleList(
 ```
 
 <hr>
+
+### Reinforcement Learning
+
+> The limitation of supervise learning is teacher HAS answer, and student will NEVER out smart teacher, teacher requires build large teaching exercise.
+
+> The limitation of RL is reward sparsity, which it's why important to have small achievable goal.
+
+**PPO components**:
+
+> reinforcement learning human feedback with Proximal Policy Optimization(PPO), just promote subset response probability over undesired responses.
+
+> Collect set of complete responses, each token calculate its advantage estimate(from reward_model) & baseline_value(from ref_model)
+
+- police_model/SFT model - AI that takes input & generate output action.
+- ref_model - Frozen SFT model, uses to calculate lose by compare new action vs old action
+- reward_model - LLM with LORA(attach head) trained with ranking loss.
+  - Learn from human how to rate LLM output
+- policy gradient
+  - Kullback‑Leibler divergence (KL) - measure difference between 2 distributions `normalize by log(observation^(1/n))`;
+  - advantage estimate = total_discount_reward - baseline_value
+    - total discounted reward $G_t$ is from time step t; `aka future reward needs discount rate`
+    - baseline value = ref_model
+
+**GRPO**
+
+> RL from deepseak
+
+## Sparse Reward
+
+ • Reward shaping → add intermediate signals that guide progress.
+ • Curriculum learning → start with easy tasks, gradually scale difficulty.
+ • Exploration strategies (entropy bonuses, intrinsic motivation, count-based bonuses, etc.).
+ • Self-play (used in AlphaGo, AlphaZero, OpenAI Five).
+ • Hierarchical RL → break down long horizon tasks into sub-policies.
 
 ## Mechanistic Interpretability
 >

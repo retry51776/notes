@@ -470,6 +470,11 @@ model = Qwen2Model(config)
 
 ## MCP
 
+__Use Cases__
+
+- Expose Figma design to claude cli
+- Expose DB cli to manage DB
+
 <https://context7.com/>
 
 ```bash
@@ -478,3 +483,74 @@ uv run mcp install weather.py
 ```
 
 [Remote MCP servers](https://glama.ai/mcp/servers)
+
+## TensorRT
+
+> 2~4 × improvement pytorch
+
+```bash
+trtllm-build 
+trtllm-serve
+
+# A100
+nvidia-smi
+
+export NGC_API_KEY=
+echo $NGC_API_KEY
+
+echo $NGC_API_KEY | docker login nvcr.io --username '$oauthtoken' --password-stdin
+
+#docker pull nvcr.io/nim/nvidia/llm-nim:latest
+docker pull nvcr.io/nim/nvidia/llama3.1-nemotron-nano-4b-v1.1:latest
+
+# NVIDIA model catalog IDs
+export NIM_MODEL_NAME=meta-llama/Llama-3.1-8B-Instruct
+# LOCAL_NIM_CACHE is where NIM store LLM, inference engine & tokenizer
+export LOCAL_NIM_CACHE=~/.cache/nim
+mkdir -p "$LOCAL_NIM_CACHE"
+chmod 777 $LOCAL_NIM_CACHE
+
+# NIM only run single LLM, run multi LLM requires multiple pods
+# Case 1: Generic NIM image: nvcr.io/nim/nvidia/llm-nim:latest with NIM_MODEL_PROFILE controls LLM(Ex:tensorrt_llm-A100-fp16-tp1-throughput)
+docker run -it --rm --name=nim-server \
+  --runtime=nvidia \
+  --gpus='all' \
+  -e NGC_API_KEY=$NGC_API_KEY \
+  -p 8000:8000 \
+  -v "$LOCAL_NIM_CACHE:/opt/nim/.cache/" \
+  nvcr.io/nim/nvidia/llm-nim:latest
+  list-model-profiles
+
+# Case 2: LLM specific image: nvcr.io/nim/meta/llama-3-8b-instruct:latest
+# Search LLM from https://build.nvidia.com/, pick LLM deploy instruction
+docker run -it --rm \
+    --gpus all \
+    --shm-size=16GB \
+    -e NGC_API_KEY \
+    -v "$LOCAL_NIM_CACHE:/opt/nim/.cache" \
+    -u $(id -u) \
+    -p 8000:8000 \
+    nvcr.io/nim/nvidia/llama3.1-nemotron-nano-4b-v1.1:latest
+
+/v1/health/ready
+/docs
+/openapi.json
+
+# NeMo is training
+# ngc registry model download-version nvidia/nemo/llama_3_8B:1.0
+
+
+```
+
+```py
+import torch_tensorrt
+
+tensor_script = torch.git.trace(model, inout_data, strict=False)
+trt_model = torch_tensorrt.compile(tensor_script, inputs=[input_data], ir='ts')
+```
+
+## Dynamo
+
+```
+dynamo run in=http out=auto
+```

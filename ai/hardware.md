@@ -29,6 +29,22 @@ Each manufacturer has its own shading language.
 
 ### Network
 
+- CX [8, 9] Network Interface Control (NIC) uses InfiniBand; Node to Node
+  - InfiniBand and RoCE NICs uses **RDMA**(looks like folder `/dev/infiniband` in Linux)
+  - RoCEv2 UDP ports (typically 4791, 4790).
+
+- NVLink [5, 6, 8]; NVLink; GPU to GPU
+  - Part of /dev/nvidia; No linux exposure
+
+Analogy: A Shipping Port with Cranes
+
+Think of your RDMA NIC (HCA = Host Channel Adapter) as a giant shipping port.
+Applications (NCCL, UCX, MPI, etc.) want to move “containers” (data) quickly from one port to another.
+
+But applications can’t directly drive the cranes, forklifts, and trucks at the port.
+Instead, the Linux kernel provides gates (device nodes in /dev/infiniband).
+Each gate has a special purpose — like customs, traffic control, or the big cranes.
+
 - **InfiniBand** – Uses Remote Direct Memory Access (RDMA) bypasses the CPU. Uses Reliable Datagram Protocol (RDP) to share Memory across BETWEEN CLUSTER.
   - NCCL (NVIDIA Collective Communications Library) - specialize protocol for GPU, open source
   - **NVSHMEM** - GPU threads directly put/get/update data in remote GPU memory without CPU involvement.
@@ -50,10 +66,12 @@ Each manufacturer has its own shading language.
 
 | Strategy | Description |
 |----------|-------------|
-| Data Parallelism (DP) | Replicate the whole model on each GPU; split data batches. |
-| Pipeline Parallelism (PP) | Split the model across layers; each GPU processes a different stage. |
-| Sequence Parallelism (SP) | Partition long input sequences across GPUs. |
-| Tensor Parallelism (TP) | Split individual tensor operations across devices (often less efficient). |
+| Data Parallelism (DP) | Replicate the whole model on each GPU; split data **batches**. |
+| Pipeline Parallelism (PP) | Split the model across **layers**; each GPU processes a different stage. |
+| Sequence Parallelism (SP) | Partition long input **sequences** across GPUs. |
+| Tensor Parallelism (TP) | Split **individual tensor(dim)** operations across devices (often less efficient). |
+
+- Nvidia build optimize LLM image with tp1(single GPU), tp4(split attention head in 4 GPUs)
 
 ## Networking Details
 
@@ -81,6 +99,9 @@ Each manufacturer has its own shading language.
 - MTP - Multi-Token Prediction
 - Placement Driver (PD) dispatcher
 
+- all-reduce operation - sync local gradient for global gradients.
+- Activation Checkpoint - recompute activation every n layers when back props.
+
 ## Open‑Source Ecosystem
 
 - **Exo Labs** – AI cluster management software.
@@ -102,12 +123,18 @@ Each manufacturer has its own shading language.
 ### Google
 
 - **TPU** – Tensor Processing Units, Google’s custom AI accelerator.  
+  - MXUs (Matrix Multiply Units) - aka tensor core
+  - vector/scalar ALUs
+  - XLA compiler
 - **Colab** – Free notebooks with GPU/TPU access.
 
 ### Apple
 
-- **MLX** – Efficient array framework for Apple silicon (supports 4‑ and 8‑bit).  
+- **MLX** – Efficient array framework for Apple silicon (supports 4‑ and 8‑bit).
+  - MLX uses Apple GPUs, which is general purpose.
 - **Core ML** – Optimized inference engine; leverages the Apple Neural Engine (ANE).
+  - Neural Engine is similar to Tensor Core, only does matrix ops
+  - VERY few frameworks uses Neural Engine, almost pointless to have it
 - **vllm** <https://medium.com/@rohitkhatana/installing-vllm-on-macos-a-step-by-step-guide-bbbf673461af>
 
 > The ANE is not directly accessible from MLX or PyTorch.
@@ -150,16 +177,18 @@ Each manufacturer has its own shading language.
 | NVLink | High‑speed GPU‑to‑GPU interconnect |
 | NVENC / NVDEC | Video encode/decode |
 
+> Note: Tensor Core CAN'T tokenization, softmax scaling, KV cache indexing, and sampling, which still operate on floating point in CUDA Core;
+
 ### Training Tools
 
 - **AI Enterprise** – On Prem DGX Cloud.
 - **DGX Cloud** – NVIDIA’s AI suite. `Alternative to AWS, GPC, Azure` `https://build.nvidia.com/explore/discover`
-
-  - **NVIDIA NIM** – Inference micro‑services.  `Custom fork of K8s`
-    - **Triton Inference Server** (includes TensorRT).
-    - **Jupyter notebooks** for experimentation.  
-    - **NVIDIA NeMo** – Model training framework.
-    - **TensorRT-LLM**
+  - **NVIDIA NIM** – Inference micro‑services.  `similar to ollama; But NIM has different docker image for audio/image/video/biology service too`
+    - **Triton Inference Server**
+      - vllm (default engine)
+      - **TensorRT**
+      - sglang
+  - **NVIDIA NeMo** – Model training framework.
 
 ## Management Controllers
 

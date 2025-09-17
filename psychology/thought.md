@@ -58,6 +58,13 @@ Problem in transformer must be position encoding.
 
 why all animals have similar emotion?
 
+## Common Tradeoff
+
+- diversity vs. efficiency
+- Specialization vs. Flexibility
+- Scale vs. Local Autonomy
+- Stability vs. Innovation
+
 ## Changes
 >
 > Changes is hard because complexity system need process to filter out/narrow down change.

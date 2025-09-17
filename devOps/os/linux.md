@@ -3,7 +3,8 @@
 > qubesOS is secure Linux
 
 > `/proc` is virtual file reflect process info
-linux make everything as file
+
+> In Linux, everything is a file
 
 > CMDs `[application] [options] [command] [command options] [arguments...]`
 
