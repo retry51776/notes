@@ -6,6 +6,26 @@
 - LLM imitating human slow thinking, but not trained with human instinct. Maybe similar to `</think>` tag, we need LLM to generate `</instinct>` with subset NN.
 - The problem with pre-training is dense reward on every token. Only subset of token signal is True.
 
+- Data
+  - robot.txt
+  - DCLM classier - Model that assign data embedding for data filter.
+  - Synthetic Data
+    - rephrase to improve quality
+    - generate tasks
+- Training
+  - Data is the most important, because none open source its data.
+- Evaluation
+  - ARC benchmark isolate reasoning from knowledge & linguistic.
+  - Quizzing(has answer) vs Asking(don't know answer)
+  - LogitLens - decode intermediate RS back to token for interpret. <https://www.lesswrong.com/posts/AcKRB8wDpdaN6v6ru/interpreting-gpt-the-logit-lens>
+
+- LLM is about finding easy to scale axis.
+- layer depth is sequential and width is parallel.
+  - need found layers with sharp lost gradient: aka gradient scatter everywhere
+    - opt 1: dynamic increase parallel processing, reroute connections. `aka condense nn from sparse to dense`
+    - opt 2: find a way to have distinct storage in RS.
+    - opt 3: in optimizer, we remove neurons with gradient * fire_freq > threshold. (remove neuron spoke often, with wrong output.)
+
 - Human's ONLY advantage over AI is signal absorption rate is far HIGHER than AI.
 - Currently the problem in LLM is lifetime of context is short.
   - We have session compression to lengthen lifetime of session, but still no good way to manipulate session like human does in conversation(partially reset, topic reset).

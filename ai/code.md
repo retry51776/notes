@@ -9,13 +9,19 @@ Packages:
 
 ## Command fix shits
 
-```
+```py
 pip3 install torch -U
 
 # Metal Performance Shaders (MPS)
 import torch
 print(torch.backends.mps.is_available())  # Should return True
 print(torch.backends.mps.is_built()) 
+
+# pytorch matrix defined into specific GPUs
+import torch.distributed as dist
+device_tensor = torch.empty(1, device="cuda:1")
+# NCCL disturbed operation
+dist.all_reduce(input=device_tensor, output=output, op=dist.ReduceOp.SUM)
 
 export PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0
 
@@ -186,12 +192,21 @@ from marker.output import text_from_rendered
 
 These __global__ functions are known as kernels, and code that runs on the GPU is often called device code, while code that runs on the CPU is host code.
 
+> CUDA is essentially divide and conquer strategy. User defined divide & conquer logic, CUDA assign SM & WRAP to execute.
+>>
+>> 1. CUDA wrapper(CPU part) determent divide logic: boundary, tiling size, input & output pointers ...etc
+>> 2. `__golbal__` kernel(GPU part) does conquer: find sub target(with `block` & `thread`), runs desire logic, avoid out of bound.
+
 - Hierarchy of computations
 - corresponding memory space
 - synchronization primitives
   - `cudaDeviceSynchronize()`
   - `__syncthreads();`
   - `__syncwarp()`
+
+Nsight System - Advance GUI debugger
+
+Pytorch will calculate SM size, and choice best tiling size CUDA kernel.
 
 ```c++
 // CUDA Kernel function to add the elements of two arrays on the GPU
@@ -222,6 +237,16 @@ void add(int n, float *x, float *y)
 // Profile CUDA script
 nvprof ./add_cuda
 
+// compile custom CUDA
+module = load_inline(
+  cuda_sources=[xxx],
+  cpp_sources=[yyy],
+  functions=['gelu'],
+  extra_cflags=['-02'],
+  verbose=True,
+  name="inline_gelu",
+  build_directory="var/cuda_gelu"
+)
 
 //<<<gridDim, blockDim>>>; const
 // blockIdx.x; blockIdx.y; blockIdx.z
@@ -247,6 +272,19 @@ __global__ void warpAlignedKernel(int *x) {
         x[tid] += 1;
     }
 }
+
+```
+
+### Open AI Triton
+>
+> Manage Memory coalescing, Schedule SMs on top of CUDA. Just better version pytorch compile.
+
+> Let dev just work on block level, not the lower CUDA thread level.
+
+```py
+x = tl.load([start_ptr, s+1, ....s+BLOCK_SIZE])
+tl.store(y_ptrs, y_row)
+
 ```
 
 ## transformers
@@ -521,20 +559,34 @@ docker run -it --rm --name=nim-server \
   nvcr.io/nim/nvidia/llm-nim:latest
   list-model-profiles
 
-# Case 2: LLM specific image: nvcr.io/nim/meta/llama-3-8b-instruct:latest
+# list-model-profiles will is NIM utility list opinions that Nvidia has
+/v1/health/ready
+/docs
+/openapi.json
+
+
+# Case 2: Custom build TensorRT
+trtllm-build --checkpoint_dir /path/to/oss-120b \
+             --gpus 0,1,2 \
+             --tp_size 3 \
+             --gemm_plugin float8 \
+             --kv_cache_dtype fp16 \
+             --max_seq_len 8192
+
 # Search LLM from https://build.nvidia.com/, pick LLM deploy instruction
 docker run -it --rm \
     --gpus all \
     --shm-size=16GB \
     -e NGC_API_KEY \
+    -e NIM_MODEL_ID=openai/gpt-oss-120b\
+    -e NIM_TENSOR_PARALLEL_SIZE=3\
+    -e NIM_MAX_MODEL_LEN=8192\
+    -e NIM_MAX_NUM_SEQS=6\
+    -e NIM_GPU_MEMORY_UTILIZATION=0.85\
     -v "$LOCAL_NIM_CACHE:/opt/nim/.cache" \
     -u $(id -u) \
     -p 8000:8000 \
     nvcr.io/nim/nvidia/llama3.1-nemotron-nano-4b-v1.1:latest
-
-/v1/health/ready
-/docs
-/openapi.json
 
 # NeMo is training
 # ngc registry model download-version nvidia/nemo/llama_3_8B:1.0
@@ -551,6 +603,32 @@ trt_model = torch_tensorrt.compile(tensor_script, inputs=[input_data], ir='ts')
 
 ## Dynamo
 
-```
-dynamo run in=http out=auto
+```bash
+uv pip install 'ai-dynamo[all]'
+
+# This just let user test prompt with LLM locally, without router, api-service
+dynamo run in=http out=auto deepseek-ai/DeepSeek-R1-Distill-Llama-8B
+
+dynamo serve graphs.agg:Frontend -f config/agg.yaml --VllmWorker.ServiceArgs.workers 4
+
+'''agg.yaml
+Frontend:
+  model: deepseek-ai/DeepSeek-R1-Distill-Llama-8B
+  endpoint: dynamo.Processor.chat/completions
+  port:8000
+
+Processor:
+  model: deepseek-ai/DeepSeek-R1-Distill-Llama-8B
+  block-size: 64
+
+VllmWorker:
+  model: deepseek-ai/DeepSeek-R1-Distill-Llama-8B
+  tensor-parallel-size: 1
+
+PrefillWorker:
+
+'''
+
+# Build a docker image
+dynamo build 
 ```

@@ -68,7 +68,7 @@ Each gate has a special purpose — like customs, traffic control, or the big cr
 |----------|-------------|
 | Data Parallelism (DP) | Replicate the whole model on each GPU; split data **batches**. |
 | Pipeline Parallelism (PP) | Split the model across **layers**; each GPU processes a different stage. |
-| Sequence Parallelism (SP) | Partition long input **sequences** across GPUs. |
+| Sequence Parallelism (SP) | Partition long input **sequences** across GPUs. (very limited) |
 | Tensor Parallelism (TP) | Split **individual tensor(dim)** operations across devices (often less efficient). |
 
 - Nvidia build optimize LLM image with tp1(single GPU), tp4(split attention head in 4 GPUs)
@@ -124,8 +124,10 @@ Each gate has a special purpose — like customs, traffic control, or the big cr
 
 - **TPU** – Tensor Processing Units, Google’s custom AI accelerator.  
   - MXUs (Matrix Multiply Units) - aka tensor core
-  - vector/scalar ALUs
+  - vector process unit (VPU) - aka normal math ops
+  - scalar ALUs - normal CPU ops, aka control unit
   - XLA compiler
+  - Toroidal mesh - `Only network to neighbor TPU, GPU is all-to-all(up to 256 GPUs)`
 - **Colab** – Free notebooks with GPU/TPU access.
 
 ### Apple

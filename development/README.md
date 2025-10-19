@@ -11,3 +11,4 @@ Both software and hardware improvements are similar.
   - Interrupt `swap tasks to increase hardware efficiency`
   - Predict `trade/waste computation for speed`
   - Arithmetic
+  - in-place execution `avoid intermediate variables`

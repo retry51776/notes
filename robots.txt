@@ -1,0 +1,10 @@
+# robots.txt for Terry's Notes repository
+User-agent: *
+Allow: /
+
+# Prevent indexing of automation artifacts and experimental areas
+Disallow: /tools/
+Disallow: /test/
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /output.wav

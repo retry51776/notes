@@ -51,6 +51,7 @@
 - Every problem can break into 2 components: search & verify.
 - Intelligence(Data) vs. Rationality(Radom Sample)
 - We (including AI) are always biased because each of us experiences only a subset of reality.
+- surprisal: Rare events contains more information.
 
 - All evolutionary ideas challenge our assumptions.  
   > *Einstein*: E = mc² → energy and mass are equivalent.  

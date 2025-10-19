@@ -38,6 +38,8 @@ First, select the top-𝑘 groups (e.g., top-1 group/32 experts) per token.
 
 Then, choose the top-𝑘(top 8 experts from of 32 experts group) experts only within those groups.
 
+- Device Balance vs Expert Balance - one expert group ~ one device, find group with highest top-k match overall, prevent route request to experts in many devices.
+
 > V3 expert load balance is NOT Real-Time Tracking from previous token experts.
 
 ## Expert (DeepseekV3MLP)

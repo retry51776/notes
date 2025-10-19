@@ -18,6 +18,7 @@ Stage:
 - 2023: Post Training w Reinforcement Learning: General Model handle different tasks
 - 2025: Async Model `Model can continuously take input, change action base off new input(observation) while its outputting; Not like current LLM is turn base.`
   - Parallel Output `paralyzed LLM output, maybe generate outline first, then generate each subsection by batch`
+  - Hierarchical Reasoning Model (Recurring frequency vs Output frequency)
   - Decouple Input & Output
   - Output interruption & Input interruption
   - Improve LLM from understand to apply tools `aka from understand to doing`
@@ -49,15 +50,20 @@ Stage:
   - Backward Propagation
     - Lost
     - ε (epsilon) `a tiny constant (typically 1e-5 or 1e-6); learning rate unit`
-- Neuron `fundamental unit in a neural network that performs a simple mathematical operation on input data and passes the result to other neurons or output units`
+- Neuron `fundamental unit in a neural network that performs a simple mathematical operation on input data and passes the result to other neurons or output units; weights usually gaussian distribution`
   - Activation function
-  - Weight
-  - Bias `Doesn't uses in attention blocks`
+    - Relu - range 0 to x;
+    - SiLU - GPT-OSS; likely range from -1 to 50
+    - GELU - (Gaussian Error Linear Unit)
+  - Weight - Usually range from -1 to 1
+  - Bias - Usually small; Doesn't uses in attention blocks;
+  - Output - center around 0 because normalization layer;  Activations Density under 0.5%
 - Auto Model Compression `pruning as reinforcement learning problem`
 
 - Hill climbing `strong signal, LLM training`
 - Sharded `Split LLM into chucks`
-- Tiling `calculation by smaller block, uses scaler to rescale each row to combine whole`
+- Tiling `calculation matrix multiplication by smaller block, each SM loads target block row & col to calculate small final result block`
+- Tensor Parallelism `similar to tiling, but need sum to get final result(tilting need append to get final result)`
 - Recomputation `Don't store, recompute to save RAM`
 
 - Mixture of Expert(MOE) `combine smaller models`
@@ -71,7 +77,18 @@ Stage:
 
 - Position Interpolation `extend context window without`
 
+- Perplexity in LLMs is a metric for how well the model predicts a sequence of tokens
 - gradient descent `Compute batch avg lose, nudge a little by batch avg lose direction. It works because unlike it stuck at local min, stuck requires all dimensions are at local minimum at the same time`
+  - big batch size can support large learning rate, small batch size should able fine tune. RL ~ batch size = 1; Think as case specific knowledge can't be mixed.
+
+- Collective Operations
+  - Broadcast
+  - Scatter - each rank gets subset of data
+  - Gather - collect all ranks into single rank
+  - Reduce
+  - All-gather - every rank broadcast & gather;
+  - Reduce-scatter - every rank get op(sub_set)
+  - All-reduce = reduce-scatter + all-gather
 
 ## Architecture
 
@@ -104,12 +121,26 @@ residual stream/latent space `The intermediate output between NN layers`
 
 ### Transformer
 
+<https://poloclub.github.io/transformer-explainer/>
+
 - x `input tokens`
 - len(x) `input length`
 - Q `Q = x * Wq, positional specific`
 - K `K = x * Wk, position agnostic`
 - V `V = x * Wv, position agnostic; each token possible meanings(need filter by contextual score)`
+- H `Number of attention heads`
+- d_head `often 128, len(x) * d_head`
+- d_model = `d_head * H` is residual stream size.
 - $ QK^T $ `d_model * len(x), contextual score`
+
+deepseek:
+
+- Multi-Head Latent Attention (MLA)
+  - Find common denominator matrix C for in KV matrix, so when store KV cache, store KV/C to save storage.
+- Cross-Layer Attention (CLA)
+- Due Pipeline - Decouple backprops into 2 components; Only run 2nd part when GPU is free
+  - Calculate backprops for early layer
+  - Calculate weight update
 
 ```py
 model.model.layers ModuleList(
@@ -150,15 +181,22 @@ model.model.layers ModuleList(
 - ref_model - Frozen SFT model, uses to calculate lose by compare new action vs old action
 - reward_model - LLM with LORA(attach head) trained with ranking loss.
   - Learn from human how to rate LLM output
+- value_function - How much value does solution sub step worth
 - policy gradient
   - Kullback‑Leibler divergence (KL) - measure difference between 2 distributions `normalize by log(observation^(1/n))`;
+    - KL = Cross Entropy - Entropy
   - advantage estimate = total_discount_reward - baseline_value
     - total discounted reward $G_t$ is from time step t; `aka future reward needs discount rate`
+      - discount factory - how much future reward needs to discount
     - baseline value = ref_model
 
 **GRPO**
 
-> RL from deepseak
+> Group Relative Policy Optimization(GRPO) from deepseek
+>> Replace ref_model to calculate baseline with generic baseline(per question, excludes answer);
+>> Replace per step reward with final reward.
+
+**Direct Preference Optimization**
 
 ## Sparse Reward
 
@@ -189,10 +227,15 @@ Techs:
 - Patchscopes `Swap activations from a clean run into a corrupted run to test causality.`
 - vocabulary projection
 - Feature Attribution Methods (Gradient-based)
+- Probs - Individual neuron activation indicate x feature
 
 Tools:
 
 - TransformerLens
+
+Rule of Thumb
+
+- Facts are expects to resides in early layers of FFN
 
 ### Linear representation
 >
@@ -206,6 +249,11 @@ Tools:
 > Feature Frequencies matters a LOT for SAE(Sparse Auto Encoder), infrequence features SAE may not learn.
 
 > Feature can inhabit another feature.
+
+**Reasoning Tuned**
+> Fine tuning with verifiable task
+
+- Reinforcement Learning with Verifiable Reward(RLVR)
 
 ### Superposition
 >
@@ -265,6 +313,9 @@ sparse optimization algorithm
 - Hard Thresholding
 
 > Sparse Auto Encoders(SAE) can find a lot (maybe most) of features, but for sure some LLM understand features are not found in SAE.
+
+**Activation density**
+> Most transformer neuron fires under 0.5%; early layers fires more than later layers. But human cortex Activation density ~ 1-5%.
 
 ## Paper
 
