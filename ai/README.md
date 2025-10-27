@@ -16,20 +16,32 @@
 
 ## Analogy
 
-- AI today mirrors 19th‑century chemistry and metallurgy. A fixed set of principles—like the properties of usable metal—guides us as we turn raw data (iron ore) through computational “heat” into a refined steel product (the model, i.e., iron or steel). The value of the data isn’t measured by sheer quantity; it resides in the embedded logic and mechanisms that we seek.
+- AI today mirrors 19th‑century chemistry. Metallurgist(AI scientist) through heat(computation) turn iron ore(raw data) into a refined steel (LLM model). The value of the iron ore(data) isn’t measured by sheer quantity, rather resides in the Iron Content (world knowledge & logic).
 
   - Mining & Extraction → Data collection & scraping
   - Computation → Heat
   - Data center → Blast furnace
   - Data → Iron ore
-  - Model → Iron (or steel)
+  - Model → Steel
   - Fine‑tuning / specialized model training → Alloying (adding carbon to make steel)
   - Inference & deployment → Rolling & shaping steel
   - AI evaluation (benchmarks, alignment, RLHF) → Quality testing & hardening
   - AI applications → Bridges, cars, tools
   - Smart AI output token’s information density → Iron density
 
+<hr/>
+
+> Token(LLM output) is NOT what we want, it's just an intermediary. We don't want to read answer, rather we want to CHANGE/LEARN our BRAIN(residual stream) by reading answer.
+
+- Token(str: atom)
+- Embedding(vector @ beginning of LLM: atom's lowest energy/identity state)
+- LLM weights & residual stream(spacetime)
+- World knowledge & ration(law of physics, dictate interaction atom & spacetime)
+
 ## Frustrations
 
 - Mechanistic Interpretability(mech interp) moves very slows(close source, LLM specific) while AI capability keep accelerating.
 - Tech stacks are NOT decouple, hardware & software are most likely interlock.
+- Memory Hierarchy(both hardware & LLM)
+  - Hardware: Disk < Infinity Switch < InfiniBand < HBM < L1 cache
+  - LLM: fussy memory @ LLM weights < determinist memory @ context window < relevant memory @ residual stream

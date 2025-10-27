@@ -4,7 +4,7 @@
 
 ## Software Stack
 
-> Machine‑learning frameworks (e.g., PyTorch) → acceleration drivers (cuDNN) → parallel thread execution (PTX assembly) → streaming assembly (SASS machine code) → hardware (GPU).
+> Machine‑learning frameworks (e.g., PyTorch) → Intermediate Representation(IR/compute graph) → Kernel (different subset CUDA/cuDNN/FlashInfer) → parallel thread execution (PTX assembly) → streaming assembly (SASS machine code) → hardware (GPU).
 
 Different hardware needs its own version of `llama.cpp` (e.g., Metal, ROCm, CUDA).
 
@@ -203,6 +203,10 @@ Each gate has a special purpose — like customs, traffic control, or the big cr
 - **Block** – Up to 1024 threads; also 1‑3 dimensions.  
 - **Warp** – 32 threads executed in lockstep.  
 - Unified Virtual Addressing (UVA) - Share Memory across SINGLE NODE(Ex: a NVL72)
+
+### FlashInfer
+
+Specialized high-performance CUDA kernel library for LLM inference
 
 ```
 # Developer perspective

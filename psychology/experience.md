@@ -48,6 +48,7 @@
 - Everything has its mechanic. Understand the mechanics by either collecting statistics or applying logic.
 - Most things have a recursive property (e.g., wealth, knowledge, ability, social skill).
 - Structure often determines properties.
+- Causation requires sequential events, which default will be computational slower than correlation.
 - Every problem can break into 2 components: search & verify.
 - Intelligence(Data) vs. Rationality(Radom Sample)
 - We (including AI) are always biased because each of us experiences only a subset of reality.

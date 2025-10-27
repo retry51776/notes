@@ -3,17 +3,23 @@
 ## IMO
 
 - AI is "crystallize intelligent". Similar to kinetic energy being converted into potential energy.
-- LLM imitating human slow thinking, but not trained with human instinct. Maybe similar to `</think>` tag, we need LLM to generate `</instinct>` with subset NN.
+- LLM imitating human slow thinking, but not trained with human instinct.
+  - cause 1: attention scale o(n^2), although attention only 20% calculation
+  - cause 2: FFN calculation is intense
 - The problem with pre-training is dense reward on every token. Only subset of token signal is True.
+- Simple ideas are easy to transfer(both people & LLM); complex ideas are not. Hard part is always make idea/context simple.
+- Token(str: atom), world knowledge & ration(law of physics), LLM weights & residual stream(spacetime), embedding(vector: atom's lowest energy/identity state)
+  - Token is NOT what we want, it's interaction within RS. LLM answer is NOT what we want to remember, rather we want by READING answer change interaction within OUR BRAIN.
 
 - Data
+  - Data is the most important, because none open source its data.
   - robot.txt
   - DCLM classier - Model that assign data embedding for data filter.
   - Synthetic Data
     - rephrase to improve quality
-    - generate tasks
+    - generate tasks; Ex: summary, info extra
 - Training
-  - Data is the most important, because none open source its data.
+  - Very few use case for fine tune. Has very large static knowledge, that does NOT conflicts with LLM known knowledge, and very diverse.
 - Evaluation
   - ARC benchmark isolate reasoning from knowledge & linguistic.
   - Quizzing(has answer) vs Asking(don't know answer)
@@ -30,7 +36,6 @@
 - Currently the problem in LLM is lifetime of context is short.
   - We have session compression to lengthen lifetime of session, but still no good way to manipulate session like human does in conversation(partially reset, topic reset).
     - We need to pre-train LLM ability to re-adjust session in each conversation, rather currently manually reset.
-  - Also text session most likely NOT enough.
 - Interestingly or scarily that LLM sometime already aware the input prompt is evaluation prompt.
 - Progressive model growth
 - compute is NOT the bottleneck, rather is Memory size.

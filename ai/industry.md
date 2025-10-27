@@ -13,6 +13,7 @@
   - Total Cost of Ownership: 10 % data center, 15 % power, 75 % GPU.  
 - Training
   - RL is similar to lottery-yield manufacturing
+  - Get high-entropy data(LLM hard to predict seq, measure by sum(log_prob))
   - Most Research are find pattern/correlation of hyper parameters in smaller LLM, project its correlation to larger LLM.
   - **Chinchilla optimal** - 1B parameters LLM needs 20B token in pre-train, takes 3 days in H100(1979e12) with 40% MFU. $$\text{Training FLOPs} \; C \;\approx\; 6 \cdot N \cdot D$$
   - 120B GPT-OSS uses range 3 trillion tokens.
@@ -136,6 +137,12 @@
 ## Speculative Decoding
 
 Speeds up decode by predicting multiple tokens(8–16 token drafts) with **smaller** LLM, validate predicted token in batch(prefill/fast) with **larger** LLM(bottleneck).
+  Validate by checking prefill draft token's logit within top-k logit.
+  Also explain why most LLM objective is fully shift, otherwise this won't work.
+
+## Continue Batching
+
+Vllm will swap out completed slot with another request. Max out batch usage avoid padding.
 
 ## Selective Batching
 

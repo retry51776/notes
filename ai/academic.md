@@ -61,26 +61,44 @@ Stage:
 - Auto Model Compression `pruning as reinforcement learning problem`
 
 - Hill climbing `strong signal, LLM training`
-- Sharded `Split LLM into chucks`
+- Logit values `the raw scores before softmax`
 - Tiling `calculation matrix multiplication by smaller block, each SM loads target block row & col to calculate small final result block`
-- Tensor Parallelism `similar to tiling, but need sum to get final result(tilting need append to get final result)`
-- Recomputation `Don't store, recompute to save RAM`
 
-- Mixture of Expert(MOE) `combine smaller models`
-- Multi Query Attention `reduce attention head to output to increase speed
+- General
+  - Tensor Parallelism `similar to tiling, but need sum to get final result(tilting need append to get final result)`
+
+- architecture design
+  - Tokenizer
+    - chat-template
+      - different role/channel
+      - special tokens
+  - Mixture of Expert(MOE)
+  - Multi Query Attention `reduce attention head to output to increase speed`
+- Training
+  - Activation checkpoint `Don't store Activation, recompute to save RAM`
+  - pre-training objectives
+    - full shifting
+    - windowed loss
+    - Last-token only loss
+    - Multi-token prediction
+
+- post-train
+  - ~100mb/100k instruction dataset
+  - Parameter Efficient Fine Tuning(PEFT)
+  - LoRa `Attach extra weight to original model feed forward layer, then train these extra weight; usually mb size`
 
 - L1 regularization `L1 regularization penalizes the sum of the absolute values of the weights in the network. This encourages the network to use a smaller number of weights, and it can also help to prevent over fitting.`
 - L2 regularization `L2 regularization penalizes the sum of the squares of the weights in the network. This also encourages the network to use a smaller number of weights, and it can also help to improve the generalization performance of the network.`
+  - Weight decay `adds a penalty term to the loss function that discourages large parameter values`
 
-- Parameter Efficient Fine Tuning(PEFT)
-- LoRa `Attach extra weight to original model feed forward layer, then train these extra weight; usually mb size`
-
-- Position Interpolation `extend context window without`
+- Position Interpolation `extend context window without retrain`
 
 - Perplexity in LLMs is a metric for how well the model predicts a sequence of tokens
+- bias-variance tradeoff - overfitting training data. As LLM size increase, bais error is easy to reduce(aka training error), while variance(range of understanding) error domain, then variance error decrease.
+  - The problem is human brain are similar, so default variance are small. But LLM are very different, larger variance relative to another human.
 - gradient descent `Compute batch avg lose, nudge a little by batch avg lose direction. It works because unlike it stuck at local min, stuck requires all dimensions are at local minimum at the same time`
   - big batch size can support large learning rate, small batch size should able fine tune. RL ~ batch size = 1; Think as case specific knowledge can't be mixed.
-
+- epoch, batch, slot
 - Collective Operations
   - Broadcast
   - Scatter - each rank gets subset of data
@@ -165,11 +183,26 @@ model.model.layers ModuleList(
 
 <hr>
 
+### Pretrain
+
+> Pretrain is all about imitation.
+
+### Supervise Finetune Training(SFT)
+
+> SFT can't scale, generate the whole distribution is too expensive. Also too hard to judge/score SFT solution.
+
 ### Reinforcement Learning
 
 > The limitation of supervise learning is teacher HAS answer, and student will NEVER out smart teacher, teacher requires build large teaching exercise.
 
 > The limitation of RL is reward sparsity, which it's why important to have small achievable goal.
+
+Good LLM RL practices:
+
+- LLM self aware its known & unknown
+- LLM self aware its context window
+- Solve verifiable tasks
+- Learn HF preference
 
 **PPO components**:
 

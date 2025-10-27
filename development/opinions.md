@@ -13,6 +13,8 @@
 >> `useXXX()` is the machine.
 >> `onXXX` passed into `useXXX()` is like a custom request—similar to telling the coffee machine before it brews, “do X, Y, Z.” If the machine doesn't support a custom request, then you either try to see if you can add water after you get coffee, or pick another machine.
 
+> Function is stateless, vs Class is stateful.
+
 > Event‑based:
 
 > Computation is moving data, just with an inseparable move.
