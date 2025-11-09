@@ -10,6 +10,71 @@ Different hardware needs its own version of `llama.cpp` (e.g., Metal, ROCm, CUDA
 
 Each manufacturer has its own shading language.
 
+Background services:
+
+- nv-hostengine
+
+### Monitor
+
+GPU → DCGM Exporter (:9400/metrics
+) → Prometheus(ServiceMonitor
+) → Grafana
+
+Tools:
+
+- SLURM
+- nvidia-smi pmon
+- gpustat `nvidia-smi wrapper`
+- Triton metrics
+- <https://github.com/NVIDIA/dcgm-exporter>
+- NVIDIA GPU Operator `K8s monitor`
+  - `node-role.kubernetes.io/gpu=true:NoSchedule`
+  - `mig & config.yaml` shard GPUs
+
+```bash
+# SLURM View All Running / Queued Jobs
+squeue
+
+sinfo -N -l
+```
+
+```bash
+# GPU Operator
+sudo docker run --rm -d \
+  --gpus all \
+  -p 9400:9400 \
+  nvidia/dcgm-exporter:3.3.6-3.6.0-ubuntu22.04
+```
+
+Tips:
+
+- Scheduled stress testing, trace baseline, degradation
+
+- dcgmi `Data Center GPU Manager`
+
+common errors:
+
+- Error correction code memory (ECC memory)
+- Power Supply Unit(PSU)
+- nvidia-persistenced crash (driver crashed)
+
+XID error
+
+```bash
+
+# Check for GPU/NVIDIA errors
+
+sudo dmesg | grep -i nvidia
+
+# or
+
+sudo journalctl | grep -i nvidia
+
+# Ex:
+# NVRM: Xid (PCI:0000:07:00): 31, Ch 00000035, engmask 00000101, intr 10000000
+  
+```
+
 ### Near‑Memory Design
 
 - Reconfigurable data‑flow hardware vs. parallelism on existing compute units.
@@ -208,14 +273,15 @@ Each gate has a special purpose — like customs, traffic control, or the big cr
 
 Specialized high-performance CUDA kernel library for LLM inference
 
-```
-# Developer perspective
+```py
+# Developer perspective with Hopper
 Grid (many Blocks)
  ├─ Block 0 (1024 Threads) → assigned to a single SM
  │   ├─ Warp 0 (32 Threads)
  │   └─ …
  ├─ Block 1 (many Threads)
- └─ Block N
+ ├─ …
+ └─ Block 31
 ```
 
 - **SM** – Streaming Multiprocessor; contains CUDA cores, Tensor Cores, warp schedulers, SFUs, load/store units, L1 cache & shared memory.  
@@ -224,7 +290,7 @@ Grid (many Blocks)
 
 ## NVIDIA Software Stack
 
-- **AI Enterprise** → OS (Ubuntu + drivers) → Tools (Base Command, Base Command Manager, Suit Command).  
+- **AI Enterprise** → OS (Ubuntu + drivers) → Tools (Base Command Platform, Suit Command).  
 - **NGC** – NVIDIA GPU Cloud for containers and pre‑built images.  
 - **HGX** – High‑performance GPU servers (e.g., Dell PowerEdge R750xa, HPE ProLiant DL380 Gen10, Lenovo SR670, Supermicro SYS‑420GP).````
 

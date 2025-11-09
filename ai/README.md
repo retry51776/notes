@@ -45,3 +45,4 @@
 - Memory Hierarchy(both hardware & LLM)
   - Hardware: Disk < Infinity Switch < InfiniBand < HBM < L1 cache
   - LLM: fussy memory @ LLM weights < determinist memory @ context window < relevant memory @ residual stream
+- Hardware failure needs complex multi level monitor system

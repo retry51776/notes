@@ -8,8 +8,6 @@
   - cause 2: FFN calculation is intense
 - The problem with pre-training is dense reward on every token. Only subset of token signal is True.
 - Simple ideas are easy to transfer(both people & LLM); complex ideas are not. Hard part is always make idea/context simple.
-- Token(str: atom), world knowledge & ration(law of physics), LLM weights & residual stream(spacetime), embedding(vector: atom's lowest energy/identity state)
-  - Token is NOT what we want, it's interaction within RS. LLM answer is NOT what we want to remember, rather we want by READING answer change interaction within OUR BRAIN.
 
 - Data
   - Data is the most important, because none open source its data.
@@ -95,6 +93,8 @@ LLMs work by providing each “world” with context, which includes relevant in
 ## OpenAI Perspective
 
 > *The age of pre‑training is over.*
+
+> log(compute) ~ log(intelligent)
 
 - Self Taught Reasoner (STaR)
 

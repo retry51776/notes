@@ -22,7 +22,7 @@ Stage:
   - Decouple Input & Output
   - Output interruption & Input interruption
   - Improve LLM from understand to apply tools `aka from understand to doing`
-- ??: dynamic model
+- ??: dynamic model & benchmark
 
 ### Modeling Steps
 
@@ -45,12 +45,14 @@ Stage:
 
 ### Neural Network Terms
 
-- Learning Workflow
+- Basic General
   - Forward Propagation
   - Backward Propagation
     - Lost
     - ε (epsilon) `a tiny constant (typically 1e-5 or 1e-6); learning rate unit`
-- Neuron `fundamental unit in a neural network that performs a simple mathematical operation on input data and passes the result to other neurons or output units; weights usually gaussian distribution`
+
+  - Tiling `calculation matrix multiplication by smaller block, each SM loads target block row & col to calculate small final result block`
+  - Neuron `fundamental unit in a neural network that performs a simple mathematical operation on input data and passes the result to other neurons or output units; weights usually gaussian distribution`
   - Activation function
     - Relu - range 0 to x;
     - SiLU - GPT-OSS; likely range from -1 to 50
@@ -58,20 +60,19 @@ Stage:
   - Weight - Usually range from -1 to 1
   - Bias - Usually small; Doesn't uses in attention blocks;
   - Output - center around 0 because normalization layer;  Activations Density under 0.5%
-- Auto Model Compression `pruning as reinforcement learning problem`
+  - Hill climbing `strong signal, LLM training`
+  - Logit values `the raw scores before softmax`
 
-- Hill climbing `strong signal, LLM training`
-- Logit values `the raw scores before softmax`
-- Tiling `calculation matrix multiplication by smaller block, each SM loads target block row & col to calculate small final result block`
-
-- General
+- Advance General
+  - low-loss paths `small changes do not significantly increase the loss`
+  - Auto Model Compression `pruning as reinforcement learning problem`
   - Tensor Parallelism `similar to tiling, but need sum to get final result(tilting need append to get final result)`
-
 - architecture design
-  - Tokenizer
+  - Tokenizer `prompt(str) → input_ids(list(int)) → embedding(list(list(double))) → logit(list(double)) → prob(list(double)) → token(int) → output(str)`
     - chat-template
       - different role/channel
       - special tokens
+    - embedding space at layer 0 is often scrambled and highly non-semantic
   - Mixture of Expert(MOE)
   - Multi Query Attention `reduce attention head to output to increase speed`
 - Training
@@ -85,7 +86,9 @@ Stage:
 - post-train
   - ~100mb/100k instruction dataset
   - Parameter Efficient Fine Tuning(PEFT)
+    - google/IFEval
   - LoRa `Attach extra weight to original model feed forward layer, then train these extra weight; usually mb size`
+  - On Policy Distillation `kl(student_prob - teach_prob)`
 
 - L1 regularization `L1 regularization penalizes the sum of the absolute values of the weights in the network. This encourages the network to use a smaller number of weights, and it can also help to prevent over fitting.`
 - L2 regularization `L2 regularization penalizes the sum of the squares of the weights in the network. This also encourages the network to use a smaller number of weights, and it can also help to improve the generalization performance of the network.`
@@ -181,6 +184,15 @@ model.model.layers ModuleList(
 )
 ```
 
+### Diffusion
+
+> Diffusion train data by noise sample both variances(gaussian noise) & mean(drift direction toward 0/normal distribution).
+
+> Diffusion Model generate all tokens, then mask tokens with low logit, regenerate again.
+
+DDMP paper
+(Evidence Lower Bound)ELBO
+
 <hr>
 
 ### Pretrain
@@ -201,8 +213,9 @@ Good LLM RL practices:
 
 - LLM self aware its known & unknown
 - LLM self aware its context window
-- Solve verifiable tasks
 - Learn HF preference
+
+- Solve/Predict/Explain/Counter/Coherence/Confidence
 
 **PPO components**:
 
