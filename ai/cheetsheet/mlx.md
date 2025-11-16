@@ -1,5 +1,9 @@
 # MLX
 
+## Frustration
+
+- `np.concatenate` `np.dot` are NOT support
+
 ## OSS chat template
 >
 > Each LLM has its own chat template determent how it interpret input string & generate output
@@ -12,7 +16,7 @@
 | tool / python | ✅ (sometimes) | Treated as special assistant sub-channels |
 
 ```python
-<|start|>  → begins a message
+<|start|>  → role
 <|channel|>  → specifies what type of message (e.g. analysis, final)
 <|message|>  → starts the content body
 <|end|>  → closes the whole message

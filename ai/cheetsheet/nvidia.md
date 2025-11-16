@@ -1,6 +1,6 @@
 # Nvidia
 
-- AI Enterprise
+- AI Enterprise <https://docs.nvidia.com/ai-enterprise/index.html#infrastructure-software>
   - DGX OS / Base OS
     - GPU Driver
     - CUDA Toolkit
@@ -27,11 +27,12 @@ LTS
 
 Pods:
 
-- container-toolkit
-- cuda-validator
-- dcgm-exporter
-- driver-daemonset
-- mig-manager
+- container-toolkit `runtime & utilities`
+- cuda-validator `monitor`
+- dcgm-exporter `monitor`
+- driver-daemonset `loads GPU drivers on node`
+- mig-manager `detect label/config, restart other pods`
+- device-plugin-daemon `give GPUs to container that requests resource:gpu`
 - operator-validator
 
 K8s `GPU Operator`'s `ClusterPolicy` set `RuntimeClass` default uses `runc`, for NV GPU Operator default changes to `nvidia`.
@@ -45,6 +46,40 @@ Runtime `nvidia` does
  5. Then calls runc underneath to actually launch the container process.
 
 K8s `GPU Operator`'s `nvidia-driver-daemonset` will install driver on HOST, so all other containers has GPU drivers.
+
+### MIG
+
+> Context switch will cost 37% from single to 2, but from 2 to 4, to 8 will be linear scale. Also enable MIG immediately lost 1g(10% SM).
+
+```bash
+# This has ALL config options of Physical partitioning
+kubectl get cm -n kube-system nvidia-mig-config
+# This has ALL config options of time slice
+kubectl get cm -n kube-system nvidia-time-slicing-config -o yaml
+
+# Step 1 Set mig.config by node label
+# all-1g.5gb must be from @ nvidia-mig-config or nvidia-time-slicing-config
+kubectl label nodes $NODE nvidia.com/mig.config=all-1g.5gb
+
+
+# Step 2
+# mig-manager(daemon pod) watches for changes to the nvidia.com/mig.config
+#   - stops all GPU-using pods on that node
+#   - nvidia.com/mig.config.state=success (or pending/rebooting)
+
+# Step 3
+# Assign Job/Deployment resources
+# Default without MIG
+resources:
+  limits:
+    nvidia.com/gpu: 1
+# Use MIG police: mig-1g.5gb: 1 1g is smaller number of SM, 5gb is 5GB of RAM
+resources:
+  limits:
+    nvidia.com/mig-1g.5gb: 1
+
+
+```
 
 ## Flow
 
