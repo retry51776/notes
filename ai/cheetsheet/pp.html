@@ -422,7 +422,7 @@
         <span class="tag"><span class="tag-dot"></span>Orientation</span>
         <h2>Outline</h2>
         <ul>
-          <li><strong>Goal</strong>: follow the <strong>technical dataflow</strong> inside a GPT-style Transformer from prompt text to the next token, calling out where algorithm design vs. compute core carry the load.</li>
+          <li><strong>Goal</strong>: follow the <strong>technical dataflow</strong> inside a GPT-style Transformer from prompt text to the next token.</li>
           <li><strong>Focus</strong>:
             <ul>
               <li>Token pipeline, residual stream, GPT-OSS chat template, and special tokens.</li>
@@ -453,14 +453,14 @@
         <p>We work with a single forward generation step on top of an existing prompt.</p>
 
         <div class="flow flow-annotated">
-          <div class="flow-layer flow-layer-algo">Algorithmic Layer · Prompt Handling</div>
+          <div class="flow-layer flow-layer-algo">Algorithmic Layer · <a href="https://github.com/karpathy/nanochat/blob/4a87a0d19f30799b6c700285822dcca850adf6a4/scripts/chat_cli.py#L76">Prompt Handling</a></div>
           <div class="flow-step flow-step-algo">★ prompt: List[str]</div>
           <div class="flow-step flow-step-algo">↓ template: List[str]</div>
           <div class="flow-step flow-step-algo">↓ tokens: List[int]</div>
           <div class="flow-step flow-step-algo">↓ embeddings: List[matrix[double]] (shape ≈ [seq_len, d_model])</div>
-          <div class="flow-layer flow-layer-core">Computation Core</div>
+          <div class="flow-layer flow-layer-core"><a href="https://github.com/karpathy/nanochat/blob/4a87a0d19f30799b6c700285822dcca850adf6a4/nanochat/engine.py#L218">Computation Core</a></div>
           <div class="flow-step flow-step-core">↓ residual_stream: List[matrix[double]] (black magic happens here)</div>
-          <div class="flow-layer flow-layer-algo">Algorithmic Layer · Decode Loop</div>
+          <div class="flow-layer flow-layer-algo">Algorithmic Layer · <a href="https://github.com/karpathy/nanochat/blob/4a87a0d19f30799b6c700285822dcca850adf6a4/scripts/chat_cli.py#L93">Decode Loop</a></div>
           <div class="flow-step flow-step-algo">↓ new_token_logit: matrix[double][-1] (shape ≈ [vocab_size])</div>
           <div class="flow-step flow-step-algo">↓ greedy_decode: argMax(new_token_logit)</div>
           <div class="flow-step flow-step-algo">↓ token: int</div>
@@ -487,14 +487,15 @@
           <div class="col-box">
             <div class="col-title">Algorithmic Layer</div>
             <ul>
-              <li>Chat template rendering (messages → flat prompt).
+              <li>Classic Python code.</li>
+              <li>Encoding Logic:
                 <ul>
-                  <li>Message formatting (e.g. role, channel, content).</li>
-                  <li>Context management (e.g. history, relevance).</li>
+                  <li>Message formatting (e.g. role, channel, tool).</li>
+                  <li>Context management (e.g. system message, relevance context).</li>
                   <li>LLM Controlled variables (e.g. thinking_effort).</li>
                 </ul>
               </li>
-              <li>Decoding strategy (greedy, top-k, nucleus, speculative).</li>
+              <li>Decoding strategy (greedy, top-k, draft tokens).</li>
               <li>Batching policy &amp; its complications.</li>
               <li>KV-cache management &amp; scheduling.</li>
             </ul>
@@ -502,11 +503,22 @@
           <div class="col-box">
             <div class="col-title">Computation Core</div>
             <ul>
-              <li>Model architecture &amp; parameters:
+              <li><a href="https://github.com/karpathy/nanochat/blob/4a87a0d19f30799b6c700285822dcca850adf6a4/nanochat/gpt.py#L133">Model architecture:</a>
                 <ul>
-                  <li>Layer (depth), <code>d_model</code> (width), MoE experts.</li>
-                  <li>Attention pattern (dense vs banded, grouped MQA, slide-window). </li>
-                  <li>Shard management (e.g. tensor parallelism, layer parallelism).</li>
+                  <li>
+                    <ul>Attention Block
+                      <li>Position encoding (ROPE).</li>
+                      <li>Attention pattern. </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <ul>Feed Forward Block
+                      <li>Dense MLP</li>
+                      <li>Mixture-of-Experts (MoE) MLP</li>
+                    </ul>
+                  </li>
+
+              <li>Layer (depth), <code>d_model</code> (width)</li>
                 </ul>
               </li>
               <li>
@@ -527,11 +539,12 @@
     <section class="slide" id="slide-4">
       <div class="card">
         <span class="tag"><span class="tag-dot"></span>Internal Representations</span>
-        <h2>Tokens, Embeddings, Residual Stream, Logits</h2>
+        <h2>Encode vs Decode</h2>
 
         <div class="two-col">
           <div class="col-box">
-            <div class="col-title">Prompt → Tokens → Embeddings</div>
+            <h3>Encode</h3>
+            <div class="col-title">Embeddings(beginning of Residual Stream)</div>
             <ul>
               <li><strong>Prompt</strong>: Python-like <code>List[str]</code> after chat template rendering.</li>
               <li><strong>Tokenizer</strong> maps text to ids using BPE; vocabulary includes reserved tokens like <code>&lt;|startoftext|&gt;</code>, <code>&lt;|endoftext|&gt;</code>, <code>&lt;|endofprompt|&gt;</code>.  <a href="https://huggingface.co/openai/gpt-oss-120b/blob/main/tokenizer_config.json?utm_source=chatgpt.com" target="_blank" rel="noreferrer">tokenizer_config.json</a></li>
@@ -541,7 +554,8 @@
             </ul>
           </div>
           <div class="col-box">
-            <div class="col-title">Residual Stream &amp; Logits</div>
+            <h3>Decode</h3>
+            <div class="col-title">Residual Stream → Logits → Token → Str</div>
             <ul>
               <li>For each layer ℓ and position t we maintain
                 <code>R[ℓ, t] ∈ ℝ<sup>d_model</sup></code> – the <strong>residual stream</strong>.
@@ -865,7 +879,7 @@ for step in steps:
         <h2>Thank You 🙏</h2>
         <ul>
           <li>We followed the path: <strong>prompt → tokens → embeddings → residual stream → logits → decoding</strong>.</li>
-          <li>We separated the <strong>Algorithmic layer</strong> (chat template, batching, KV cache, decoding, speculative decode) from the <strong>Computation core</strong> (GPT-OSS-120B MoE architecture &amp; training).</li>
+          <li>We separated the <strong>Algorithmic layer</strong> (chat template, batching, KV cache, decoding, speculative decode) from the <strong><a href="https://github.com/karpathy/nanochat/blob/4a87a0d19f30799b6c700285822dcca850adf6a4/nanochat/engine.py#L218">Computation core</a></strong> (GPT-OSS-120B MoE architecture &amp; training).</li>
           <li>We connected <strong>RL</strong> directly to <strong>logit shaping</strong>, explaining why “diverse but verified” generations are possible without magic or crystal balls.</li>
         </ul>
       </div>

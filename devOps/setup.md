@@ -1,4 +1,5 @@
 # Developer Setup
+>
 > Checklist for setting up my environment. My host OS may be Windows or macOS, though I work with Linux a lot. There are many Linux variations, and when things go wrong it’s harder to find solutions.
 
 ## Applications
@@ -44,6 +45,8 @@
   - kind  
 
 ## VS Code Settings
+
+`vscode://file/<absolute-path-to-file>:<line>:<column>` only works within VS code.
 
 ```json
 {
@@ -106,9 +109,11 @@
 ### Windows Subsystem for Linux (WSL)
 
 1. Enable the feature:  
+
    ```powershell
    Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
    ```
+
 2. Install Debian from the Microsoft Store.
 
 > `~/.bashrc` contains Bash settings.  

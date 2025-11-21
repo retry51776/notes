@@ -29,6 +29,7 @@
     - opt 1: dynamic increase parallel processing, reroute connections. `aka condense nn from sparse to dense`
     - opt 2: find a way to have distinct storage in RS.
     - opt 3: in optimizer, we remove neurons with gradient * fire_freq > threshold. (remove neuron spoke often, with wrong output.)
+- FFN always project into larger dimension, then compress; I think it's because project to larger dimension avoid collision
 
 - Human's ONLY advantage over AI is signal absorption rate is far HIGHER than AI.
 - Currently the problem in LLM is lifetime of context is short.

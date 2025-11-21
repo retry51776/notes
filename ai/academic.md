@@ -60,8 +60,10 @@ Stage:
   - Weight - Usually range from -1 to 1
   - Bias - Usually small; Doesn't uses in attention blocks;
   - Output - center around 0 because normalization layer;  Activations Density under 0.5%
+  - ROPE - # 2D rotation on each pair (even_i, odd_i); `x_rot_even =  x_even *cos - x_odd* sin; x_rot_odd  =  x_even *sin + x_odd* cos;`
   - Hill climbing `strong signal, LLM training`
-  - Logit values `the raw scores before softmax`
+  - Hidden States `Residual Stream's output; [seq, d_model]`
+    - Logit values `the token level raw scores before softmax`
 
 - Advance General
   - low-loss paths `small changes do not significantly increase the loss`
@@ -110,6 +112,14 @@ Stage:
   - All-gather - every rank broadcast & gather;
   - Reduce-scatter - every rank get op(sub_set)
   - All-reduce = reduce-scatter + all-gather
+
+## Tokenizer
+
+> Token is atomic unit in LLM. Frequent words should encode into single token. Token map can both algorithm assign or learn by nn.
+
+> Multiple segmentations are possible. Ex: "abc" -> "ab" + "c" or "a" + "bc"
+
+> Tokenizer applies greedy longest-match-first rule
 
 ## Architecture
 
@@ -187,11 +197,21 @@ model.model.layers ModuleList(
 ### Diffusion
 
 > Diffusion train data by noise sample both variances(gaussian noise) & mean(drift direction toward 0/normal distribution).
+>> **Drift** is known deterministic force, **variance** is random force.
+
+Forward SDE is mathematical model diffusion process, but surprisingly there is mathematical model REVERSE SDE.
+
+> Reverse SDE break into 2 components: **variance** assume cancel by **variance**; **Drift** is -1/2 *beta(t)* x for DDPM;
+
+> Score Function - For any given point in the data space, it tells you the direction in which the probability density of the distribution increases the fastest.
+>> Once Score-Diffusion compute diffusion score, it ues reverse SDE formula to denoise input. Then iteratively repeat until diffusion score reach threshold.
 
 > Diffusion Model generate all tokens, then mask tokens with low logit, regenerate again.
 
-DDMP paper
+DDMP paper by Johnathan Ho @ 2020
 (Evidence Lower Bound)ELBO
+
+- scored diffusion - `llm learn score noised sample`
 
 <hr>
 
@@ -205,6 +225,8 @@ DDMP paper
 
 ### Reinforcement Learning
 
+> Think of it as outer loop of learning.
+
 > The limitation of supervise learning is teacher HAS answer, and student will NEVER out smart teacher, teacher requires build large teaching exercise.
 
 > The limitation of RL is reward sparsity, which it's why important to have small achievable goal.
@@ -214,6 +236,7 @@ Good LLM RL practices:
 - LLM self aware its known & unknown
 - LLM self aware its context window
 - Learn HF preference
+- LLM self aware compute & RAM usage
 
 - Solve/Predict/Explain/Counter/Coherence/Confidence
 

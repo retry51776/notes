@@ -300,3 +300,8 @@
 - poker probability
 - Biodiversity
 - Psychology
+
+The higher percentile on skillet, the more like absolute dominant over lower percentile.
+Ex: 99 percentile will have 99% chance to beat 90% percentile;
+But 90 percentile only have 70% beat 80 percentile.
+In math term: higher percentile reduce variance. lower percentile increase variance.

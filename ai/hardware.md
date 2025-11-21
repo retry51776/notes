@@ -234,3 +234,7 @@ Grid (many Blocks)
 - **HGX** – High‑performance GPU servers (e.g., Dell PowerEdge R750xa, HPE ProLiant DL380 Gen10, Lenovo SR670, Supermicro SYS‑420GP).````
 
 ai/code.md
+
+## Semiconductor
+
+- IR Drop - `7% current drop from PSU to chip; Chip design must budget current supply.`
