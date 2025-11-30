@@ -60,7 +60,6 @@ Stage:
   - Weight - Usually range from -1 to 1
   - Bias - Usually small; Doesn't uses in attention blocks;
   - Output - center around 0 because normalization layer;  Activations Density under 0.5%
-  - ROPE - # 2D rotation on each pair (even_i, odd_i); `x_rot_even =  x_even *cos - x_odd* sin; x_rot_odd  =  x_even *sin + x_odd* cos;`
   - Hill climbing `strong signal, LLM training`
   - Hidden States `Residual Stream's output; [seq, d_model]`
     - Logit values `the token level raw scores before softmax`
@@ -121,6 +120,37 @@ Stage:
 
 > Tokenizer applies greedy longest-match-first rule
 
+Tokenizer components:
+
+- `normalizer` applies Unicode transformations before pre-tokenization.
+- `pre_tokenizer` breaks raw text into initial chunks before BPE/Unigram encoding happens
+- `model` (the core) defines:
+  - vocabulary
+  - token <-> id mapping
+  - merge rules
+  - Unigram probabilities`
+- `decoder`
+- `post_processor` Adds tokens after encoding
+- `trainer`
+
+No standard tokenizer reasons:
+
+- Tokenizers must fit the training distribution
+- Vocabulary size dramatically affects compute
+  - 1B–7B → 50k vocab
+  - 30B–70B → 200k vocab
+  - 400B+ → 300k+ vocab (DeepSeek-V3, GPT-4 class models)
+- Models use different internal control tokens
+  - reserved space for future tokens (~10k slots)
+
+Important notes:
+
+- How to encode numbers will effect LLM reasoning
+  - GPT-120 encodes from 0 to 999
+- Whitespace handle important for coding
+- all Unicode characters and sequences are encoded
+- Keep trace of avg_token_bytes ratio
+
 ## Architecture
 
 - Autoregressive Decoding `We need go beyond greedy decode.`
@@ -163,6 +193,91 @@ residual stream/latent space `The intermediate output between NN layers`
 - d_head `often 128, len(x) * d_head`
 - d_model = `d_head * H` is residual stream size.
 - $ QK^T $ `d_model * len(x), contextual score`
+
+ROPE:
+
+RoPE can be viewed as wrapping each embedding vector around a set of circular phases.
+ • The token position moves the rotation forward linearly (one step per token).
+ • The channel dimension controls the rotation speed exponentially (fast at low dims, slow at high dims).
+
+- Rotation dimension options
+  - 1D - can't rotate, only slide.
+  - 2D - Euler’s formula $e^{i\theta} = \cos\theta + i\sin\theta$ is fast, efficient; but with 2 problems
+    - only can apply to 2 points: Therefore we break d_model into 2 pair chunks;
+    - increase dimensions of RS: We can let Q, K absorb increased dimensions;
+  - 3D+ - It's mathematical possible to rotate in 3D+(in fact advantage avoid subchannel), but we don't have those mathematical tools, and too compute intensive;
+
+- theta - controls rotation decay at different layers of d_model
+  - is unique for each pair of d_model
+  - start from max(theta) = 1; ends with min(theta) ~ 0; theta = 2pi ~ 6.28 = full rotation;
+  - is linear scale with seq_position
+  - is proportional to its pair position
+  - determines amount rotation
+
+```py
+# Ex: d_model = 10; seq = 3; base = 10000;
+# RS = [
+#   [t1_c1, t1_c2, t1_c3 ... t1_c10], // first token w 10 d_model
+#   [t2_c1, t2_c2, t2_c3 ... t2_c10],
+#   [t3_c1, ................ t3_c10]
+#];
+#
+#    = [
+#   [t1_o1, t1_e1, t1_o2, t1_e2 ... t1_o5, t1_e5], // first token w 5 pairs sub_channel
+#   [t2_o1, t2_e1, t2_o2, t2_e2 ... t2_o5, t2_e5], // even -> cos() - sin()
+#   [t3_o1, t3_e1, t3_o2, t3_e2 ... t3_o5, t3_e5], // odd -> sin() + cos()
+#]
+
+# W_k is a column of different rotation angles freq, that will apply to different layers of d_model.
+# k is the index for the pair of d_model (ranging from 0 to d/2 - 1).
+# d is the total number of d_model (in the example, 10).
+# 2k/d → 1, but never reach 1.
+# theta_j from large(high rotation) to small; early d_model focus locally, deeper d_model focus globally
+# W_k = 1/theta^(2k/d); 
+# W_k = [r1, r2, ... r5]
+
+# when theta = 10,000;
+# W_k = [1, 0.158489319, 0.025118864, 0.003981072, 0.000630957] (radian unit)
+#     = [57°, 9°, 1.4°, 0.23°, 0.036°] (degree unit)
+
+# theta_j large -> rotate fast, but LLM can't distinguished already rotated full cycle.
+# theta_j small -> rotate slow, but LLM can't distinguished small gap.
+# Ensure coverage across many orders of magnitude. W_k = 1/theta^(2k/d); uses exponent instead linear.
+
+# Rotated_RS = [
+# [t1_c1 * 1r1, t1_c2 * 1r1, t1_c3 * 1r2, t1_c4 * 1r2, t1_c5 * 1r3, t1_c6 * 1r3, .... t1_c10 * 1r5],
+# [t2_c1 * 2r1, t2_c2 * 2r1, t2_c3 * 2r2, t2_c4 * 2r2, t2_c5 * 2r3, t2_c6 * 2r3, .... t2_c10 * 2r5],
+# [t3_c1 * 3r1, t3_c2 * 3r1, t3_c3 * 3r2, t3_c4 * 3r2, t3_c5 * 3r3, t3_c6 * 3r3, .... t3_c10 * 3r5],
+#]
+
+```
+
+> t1_c1 & t1_c2 is not simply * 1r1; But for easy pattern recognition; Here are detail ops:
+$\begin{cases} t'_{1,c1} = t_{1,c1} \cos(1 \cdot r1) - t_{1,c2} \sin(1 \cdot r1) \\ t'_{1,c2} = t_{1,c1} \sin(1 \cdot r1) + t_{1,c2} \cos(1 \cdot r1) \end{cases}$
+
+$$\theta_{\text{min}} \approx \text{base}^{-1} = \frac{1}{10000} = 0.0001$$
+
+Intuition steps:
+
+- we converts embedding(d_model) into many **pair 2** sub_channel;
+- Each sub_channel rotate proportional to its position(by theta);
+  - j_theta = base^(-2j/D)
+- Each token @ each channel will linear scale rotate by its unique theta
+
+```py
+x_rot_even =  x_even *cos - x_odd* sin;
+x_rot_odd  =  x_even *sin + x_odd* cos;
+```
+
+Problems:
+
+- High-frequency bands(later position j_theta has higher rotation -> higher freq) become useless after a few thousand tokens
+
+- Float precision failure: sin(10^9) and cos(10^9) cannot be computed accurately
+
+- NTK stretches RoPE uniformly; YaRN stretches RoPE selectively(split into 2 distinct scale sections);
+
+YaRN allows RoPE to use non-integer (fractional) token positions
 
 deepseek:
 
@@ -297,14 +412,17 @@ Techs:
 - vocabulary projection
 - Feature Attribution Methods (Gradient-based)
 - Probs - Individual neuron activation indicate x feature
+- Attention head ablation(pruning)
 
 Tools:
 
 - TransformerLens
 
-Rule of Thumb
+Intuitions:
 
 - Facts are expects to resides in early layers of FFN
+- FFN can think as 'nonlinear feature generator' to each token independently at RS, not between tokens. That's why we need attention, mix tokens first, then capture 'nonlinear feature generator'.
+  - FFN shared across tokens because the meaning of a feature is universal, not token-specific.
 
 ### Linear representation
 >

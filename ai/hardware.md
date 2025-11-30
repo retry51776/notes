@@ -17,6 +17,7 @@ Background services:
 ### Near‑Memory Design
 
 - Reconfigurable data‑flow hardware vs. parallelism on existing compute units.
+- skew - variances of data transfer arrival time. HBM requires within 2 picoseconds variance arrival time.
 
 ## Memory Hierarchy
 
@@ -238,3 +239,4 @@ ai/code.md
 ## Semiconductor
 
 - IR Drop - `7% current drop from PSU to chip; Chip design must budget current supply.`
+- Chip all 3D space all need to utilize, but at the expense of manufactory cost.

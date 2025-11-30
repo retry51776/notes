@@ -143,6 +143,7 @@ Speeds up decode by predicting multiple tokens(8–16 token drafts) with **small
 ## Continue Batching
 
 Vllm will swap out completed slot with another request. Max out batch usage avoid padding.
+Dual Batch ~ 2 micro batch
 
 ## Selective Batching
 

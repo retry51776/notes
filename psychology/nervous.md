@@ -429,5 +429,7 @@ Additional elements:
 - Disgust
 - Happiness
 - Surprise
+  - f(Surprise) = log(1/prob(event)); Average surprise ~ confident answer %
+  - Explain KL(p|q) != KL(p|q); Riger is shocked his game isn’t rigged, but player won't noticed game is rigged.
 - Anger
 - Fear

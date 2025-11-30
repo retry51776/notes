@@ -449,20 +449,20 @@
     <section class="slide" id="slide-3">
       <div class="card">
         <span class="tag"><span class="tag-dot"></span>Pipeline Overview</span>
-        <h2>End-to-End Workflow</h2>
+        <h2>Pipeline</h2>
         <p>We work with a single forward generation step on top of an existing prompt.</p>
 
         <div class="flow flow-annotated">
-          <div class="flow-layer flow-layer-algo">Algorithmic Layer · <a href="https://github.com/karpathy/nanochat/blob/4a87a0d19f30799b6c700285822dcca850adf6a4/scripts/chat_cli.py#L76">Prompt Handling</a></div>
+          <div class="flow-layer flow-layer-algo">Algorithmic Parts · <a href="https://github.com/karpathy/nanochat/blob/4a87a0d19f30799b6c700285822dcca850adf6a4/scripts/chat_cli.py#L76">Prompt Handling</a></div>
           <div class="flow-step flow-step-algo">★ prompt: List[str]</div>
-          <div class="flow-step flow-step-algo">↓ template: List[str]</div>
+          <div class="flow-step flow-step-algo">↓ chat_template: List[str]</div>
           <div class="flow-step flow-step-algo">↓ tokens: List[int]</div>
-          <div class="flow-step flow-step-algo">↓ embeddings: List[matrix[double]] (shape ≈ [seq_len, d_model])</div>
+          <div class="flow-step flow-step-algo">↓ <b>embeddings</b>: List[matrix[double]] (shape ≈ [seq_len, d_model])</div>
           <div class="flow-layer flow-layer-core"><a href="https://github.com/karpathy/nanochat/blob/4a87a0d19f30799b6c700285822dcca850adf6a4/nanochat/engine.py#L218">Computation Core</a></div>
-          <div class="flow-step flow-step-core">↓ residual_stream: List[matrix[double]] (black magic happens here)</div>
-          <div class="flow-layer flow-layer-algo">Algorithmic Layer · <a href="https://github.com/karpathy/nanochat/blob/4a87a0d19f30799b6c700285822dcca850adf6a4/scripts/chat_cli.py#L93">Decode Loop</a></div>
-          <div class="flow-step flow-step-algo">↓ new_token_logit: matrix[double][-1] (shape ≈ [vocab_size])</div>
-          <div class="flow-step flow-step-algo">↓ greedy_decode: argMax(new_token_logit)</div>
+          <div class="flow-step flow-step-core">↓ <b>residual_stream</b>: List[matrix[double]] (black magic happens here)</div>
+          <div class="flow-layer flow-layer-algo">Algorithmic Parts · <a href="https://github.com/karpathy/nanochat/blob/4a87a0d19f30799b6c700285822dcca850adf6a4/scripts/chat_cli.py#L93">Decode Loop</a></div>
+          <div class="flow-step flow-step-algo">↓ <b>logit</b>: residual_stream[-1] (shape ≈ [vocab_size])</div>
+          <div class="flow-step flow-step-algo">↓ decode: greedy~argMax(logit) or sample~softmax(logit)</div>
           <div class="flow-step flow-step-algo">↓ token: int</div>
           <div class="flow-step flow-step-algo">↓ new_word: str</div>
           <div class="flow-step flow-step-algo">↻ append to prompt &amp; repeat (autoregressive)</div>
@@ -481,20 +481,21 @@
     <section class="slide" id="slide-5">
       <div class="card">
         <span class="tag"><span class="tag-dot"></span>Decomposition</span>
-        <h2>LLM = Algorithmic Layer ⊕ Computation Core</h2>
+        <h2>Transformer = Algorithmic Parts ⊕ Computation Core</h2>
 
         <div class="two-col-50">
           <div class="col-box">
-            <div class="col-title">Algorithmic Layer</div>
+            <div class="col-title">Algorithmic Parts</div>
             <ul>
-              <li>Classic Python code.</li>
-              <li>Encoding Logic:
+              <li>Implemented by Classic Python code.</li>
+              <li>Chat Template:
                 <ul>
                   <li>Message formatting (e.g. role, channel, tool).</li>
                   <li>Context management (e.g. system message, relevance context).</li>
                   <li>LLM Controlled variables (e.g. thinking_effort).</li>
                 </ul>
               </li>
+              <li>Encoding logic.</li>
               <li>Decoding strategy (greedy, top-k, draft tokens).</li>
               <li>Batching policy &amp; its complications.</li>
               <li>KV-cache management &amp; scheduling.</li>
@@ -535,49 +536,16 @@
       </div>
     </section>
 
-    <!-- Slide 5 – Data structures & residual stream -->
-    <section class="slide" id="slide-4">
-      <div class="card">
-        <span class="tag"><span class="tag-dot"></span>Internal Representations</span>
-        <h2>Encode vs Decode</h2>
-
-        <div class="two-col">
-          <div class="col-box">
-            <h3>Encode</h3>
-            <div class="col-title">Embeddings(beginning of Residual Stream)</div>
-            <ul>
-              <li><strong>Prompt</strong>: Python-like <code>List[str]</code> after chat template rendering.</li>
-              <li><strong>Tokenizer</strong> maps text to ids using BPE; vocabulary includes reserved tokens like <code>&lt;|startoftext|&gt;</code>, <code>&lt;|endoftext|&gt;</code>, <code>&lt;|endofprompt|&gt;</code>.  <a href="https://huggingface.co/openai/gpt-oss-120b/blob/main/tokenizer_config.json?utm_source=chatgpt.com" target="_blank" rel="noreferrer">tokenizer_config.json</a></li>
-              <li><strong>Embedding table</strong>: <code>matrix[double]</code> (conceptually) with shape
-                <code>[vocab_size, d_model]</code>. Lookup converts <code>token:int</code> → <code>embedding:vector[d_model]</code>.
-              </li>
-            </ul>
-          </div>
-          <div class="col-box">
-            <h3>Decode</h3>
-            <div class="col-title">Residual Stream → Logits → Token → Str</div>
-            <ul>
-              <li>For each layer ℓ and position t we maintain
-                <code>R[ℓ, t] ∈ ℝ<sup>d_model</sup></code> – the <strong>residual stream</strong>.
-              </li>
-              <li>Each block (attention, MoE-MLP) reads <code>R</code>, adds its contribution back into <code>R</code>.</li>
-              <li>Final layer projects <code>R[last_layer, last_token]</code> through
-                <code>W<sub>lm_head</sub></code> → <strong>logits</strong> <code>ℝ<sup>vocab_size</sup></code>.
-              </li>
-              <li>Softmax(logits) → probabilities; decoder chooses next token via greedy / sampling.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Slide 6 – GPT-OSS chat template -->
     <section class="slide" id="slide-6">
       <div class="card">
         <span class="tag"><span class="tag-dot"></span>Prompt Formatting</span>
-        <h2>GPT-OSS Chat Template (High Level)</h2>
+        <h2>Chat Template</h2>
         <p>
           GPT-OSS-120B ships with a <a href="https://huggingface.co/openai/gpt-oss-120b/blob/main/chat_template.jinja?utm_source=chatgpt.com" target="_blank" rel="noreferrer">Jinja2 chat template</a> that converts <code>messages</code> into a single training-style text sequence.
+        </p>
+        <p>
+          Important for prompt engineering / context management / agent development.
         </p>
 
         <div class="badge-row">
@@ -608,6 +576,7 @@
         </ul>
       </div>
     </section>
+  
 
     <!-- Slide 7 – GPT-OSS special tokens -->
     <section class="slide" id="slide-7">
@@ -646,12 +615,49 @@
         </div>
       </div>
     </section>
+    
+    <!-- Slide 5 – Data structures & residual stream -->
+    <section class="slide" id="slide-4">
+      <div class="card">
+        <span class="tag"><span class="tag-dot"></span>Internal Representations</span>
+        <h2>Algorithmic Parts</h2>
+
+        <div class="two-col">
+          <div class="col-box">
+            <h3>Encode</h3>
+            <div class="col-title">Embeddings(beginning of Residual Stream)</div>
+            <ul>
+              <li><strong>Prompt</strong>: Python-like <code>List[str]</code> after chat template rendering.</li>
+              <li><strong>Tokenizer</strong> maps text to ids using BPE; vocabulary includes reserved tokens like <code>&lt;|startoftext|&gt;</code>, <code>&lt;|endoftext|&gt;</code>, <code>&lt;|endofprompt|&gt;</code>.  <a href="https://huggingface.co/openai/gpt-oss-120b/blob/main/tokenizer_config.json?utm_source=chatgpt.com" target="_blank" rel="noreferrer">tokenizer_config.json</a></li>
+              <li><strong>Embedding table</strong>: <code>matrix[double]</code> (conceptually) with shape
+                <code>[vocab_size, d_model]</code>. Lookup converts <code>token:int</code> → <code>embedding:vector[d_model]</code>.
+              </li>
+            </ul>
+          </div>
+          <div class="col-box">
+            <h3>Decode</h3>
+            <div class="col-title">Residual Stream → Logits → Token → Str</div>
+            <ul>
+              <li>For each layer ℓ and position t we maintain
+                <code>R[ℓ, t] ∈ ℝ<sup>d_model</sup></code> – the <strong>residual stream</strong>.
+              </li>
+              <li>Each block (attention, MoE-MLP) reads <code>R</code>, adds its contribution back into <code>R</code>.</li>
+              <li>Final layer projects <code>R[last_layer, last_token]</code> through
+                <code>W<sub>lm_head</sub></code> → <strong>logits</strong> <code>ℝ<sup>vocab_size</sup></code>.
+              </li>
+              <li>Softmax(logits) → probabilities; decoder chooses next token via greedy / sampling.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
     <!-- Slide 8 – Algorithmic perf: batching, continuous batching, KV cache -->
     <section class="slide" id="slide-8">
       <div class="card">
         <span class="tag"><span class="tag-dot"></span>Algorithmic Optimizations</span>
-        <h2>Performance Levers (Outside the Weights)</h2>
+        <h2>Advanced Performance</h2>
 
         <div class="two-col">
           <div class="col-box">
@@ -692,14 +698,14 @@ for step in steps:
         <span class="tag"><span class="tag-dot"></span>Computation Core</span>
         <h2>GPT-OSS-120B Architecture Snapshot</h2>
         <p>
-          GPT-OSS-120B is a <strong>decoder-only Transformer with Mixture-of-Experts (MoE)</strong> layers.
+          GPT-OSS-120B is a <strong>Transformer with Mixture-of-Experts (MoE)</strong> layers.
         </p>
 
         <div class="two-col">
           <div class="col-box">
             <div class="col-title">Key Hyperparameters</div>
             <ul>
-              <li><strong>Layers</strong>: 36 Transformer blocks. </li>
+              <li><strong>Layers</strong>: <a href="https://huggingface.co/openai/gpt-oss-120b/blob/main/config.json#L15" target="_blank" rel="noreferrer">36 Transformer blocks. </a></li>
               <li><strong>Hidden size</strong> <code>d_model</code>: 2880.</li>
               <li><strong>Attention</strong>:
                 <ul>
@@ -879,7 +885,7 @@ for step in steps:
         <h2>Thank You 🙏</h2>
         <ul>
           <li>We followed the path: <strong>prompt → tokens → embeddings → residual stream → logits → decoding</strong>.</li>
-          <li>We separated the <strong>Algorithmic layer</strong> (chat template, batching, KV cache, decoding, speculative decode) from the <strong><a href="https://github.com/karpathy/nanochat/blob/4a87a0d19f30799b6c700285822dcca850adf6a4/nanochat/engine.py#L218">Computation core</a></strong> (GPT-OSS-120B MoE architecture &amp; training).</li>
+          <li>We separated the <strong>Algorithmic parts</strong> (chat template, batching, KV cache, decoding, speculative decode) from the <strong><a href="https://github.com/karpathy/nanochat/blob/4a87a0d19f30799b6c700285822dcca850adf6a4/nanochat/engine.py#L218">Computation core</a></strong> (GPT-OSS-120B MoE architecture &amp; training).</li>
           <li>We connected <strong>RL</strong> directly to <strong>logit shaping</strong>, explaining why “diverse but verified” generations are possible without magic or crystal balls.</li>
         </ul>
       </div>

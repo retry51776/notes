@@ -96,6 +96,13 @@ Post DGX H100
 
 - <https://docs.nvidia.com/datacenter/nvsm/nvsm-user-guide/latest/nvsm-user-guide.pdf>
 
+## Bare Metal
+
+```bash
+sudo apt install cuda-samples-11-2
+cd ∕usr∕local∕cuda-11.2∕samples∕1_Utilities∕p2pBandwidthLatencyTest
+```
+
 ## NVSM CLI
 
 > `nvsm` syntax very similar to `kubectl`, but install on HOST/Node level to capture Hardware stats, not k8s/helm.
