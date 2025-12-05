@@ -32,6 +32,8 @@ MoEGate & experts
 
 ## MoEGate
 
+Every TOKEN from Attention_Head_Out will route to its own FFN expert.
+
 Divide experts into groups (e.g., 8 groups of 256 experts).
 
 First, select the top-𝑘 groups (e.g., top-1 group/32 experts) per token.

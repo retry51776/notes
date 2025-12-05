@@ -2,7 +2,6 @@
 
 ## IMO
 
-- AI is "crystallize intelligent". Similar to kinetic energy being converted into potential energy.
 - LLM imitating human slow thinking, but not trained with human instinct.
   - cause 1: attention scale o(n^2), although attention only 20% calculation
   - cause 2: FFN calculation is intense
@@ -18,6 +17,13 @@
     - generate tasks; Ex: summary, info extra
 - Training
   - Very few use case for fine tune. Has very large static knowledge, that does NOT conflicts with LLM known knowledge, and very diverse.
+  - Multi Head decode RS with Multi Goals:
+    - default: Fully Shift
+    - New RS Head Ideas:
+      - attach its thoughts
+      - extract keywords
+      - edits
+      - Early error less loss
 - Evaluation
   - ARC benchmark isolate reasoning from knowledge & linguistic.
   - Quizzing(has answer) vs Asking(don't know answer)

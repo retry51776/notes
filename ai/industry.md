@@ -140,6 +140,17 @@ Speeds up decode by predicting multiple tokens(8–16 token drafts) with **small
   Validate by checking prefill draft token's logit within top-k logit.
   Also explain why most LLM objective is fully shift, otherwise this won't work.
 
+## Token-adaptive compute
+
+Adaptive Computation Time (ACT) / Universal Transformer style halting. Each token decides when it has had “enough” layers.
+>> Design ACT needs balance between check cost vs compute saving. Avoid early checking, check every X layers?
+
+>> Production Env always uses batch! So efficient batch design.
+
+- Design 1: Accumulated compute value until reach threshold
+- Design 2: Keep slide window of token's projects across layers, either KL or NN decides.
+- Design 3: Token Pruning & Merging to shrink context length
+
 ## Continue Batching
 
 Vllm will swap out completed slot with another request. Max out batch usage avoid padding.
@@ -168,11 +179,18 @@ Flat & concatenate multiple MLP input sequence, so batch process all inputs with
 
 ### Vision
 
-- Multi‑model LLMs: Gemini 2.0 Flash, LLaMA‑3.2‑11B‑Vision‑Instruct, Pixtral 12B, DeepSeek VL.  
+- Multi‑model LLMs(MLLM): Gemini 2.0 Flash, LLaMA‑3.2‑11B‑Vision‑Instruct, Pixtral 12B, DeepSeek VL.
+  - vision
+    - patch16 → 16×16 pixel ~ 768 values possible combination; Common uses Vision path size
+  - text
+  - audio
+    - Spectrogram Patches
+      - 2D patches → 16×16 time/frequency
+    - Codebook `pre-defined, finite "vocabulary" of sounds; Under millions, common around thousands;`
+      - 2 to 8 frames bundle
+  - touch?
 - OCR tools: Tesseract, EasyOCR.  
 - Document processing: Amazon Textract, Google Document AI, pymupdf4llm, marker.
-
-- patch16 → 16×16 pixel ~ 768 values possible combination; Common uses Vision path size
 
 - Dino V3
   - Gram Anchoring

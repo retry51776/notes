@@ -136,10 +136,10 @@
 - 不要和往事过不去，不要和现实过不去。The past cannot change; only reflection can inform future intent.
 
 - Focus on resources that are necessary and depleting.
-  - Ex: Health, Time, Attention, Social Capacity, Self Reputation(decays without upkeep), other's Goodwill or first impression;
+  - Ex: Health, Time, Attention, Social Capacity, Self Reputation(decays without upkeep), other's Goodwill or first impression(other's time);
   - C.E: Money is necessary, but not depleting. Knowledge & skill.
 
-- There are concepts that we never able to maintain;
+- There are paradox concepts/status that we never able to reach/maintain;
   - Unknown - Once you knew your unknown, you knew something about that.
   - Future - It's just concept, today is all we ever has.
   - Novelty, excitement... - Dopamine & neuron's biological nature, its effect never design to be persistent.

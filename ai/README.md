@@ -46,3 +46,7 @@
   - Hardware: Disk < Infinity Switch < InfiniBand < HBM < L1 cache
   - LLM: fussy memory @ LLM weights < determinist memory @ context window < relevant memory @ residual stream
 - Hardware failure needs complex multi level monitor system
+
+## FAQ
+
+- LLM is **NOT** a function ONLY generate single token, residual stream can decode as **full shifting tokens**. That's why we can pre-train LLM with huge amount data.

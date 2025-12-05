@@ -61,8 +61,9 @@ Stage:
   - Bias - Usually small; Doesn't uses in attention blocks;
   - Output - center around 0 because normalization layer;  Activations Density under 0.5%
   - Hill climbing `strong signal, LLM training`
-  - Hidden States `Residual Stream's output; [seq, d_model]`
-    - Logit values `the token level raw scores before softmax`
+  - Residual Stream `contaminated every head's output; size(RS) = n_head * size(head); The widest part of LLM`
+    - Attention Hidden States `Each attention head state; size(hidden_state) = len(Q)`
+      - Logit values `the token level raw scores before softmax`
 
 - Advance General
   - low-loss paths `small changes do not significantly increase the loss`
@@ -196,6 +197,12 @@ residual stream/latent space `The intermediate output between NN layers`
 
 ROPE:
 
+Rely on:
+
+- Relative Position matters more than Absolute Position
+- factorization is grounded in the geometry of rotation able to preserves relative position
+- Any N Dimension Rotation can Broken Down into N numbers 1D Rotations; at the cost of collision (ambiguity)
+
 RoPE can be viewed as wrapping each embedding vector around a set of circular phases.
  • The token position moves the rotation forward linearly (one step per token).
  • The channel dimension controls the rotation speed exponentially (fast at low dims, slow at high dims).
@@ -205,11 +212,12 @@ RoPE can be viewed as wrapping each embedding vector around a set of circular ph
   - 2D - Euler’s formula $e^{i\theta} = \cos\theta + i\sin\theta$ is fast, efficient; but with 2 problems
     - only can apply to 2 points: Therefore we break d_model into 2 pair chunks;
     - increase dimensions of RS: We can let Q, K absorb increased dimensions;
+    - easy & fast; only cos & sin & sum ops;
   - 3D+ - It's mathematical possible to rotate in 3D+(in fact advantage avoid subchannel), but we don't have those mathematical tools, and too compute intensive;
 
 - theta - controls rotation decay at different layers of d_model
   - is unique for each pair of d_model
-  - start from max(theta) = 1; ends with min(theta) ~ 0; theta = 2pi ~ 6.28 = full rotation;
+  - start from max(theta) = 1r ~ 57°; ends with min(theta) ~ 0; theta = 2pi ~ 6.28 = full rotation;
   - is linear scale with seq_position
   - is proportional to its pair position
   - determines amount rotation
@@ -271,11 +279,18 @@ x_rot_odd  =  x_even *sin + x_odd* cos;
 
 Problems:
 
-- High-frequency bands(later position j_theta has higher rotation -> higher freq) become useless after a few thousand tokens
+- High-frequency bands(later position j_theta has higher rotation -> higher freq) become useless after a few thousand tokens;
+  - research shows ablating high frequency has less catastrophic impact
 
 - Float precision failure: sin(10^9) and cos(10^9) cannot be computed accurately
 
 - NTK stretches RoPE uniformly; YaRN stretches RoPE selectively(split into 2 distinct scale sections);
+
+Ideas:
+
+- multi-scale encoding hypothesis
+- diversity in positional encoding scales within a single attention head
+- Problem with Transformer is too high variance/freedom, too low bias/doesn't align with human bias.
 
 YaRN allows RoPE to use non-integer (fractional) token positions
 
@@ -327,6 +342,14 @@ DDMP paper by Johnathan Ho @ 2020
 (Evidence Lower Bound)ELBO
 
 - scored diffusion - `llm learn score noised sample`
+
+### CNN
+
+Assumptions:
+
+- Locality `make NN prefer texture over outline`
+- Location Invariance
+- Hierarchical Structure
 
 <hr>
 
@@ -408,11 +431,17 @@ Good LLM RL practices:
 
 Techs:
 
-- Patchscopes `Swap activations from a clean run into a corrupted run to test causality.`
-- vocabulary projection
-- Feature Attribution Methods (Gradient-based)
-- Probs - Individual neuron activation indicate x feature
-- Attention head ablation(pruning)
+- causal interventions
+  - ablation (Ex: Attention head ablation)
+  - replace
+    - Patchscopes `Swap activations from a clean run into a corrupted run to test causality.`
+    - Replace with randomness noise `check target feature impacted or not`
+  - Feature Attribution Methods `interpret from Magnitude of gradients`
+- interpretability methods
+  - vocabulary projection
+  - Probs - Individual neuron activation indicate x feature
+  - find/confirm/project correlations in different scales
+    - confirm/find: Create Tasks with known Answers & difficulty, measure LLM KPI differences; aka increase contrast find conclusion
 
 Tools:
 

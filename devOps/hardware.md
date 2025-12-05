@@ -101,6 +101,14 @@ Hardware Description Languages:
 
 - Cut  
 - SIP (封装)  
+  - CoWoS (Chip-on-Wafer-on-Substrate)
+    - CoWoS-S (S=Silicon)
+    - CoWoS-SR (R=Reticle Stitching)
+    - CoWoS-L (Local) `similar to plastic/PCB`
+    - CoWoS-R (Redistribution)
+    - CoWoS-A (Active interposer)
+  - CPO (Co-Packaged Optics)
+    - Light transfer data directly to chip
 - Chiplet  
 - Interposer  
 - 3D NAND  

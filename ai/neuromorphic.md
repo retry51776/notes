@@ -41,12 +41,21 @@
 - Most likely things evolution optimize for long time will be harder to achieve in AI.
   - Parameter is similar to gene, DNA often has duplicate genes, allow intermediate modification without disrupt current process. More parameter in LLM allows more paths get to desire network.
 
+- Knowing is dig a hole in ground; Doing is expand that hole, so near by will fall into hole.
+
 ## Books
 
 - A thousand brains
   - 6 Layers
     - 1. wired network
-    - 2 & 3: communication with other cluster
+    - 2 & 3. communication with other cluster
     - 4. Input(sensory or layer 2 & 3 output from other cluster)
     - 5. Action(Motor or attention movement)
     - 6. Place
+
+  - Transformer Similar to cortex cluster
+    - 1. Expert Router
+    - 2 & 3. Q.K increase connections surfaces
+    - 4. Tokenizer
+    - 5. Output
+    - 6. Embedding/RoPE
