@@ -69,7 +69,8 @@
 - The brain is analogous to a computer: biology (hardware) + psychology (software).
 - Two “minds”: the rational mind (cortex) and the emotional mind (more primitive mammalian brain).
   - cortex is slow, lazy & strong; mammalian brain is fast, restless, & gullible;
-- Human nature seeks **belonging** and **power**.
+- Human nature desire for **belonging** and **power**.
+  - Psychological dimensions @ Hippocampus: Power & Affiliation
 - Monkey see, Monkey do.
 - Instinct(Personality) just understanding of risk & reward in EARLY childhood, which embedding into brain as default thinking.
 - Don't trust what people said, observed their action.

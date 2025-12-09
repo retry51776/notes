@@ -12,11 +12,13 @@
 > **Is a number continuous or discrete?**
 
 >> **Discrete:**  
->>> * Combinatorics  
->>> * Connections & Edges – `Graph Theory`
+>>>
+>>> - Combinatorics  
+>>> - Connections & Edges – `Graph Theory`
 
 >> **Continuous:**  
->>> * Relationship between change – `Calculus`
+>>>
+>>> - Relationship between change – `Calculus`
 
 > **Focus on relationships of spaces** – `Geometry, Topology`
 
@@ -31,11 +33,15 @@
 - **Principle** – *the underlying idea or concept*  
 - **Algorithm** – *a series of steps to solve a problem*
 
+## Symbols
+
+- Expectation value in physics: $\langle A \rangle = \langle \psi | A | \psi \rangle.$
+
 ## Statistics
 
 Probability distributions:
 
-- Normal Distribution (Gaussian)  
+- Normal Distribution (Gaussian)
 - Bernoulli Distribution (unbalanced Gaussian)  
 - Exponential Distribution  
 - Binomial Distribution – `individual events combined`  
@@ -43,11 +49,11 @@ Probability distributions:
 - Uniform Distribution – `continuous variable`  
 - Gamma Distribution  
 - Beta Distribution  
-- Log‑Normal Distribution  
+- Log‑Normal Distribution (effects compound multiplicatively)
 
 **L2 regularization** (`Ridge regression`) enforces a smooth slope.
 
-# IMO
+## IMO
 
 > Encryption creates one path that is much harder to traverse than other paths.  
 

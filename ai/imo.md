@@ -7,6 +7,7 @@
   - cause 2: FFN calculation is intense
 - The problem with pre-training is dense reward on every token. Only subset of token signal is True.
 - Simple ideas are easy to transfer(both people & LLM); complex ideas are not. Hard part is always make idea/context simple.
+- Data/Experience > Architecture > Implementation(Biology or Chip Design)
 
 - Data
   - Data is the most important, because none open source its data.
@@ -30,6 +31,7 @@
   - LogitLens - decode intermediate RS back to token for interpret. <https://www.lesswrong.com/posts/AcKRB8wDpdaN6v6ru/interpreting-gpt-the-logit-lens>
 
 - LLM is about finding easy to scale axis.
+- KV cache ~ all possible meaning/effect of a token.
 - layer depth is sequential and width is parallel.
   - need found layers with sharp lost gradient: aka gradient scatter everywhere
     - opt 1: dynamic increase parallel processing, reroute connections. `aka condense nn from sparse to dense`

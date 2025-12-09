@@ -123,8 +123,10 @@
     - Prefill Engine
       - `threshold 100 token`
       - uses top spec GPUs
+      - column-parallel(every seq's token at once) ops; (That's why prefill so efficient)
     - Decode Engine
       - can done in smaller GPUs with enough RAM
+      - row-parallel(seq independent) ops; (That's why decode token ~4x expensive)
   - ModelService Controller (Pod Controller)
   - Prometheus (Monitor)
 
@@ -151,7 +153,28 @@ Adaptive Computation Time (ACT) / Universal Transformer style halting. Each toke
 - Design 2: Keep slide window of token's projects across layers, either KL or NN decides.
 - Design 3: Token Pruning & Merging to shrink context length
 
-## Continue Batching
+token premium effects: differences in compression rates across languages.
+
+## Batching
+
+>The last real token in ALL sequences within same batch **must share same RoPE index** to batch properly.
+>> Because during prefill, attention is computed “column-wise”;
+>
+>> SHORTER prompt’s ROPE absolute positions DO change depending on the longest prompt in the batch.
+
+pad token
+
+- will mask out by attention mask
+- never get through attention
+- never received ROPE
+- Left padding / PREFILL:
+  - Ex: `<pad>    <pad>    Hello`
+  - purpose: algin ALL sequences within same batch to SAME RoPE index;
+  - attention is computed column-wise across the batch, so prefill sacrifices absolute position alignment for batched speed.
+- Right padding / GENERATION:
+  - Ex: `Hello    <pad>    <pad>`
+  - attention is computed sequence-wise, independently per row;
+  - The position of new tokens is computed from the cache length, not from the tensor shape.
 
 Vllm will swap out completed slot with another request. Max out batch usage avoid padding.
 Dual Batch ~ 2 micro batch
@@ -159,6 +182,34 @@ Dual Batch ~ 2 micro batch
 ## Selective Batching
 
 Flat & concatenate multiple MLP input sequence, so batch process all inputs with different sequence at the same time.
+
+## Ragged Batching
+>
+> up to Jan 26, still main stream production method.
+>
+> Change a batch KV cache store in memory(requires pad & waste memory) to single long seq's KV cache; Uses attention mask acts as sequence segregation.
+
+Pros:
+
+- remove pad(memory waste)
+- remove max batch seq setting
+- efficient RAM allocation
+- fuse RoPE into the Q·K matmul kernel
+- Attention Q & Output still calculate in parallel
+- FFN still calculate in parallel
+- Generate new token per seq within batch
+
+Cons:
+
+- breaks column alignment for fast prefill RoPE;
+- Memory access patterns become more irregular.
+  - Tokens of the same sequence are not contiguous after decoding continues;
+  - Hard to preload memory
+  - memory gap/whole
+- increased complexity
+  - hard to debug
+  - hard to distribute
+  - can't FlashAttention
 
 ## Applications Overview
 
@@ -292,6 +343,7 @@ Flat & concatenate multiple MLP input sequence, so batch process all inputs with
 ## Beyond Static LLMs
 
 - Open‑socket interruption, context caching.
+- Token Adjust Calculation
 
 ### Python Ecosystem
 

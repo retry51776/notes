@@ -582,11 +582,13 @@
     <section class="slide" id="slide-7">
       <div class="card">
         <span class="tag"><span class="tag-dot"></span>Tokenizer</span>
-        <h2>GPT-OSS Reserved Tokens (Control Plane)</h2>
+        <h2>Reserved Tokens ~ SQL keyword</h2>
         <p>
           GPT-OSS defines reserved special tokens in its tokenizer config, mapped to high-id entries.  <a href="https://huggingface.co/openai/gpt-oss-120b/blob/main/tokenizer_config.json?utm_source=chatgpt.com" target="_blank" rel="noreferrer">oai_citation:4‡Hugging Face</a>
         </p>
-
+        <p>
+          Recommend practices: remove any reserved tokens from user inputs to avoid injection attacks.
+        </p>
         <div class="two-col-50">
           <div class="col-box">
             <div class="col-title">Key Reserved Tokens</div>
@@ -613,6 +615,35 @@
             </ul>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Slide 7a – Modern tokenizer coverage -->
+    <section class="slide" id="slide-7a">
+      <div class="card">
+        <span class="tag"><span class="tag-dot"></span>Tokenizer</span>
+        <h2>Modern Tokenizer Coverage</h2>
+        <p>
+          Modern GPT-style tokenizers mix curated tokens with byte-level fallbacks so that any input, from chat text to binary blobs, can always be represented.
+        </p>
+
+        <div class="two-col">
+          <div class="col-box">
+            <div class="col-title">Base Vocabulary</div>
+            <ul>
+              <li>Every ASCII English character (letters, digits, punctuation) appears directly in the vocab so prompts map cleanly.</li>
+              <li>Integers <code>0</code>–<code>999</code> usually have dedicated tokens for dates, IDs, and coordinates without splitting digits.</li>
+            </ul>
+          </div>
+          <div class="col-box">
+            <div class="col-title">Byte-Level Fallback</div>
+            <ul>
+              <li>Tokenizers fall back to raw byte tokens covering values <code>0</code>–<code>255</code>, so arbitrary Unicode or binary data is always encodable.</li>
+              <li>Worst case is about four tokens per character, but coverage is guaranteed even for invented words or corrupted inputs.</li>
+            </ul>
+          </div>
+        </div>
+        <p>Therefore the tokenizer always has a way to break any string into tokens, regardless of language or structure.</p>
       </div>
     </section>
 
