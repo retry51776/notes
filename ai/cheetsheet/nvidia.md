@@ -272,3 +272,25 @@ Cluster Dashboard containers
 4. NVSM-Prometheus.
 
 ## Support
+
+## Ray Tracing
+
+Algebraic Systems of Equations with Matrices; solve with Gaussian Elimination.
+
+- D: direction
+- O: origin
+- L1, L2: object
+- 𝑣: extend/scale ray(O, D)
+- 𝑢: extend/scale object(L1, L2)
+
+        𝑂 + 𝑢𝐷 = 𝐿1 + 𝑣(𝐿2−𝐿1)
+
+      𝑢𝐷 - 𝑣(𝐿2−𝐿1) = 𝐿1 - 𝑂
+
+```py
+# When ray_mat parallel with vec, raise RuntimeError
+try:
+    sol = t.linalg.solve(ray_mat, vec)
+except RuntimeError:
+    return False
+```

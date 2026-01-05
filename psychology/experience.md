@@ -72,6 +72,7 @@
 - Human nature desire for **belonging** and **power**.
   - Psychological dimensions @ Hippocampus: Power & Affiliation
 - Monkey see, Monkey do.
+- "Narcissism of Small Differences" Sigmund Freud
 - Instinct(Personality) just understanding of risk & reward in EARLY childhood, which embedding into brain as default thinking.
 - Don't trust what people said, observed their action.
 - Memory exists as discrete patches; fewer patches with age make time feel faster.  

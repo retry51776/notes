@@ -164,6 +164,14 @@ model.model.layers ModuleList(
 )
 ```
 
+Implicit Transformer / DEQ Transformer
+
+Why converge? because we infuse NN desire state to be equilibrium, equilibrium acts as converge force.
+
+It's all about converge speed/transformation step. Chain of Thoughts allow LLM has more steps to converge(because nn deep is limited).
+
+Either improve step converge speed, or allow dynamic steps.
+
 ## Diffusion
 
 > Diffusion train data by noise sample both variances(gaussian noise) & mean(drift direction toward 0/normal distribution).
@@ -211,3 +219,11 @@ FFN is lattice network. Local connection is good, but far away connection are ba
 Random connection network is good global connection, but bad local connection.
 
 Small-word network is what we want.
+
+## amortized inference
+
+Instead of iterative descent, train a network to predict the minimizer directly.
+
+## Deep Equilibrium Models
+
+DEQ are memory efficiency & infinite depth, at cost of compute.

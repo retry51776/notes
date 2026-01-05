@@ -9,6 +9,9 @@
 
 > pupil dilating ≈ mental effort
 
+> Ship of Theseus;
+>> Key is every board has its function/capability & decay rate. Sure we does keep some historical significant ships around. But those ships' function/role changed. Things persist by preserving roles, not by preserving matter. Roles does not last forever.
+
 > Anchor effect exists in both System1 & System2.
 
 > Self control uses glucose same as exercise.

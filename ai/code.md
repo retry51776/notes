@@ -167,12 +167,153 @@ open-webui serve
 
 ## Pytorch
 
+> Ask LLM `structured list of common PyTorch methods`
+
+Tensor components:
+
+- array: array
+- requires_grad: bool
+- grad: array
+- recipe
+  - func: np.multiple
+  - args: ([1, 2])
+  - kwargs: { keep_dim: true, dim=-1 }
+  - parents: {0:x, 1:x}
+
 ```py
 import torch
 import gc
 
 gc.collect()
 torch.cuda.empty_cache()
+
+
+# basic indexing: index dimension < matrix dimension; return component of matrix;
+matrix[1] = [x, y]
+# advance indexing: index dimension greater or unrelated matrix dimension; return expansion of index(tokens); So pytorch assumes all values within index are able to lookup.
+W_E: [d_vocab: Int, d_model: Float]
+tokens: Int[Tensor, "batch position"]
+
+W_E[tokens] -> Float[Tensor, "batch position d_model"]
+
+t.stack(x, dim=0) # combine tensors along a new dimension.
+t.cat(x, dim=0) # append existing dimension
+
+## Pytorch Math Ops
+torch.add
+torch.sub
+torch.mul
+torch.div
+torch.pow
+torch.sqrt
+torch.exp
+torch.log
+torch.log1p
+torch.abs
+torch.sign
+torch.clamp
+torch.maximum
+torch.minimum
+torch.floor
+torch.ceil
+torch.round
+torch.trunc
+
+# Pytorch will auto stretch when dimension = 1;
+# Many PyTorch functions take an optional keyword argument `out` for in-place execution.
+
+# squeeze: remove target dimension, only works when target dimension.size = 1;
+dim = 2
+matrix.squeeze(dim)
+# unsqueeze: insert new dimension
+matrix.unsqueeze(3)
+
+
+var_unbiased = ((x - x.mean())**2).sum() / (N - 1)
+var_biased = ((x - x.mean())**2).sum() / N
+
+# PyTorch Initializer
+## Uniform family
+nn.init.normal_ # curve
+.uniform_ # bar & default
+.trunc_normal_
+.kaiming_uniform_ # GELU Default
+# attention ignores gain because Multiplicative Nature of Attention
+
+## Constant family
+.zeros_
+.ones_
+.constant_
+
+## xavier
+## Special design distribution avoid gradient problem: [fan_out, fan_in, H, W]; fan_in = fan_in * H * W;
+
+.xavier_uniform_ # Default/most common
+.xavier_normal_
+
+# Einstein summation with einops-style named dimensions, only contracts, reorders, or broadcasts existing dimensions.
+# torch.einsum() notation FIRST, einops.einsum() matrix FIRST
+y = torch.einsum("b h i d, b h d j -> b h i j", q, k)
+# default Einstein will be multiplication
+arr4 = einops.repeat(arr[0], "c h w -> c (h 2) w")
+
+import einops
+q = (
+    einops.einsum(
+        normalized_resid_pre,
+        self.W_Q,
+        "batch posn d_model, nheads d_model d_head -> batch posn nheads d_head",
+    )
+    + self.b_Q
+)
+
+# General einops rules:
+#   `dim=-1` means last dimension; `dim=0` means first dimension;
+#   Inside ( ), left = outer loop, right = inner loop.
+#   Repeated axis name (i i) ⇒ take diagonal
+
+# einsum()
+#   Omitted axis ⇒ SUM; 
+#   Shared axis across inputs ⇒ MULTIPLY + SUM;
+
+# rearrange() never changes data
+# Repeat it across batch and sequence dimensions
+y = einops.rearrange(x, 'b t (h d) -> b h t d', h=8)
+
+y = einops.repeat(x, '... d -> ... batch seq d', batch=2, seq=3)
+
+# valid reduce_ops: "mean", "sum", "max", "min", "prod"
+y = einops.reduce(temps, "(h 7) -> h", reduce_ops)
+
+# For new col/row matrix ops, must done BEFORE einsum
+W_U_ext = torch.cat([self.W_U, extra_W], dim=1)
+
+
+# Freeze Layers
+for freeze_layer in layers:
+  freeze_layer.requires_grad_(False)
+
+assert layer0.weight.grad is None
+
+# Pytorch multiprocessing
+import torch.multiprocessing as mp
+mp.spawn(
+    xxx_function,
+    args=(x_arg, y_arg, target_device),
+    nprocs=3,
+    join=True,
+)
+
+# Uses NCCL underneath, communicate between mp
+import torch.distributed as dist
+```
+
+## Weight & Bias
+
+```py
+import wandb
+wandb.init(project=self.args.wandb_project, name=self.args.wandb_name, config=self.args)
+wandb.watch(self.model.out_layers[-1], log="all", log_freq=50)
 ```
 
 ## PDF
@@ -437,10 +578,10 @@ class Qwen2Attention(nn.Module):
         self.v_proj = nn.Linear(hidden_size, num_kv_heads * self.head_dim, bias=True)
         self.o_proj = nn.Linear(hidden_size, hidden_size, bias=False)
 
-    def forward(self, x):
-        # Implement attention logic here
+    def forward(self, x, kv_cache):
+        # Attention Block can either process prefill(prompt tokens) or decode(single new token)
         # (Full implementation requires key-value caching and rotary positional embeddings)
-        return x  # Simplified return
+        return out  # (batch, posn_Q, d_model)
 
 class Qwen2MLP(nn.Module):
     def __init__(self, hidden_size, intermediate_size):
@@ -632,3 +773,7 @@ PrefillWorker:
 # Build a docker image
 dynamo build 
 ```
+
+## Visual Tools
+
+<https://plotly.com/python/>

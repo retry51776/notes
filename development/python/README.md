@@ -62,6 +62,7 @@
 
 ## Frustrations
 
+- Python imports are singletons (per process & MUST **identical** path) for cache
 - ~~Destructure like ES6 ``const {a, b, ...others} = obj;``~~  
   > Python 3.10 supports similar functionality with the ``match`` statement.
 - Missing “null‑ish” chaining (`?.`) – would be nice.

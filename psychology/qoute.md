@@ -8,6 +8,8 @@
 
 - Repetition training is the most effective way to change. `Not talking about memory, just habits.`
 
+- Do not ask whether a statement is true until you know what it means. @Charles Sanders Peirce
+
 > The rational mind is just a pattern recognition machine.
 >
 > People often neglect the emotional mind in communication `both self & other`.

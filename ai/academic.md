@@ -38,13 +38,39 @@ Stage:
     - Relates to #1, from which perspective?
     - Physic law can embed within lost function to ensure Model learn physic law.
 5. Optimization
+    - Shampoo
+    - K-FAC
+    - Muon - Take the gradient of a matrix, normalize it, orthogonalize it, then apply a clean step.
     - Adaptive Moment Estimation (ADAM)
       - magnitude $v_t = \beta_2 \cdot v_{t-1} + (1 - \beta_2) \cdot g_t^2$
       - momentum $m_t = \beta_1 \cdot m_{t-1} + (1 - \beta_1) \cdot g_t$
+        - Ideas is oscillation will cancel out momentum, while continue acceleration will accumulate momentum;
+    - RMSprops
+      - derivative ~ change direction; `dW = W - a(dW/sqrt(dW))` not adapt/learn when inconsistent direction/lose
     - This solution may be another AI itself?
+      - `[lr, momentum, weight_decay]`
+      - `params` groups parameters into many groups with different `lr`.
 
 ### Neural Network Terms
 
+- Mathematic Basic
+  - numpy basic <https://github.com/RoyiAvital/Julia100Exercises>
+  - activation functions
+    - Relu - range 0 to x;
+    - SiLU - GPT-OSS; likely range from -1 to 50
+    - GELU - (Gaussian Error Linear Unit)
+    - cosin ~ measure alignment
+    - sin ~ measure orthogonal difference
+    - tanh ~ single softmax conversion with offset; output: zero-centered, −1 or +1
+    - sigmoid ~ single softmax conversion; output: 0 or 1;
+    - softmax ~ Mutual exclusive
+  - distribution
+    - variance stable: $fan_{in} \cdot \sigma^2 \approx 1
+\quad\Rightarrow\quad
+\sigma^2 \approx \frac{1}{fan_{in}}$
+    - activation function's tendency to decrease the signal variance; (Ex: Relu drop all negative variance)
+    - gain: how much matrix/weight need to compensate lost variance.
+    - Explains why warn up period, as training continue, individual layer will lost variance stable, but cross layers(the whole network) stable.
 - Basic General
   - Forward Propagation
   - Backward Propagation
@@ -54,9 +80,6 @@ Stage:
   - Tiling `calculation matrix multiplication by smaller block, each SM loads target block row & col to calculate small final result block`
   - Neuron `fundamental unit in a neural network that performs a simple mathematical operation on input data and passes the result to other neurons or output units; weights usually gaussian distribution`
   - Activation function
-    - Relu - range 0 to x;
-    - SiLU - GPT-OSS; likely range from -1 to 50
-    - GELU - (Gaussian Error Linear Unit)
   - Weight - Usually range from -1 to 1
   - Bias - Usually small; Doesn't uses in attention blocks;
   - Output - center around 0 because normalization layer;  Activations Density under 0.5%
@@ -64,6 +87,7 @@ Stage:
   - Residual Stream `contaminated every head's output; size(RS) = n_head * size(head); The widest part of LLM`
     - Attention Hidden States `Each attention head state; size(hidden_state) = len(Q)`
       - Logit values `the token level raw scores before softmax`
+      - Temperature `logit denominator; High temperature value shrink all logit value(shrink differences), small temperature enlarge logit differences.`
 
 - Advance General
   - low-loss paths `small changes do not significantly increase the loss`
@@ -94,9 +118,11 @@ Stage:
 
 - L1 regularization `L1 regularization penalizes the sum of the absolute values of the weights in the network. This encourages the network to use a smaller number of weights, and it can also help to prevent over fitting.`
 - L2 regularization `L2 regularization penalizes the sum of the squares of the weights in the network. This also encourages the network to use a smaller number of weights, and it can also help to improve the generalization performance of the network.`
-  - Weight decay `adds a penalty term to the loss function that discourages large parameter values`
+- Weight decay `shrink weight by 0.9999 every iteration toward 0`
+  - The easiest way to increase logit differences is to increase vector norms. To avoid this, we counter with weight decay.
 
 - Position Interpolation `extend context window without retrain`
+- Groking `Training lost doesn't improve & Testing lost is huge. Continues training will sudden have testing lost improve, and stabilize testing lost.`
 
 - Perplexity in LLMs is a metric for how well the model predicts a sequence of tokens
 - bias-variance tradeoff - overfitting training data. As LLM size increase, bais error is easy to reduce(aka training error), while variance(range of understanding) error domain, then variance error decrease.
@@ -161,6 +187,57 @@ Important notes:
 ### Back Propagation
 >
 > There’s a mathematical result showing that a neural network with just two layers can approximate any function. The challenge, however, is that we don’t know how to efficiently optimize the weights to reach those solutions.
+
+> The chain rule says: Total effect = (effect on intermediate) × (effect of intermediate on final)
+
+> Chain rule backprops prerequisite: nn is DAG(no Cyclic graph).
+
+#### Implicit Differentiation
+>
+> Deep Equilibrium Models(DEQ) are Cyclic graph without unroll, just find equilibrium destination token.
+
+> Standard backprops with chain rule is inefficient(unroll costs RAM & compute) to solve Cyclic graph(has loop).
+
+Mathematic prerequisites:
+
+- Explicit equation `y = f(x)` vs Implicit equation `g(x, y) = 5` describe relationship
+  - Equilibrium Theorem @ Dynamical Systems `some condition will guarantee Equilibrium Set exists`
+  - Equilibrium/Fix Point/Rest State `derivative(f(x)) ~ 0`
+    - Stable
+    - Unstable
+      - unstable equilibria naturally repel the very dynamics the solver
+    - Saddle
+  - DEQs usually don’t collapse(trajectory goes wrong Equilibrium)
+    - Initialization
+    - training pressure
+    - still need linear projection decode head, final Equilibrium acts as final RS.
+- Implicit Differentiation(ID)
+  - equilibrium: nn output converges; `assume converges ~ solvable Implicit Differentiation`
+  - loss: `how much adjust Weight & Bias to make nn be solvable Implicit Differentiation`
+- ID Root finding methods `z where g(z) ~ 0`
+  - Newton
+  - Broyden
+  - Fixed-point iteration
+  - Trust-region methods
+- Spectral Normalization
+
+Analogy: We has mathematical tool(Implicit Differentiation ~ solvable equations), so we adjust NN from not Implicit Differentiation to become Implicit Differentiation.
+
+FAQ:
+
+- Limitations
+  - f must be differentiable almost everywhere
+  - must be stable enough (typically spectral radius < 1)
+- Inference stop logic:
+  - `Tolerance Threshold > (z_new - z_old) / z_new` or `Steps > Max Limit`
+- Why Implicit Differentiation?
+  - because Implicit Differentiation establish relationship between variables, and solvable equations.
+  - Implicit differentiation is used because we do not want unroll the cyclic graph.
+  - Assume repeat nonlinear activation function over deep of NN.
+  - Constant Memory Usage, no intermediate activation storage.
+- Why not standard backprops? because we want Cyclic graph for reduce LLM variables(weights & bias).
+- Why Cyclic graph? We ASSUME cycle will reduce LLM variables. ~ 10x smaller parameters, but ~2x slower inference
+
 >> Ex: 2 layers nn often stuck on some error rate, no matter how much we increase width of nn.
 >
 > Problem with training nn that too deep, is too much noise drawn out signal in back propagation.
@@ -203,6 +280,7 @@ Good LLM RL practices:
 - LLM self aware its context window
 - Learn HF preference
 - LLM self aware compute & RAM usage
+- introspective awareness: LLM should self aware injected thoughts(by path activation).
 
 - Solve/Predict/Explain/Counter/Coherence/Confidence
 
@@ -241,6 +319,31 @@ Good LLM RL practices:
  • Self-play (used in AlphaGo, AlphaZero, OpenAI Five).
  • Hierarchical RL → break down long horizon tasks into sub-policies.
 
+## Stability knob
+
+- Gradient Control
+  - Warmup
+  - Weight Decay
+  - Gradient clipping
+- Weight Initialization Knobs
+  - Xavier
+    - Layer Gain
+  - Shrink Residual Connect effect
+- Normalization/Layer
+  - Softmax behavior
+  - Precision
+- Architecture Control
+  - Trade Deep with width
+  - Activation Function
+- Training size
+  - batch size
+  - seq length
+  - Regularization
+- Statistic Monitor
+  - residual stream variance
+  - attention entropy
+  - ?
+
 ## Mechanistic Interpretability
 >
 > AI mechanistic interpretability is a field that will give a lot insight of how human brain works.
@@ -248,11 +351,33 @@ Good LLM RL practices:
 > higher-level concepts or computations reside in the middle of graphs
 >> detokenization → abstract features → retokenization
 
-<https://transformer-circuits.pub/2025/attribution-graphs/biology.html>
+**Get Start**
+
+1. Understand EVERY components of Transformer: <https://poloclub.github.io/transformer-explainer/>  
+
+2. Logit Lens: <https://www.lesswrong.com/posts/AcKRB8wDpdaN6v6ru/interpreting-gpt-the-logit-lens>
+3. Anthropic’s
+Interpretability Research: <https://transformer-circuits.pub/>
+
+    3.1 <https://transformer-circuits.pub/2025/attribution-graphs/biology.html>
 
 - Physics Informed Machine Learning
 - Stable diffusion: add noise to image, let AI recover image;
   - KV Cache Incompatibility: old tokens can also attend to new token, which means the representations of all tokens must be recomputed.
+
+- **Circuits** `sub network that perform X calculation`
+- **Feature Manifold** `lives in a particular subspace of the residual stream (RS), orientation and shape are stable;`
+  - rarely need more than 1–3 dimensions
+  - can live inside many RS channels at once
+
+### Feature Manifold
+
+ • positional manifolds
+ • semantic/subspace manifolds
+ • category clusters
+
+1. Collect RS activation contains Manifold
+2. Uses PCA/UMAP reduce/compress activation, hope variance drops very fast after the first few components
 
 > Netron: Interactive model graph exploration.
 <https://www.neuron.app/>
@@ -274,6 +399,8 @@ Techs:
 Tools:
 
 - TransformerLens
+- nnsight
+- PCA, UMAP, SVD, Ridge probing
 
 Intuitions:
 

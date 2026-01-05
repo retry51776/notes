@@ -12,6 +12,7 @@
   - Power‑to‑chip efficiency (`PUE`) improves from 1.8 (wasteful) to ~1.1 (effective).  
   - Total Cost of Ownership: 10 % data center, 15 % power, 75 % GPU.  
 - Training
+  - 90% Flops to pretrain; 3–7% to fine tune; 1-3% to RL;
   - RL is similar to lottery-yield manufacturing
   - Get high-entropy data(LLM hard to predict seq, measure by sum(log_prob))
   - Most Research are find pattern/correlation of hyper parameters in smaller LLM, project its correlation to larger LLM.
@@ -120,7 +121,7 @@
   - KV Cache Indexer
   - Inference-engine(vllm)
     - NIXL (NVIDIA communication library designed for fast KV-cache)
-    - Prefill Engine
+    - Prefill Engine (generate KV cache)
       - `threshold 100 token`
       - uses top spec GPUs
       - column-parallel(every seq's token at once) ops; (That's why prefill so efficient)
@@ -185,6 +186,8 @@ Flat & concatenate multiple MLP input sequence, so batch process all inputs with
 
 ## Ragged Batching
 >
+> Also called "Packed batch"
+>
 > up to Jan 26, still main stream production method.
 >
 > Change a batch KV cache store in memory(requires pad & waste memory) to single long seq's KV cache; Uses attention mask acts as sequence segregation.
@@ -212,6 +215,12 @@ Cons:
   - can't FlashAttention
 
 ## Applications Overview
+
+### Deep Research Agents
+>
+> AI researcher DRAs. OpenAI expects this mature before 2027.
+
+> LLM needs to improve its reasoning resilient, verified its sources.
 
 ### Robotics
 
@@ -351,6 +360,14 @@ Cons:
 - `jaxtyping` - similar to typescript, define matrix size meaning during variable definition.
 - `einsum` - syntax define matrix ops; Ex: `batch seq1 hidden, batch seq2 hidden -> batch seq1 seq2`
 
+## Memory Architecture
+
+- Google’s TITANS and MIRAS / MORAS
+  - Contextual Memory Module
+    - Inject context into main LLM RS from another AI Contextual Memory Module
+  - Customize parameters per user
+    - Help Main LLM process/adapt injected context
+
 ## Safety
 
 - DeepMind: Frontier Safety Framework (FSF)
@@ -359,3 +376,5 @@ Cons:
 - Anthropic: Responsible Scaling Policy (RSP)
   - AI Safety Levels (ASL)
 - OpenAI: Preparedness Framework
+
+- Mesa-optimizers

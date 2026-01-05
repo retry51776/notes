@@ -113,6 +113,8 @@ LLMs work by providing each “world” with context, which includes relevant in
   >
   > Sample multiple times(use TOP n paths) vs generate multiple responses(n TIME MAX probability path)
   >> The GOAL is find RIGHT answer & AVOID greedy decode.
+  >
+  >> Option 1: Beam search
 
 Guiding principles:
 

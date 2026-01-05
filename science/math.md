@@ -55,7 +55,12 @@ Probability distributions:
 
 ## IMO
 
-> Encryption creates one path that is much harder to traverse than other paths.  
+> Encryption creates one path that is much harder to traverse than other paths.
+
+- Mathematical constants are equilibrium points between competing constraints.
+  - e: Emerges from growth vs normalization
+  - Golden ratio: part / whole = whole / (whole + part)
+  - Planck length: equilibrium between quantum mechanics and gravity
 
 > Will increasing the action space be sufficient to protect secrets? AI appears capable of exploring large action spaces more effectively than humans.
 
@@ -72,7 +77,7 @@ Probability distributions:
 - \(i \times x\) rotates \(x\) by 90° in the complex plane.  
 - Rotating 30°: \(\cos(\pi/6) + i \sin(\pi/6)\).
 
-# Classes (Wish List)
+## Classes (Wish List)
 
 *I’m not strong in mathematics, but I think many advanced concepts are useful.*
 

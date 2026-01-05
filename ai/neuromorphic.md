@@ -38,15 +38,23 @@
 
 ## Speculation
 
+- Amortize ~ LLM learn Monte Carlo search/beam search within its internal process.
 - Biologist shown people practice skill will REDUCE amount brain regions uses, but LLM ALWAYS has SAME activation paths, NO MATTER how many times LLM already processed same input.
   - We need incentive/system LLM REDUCE its forward propagation path after repetition input.
     - Maybe SAE/ observation NN to Shorten forward propagation path?
     - Note: This system itself ALSO explain why human makes many mistakes
 
+- Sleep time has strong correlation with rapid/burst response time. Ex: cat, snake, crocodile, bats, sloth.
+  - no obvious correlation with intelligent
 - Most likely things evolution optimize for long time will be harder to achieve in AI.
   - Parameter is similar to gene, DNA often has duplicate genes, allow intermediate modification without disrupt current process. More parameter in LLM allows more paths get to desire network.
 
 - Knowing is dig a hole in ground; Doing is expand that hole, so near by will fall into hole.
+
+- Deep Equilibrium Models ~ cortex clusters reach consensus equilibrium(neuronal avalanches)
+  - neuronal avalanches ~ only trigger when cluster agrees(cluster reach equilibrium)
+    - wake-up grumpiness ~ not reach equilibrium caused frustration
+    - repeat task get easier ~ easy stay in equilibrium
 
 ## Entrorhinal cortex
 >
@@ -60,10 +68,18 @@
 - Psychological dimensions @ Hippocampus: Power & Affiliation
 - Path Integration / Coordination : project relation into algorithm operable space
 
+## Terms
+
+- Temporal-Difference (TD) Learning `Learn by comparing what you expected now vs. what you expect next.`
+
 ## Problems
 
 - Brain Neurons inherent have different behavior with different input seq, but AI Neurons if inputs are same = output same;
 - Takes CNN 5~8 layers to simulate single cortical neuron.
+
+## Org
+
+- <https://braininitiative.nih.gov/>
 
 ## Books
 

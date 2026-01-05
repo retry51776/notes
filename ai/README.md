@@ -38,6 +38,12 @@
 - LLM weights & residual stream(spacetime)
 - World knowledge & ration(law of physics, dictate interaction atom & spacetime)
 
+- LLM similar to spacetime with many probable_black_holes, prompt  trajectory will eventually suck into one of black hole.
+  - The most obvious black_hole is the least interesting.
+    - because human nature like surprise.
+    - because most people already knew, therefore has very few value.
+    - Pick token by logit wave, so all trajectory tokens follows natural dist(contain high logit tokens & low logit token).
+
 ## Frustrations
 
 - Mechanistic Interpretability(mech interp) moves very slows(close source, LLM specific) while AI capability keep accelerating.
