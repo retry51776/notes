@@ -152,3 +152,21 @@ Balancing B‑ and T‑cell responses is crucial.
 - Chanca Piedra – kidney‑stone breaker
 - Calcium Coronary Scan `test before Heartflow Test`
 - Prophylactic statin – reduces LDL cholesterol in blood
+
+## Embryo
+
+> We inherent way more from mother than father. At point of embryo, mother's egg is factory, where sperm only providers half DNA for diversity.
+
+Things directly inherent from the mother egg
+
+- mitochondria DNA
+- cell cycle regulator
+- epigenetic enzymes
+- transcription(DNA reader)
+
+Father
+
+- centriole `split apart chromosome`
+- small chance of (epigenetic components)
+
+most genes serves brain development.

@@ -13,6 +13,10 @@ Con:
 - compute intensive
 - Fixed function, can't dynamic adjust according length of input
 
+## VAE
+
+Variational Autoencoders just identity network forces to compress & recover input. VAEs also need to keep constraint on std(x) & mean(x) to ensure VAEs utilize latent space efficient.
+
 ## CNN
 
 Assumptions:
@@ -34,6 +38,16 @@ Assumptions:
 - d_head `often 128, len(x) * d_head`
 - d_model = `d_head * H` is residual stream size.
 - $ QK^T $ `d_model * len(x), contextual score`
+
+The limitation MLP block is SAME force/changes applies to every token, no interactions between tokens, token’s value determents amount of force/changes.
+
+Attention block is focused on interactions between tokens, each token has different interactions(look back tokens @ causal mask). So not same force/field applies to every tokens.
+
+Attention is closer to a residual stream pointer machine than a mixer. Attention score controls how much premixed token info from value projection.
+
+- bottleneck is interaction are collapsed into single scaler value(attention score). Reason is attention/mixing ~ n^2, increase attention score dimension are costly; multi-head attention also costly to scale.
+
+- Also each token expands to kv cache(interactions for later tokens) cost RAM & compute.
 
 ROPE:
 
@@ -166,6 +180,9 @@ model.model.layers ModuleList(
 
 Implicit Transformer / DEQ Transformer
 
+- QK-Circuit ~ Attention score, determent how much meaning/value each pervious tokens contribute.
+- OV-Circuit ~ Combine previous tokens meaning/value together to current token.
+
 Why converge? because we infuse NN desire state to be equilibrium, equilibrium acts as converge force.
 
 It's all about converge speed/transformation step. Chain of Thoughts allow LLM has more steps to converge(because nn deep is limited).
@@ -211,7 +228,7 @@ Brain neuron's connection distribution is NOT normal distribution, rather power 
 Designs:
 
 - 1. token will attends near by tokens & few far away tokens & some random tokens
-- 2. Residual Stream cross layers flow
+- 1. Residual Stream cross layers flow
 
 Cluster coefficient - node's neighbor / node's neighbor directly connected %
 

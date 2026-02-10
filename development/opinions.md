@@ -226,3 +226,9 @@ Common encoding formats:
 >
 > Very cool; just live on 2021‑10‑21  
 > <https://vscode.dev/>
+
+## KPI
+
+- customer's feedback on features/changelog
+- Change Failure Rate
+- PR review participation

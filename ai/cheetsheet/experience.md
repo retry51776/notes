@@ -3,6 +3,7 @@
 **LLM Tips**
 
 - """use parallel subagents to XXX"""
+- Explain in mechanistic terms, not marketing terms.
 - For extraction task, tell LLM assigned default value when no info, and do not make any assumptions.
 - AI sucks at Abbreviation, expand all abbreviation before understanding task.
 - LLM is very TALKY, it will do instruction, but it also need a lot monolog between it's output.
@@ -23,11 +24,14 @@
     - LLM prefer Json, Array to let LLM understand relationship
     - Use text section splittGFer
     - json.dumps(xxx, indent=4) for better readability
-  - 2) Instruction
+  - 1) Instruction
     - Do NOT provider script, or steps to solve
     - Please respond **strictly** in the following JSON format, without additional keys or text:
     - expected value for each key
     - Always return a json dictionary, define key, value is type.
+  - prompting guide <a href="https://docs.anthropic.com/claude/docs/introduction-to-prompt-design">Anthropic</a>
+   <a href="https://huggingface.co/docs/transformers/main/tasks/prompting#best-practices-of-llm-prompting">Hugging Face</a>
+   or <a href="https://www.promptingguide.ai/introduction/elements">PromptingGuide</a>.
 - Because by law even production code requires to keep its dependence license info.
   - `grep https xx.js` collects more false passivity, but should cover most dependencies
   - `grep github.com xx.js` most likely dependencies linkss

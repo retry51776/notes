@@ -55,7 +55,9 @@ Start with the parent's solution and process for the child. As the child grows, 
 
 ### Parenting Ideas
 
-- Connection before correction.  
+- Connection before correction.
+  - Rationality(direction) vs Motivation(momentum).
+    - Motivation minimizes surprise / free energy
 - Encourage the child to solve problems.  
 - Hint at a problem or suggest a solution, but don’t demand they copy the answer; it’s the child's choice to implement it or not.  
 - Ensure a feedback system works: the parent's job is to regulate feedback, not be the feedback itself.  

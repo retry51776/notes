@@ -2,6 +2,23 @@
 
 ## IMO
 
+- Transformer ~ Turing Machine
+ Infinite tape ~ RS
+ Head ~ Attention Head
+ Head position  ~ Attention weights (soft, distributed)
+
+Operations:
+
+1. Read ~ QK circuit
+2. Compute ~ OV circuit + MLP
+3. Write ~ Residual add
+4. Move ~ next block
+
+- How/Why NN growth? Tokens not attended → no gradient reinforcement
+  - Attention momentum ~ state-space attention
+- incentive for symmetry. maybe SVD.
+- Balance between stability vs changes.
+- LLM need to study project evolution training data[trajectory data](projects grow). Not typical Snapshot data.
 - LLM imitating human slow thinking, but not trained with human instinct.
   - cause 1: attention scale o(n^2), although attention only 20% calculation
   - cause 2: FFN calculation is intense
@@ -47,6 +64,17 @@
 - Progressive model growth
 - compute is NOT the bottleneck, rather is Memory size.
 - We have mathematical proof that 2 layer of NN can imitate any functions, but the problem is we don't know the way to optimize to that 2 layer NN.
+
+- token interaction range  <<  total context
+  - total context:
+    - compressed
+    - summarized
+    - selectively retrieved(by emotion)
+    - distributed
+  - token interaction
+    - sliding window
+    - small
+    - recurrent
 
 ## Recent Concepts
 

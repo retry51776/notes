@@ -1,7 +1,15 @@
 # Math
 
 - Analytic continuation 解析延拓  
-- Index theory 指标理论  
+- Index theory 指标理论
+- Emergent Systems
+  - We need to respect & have humidity. We can't always engineer expected outcome.
+  - We need continues monitoring of system for changes.
+  - We need to have patient to wait for changes' effect develop/growth/compound within system.
+  - We need to identify system catastrophic failure states, have prevention mechanism.
+  - Curiosity of relationships, openness on feedback, wiliness revise assumptions.
+  - Experimentation thinking on alter system.
+    - iteration & simulation
 
 ## Key Assumptions
 
@@ -90,3 +98,8 @@ Probability distributions:
 - Graph Theory  
 - Abstract Algebra – “advanced stuff”  
 - Cryptography
+
+## Chaos Theory
+
+- Phase space ~ all possible system states.
+- Strange Attractor ~ Bounded field/area; Aka structure of Dynamic System

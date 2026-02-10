@@ -8,7 +8,13 @@
 
 - Repetition training is the most effective way to change. `Not talking about memory, just habits.`
 
-- Do not ask whether a statement is true until you know what it means. @Charles Sanders Peirce
+- Do not ask whether a statement is true until you know what it means. @Errett Bishop
+
+- complexity system has irreducible core.
+
+- Action before, brain rationalize action later.
+
+- Change mind ~ develop new vortex force that slowly & consistently change trajectory.
 
 > The rational mind is just a pattern recognition machine.
 >

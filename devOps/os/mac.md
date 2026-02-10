@@ -9,7 +9,24 @@ Type 'thisisunsafe' on page
 
 # Clear Bash History
 history -c
+
+# Find none apple .pkg
+pkgutil --pkgs | grep -v '^com.apple'
 ```
+
+## Homebrew
+
+- untap - 3rd party repo `brew untap xxx`
+- `--cask` - apple apps `brew install --cask visual-studio-code`
+
+## Keychain
+
+Password App is GUI of keychain;
+
+- Login - The default for your user account. It stores personal passwords and certificates.
+- iCloud - Syncs passwords and credit card information across all your Apple devices.
+- System - Stores credentials required by all users, such as Wi-Fi passwords and system-wide certificates.
+- System Roots - A read-only keychain containing the root certificates trusted by Apple to secure the entire operating system.
 
 ## Networking
 

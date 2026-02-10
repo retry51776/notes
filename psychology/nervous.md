@@ -421,7 +421,7 @@ Additional elements:
       - Emotion enhances consolidation (`amygdala releases factors that boost LTP`)
   - Procedural Memory – mediated by the striatum
 
-> **Emotions** (see `nervous.md#mammal-brain`) are optional mechanisms that enhance both reading and writing of memories, binding fragments into coherent narratives. During recall, emotion amplifies retrieval; during encoding, strong emotions increase memory strength.
+> **Emotions** (see `nervous.md#mammal-brain`) are optional mechanisms that enhance both reading and writing of memories, binding fragments into coherent narratives. During recall, emotion amplifies retrieval; during encoding, strong emotions increase memory strength. Also emotion trigger expression that incentivize other's interactions.
 
 ### Primary Emotions (six)
 

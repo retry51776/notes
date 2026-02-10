@@ -107,6 +107,8 @@ CMD node index.js
 
 ## docker-compose
 
+`- AI_BASE_URL=${AI_BASE_URL:-https://api.minimaxi.com/v1}`
+
 ```yaml
 # docker-compose -f docker-compose.dev.yml up
 version: '3.9'

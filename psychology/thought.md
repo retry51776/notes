@@ -9,8 +9,13 @@
 
 > pupil dilating ≈ mental effort
 
+> People too lazy constantly reevaluating their conclusions, it's much easier to just label/make x conclusion once, and continue build flawed conclusions on top of old flawed foundation.
+
+> **Empathy entitlement** is common problem. Emotion has strong internal & external effect, maybe relates to emotion regulation.
+>> Opposite will be Rigidity/Conformation.
+
 > Ship of Theseus;
->> Key is every board has its function/capability & decay rate. Sure we does keep some historical significant ships around. But those ships' function/role changed. Things persist by preserving roles, not by preserving matter. Roles does not last forever.
+>> Key is every board has its function/capability & decay rate. Sure we does keep some historical significant ships around. But those ships' function/role changed. Things persist because roles' demand, but roles does not last forever.
 
 > Anchor effect exists in both System1 & System2.
 
@@ -122,4 +127,5 @@ why all animals have similar emotion?
 - More clues as the movie goes on;
 - Fragmentation; Ex: Westworld season 1;
 
-7. Tessellation; Most classic literature has tessellation; There are some side characters with few details; Yet indicates they follow the same rule & pattern that the main character follows. Ex: 红楼梦 皇帝>贾府>赖管家 (Aka recursive story)
+1. Tessellation/Fractal; Most classic literature has tessellation; There are some side characters with few details; Yet indicates they follow the same rule & pattern that the main character follows. Ex: 红楼梦 皇帝>贾府>赖管家 (Aka recursive story)
+    - Good movies are dynamic system of character interactions, where each character has its own orbit. Small character movements are enough to indicate/foresee interaction trajectory.

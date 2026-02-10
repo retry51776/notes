@@ -3,6 +3,8 @@
 > most common load balancer
 > Default Logs path `/var/log/nginx/access.log or error.log`
 
+> Caddy is newer
+
 #### proxy_pass vs redirect
 
 `redirect` means tell client look someplace else
