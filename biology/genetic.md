@@ -46,3 +46,25 @@
 - Long Non‑Coding RNA (lncRNA): A diverse class of RNAs longer than 200 nucleotides that do not code for proteins but have various regulatory roles.
 - Circular RNA (circRNA): Forms a covalently closed continuous loop; associated with gene regulation in the cytoplasm and potentially in the nucleus.
 - Enhancer RNA (eRNA): Produced at enhancer sites and plays a role in regulating gene expression.
+
+## Evolution
+
+- Protein Preference
+  - coil (C)
+  - helices (H)
+  - sheets
+  - spheres
+  - rings
+- flagella evolution (motor for cells/bacterial/yest)
+  - symmetry / circle are easy finial evolution form, because circle is natural stable structure.
+
+- AlphaFold 3
+  - Inputs: Protein (20 amino acid), DNA nucleotide, RNA nucleotide, Ion, Ligand (anything that binds to a protein (or DNA/RNA) that is not part of the polymer chain.)
+    - residue ~ one amino acid inside a protein chain
+    - nucleotide: A, C, G, T/U
+  - Outputs: pLDDT
+
+- Typical protein sizes
+  - 40 aa → tiny peptide
+  - 300 aa → common enzyme
+  - 2,000 aa → huge (multi-domain, often multi-chain)

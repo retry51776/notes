@@ -7,24 +7,40 @@
 - Package manager preference: brew > apt > uv > pip3 > npm > .pkg installer
 - `~/.profile` should stores all setup scripts or envs, then `~/.bashrc` or `~./zshrc` should invoke `source ~/.profile`
 
-## Setup Linux
+## SSH cloud
 
-1. run below bash
+### Github
+
+1) make sure `ssh-add -l` already added ssh public key
+2) `pbcopy < ~/.ssh/id_rsa.pub` copy to clipboard
+3) Login github & add id_rsa.pub to <https://github.com/settings/keys>
+4) ssh -T <git@github.co>
+  4.1) `ssh-keygen -R github.com` to renew github.com host key when `WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!`
+
+### Jira
+<https://id.atlassian.com/manage-profile/security/passkeys>
+
+## Setup Linux
 
 ```bash
 sudo apt update
-sudo apt install -y curl ca-certificates git gnupg lsb-release nodejs wget unzip
-
-curl -fsSL https://get.docker.com | sudo sh
+sudo apt install -y curl ca-certificates git gnupg lsb-release nodejs python3 python3-pip wget unzip
+sudo apt install -y docker.io docker-compose-plugin
+sudo systemctl enable --now docker
 ```
 
 ## Setup Mac
 
 You are running in mac os terminal. Your goal is setup os.
 
-OS setup through multiple Phase, early Phase acts barrier to next Phase, unless user specifically change it.
+Workflow:
+OS setup through multiple Phases.
 Inside each Phase can have multiple tasks, only run parallel tasks in different terminals when user ask.
 Prefer to install everything in homebrew if possible, because easier to update in future.
+
+Constraints:
+
+- Don't destructive deletes, uninstall
 
 ### Phase 1: Install brew packages
 
@@ -71,7 +87,7 @@ Prefer to install everything in homebrew if possible, because easier to update i
   - `yabai --start-service`
 
 - Task 4: Install pip-audit
-  - `python -m pip install pip-audit`
+  - `python -m pip install pip-audit pip-tool`
 
 - Task 5: Setup Codex
   - Append `~/.codex/config.toml` allow outbound network
@@ -121,21 +137,36 @@ network_access = true
    If it fails, diagnose and propose fixes.
 
 ## Setup Windows
+>
+> FYI, chocolatey is very good alternative package manager, follow instruction @ <https://chocolatey.org/install>. Windows don't have single package manager covers common developer's packages.
 
-You are running in window os powershell. Your goal is setup os. Prefer to install everything in winget if possible, because easier to update in future.
+You are running in window os powershell. Your goal is setup os.
+Prefer to install everything in winget, then npm, then pip.
 
-> FYI, chocolatey is very good alternative package manager, follow instruction @ <https://chocolatey.org/install>
+Constraints:
 
-### Winget package manager
+- Don't destructive deletes, uninstall.
+- Before update, get current versions & status.
+- Make update idempotent.
+- Never assume install/update success. Always verify with explicit checks.
+- After updated, log `maintain.md`. (from xxx to yyy)
+
+### General
+
+- `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned` allow run `xxx.cmd` only with `xxx`
+
+### winget package manager
 
 - `winget upgrade --all --accept-source-agreements --accept-package-agreements`
-- `winget install Git.Git Python.Python.3.12 Docker.DockerDesktop`
-- `winget install -e --id CoreyButler.NVMforWindows`
+- `winget install  --accept-source-agreements --accept-package-agreements Git.Git Python.Python.3.12 Docker.DockerDesktop CoreyButler.NVMforWindows OpenJS.NodeJS Derailed.k9s`
 
-### Windows features
+### npm package manager
 
-- `Get-WindowsOptionalFeature -Online` to list all windows features
-- `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`
+`npm install -g @openai/codex eslint jest npx npm playwright pnpm prettier`
+
+### pip package manager
+
+`pip install poetry pip-audit pip-tool`
 
 ### Setup SSH
 
@@ -146,27 +177,40 @@ You are running in window os powershell. Your goal is setup os. Prefer to instal
    - If not, generate a new ed25519 SSH key with:
      ssh-keygen -t ed25519 -C "<YOUR_EMAIL@example.com>" -f ~/.ssh/id_ed25519 -N "user.passphrase"
 
+3) ssh-add ~/.ssh/id_ed25519
+
 ### Setup WSL
 
-- Share HOST `~/.ssh` to WSL by symlink; Run below script IN WSL
+- Windows Host powershell
+  - `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`
+  - `Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform -NoRestart`
+  - `wsl --set-default-version Debian 2`
+  - `wsl --update`
+  - `wsl --install Debian`
+  - Remember <WindowsUser> from `whoami`
+
+WSL tips:
+
+- Default WSL distro is fine. Default should be Debian.
+- When PowerShell into WSL, prefer `wsl --%` to avoid quoting bugs.
+- When PowerShell into WSL as root, use `wsl --% -u root`.
+- Examples in this section are written as `Windows PowerShell -> WSL` commands so the execution context is explicit.
+
+WSL tasks:
+
+- Share HOST `~/.ssh` to WSL by symlink (run from Windows PowerShell; each command executes in WSL):
 
 ```bash
-# Runs WSL terminal
-mkdir -p ~/.ssh
-rm -rf ~/.ssh
-ln -s /mnt/c/Users/<WindowsUser>/.ssh ~/.ssh
-chmod 700 ~/.ssh
-chmod 600 ~/.ssh/*
+wsl --% -- bash -lc "mkdir -p ~/.ssh && ln -s /mnt/c/Users/<WindowsUser>/.ssh ~/.ssh"
+wsl --% -- bash -lc "chmod 700 ~/.ssh && chmod 600 ~/.ssh/* "
+wsl --% -- bash -lc "-add ~/.ssh/id_ed25519"
+
 ```
 
-- Append to WSL file `/etc/wsl.conf`:
+- Write `/etc/wsl.conf` (run from Windows PowerShell as root inside WSL):
 
 ```bash
-# /etc/wsl.conf
-
-# Fix WSL commands are slow, **Remove Windows PATH from WSL**
-[interop]
-appendWindowsPath = false
+wsl --% -u root -- bash -lc "printf '%s\n' '[interop]' 'appendWindowsPath = false' > /etc/wsl.conf"
 ```
 
 ## Mac/Linux OS Maintain
@@ -203,7 +247,7 @@ Step B — npm global packages (Node)
    - npm install -g npm@latest
    - npm ls -g --depth=0
 2) Check for outdated:
-   - npm outdated -g --depth=0
+   - npm outdated -g --depth=ssh0
 3) Safe-update globals without major bumps:
    - npm update -g xxx
    - If `npm update -g` throws error `EINVALIDPACKAGENAME Invalid package name ".[packpage_path]" of package`
@@ -215,13 +259,14 @@ Step B — npm global packages (Node)
 Step C — Homebrew (mac/linux)
 
 1) `brew update` & `brew list --versions`
-2) `brew outdated --verbose`
+2) `brew outdated --verbose` (poetry included here)
 3) Upgrade safely without major bumps:
    - `brew upgrade`
    - `brew doctor`. Follow `brew doctor` notes to update/fix packages.
    - `brew cleanup`
 4) Capture the global package list again `brew list --versions`. Log what you updated (from -> to)
 5) `softwareupdate --list` && `softwareupdate --install --all` && `softwareupdate --list`. Log what you updated (from -> to)
+6) `launchctl list | grep -v "com.apple"` list all none apple service, report any suspicious service.
 
 Step D — apt (Linux)
 
@@ -254,8 +299,7 @@ Step F — pip
 Step G — other package manager
 
 1) `uv self update` & `uv self version`
-2) `brew upgrade poetry`
-3) `conda doctor`
+2) `conda doctor`
 
 Step H — Common developer packages checklist
 
@@ -282,25 +326,41 @@ Log relevant logs to `maintain.md`
 
 ### Find Orchestration Stack
 
-- `echo "## $(date '+%Y-%m-%d %H:%M')" >> maintain.md`
+- `echo "/n/n ## $(date '+%Y-%m-%d %H:%M')" >> maintain.md` Add maintain header.
 
 - List current repo's orchestration stacks. Ex: k8s, docker, poetry, nvm
-  - Log single bash update CMD to `maintain.md`, (from -> to)
+  - Find old stack version.
+  - Update orchestration stack with appropriate update bash.
+  - Find new stack version. Log update to `maintain.md`, (from -> to)
 
-- For poetry
-  - `poetry show -o`
-
-- For pip
-  - `python -m pip install -r requirements.txt --dry-run --ignore-installed --report report.json` (see any packages may raise red flag)
-  - Find repo's `requirements.txt`, then `pip-audit -r requirements.txt >> maintain.md`
+- For python repo
+  - Scan vulnerabilities `pip-audit . >> maintain.md`
+  - Does python repo missing poetry required files?
+    - Create poetry required files: `pyproject.toml` & `poetry.lock`
+  - `poetry show -o` List all outdated packages.
+  - Create `latest_pyproject.toml` with latest dependencies reference `pyproject.toml`. (Because pip doesn't track package updates, always easier update through poetry)
 
 - If js package manager used? Ex: `npm`, `yarn`, `pnpm`
   - `[npm/yarn/pnpm] audit >> maintain.md`
   - According audit log, generate SINGLE LINE command install all packages to install latest packages, log SINGLE command to `maintain.md`
 
-## OS Security Scan
+### Agent work with Isolation
 
-- `launchctl list | grep -v "com.apple"` list all none apple service, report any suspicious service.
+There are many virtualization tech stack for isolation env. Problem isolation env introduce barrier for Agent to works on these repos. Here are some tips / example commands for agent works on isolation env.
+
+- For wsl
+  - distros and versions: `wsl -l -v`
+  - powershell command: `wsl -d Debian --% -- bash -lc "ls ~"`
+- dev container
+  - debug inside dev container: `python -m debugpy --listen 0.0.0.0:5678 --wait-for-client -m your_module`
+- docker
+  - For copying files out of a container: `docker cp <container>:/path ./` or `kubectl cp <pod>:/path ./`
+  - For docker container: `docker exec -it <container> bash -lc "ls"`
+  - For docker compose service: `docker compose exec <service> bash -lc "ls"`
+- kubernetes
+  - pod: `kubectl exec -it <pod> -- bash -lc "ls"`
+  - debug port-forward: `kubectl port-forward <pod> 5678:5678`
+- For ssh into a remote build host: `ssh -t user@host 'bash -lc "ls"'`
 
 ## Useful Resources
 

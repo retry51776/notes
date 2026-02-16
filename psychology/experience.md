@@ -61,7 +61,7 @@
 ### China Opinion
 
 - China is a role‑based society. Individual responsibility and power come from role rather than directly from personal choice. Hierarchical relationships arise from role assignments—for example: 君君臣臣，父父子子. 打地主
-- Chinese Culture attempts to lock up human nature(不尊重人性). Ex: Buddhist can't marry nor eat meat; Communism eliminate personal profit;孔子:克己复礼;
+- Chinese Culture attempts to lock up human nature(不尊重人性). Ex: Buddhist can't marry nor eat meat; Communism eliminate personal profit;孔子:克己复礼;程朱理学:存天理，灭人欲。
 - Chinese history often attributes the cause or outcome of events to specific individuals, which I disagrees. Life is similar to poker, perfect actions & still lose that hand. A failure does not necessarily mean a decision was wrong, just as success does not automatically justify an action.
 
 ### Psychology Opinion

@@ -103,3 +103,7 @@ Probability distributions:
 
 - Phase space ~ all possible system states.
 - Strange Attractor ~ Bounded field/area; Aka structure of Dynamic System
+
+## Machine Learning
+
+- Pre 2015, boosted tree algo is mainstream Ad.

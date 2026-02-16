@@ -4,6 +4,13 @@
 
 ## Rules of Thumb
 
+- Important
+  - Compute
+  - Data Quantity
+  - Data distribution
+  - Train Time
+  - Objective function & reward
+  - Number Stability Designs
 - Hardware
   - RAM size > RAM speed > GPU speed.
   - Data‑center scale: 2024: ~30k A100 GPUs; 2025: ~100k; 2026: 300–700k.
@@ -33,6 +40,11 @@
   - 4k tokens @ 8bit @ 120B OSS ≈ ~1 GB KV cache
   - Measure LLM by training-data, energy per task(cost) vs human
   - Inference Flop ~ 2 X tokens X parameters
+- Business
+  - AI industry often compares to Hyper Cloud Service
+  - Demand is key unknown variable, profit is adjustable by balancing training vs inference.
+  - Investor allowable runway determents take off speed(intelligent) of LLM.
+  - Automatic value ~ (success_task_% - failed_task_%) * task_value_$ - llm_cost_$
 
 ### Token‑per‑second Benchmarks
 
@@ -353,6 +365,7 @@ Cons:
 
 - Open‑socket interruption, context caching.
 - Token Adjust Calculation
+- Google Titan
 
 ### Python Ecosystem
 

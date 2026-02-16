@@ -1,6 +1,44 @@
 # Experience
 
-**LLM Tips**
+## LLM provider
+
+- Token Cost
+  - Self Host are most expensive, & slow
+  - Deepseek is cheapest
+  - <https://www.llmpricehub.com/compare/>
+- Capability
+  - Max context window size
+  - (image, audio, video, or special capability)
+  - Cache
+    - Auto KV cache?
+    - Some provider have adv KV cache support different prefix
+  - RL fine tune
+- SLA
+  - P90/P95
+  - fallback
+  - Certification
+- Security
+  - self host
+  - Data privacy agreement
+
+## Automation
+
+- We assume whatever atomic logic/behavior are ALREADY LEARNED within LLM training, if not no instruction will get LLM doing it.
+
+- Control ~ Work. Many expects works magically done by LLM, which can be true in some cases. But also means in dynamic system, LLM is domaine force, and human give up control. We must list out fundamental forces in workflow or system, how they balance each other to create equilibrium. Human control always translate into work effort.
+
+- Should automate application that less time sensitive, easy to evaluation.
+
+- ALWAYS go for LONG prompt/input LOW decode/output ratio. (decode token ~ 10x prefill token, also prefill faster)
+  - The key resolution/accuracy measure token efficiency. ~ `task_value / token_cost`
+
+
+## Test
+
+- Prompt
+- Right now RL fine tune/Continue Learning still not mainstream. We still requires LLM with detail instruction on every job execution. Hopefully some cache strategy will can let LLM execute without detail instruction.
+
+## LLM Tips
 
 - """use parallel subagents to XXX"""
 - Explain in mechanistic terms, not marketing terms.
@@ -19,8 +57,9 @@
   - `/no_history`
 
 - Prompt Order
-  - 0) Avoid & Deny List
-  - 1) Context
+  - 1) Goal
+  - 1) Constrain Rule (Avoid & Deny)
+  - 1) Details
     - LLM prefer Json, Array to let LLM understand relationship
     - Use text section splittGFer
     - json.dumps(xxx, indent=4) for better readability
@@ -43,7 +82,7 @@
 
 ## Useful Prompts
 
-```
+```md
 IMPORTANT: You should NOT answer with unnecessary preamble or postamble (such as explaining your code or summarizing your action)
 
 If you can answer in 1-3 sentences or a short paragraph, please do
