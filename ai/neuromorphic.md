@@ -39,6 +39,15 @@
 ## Speculation
 
 - Amortize ~ LLM learn Monte Carlo search/beam search within its internal process.
+
+- Communication Through Coherence (CTC) `Neurons that fire in the same oscillation phase communicate more effectively.`
+
+- hypothesis: Neuron naturally has incentive balance activity across networks.
+  - Over active neurons will die out.
+  - Consistence input will active SAME path which neuron don't want. (aka bored)
+  - homeostatic plasticity: Each neuron has its own prefer fire freq.
+    - Rare token must shares with other things increase its fire freq.
+
 - Biologist shown people practice skill will REDUCE amount brain regions uses, but LLM ALWAYS has SAME activation paths, NO MATTER how many times LLM already processed same input.
   - We need incentive/system LLM REDUCE its forward propagation path after repetition input.
     - Maybe SAE/ observation NN to Shorten forward propagation path?

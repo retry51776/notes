@@ -32,6 +32,7 @@
 - ALWAYS go for LONG prompt/input LOW decode/output ratio. (decode token ~ 10x prefill token, also prefill faster)
   - The key resolution/accuracy measure token efficiency. ~ `task_value / token_cost`
 
+- Group jira tickets with similar context/code areas avoid developer context switch.
 
 ## Test
 

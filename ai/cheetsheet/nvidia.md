@@ -8,6 +8,8 @@
     - Mellanox OFED Driver
     - GPU Direct Storage (GDS)
     - NVIDIA® System Management (NVSM)
+    - Flash Linear Attention (FLA) `is NVIDIA optimized kernels.`
+    - NVLabs
   - DGX EL (Enterprise Linux)
   - Base Command Platform (BCP)
     - Dynamo

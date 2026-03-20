@@ -1,0 +1,40 @@
+# Adult Checklist
+
+- Transportation
+  - Car
+    - Maintain
+    - How to drive
+    - Insurance
+  - Public
+- Education
+  - enrollment
+  - class hierarchy & teacher review
+  - advance research/resource/program
+- Housing
+  - Moving Checklist
+  - Maintain
+- Travel
+  - Car maintain (oil/coolant/battery/tire)
+  - Car accident tools (leak/emergency/cloths/food/water/safety/tools)
+  - Outdoor skills & items
+- Finance
+  - Bank
+  - Investment & Retirement
+    - Tradition vs Roth
+    - HSA
+    - Social Security
+  - Tax
+- Personal Logistic
+  - Schedule
+  - Document
+    - ID/passport/SSN
+    - Tax returns
+    - Health Report
+  - Healthcare
+    - physical
+    - psychology
+- Employment
+  - Job search
+  - presentation/resume
+  - pay & benefits
+

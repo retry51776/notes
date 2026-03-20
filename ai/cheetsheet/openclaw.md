@@ -72,9 +72,9 @@ Agent invoked?  ──► yes → AGENT.md/Prompt policy  → decide WHAT the ag
     
 ```
 
-## Skill
+## Plugin
 
-Skill
+Skill - planner invoke themself
  ├─ Manifest
  ├─ Tools (schemas)
  ├─ Tool implementations
@@ -90,6 +90,9 @@ Parsed
  • Tool signatures (inputs / outputs)
  • Preconditions & constraints
  • Cost / latency hints (if available)
+
+Command - user/agent manually trigger
+
 
 ```bash
 # CLI approve 

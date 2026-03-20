@@ -2,10 +2,76 @@
 
 ## IMO
 
+- Data > Infra > Algorithm > Talent
+
+- The problem with Back Pros is earlier adjustment takes a LOT longer to adjust.
+  - Is there ways to find Mid, or Early blocks' target, and adjust? Because we should KNEW which it's active expert.
+
+- Speed up COT
+  - Uses none english, pure vectors.
+  - Use DAG COT, increase possible async sections.
+
+- LLM has different sensitivity, just like human more sensitivity on hands, less sensitivity on back. LLM has high sensitivity on start & end tokens, less on middle & later position.
+  - Another prove of my hypothesis, less activity region less neurons -> less sensitivity.
+  - Also explain why ppl want kinky sex, activate rare regions is natural desire of neuron.
+
+- We SHOULD allow LLM be stubborn(refuse RL until right COT hits).
+  - Forcing RL or COT will adjust WRONG circuit.
+  - The SOLUTION COT should NOT memorize. Rather find highest useful COT that LLM understand.
+    - Similar to coach design specific training for each athlete.
+      - Standard TEST or practice are needed. But we need build custom common mistakes & judgment/correction COT;
+      - The problem is EACH LLM has different mistakes.
+      - Optimize for the smallest intervention.
+      - separate assumptions from observations.
+      - specific failure mode
+      - \text{Good supervision} = \text{task response} -> \text{target reasoning trace} + \text{specific failure mode}
+
+- As Code World Model (CWM) turn into mainstream, DEFINE state variable/KPI is the next frontier.
+
+- Pretraining ~ memorization, priors formation, form lego; RL ~ reflection, combine legos form trajectory latent space;
+
+- LLM training ~ contrast learning; Decode ~ Pattern Completion;
+
+- The problem is backprops adjustment ONLY align for CURRENT trajectories, but most likely mis align / conflict with other trajectories. Sure we rely on momentum. I suspect better alternative.
+
+- Before train AI(or our self development), we needs to consider its available action space vs information space.
+
+- Data formats
+  - Alpaca Format
+  - Markdown
+    - LaTeX
+  - Code
+
+- LLM weights functions
+  - inference weights
+    - encode/decode (Ex: embedding)
+    - compute (Ex: Attention, MLP)
+    - routing (Ex: DSA, MOE, maybe even attention score)
+      - benefit: decouple gradients, partition representational space, reduce interference
+    - stability control (Ex: norm)
+  - training weights
+    - loss function
+    - optimizer state
+      - direction
+      - momentum
+    - activation/activation checkpoints
+    - custom settings (Ex: LR, decay)
+
+- Avoid interference is THE REASON why MOE works.
+  - KPI, measure NN's capacity by shrink NN's precision cost accuracy.
+  - MoE improves the signal-to-noise ratio of gradient flow.
+  - Gradients are partially isolated.
+  - The fact smaller experts works shows RS ONLY needs x weighs, none active experts are dead weights.
+  - Sure smaller LLM by reuses weight are POSSIBLE, at expense of flexibility of LLM.
 - Transformer ~ Turing Machine
  Infinite tape ~ RS
  Head ~ Attention Head
  Head position  ~ Attention weights (soft, distributed)
+
+- Use case dictate LLM architecture design.
+- AI agent workflow should design as dynamic sophisticated process. At the end, there is fundamental trade off between compute vs throughput.
+  - All design have some optimal scale, ~ 1 to 10x. Beyond that workflow should redesign.
+- Prompt ~ flexible code with compute cost; LLM ~ compiler;
 
 Operations:
 
@@ -14,8 +80,14 @@ Operations:
 3. Write ~ Residual add
 4. Move ~ next block
 
+- Planner ~ Task Coherence
+- Good question ~ increase trajectory probo confident
+
 - How/Why NN growth? Tokens not attended → no gradient reinforcement
   - Attention momentum ~ state-space attention
+
+
+
 - incentive for symmetry. maybe SVD.
 - Balance between stability vs changes.
 - LLM need to study project evolution training data[trajectory data](projects grow). Not typical Snapshot data.
@@ -183,3 +255,9 @@ Training often uses beam search, while inference favors sequential revision.
 - **Neuronpedia** – Inspect neuron meanings: <https://docs.neuronpedia.org/>
 
 ---
+
+## Game Benchmark
+
+- FIDE rule on chess with 50 moves
+  - FEN (board state)
+  - PGN (history)

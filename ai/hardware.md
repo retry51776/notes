@@ -150,6 +150,11 @@ Each gate has a special purpose — like customs, traffic control, or the big cr
 
 - Uses **HIP** to translate CUDA code to AMD GPUs.
 
+### Intel
+
+- intel/llm-scaler-vllm
+- Dynamic auto cast LLM to int4 or fp8
+
 ### CoreWeave
 
 - Cloud AI provider with GPU‑focused infrastructure.
@@ -185,6 +190,13 @@ Each gate has a special purpose — like customs, traffic control, or the big cr
 | NVENC / NVDEC | Video encode/decode |
 
 > Note: Tensor Core CAN'T tokenization, softmax scaling, KV cache indexing, and sampling, which still operate on floating point in CUDA Core;
+
+## Datacenter Architecture Components
+
+- LPU - 500 SRAM @ 150TB/s
+- GPU
+- spectrum-x `fiber to `
+- NV-Link switch `between nodes`
 
 ### Training Tools
 

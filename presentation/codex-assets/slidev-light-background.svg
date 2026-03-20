@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
+  <title id="title">Light Slidev slide background</title>
+  <desc id="desc">A light abstract presentation background with subtle grid lines, soft gradients, and restrained geometric accents.</desc>
+  <defs>
+    <linearGradient id="baseGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fbff"/>
+      <stop offset="52%" stop-color="#eef5ff"/>
+      <stop offset="100%" stop-color="#f9fafb"/>
+    </linearGradient>
+    <radialGradient id="topGlow" cx="12%" cy="8%" r="72%">
+      <stop offset="0%" stop-color="#67e8f9" stop-opacity="0.30"/>
+      <stop offset="42%" stop-color="#93c5fd" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bottomGlow" cx="100%" cy="100%" r="70%">
+      <stop offset="0%" stop-color="#a7f3d0" stop-opacity="0.26"/>
+      <stop offset="45%" stop-color="#bfdbfe" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="centerGlow" cx="52%" cy="46%" r="58%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.72"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="beamGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0"/>
+      <stop offset="35%" stop-color="#38bdf8" stop-opacity="0.16"/>
+      <stop offset="70%" stop-color="#2dd4bf" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="gridPattern" width="96" height="96" patternUnits="userSpaceOnUse">
+      <path d="M 96 0 L 0 0 0 96" fill="none" stroke="#94a3b8" stroke-opacity="0.14" stroke-width="1"/>
+    </pattern>
+    <pattern id="dotPattern" width="160" height="160" patternUnits="userSpaceOnUse">
+      <circle cx="18" cy="24" r="1.8" fill="#0f172a" fill-opacity="0.10"/>
+      <circle cx="122" cy="56" r="1.2" fill="#0ea5e9" fill-opacity="0.12"/>
+      <circle cx="84" cy="128" r="1.4" fill="#14b8a6" fill-opacity="0.10"/>
+    </pattern>
+    <filter id="softBlur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="42"/>
+    </filter>
+    <filter id="beamBlur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#baseGradient)"/>
+  <rect width="1920" height="1080" fill="url(#topGlow)"/>
+  <rect width="1920" height="1080" fill="url(#bottomGlow)"/>
+  <rect width="1920" height="1080" fill="url(#centerGlow)"/>
+  <rect width="1920" height="1080" fill="url(#gridPattern)"/>
+  <rect width="1920" height="1080" fill="url(#dotPattern)"/>
+
+  <g filter="url(#softBlur)">
+    <circle cx="320" cy="210" r="220" fill="#67e8f9" fill-opacity="0.18"/>
+    <circle cx="1560" cy="850" r="240" fill="#86efac" fill-opacity="0.16"/>
+    <ellipse cx="960" cy="520" rx="460" ry="210" fill="#ffffff" fill-opacity="0.58"/>
+  </g>
+
+  <g opacity="0.95">
+    <path d="M 0 820 C 260 720 520 744 840 852 S 1460 1008 1920 872 L 1920 1080 L 0 1080 Z" fill="#ffffff" fill-opacity="0.42"/>
+    <path d="M 0 972 C 240 900 480 920 790 1010 S 1400 1110 1920 1002 L 1920 1080 L 0 1080 Z" fill="#dbeafe" fill-opacity="0.38"/>
+  </g>
+
+  <g filter="url(#beamBlur)">
+    <path d="M -120 224 L 700 162" stroke="url(#beamGradient)" stroke-width="10" stroke-linecap="round"/>
+    <path d="M 1230 894 L 2020 764" stroke="url(#beamGradient)" stroke-width="8" stroke-linecap="round"/>
+  </g>
+
+  <g fill="none" stroke-linecap="round">
+    <path d="M 0 244 C 280 206 540 188 820 198" stroke="#38bdf8" stroke-opacity="0.22" stroke-width="2"/>
+    <path d="M 1100 888 C 1340 848 1590 790 1920 692" stroke="#22c55e" stroke-opacity="0.18" stroke-width="2"/>
+    <path d="M 160 942 L 560 942" stroke="#0f172a" stroke-opacity="0.10" stroke-width="1.5"/>
+    <path d="M 1360 176 L 1760 176" stroke="#0f172a" stroke-opacity="0.10" stroke-width="1.5"/>
+  </g>
+
+  <g>
+    <rect x="128" y="128" width="340" height="180" rx="22" fill="#ffffff" fill-opacity="0.34" stroke="#38bdf8" stroke-opacity="0.20"/>
+    <rect x="1450" y="760" width="280" height="156" rx="22" fill="#ffffff" fill-opacity="0.32" stroke="#22c55e" stroke-opacity="0.18"/>
+    <path d="M 1520 224 L 1734 224 L 1792 282 L 1792 468 L 1520 468 Z" fill="#ffffff" fill-opacity="0.30" stroke="#475569" stroke-opacity="0.14"/>
+    <circle cx="1628" cy="346" r="78" fill="none" stroke="#14b8a6" stroke-opacity="0.18" stroke-width="2"/>
+    <circle cx="1628" cy="346" r="46" fill="none" stroke="#60a5fa" stroke-opacity="0.18" stroke-width="2"/>
+  </g>
+</svg>

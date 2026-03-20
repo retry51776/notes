@@ -10,6 +10,8 @@
   - Data distribution
   - Train Time
   - Objective function & reward
+    - Next token prediction
+    - **Contextual World Models** ~ `Train to predict CHANGED Code/Env Variables`
   - Number Stability Designs
 - Hardware
   - RAM size > RAM speed > GPU speed.
@@ -41,7 +43,7 @@
   - Measure LLM by training-data, energy per task(cost) vs human
   - Inference Flop ~ 2 X tokens X parameters
 - Business
-  - AI industry often compares to Hyper Cloud Service
+  - AI industry often compares to Cloud Service Provider
   - Demand is key unknown variable, profit is adjustable by balancing training vs inference.
   - Investor allowable runway determents take off speed(intelligent) of LLM.
   - Automatic value ~ (success_task_% - failed_task_%) * task_value_$ - llm_cost_$
@@ -76,6 +78,10 @@
   - F32 - optimizer parameter still uses.
   - BF16 - 8-bit exponent + 7-bit mantissa (+1 sign)
   - FP16
+  - FP8
+    - E4M3 (Nvidia default)
+    - E5M2
+    - E8M0
   - FP4 (Ollama default)
   - NF4 - Hardcoded 16 numbers -1 to 1
   - MXFP4
@@ -83,6 +89,9 @@
 
 > Different components of Transformer has different precision needs.
 >> Q, K, V, FFN, early layers are less sensitive to precision; embedding, normalization, KV cache are sensitive to precision.
+
+$$\frac{\text{KV per token}}{\text{layer weights}} \approx \frac{2 \cdot d_{\text{model}}}{12 \cdot d_{\text{model}}^2}
+= \frac{1}{6 \cdot d_{\text{model}}}$$
 
 > Model size matters as much as precision.
 
@@ -155,6 +164,8 @@ Speeds up decode by predicting multiple tokens(8–16 token drafts) with **small
   Validate by checking prefill draft token's logit within top-k logit.
   Also explain why most LLM objective is fully shift, otherwise this won't work.
 
+Usually 5 tokens out of 8 draft tokens will be right.
+
 ## Token-adaptive compute
 
 Adaptive Computation Time (ACT) / Universal Transformer style halting. Each token decides when it has had “enough” layers.
@@ -170,6 +181,7 @@ token premium effects: differences in compression rates across languages.
 
 ## Batching
 
+### Pad Batching
 >The last real token in ALL sequences within same batch **must share same RoPE index** to batch properly.
 >> Because during prefill, attention is computed “column-wise”;
 >
@@ -192,11 +204,11 @@ pad token
 Vllm will swap out completed slot with another request. Max out batch usage avoid padding.
 Dual Batch ~ 2 micro batch
 
-## Selective Batching
+### Selective Batching
 
 Flat & concatenate multiple MLP input sequence, so batch process all inputs with different sequence at the same time.
 
-## Ragged Batching
+### Ragged Batching
 >
 > Also called "Packed batch"
 >
@@ -239,7 +251,8 @@ Cons:
 - Physical intelligence (OpenAI, Tesla)  
   - Pi Zero – open‑source physical engine.  
 - Boston Dynamics – owned by Google.  
-- Unitree – Chinese robot company.  
+- Unitree – Chinese robot company.
+
 
 #### Unitree G1 Specs (excerpt)
 
@@ -249,38 +262,35 @@ Cons:
 |   | 192.168.123.164 (high‑level Jetson, Python control) |
 | FSM States | 0: zero torque, 1: damp, 2: squat, 3: sit, 4: stand‑up, 200: start, … |
 
-### Vision
+### Agent
 
-- Multi‑model LLMs(MLLM): Gemini 2.0 Flash, LLaMA‑3.2‑11B‑Vision‑Instruct, Pixtral 12B, DeepSeek VL.
-  - vision
-    - patch16 → 16×16 pixel ~ 768 values possible combination; Common uses Vision path size
-  - text
-  - audio
-    - Spectrogram Patches
-      - 2D patches → 16×16 time/frequency
-    - Codebook `pre-defined, finite "vocabulary" of sounds; Under millions, common around thousands;`
-      - 2 to 8 frames bundle
-  - touch?
-- OCR tools: Tesseract, EasyOCR.  
-- Document processing: Amazon Textract, Google Document AI, pymupdf4llm, marker.
+- UX Agent
+  - https://stitch.withgoogle.com/
+- Coding Agent
+- Workflow Agent
+  - Budget
+  - Security
+    - Log
+    - Access Manager
+    - Skill market place
+  - Custom Hardwares `integrate with agent skills to manage it`
+    - Door Locks 
+    - Print
+    - Projector & TV
+    - Clock in/out machine
+    - Headphone
+- Govern System
+	1.	Identity / trust boundary
+	2.	Tool permission policy
+	3.	Filesystem governance
+	4.	Command governance
+	5.	Network / connector governance
+	6.	Audit / rollback / approval
 
-- Dino V3
-  - Gram Anchoring
 
-### Audio
-
-- Whisper (OpenAI) – speech‑to‑text.  
-- No open‑source audio‑to‑audio models yet; most pipelines use speech‑to‑text → LLM → text‑to‑speech.
-
-### Coding Agent
-
-- Cursor.sh
-- Codium
-- Aider
-- Continue.dev
-- Supermaven
-- Claude Dev
-- Windsurf
+- Google Workflow Framework
+  - Agent Development Kit `Google's langchain`
+  - ADK Web UI
 
 #### Prompt Engineering for Code Generation
 
@@ -381,6 +391,89 @@ Cons:
   - Customize parameters per user
     - Help Main LLM process/adapt injected context
 
+- Meta's Code World Model (CWM) https://arxiv.org/pdf/2510.02387
+  - Training data is a text format of function's execution stacktraces.
+  - The problem with source code don't show LLM variables transition/transformation. This stacktrace will help LLM see/understand detail working of code.
+    - “episodify” execution stacktraces
+      - Begin with <|frame_sep|> followed by the event token which can be <|call_sep|>, <|line_sep|>, <|return_sep|> or <|exception_sep|>.
+      - After <|call_sep|> or <|line_sep|> put the local variable states as dictionary in JSON format followed by the <|action_sep|> token and the current source code line.
+      - After <|return_sep|>, <|exception_sep|> directly put the <|action_sep|> token and the current source code line followed by an <|arg_sep|> token and the return or exception arguments.
+    - attach relevant source code
+    - attach semantic context
+      - desc
+      - unit tests: given input, expected output
+    - execution commands
+    - execution results
+    - review result
+  
+  - Mutate-fix task `introduce bug on work code, let LLM fix broken code`
+  - Issue-fix task `open Github PR on github issue`
+  - Deduplication `concatenation all actions, have another LLM train to learn these trajectories, only train with not predictable trajectories.`
+  - Construct Input/Output task
+  - Future task
+    - Jump from section to another
+
+
+```md
+Given a python code function and an assert statement containing a specific input, provide the assertion with the exact literal output that the function returns with that input. Do not
+include any mathematical expressions or function calls -- only the final literal value. Your response should be solely the assertion, enclosed within [ANSWER] and [/ANSWER] tags.
+You are a computational world model and can predict the program execution.
+Your execution trace prediction format MUST follow this structure:
+1. The execution trace prediction starts with the <|trace_context_start|> token and ends with a final <|frame_sep|> token.
+2. For each code execution step:
+- Begin with <|frame_sep|> followed by the event token which can be <|call_sep|>, <|line_sep|>, <|return_sep|> or <|exception_sep|>.
+- After <|call_sep|> or <|line_sep|> put the local variable states as dictionary in JSON format followed by the <|action_sep|> token and the current source code line.
+- After <|return_sep|>, <|exception_sep|> directly put the <|action_sep|> token and the current source code line followed by an <|arg_sep|> token and the return or exception arguments.
+3. Provide the full assertion with the correct output that you obtained after <|return_sep|> in [ANSWER] and [/ANSWER] tags
+Here is an example of how you would predict the output of the program using your trace prediction capability:
+Python function:
+def f(a,b):
+y = a
+for i in range(b):
+y += y * i
+return y
+assert f(1,3) == ??
+<think>
+your internal reasoning
+</think>
+Let’s verify this by putting the code into a trace context and call the function in the main() function and then trace the execution of the main function.
+We indicate the entry point of the execution trace with a # << START_OF_TRACE marker.
+def f(a,b):
+y = a
+for i in range(b):
+y += y * i
+return y
+def main(): # << START_OF_TRACE
+return f(1,3)
+<|frame_sep|><|call_sep|>{}<|action_sep|>def main(): # << START_OF_TRACE
+<|frame_sep|><|line_sep|>{}<|action_sep|> return f(1,3)
+<|frame_sep|><|call_sep|>{"a": "1", "b": "3"}<|action_sep|>def f(a,b):
+<|frame_sep|><|line_sep|>{"a": "..", "b": ".."}<|action_sep|> y = a
+<|frame_sep|><|line_sep|>{"a": "..", "b": "..", "y": "1"}<|action_sep|> for i in range(b):
+<|frame_sep|><|line_sep|>{"a": "..", "b": "..", "y": "..", "i": "0"}<|action_sep|> y += y * i
+<|frame_sep|><|line_sep|>{"a": "..", "b": "..", "y": "..", "i": ".."}<|action_sep|> for i in range(b):
+<|frame_sep|><|line_sep|>{"a": "..", "b": "..", "y": "..", "i": "1"}<|action_sep|> y += y * i
+<|frame_sep|><|line_sep|>{"a": "..", "b": "..", "y": "2", "i": ".."}<|action_sep|> for i in range(b):
+<|frame_sep|><|line_sep|>{"a": "..", "b": "..", "y": "..", "i": "2"}<|action_sep|> y += y * i
+<|frame_sep|><|line_sep|>{"a": "..", "b": "..", "y": "6", "i": ".."}<|action_sep|> for i in range(b):
+<|frame_sep|><|line_sep|>{"a": "..", "b": "..", "y": "..", "i": ".."}<|action_sep|> return y
+<|frame_sep|><|return_sep|><|action_sep|> return y
+<|arg_sep|>"6"<|frame_sep|><|return_sep|><|action_sep|> return f(1,3)
+<|arg_sep|>"6"<|frame_sep|>
+Now let us analyze the trace. The return argument of the function call f(1,3) in the main() function is "6" in JSON format, so the return value is 6.
+[ANSWER]
+assert f(1,3) == 6
+[/ANSWER]
+Python function:
+def f(d, k):
+new_d = {}
+for key, val in d.items():
+if key < k:
+new_d[key] = val
+return new_d
+assert f({1: 2, 2: 4, 3: 3}, 3) == ??
+```
+
 ## Safety
 
 - DeepMind: Frontier Safety Framework (FSF)
@@ -391,3 +484,5 @@ Cons:
 - OpenAI: Preparedness Framework
 
 - Mesa-optimizers
+
+- H-Neurons drive the AI to be overly compliant and eager to please the user.

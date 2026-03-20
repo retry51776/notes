@@ -180,6 +180,8 @@ Tensor components:
   - kwargs: { keep_dim: true, dim=-1 }
   - parents: {0:x, 1:x}
 
+backprop_cal(grad_out: Arr, out: Arr, x: Arr)
+
 ```py
 import torch
 import gc
@@ -348,6 +350,7 @@ These __global__ functions are known as kernels, and code that runs on the GPU i
 Nsight System - Advance GUI debugger
 
 Pytorch will calculate SM size, and choice best tiling size CUDA kernel.
+
 
 ```c++
 // CUDA Kernel function to add the elements of two arrays on the GPU

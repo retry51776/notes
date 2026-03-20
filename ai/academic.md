@@ -22,14 +22,30 @@ Stage:
   - Decouple Input & Output
   - Output interruption & Input interruption
   - Improve LLM from understand to apply tools `aka from understand to doing`
-- ??: dynamic model & benchmark
+- 2026: dynamic model & benchmark
+  - better COT
+    - compress COT
+    - DAG COT
+  - pretrain optimizer:
+    - Adam only parameter's direction & momentum
+    - muon matrix aware
+    - ??? new optimizer block aware?
+  - RL optimizer:
+    - KL divergence is ONLY logit vs logit level
+    - ??? new lose function that trajectory level or tokens group?
+- 2027 ?? who knows, other data modality?
+  - LIAR, SONAR, x-ray ....
 
 ### Modeling Steps
 
 1. What are we modeling?
-    - Study human? or Study physic? Ex: color is only human biology, in reality just wave freq.
+    - Human Modalities (Ex: text, audio, image, video)
+    - None Human Modalities (Ex: X-ray, MRI, protein folding)
 2. Curate Data
-    - The biggest bottleneck; Both human & robot data collection limited by reality.
+    - Planning Domain Definition Language (PDDL)
+    - Business Process Model and Notation (BPMN)
+    - Knowledge Graph Triplets
+    - Mathematical Proof (LEAN)
 3. Design AI Architecture
     - Dark magic? Ask AI expert
     - Symmetry within model (Ex: time, left vs right, position,)
@@ -100,6 +116,7 @@ Stage:
       - special tokens
     - embedding space at layer 0 is often scrambled and highly non-semantic
   - Mixture of Expert(MOE)
+  - dynamic MoE
   - Multi Query Attention `reduce attention head to output to increase speed`
 - Training
   - Activation checkpoint `Don't store Activation, recompute to save RAM`
@@ -115,6 +132,7 @@ Stage:
     - google/IFEval
   - LoRa `Attach extra weight to original model feed forward layer, then train these extra weight; usually mb size`
   - On Policy Distillation `kl(student_prob - teach_prob)`
+  - RLAIF (RL from AI Feedback)
 
 - L1 regularization `L1 regularization penalizes the sum of the absolute values of the weights in the network. This encourages the network to use a smaller number of weights, and it can also help to prevent over fitting.`
 - L2 regularization `L2 regularization penalizes the sum of the squares of the weights in the network. This also encourages the network to use a smaller number of weights, and it can also help to improve the generalization performance of the network.`
@@ -191,6 +209,8 @@ Important notes:
 > The chain rule says: Total effect = (effect on intermediate) × (effect of intermediate on final)
 
 > Chain rule backprops prerequisite: nn is DAG(no Cyclic graph).
+
+> Often layer's output are component of derivative calculation. `backprops(grad_out, x, out)`
 
 #### Implicit Differentiation
 >
@@ -270,6 +290,8 @@ residual stream/latent space `The intermediate output between NN layers`
 
 > Think of it as outer loop of learning.
 
+> @ 2026 industrial direction is scale RL to be generalize. 
+
 > The limitation of supervise learning is teacher HAS answer, and student will NEVER out smart teacher, teacher requires build large teaching exercise.
 
 > The limitation of RL is reward sparsity, which it's why important to have small achievable goal.
@@ -283,6 +305,16 @@ Good LLM RL practices:
 - introspective awareness: LLM should self aware injected thoughts(by path activation).
 
 - Solve/Predict/Explain/Counter/Coherence/Confidence
+
+RL Types:
+
+- Preference RL
+- RL from AI Feedback (cheap)
+- Process-based RL
+- Outcome RL with Verifiers (scalable)
+- Self-Play / Debate / Multi-Agent RL (improve reasoning)
+- Online RL with Real Usage
+
 
 **PPO components**:
 
@@ -369,6 +401,7 @@ Interpretability Research: <https://transformer-circuits.pub/>
 - **Feature Manifold** `lives in a particular subspace of the residual stream (RS), orientation and shape are stable;`
   - rarely need more than 1–3 dimensions
   - can live inside many RS channels at once
+- Causal Efficacy Token Traits(CETT) is used to measure a single neuron's specific contribution to the final output of the neural network.
 
 ### Feature Manifold
 
@@ -487,6 +520,26 @@ sparse optimization algorithm
 
 **Activation density**
 > Most transformer neuron fires under 0.5%; early layers fires more than later layers. But human cortex Activation density ~ 1-5%.
+
+### Capacity
+
+Types:
+- parameter capacity
+- activation capacity
+- functional capacity
+
+
+Commonly measure by variance versions of ablation test.
+
+Measures:
+
+- Precision sensitive
+- Participation Ratio (PR measure activation space)
+- Stable Rank of Activation
+- Dead neuron ratio
+- Routing Entropy
+- compression curve
+- Noise Robustness Test (noise sensitive ~ high utilization %)
 
 ## Paper
 

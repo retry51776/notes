@@ -33,14 +33,21 @@
 
 > Each cortex lob acts as a worker/node of mammal brain. Usually each cortex lob assign same function, sometime different cortex lob can switch its function(Ex: touch, sound, shape, color ...). Each lob neuron dendrites connects to other lobs related attributes. Mammal brain acts as controller, that gather all infos in cortex lobs, made a decision & send signal to rest of body.
 
-> Consider neuron as people; people forms city, business, and other specialized district similar some neuron specialized reps some knowledge.
-> > Maybe neuron communicate to create local consensus; Global working space(government) can decide 1) take majority consensus by sample then select 2) suppress majority consensus, let minority voice growth & become new consensus. (do step 1, then require focus to suppressed, the reason is hard to think)
+> Use social model to find LLM inspiration, consider neuron as people; people forms city, business, and other specialized district similar some neuron specialized reps some knowledge.
+> > Maybe neuron communicate to create local consensus; Maybe thinking ~ ablation domain ideas, let rare idea growth.
 
 > Brain wide info share. The winning coalition. (neurons form a group reps an object)
 
 > How many dimension for neuron differentiate information? time, location, fire vs no fire; frequency? fire strength?
 
+- Understand Resolution ~ edge case coverage % ~ requires neuron capacity.
+  - Higher understand resolution ~ break into smaller components ~ need more neurons in this subspace/region.
+  - LLM ~ ALL human understanding ~ way more edge case coverage than ANY individual
+  - A lot world transformation is NOT documented, LLM may missed/not observed detail how these changes happens in detail. My world changed A LOT, I personally did observed huge changes.
+
 - Time: because Hebbian rule; fire together wire together; How far is range, I assumed not that far? Hebbian rule = Group operation?
+
+- As I getting older, I realized we needs to respect professional. Given some position, there only some KPI or target relates to THAT position. We need to only measure "person" hold position by those KPI or target, nothing else. Don't assume there is some norm or global standard that everyone must follow.
 
 CNN pool layer lost position info; Have another group op layer point to grid cells?
 

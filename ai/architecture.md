@@ -148,7 +148,7 @@ Ideas:
 
 YaRN allows RoPE to use non-integer (fractional) token positions
 
-deepseek:
+### deepseek
 
 - Multi-Head Latent Attention (MLA)
   - Find common denominator matrix C for in KV matrix, so when store KV cache, store KV/C to save storage.
@@ -156,6 +156,13 @@ deepseek:
 - Due Pipeline - Decouple backprops into 2 components; Only run 2nd part when GPU is free
   - Calculate backprops for early layer
   - Calculate weight update
+
+- DeepSeek Sparse Attention (DSA) `similar to MOE gating but on attention`
+  - Lightning Indexer (reduce precision to find top-k token)
+    - indexer projection weights (Learned coarse routing, sometime some token ALWAYS matter regardless its attention score, just like MOE gating linear weights)
+      - Don't assume only large activation matters, consistent activation PATH matters too
+      - combine tokens' dimensions into single indexer score
+  - Top-k selector
 
 ```py
 model.model.layers ModuleList(
@@ -188,6 +195,14 @@ Why converge? because we infuse NN desire state to be equilibrium, equilibrium a
 It's all about converge speed/transformation step. Chain of Thoughts allow LLM has more steps to converge(because nn deep is limited).
 
 Either improve step converge speed, or allow dynamic steps.
+
+### Qwen
+
+QWEN 3.5 uses linear attention. K.V -> State Matrix, but State Matrix is CONSTANCE SIZE regardless seq length. Kind like goes back RNN, or Transformer without softmax.
+
+Their idea is design architecture for inference(avoid KV cache size blow up). At cost of compute during training.
+
+**Linear Attention** means attention compute, memory(kv cache) are constance. Typical transformer compute is N^2, memory also N^2.
 
 ## Diffusion
 

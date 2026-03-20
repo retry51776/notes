@@ -51,3 +51,7 @@
 
 ## JIRA
 - RELEASE MANAGEMENT – auto‑generate release notes
+```bash
+brew install jira-cli
+
+```

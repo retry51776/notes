@@ -43,6 +43,7 @@
 >
 > They are hard to change because they integrate many life events, leading to entrenched beliefs.  
 
+- Every thing can model through Dynamic System, equilibrium, limited circle. Ex: plank constance is equilibrium between gravity(black hole) & precision(high freq).
 - Discrete mathematics contains many fundamental principles; it should be taught in high school.
 - There is no solution, only trade‑off.
 - Everything has its mechanic. Understand the mechanics by either collecting statistics or applying logic.
@@ -54,15 +55,19 @@
 - We (including AI) are always biased because each of us experiences only a subset of reality.
 - surprisal: Rare events contains more information.
 
+
 - All evolutionary ideas challenge our assumptions.  
   > *Einstein*: E = mc² → energy and mass are equivalent.  
   > *Newton*: established modern science from religious era.
 >
 ### China Opinion
 
-- China is a role‑based society. Individual responsibility and power come from role rather than directly from personal choice. Hierarchical relationships arise from role assignments—for example: 君君臣臣，父父子子. 打地主
+- China is a role‑based society. Role determents individual responsibility and power, rather than directly from personal choice. Hierarchical structure arise from role assignments—for example: 君君臣臣，父父子子.
 - Chinese Culture attempts to lock up human nature(不尊重人性). Ex: Buddhist can't marry nor eat meat; Communism eliminate personal profit;孔子:克己复礼;程朱理学:存天理，灭人欲。
 - Chinese history often attributes the cause or outcome of events to specific individuals, which I disagrees. Life is similar to poker, perfect actions & still lose that hand. A failure does not necessarily mean a decision was wrong, just as success does not automatically justify an action.
+- 高压统治者 = 高压 + 高不确定性 → 系统必然寻求“降压继承者”
+  - 秦始皇，汉武帝，光武帝，朱元璋，毛泽东，斯大林 的继承者都是浅根基，温和派，延续旧政策，大概率过渡期发生政变。
+- Chinese culture doesn't have habit for power exit system. Ex: (emperor, company founder w chinese origin)
 
 ### Psychology Opinion
 
@@ -72,8 +77,8 @@
 - Human nature desire for **belonging** and **power**.
   - Psychological dimensions @ Hippocampus: Power & Affiliation
 - Monkey see, Monkey do.
-- "Narcissism of Small Differences" Sigmund Freud
-- Instinct(Personality) just understanding of risk & reward in EARLY childhood, which embedding into brain as default thinking.
+- Sigmund Freud contrarian conclusion: "Narcissism of Small Differences"
+- Instinct(Personality) just understanding of risk & reward in EARLY childhood, which embedding into brain as default instinct.
 - Don't trust what people said, observed their action.
 - Memory exists as discrete patches; fewer patches with age make time feel faster.  
   > We don’t have a continuous memory timeline; we have denser memory patches for recent events and sparser ones for older times.  
@@ -84,10 +89,12 @@
 - You cannot connect the dots when looking forward (the result has not yet occurred); you can only connect them retrospectively.
 - Intelligence is an equilibrium between supply (often over‑focused) and demand (often overlooked).
 - Statistic of outcome/result > Statistic of input/individual.
+- Change behavior ~ time for slow reaction + practice
 
 ### Economic Opinion
 
 - Credit Assignment is root of many problem;(wealth distribution, LLM training, learning deficit)
+- Growth ~ system temperature ~ reduce friction/bond between individual. Stagnation ~ zero sum game incentivize individual fight instead corporation.
 - Assuming unlimited supply, quality vs. price follows an exponential relationship, whereas quantity vs. price follows a logarithmic relationship.
 
 - Trade‑off between Redundancy–Efficiency in production.

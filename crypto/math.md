@@ -105,3 +105,14 @@ Given `x³ + x + 5 = 35`:
 | 4    | `d = c + 5`              | `[5,0,0,0,1,0]`     | `[1,0,0,0,0,0]`     | `[0,0,0,0,0,1]` |
 
 These vectors are later transformed into a Quadratic Arithmetic Program (QAP) and finally into a SNARK proof.
+
+
+## Advance Math approach
+
+- Monomial Expansion
+  - generate function method
+  - Gaussian Integral Lifting
+  - Mixed Coordinate Transformation
+
+- Spectral Decomposition
+- exact analytical solution
