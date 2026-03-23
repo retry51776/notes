@@ -2,6 +2,16 @@
 
 ## IMO
 
+Parameters → "what you know"
+Loops → "how long you think"
+
+- Search problem → Selection problem; Our job is select good opinion from LLM answers.
+  - Constraints shrink the opinion space
+  - Clear objective
+  - Clear priority
+
+- I disagree invest so much on decode accelerator hardwares. IMO problem source is transformer design tradeoff, transformer reduce compute density by kv cache(which demand RAM). Maybe diffusion like architecture is more future, which utilize all compute.
+
 - Data > Infra > Algorithm > Talent
 
 - The problem with Back Pros is earlier adjustment takes a LOT longer to adjust.
@@ -260,4 +270,4 @@ Training often uses beam search, while inference favors sequential revision.
 
 - FIDE rule on chess with 50 moves
   - FEN (board state)
-  - PGN (history)
+  - Portal Game Notation (PGN) history

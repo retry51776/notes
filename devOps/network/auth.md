@@ -37,8 +37,8 @@
 
 - okta
 - Auth0
-- [SSL/TLS](/devOps/network/security.md)
-- [DNS](/devOps/network/dns.md)
+- [SSL/TLS](/devops/network/security.md)
+- [DNS](/devops/network/dns.md)
 - [Keycloak](/test/keycloak/README.md)
 
 # Technology or Buzzwords

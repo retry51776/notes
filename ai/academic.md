@@ -296,6 +296,8 @@ residual stream/latent space `The intermediate output between NN layers`
 
 > The limitation of RL is reward sparsity, which it's why important to have small achievable goal.
 
+> RL is mostly close source, with many diverse approaches.
+
 Good LLM RL practices:
 
 - LLM self aware its known & unknown

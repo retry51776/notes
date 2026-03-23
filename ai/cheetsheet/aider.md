@@ -32,8 +32,8 @@ aider --model lm_studio/openai/gpt-oss-120b
 # 128k context window = agent handle 3-5 files
 
 # Undo fileX aider changed
-git restore --source=abcb3187b27257798a6417523f7281ce4717b0f2^ -- /Users/terry/Documents/GitHub/notes/devOps/k8/traffic.md
-git add /Users/terry/Documents/GitHub/notes/devOps/k8/traffic.md
+git restore --source=abcb3187b27257798a6417523f7281ce4717b0f2^ -- /Users/terry/Documents/GitHub/notes/devops/k8/traffic.md
+git add /Users/terry/Documents/GitHub/notes/devops/k8/traffic.md
 git commit --amend --no-edit
 
 # Within aider push git

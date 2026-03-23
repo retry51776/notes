@@ -10,6 +10,9 @@
 
 Additional ecosystem:
 - **OpenTelemetry** – standard for tracing front‑end services  
+  - `trace_id` = global request ID
+  - `span_id`  = per-service step
+  - Upstream Service inject `traceparent` to downstream service, or manually inject into request's header
 - **Tempo** – trace backend storage; provides 100 % trace retention  
 
 `opentelemetry → prometheus → grafana`

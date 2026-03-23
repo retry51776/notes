@@ -103,4 +103,4 @@ kubectl explain deployment.spec.template
 
 ```
 
-devOps/k8/vault.md
+devops/k8/vault.md

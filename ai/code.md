@@ -666,6 +666,16 @@ uv run mcp install weather.py
 
 [Remote MCP servers](https://glama.ai/mcp/servers)
 
+### Figma MCP
+
+file_key - whole design document
+node_id - specific frame / component
+
+Apple Design: https://developer.apple.com/design/resources/
+Figma Community Design: https://www.figma.com/community/libraries?resource_type=files
+Developer or Produce Owner should pick design from here as UX ground for agent.
+
+
 ## TensorRT
 
 > 2~4 × improvement pytorch

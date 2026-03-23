@@ -38,7 +38,13 @@
 
 ## Speculation
 
+- Compute density ~ neuron density.
+  - neuron density has upper limited. Sometime people can't change, Maybe their neuron cluster overcrowded, new neurons don't have room to growth.
+  - Similar to superposition interference.
+
 - Amortize ~ LLM learn Monte Carlo search/beam search within its internal process.
+
+- We can simplify human inference to the point upload to cloud. But simplification will distort actual human development trajectory.
 
 - Communication Through Coherence (CTC) `Neurons that fire in the same oscillation phase communicate more effectively.`
 

@@ -1,18 +1,50 @@
 # AI
->
+> 
+
 > I break down my AI notes into:
 
 ```
 /ai
-├── /prompts
+├── /cheetsheet
 │   └── aider.md
 │   └── claude.md
 │   └── experience.md
-├── academic.md (Focus on theory)
+├── /skills
+│   └── README.md
+│   └── /pitfalls
+│       └── SKILL.md
+├── academic.md (basic terms)
+├── architecture.md (Adv)
 ├── hardware.md
-├── imo.md
+├── mathematic.md
+├── neuromorphic.md (relates to human neurons)
+├── imo.md (unorganized notes)
 └── industry.md
 ```
+
+Most likely automate by AI industries traits:
+
+- input
+  - digital?
+    - radiology
+  - Observability (privacy block some industry)
+  -	variance?
+    - messy real-world physical manipulation
+    - standard formats?
+    - student in edu process (different success rates)
+- output
+  - digital? (text, image, audio, video, code, or structured decisions)
+  -	variance?
+    - human target audience will have big variance (differ mood, preference)
+    - code low variance because IDE execute result same
+    - time-horizon variance
+      - hiring decision, policy design, medical treatment plan
+    - uncertainty
+      - poker, strategy result, therapy resp
+  - Incentive alignment
+    - Education/politics/art
+-	huge volumes of historical data (code, movie)
+-	workflows that repeat at scale
 
 ## Analogy
 

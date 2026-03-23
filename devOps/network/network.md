@@ -72,6 +72,13 @@ Non-routable Addresses Space (NAT)
 - 192.168.0.0/16
 <https://jodies.de/ipcalc>
 
+## VPN
+
+1. Network-layer VPNs   (openVPN L3 effect ALL traffic)
+2. Transport-layer VPNs (WireGuard, faster L3)
+3. Application-layer VPNs (Clash L7)
+4. Overlay / mesh VPNs (Tailscale distributed L3)
+
 # Http History
 
 - http 1.0 `start 1996, each request needs its TCP connection`

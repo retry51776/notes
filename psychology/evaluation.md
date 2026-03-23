@@ -82,7 +82,15 @@ Instructions:
 
 ## Background
 
-- Name, Age, Sex, Race
+- Name, Age, Sex, Race, Religion
+  - Age & childhood city will locate major historical event. Always calculate their 7-17 that decade.
+    - Because teenager period is most sensitive & interpretable period in a person's life.
+    - Ex:
+      - chinese: 60s education ruin by culture revolution, 50s 红卫兵
+      - vietnamese: 70s North Vietnam took over.
+      - mexican: 82, 94 peso crisis
+      - texan: 60-70 desegregation era
+      
 - key cities(born, childhood, school, adult, retired?)
 - General profession history
 - Personality

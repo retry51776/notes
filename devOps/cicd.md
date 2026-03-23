@@ -3,7 +3,7 @@
 
 > Funny thing about CI/CD is that it automates processes and testing code to be more reliable, yet the CI/CD pipeline itself is often the most unreliable component.
 
-## [Bash](/devOps/local/bash.md)
+## [Bash](/devops/local/bash.md)
 > Works with Linux.
 
 ## [Go](/development/go.md)
