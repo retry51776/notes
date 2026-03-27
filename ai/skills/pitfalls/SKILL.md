@@ -1,13 +1,19 @@
+---
+name: pitfalls
+description: >-
+  Use this skill when an agent is starting a task, gets stuck mid-task, or
+  needs a quick quality pass before replying.
+---
+
 # pitfalls
 
 ## Table of Contents
 
 - [Description](#description)
 - [Usage](#usage)
-- [Pitfalls](#pitfalls)
+- [Reference Loading](#reference-loading)
 - [Inputs](#inputs)
 - [Outputs](#outputs)
-- [Examples](#examples)
 
 ## Description
 
@@ -27,46 +33,23 @@ moves, tips, and execution rules.
 7. In the final reply, state what changed, what was verified, and what
    remains uncertain.
 
-## Pitfalls
+## Reference Loading
 
-- Acting before reading the repo or instructions:
-  Produces code or notes that fight local conventions.
-  Better move: read `AGENTS.md`, nearby files, and naming patterns first.
-- Stopping at a plan when the user expects execution:
-  Wastes a turn and forces the user to repeat themselves.
-  Better move: if the task is concrete and safe, do the work.
-- Editing too broadly:
-  Increases regression risk and review cost.
-  Better move: keep the diff narrow and aligned with the request.
-- Reverting unrelated user changes:
-  Destroys work and breaks trust.
-  Better move: leave unrelated changes alone unless explicitly asked.
-- Claiming verification without running anything:
-  Gives false confidence.
-  Better move: run the nearest relevant check or clearly say it was not run.
-- Guessing facts that can be inspected locally:
-  Leads to avoidable errors.
-  Better move: search the repo, read the file, inspect the command output.
-- Getting trapped in one failing approach:
-  Burns time without progress.
-  Better move: change tactics, simplify, isolate, or verify assumptions.
-- Writing a long answer with little action:
-  Looks helpful but does not move the task.
-  Better move: prioritize edits, commands, and concrete outcomes.
-- Ignoring edge cases after the happy path works:
-  Leaves fragile results.
-  Better move: check failure paths, missing input, and cleanup behavior.
-- Hiding uncertainty:
-  Makes follow-up harder.
-  Better move: state the exact assumption or blocker directly.
+Keep this file lean by loading detailed guidance only when needed.
+
+### ComfyUI
+Read [references/comfyui.md](./references/comfyui.md) when you need:
+
+### Slidev
+Read [references/slidev.md](./references/slidev.md) when you need:
 
 ## Inputs
 
 - User request
+- Current blockers, failed attempts, or uncertain assumptions
 - Repository instructions such as `AGENTS.md`
 - Local conventions
 - Relevant files, tests, and command output
-- Current blockers, failed attempts, or uncertain assumptions
 
 ## Outputs
 
@@ -74,29 +57,3 @@ moves, tips, and execution rules.
 - A list of task-specific pitfalls to avoid
 - Concrete tips or tricks for the current task
 - Clear final notes on changes, verification, and remaining risk
-
-## Examples
-
-### ComfyUI
-
-Task: "Before Download Model, check its hardware, make sure precision model are support by hardware."
-
-Apply the skill by checking local Markdown conventions first, matching
-the title to the filename, adding a table of contents, and editing only
-the relevant note files.
-
-### Example 2
-
-Task: "Fix the failing script."
-
-Apply the skill by reproducing the failure, reading the surrounding
-code before editing, making the smallest plausible fix, and rerunning
-the closest verification command.
-
-### Example 3
-
-Task: "Research the latest API behavior."
-
-Apply the skill by treating freshness as unstable, verifying with the
-current source, and separating confirmed facts from inference in the
-reply.

@@ -5,6 +5,8 @@
 
 - Can psychology being model?
   - IDK, maybe. Maybe psychology is dynamic system. Here's not about prediction, I'm more interest on fundamental forces.
+
+- Evaluation is hard because Behavior ≠ true state.
 - Break evaluation
   - Self Aware
   - Reinforce Opinion

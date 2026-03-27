@@ -1,5 +1,12 @@
 # Codex
 
+## Codex Cloud
+
+Define codex sandbox: https://chatgpt.com/codex/settings/environments
+
+Codex start contain(with their image) with mounted volume(from github repo); This github repo acts as s3 storage, codex container may open PR to this github repo for save changes.
+  OpenAI codex provide runtime but not storage.
+
 ## Security
 
 - POV of control from user

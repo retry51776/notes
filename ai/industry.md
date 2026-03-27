@@ -18,8 +18,8 @@
   - Data‑center scale: 2024: ~30k A100 GPUs; 2025: ~100k; 2026: 300–700k.
   - H100 costs $2–$4 per hour; uses ~700 W @ 2000 TFLOPS @ FB16.
   - Model FLOPs Utilization (MFU) > 30% good, > 40% excellent
-  - Power‑to‑chip efficiency (`PUE`) improves from 1.8 (wasteful) to ~1.1 (effective).  
-  - Total Cost of Ownership: 10 % data center, 15 % power, 75 % GPU.  
+  - Power‑to‑chip efficiency (PUE) improves from 1.8 (wasteful) to ~1.1 (effective).
+  - Total Cost of Ownership: 10 % data center, 15 % power, 75 % Compute Hardwares.
 - Training
   - 90% Flops to pretrain; 3–7% to fine tune; 1-3% to RL;
   - RL is similar to lottery-yield manufacturing
@@ -48,24 +48,40 @@
   - Investor allowable runway determents take off speed(intelligent) of LLM.
   - Automatic value ~ (success_task_% - failed_task_%) * task_value_$ - llm_cost_$
 
-### Token‑per‑second Benchmarks
 
-| Hardware  | Tokens/s |
-|----------|----------|
-| RTX 4090 (8B LLaMA) | 60–80 |
-| RTX 5090 (8B LLaMA) | 80–100 |
-| Apple M3 Max | 50–70 |
-| NVIDIA H100 (8B LLaMA) | ~2000 |
-
-### Cache Strategies
+## Cache Strategies
 
 | Phase                     | Cache Type          | Description |
 |---------------------------|---------------------|-------------|
-| **Agentic**               | Embedding Cache     | Used only for similarity search; very limited. Does **not** save LLM token cost. |
+| **Embedding**               | Embedding Cache     | Used only for similarity search; very limited. Does **not** save LLM token cost. |
 | **Prefill**               | Tokenizer Cache     | First step; small savings; order does not matter. |
 |                           | Prompt Cache        | Requires an exact prefix match; works only during the prefill phase. |
 | **Autoregressive Decoding** | KV Cache            | Used for token generation. The query (latest token) changes each step, while the key and value (past tokens) remain static.<br>• Implicit cache – handled automatically by the LLM provider.<br>• Explicit cache – must be programmed. |
 |                           | FlashAttention Cache| Combines KV cache with softmax optimization. |
+
+
+There are 3 KV approaches:
+- build-in compression; Ex: Deepseek MLA
+- math compression; Ex: TurboQuant
+- Increase cache hit rate;
+  - Split into large context subagent; Common doc has its own system prompt;
+  - Decouple Prefill vs Decode; Ex: Nvidia Dyno
+
+### Key In-channel, Value In-token (KIVI)
+
+### TurboQuant
+
+Deterministic Compress KV cache Algorithm, apply to any LLM, enhances vector search.
+
+> Convert KV cache into TurboQuant space, aligns new Query's token when inference, compute in TurboQuant space, then Un-rotate output into fp16. Same rotation per Layer.
+
+Cartesian coordinates: Standard; smooth, linear gradient;
+Spherical coordinates: Circle; nonlinear, coupled gradient;
+
+
+  - Polar quant - Add random rotation. Convert cartisian to polar coordinates.
+  - QGL - convert sign bit (1 or -1)
+
 
 ### Precision & Quantization
 
@@ -76,16 +92,16 @@
 
 - **Precisions**
   - F32 - optimizer parameter still uses.
-  - BF16 - 8-bit exponent + 7-bit mantissa (+1 sign)
   - FP16
+    - BF16 - 8-bit exponent + 7-bit mantissa (+1 sign)
   - FP8
     - E4M3 (Nvidia default)
     - E5M2
     - E8M0
   - FP4 (Ollama default)
-  - NF4 - Hardcoded 16 numbers -1 to 1
-  - MXFP4
-  - NVFP4
+    - NF4 - Hardcoded 16 numbers -1 to 1
+    - MXFP4
+    - NVFP4
 
 > Different components of Transformer has different precision needs.
 >> Q, K, V, FFN, early layers are less sensitive to precision; embedding, normalization, KV cache are sensitive to precision.
@@ -107,6 +123,7 @@ $$\frac{\text{KV per token}}{\text{layer weights}} \approx \frac{2 \cdot d_{\tex
 - Evaluation Leaderboard
   - <https://crfm.stanford.edu/helm/>
   - <https://lmarena.ai/leaderboard>
+  - <https://huggingface.co/spaces/ArtificialAnalysis/>
 
 ### Inference Framework
 
@@ -486,3 +503,5 @@ assert f({1: 2, 2: 4, 3: 3}, 3) == ??
 - Mesa-optimizers
 
 - H-Neurons drive the AI to be overly compliant and eager to please the user.
+
+removes LLM censorship: https://github.com/p-e-w/heretic

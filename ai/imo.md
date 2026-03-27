@@ -5,6 +5,8 @@
 Parameters → "what you know"
 Loops → "how long you think"
 
+- Don't rush to scale yourself with AI, focus on control first. Just like baby, walk before run.
+
 - Search problem → Selection problem; Our job is select good opinion from LLM answers.
   - Constraints shrink the opinion space
   - Clear objective
@@ -232,13 +234,6 @@ Guiding principles:
 - Reliable verifier is the most crucial in RL finetuning, not the RL algorithm. by Rich Sutton
   - After exhausted problems have Reliable verifier, LLM can study problem with solution has rough estimate.
 
-### Five Pillars for AGI (according to OpenAI)
-
-1. Conversational LLMs  
-2. Reasoning & Planning  
-3. Actionable Agents (analysis + execution)  
-4. Innovation  
-5. Organization  
 
 #### Reinforcement Learning Components (“Open AI Strawberry”)
 
@@ -271,3 +266,9 @@ Training often uses beam search, while inference favors sequential revision.
 - FIDE rule on chess with 50 moves
   - FEN (board state)
   - Portal Game Notation (PGN) history
+
+## Blogs
+
+### 2026
+
+- https://research.google/blog/sequential-attention-making-ai-models-leaner-and-faster-without-sacrificing-accuracy/ shrink up & down, find which feature matters. Aka contrast between training data vs benchmark data. When a feature is "locked," its selection weight $w_i$ is permanently set to 1.0.

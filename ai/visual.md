@@ -22,7 +22,7 @@ Text Embedding
 Diffusion Model attention conditioning
 
 - CFG (Classifier-Free Guidance) `prompt weight`
-- FP8 formats (E4M3, E5M2) is NOT support by mac os
+
 
 ```md
 Huggingface Modals default is BF8 for nvidia hardware, so find Modal is fp16 format able to run in mac.
@@ -30,7 +30,6 @@ Huggingface Modals default is BF8 for nvidia hardware, so find Modal is fp16 for
 The problem is from MLX does NOT support fp8, so pytorch can't run fp8 on mac.
 Here is github issue link: https://github.com/ml-explore/mlx/issues/1670
 
-Here is workflow default path: ~/Documents/ComfyUI/user/default/workflows
 ```
 
 ## LTX

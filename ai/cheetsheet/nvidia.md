@@ -275,6 +275,9 @@ Cluster Dashboard containers
 
 ## Support
 
+## Rasterization
+geometry-first, draw object, then project to 2D screen.
+
 ## Ray Tracing
 
 Algebraic Systems of Equations with Matrices; solve with Gaussian Elimination.

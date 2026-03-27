@@ -36,6 +36,7 @@ Most likely automate by AI industries traits:
   - digital? (text, image, audio, video, code, or structured decisions)
   -	variance?
     - human target audience will have big variance (differ mood, preference)
+    - human has more native control on voice than AI
     - code low variance because IDE execute result same
     - time-horizon variance
       - hiring decision, policy design, medical treatment plan
