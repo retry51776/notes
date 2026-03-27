@@ -1,158 +1,235 @@
 # Security
-> Network admin security stuff. Most about Cert
 
-> $300 to $2000 to get root_ca signed
+## Table of Contents
 
-> root_ca_authority signed internal db & micro-service certs 
-
-> public_ca_authority signed root_ca_authority
-
-> cert is configured in loadbalancer, ingress, or however db loads cert
-
-> wildcard cert `allows easy to manage & single cert for internal reverse proxy`
-> single cert `hard to manage, but more secure`
+- [Basic Terms](#basic-terms)
+- [Add Certificate](#add-certificate)
+- [SSL/TLS Certificate Files](#ssltls-certificate-files)
+- [Create SSL/TLS](#create-ssltls)
+- [Commands](#commands)
+- [Install CA Service](#install-ca-service)
+- [Interface with CA Service](#interface-with-ca-service)
+- [Generate Developer VPN Certificate](#generate-developer-vpn-certificate)
+- [Client Login](#client-login)
+- [Secure Shell](#secure-shell)
+- [Buzzwords](#buzzwords)
 
 ## Basic Terms
-- X.509 certificate `is a digital certificate, contains both pub & pri keys`
-  - Transport Layer Security (TLS) `Newer than SSL`
-  - Secure Sockets Layer (SSL) `Similar as TLS`
-- Certificate Authority(CA)
-  - who issued
-  - who issued to
-  - valid to
-  - public key
-  - digital signature
-- Decision Strategy `Authorization`
+
+- Network admin security notes, mostly about certificates.
+- A root CA signature may cost roughly `$300` to `$2000`.
+- A `root_ca_authority` can sign internal database and microservice
+  certificates.
+- A public CA can sign the root CA authority.
+- Certificates are commonly configured in a load balancer, ingress, or
+  service endpoint.
+- Wildcard certificates are easier to manage for internal reverse proxy
+  setups.
+- Single-purpose certificates are harder to manage, but often more
+  secure.
+
+### Certificate Concepts
+
+- X.509 certificate:
+  a digital certificate that carries identity and a public key.
+- TLS:
+  Transport Layer Security, the successor to SSL.
+- SSL:
+  Secure Sockets Layer, an older term still used colloquially.
+- Certificate Authority (CA):
+  defines who issued the certificate, who it was issued to, its
+  validity period, its public key, and its digital signature.
+- Authorization strategy:
+  the decision logic that determines whether a caller is allowed to act.
 
 ## Add Certificate
-  ## Windows
-   1. Microsoft Management Console `Run > mmc > Enter` 
-   2. Add or Remove Snap-ins/Certificate/next/Console Root/Certificates/Third-Party Root/All Task/Import
 
-  ## MacOS
-    1. Keychain Access/System/add/Always Trust
-  
-  ## Linux
-    ## Create Cert
-    1. genkey www.xxxx.local
-    2. going to take a while generate randomness
-    3. Input Meta: (Country, State, Locality, Organization, Unit, domain_name)
-    4. Generated xxx.crt & xxx.key
+### Windows Certificate Store
 
-    ## Request CA to Sign Cert
-    1. Generated xxx.csr from xxx.key
-    2. go to CA `ca.xxxx/certsrv`/Request a certificate/advanced certificate request, copy xxx.csr text & past to form.
-    3. download Base 64 encoded version xxx.cer
+1. Open Microsoft Management Console with `Run > mmc > Enter`.
+2. Go to Add or Remove Snap-ins, then Certificates, then import into the
+   Third-Party Root store.
 
-    ## Install crt into Service
-    1. ssh into xxx server, copy crt
-    2. `vi /etc/httpd/conf.d/ssl.conf` to edit `SSLCertificateKeyFile` & `SSLCertificateFile`
-    3. `service httpd restart`
+### macOS
 
-    ## Client Trust CA
-    1. go to CA `ca.xxxx/certsrv`/Install CA Certificate & Download & Install CA Certificate
-    2. Add DNS A record OR edit `/etc/hosts`
+1. Open Keychain Access.
+2. Add the certificate to the System keychain.
+3. Mark it as Always Trust if appropriate.
 
-## SSL/TLS cert Files
-> .cer & .key is OpenSSL generated files for OpenVPN, Pageant
-- *.key `private key`
-- *.pub `public key`
-- *.cer `certificate only with public keys`
-- *.csr `certificate Signed Request`
-- *.crt `signed Certificate`
-- *.ppk `encrypted private key by puttyGen`
-  
-> Windows
-- *.cer <--> .crt(Microsoft) -> .pfx `file conversion`
-- *.PFX `is Personal Exchange Format, windows user certificate(with private key)`
-- *.pem `can be private key or public key; subset of *.crt, just rename extension to *.crt`
-- *.der `(Distinguished Encoding Rules) binary format`
-- *.p12 `(Public Key Cryptography Standard) can have private key, password lock` <--> *.PFX
-- *.p7b `public key only, for Tomcat`
+### Linux
 
-**Create SSL/TLS**
-> Remember to restart loadbalancer when renew cert to take effect
-1. Create .csr with openssl (Certificate Signed Request)
+#### Create Certificate
+
+1. Generate a key for `www.xxxx.local`.
+2. Expect randomness generation to take a while.
+3. Fill in certificate metadata:
+   country, state, locality, organization, unit, and domain name.
+4. Generate `xxx.crt` and `xxx.key`.
+
+#### Request CA Signature
+
+1. Generate `xxx.csr` from `xxx.key`.
+2. Go to `ca.xxxx/certsrv`, request an advanced certificate, then paste
+   the CSR text into the form.
+3. Download the Base64 encoded `xxx.cer`.
+
+#### Install Certificate into Service
+
+1. SSH into the target server and copy the certificate.
+2. Edit `/etc/httpd/conf.d/ssl.conf` and update
+   `SSLCertificateKeyFile` and `SSLCertificateFile`.
+3. Restart the web server with `service httpd restart`.
+
+#### Trust the CA on the Client
+
+1. Go to `ca.xxxx/certsrv`.
+2. Download and install the CA certificate.
+3. Add a DNS A record or edit `/etc/hosts`.
+
+## SSL/TLS Certificate Files
+
+OpenSSL often produces `.cer` and `.key` files for tools such as
+OpenVPN and Pageant.
+
+### Common File Types
+
+- `*.key`: private key
+- `*.pub`: public key
+- `*.cer`: certificate file with public key material
+- `*.csr`: certificate signing request
+- `*.crt`: signed certificate
+- `*.ppk`: encrypted private key generated by PuTTYgen
+
+### Windows Conversions
+
+- `*.cer` and `.crt`:
+  Microsoft commonly treats them as interchangeable certificate formats.
+- `*.pfx`:
+  Personal Exchange Format, often used for Windows user certificates
+  that include a private key.
+- `*.pem`:
+  may contain a private key or public certificate content.
+- `*.der`:
+  Distinguished Encoding Rules binary format.
+- `*.p12`:
+  PKCS#12 bundle that can include a private key and password protection.
+- `*.p7b`:
+  certificate chain without a private key, commonly used with Tomcat.
+
+## Create SSL/TLS
+
+Remember to restart the load balancer after renewing a certificate so
+the new material takes effect.
+
+1. Create a CSR with OpenSSL.
 
 ```bash
-openssl req -new -sha256 -out terry.test.local.csr -newkey rsa:2048 -keyout "$1.key" -nodes -reqexts SAN - config <cat /some_ssl.cnf <(printf("[SAN]\nsubjectAltName=DNS:terry.test.local"))>> -out terry.test.local.csr
+openssl req -new -sha256 \
+  -out terry.test.local.csr \
+  -newkey rsa:2048 \
+  -keyout "$1.key" \
+  -nodes \
+  -reqexts SAN \
+  -config <(cat /some_ssl.cnf <(printf "[SAN]\nsubjectAltName=DNS:terry.test.local")) \
+  -out terry.test.local.csr
 ```
 
-2. Request AD to signed .csr, created .crt
-  a) https://gcp-dns-1.test.local (usually MS AD)
-  b) download Base-64
+1. Request AD to sign the CSR and create the CRT.
+   - Usually via MS AD: <https://gcp-dns-1.test.local>
+   - Download the Base64 form.
 
-3. Install crt
-  a) Install in K8
-    1. `kubectl create secret tls terry-tls --cert=terry.test.local.cer --key=terry.test.local.key`
-    2. In Ingress file add tls property
-  b) Install in server
-    1. ssh into server
-    2. copy .crt and key to /etc/test/conf/nginx/data/ssl
+1. Install the certificate.
+   - In Kubernetes:
+     1. Run `kubectl create secret tls terry-tls --cert=terry.test.local.cer --key=terry.test.local.key`.
+     2. Add the `tls` property to the Ingress resource.
+   - On a server:
+     1. SSH into the server.
+     2. Copy the `.crt` and key into `/etc/test/conf/nginx/data/ssl`.
 
+## Commands
 
-# CMDs
 ```bash
-# General Certificate Sign Request from key
+# Generate a certificate signing request from an existing key.
 openssl req -new -key xxx.key -out xxx.csr
 ```
 
 ## Install CA Service
-1. open Server Manager/manage/Add Roles & feature/.../Active Directory Certificate Services/
-2. Install both `Certification Authority` & `Certification Authority Web Enrollment`
-3. Generate CA private key, w name domain_name-server_name-CA
-4. Configuare
 
-## Interface w CA Service
-1. open Server Manager/Tools/Certification Authority
+1. Open Server Manager and add the Active Directory Certificate
+   Services role.
+2. Install both `Certification Authority` and
+   `Certification Authority Web Enrollment`.
+3. Generate the CA private key with a name like
+   `domain_name-server_name-CA`.
+4. Finish the configuration wizard.
 
-`http://localhost/certsrv` or `http://pc_name.domain_name.local/certsrv`
+## Interface with CA Service
 
-# Generate Developer VPN cert
-## by Microsoft UI
-Microsoft Management Console `Run > mmc > Enter` export LDAP certificate for VPN
-default config path `C:\Users\xxx\OpenVPN\config`
-> xxx.ovpn
-```bash
+1. Open Server Manager.
+2. Open `Tools > Certification Authority`.
+
+Use either `http://localhost/certsrv` or
+`http://pc_name.domain_name.local/certsrv`.
+
+## Generate Developer VPN Certificate
+
+### Microsoft UI
+
+1. Open Microsoft Management Console with `Run > mmc > Enter`.
+2. Export the LDAP certificate for VPN usage.
+3. Use the default config path `C:\Users\xxx\OpenVPN\config`.
+
+Example `xxx.ovpn` snippet:
+
+```text
 ca xxx_ca.crt
-cert xxx.crt # Musted signed by CA
+cert xxx.crt
 key xxx.key
 ```
 
-## by Powershell
+### PowerShell
+
 ```powershell
 Get-Certificate -Template XXX -CertStoreLocation cert:\xxx
 Export-PfxCertificate -Cert cert:\xxx -FilePath yyy -Password 123
 Remove-Item yyy
 ```
 
-# Client login
-## Single Sign-on (SSO)
-1. save some shared secret/pub_key into DB
-2. user used private_key to Generate JWT w user_name, time_of_sign, unqiue_id
-3. we vertify JWT w pub_key & create session
+## Client Login
 
-## Initiative for Open Authentication (OATH)
-> Think of OATH2.0 as JWT standard
+### Single Sign-On (SSO)
 
-### SAML
-> Identity Provider(IDP) create jwt w user_id & Service Provider(internetal service)
+1. Save a shared secret or public key in the database.
+2. Let the user sign a JWT with a private key using fields such as
+   `user_name`, `time_of_sign`, and `unique_id`.
+3. Verify the JWT with the public key and create the session.
 
-> Tool: SAML tracer
+### Initiative for Open Authentication (OATH)
 
-# Secure Shell (SSH)
+Think of OATH 2.0 as an authentication standard family.
+
+#### SAML
+
+- The identity provider creates a token for a user identity.
+- The service provider consumes that token for access decisions.
+- Useful tool: SAML tracer.
+
+## Secure Shell
+
 ### Linux SSH
-1. gen ssh key `ssh-keygen -b 4096`
-2. create user in remote linux server
-3. copy public key into /home/user_name/.ssh
 
+1. Generate an SSH key with `ssh-keygen -b 4096`.
+2. Create the user on the remote Linux server.
+3. Copy the public key into `/home/user_name/.ssh`.
 
-### Windows
-ssh-rsa is Developer Public Keys
-1. PuTTYgen -> .ppk -> .ssh
-2. Publish SSH to Admin
-3. Add ssh key to github
+### Windows SSH
 
+- `ssh-rsa` is a public key format often seen in developer workflows.
 
-# Buzzwords
+1. Use PuTTYgen to convert keys between `.ppk` and `.ssh` forms.
+2. Publish the SSH key to the administrator.
+3. Add the SSH key to GitHub.
+
+## Buzzwords
+
 - Man-in-the-middle (MITM)

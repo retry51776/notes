@@ -1,3 +1,12 @@
+# Data Science
+
+## Table of Contents
+
+- [Data Warehouse Tools](#data-warehouse-tools)
+- [Databricks Components](#databricks-components)
+- [Hive Tables](#hive-tables)
+- [Feature Selection Methods](#feature-selection-methods)
+
 ## Data Warehouse Tools
 
 - Amazon Redshift
@@ -5,7 +14,8 @@
 - Snowflake
 - Teradata
 - Micro Focus
-- Cloud Data Platforms (store data in the cloud, process with Spark, elastic processing)
+- Cloud data platforms:
+  store data in the cloud, process with Spark, and scale elastically.
 
 ### ETL Challenges
 
@@ -18,12 +28,12 @@
 
 ## Databricks Components
 
-- Web App
+- Web app
 - Notebooks
-- Jobs & Queues
-- Cluster Management (Spark)
+- Jobs and queues
+- Cluster management for Spark
 
-```
+```text
 /Workspace
     * Shared Folder
     * Jupyter Notebook
@@ -33,7 +43,8 @@
     * Experiments
 ```
 
-Delta Lake is an open‑format storage layer (ACID). Databricks uses Delta Lake to store historical results.
+Delta Lake is an open-format storage layer with ACID guarantees.
+Databricks uses Delta Lake to store historical results.
 
 ### Messaging Systems
 
@@ -43,20 +54,21 @@ Delta Lake is an open‑format storage layer (ACID). Databricks uses Delta Lake 
 
 1. Enable task orchestration and install the Spark library.
 2. Create startup/setup folders:
-   - account_name
-   - file_system
-   - mount_point_path
-   - dbutil.widgets
-   - use widgets to pull secrets & tenant ID
-3. Mount data lake (e.g., `abfs`).
+   - `account_name`
+   - `file_system`
+   - `mount_point_path`
+   - `dbutils.widgets`
+   - Use widgets to pull secrets and tenant IDs.
+3. Mount the data lake, for example with `abfs`.
 
 ### Data Flow
 
-- Create streaming/engine folder
-- Create Delta tables
-- Convert streams into DataFrames (`spark.readStream`, body is binary)
-- Define the DataFrame schema (convert body to string or JSON)
-- Hook up a processor to the DataFrame:
+- Create a streaming or engine folder.
+- Create Delta tables.
+- Convert streams into DataFrames. `spark.readStream` often starts with
+  a binary body.
+- Define the DataFrame schema, then convert the body to string or JSON.
+- Hook up a processor to the DataFrame.
 
 ```python
 df = spark.readStream.format("delta").load("/path/to/delta")
@@ -71,142 +83,12 @@ query = (
 
 ## Feature Selection Methods
 
-> **​**  
-
-
-
-###  S ? 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-...
-
-(The content appears ... ).
+- Filter methods:
+  rank features with statistics such as correlation, chi-square, or
+  mutual information before model training.
+- Wrapper methods:
+  evaluate subsets directly, for example forward selection or recursive
+  feature elimination.
+- Embedded methods:
+  let the model learn importance during training, such as L1
+  regularization or tree-based feature importance.

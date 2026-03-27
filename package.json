@@ -1,5 +1,10 @@
 {
+  "scripts": {
+    "lint:md": "markdownlint",
+    "lint:md:all": "markdownlint \"**/*.md\""
+  },
   "devDependencies": {
-    "husky": "^9.1.7"
+    "husky": "^9.1.7",
+    "markdownlint-cli": "^0.48.0"
   }
 }
