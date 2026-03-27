@@ -4,7 +4,7 @@ Interaction surface is key variable
 
 ## Low Interaction
 
-Examples: 
+Examples:
 
 - Distant mountains
 - Static building
@@ -51,15 +51,12 @@ Needs:
 - Continuous time evolution
 - Single general force/gradient
 
-
 ## Ultra Interaction
 
 - Crowds
 - Wet surfaces
 
-
 - Multiple independence forces
-
 
 ## Interaction Dimensions
 

@@ -18,8 +18,8 @@
   4.1) `ssh-keygen -R github.com` to renew github.com host key when `WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!`
 
 ### Jira
-<https://id.atlassian.com/manage-profile/security/passkeys>
 
+<https://id.atlassian.com/manage-profile/security/passkeys>
 
 ## Setup Linux
 

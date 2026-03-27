@@ -48,6 +48,7 @@
 > It defines the relationship only on one side of the ORM; the opposite side must be defined manually (e.g., with `back_populates`).
 
 #### How ORM Processes Relationships
+
 1. The ORM processes the **Director** model.  
 2. A relationship called `movies` is created.  
 3. If `uselist=True`, `Director.movies = [Movie, Movie]`; otherwise `Director.movies = Movie`.  
@@ -161,6 +162,7 @@ sales = [dict(zip(cursor.column_names, row)) for row in cursor.fetchall()]
 > Recommended number of workers: `2 * CPU + 1`.
 
 ## HTTP Methods
+
 - **GET**
 - **POST** – insert (common mistake)
 - **PUT** – idempotent, usually for updates
@@ -184,10 +186,12 @@ sales = [dict(zip(cursor.column_names, row)) for row in cursor.fetchall()]
 - `current_app`
 
 ### Session Management
+
 - `session` object (requires `app.secret_key`)
 - `sessions` – utilities for managing Flask sessions
 
 ### Responses
+
 - `Response`
 - `stream_with_context` – e.g., `return Response(stream_with_context(generator))`
 - `make_response`, `jsonify`, `send_file`, `send_from_directory`, `render_template`, `url_for`

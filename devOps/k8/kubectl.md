@@ -95,12 +95,10 @@ kubectl explain deployment.spec.template
 ## Verb‑list (for **`kubectl get`**)
 
 | Verb   | Description |
-|-------|--------------|
+| ------ | ----------- |
 | create | Create a **new** resource |
-| delete | Delete **existing** ​​​  ?  ?  ?  ?  ?  ?  ? ?  ? … 
+| delete | Delete an existing resource |
 
-
-
-```
-
+```text
 devops/k8/vault.md
+```

@@ -3,6 +3,7 @@
 > It's not very fast for aggregation.
 
 ## Python
+
 ```python
 self.mongodb = MongoClient(MONGODB_URI)[DB]
 self.mongodb[COLLECTION].update_one(
@@ -19,6 +20,7 @@ self.mongodb[COLLECTION].delete_many(filter)
 ```
 
 ## JavaScript
+
 ```javascript
 const mgCols = {
   $project: {

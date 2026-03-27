@@ -6,7 +6,6 @@
 - [Common Failure Modes](#common-failure-modes)
 - [Recovery Moves](#recovery-moves)
 
-
 ## Paths
 
 default workflow path: ~/Documents/ComfyUI/user/default/workflows

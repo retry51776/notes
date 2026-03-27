@@ -133,4 +133,3 @@ pip install pytest-django
 ### Factory‑Boy
 
 A factory library for creating test objects, similar to fixtures.
-

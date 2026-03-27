@@ -24,6 +24,7 @@ Chinese is an iso‑chronous (syllable‑timed) language; English is stress‑ti
 - Webster
 
 #### De‑essing
+>
 > Usually applied to reduce excessive “s” sounds.
 
 ## Apps

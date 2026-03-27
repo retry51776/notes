@@ -13,6 +13,6 @@
 
 1. **Memory Issue**
 
-```
+```text
 error: Forever detected script was killed by signal: SIGKILL
 ```

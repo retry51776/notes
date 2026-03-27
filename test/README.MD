@@ -1,16 +1,19 @@
 # Test
+>
 > This folder become my playground. It's for me to testing whatever.
 
 > orgranize by same subject tests into single file
 
 # unittest
+
 ## modules
+
     - TestCase
     - IsolatedAsyncioTestCase
     - TestLoader
     - TestResult
 
-```
+```python
 
 class SomeTest(TestCase):
     @classmethod
@@ -30,7 +33,8 @@ class SomeTest(TestCase):
 ```
 
 ## Command-Line Interface
-```
+
+```bash
 python -m unittest discover -p '*_test.py
 
 ```
@@ -38,11 +42,11 @@ python -m unittest discover -p '*_test.py
 # mock
 
 > mock can implement through 3 ways
->   decorator
->   object
->   context manager
+> decorator
+> object
+> context manager
 
-```
+```text
 
 mock
     patch
@@ -60,8 +64,10 @@ mock
     MagicMock // method
         - return_value
 ```
+
 ## Python Script
-```
+
+```text
 assertEqual(a, b)
 assertNotEqual(a, b)
 assertTrue(x)
@@ -94,6 +100,7 @@ with patch('employee.requesets.get') as mocked_get:
 ```
 
 ## Test Doubles
+
 - Dummy Object
 - Fake Data
 - Mocks
@@ -101,10 +108,11 @@ with patch('employee.requesets.get') as mocked_get:
   - Test Spy (conditionally have different behavior)
   - Mock Obj (event trigger)
 
-
 # pytest
+>
 > Define common components in `/tests/conftest.py`
 > pytest by default won't show print stdout `pytest -s /tests/abc` will show stdout
+
 ```py
 import pytest
 @pytest.fixture

@@ -2,7 +2,7 @@
 
 ## Goal
 
-## Relevant files:
+## Relevant files
 
 - /xxx/xx.py
 - /frontend/*

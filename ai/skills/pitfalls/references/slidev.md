@@ -10,6 +10,7 @@
 ### v-clicks
 
 For `<v-clicks>` with Markdown content (lists, headings, paragraphs), always keep a blank line:
+
 - after `<v-clicks ...>`
 - before `</v-clicks>`
 
@@ -25,4 +26,3 @@ Keep slide density low: target at most 12 visible lines per slide, and keep each
 
 - When list items all collapsed into single line, MAKE SURE empty line BEFORE `</v-clicks>` & AFTER `<v-clicks>`
 - If background image missing, MAKE SURE slide attributes `layout: image` && `image: xxx.png` are set.
-

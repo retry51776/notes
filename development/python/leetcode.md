@@ -1,6 +1,7 @@
 # I Hate LeetCode
 
 ## Quiz Topics
+
 - The Minion Game  
 - DateTime label  
 
@@ -9,14 +10,17 @@
 ### Categories
 
 #### Array / Matrix
+
 - Quick Search | Sort
 - Sliding Window
 
 #### Recursive
+
 - Divide and Conquer  
   > Merge sort is easy to parallelize.
 
 #### Dynamic Programming
+
 - **Tree**
   - Only a single path exists from the root to any node.
   - Depth‑first search (DFS)
@@ -32,6 +36,7 @@
   > Stores strings character by character; reduces space and is useful for substring searches.
 
 ## Getting Unstuck
+>
 > Start from the solution and extract the key variables used to compute it.
 
 - Identify question/input properties.  
@@ -41,6 +46,7 @@
 ### Typical Patterns
 
 #### Pointer / Sliding‑Window Questions
+
 1. Initialise result.  
 2. Create extra pointers that do **not** interfere with each other.  
 3. Divide the task into:
@@ -56,9 +62,10 @@ for x in zip(*['abc', 'def', 'ghi']):
 ```
 
 #### Divide & Conquer Questions
+>
 > Often preferred in production because runtime is predictable and the approach can be parallelised.
 
 Always consists of at least two parts:
+
 1. **Division** – create pointers, define a recursive function.  
 2. **Merge** – combine results where the main logic resides.
-

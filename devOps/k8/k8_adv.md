@@ -11,10 +11,12 @@
 ![Horizontal Pod Autoscaling](./static/k8_auto_scale.jpg)
 
 ### Cluster Autoscaling
+
 <https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler>  
 Vendor‑specific and can be expensive.
 
 ### Horizontal Pod Autoscaling (HPA)
+
 <https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/horizontal-pod-autoscaler-v2beta2/#HorizontalPodAutoscalerSpec>
 
 - Cannot scale to zero.
@@ -151,9 +153,9 @@ Why use them when you already have Ingress, LoadBalancers, and Services?
 
 Because sidecar proxies enable:
 
-* Metric collection
-* Fine‑grained traffic control (e.g., retries, restrictions)
-* Advanced deployment strategies (canary, blue/green)
+- Metric collection
+- Fine‑grained traffic control (e.g., retries, restrictions)
+- Advanced deployment strategies (canary, blue/green)
 
 ```yaml
 apiVersion: networking.k8s.io/v1

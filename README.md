@@ -24,12 +24,9 @@ A curated, personal knowledge base for technical and general notes. This reposit
 
 ## Helpful Symbols
 
-- Math: `$E=mc^2$, `\(\frac{1}{2}\)`
+- Math: `$E=mc^2$,`\(\frac{1}{2}\)`
 - Checkpoints: `✔`, `✘`, `✅`, `❎`, `💯`
 - Arrows: `← → ↑ ↓`, `◀ ▶`, `◁ ▷`
-- Status: `🔒 🔑 ⚠️ ⚡` 
+- Status: `🔒 🔑 ⚠️ ⚡`
 
 ---
-
-
-

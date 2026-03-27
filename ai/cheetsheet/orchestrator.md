@@ -78,7 +78,7 @@ gt mayor status
 
 policy is agent-scoped, and channels choose which agent wakes up.
 
-```
+```text
 Discord message
   ↓
 Gateway receives event
@@ -110,7 +110,6 @@ Parsed
  • Cost / latency hints (if available)
 
 Command - user/agent manually trigger
-
 
 ```bash
 # CLI approve 

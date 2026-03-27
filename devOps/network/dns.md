@@ -1,6 +1,9 @@
 # DNS
+>
 > There are a lot network admin, even business logic, permission control dependence on DNS
+>
 ## DNS analogy
+>>
 >> ip (building)
 >
 >> port (apt #)
@@ -8,12 +11,14 @@
 >> protocol (carrier) `USPS just drop it off without confirm, UPS requires confirmation`
 
 ## DNS Servers
+
 - Windows Server DNS
 - OpenDNS
 - Cloudflare
 - Google Public DNS
 
 ### resolv.conf vs hosts
+>
 > resolv.conf specifies nameservers in order of search preference.
 > hosts overrides all nameservers by mapping urls/shortnames to IPs.
 
@@ -29,9 +34,10 @@
   - [Debug](#debug)
 - [Buzzword](#buzzword)
 
-
 ## DNS Server
+>
 > DNS port 53
+
 - INTERFACES
 - FORWARDERS
 - ADVANCED
@@ -42,13 +48,14 @@
 - DEBUG LOGGING
 
 ## Authoritative Name Server
+>
 > only answer configured domains
 
 ### Zone
+>
 > Zone properties can store in AD
 
 > I think of DNS Zone as folder of DNS records
-
 
 - Primary Zone `store in .dns file`
 - Secondary Zone `read only cache`
@@ -57,17 +64,19 @@
 - Reverse Lookup Zone `ip -> name`
 
 ### DNS Records
-  - IPv4 address (A)
-  - IPv6 address (AAAA)
-  - Certificate Authority Authorization (CAA)
-  - Canonical name (CNAME)
-  - Mail exchange (MX)
-  - Name Authority Pointer (NAPTR)
-  - Name Server (NS)
-  - Pointer (PTR)
-  - Sender Policy Framework (SPF)
-  - Service Record (SVR, w Port #, Weight, Piroty)
-  - Text (TXT)
+
+- IPv4 address (A)
+- IPv6 address (AAAA)
+- Certificate Authority Authorization (CAA)
+- Canonical name (CNAME)
+- Mail exchange (MX)
+- Name Authority Pointer (NAPTR)
+- Name Server (NS)
+- Pointer (PTR)
+- Sender Policy Framework (SPF)
+- Service Record (SVR, w Port #, Weight, Piroty)
+- Text (TXT)
+
 ```bash
 http://www.test.com
 
@@ -75,7 +84,9 @@ http://www.test.com
 test = domain name / second level domain
 www. = second-level domain
 ```
+
 ## Recursive Resolver
+>
 > middleman between client and DNS
 
 > either answer it, or ask other name servers
@@ -94,13 +105,13 @@ MX record
 > mail exchange
 
 CNAME
-> alias for server, EX: https://www. to https://,
-> or abc.com to xyz.com, or https://mail.xyz to 9.9.9.9, support `*` or `$`
+> alias for server, EX: <https://www>. to https://,
+> or abc.com to xyz.com, or <https://mail.xyz> to 9.9.9.9, support `*` or `$`
 
 Zone File
 > name server store domains information, `SOA`
 
-> Ex: www. email. ftp. www.hr. www.sales
+> Ex: <www>. email. ftp. <www.hr>. <www.sales>
 
 Registrar
 > Root level domain registers
@@ -123,6 +134,7 @@ Service Record (SVR, w Port #, Weight, Priority)
     `dig x_service.x_target.com SRV`
 
 ## Debug
+
 ```bash
 # network debug
 edit hosts file(c:\windows\system32\drivers\etc)
@@ -140,4 +152,5 @@ ipconfig /flushdns
 ```
 
 # Buzzword
-- World Intellectual Property Organization (WIPO) 
+
+- World Intellectual Property Organization (WIPO)

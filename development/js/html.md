@@ -52,4 +52,3 @@ Scalable Vector Graphics are useful for icons and illustrations. Tools:
 ## Miscellaneous Notes
 
 > PHP was the first language to embed HTML (in my opinion, a questionable design choice).
-

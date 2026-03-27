@@ -2,7 +2,7 @@
 
 **Encryption example**
 
-```
+```text
 enc(m, p) = big_rand() * p + 2 * small_rand() + m
 dec(ct, p) = (ct % p) % 2
 ```
@@ -105,7 +105,6 @@ Given `x³ + x + 5 = 35`:
 | 4    | `d = c + 5`              | `[5,0,0,0,1,0]`     | `[1,0,0,0,0,0]`     | `[0,0,0,0,0,1]` |
 
 These vectors are later transformed into a Quadratic Arithmetic Program (QAP) and finally into a SNARK proof.
-
 
 ## Advance Math approach
 

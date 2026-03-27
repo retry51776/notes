@@ -19,7 +19,6 @@ defaults:
 
 # Transformer Pipeline for Developer
 
-
 <v-clicks>
 
 - Developer-focus mental model
@@ -41,7 +40,6 @@ By the end, you should be able to explain:
 - What happens inside Transformer blocks
 - Why `prefill` and `decode` have different performance
 - How logits become final output tokens
-
 
 </v-clicks>
 
@@ -165,7 +163,6 @@ flowchart TD
     - **Self-attention** mixes information across tokens.
       - Attention score defines how much token relates others tokens.
     - **MLP** transforms each token representation.
-
 
 <div style="height:200px; width: 200px; margin:auto">
 
@@ -427,6 +424,7 @@ const activeHead = computed(() => ATTENTION_HEADS[activeHeadKey.value])
 - The last position vector is projected to vocabulary size.
 - Result: one score per token ID (called **logits** `Ex: [2.2, 1.9, 2.0,... 1.3, 1.1]`).
 - Higher logit means higher relative preference.
+
 </div>
 <div>
 
@@ -436,8 +434,8 @@ const activeHead = computed(() => ATTENTION_HEADS[activeHeadKey.value])
 - Decoder chooses one token:
   - greedy (`argmax`)
   - sampled (top-k / temperature)
-     - temperature approach 0 enhance logit differences
-     - temperature approach ∞ all logit has similar probability
+    - temperature approach 0 enhance logit differences
+    - temperature approach ∞ all logit has similar probability
 
 </div>
 </div>
@@ -781,27 +779,31 @@ onBeforeUnmount(() => {
 - 5: Repeat until stop token or max length
 
 ---
+
 layout: end
 ---
 
 # Thank You
 
-### You now have the full Transformer inference mental model.
-
+### You now have the full Transformer inference mental model
 
 <div class="flex flex-col items-center">
 
 <img
+  alt="QR code for the interactive transformer explainer"
   src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=https://poloclub.github.io/transformer-explainer/"
 />
 
 Open the interactive visualization
+
 ### Transformer Explainer
-OR Google it yourself!!! 
+
+OR Google it yourself!!!
 
 </div>
 
 ---
+
 layout: image
 image: teaser.png
 backgroundSize: contain

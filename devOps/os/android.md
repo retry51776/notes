@@ -1,14 +1,14 @@
 # Android
+>
 > Back in the days I do flash android. Good old time, I haven't done it in years.
 
 > Team Win Recovery Team (TWRT) is a bootloader
-> All android comes with a bootloader,  usually only have a simple recovery feature. 
+> All android comes with a bootloader,  usually only have a simple recovery feature.
 > Some android may locked bootloader.
 
 > MagicMask is unrooting software install inside TWRT, get admin access on phone.
 
-> ROM is Android OS image. 
-
+> ROM is Android OS image.
 
 ```bash
 .\adb.exe connect 192.168.0.26:5555

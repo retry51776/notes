@@ -28,10 +28,11 @@ export PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0
 # Default HuggingFace downloads folder
 ~/.cache/huggingface
 
+```bash
 huggingface-cli scan-cache
 ```
 
-```
+```text
 # Example ollama Model File Definition
 
 MODEL_FILE ./mymodel.gguf
@@ -320,7 +321,7 @@ wandb.watch(self.model.out_layers[-1], log="all", log_freq=50)
 
 ## PDF
 
-```
+```python
 # Max 12G RAM
 # pip install marker-pdf
 # apt-get install -y libgl1-mesa-glx
@@ -350,7 +351,6 @@ These __global__ functions are known as kernels, and code that runs on the GPU i
 Nsight System - Advance GUI debugger
 
 Pytorch will calculate SM size, and choice best tiling size CUDA kernel.
-
 
 ```c++
 // CUDA Kernel function to add the elements of two arrays on the GPU
@@ -671,10 +671,9 @@ uv run mcp install weather.py
 file_key - whole design document
 node_id - specific frame / component
 
-Apple Design: https://developer.apple.com/design/resources/
-Figma Community Design: https://www.figma.com/community/libraries?resource_type=files
+Apple Design: <https://developer.apple.com/design/resources/>
+Figma Community Design: <https://www.figma.com/community/libraries?resource_type=files>
 Developer or Produce Owner should pick design from here as UX ground for agent.
-
 
 ## TensorRT
 

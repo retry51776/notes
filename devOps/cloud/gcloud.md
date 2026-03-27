@@ -1,5 +1,6 @@
 
 # GCP
+
 GKE
 
 Google Cloud’s containers as a service (CaaS)
@@ -11,6 +12,7 @@ Cloud Storage
 Cloud Functions
 
 ## Setup
+
 ```bash
 gcloud init
 gcloud components update
@@ -40,11 +42,14 @@ function Prompt {
     return "> ";
 }
 ```
+
 ## DB Auth
+>
 > [Configure public IP](https://cloud.google.com/sql/docs/mysql/configure-ip)  
 > [Configure SSL](https://cloud.google.com/sql/docs/mysql/configure-ssl-instance)
 
 ### Cloud SQL Auth Proxy
+
 Allows a side‑car container for deployments to access the database without using SSL.
 
 ```bash
@@ -52,14 +57,16 @@ cloud_sql_proxy -instances=proj_id:zone:db_instance_id=tcp:3306 -credential_file
 ```
 
 ## DaemonSet
+
 - fluentbit  
 - metrics‑agent  
 - traefik‑ingress‑controller  
 - pdcsi (`google persistent disk`)
 
 ## GKE Cert, Ingress & External LB
+>
 > Google‑managed certificates don’t support wildcard domains.  
-> https://cloud.google.com/kubernetes-engine/docs/how-to/managed-certs
+> <https://cloud.google.com/kubernetes-engine/docs/how-to/managed-certs>
 
 ```yaml
 apiVersion: networking.gke.io/v1

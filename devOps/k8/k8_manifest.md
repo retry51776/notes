@@ -1,22 +1,30 @@
 # K8 Manifest
+>
 > Key manifest examples, some of k8 needs both yml & `kubectl` `cmds`. Kind hard to split `kubectl` & `yaml`
 
 # Tip & Tricks w YAML
+
 ```bash
 # replace yml variable
 cat xxx.yaml | sed "s/XXX_VALUE/$some_value/"
 ```
 
 ## Common Manifest Properties
+
 ### Label
+>
 > is an object uses by selector
 Recommend Properties
+
 - app: xxx
 - env: [dev, prod, stage]
 - type: [engine, service, ui]
+
 ### Annotations
+>
 > is an object passed to K8 controller, always research documentations to see what & how k8 controller loads annotations
 Example
+
 ```yaml
 # Tell k8 whatever defined is for this service_account
 annotations:
@@ -24,6 +32,7 @@ annotations:
 ```
 
 ### metadata
+
 ```yml
 metadata:
   deletionTimestamp: # schedule pod delete time
@@ -37,10 +46,10 @@ metadata:
 apiVersion: v1 # Required
 kind: [Service|other k8 resources] # Required
 metadata: # Required: uniquely identify the object
-	name: # Required: k8 object id
-	labels: # Optional
-		app: # Important: must match to selector
-		type:
+ name: # Required: k8 object id
+ labels: # Optional
+  app: # Important: must match to selector
+  type:
 spec: # Required: desire state
 ```
 
@@ -85,18 +94,18 @@ spec:
         command: ["/bin/sh", "-c", "echo Welcome to BLUE App! > /host-vol/index.html ; sleep infinity"]
 ```
 
-
 # Ingress
+>
 > To expose service to public
-> 
+>
 > layer 7 tcp load balancer
-> 
+>
 > redirect traffic to different services
-> 
+>
 > redirect different ip to matching service (nodePort doesn't matter anymore)
-> 
+>
 > Ingress type: [Custom | External LB | Internal LB]
-> 
+>
 > Basic Example from k8 `kubectl apply -f https://kind.sigs.k8s.io/examples/ingress/usage.yaml`
 
 ```yml
@@ -134,36 +143,39 @@ spec:
 ```
 
 # Service
+>
 > Must declare to expose other services
 
 ```yml
 Kind: Service
 spec:
-	type: [NodePort|ClusterIP|LoadBalancer] # usually ClusterIP
-	ports:
-	# ClusterIP: accessible within k8 network
-		- port: 80        # service's port
-		- targetPort: 80  # Pod's port
-		- protocol: TCP
-	# NodePort: each pod is accessible by public_ip:port; Only for developer testing
-		- targetPort: 80
-		- port: 80
-		- nodePort: [30000-32767]
+ type: [NodePort|ClusterIP|LoadBalancer] # usually ClusterIP
+ ports:
+ # ClusterIP: accessible within k8 network
+  - port: 80        # service's port
+  - targetPort: 80  # Pod's port
+  - protocol: TCP
+ # NodePort: each pod is accessible by public_ip:port; Only for developer testing
+  - targetPort: 80
+  - port: 80
+  - nodePort: [30000-32767]
     # LoadBalancer: publish service by single public ip, will ask CLOUD provider for public ip address
-	selector:
-		app: # Important: Match from metadata.labels
-		type: # Important: Match from metadata.labels
+ selector:
+  app: # Important: Match from metadata.labels
+  type: # Important: Match from metadata.labels
 
 # Test by `curl https://node_ip:nodePort/`
 ```
 
 # Cluster
+
 - extraPortMapping
 
-
 ## Mount Volume
+
 1. Add volumes to deployment
 2. Tell where volumes mount to `volumeMounts`
+
 ```yml
   containers:
   - name: myapp-vol-container
@@ -191,8 +203,8 @@ containers:
       name: volume_name
 ```
 
-
 # Add K8 User
+
 ```bash
 sudo useradd -s /bin/bash bob
 sudo passwd bob
@@ -205,6 +217,7 @@ cat bob.csr | base64 | tr -d '\n','%'
 vim signing-request.yaml
 below is asking k8 permission for certificate we just created
 ```
+
 ```yaml
 apiVersion: certificates.k8s.io/v1
 kind: CertificateSigningRequest
@@ -222,6 +235,7 @@ spec:
 ```
 
 ### Approval Signing Request
+
 ```bash
 kubectl get csr
 certificatesigningrequest.certificates.k8s.io/bob-csr approved
@@ -242,6 +256,7 @@ kubectl config set-context --current --namespace=kube-system
 # Give bob role access
 vim role.yaml
 ```
+
 ```yml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role

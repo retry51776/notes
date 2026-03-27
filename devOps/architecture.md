@@ -1,4 +1,5 @@
 # Architecture
+>
 > I worked for a small company. We don't have everything listed here. I wish we had at least half of the stuff.
 
 ## Web Service
@@ -67,6 +68,7 @@ DNS → Load Balancer → Gunicorn instance → Gunicorn workers → Flask
 ### Black‑box Metrics
 
 #### Response Metrics
+
 - Mean Time to Detect (MTTD)  
 - Mean Time to Acknowledge (MTTA)  
 - Mean Time to Recovery (MTTR)  
@@ -76,6 +78,7 @@ DNS → Load Balancer → Gunicorn instance → Gunicorn workers → Flask
 - Mean Time Between Failures (MTBF)
 
 #### Performance Metrics
+
 1. Requests per minute (RPM)  
 2. Average and max latency  
 3. Errors per minute  
@@ -86,18 +89,21 @@ DNS → Load Balancer → Gunicorn instance → Gunicorn workers → Flask
 8. Unique API consumers  
 
 ### Log Databases
+
 - Prometheus `time‑series database`  
 - Elasticsearch `search engine, fast aggregation, supports many languages`  
 - Splunk `used by large enterprises`  
 - MongoDB `slower aggregation because single‑thread map‑reduce`
 
 ## Testing Strategies
+
 - Top‑down  
 - Bottom‑up  
 - Big Bang  
 - Sandwich  
 
 ## Migration Strategy
+
 - Rehost `Lift & Shift`  
 - Refactor `minor app changes`  
 - Revise `medium app changes`  
@@ -105,11 +111,13 @@ DNS → Load Balancer → Gunicorn instance → Gunicorn workers → Flask
 - Replace `potentially better solution`
 
 ## API Versioning Strategies
+
 - URL pattern  
 - Custom header  
 - Query‑parameter versioning  
 
 ## Buzzwords
+
 - Access Pattern  
   - Random  
   - Sequential  
@@ -119,6 +127,7 @@ DNS → Load Balancer → Gunicorn instance → Gunicorn workers → Flask
 - Proximity service `common business request`
 
 ### Collaborative Editing
+
 - Multi‑user mode (e.g., Google Docs, Etherpad)
 
 > **Pessimistic Control** `aka lock`  

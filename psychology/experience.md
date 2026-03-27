@@ -23,7 +23,7 @@
   - [Economic Opinion](#economic-opinion)
 - [Philosophy](#philosophy)
   - [Personal Philosophy](#personal-philosophy)
-  - [Practical Guidelines](#practical-guidelines)
+- [Practical Principles](#practical-principles)
 - [Frameworks](#frameworks)
   - [Bayesian Statisticians](#bayesian-statisticians)
   - [Life Is a Video Game](#life-is-a-video-game)
@@ -54,7 +54,6 @@
 - Intelligence(Data) vs. Rationality(Radom Sample)
 - We (including AI) are always biased because each of us experiences only a subset of reality.
 - surprisal: Rare events contains more information.
-
 
 - All evolutionary ideas challenge our assumptions.  
   > *Einstein*: E = mc² → energy and mass are equivalent.  

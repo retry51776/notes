@@ -1,5 +1,6 @@
 
 # AWS
+
 docs.aws.amazon.com
 
 AWS support prefers screen sharing.
@@ -9,6 +10,7 @@ Edit permissions will allow ticket creation.
 CloudWatch + CloudTrail = Stackdriver equivalent.
 
 ### Apps
+
 - **S3** – object storage  
 - **CloudFront** – CDN  
 - **Route 53** – DNS  
@@ -19,6 +21,7 @@ CloudWatch + CloudTrail = Stackdriver equivalent.
 - **Elastic Load Balancer (ELB)** – container‑based (available since 09)
 
 ### Lambda
+>
 > Test with Serverless Framework or SAM.
 
 > Max execution time: 15 minutes.  
@@ -62,6 +65,7 @@ Resources:
 ```
 
 ## Step Functions
+>
 > Server‑side business logic state machine.
 
 ```json
@@ -92,23 +96,27 @@ Resources:
 ### Elastic Kubernetes Service (EKS)
 
 ## DBs
-https://aws.amazon.com/products/databases/
+
+<https://aws.amazon.com/products/databases/>
 
 - **RDS** – Amazon‑managed MySQL, PostgreSQL, etc.  
 - **Aurora**  
 
 ## Orchestration
+
 - Step Functions  
 - SNS – similar to RabbitMQ  
 - SQS – simple queue service  
 - CloudFormation  
 
 ## AWS Enterprise Support
+>
 > Always keep the ticket number.  
 > Always attach the resource ID.  
 > Cross‑account issues require tickets in both accounts.
 
 **Response Times**
+
 - Business‑critical: 15 min  
 - Production system down: 1 h  
 - Production impaired: 4 h  
@@ -118,13 +126,14 @@ https://aws.amazon.com/products/databases/
 Enterprise Discount Program (EDP)
 
 ### Pricing Models
+
 - On‑Demand  
 - Savings Plans  
 - Reserved Instances  
 - Spot Instances  
 - Dedicated Host  
 
-```
+```ini
 ~/.aws/credentials
 [default]
 aws_access_key_id=xxx
@@ -139,27 +148,33 @@ apt-get install eksctl
 ```
 
 # AWS Course
+
 - AWS Cloud Practitioner Essentials
 
 #### AWS CLI
+
 ```bash
 aws ec2 run-instances
 ```
 
 ### Direct Connect
+>
 > Private connection between a data centre and AWS.
 
 ### Amazon Elastic Block Store (EBS)
+
 Database storage.
 
 ## Simple Storage Classes (S3)
 
 ### S3 Standard
+
 (11 9s) of data durability.
 
 S3 lifecycle management – automatically moves data between tiers.
 
 ## AWS Lake Formation
+
 - Athena – interactive query service  
 - Glue – data catalog and ETL  
   - Data Catalog databases – storage for crawlers  
@@ -168,6 +183,7 @@ S3 lifecycle management – automatically moves data between tiers.
   - Job – creates ETL pipelines (Spark, streaming, Python shell)
 
 ## AWS IAM
+
 - Groups → users  
 - Role – temporary access  
 - Policy  
@@ -180,5 +196,6 @@ S3 lifecycle management – automatically moves data between tiers.
 ### Inspector
 
 ## CloudWatch
+
 - Dashboard  
 - Alarm

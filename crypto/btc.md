@@ -1,4 +1,5 @@
 ## Bitcoin Structure
+
 - Block header (80 bytes)
   - Version (4 bytes)
   - Previous block hash (32 bytes)
@@ -35,15 +36,17 @@
 - Timestamp is **not** reliable in blockchain consensus
 
 ## Vulnerabilities
+
 - 51 % attack – can halt transactions and enable double‑spending.
 - Time‑warp attack.
 - `OP_CHECKMULTISIG` consumes an extra stack element.
 
 # Source Code Structure
+>
 > `.h` files (header files) list publicly accessible variables.  
 > `.cpp` files implement the methods and use those variables.
 
-```
+```text
 src/
 ├─ validation.cpp   # ~5,000 lines of logic – TODO: break into smaller functions
 ├─ index/
@@ -58,4 +61,3 @@ src/
    ├─ tx_verify.cpp
    └─ merkle.cpp
 ```
-

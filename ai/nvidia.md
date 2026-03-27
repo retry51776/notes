@@ -26,7 +26,7 @@
 
 - LPU - 500 SRAM @ 150TB/s
 - GPU
-- spectrum-x `fiber to `
+- spectrum-x `fiber to`
 - NV-Link switch `between nodes`
 
 ### GPU Architecture Components
@@ -43,7 +43,6 @@
 | NVENC / NVDEC | Video encode/decode |
 
 > Note: Tensor Core CAN'T tokenization, softmax scaling, KV cache indexing, and sampling, which still operate on floating point in CUDA Core;
-
 
 ### Training Tools
 
@@ -88,8 +87,6 @@ Each gate has a special purpose — like customs, traffic control, or the big cr
 
 - **Ethernet** – Standard networking.
 
-
-
 ## CUDA Programming Concepts
 
 - **Grid** – Collection of blocks; can be 1‑3 dimensions.  
@@ -130,7 +127,8 @@ Background services:
 
 88 Blocks: (MEMEMEM*EMEMEMEM*EMEMEMEM*EMEMEMEMEM*EMEMEMEMEM*EMEMEMEMEM*EMEMEMEMEM*EMEMEMEM*EMEMEMEME)
 
-3 block types: 
+3 block types:
+
 - Mamba (Linear Attention or RNN)
 - Attention
 - MoE / MLP

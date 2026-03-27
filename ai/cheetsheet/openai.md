@@ -1,6 +1,5 @@
 # OpenAI
 
-
 ## Agent RFT
 >
 > Finetune LLM to uses custom tools to generate structure output.

@@ -1,5 +1,6 @@
 
 # Terraform
+>
 > HashiCorp Configuration Language (HCL)  
 > Implemented in Go.
 
@@ -32,6 +33,7 @@ resource "google_compute_instance" "test_ec2" {
 ```
 
 ### Terraform Life Cycle
+
 ```bash
 # 1. Initialise the project
 terraform init
@@ -47,11 +49,13 @@ terraform destroy   # only for testing
 ```
 
 **Key concepts**
+
 - `terraform refresh` – synchronises state with real infrastructure  
 - `terraform plan` – shows the desired state  
 - `terraform apply` – enforces the desired state  
 
 ## Example Terraform Files
+
 ```hcl
 terraform {
   required_version = ">= 0.13.0"

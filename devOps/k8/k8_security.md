@@ -5,6 +5,7 @@
 ## Add‑ons
 
 ### cert‑manager
+
 Simplifies obtaining, renewing, and using certificates.
 
 1. Create a CA certificate & key.
@@ -21,11 +22,13 @@ data:
 ```
 
 ### keycloak
+
 Client‑application authorization.
 
 ### Kubernetes Dashboard
 
 ## Secrets
+
 Application‑layer encryption for secrets.
 
 ## HashiCorp Vault Add‑on

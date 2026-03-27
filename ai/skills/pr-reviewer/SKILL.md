@@ -11,7 +11,7 @@ description: >-
 
 - [Description](#description)
 - [Usage](#usage)
-- [Reference Loading](#reference-loading)
+- [Checklist](#checklist)
 - [Inputs](#inputs)
 - [Outputs](#outputs)
 
@@ -40,7 +40,6 @@ Keep this file lean by loading detailed guidance only when needed.
 - JS review checklist: [references/js.md](./references/js.md)
 - Python review checklist: [references/python.md](./references/python.md)
 - Markdown review checklist: [references/markdown.md](./references/markdown.md)
-
 
 ## Inputs
 

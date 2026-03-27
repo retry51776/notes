@@ -1,6 +1,6 @@
 # Authentication, Authorization, Accounting (AAA)
 
-# Authorization
+# Authorization Concepts
 >
 > Stuff about client authentication, authorization.
 

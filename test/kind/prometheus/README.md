@@ -1,4 +1,5 @@
 # Prometheus
+
 ```bash
 # Step 1. Install metrics-service addon
 helm repo add metrics-server https://kubernetes-sigs.github.io/metrics-server/

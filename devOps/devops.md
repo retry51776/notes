@@ -1,7 +1,9 @@
 # DevOps
+>
 > Fancy words go here, because DevOps has tons of them.
 
 ## Operational Burdens
+
 - CI / CD  
 - Production stability (CT)  
 - Meetings  
@@ -10,6 +12,7 @@
 - Unit testing  
 
 ## DevOps Metrics
+
 - Deployment frequency  
 - Lead time *from commit to master to deployment*  
 - Mean Time to Recovery  
@@ -17,12 +20,14 @@
 - Cycle time *aka development time, which most managers care about*
 
 ### Four Fundamental Topologies
+
 - **Stream‑aligned team**: aligned to a flow of work from a specific business domain.  
 - **Enabling team**: helps a stream‑aligned team overcome obstacles and fills missing capabilities.  
 - **Complicated subsystem team**: required for areas needing deep expertise (e.g., complex mathematics).  
 - **Platform team**: provides an internal product that accelerates delivery for stream‑aligned teams.
 
 ## Project Checklist
+
 - Install  
 - Config *developers often forget to document*  
 - Provision  
@@ -42,6 +47,7 @@
 - Testing  
 
 ### Deployment Strategies
+
 - **Blue‑Green** – swap all at once; K8s service mesh VirtualService.  
 - **Rolling update** – run different versions simultaneously.  
 - **Recreate** – offline gap during deployment.  
@@ -50,7 +56,9 @@
 - **Shadow** – duplicate traffic to a test version.
 
 ## JIRA
+
 - RELEASE MANAGEMENT – auto‑generate release notes
+
 ```bash
 brew install jira-cli
 

@@ -1,6 +1,7 @@
 # Debug
+>
 > 80% K8s problems are networking, configMap, secrets;
-> 
+>
 > 1. Looks though events, k8s object status;
 > 2. Check Pod Logs;
 > 3. Test around inside POD;
@@ -8,6 +9,7 @@
 > 5. Check sidecar
 
 ### Commons Errors
+
 - Error Validating data
 - SchedulingDisabled
 - ImagePullBackoff
@@ -21,6 +23,7 @@
 - Kubelet crash
 
 ## TLS Issue
+
 - Is Ingress defined? inspect ingress
 - Is service defined & running?
 - Is TLS secrets created? is it valid?
@@ -29,6 +32,7 @@
 - Is there cert issuer? or reach issue limitation? mismatch ClusterIssuer name?
 
 ## Debugging Inside POD
+
 ```bash
 # Start a busybox
 kubectl run -i --rm alpine --image=praqma/network-multitool -- bash #--tty
@@ -57,6 +61,7 @@ traceroute xxx-service
 ```
 
 ## Debugging Inside Node
+
 ```bash
 systemctl restart kubelet
 
@@ -67,7 +72,9 @@ ssh -i <path of the private key file> admin@<ip of the aws kube instances>
 ```
 
 ## Debugging On Client Side / Node
+
 #### Common Debug
+
 ```bash
 kubectl cluster-info
 # Did you forget some secrets or configMap?
@@ -93,6 +100,7 @@ kubectl --as-group=xxx get all
 ```
 
 #### Client Side Networking
+
 ```bash
 # Check host DNS
 systemd-resolve --status | grep 'DNS Servers' --after 5
@@ -113,6 +121,7 @@ Get-Process -Id (Get-NetTCPConnection -LocalPort YourPortNumberHere).OwningProce
 ```
 
 directly access api_server
+
 ```bash
 # Point to the internal API server hostname
 APISERVER=https://kubernetes.default.svc
@@ -136,8 +145,8 @@ curl --cacert ${CACERT} --header "Authorization: Bearer $TOKEN" -s ${APISERVER}/
 curl --header "Authorization: Bearer $TOKEN" -s ${APISERVER}/api/v1/namespaces/shopping/pods/ --insecure
 ```
 
-
 # Create Token for Dashboard
+
 ```yml
 apiVersion: v1
 kind: Secret

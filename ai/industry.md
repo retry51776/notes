@@ -48,7 +48,6 @@
   - Investor allowable runway determents take off speed(intelligent) of LLM.
   - Automatic value ~ (success_task_% - failed_task_%) * task_value_$ - llm_cost_$
 
-
 ## Cache Strategies
 
 | Phase                     | Cache Type          | Description |
@@ -59,8 +58,8 @@
 | **Autoregressive Decoding** | KV Cache            | Used for token generation. The query (latest token) changes each step, while the key and value (past tokens) remain static.<br>• Implicit cache – handled automatically by the LLM provider.<br>• Explicit cache – must be programmed. |
 |                           | FlashAttention Cache| Combines KV cache with softmax optimization. |
 
-
 There are 3 KV approaches:
+
 - build-in compression; Ex: Deepseek MLA
 - math compression; Ex: TurboQuant
 - Increase cache hit rate;
@@ -78,10 +77,8 @@ Deterministic Compress KV cache Algorithm, apply to any LLM, enhances vector sea
 Cartesian coordinates: Standard; smooth, linear gradient;
 Spherical coordinates: Circle; nonlinear, coupled gradient;
 
-
-  - Polar quant - Add random rotation. Convert cartisian to polar coordinates.
-  - QGL - convert sign bit (1 or -1)
-
+- Polar quant - Add random rotation. Convert cartisian to polar coordinates.
+- QGL - convert sign bit (1 or -1)
 
 ### Precision & Quantization
 
@@ -270,7 +267,6 @@ Cons:
 - Boston Dynamics – owned by Google.  
 - Unitree – Chinese robot company.
 
-
 #### Unitree G1 Specs (excerpt)
 
 | Component | Detail |
@@ -291,19 +287,18 @@ Cons:
     - Access Manager
     - Skill market place
   - Custom Hardwares `integrate with agent skills to manage it`
-    - Door Locks 
+    - Door Locks
     - Print
     - Projector & TV
     - Clock in/out machine
     - Headphone
 - Govern System
-	1.	Identity / trust boundary
-	2.	Tool permission policy
-	3.	Filesystem governance
-	4.	Command governance
-	5.	Network / connector governance
-	6.	Audit / rollback / approval
-
+ 1. Identity / trust boundary
+ 2. Tool permission policy
+ 3. Filesystem governance
+ 4. Command governance
+ 5. Network / connector governance
+ 6. Audit / rollback / approval
 
 - Google Workflow Framework
   - Agent Development Kit `Google's langchain`
@@ -429,7 +424,6 @@ Cons:
   - Construct Input/Output task
   - Future task
     - Jump from section to another
-
 
 ```md
 Given a python code function and an assert statement containing a specific input, provide the assertion with the exact literal output that the function returns with that input. Do not

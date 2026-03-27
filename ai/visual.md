@@ -1,9 +1,9 @@
 
 # Visual
 
-https://huggingface.co/spaces/ArtificialAnalysis/Text-to-Image-Leaderboard
+<https://huggingface.co/spaces/ArtificialAnalysis/Text-to-Image-Leaderboard>
 
-https://huggingface.co/spaces/ArtificialAnalysis/Video-Generation-Arena-Leaderboard
+<https://huggingface.co/spaces/ArtificialAnalysis/Video-Generation-Arena-Leaderboard>
 
 ## Metric
 
@@ -23,7 +23,6 @@ Diffusion Model attention conditioning
 
 - CFG (Classifier-Free Guidance) `prompt weight`
 
-
 ```md
 Huggingface Modals default is BF8 for nvidia hardware, so find Modal is fp16 format able to run in mac.
 
@@ -42,7 +41,6 @@ Here is github issue link: https://github.com/ml-explore/mlx/issues/1670
   - rack focuses
   - Pan Left/Right
   - Tile Up/Down
-
 
 - Multi‑model LLMs(MLLM): Gemini 2.0 Flash, LLaMA‑3.2‑11B‑Vision‑Instruct, Pixtral 12B, DeepSeek VL.
   - vision

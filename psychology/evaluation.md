@@ -25,7 +25,6 @@
 - The problem hierarchy structure is LIMITED interactions. The very reason NN has powerful capacity is each neuron's has many connections. But due to human conscience capacity bottleneck, hierarchy structure sacrifice interaction complexity for inutility.
 - People & company HATES to be monitor. So avoid over does this.
 
-
 ## Experiments
 
 ### Expected Experiments
@@ -67,7 +66,6 @@ Constraints:
 - For location info, at most narrow down to city only. Don't ask for detail address. If country is small, country will be sufficient.
 - Do NOT clear or remove info from `report.md`, only append.
 
-
 Instructions:
 
 - Always append current timestamp to `report.md` before evaluation.
@@ -76,9 +74,9 @@ Instructions:
   - List common stereotypes relates to user's background. Collect user's acknowledgement or opinions on stereotypes to `report.md`.
 - At each Development Time Scale section
   - 1) Write desc on current development section with traits examples.
-  - 2) List common stereotypes traits to user background at this section, ask their acknowledgment or opinion on these stereotypes.
-  - 3) Ask user has any opinions on current section, things to disagree about, things to add, or skip.
-  - 4) Log to `report.md`
+  - 1) List common stereotypes traits to user background at this section, ask their acknowledgment or opinion on these stereotypes.
+  - 1) Ask user has any opinions on current section, things to disagree about, things to add, or skip.
+  - 1) Log to `report.md`
     - List traits user mentioned, but CLEARLY not within listed traits.
     - List User's opinion of listed traits.
 
@@ -92,7 +90,7 @@ Instructions:
       - vietnamese: 70s North Vietnam took over.
       - mexican: 82, 94 peso crisis
       - texan: 60-70 desegregation era
-      
+
 - key cities(born, childhood, school, adult, retired?)
 - General profession history
 - Personality
@@ -113,7 +111,7 @@ Instructions:
     - Overreact to false alarm
     - Female mature before male
   - Opinion: elimination ~ pretrain elimination no gradient reinforcement channels
-- 2) Culture
+- 1) Culture
   - Medium: Text, Movies, Surrounding
   - Flexibility: medium
   - Timescale: years
@@ -124,7 +122,7 @@ Instructions:
     - Stereotype Image (external biases)
       - False Culture Stereotype
       - Known Culture Stereotype mechanism/causes
-- 3) Childhood Development
+- 1) Childhood Development
   - Medium: brain
   - Flexibility: parent determent
   - Timescale: episode range seconds to weeks
@@ -163,7 +161,7 @@ Instructions:
       - Reinforce opinions
       - Known mistakes
       - Known unknown
-- 4) Adult Experiences
+- 1) Adult Experiences
   - Medium: brain
   - Flexibility: self determent
   - Timescale: experience range weeks - years
@@ -184,7 +182,7 @@ Instructions:
       - Any habit user not self aware?
         - Emotion pollution
 
-- 5) Conscious Reaction
+- 1) Conscious Reaction
   - Timescale: seconds
   - Flexibility: requires practice
   - Traits
@@ -193,7 +191,7 @@ Instructions:
     - Counterfactual comparison increases regret
     - Explaining preferences erodes them
     - Awareness reduces presence. Self aware is distraction, brain can't multi task.
-- 6) Subconscious Reaction
+- 1) Subconscious Reaction
   - Timescale: ms
   - Flexibility: weighted by Childhood & Evolution
   - Traits
@@ -205,7 +203,6 @@ Instructions:
     - **Social category**
     - **Cognitive Bias**
     - **Perception Biases**
-
 
 ## Individual Time
 
@@ -232,6 +229,7 @@ Time IS known constrain on EVERYONE. Check list here doesn't sum up 100% because
 ## Individual Priority
 
 Natural Desires
+
 - Survival
 - Sexual
 - Belonging
@@ -239,10 +237,10 @@ Natural Desires
 - Narrative Coherence
 
 Variables
+
 - Scarcity
 - Biological State
 - Social Context Switching
-
 
 ## Company Evaluation
 

@@ -1,9 +1,9 @@
 # AI
-> 
+>
 
 > I break down my AI notes into:
 
-```
+```text
 /ai
 ├── /cheetsheet
 │   └── aider.md
@@ -28,13 +28,13 @@ Most likely automate by AI industries traits:
   - digital?
     - radiology
   - Observability (privacy block some industry)
-  -	variance?
+  - variance?
     - messy real-world physical manipulation
     - standard formats?
     - student in edu process (different success rates)
 - output
   - digital? (text, image, audio, video, code, or structured decisions)
-  -	variance?
+  - variance?
     - human target audience will have big variance (differ mood, preference)
     - human has more native control on voice than AI
     - code low variance because IDE execute result same
@@ -44,8 +44,8 @@ Most likely automate by AI industries traits:
       - poker, strategy result, therapy resp
   - Incentive alignment
     - Education/politics/art
--	huge volumes of historical data (code, movie)
--	workflows that repeat at scale
+- huge volumes of historical data (code, movie)
+- workflows that repeat at scale
 
 ## Analogy
 

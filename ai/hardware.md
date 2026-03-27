@@ -10,7 +10,6 @@ Different hardware needs its own version of `llama.cpp` (e.g., Metal, ROCm, CUDA
 
 Each manufacturer has its own shading language.
 
-
 ### Near‑Memory Design
 
 - Reconfigurable data‑flow hardware vs. parallelism on existing compute units.
@@ -28,7 +27,6 @@ Each manufacturer has its own shading language.
 |------|-------------|
 | DRAM (dynamic) | Capacitor‑based; includes HBM (PCIe 5 ≈ 128 GB/s, SXM ≈ 600 GB/s), DDR1‑5, LPDDR, GDDR |
 | SRAM (static) | Flip‑flop based; L1/L2/L3 caches |
-
 
 ### Parallelism Strategies
 
@@ -127,6 +125,7 @@ Metal Performance Primitives / TensorOps
 Instruments ~ Apple Metal Trace software
 
 Apple GPU components:
+
 - Shader Core ~ SM
 - SIMDgroup ~ Warp
 - Threadgroup ~ Thread Block

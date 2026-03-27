@@ -1,15 +1,17 @@
 # Sources
 
 > Please don't sue me! I takes no credit for these awesome diagrams. I try my best to make sure they are opensource. Plus I don't make money on this repo.
-> 
+>
 > Here are sources:
 
 # Web
+
 [Webpack](https://blog.didiyun.com/index.php/2019/03/01/webpack/)
 
 [Webpack](https://developpaper.com/uncover-how-the-webpack-plug-in-works/)
 
 # DevOps
+
 [k8](https://medium.com/devops-mojo/kubernetes-architecture-overview-introduction-to-k8s-architecture-and-understanding-k8s-cluster-components-90e11eb34ccd)
 
 [k8-ports](https://stackoverflow.com/questions/55797312/what-is-the-port-used-for-for-a-kubernetes-service)
@@ -21,9 +23,11 @@
 [workflow](https://developer.here.com/documentation/ci_cd/white_paper/topics/ci-cd-workflow.html)
 
 # Science
+
 [rocket](https://commons.wikimedia.org/wiki/File:Ssme_schematic_%28updated%29.svg)
 
-
 [chart](https://www.edrawsoft.com/chart/choose-right-chart.html)
+
 # Crypto
+
 [zk-snark](https://blogs.360.cn/post/Security-Risks-in-Zero-Knowledge-Proof-Cryptocurrencies.html)

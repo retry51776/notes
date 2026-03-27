@@ -1,4 +1,5 @@
 // development/dotnet/standard_framework.md
+
 # Standard Framework
 
 > The standard framework is old and closed‑source.
@@ -19,7 +20,7 @@ Static files are placed in the root directory.
 - `.sln` – solution file, defines how many apps are inside the repository
 - `Web.config`
 
-> Custom routing: https://stackoverflow.com/questions/56824966/is-there-something-like-routeconfig-cs-in-net-core-mvc
+> Custom routing: <https://stackoverflow.com/questions/56824966/is-there-something-like-routeconfig-cs-in-net-core-mvc>
 
 ## /App_Config/RouteConfig.cs
 

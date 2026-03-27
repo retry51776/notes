@@ -18,11 +18,13 @@
 ## Communication
 
 3 layers Communication:
-1.	Literal words
-2.	Emotional signal
-3.	Hidden objective
+
+1. Literal words
+2. Emotional signal
+3. Hidden objective
 
 3 states:
+
 1. Self intend
 2. Other's intend
 3. Current State

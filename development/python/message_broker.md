@@ -24,11 +24,13 @@
 ---
 
 ## RabbitMQ
+>
 > Uses the AMQP protocol.  
 
 > Version 3.9 adds stream support.
 
 ### Concepts
+
 - **Virtual Host**
 - **Exchange**
   - Types: `fanout`, `direct`, `topic`, `header`, nameless.
@@ -70,6 +72,7 @@ ch.start_consuming()  # I forgot this
 ```
 
 ## Kafka
+
 - **Topic**
   - **Partition** – an append‑only log.
     > By default, messages are distributed randomly across partitions; you can use a hash key to control placement.  
@@ -80,10 +83,12 @@ ch.start_consuming()  # I forgot this
 - Uses a custom binary protocol over TCP.  
 
 ### Python Clients
+
 - `kafka-python`
 - `confluent-kafka-python`
 
 ### Stream Processing
+
 - Faust is a stream‑processing library.
 
 ```python
@@ -102,6 +107,7 @@ async def proc_order(orders: faust.Stream):
 [RabbitMQ consumer exclusivity documentation](https://www.rabbitmq.com/consumers.html#exclusivity)
 
 ### Java Example
+
 ```java
 xxxStream.groupByKey()
     .aggregate(
@@ -124,4 +130,3 @@ Faust is a Robinhood‑style stream library for Python.
 ## Site Reliability Engineering (SRE)
 
 > Incremental aggregation functions include `count()`, `sum()`, `min()`, and `max()`.
-

@@ -3,6 +3,7 @@
 > Takes 20–40 seconds for an api‑server restart.
 
 > Configuration is stored on the master node at `/etc/kubernetes/manifests/kube-apiserver.yaml`.
+
 - Prefer versioned store format.
 
 ## Commands

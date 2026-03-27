@@ -2,7 +2,7 @@
 
 ## Codex Cloud
 
-Define codex sandbox: https://chatgpt.com/codex/settings/environments
+Define codex sandbox: <https://chatgpt.com/codex/settings/environments>
 
 Codex start contain(with their image) with mounted volume(from github repo); This github repo acts as s3 storage, codex container may open PR to this github repo for save changes.
   OpenAI codex provide runtime but not storage.
@@ -18,7 +18,7 @@ Codex start contain(with their image) with mounted volume(from github repo); Thi
           - future impersonate user setting?
           - Session
             - log `~/.codex/sessions/xxx.jsonl`
-              - traces `sqlite3 -header -column ~/.codex/logs_1.sqlite "select datetime(ts,'unixepoch','localtime') as time, level, target, substr(feedback_log_body,1,120) as msg from logs order by id desc limit │ 50;" `
+              - traces `sqlite3 -header -column ~/.codex/logs_1.sqlite "select datetime(ts,'unixepoch','localtime') as time, level, target, substr(feedback_log_body,1,120) as msg from logs order by id desc limit │ 50;"`
               - tool-call records: `apply_patch` ~ diff_log
               - approval log
               - file access log

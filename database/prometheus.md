@@ -1,11 +1,13 @@
 # Prometheus
 
 ## Types of Metrics
+
 - Counter  
 - Gauge  
 - Histogram  
 
 ## Components
+
 - Alertmanager  
 - kube‑state‑metrics  
 - node exporter  
@@ -18,11 +20,13 @@ kubectl get --raw /metrics
 ```
 
 ### Install Metric Server
+
 ```bash
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 ```
 
 ### Deploy Prometheus with Helm
+
 ```bash
 # Create namespace
 kubectl create namespace prometheus
@@ -39,9 +43,11 @@ helm upgrade -i prometheus prometheus-community/prometheus \
 The UI is available at `http://localhost:9090`.
 
 ## Exporters
+
 Exporters convert data into a format Prometheus understands and expose it on a `/metrics` endpoint.
 
 ## Pushgateway
+
 Used for short‑lived jobs that cannot be scraped directly.
 
 ## PromQL Basics
@@ -55,14 +61,15 @@ metric_name{
 ```
 
 ### Example Queries
+
 ```promql
 count by (label_x) (
     rate(metric_name{label="xxx"}[5m])
 ) > 500
 ```
 
-* `rate()` returns per‑second values; multiply by 60 to get per‑minute.
-* Use range vectors (`[5m]`) for rates over a time window.
+- `rate()` returns per‑second values; multiply by 60 to get per‑minute.
+- Use range vectors (`[5m]`) for rates over a time window.
 
 ## Writing Exporter Code (Python example)
 
@@ -89,8 +96,9 @@ def updater(request):
 ```
 
 ## Grafana
+
 Use the following pattern for metric names:
 
-```
+```text
 {{server}}_{{label}}
 ```

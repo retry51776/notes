@@ -38,9 +38,11 @@ moves, tips, and execution rules.
 Keep this file lean by loading detailed guidance only when needed.
 
 ### ComfyUI
+
 Read [references/comfyui.md](./references/comfyui.md) when you need:
 
 ### Slidev
+
 Read [references/slidev.md](./references/slidev.md) when you need:
 
 ## Inputs

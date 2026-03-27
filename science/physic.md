@@ -38,19 +38,23 @@ R_{\mu\nu} - \tfrac{1}{2} R\, g_{\mu\nu} = \frac{8\pi G}{c^{4}} T_{\mu\nu}
 - \(\pi\) – The famous geometric constant  
 
 ### Energy–Momentum Tensor
+>
 > Represents the content of space‑time (mass‑energy).  
 Constant factor: \(\displaystyle \frac{8\pi G}{c^{4}} T_{\mu\nu}\)
 
 ### Geodesic Equation
+>
 > Describes how objects move naturally in curved space‑time (the left side of Einstein’s equation).
 
 #### Riemann Curvature Tensor (space curvature)
+
 - Metric tensor – calculates distances  
 - Christoffel symbols – describe how the coordinate grid changes  
 - Ricci tensor – contraction of the Riemann tensor  
 - Ricci scalar – average curvature in all directions  
 
 #### Common Metrics
+
 1. Minkowski metric – flat space‑time  
 2. Schwarzschild metric – spherical mass  
 3. FLRW metric – expanding universe  
@@ -58,18 +62,21 @@ Constant factor: \(\displaystyle \frac{8\pi G}{c^{4}} T_{\mu\nu}\)
 5. Kerr metric – rotating black holes  
 
 #### Coordinate Systems
+
 1. Cartesian coordinates – used with the Minkowski metric  
 2. Schwarzschild coordinates – used with the Schwarzschild metric  
 
 ## Standard Model
 
 > **Fermions** = matter (three generations of quark and lepton pairs)  
+>>
 >> 1. Up/Down quarks, electron/electron neutrino  
 >> 2. Charm/Strange quarks, muon/muon neutrino  
 >> 3. Top/Bottom quarks, tau/tau neutrino  
 
 > **Bosons** = forces  
 >> Gauge bosons:  
+>>>
 >>> - Photon (electromagnetic)  
 >>> - Gluon (strong force)  
 >>> - \(Z^0\), \(W^\pm\) (weak force)  
@@ -80,6 +87,7 @@ Strong force may have contributed to cosmic inflation. In the early universe, th
 ---
 
 ### Plaster Types
+
 - **Ultracal 30** – strong, can be layered, long‑lasting  
 - **Hydrocal** – medium strength, not suitable for layering  
 - **USG pottery plaster** – weakest  
@@ -87,6 +95,7 @@ Strong force may have contributed to cosmic inflation. In the early universe, th
 **Bell siphon:** Uses pressure to release fluid in a batch (e.g., washing machine discharge).
 
 ### Natural Gas
+
 - **Transportation**
   - Pipeline – up to 700 mi under sea or 2,200 mi on land  
   - LNG – shipped as super‑cold liquid  
@@ -98,6 +107,7 @@ Strong force may have contributed to cosmic inflation. In the early universe, th
     - Shale gas  
 
 ### Nuclear Energy
+
 - **Fusion** – merging atoms  
   - By laser → creates high pressure (“small bomb”)  
   - By electric field → requires higher temperature  

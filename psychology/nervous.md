@@ -8,20 +8,20 @@
   - [Central Nervous System](#central-nervous-system)
     - [Human Brain](#human-brain)
       - [Frontal Lobe](#frontal-lobe)
-      - [Parietal Lobe](#parietal-lobe)
-      - [Occipital Lobe](#occipital-lobe)
-      - [Temporal Lobe](#temporal-lobe)
-      - [Insular Cortex](#insular-cortex)
+      - Parietal Lobe
+      - Occipital Lobe
+      - Temporal Lobe
+      - Insular Cortex
     - [Mammal Brain](#mammal-brain)
       - [Habits](#habits)
     - [Reptilian Brain](#reptilian-brain)
       - [Cerebellum](#cerebellum)
 
   - [Peripheral Nervous System](#peripheral-nervous-system)
-    - [Somatic Nervous System](#somatic-nervous-system)
-    - [Autonomic Nervous System](#autonomic-nervous-system)
-      - [Sympathetic Nervous System](#sympathetic-nervous-system)
-      - [Parasympathetic Nervous System](#parasympathetic-nervous-system)
+    - Somatic Nervous System
+    - Autonomic Nervous System
+      - Sympathetic Nervous System
+      - Parasympathetic Nervous System
 
 - [Tissue](#tissue)
   - [Basal Ganglia](#basal-ganglia)
@@ -35,7 +35,7 @@
   - [Axonal Plasticity](#axonal-plasticity)
   - [Brain Waves](#brain-waves)
   - [Glial Cells](#glial-cells)
-  - [Blood–Brain Barrier](#blood–brain-barrier)
+  - [Blood-Brain Barrier](#blood-brain-barrier)
 
 ## Central Nervous System
 >
@@ -373,7 +373,7 @@ Additional elements:
 - **Interlaminar** – spans layers 1‑4
 - **Varicose** – found in layers 5‑6
 
-## Blood–Brain Barrier
+## Blood-Brain Barrier
 >
 > The BBB is a highly specialized structure separating the bloodstream from the brain and central nervous system. It is primarily formed by endothelial cells lining cerebral blood vessels.
 

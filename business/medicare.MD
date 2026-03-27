@@ -1,6 +1,7 @@
 # Medicare
 
 ## Federal Level
+
 - CMS Certification Number (CCN, 6 digit)
 - National Provider Identifier (NPI or facility #)
 - Change of Ownership (CHOW)
@@ -12,6 +13,7 @@
 - Assistive Devices Program (ADP)
 
 ## State Level
+
 - Texas Health and Human Services Commission (HHSC)
 - Texas Medicaid & Healthcare Partnership (TMHP)
 
@@ -23,22 +25,21 @@
 
 Medicare = federal (100 days, 65+ or disable)
 
-  - Medicare Part A = Care Facility Insurance
-  - Medicare Part B = Care Provider(Doc, Therapy) Insurance
-  - Medicare Part C = Privatized Insurance
-  - Medicare Part D = Drug Insurance
+- Medicare Part A = Care Facility Insurance
+- Medicare Part B = Care Provider(Doc, Therapy) Insurance
+- Medicare Part C = Privatized Insurance
+- Medicare Part D = Drug Insurance
 
 medicaid = state (lower rate, $3000 max)
-  - LTCMI: TX
-  - MESAV: MCO final report for LTCMI
 
+- LTCMI: TX
+- MESAV: MCO final report for LTCMI
 
 5-Star Quality Rating System
 
-- Health Inspections ` last 3 years of on-site inspections, standard surveys, and any complaint surveys.`
+- Health Inspections `last 3 years of on-site inspections, standard surveys, and any complaint surveys.`
 - Staffing
 - Quality Measures
-
 
 ## 5-star Distribution
 
@@ -49,18 +50,20 @@ medicaid = state (lower rate, $3000 max)
 5: 10%
 
 CMS Resident Matching Logic
-https://qtso.cms.gov/system/files/qtso/Users_AppB.pdf
+<https://qtso.cms.gov/system/files/qtso/Users_AppB.pdf>
 
-> CMS offers waivers of the required 3-day hospital stay for Medicare SNF 
+> CMS offers waivers of the required 3-day hospital stay for Medicare SNF
 
 # Home health services
+
 oaisis
 
 # Dialysis facilities
+>
 > The dialysis centers help people with kidney disease or kidney failure
 
-
 ## buzz words
+
 - Minimum Data Set (MDS)
 - Registered nurse (RN)
 - Managed Care Organization (MCO)

@@ -1,4 +1,5 @@
 ## Install k8s dashboard w helm
+
 ```bash
 kubectl create ns dashboard
 kubectl config set-context --current --namespace=dashboard

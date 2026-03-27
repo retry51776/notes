@@ -2,11 +2,13 @@
 > Most of the code will be .NET Core
 
 ### Session
+
 ```cs
 SessionStore.IsAuthenticated()
 ```
 
 ### Generate JWT
+
 ```cs
 using JWT.Builder;
 using JWT.Algorithms;
@@ -25,6 +27,7 @@ return new JwtBuilder()
 ```
 
 ### URI
+>
 > Request and response will be auto‑injected by .NET Core (I don’t like it; I have no idea where it came from).
 
 ```cs

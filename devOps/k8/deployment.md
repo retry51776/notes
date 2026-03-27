@@ -59,7 +59,7 @@ tolerations:
 - **Naked Pods** – plain Pod objects (`kind: Pod`)
 - **Static Pods** – part of the Kubernetes system, defined in `/etc/kubernetes/manifests/`
 - `initContainers` – run before main containers start
-- See also [containers](#containers)
+- See also the containers section above.
 
 ## CronJobs (Scheduled Tasks)
 

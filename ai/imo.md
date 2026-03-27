@@ -98,8 +98,6 @@ Operations:
 - How/Why NN growth? Tokens not attended → no gradient reinforcement
   - Attention momentum ~ state-space attention
 
-
-
 - incentive for symmetry. maybe SVD.
 - Balance between stability vs changes.
 - LLM need to study project evolution training data[trajectory data](projects grow). Not typical Snapshot data.
@@ -234,7 +232,6 @@ Guiding principles:
 - Reliable verifier is the most crucial in RL finetuning, not the RL algorithm. by Rich Sutton
   - After exhausted problems have Reliable verifier, LLM can study problem with solution has rough estimate.
 
-
 #### Reinforcement Learning Components (“Open AI Strawberry”)
 
 > Reinforcement Learning(sparse reward) compares to pre-training(dense reward).
@@ -271,4 +268,4 @@ Training often uses beam search, while inference favors sequential revision.
 
 ### 2026
 
-- https://research.google/blog/sequential-attention-making-ai-models-leaner-and-faster-without-sacrificing-accuracy/ shrink up & down, find which feature matters. Aka contrast between training data vs benchmark data. When a feature is "locked," its selection weight $w_i$ is permanently set to 1.0.
+- <https://research.google/blog/sequential-attention-making-ai-models-leaner-and-faster-without-sacrificing-accuracy/> shrink up & down, find which feature matters. Aka contrast between training data vs benchmark data. When a feature is "locked," its selection weight $w_i$ is permanently set to 1.0.

@@ -34,7 +34,7 @@
 
 ## Project Structure
 
-```
+```text
 /manage.py          # Entry point
 /settings.py        # Configuration
 /urls.py            # URL registration; app name defaults to `base_name` but can be overridden with `basename`.
@@ -232,4 +232,3 @@ class MyModelAdmin(admin.ModelAdmin):
 - Decorator: `@login_required`
 - Manual checks inside view logic
 - Middleware for global enforcement
-

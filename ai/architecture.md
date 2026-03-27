@@ -209,10 +209,11 @@ Their idea is design architecture for inference(avoid KV cache size blow up). At
 > Diffusion train data by noise sample both variances(gaussian noise) & mean(drift direction toward 0/normal distribution).
 
 Diffusion phrases:
+
 - Conditioning phase (LLM embedding / encoding phase)
 - Denoising loop (decode)
   - usually 4-100 steps per output token/s
-  - compute bound (unlike decode only current token * kv cache, here is state * weight)
+  - compute bound (unlike decode only current token *kv cache, here is state* weight)
 
 >> **Drift** is known deterministic force, **variance** is random force.
 

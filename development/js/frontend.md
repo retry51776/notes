@@ -18,6 +18,7 @@ Three types:
   - *styled‑components* – defines CSS inside a React component
 
 ## Redux
+>
 > Avoid `connect()` to reduce unnecessary props.  
 > Prefer using the React context hook instead of Redux when possible.  
 
@@ -52,26 +53,31 @@ dispatch('ACTION_XYZ');
 ```
 
 ## React Component
+>
 > **key** – a unique identifier among siblings; React uses it to reuse elements. Using an index as a key is discouraged.  
 > **ref** – for focusing or integrating third‑party libraries; Next.js server‑side caching can use refs to scope cache.
 
 ### React Reconciliation
+
 - Determines which DOM nodes need replacement.
 - If the element type changes, a new DOM node is created.
 - If props change, the existing DOM node is updated.
 - Keys allow reuse of DOM nodes among siblings.
 
 ### Rendering (ReactDOM vs. React Native)
+
 - Uses React Fiber for non‑blocking rendering, supports aborting renders and dynamic imports.
 
 `$$typeof: Symbol(react.element) // internal React identifier`
 
 ## ImmutableJS
+>
 > Benefits: fewer moving parts, performance (at the cost of RAM), decoupled logic.  
 > Persistent immutable data structures enable structural sharing; unchanged parts are reused, saving memory despite higher overall usage.  
 > Consider Immer for convenience, but be aware it introduces new APIs.
 
 ## React
+>
 > Functional components are truly immutable; class component state is mutable. Hooks provide true separation of state and logic.
 
 ### Component Preference Order
@@ -144,6 +150,7 @@ JSZip.loadAsync(files[0])
 ```
 
 ## moment
+>
 > `moment` is effectively dead (2020). Use `dayjs` instead.  
 > <https://twitter.com/addyosmani/status/1304676118822174721>
 
@@ -160,6 +167,7 @@ moment()
 ```
 
 ## react‑query & react‑table
+>
 > Avoid column accessor strings like `'xxx.xx'`; use `'xxx-xx'` instead.
 
 ```js
@@ -194,6 +202,7 @@ const edit = useMutation(postEdit, {
 **mouseflow** – page‑tracking plugin.
 
 ## Formik
+>
 > Create each form input in its own file.  
 > Use a `FormikController` similar to React Router.  
 > Note that many older repos are no longer maintained.
@@ -243,6 +252,7 @@ const validationSchema = Yup.object({
 ```
 
 ## Chakra UI
+>
 > Documentation: <https://chakra-ui.com/docs/components>
 
 ```js
@@ -281,4 +291,5 @@ const { register } = useForm();
   name={name}
 />;
 ```
+
 ```​​```

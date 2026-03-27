@@ -1,6 +1,7 @@
 # Example
 
 Agent
+
 - `create_prompt()`
 - `_extract_tool_and_input()`
 
@@ -63,15 +64,16 @@ Final Answer: the final answer to the original input question"""
 SUFFIX = """Begin! Reminder to always use the exact characters `Final Answer` when responding."""
 ```
 
-#1: python controller: should I continue?  
-#2: LLM: ask plan for given question  
+# 1: python controller: should I continue?
+
+# 2: LLM: ask plan for given question
 
 - 2a: AgentFinish – LLM returns an answer; end.  
 - 2b: AgentAction – LLM decides: [{tool, tool_input}, {tool, tool_input}]  
 
-    - `_extract_tool_and_input()` extracts the tool and its input from the LLM output.  
+  - `_extract_tool_and_input()` extracts the tool and its input from the LLM output.
 
-#3: Loop over AgentAction
+# 3: Loop over AgentAction
 
 Agent (chain)  
 

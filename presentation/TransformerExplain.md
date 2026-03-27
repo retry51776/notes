@@ -32,7 +32,6 @@ Let's look under the hood of Transformer LLMs.
   - **Basic**: **chat template**, tokenization, embeddings, and special tokens.
   - **Advanced**: batching, KV cache, MoE routing, prefill vs. decode timing, and RL acting on logits.
 
-
 </v-clicks>
 
 ---
@@ -111,11 +110,13 @@ We work with a single forward generation step on top of an existing prompt.
 ---
 
 ## Transformer = Algorithmic Parts + Computation Core
+
 <br/>
 <div class="grid grid-cols-2 gap-6">
 <div>
 
 ### Algorithmic Parts
+
 <v-clicks>
 
 - Implemented by classic Python code.
@@ -128,12 +129,12 @@ We work with a single forward generation step on top of an existing prompt.
 - Batching policy and its complications.
 - KV-cache management and scheduling.
 
-
 </v-clicks>
 </div>
 <div>
 
 ### Computation Core
+
 <v-clicks>
 
 - [**Model architecture**](https://github.com/karpathy/nanochat/blob/4a87a0d19f30799b6c700285822dcca850adf6a4/nanochat/gpt.py#L133):
@@ -151,7 +152,6 @@ We work with a single forward generation step on top of an existing prompt.
   - Mechanistic interpretability.
   - Safety analysis
 
-
 </v-clicks>
 
 </div>
@@ -168,6 +168,7 @@ Every chat model ships with a [**chat template**](https://huggingface.co/openai/
 Look in `config.json` or `chat_template.jinja`.
 
 Example:
+
 ```jinja {1-3|10-14|15-18}
 <|startoftext|>
 <|system|>
@@ -189,7 +190,6 @@ The /tmp folder contains:
 
 ```
 
-
 </v-clicks>
 
 ---
@@ -205,13 +205,11 @@ Recommended practice: remove reserved tokens from user inputs to reduce injectio
 
 ### Key Reserved Tokens
 
-
 - `<|startoftext|>`: sequence start; often combined with system prompt.
 - `<|endoftext|>`: sequence end / stop condition.
 - `<|endofprompt|>`: boundary between prompt and model response.
 - `<|call|>`: marks tool call segments.
 - `<|return|>`: marks tool return segments.
-
 
 </div>
 <div>
@@ -224,7 +222,6 @@ Recommended practice: remove reserved tokens from user inputs to reduce injectio
   - stripping tool calls,
   - hiding chain-of-thought,
   - routing to tools.
-
 
 </div>
 </div>
@@ -240,7 +237,6 @@ Modern GPT-style tokenizers mix curated tokens with byte-level fallback so any i
 
 ### Base Vocabulary
 
-
 - Many common ASCII characters and substrings are directly represented in the vocabulary.
 - Common numerals and short number strings often have dedicated tokens.
 
@@ -252,7 +248,6 @@ Modern GPT-style tokenizers mix curated tokens with byte-level fallback so any i
 - Tokenizers can fall back to raw byte tokens `0`-`255`, so arbitrary Unicode or binary data stays encodable.
 - Worst case is about four tokens per character, but coverage is guaranteed.
 
-
 </div>
 </div>
 
@@ -260,7 +255,7 @@ So the tokenizer always has a way to break any string into tokens.
 
 ---
 
-## Algorithmic Parts
+## Algorithmic Parts Breakdown
 
 <div class="grid grid-cols-2 gap-6">
 <div>
@@ -274,7 +269,6 @@ Embeddings (beginning of the residual stream)
 - **Tokenizer** maps text to IDs via BPE; includes reserved tokens like `<|startoftext|>`, `<|endoftext|>`, `<|endofprompt|>`. [tokenizer_config.json](https://huggingface.co/openai/gpt-oss-120b/blob/main/tokenizer_config.json?utm_source=chatgpt.com)
 - **Embedding table**: `matrix[float]` with shape `[vocab_size, d_model]`; maps `token:int` -> `embedding:vector[d_model]`.
 
-
 </div>
 <div>
 
@@ -282,12 +276,10 @@ Embeddings (beginning of the residual stream)
 
 Residual stream -> logits -> token -> text
 
-
 - For each layer `l` and position `t`, maintain `R[l, t] in R^d_model` (residual stream).
 - Each block (attention, MoE-MLP) reads `R` and adds its contribution back into `R`.
 - Final layer projects `R[last_layer, last_token]` through `W_lm_head` -> logits in `R^vocab_size`.
 - `softmax(logits)` -> probabilities; decoder chooses next token via greedy or sampling.
-
 
 </div>
 </div>
@@ -300,7 +292,6 @@ Residual stream -> logits -> token -> text
 <div>
 
 ### 1. Static and Continuous Batching
-
 
 - **Static batching**: group `N` prompts into `[N, seq_len]` for prefill to amortize kernel launch and memory traffic. [MLX Batch SDK](https://github.com/ml-explore/mlx-lm/blob/ba2cf3c0ee72e6a8f927009c6ffe8db913decb49/mlx_lm/generate.py#L1088)
 - **Continuous batching**: add/remove sequences mid-flight so GPUs stay full as requests start/finish. [vLLM scheduler](https://github.com/vllm-project/vllm/blob/v0.2.7/vllm/core/scheduler.py#L217-L262)
@@ -318,7 +309,6 @@ for step in steps:
 
 ### 2. KV Cache (Key/Value Cache)
 
-
 - During prefill, attention keys and values for each layer/token are stored in the KV cache.
 - During decode, new tokens attend to cached past tokens instead of recomputing the full prefix.
 - Cost per step is about `O(context_length)` instead of `O(context_length^2)`.
@@ -326,7 +316,6 @@ for step in steps:
   - cache layout (for example paged KV, GPU-friendly strides),
   - lifetime/eviction policy,
   - KV sharing between draft and target models.
-
 
 </div>
 </div>
@@ -341,7 +330,6 @@ GPT-OSS-120B is a **Transformer with Mixture-of-Experts (MoE) layers**.
 <div>
 
 ### Key Hyperparameters
-
 
 - **Layers**: [36 Transformer blocks](https://huggingface.co/openai/gpt-oss-120b/blob/main/config.json#L15).
 - **Hidden size** `d_model`: 2880.
@@ -362,7 +350,6 @@ GPT-OSS-120B is a **Transformer with Mixture-of-Experts (MoE) layers**.
 - **Routing**: learned router picks top-k experts per token.
 - **Quantization**: native MXFP4 config in `config.json` for efficient FP4 runtimes.
 - All transforms operate on residual stream; algorithmic code decides *when* to call the model.
-
 
 </div>
 </div>
@@ -391,9 +378,7 @@ The [Transformer Explainer](https://poloclub.github.io/transformer-explainer/) s
 
 ### Decode Phase (Serial, Memory-Intensive)
 
-
 - Loop over steps:
-
 
 ```python {2-4}
 for step in range(max_new_tokens):
@@ -402,10 +387,8 @@ for step in range(max_new_tokens):
     # update KV with the new token
 ```
 
-
 - **Serial dependency**: token `t+1` depends on token `t`, so less parallel than prefill.
 - Memory-bound: KV cache grows as `O(L * layers * d_head)`.
-
 
 </div>
 </div>
@@ -480,7 +463,6 @@ High level: RL modifies model parameters so generation-time **logits** align bet
 ---
 
 ## Thank You
-
 
 - We covered: **prompt -> tokens -> embeddings -> residual stream -> logits -> decoding**.
 - We separated **algorithmic parts** (template, batching, KV cache, decoding, speculative decode) from **computation core** (architecture and training).

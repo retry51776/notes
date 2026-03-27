@@ -36,9 +36,7 @@ onMounted(() => {
 
 ---
 
-
 # REQUIRES BASIC
-
 
 Here we assumed you KNEW everything in Transformer Explain.
 
@@ -59,7 +57,6 @@ Here we assumed you KNEW everything in Transformer Explain.
 ---
 
 # TRAINING BASIC
-
 
 <v-clicks depth="3">
 
@@ -106,12 +103,13 @@ Here we assumed you KNEW everything in Transformer Explain.
 - Why decode need sequential?
   - There are many researches/approaches.
     - 1. Some COT can async
-    - 2. Concise reduce token: uses pure vector replace human readable COT
-    - 3. Multiple COTs
+    - 1. Concise reduce token: uses pure vector replace human readable COT
+    - 1. Multiple COTs
 
 </v-clicks>
 
 ---
+
 # IMO
 
 - All inference weights does one of:
@@ -138,9 +136,7 @@ Here we assumed you KNEW everything in Transformer Explain.
   - Global feature extraction.
   - This is where interaction/compute happens. MLP cost 80% compute.
 
-
 ---
-
 
 ## RNN Problem
 
@@ -174,7 +170,6 @@ Here we assumed you KNEW everything in Transformer Explain.
 - When initialization random numbers, early layers BP signal are mostly NOISE.
 - Early layers or farther away gets weak signal. That's why hard to scale layers beyond 100 layers. Also why residual connection useful.
 
-
 </v-clicks>
 
 ---
@@ -186,7 +181,8 @@ Here we assumed you KNEW everything in Transformer Explain.
 - Use `role` in message define priority for instruction.
 
 ---
+
 layout: center
 ---
 
-## Thank You!
+## Thank You

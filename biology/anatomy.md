@@ -15,7 +15,7 @@ statement → method → class → package → program
 - [Circulatory System](#circulatory-system)
   - Respiratory System
   - [Lymphatic System](#lymphatic-system)
-- [Digestive System](#digest-system)
+- [Digestive System](#digestive-system)
 - Muscular System
   - Reproductive System
 

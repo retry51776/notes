@@ -29,7 +29,7 @@ Ref Management: Define useRef for DOM references or mutable values that don't tr
 
 **3. Lifecycle & Hooks**
 
-Define `useEffect` for component lifecycle, Dependency Tracking, 
+Define `useEffect` for component lifecycle, Dependency Tracking,
 
 **4. Early Exit**
 Protect the component from rendering invalid or "not-ready" states.
@@ -49,4 +49,3 @@ Sub-components: For complex sections, create buildXXX functions or separate JSX 
 Optimization: Wrap expensive UI calculations in useMemo and functions passed to children in useCallback.
 
 Logic-Free JSX: Avoid complex ternary operators or mapping logic directly inside the main return.
-

@@ -51,4 +51,3 @@ class TestScraper(scrapy.Spider):
         # Implement detail page parsing here
         pass
 ```
-

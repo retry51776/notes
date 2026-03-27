@@ -1,4 +1,5 @@
 // development/dotnet/dotnet.md
+
 # .NET Core
 
 - **Common Language Specification (CLS)**
@@ -109,6 +110,7 @@ var model = JsonConvert.DeserializeObject<ModelType>(json);
 - `Dictionary.TryGetValue()`
 - Using `Newtonsoft.Json` (`JsonConvert`)  
 - Using `System.Web.Script.Serialization`:
+
   ```csharp
   var serializer = new JavaScriptSerializer();
   string json = serializer.Serialize(modelInstance);

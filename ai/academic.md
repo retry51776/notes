@@ -290,7 +290,7 @@ residual stream/latent space `The intermediate output between NN layers`
 
 > Think of it as outer loop of learning.
 
-> @ 2026 industrial direction is scale RL to be generalize. 
+> @ 2026 industrial direction is scale RL to be generalize.
 
 > The limitation of supervise learning is teacher HAS answer, and student will NEVER out smart teacher, teacher requires build large teaching exercise.
 
@@ -316,7 +316,6 @@ RL Types:
 - Outcome RL with Verifiers (scalable)
 - Self-Play / Debate / Multi-Agent RL (improve reasoning)
 - Online RL with Real Usage
-
 
 **PPO components**:
 
@@ -526,10 +525,10 @@ sparse optimization algorithm
 ### Capacity
 
 Types:
+
 - parameter capacity
 - activation capacity
 - functional capacity
-
 
 Commonly measure by variance versions of ablation test.
 

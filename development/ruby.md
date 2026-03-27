@@ -1,7 +1,9 @@
 # Ruby
 
 ## Packages
+
 - sidekiq `uses by Gitlab acts as task queue; uses redis`
+
 ```ruby
 require 'sidekiq'
 

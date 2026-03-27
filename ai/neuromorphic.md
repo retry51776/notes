@@ -104,16 +104,16 @@
   - 6 Layers
     - 1. wired network
     - 2 & 3. communication with other cluster
-    - 4. Input(sensory or layer 2 & 3 output from other cluster)
-    - 5. Action(Motor or attention movement)
-    - 6. Place
+    - 1. Input(sensory or layer 2 & 3 output from other cluster)
+    - 1. Action(Motor or attention movement)
+    - 1. Place
 
   - Transformer Similar to cortex cluster
     - 1. Expert Router
     - 2 & 3. Q.K increase connections surfaces
-    - 4. Tokenizer
-    - 5. Output
-    - 6. Embedding/RoPE
+    - 1. Tokenizer
+    - 1. Output
+    - 1. Embedding/RoPE
 
 ### dynamical system in neuroscience
 

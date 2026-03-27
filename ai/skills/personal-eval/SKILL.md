@@ -73,7 +73,6 @@ triggers, and likely source layers.
 8. End with a layered model, not a totalizing judgment. If the user asks
    for next steps, keep them narrow and framed as experiments.
 
-
 ## Intake
 
 Ask for information first. Keep questions compact and grouped. Prefer

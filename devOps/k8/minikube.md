@@ -1,12 +1,13 @@
 # minikube
+>
 > On windows hypervisor platform
 >
 > is single cluster single node k8 dev env without img reg, ability to build image
-> 
+>
 > minikube.sigs.k8s.io/docs/
 
-
 ## Setup
+
 ```bash
 brew install minikube
 minikube addons enable ingress

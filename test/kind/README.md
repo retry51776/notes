@@ -1,14 +1,17 @@
 # Kind
+>
 > Follow steps to create k8s cluster with kind, setup example NakePods, Service, Ingress, & External LoadBalancer
 
 ## Setup Cluster
-1.  `kind create cluster --config cluster.yml`
-2.  Install Ingress Nginx Controller`kubectl apply -f nginx-ingress.yaml`
-3.  Deploy example bar-app & bar-service `kubectl apply -f example.yaml`
 
+1. `kind create cluster --config cluster.yml`
+2. Install Ingress Nginx Controller`kubectl apply -f nginx-ingress.yaml`
+3. Deploy example bar-app & bar-service `kubectl apply -f example.yaml`
 
 ## Test Endpoint
+>
 > do simple ping or curl to make sure endpoint works inside k8s
+
 ```bash
 # get ep's k8 internal ip & port
 kubectl get ep
@@ -19,12 +22,15 @@ curl <foo_service_ip>
 ```
 
 ## Test Service
+
 ```bash
 kubectl exec -it foo-app sh
 wget foo-service:5678
 # systemctl status firewalls
 ```
+
 ## Edit /etc/hosts
+
 ```bash
 # Edit /etc/hosts
 cd /etc
@@ -35,12 +41,12 @@ sudo vi /etc/hosts
 # Force MacOS reload /etc/hosts
 sudo killall -HUP mDNSResponder
 # Test in browser http://k8.local/
-``` 
-
-
+```
 
 ## Setup NodePort Forward, Reverse Proxy (Optional)
+>
 > Only do this when you can't setup extraPortMappings.
+
 ```bash
 # Get Node IP
 kubectl get nodes -o wide

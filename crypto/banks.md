@@ -1,7 +1,9 @@
 # Forces
+>
 > We have both supply and demand. In a perfect world we would be self‑sufficient; our supply would perfectly match our demand.
 
 ## Demand
+
 - **Credit** (desire to borrow against the future; similar to peak load in an electricity grid)
   - Treasury bonds
     - Yield rate – exchange rate of government’s future promise to dollars, determined by the Federal Reserve & open market.
@@ -24,6 +26,7 @@
     - Self‑actualisation
 
 ## Supply
+
 - **Assets** (hardware; analogous to stored energy in a battery)
   - Resources
     - Commodities
@@ -37,6 +40,7 @@
     - Capital – accelerates short‑term deployment (e.g., Uber)
 
 ## Accidents
+
 - **Man‑made disasters**
   - Political: war, terrorism, cyber attacks
   - Industrial: nuclear accidents, oil spills, environmental degradation
@@ -50,15 +54,18 @@
 > Supply network: resources → logistics → technology → logistics → product.
 
 ## Analogy to the Federal Reserve
+
 The Federal Reserve is like software that manages an electricity grid. By adjusting interest rates *(the exchange rate between current assets and future promises)* it flattens demand peaks. Supply advancement requires more assets (rare) or technological progress (outside Fed control).
 
 Credit is created and destroyed daily by everyone:
+
 - Taking a loan creates credit.
 - Repaying a loan destroys credit.
 
 There will always be more debt than credit because of interest.
 
 ## Bond Basics
+
 - Maturity
 - Coupon
 - Yield
@@ -70,6 +77,7 @@ There will always be more debt than credit because of interest.
 - Liquidity
 
 # FAQ
+
 - **How do I create credit?**  
   Promise to do homework; get your parents to buy ice‑cream. You receive ice‑cream without having done the work yet – a promise.
 - **How do I create credit that everyone uses?**  
@@ -90,6 +98,7 @@ There will always be more debt than credit because of interest.
   By taking loans from banks. The difference is that governments issue Treasury bonds, which become a benchmark for all other markets (stocks, MBS, corporate bonds, …).
 
 ## Criticism
+
 - More actors and assets increase the need for placeholders, further decoupling producers from owners.
 - Banks no longer hold loan risk; they create credit via derivatives.  
   *Banks should either retain loan risk and maintain fractional reserves or act purely as investment banks distributing risk.*
@@ -97,6 +106,7 @@ There will always be more debt than credit because of interest.
 - Modern banks profit from creating complex derivatives rather than providing credit to individuals.
 
 ## Shortcut Thought
+
 1. `interest_rate = exchange_rate(future_asset, current_asset)`
 
 > If the Fed sets rates too high, people arbitrage by selling current assets for future promises (e.g., Paul Volcker’s 1980 recession).  
@@ -105,6 +115,7 @@ There will always be more debt than credit because of interest.
 During 2020‑2021 massive credit creation led to many bad promises; rate hikes later may not punish those bad loans. Over‑hiking hurts productive firms, while under‑hiking fuels speculative arbitrage.
 
 ## Loan Effect Example
+
 *Village with total $100 credit and 10 fishermen (each catches one fish per day, sold for $10).*
 
 - **Case 1:** You borrow $20 to hire another fisherman, catching 5 fish.  
@@ -116,12 +127,15 @@ During 2020‑2021 massive credit creation led to many bad promises; rate hikes 
 The bank either recovers losses later or contributes to a recession.
 
 ## Three Key Forces
+
 ### Demand / Desires
+
 - Age, external environment, capability projection, individual desires, credit market.
 
 ### Supply / Capability
+
 - Resources → logistics → technology → logistics → product.
 
 ### Expectation / Credit
-- Self‑reflection and distribution mechanisms.
 
+- Self‑reflection and distribution mechanisms.

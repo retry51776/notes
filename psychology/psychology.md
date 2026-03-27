@@ -3,6 +3,7 @@
 > Here are some notes that not been consolidate.
 
 ## Table of Contents
+
 - [1. Attention](#1-attention)
   - [Selective Attention](#selective-attention)
     - [Ways to change attention](#ways-to-change-attention)
@@ -27,7 +28,7 @@
   - [Logic association](#logic-association)
   - [Memory association](#memory-association)
     - [Working memory](#working-memory)
-    - [Long‑term memory](#long‑term-memory)
+    - [Long-term memory](#long-term-memory)
   - [Body language](#body-language)
 - [IMO](#imo)
 
@@ -142,7 +143,7 @@ Perception can be divided into two major categories: **Biological perception** a
 
 ### Psychological perception
 
-Ability to read one's own and others' body language through [body expression](#mammal-brain).  
+Ability to read one's own and others' body language through the [Mammal Brain](nervous.md#mammal-brain).
 > Women usually outperform men at reading body language.
 
 ### Biological perception
@@ -177,7 +178,7 @@ Association learning links certain events, behaviors, or stimuli together in the
 Association areas are where mistakes also occur; they are easier to notice but harder to change compared to perception.  
 > Mistake/forget is not a bug, but a feature enabling people to combine/decouple different ideas.
 
-**Ways to change association**
+### Ways to change association
 
 1. **Avoid**  
    1. Increase awareness  
@@ -226,7 +227,7 @@ Memory breaks into different aspects, which are stored in corresponding brain ar
 
 > The basic mechanism of short‑term memory involves neurons associating different signals. Increasing voltage creates more neurotransmitters; receptors expand their surface area to capture them.
 
-#### Long‑term memory
+#### Long-term memory
 
 - Semantic memory (`knowledge`)
 - Episodic memory (`remember events by sensation`)

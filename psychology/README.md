@@ -107,7 +107,7 @@
       - readjust personal philosophy
       - convert emotion to motivation
     - Decrease:
-      - [avoid](#evaluation-2-avoid-problem)
+      - avoid repeated triggers
       - power comes w responsibility
   - 3.1.2 [Awareness](#awareness)
     - [attention?](psychology.md#1-attention)
@@ -152,6 +152,6 @@
 - 3.6 Conclusion
   - 3.6.1 Identify problem, solution, progress, lesson
   - 3.6.2 Explore alternatives
-  - 3.6.3 Document [adjustment of experience](#experience)
+  - 3.6.3 Document experience adjustments
     - Ex: skill, conclusion, principle, personal value
   - 3.6.4 Develop trust `internal & external`
