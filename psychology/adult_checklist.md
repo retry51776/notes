@@ -13,6 +13,8 @@
 - Housing
   - Moving Checklist
   - Maintain
+    - AC filter
+    - Clean AC coil & radiator
 - Travel
   - Car maintain (oil/coolant/battery/tire)
   - Car accident tools (leak/emergency/cloths/food/water/safety/tools)

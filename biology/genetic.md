@@ -68,3 +68,11 @@
   - 40 aa → tiny peptide
   - 300 aa → common enzyme
   - 2,000 aa → huge (multi-domain, often multi-chain)
+
+## Muscle
+
+Type | Muscle Fibers (Slow Twitch)
+
+快肌纤维（Fast-twitch muscle fibers）
+
+Target Type lla Muscle (Training for Power)

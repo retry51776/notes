@@ -14,7 +14,7 @@
 Stage:
 
 - pre 2018: Encoder + Decoder Components `There are different components of model, different task needs different components`
-- 2020-2022: LLM that needs fine tune `LLM is not reliable, fine tune required`
+- 2020-2022: LLM beyond single node
 - 2023: Post Training w Reinforcement Learning: General Model handle different tasks
 - 2025: Async Model `Model can continuously take input, change action base off new input(observation) while its outputting; Not like current LLM is turn base.`
   - Parallel Output `paralyzed LLM output, maybe generate outline first, then generate each subsection by batch`
@@ -26,6 +26,7 @@ Stage:
   - better COT
     - compress COT
     - DAG COT
+    - None Readable COT
   - pretrain optimizer:
     - Adam only parameter's direction & momentum
     - muon matrix aware
@@ -66,6 +67,8 @@ Stage:
     - This solution may be another AI itself?
       - `[lr, momentum, weight_decay]`
       - `params` groups parameters into many groups with different `lr`.
+6. Evaluation
+    - Ensure benchmark data not in training data.
 
 ### Neural Network Terms
 
@@ -139,7 +142,6 @@ Stage:
 - Weight decay `shrink weight by 0.9999 every iteration toward 0`
   - The easiest way to increase logit differences is to increase vector norms. To avoid this, we counter with weight decay.
 
-- Position Interpolation `extend context window without retrain`
 - Groking `Training lost doesn't improve & Testing lost is huge. Continues training will sudden have testing lost improve, and stabilize testing lost.`
 
 - Perplexity in LLMs is a metric for how well the model predicts a sequence of tokens
@@ -301,7 +303,7 @@ residual stream/latent space `The intermediate output between NN layers`
 Good LLM RL practices:
 
 - LLM self aware its known & unknown
-- LLM self aware its context window
+- LLM self aware its context window. (Context Anxiety)
 - Learn HF preference
 - LLM self aware compute & RAM usage
 - introspective awareness: LLM should self aware injected thoughts(by path activation).
@@ -542,21 +544,3 @@ Measures:
 - compression curve
 - Noise Robustness Test (noise sensitive ~ high utilization %)
 
-## Paper
-
-### Notable Papers & Ideas
-
-- Attention is all you need
-- **“GPT‑3: Language Models are Few‑Shot Learners”** – Radford et al., 2021  
-- **Tree of Thought**  
-- **Anthropic’s “Scaling Monosemanticity”**  
-- **Position Interpolation for Extending Context Window in Transformers** – OpenAI, 2023  
-
-### New Research Directions
-
-- **Leave No Context Behind** – Google’s approach to extending context windows.  
-- **Dynamic Routing Between Capsules** – Capsule Networks.  
-- **TransformerFAM** – Feedback attention as working memory.  
-- **Attention with Linear Biases (ALiBi)** – Adds a distance‑based linear bias to attention scores, giving higher weight to closer tokens.  
-- efficiency is part of the intelligent feature, keep increase token to solve solution is similar to brute force search. Both DATA & COMPUTE Efficiency.
-- Maybe the problem LLM is aggregate learning. Human individual have memory system that can retrace in time. Maybe aggregate learning in training phrase prevent it have memory system. We need a training system that have strong memory module, and have llm reflect on those memories. `IMO current LLM still have very low memory absorption rate, it uses aggregate learning to compensate low memory absorption`

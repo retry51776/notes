@@ -68,17 +68,33 @@ There are 3 KV approaches:
 
 ### Key In-channel, Value In-token (KIVI)
 
+### QuIP
+
+### PolarQuant
+
+- rotate `convert Cartesian into Spherical, same precision`
+- quantize `only apply to KV, not Q; compress into 8 buckets`
+
+3-bit PolarQuant format (2-bit quantization + 1-bit sign) with a block size of 32.
+So $2^3$ = 8 buckets.
+
 ### TurboQuant
 
 Deterministic Compress KV cache Algorithm, apply to any LLM, enhances vector search.
 
-> Convert KV cache into TurboQuant space, aligns new Query's token when inference, compute in TurboQuant space, then Un-rotate output into fp16. Same rotation per Layer.
+> Convert KV cache into TurboQuant space, convert new Query's token into TurboQuant when inference, compute in TurboQuant space, then dequantize output into fp16. Same rotation per Layer.
 
 Cartesian coordinates: Standard; smooth, linear gradient;
 Spherical coordinates: Circle; nonlinear, coupled gradient;
 
-- Polar quant - Add random rotation. Convert cartisian to polar coordinates.
+- Polar quant - Add random rotation. Convert cartisian to polar coordinates. For normalize input & preserves dot product.
 - QGL - convert sign bit (1 or -1)
+
+Q' · K' (quantized)
+   ↓
+(+ QJL correction)
+   ↓
+attention scores
 
 ### Precision & Quantization
 

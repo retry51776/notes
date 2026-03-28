@@ -5,6 +5,11 @@
 Parameters → "what you know"
 Loops → "how long you think"
 
+- Person's Life ~ LLM's Context window.
+  - It's no about extend life, it's about what you do(generate token) solve problem.
+  - Pretrain ~ Child Development(Perception)
+  - RL ~ Adult
+
 - Don't rush to scale yourself with AI, focus on control first. Just like baby, walk before run.
 
 - Search problem → Selection problem; Our job is select good opinion from LLM answers.
@@ -265,6 +270,33 @@ Training often uses beam search, while inference favors sequential revision.
   - Portal Game Notation (PGN) history
 
 ## Blogs
+
+
+### 17
+
+- Attention is all you need
+
+### 18
+
+### 19
+
+### 20
+
+### 21
+
+- **“GPT‑3: Language Models are Few‑Shot Learners”** – Radford et al., 2021  
+
+### 22
+
+- Chinchilla scaling laws, titled "Training Compute-Optimal Large Language Models"
+
+### 23
+
+### 24
+
+- **Anthropic’s “Scaling Monosemanticity”**  
+
+### 25
 
 ### 2026
 

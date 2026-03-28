@@ -69,7 +69,7 @@ Problem in transformer must be position encoding.
 
 1. We don't have global attention system(even & global). Our attention effects by position, emotion, and partical.
 2. There must be some kind segmentation & rejoin process in brain, which requires different position encoding.
-3.
+
 
 why all animals have similar emotion?
 

@@ -86,10 +86,15 @@ Each manufacturer has its own shading language.
 
 ## NEO Cloud Providers
 
-### Amazon
+### Amazon & Anthropic
 
 - **Trainium** – Custom AWS hardware compatible with CUDA.  
 - **Bedrock** – Managed LLM service (works with Anthropic).
+  - Haiku（最小最快）
+  - Sonnet（中间档）
+  - Opus（最大最强）三档
+  - Capybara/Mythos ?
+
 
 ### Google
 

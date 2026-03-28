@@ -14,6 +14,7 @@
 - Supply Chain Management (SCM)
 - Accountability Mechanism
 - Delivered Duty Paid(DDP) `Factory price to lower traffic`
+- Attack Time Analysis `how long until the system meaningfully reacts?`
 
 Street words
 

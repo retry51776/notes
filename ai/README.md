@@ -13,6 +13,8 @@
 │   └── README.md
 │   └── /pitfalls
 │       └── SKILL.md
+├── /static
+│   └── *.png / *.jpg / *.gif (AI diagrams, charts, and animations)
 ├── academic.md (basic terms)
 ├── architecture.md (Adv)
 ├── hardware.md

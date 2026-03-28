@@ -33,8 +33,15 @@
 
 ### Core Ideas
 
-- Transparency accelerates learning and builds trust.  
-- Collaborative progress (“go together”) outweighs individual speed.  
+- Transparency accelerates learning and builds trust.
+- Always good idea has a few different teams that has different time horizon.
+  - Only collapse time horizon teams when necessary. Almost like investment liquidity.
+- Balance authority and accountability.
+- Collaborative progress (“go together”) outweighs individual speed.
+- Extreme benchmark/goal help isolate bottleneck.
+- Churn irritate
+  - Erratic decision/direction, no momentum accumulation.
+  - Data silo, arbitrary boundary.
 - Process quality is more valuable than a single correct answer.  
 - “If you want to go fast, go alone; if you want to go far, go together.”  
 - The goal itself is less important than the execution path; mastering navigation and trade‑offs matters most.
