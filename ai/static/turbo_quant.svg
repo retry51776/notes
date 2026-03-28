@@ -1,0 +1,215 @@
+<svg width="1080" height="1730" viewBox="0 0 1080 1730" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="120" y1="80" x2="960" y2="1270" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F6F2E9"/>
+      <stop offset="0.52" stop-color="#EFF7F4"/>
+      <stop offset="1" stop-color="#FFF3E7"/>
+    </linearGradient>
+    <linearGradient id="hero" x1="84" y1="188" x2="996" y2="492" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0F3D3E"/>
+      <stop offset="1" stop-color="#15616D"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FF8A5B"/>
+      <stop offset="1" stop-color="#FFC15E"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="20" flood-color="#11303A" flood-opacity="0.12"/>
+    </filter>
+    <style>
+      .title { font: 700 52px Arial, 'Helvetica Neue', Helvetica, sans-serif; fill: #102A43; }
+      .deck { font: 500 20px Arial, 'Helvetica Neue', Helvetica, sans-serif; fill: #385268; }
+      .eyebrow { font: 700 15px Arial, 'Helvetica Neue', Helvetica, sans-serif; letter-spacing: 0.14em; text-transform: uppercase; fill: #E9F7F5; }
+      .hero-head { font: 700 38px Arial, 'Helvetica Neue', Helvetica, sans-serif; fill: #FFFFFF; }
+      .hero-copy { font: 500 15px Arial, 'Helvetica Neue', Helvetica, sans-serif; fill: #D9F5F0; }
+      .metric-big { font: 700 36px Arial, 'Helvetica Neue', Helvetica, sans-serif; fill: #0F3D3E; }
+      .metric-label { font: 600 15px Arial, 'Helvetica Neue', Helvetica, sans-serif; fill: #5B7083; letter-spacing: 0.05em; text-transform: uppercase; }
+      .card-head { font: 700 20px Arial, 'Helvetica Neue', Helvetica, sans-serif; fill: #102A43; }
+      .card-copy { font: 500 13px Arial, 'Helvetica Neue', Helvetica, sans-serif; fill: #324B5F; }
+      .tiny { font: 600 13px Arial, 'Helvetica Neue', Helvetica, sans-serif; fill: #66788A; letter-spacing: 0.04em; text-transform: uppercase; }
+      .chip { font: 700 15px Arial, 'Helvetica Neue', Helvetica, sans-serif; fill: #FFFFFF; }
+      .flow-title { font: 700 18px Arial, 'Helvetica Neue', Helvetica, sans-serif; fill: #102A43; }
+      .flow-copy { font: 500 14px Arial, 'Helvetica Neue', Helvetica, sans-serif; fill: #355065; }
+    </style>
+  </defs>
+
+  <rect width="1080" height="1730" rx="40" fill="url(#bg)"/>
+  <circle cx="932" cy="132" r="116" fill="#B8E3D8" fill-opacity="0.34"/>
+  <circle cx="180" cy="1546" r="136" fill="#FFD7BA" fill-opacity="0.36"/>
+  <circle cx="980" cy="1514" r="72" fill="#FFB38A" fill-opacity="0.22"/>
+  <path d="M60 176C220 118 350 108 540 150C710 188 860 172 1020 88" stroke="#C7E4DD" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 14"/>
+
+  <text x="84" y="92" class="title">TurboQuant</text>
+  <text x="84" y="128" class="deck">Paper: TurboQuant: Online Vector Quantization</text>
+  <text x="84" y="150" class="deck">with Near-optimal Distortion Rate</text>
+  <text x="84" y="172" class="deck">Applications include KV-cache compression and vector search.</text>
+  <g filter="url(#shadow)">
+    <rect x="84" y="188" width="912" height="304" rx="34" fill="url(#hero)"/>
+  </g>
+  <text x="126" y="238" class="eyebrow" textLength="72" lengthAdjust="spacingAndGlyphs">Google</text>
+  <text x="126" y="288" class="hero-head" textLength="220" lengthAdjust="spacingAndGlyphs">TurboQuant</text>
+
+  <text x="126" y="418" class="hero-copy" textLength="470" lengthAdjust="spacingAndGlyphs">Online vector quantization for high-dimensional data,</text>
+  <text x="126" y="440" class="hero-copy" textLength="500" lengthAdjust="spacingAndGlyphs">with KV-cache compression and vector search as applications.</text>
+  <text x="126" y="462" class="hero-copy" textLength="500" lengthAdjust="spacingAndGlyphs">Training-free, data-oblivious, and near-optimal in distortion rate.</text>
+
+  <g>
+    <rect x="680" y="230" width="280" height="84" rx="20" fill="#FFFFFF" fill-opacity="0.12"/>
+    <text x="704" y="260" fill="#FF8A5B" textLength="120" lengthAdjust="spacingAndGlyphs">Storage Saving</text>
+    <text x="704" y="303" class="hero-head" font-size="20" textLength="232" lengthAdjust="spacingAndGlyphs">fp16 → ~3-3.5 bits/channel</text>
+  </g>
+  <g>
+    <rect x="680" y="332" width="258" height="60" rx="20" fill="#FF8A5B"/>
+    <text x="809" y="368" text-anchor="middle" class="chip" textLength="182" lengthAdjust="spacingAndGlyphs">Negligible Quality Loss</text>
+  </g>
+  <g>
+    <rect x="680" y="408" width="258" height="60" rx="20" fill="#2CA58D"/>
+    <text x="809" y="444" text-anchor="middle" class="chip" textLength="208" lengthAdjust="spacingAndGlyphs">Training-free, data-oblivious</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="84" y="530" width="286" height="286" rx="30" fill="#FFFFFF"/>
+    <rect x="397" y="530" width="286" height="286" rx="30" fill="#FFFFFF"/>
+    <rect x="710" y="530" width="286" height="286" rx="30" fill="#FFFFFF"/>
+  </g>
+
+  <g>
+    <path d="M114 624H190" stroke="#A6B2BE" stroke-width="1" stroke-linecap="round"/>
+    <path d="M122 632V570" stroke="#A6B2BE" stroke-width="1" stroke-linecap="round"/>
+    <path d="M122 624L150 574" stroke="#FF8A5B" stroke-width="3" stroke-linecap="round"/>
+    <path d="M196 606H212" stroke="#8CCEF6" stroke-width="5" stroke-linecap="round"/>
+    <path d="M204 600L218 606L204 612" stroke="#8CCEF6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="265" cy="606" r="30" stroke="#A6B2BE" stroke-width="1" fill="none"/>
+    <path d="M265 606L291 591" stroke="#FF8A5B" stroke-width="3" stroke-linecap="round"/>
+    <path d="M295 606A30 30 0 0 0 291 591" stroke="#FF8A5B" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <text x="122" y="684" class="card-head" textLength="176" lengthAdjust="spacingAndGlyphs">1. Random Rotation</text>
+    <text x="122" y="710" class="card-copy" textLength="184" lengthAdjust="spacingAndGlyphs">Random rotation makes coordinate</text>
+    <text x="122" y="732" class="card-copy" textLength="190" lengthAdjust="spacingAndGlyphs">marginals Beta-distributed in high</text>
+    <text x="122" y="752" class="card-copy" textLength="186" lengthAdjust="spacingAndGlyphs">dimensions, so scalar quantizers</text>
+    <text x="122" y="778" class="card-copy" textLength="196" lengthAdjust="spacingAndGlyphs">become near-optimal per coordinate.</text>
+  </g>
+
+  <g>
+    <path d="M452 641
+         C494 641 516 633 534 615
+         C550 597 562 571 580 567
+         C598 565 610 589 628 641"
+      stroke="#0F3D3E" 
+      stroke-width="5" 
+      stroke-linecap="round" 
+      fill="none"
+    />
+    <rect x="466" y="642" width="14" height="4" rx="7" fill="#D9F3EC"/>
+    <rect x="486" y="638" width="14" height="8" rx="7" fill="#BCEBDE"/>
+    <rect x="506" y="630" width="14" height="16" rx="7" fill="#8BDEC8"/>
+    <rect x="526" y="618" width="14" height="28" rx="7" fill="#6FD4B6"/>
+    <rect x="546" y="604" width="14" height="42" rx="7" fill="#2CA58D"/>
+    <rect x="566" y="584" width="14" height="62" rx="7" fill="#2CA58D"/>
+    <rect x="586" y="598" width="14" height="48" rx="7" fill="#FFC15E"/>
+    <rect x="606" y="628" width="14" height="18" rx="7" fill="#FF9C66"/>
+    <text x="435" y="678" class="card-head" textLength="152" lengthAdjust="spacingAndGlyphs">2. Quantization</text>
+    <text x="435" y="712" class="card-copy" textLength="188" lengthAdjust="spacingAndGlyphs">After rotation, coordinates follow</text>
+    <text x="435" y="732" class="card-copy" textLength="152" lengthAdjust="spacingAndGlyphs">a Beta distribution; scalar</text>
+    <text x="435" y="760" class="card-copy" textLength="182" lengthAdjust="spacingAndGlyphs">quantization is then applied per</text>
+    <text x="435" y="780" class="card-copy" textLength="202" lengthAdjust="spacingAndGlyphs">coordinate, with 3 bits giving 8 levels.</text>
+  </g>
+
+  <g>
+    <circle cx="790" cy="604" r="30" fill="#FFE1D0"/>
+    <path d="M772 604C772 594 780 586 790 586C796 586 802 589 806 594" stroke="#FF8A5B" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <path d="M804 586L808 594L798 595" stroke="#FF8A5B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M808 604C808 614 800 622 790 622C784 622 778 619 774 614" stroke="#2CA58D" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <path d="M776 622L772 614L782 613" stroke="#2CA58D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M834 606L846 618L888 576" stroke="#2CA58D" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <text x="748" y="684" class="card-head" textLength="196" lengthAdjust="spacingAndGlyphs">3. QJL Bias Correction</text>
+    <text x="748" y="708" class="card-copy" textLength="188" lengthAdjust="spacingAndGlyphs">Store an index vector, sign vector,</text>
+    <text x="748" y="728" class="card-copy" textLength="148" lengthAdjust="spacingAndGlyphs">and positive scalar gamma.</text>
+    <text x="748" y="756" class="card-copy" textLength="198" lengthAdjust="spacingAndGlyphs">Together they make the inner-product</text>
+    <text x="748" y="776" class="card-copy" textLength="184" lengthAdjust="spacingAndGlyphs">estimate unbiased after the MSE</text>
+    <text x="748" y="796" class="card-copy" textLength="112" lengthAdjust="spacingAndGlyphs">quantization stage.</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="84" y="854" width="912" height="318" rx="30" fill="#FFFFFF"/>
+  </g>
+  <text x="122" y="908" class="card-head" lengthAdjust="spacingAndGlyphs">Key Path</text>
+  <text x="122" y="936" class="card-copy" textLength="410" lengthAdjust="spacingAndGlyphs">Faster Q · K computation with quantized keys inside compression space.</text>
+
+  <g>
+    <rect x="122" y="980" width="236" height="150" rx="26" fill="#EEF8F5"/>
+    <text x="150" y="1018" class="tiny" fill="#2F6E68" textLength="50" lengthAdjust="spacingAndGlyphs">Decode</text>
+    <text x="150" y="1050" class="flow-title" textLength="108" lengthAdjust="spacingAndGlyphs">Rotate Query</text>
+    <text x="150" y="1074" class="flow-copy" textLength="180" lengthAdjust="spacingAndGlyphs">Apply the same random rotation to Q.</text>
+  </g>
+
+  <g>
+    <rect x="424" y="980" width="236" height="150" rx="26" fill="#FFF4EA"/>
+    <text x="452" y="1018" class="tiny" fill="#A55B2A" textLength="134" lengthAdjust="spacingAndGlyphs">attention calculation</text>
+    <text x="452" y="1050" class="flow-title" textLength="112" lengthAdjust="spacingAndGlyphs">Estimate Q · K</text>
+    <text x="452" y="1068" class="flow-copy" textLength="166" lengthAdjust="spacingAndGlyphs">Use quantized keys plus QJL to</text>
+    <text x="452" y="1088" class="flow-copy" textLength="178" lengthAdjust="spacingAndGlyphs">preserve inner products; reported</text>
+    <text x="452" y="1108" class="flow-copy" textLength="168" lengthAdjust="spacingAndGlyphs">speedups are for this logit stage.</text>
+  </g>
+
+  <g>
+    <rect x="726" y="980" width="236" height="150" rx="26" fill="#EEF1FB"/>
+    <text x="754" y="1018" class="tiny" fill="#385E9D" lengthAdjust="spacingAndGlyphs">dequantize</text>
+    <text x="754" y="1050" class="flow-title" textLength="138" lengthAdjust="spacingAndGlyphs">Dequantize Q · K</text>
+    <text x="754" y="1074" class="flow-copy" textLength="180" lengthAdjust="spacingAndGlyphs">continue softmax calculation in fp16.</text>
+  </g>
+
+  <path d="M368 1046H406" stroke="#FF8A5B" stroke-width="10" stroke-linecap="round"/>
+  <path d="M393 1031L414 1046L393 1061" stroke="#FF8A5B" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M670 1046H708" stroke="#FF8A5B" stroke-width="10" stroke-linecap="round"/>
+  <path d="M695 1031L716 1046L695 1061" stroke="#FF8A5B" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g filter="url(#shadow)">
+    <rect x="84" y="1204" width="912" height="318" rx="30" fill="#FFFFFF"/>
+  </g>
+  <text x="122" y="1258" class="card-head" textLength="92" lengthAdjust="spacingAndGlyphs">Value Path</text>
+  <text x="122" y="1286" class="card-copy" textLength="396" lengthAdjust="spacingAndGlyphs">The sources are less explicit here than they are for the logit path.</text>
+
+  <g>
+    <rect x="122" y="1330" width="236" height="150" rx="26" fill="#EEF8F5"/>
+    <text x="150" y="1368" class="tiny" fill="#2F6E68" textLength="50" lengthAdjust="spacingAndGlyphs">Decode</text>
+    <text x="150" y="1400" class="flow-title" textLength="174" lengthAdjust="spacingAndGlyphs">Compressed V Cache</text>
+    <text x="150" y="1424" class="flow-copy" textLength="188" lengthAdjust="spacingAndGlyphs">Values are also stored in compressed form.</text>
+  </g>
+
+  <g>
+    <rect x="424" y="1330" width="236" height="150" rx="26" fill="#FFF4EA"/>
+    <text x="452" y="1368" class="tiny" fill="#A55B2A" textLength="98" lengthAdjust="spacingAndGlyphs">reconstruction</text>
+    <text x="452" y="1400" class="flow-title" textLength="114" lengthAdjust="spacingAndGlyphs">Later Use of V</text>
+    <text x="452" y="1418" class="flow-copy" textLength="182" lengthAdjust="spacingAndGlyphs">A reconstruction or use step may be</text>
+    <text x="452" y="1438" class="flow-copy" textLength="198" lengthAdjust="spacingAndGlyphs">needed, but the sources do not pin it down.</text>
+  </g>
+
+  <g>
+    <rect x="726" y="1330" width="236" height="150" rx="26" fill="#EEF1FB"/>
+    <text x="754" y="1368" class="tiny" fill="#385E9D" textLength="102" lengthAdjust="spacingAndGlyphs">Attention Block</text>
+    <text x="754" y="1400" class="flow-title" textLength="74" lengthAdjust="spacingAndGlyphs">score · V</text>
+    <text x="754" y="1424" class="flow-copy" textLength="176" lengthAdjust="spacingAndGlyphs">Weighted aggregation is the harder</text>
+    <text x="754" y="1444" class="flow-copy" textLength="168" lengthAdjust="spacingAndGlyphs">data-dependent mixing step; the</text>
+    <text x="754" y="1464" class="flow-copy" textLength="184" lengthAdjust="spacingAndGlyphs">blog mainly highlights Q · K speedups.</text>
+  </g>
+
+  <path d="M368 1396H406" stroke="#FF8A5B" stroke-width="10" stroke-linecap="round"/>
+  <path d="M393 1381L414 1396L393 1411" stroke="#FF8A5B" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M670 1396H708" stroke="#FF8A5B" stroke-width="10" stroke-linecap="round"/>
+  <path d="M695 1381L716 1396L695 1411" stroke="#FF8A5B" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g>
+    <rect x="84" y="1554" width="438" height="150" rx="26" fill="#0F3D3E"/>
+    <text x="114" y="1602" fill="#A7E6D8" textLength="112" lengthAdjust="spacingAndGlyphs">Paper Emphasis</text>
+    <text x="114" y="1630" fill="#FFFFFF" textLength="286" lengthAdjust="spacingAndGlyphs">Online, data-oblivious vector quantization</text>
+    <text x="114" y="1652" fill="#FFFFFF" textLength="324" lengthAdjust="spacingAndGlyphs">with near-optimal distortion rate in high dimensions.</text>
+  </g>
+
+  <g>
+    <rect x="550" y="1554" width="446" height="150" rx="26" fill="#FFF9F2" stroke="#FFD7BA" stroke-width="2"/>
+    <text x="580" y="1602" class="tiny" fill="#A55B2A" textLength="70" lengthAdjust="spacingAndGlyphs">Takeaway</text>
+    <text x="580" y="1630" class="card-copy" textLength="240" lengthAdjust="spacingAndGlyphs">TurboQuant heavily compresses the KV cache</text>
+    <text x="580" y="1652" class="card-copy" textLength="214" lengthAdjust="spacingAndGlyphs">while preserving quality, and reported</text>
+    <text x="580" y="1674" class="card-copy" textLength="232" lengthAdjust="spacingAndGlyphs">attention-logit computation can be faster.</text>
+  </g>
+</svg>

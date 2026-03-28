@@ -5,119 +5,99 @@ description: Use this skill when the user wants an infographic, visual
   facts and narrative from provided material or a topic, choose an
   appropriate visual direction automatically, and produce a cohesive
   infographic concept with clear hierarchy, charts, icons, and a
-  generation-ready prompt or layout spec.
+  generation-ready prompt, layout brief, or direct SVG/HTML output.
 ---
-# infographic-designer
+# Infographic Designer
 
-## Table of Contents
-
-- [Description](#description)
-- [Workflow](#workflow)
-- [Analysis](#analysis)
-- [Design System](#design-system)
-- [Visualization Guidance](#visualization-guidance)
-- [Inputs](#inputs)
-- [Outputs](#outputs)
-- [Response Format](#response-format)
-- [Guardrails](#guardrails)
-
-## Description
-
-Use this skill when the user wants to turn a topic or source material
-into an original infographic that is immediately understandable and
+Use this skill when the user wants to turn a topic, notes, research, or
+data into a single-image visual that is immediately understandable and
 memorable.
 
-This skill is for:
+The output should feel designed, not dumped. Prioritize one strong
+message, clear hierarchy, visual storytelling, and factual accuracy.
+
+## When To Use
+
+Use this skill for:
 
 - infographic concepts
-- infographic prompts for image or design tools
-- layout specs for a single-image visual
-- structured visual explainers built from notes, research, or datasets
-
-The result should feel designed, not dumped. Prioritize a clear message,
-strong hierarchy, visual storytelling, and factual accuracy.
+- visual explainers
+- single-image layout briefs
+- generation-ready prompts for image or design tools
+- direct `SVG` or `HTML` infographic implementation
 
 ## Workflow
 
 1. Determine the source mode.
-   - If the user provided detailed material, extract the key facts,
-     numbers, comparisons, relationships, and narrative arc.
-   - If the user only provided a topic, research the most relevant and
-     current angles first.
-2. Compress the content into one central takeaway sentence.
-3. Identify the minimum set of sections needed to tell the story,
+   - If the user provided material, extract the key facts, numbers,
+     comparisons, relationships, caveats, and narrative arc.
+   - If the user only provided a topic, research relevant and current
+     sources first.
+2. Reduce the content to one core takeaway sentence.
+3. Choose the minimum number of sections needed to tell the story,
    usually three to six.
-4. Select the visual style automatically based on the subject matter.
-5. Choose a palette of four to six colors with defined roles.
-6. Define the visual hierarchy.
+4. Pick the delivery mode:
+   - prompt
+   - layout brief
+   - direct `SVG`
+   - direct `HTML`
+5. Select a visual direction that fits the subject instead of
+   defaulting to one generic style.
+6. Define the information hierarchy:
    - headline
-   - subheads
-   - primary statistic or hero visual
-   - supporting visuals
-   - footnotes or source area when needed
-7. Plan the layout as one cohesive image with clear reading flow.
-8. Maintain an approximate 30 percent text to 70 percent visuals ratio.
-9. Add custom icons, illustrations, charts, diagrams, and visual
-   metaphors where they improve comprehension.
-10. Check legibility, proportionality, and factual consistency before
-    finalizing.
+   - deck or subhead
+   - hero number, chart, or illustration
+   - supporting sections
+   - source or footnote area when needed
+7. Map each fact to the clearest visual form.
+8. Generate the final deliverable and check readability, accuracy, and
+   overflow before finishing.
 
-## Analysis
+## Content Reduction
 
 Start with content reduction, not styling.
 
-For each request, identify:
+Identify:
 
 - the audience
 - the single most important message
 - the top three to five supporting facts
-- the most important comparison or change over time
-- the best visual metaphor for the abstract parts
+- the most useful comparison, trend, or sequence
+- the best visual metaphor for abstract ideas
 - what can be removed without hurting clarity
 
-When working from source material, extract:
+When extracting facts, preserve:
 
-- statistics with units and timeframes
+- units and timeframes
 - rankings, deltas, percentages, and ratios
 - cause and effect relationships
-- sequences, processes, and loops
+- steps, loops, and systems
 - categories and groupings
 - caveats that must remain visible
 
-When working from a topic only:
+## Visual Direction
 
-- research recent and credible sources
-- prefer primary sources for technical, medical, legal, or financial
-  topics
-- separate confirmed facts from inference
-- use concrete dates when timing matters
-
-## Design System
-
-Choose the style that best supports the content instead of defaulting to
-one look.
+Choose the style that best supports the content.
 
 Examples:
 
-- modern editorial for technology, AI, and trend explainers
-- corporate clean for finance, policy, and enterprise topics
-- illustrated casual for education, lifestyle, or beginner material
+- modern editorial for technology and AI
+- corporate clean for finance, policy, and enterprise
+- illustrated casual for education or beginner explainers
 - minimalist analytical for dense data stories
-- vintage or poster-like only when it improves memory and tone
+- poster-like only when it improves recall and tone
 
 Define:
 
 - a palette of four to six colors
 - one dominant color, one accent color, and neutral support colors
-- typography with distinct roles for headline, subhead, labels, and
-  annotations
-- icon and illustration style
+- typography roles for headline, subhead, labels, and annotations
+- icon or illustration style
 - background treatment, negative space, and section dividers
 
-Use scale, contrast, spacing, and alignment to guide the eye in the
-intended order.
+Use scale, contrast, spacing, and alignment to control reading order.
 
-## Visualization Guidance
+## Visualization Rules
 
 Prefer visuals that reduce cognitive load.
 
@@ -125,29 +105,36 @@ Use:
 
 - bar, line, pie, scatter, or timeline charts only when the data fits
 - process diagrams for steps, loops, and systems
-- comparison panels for before and after or option tradeoffs
+- comparison panels for tradeoffs, before and after, or alternatives
 - scale anchors to make large numbers meaningful
-- custom icons tied to the actual subject matter
+- custom icons tied to the subject matter
 - contextual imagery only when it supports the story
+- simple patterns, gradients, or textures to avoid a dead background
 
 Avoid:
 
 - decorative charts with no analytical value
 - overloaded legends
-- more than one main story per infographic
-- clip-art style visuals that fight the tone
-- tiny copy blocks that will fail when scaled down
+- more than one main story
+- clip-art visuals that fight the tone
+- tiny copy blocks that fail when scaled down
+- text overflow or elements running off the canvas
+- `textLength` in `SVG` unless it is genuinely needed
 
-## Inputs
+## Direct Implementation Rules
 
-- the user's source material, topic, or dataset
-- intended audience, if known
-- desired tone, if known
-- delivery target, if known, such as prompt, layout brief, HTML, SVG, or
-  design spec
-- citations or source links when accuracy matters
+When producing `SVG` or `HTML` directly:
 
-## Outputs
+- set explicit canvas dimensions
+- assume font sizes are pixel values unless the format requires
+  otherwise
+- use `16px` as the default body size
+- keep a clear dominant reading path
+- leave enough padding for every text block
+- make sure no text overflows its container
+- ensure the final layout remains legible at smaller viewing sizes
+
+## Output Contract
 
 Default output should include:
 
@@ -157,14 +144,12 @@ Default output should include:
 - the chosen visual style and rationale
 - the palette and typography direction
 - the chart, diagram, and icon plan
-- the final infographic prompt or implementation-ready spec
+- the final deliverable in the requested format
 
-If the user asks for direct generation, produce the asset in the
-requested format after establishing the above structure.
+If the user asks for direct generation, produce the asset after the
+structure is clear.
 
-## Response Format
-
-Use this structure unless the user asks for another format.
+Use this response structure unless the user asks for another format.
 
 ### Infographic Goal
 
@@ -197,19 +182,18 @@ Use this structure unless the user asks for another format.
 
 ### Final Deliverable
 
-Provide either:
+Provide one of:
 
-- a generation-ready prompt for an image or design model
+- a generation-ready prompt
 - a structured layout brief
-- direct implementation in the requested medium
+- direct `SVG`
+- direct `HTML`
 
 ## Guardrails
 
-- Do not invent facts, statistics, or citations.
-- If data is uncertain, label it clearly or leave it out.
-- Do not sacrifice readability for visual flair.
-- Keep the infographic to one main story and one dominant reading path.
-- Avoid stock phrases such as "future of" or "everything you need to
-  know" unless they are genuinely accurate.
-- Make sure all text stays legible at multiple viewing sizes.
-- Preserve nuance when the topic is sensitive or high stakes.
+- do not invent facts, statistics, or citations
+- if data is uncertain, label it clearly or leave it out
+- prioritize clarity and intuitiveness over novelty
+- keep to one dominant story and one dominant reading path
+- avoid stock headline filler unless it is genuinely accurate
+- preserve nuance for sensitive or high-stakes topics
