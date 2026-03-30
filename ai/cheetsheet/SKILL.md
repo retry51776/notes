@@ -7,6 +7,8 @@ Constrains:
 
 SKILL.md structure
 
+SOP stands for Standard Operating Procedure.
+
 ```text
 # <Skill Name>
 

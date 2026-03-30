@@ -5,6 +5,39 @@
 Parameters → "what you know"
 Loops → "how long you think"
 
+
+
+- Merge PR ~ RL changes into LLM
+  - My heuristic ≠ LLM heuristic
+    - Typical Companies CAN'T RL LLM, just like customer need report their issues to SASS company. Typical companies' job is collect issues, relevant background, avoid known issues, info LLM provider, updates to latest LLM.
+  - Define heuristic differences into SKILL/Prompt/Data
+  - RL update ~ Implement update to patch bugs
+
+- Bottlenecks:
+  - Info communication/absorption rate.
+  - Specialize skills/tech, that LLM need harness or fine tune
+  - Convert goal into text
+  - Other data modally Ex: Video, X-ray
+  - LLM's experienced output tech stacks
+    - visual
+      - svg
+      - png
+      - slidev
+      - html
+      - BPMN (Business Process Model & Notation)
+      - PlantUML
+    - code
+      - js
+      - python
+      - sql
+      - bash
+    - data
+      - JSON
+      - YAML
+      - CSV
+    - writing
+      - markdown
+      - /SKILL.md
 - Person's Life ~ LLM's Context window.
   - It's no about extend life, it's about what you do(generate token) solve problem.
   - Pretrain ~ Child Development(Perception)

@@ -385,6 +385,25 @@ Cons:
 - Context size vs. RAG: summarization needs large context; translation can use RAG.  
 - Strategies: reranking, query expansion, fake answer search, agentic tools, property graphs, RDF.
 
+### Context-1
+
+User query
+  ↓
+Context-1 (LLM agent)
+  ↓
+Generate subqueries
+  ↓
+Hybrid retrieval (BM25 + dense, top-50)
+  ↓
+Rerank (cross-encoder)
+  ↓
+Prune / summarize / filter
+  ↓
+Decide: enough info?
+   ├─ No → issue new query (loop)
+   └─ Yes → return final docs
+
+
 ## Debugging & Evaluation
 
 - Tracing: Jaeger, Langfuse.  
