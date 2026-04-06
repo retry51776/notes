@@ -14,15 +14,15 @@
 
 ## Table of Contents
 
-- [Infographic Designer](#infographic-designer)
+- [Infographic](#infographic)
 - [Personal Eval](#personal-eval)
 - [Pitfalls](#pitfalls)
-- [PR Reviewer](#pr-reviewer)
+- [Git Linter](#git-linter)
 - [Social Simulator](#social-simulator)
 
-## Infographic Designer
+## Infographic
 
-- [infographic-designer](./infographic-designer/SKILL.md): A reusable
+- [infographic](./infographic/SKILL.md): A reusable
   infographic skill for turning source material or a topic into a
   single-image visual explainer with a clear narrative, visual
   hierarchy, and production-ready prompt or spec.
@@ -38,9 +38,9 @@
 - [pitfalls](./pitfalls/SKILL.md): A reusable skill for common agent
   mistakes, recovery moves, and execution tips.
 
-## PR Reviewer
+## Git Linter
 
-- [pr-reviewer](./pr-reviewer/SKILL.md): A pre-push review skill for
+- [git-linter](./git-linter/SKILL.md): A pre-push review skill for
   finding bugs, regressions, missing tests, and risky changes before a
   PR is pushed.
 

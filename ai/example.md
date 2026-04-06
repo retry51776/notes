@@ -123,3 +123,14 @@ Given the tools below:
 Sometimes an AI agent will break when the LLM does NOT follow directions to generate the next‑step response.````
 
 ai/README.md
+
+## Anti-pattern
+— lazy delegation
+
+AgentTool({ prompt: "Based on your findings, fix the auth bug", ... })
+
+// 正面示例——综合后的精确指令
+AgentTool({ prompt: "Fix the null pointer in src/auth/validate.ts:42.
+  The user field on Session is undefined when sessions expire but the
+  token remains cached. Add a null check before user.id access —
+  if null, return 401 with 'Session expired'. Commit and report the hash."

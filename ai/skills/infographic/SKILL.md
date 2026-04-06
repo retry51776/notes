@@ -1,10 +1,8 @@
 ---
-name: infographic-designer
-description: Use this skill when the user wants to turn a topic, notes, research, or
-data into a single-image visual that is immediately understandable and
-memorable.
+name: infographic
+description: Use this skill when the user wants to turn a topic, notes, research, or data into a single-image visual that is immediately understandable and memorable.
 ---
-# Infographic Designer
+# Infographic
 
 CONTENT (message)
   → STRUCTURE (content hierarchy)
@@ -23,33 +21,35 @@ CONTENT (message)
 
 ## Output
 
-Provide one of:
+Generate one of:
 
-- direct `SVG`
-- direct `HTML`
-- direct `PNG`
+- `xxx.svg`
+- `xxx.html`
+- `xxx.png`
+- `xxx.md`
 
 
 ## Workflow
   
-1. Check user prompt against Inputs items to clarify any missing information.
-  - If any input is missing, ask the user for that specific information before proceeding.
-2. Reduce the content to one core takeaway sentence.
-3. Choose the minimum number of sections needed to tell the story, usually three to six.
-4. Select a visual system that fits the subject.
-5. Define the information hierarchy:
+1. Check user prompt against Inputs items to clarify any missing content.
+  - If any input is missing, ask the user for that specific content before proceeding.
+2. Determine the output format.
+   - For svg: Read [references/svg.md](./references/svg.md)
+   - For html: Read [references/html.md](./references/html.md)
+   - For slidev: Read [references/slidev.md](./references/slidev.md)
+3. Define the content hierarchy:
    - headline
    - deck or subhead
    - hero number, chart, or illustration
    - supporting sections
     - 3 or fewer words for each section as section headline
+    - each section generate simple icon or symbol
    - source, footnote, conclusion area
-6. Determine the output format.
-   - For svg: Read [references/svg.md](./references/svg.md) 
-   - For html: Read [references/html.md](./references/html.md)
-7. Generate the final deliverable and check readability, accuracy, and overflow before finishing.
+4. Select a visual system that fits the subject.
+5. Generate the final deliverable
+6. Check readability, accuracy, and overflow with screen capture, REPEAT until no readability, accuracy, and overflow issues.
 
-## Content Reduction
+## Content Hierarchy
 
 Start with content reduction, not styling.
 
@@ -57,16 +57,22 @@ Identify:
 
 - the audience
 - the single most important message
-- the top three to five supporting facts
+- break content into sections
+  - Each section MUST have
+    - headline
+    - simple icon or symbol (default to SVG icon)
+  - Optional addition
+    - short explanation/desc
+    - analogy/metaphor
+    - KEYWORDs
 - the most useful comparison, trend, or sequence
-- the best visual metaphor for abstract ideas
 - what can be removed without hurting clarity
 
 When extracting facts, preserve:
 
+- information hierarchy
 - units and timeframes
 - rankings, deltas, percentages, and ratios
-- cause and effect relationships
 - steps, loops, and systems
 - categories and groupings
 - caveats that must remain visible
@@ -105,13 +111,24 @@ Define:
 
 Use scale, contrast, spacing, and alignment to control reading order.
 
+### Visualization Resources
+
+Get Emojis from:
+  https://emojidb.org/
+  https://getemoji.com/
+
+Get prebuilt svg from:
+  https://www.svgrepo.com/
+
 ### Visualization Rules
 
 Prefer visuals that reduce cognitive load.
 
 Use:
 
-- 30% text 70% visuals.
+- Eliminate clutter!!!
+- 30% text 70% visuals
+- Keep image & icon simple
 - set explicit canvas dimensions
 - bar, line, pie, scatter, or timeline charts only when the data fits
 - process diagrams for steps, loops, and systems

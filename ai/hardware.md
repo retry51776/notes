@@ -2,6 +2,16 @@
 
 > Ultimately, the only limitation is chip real estate; space must be allocated to computation (flexible or efficient) or storage (latency or throughput).
 
+## Stack
+
+- Software
+  - harness software
+  - inference runtime engine
+- Hardware
+  - io flows
+  - support ops & precision
+  - Assembly
+
 ## Software Stack
 
 > Machine‑learning frameworks (e.g., PyTorch) → Intermediate Representation(IR/compute graph) → Kernel (different subset CUDA/cuDNN/FlashInfer) → parallel thread execution (PTX assembly) → streaming assembly (SASS machine code) → hardware (GPU).

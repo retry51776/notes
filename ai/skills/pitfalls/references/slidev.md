@@ -10,7 +10,6 @@
 ### v-clicks
 
 For `<v-clicks>` with Markdown content (lists, headings, paragraphs), always keep a blank line:
-
 - after `<v-clicks ...>`
 - before `</v-clicks>`
 

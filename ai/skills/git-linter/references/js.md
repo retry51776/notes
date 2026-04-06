@@ -9,6 +9,10 @@
 - Split data fetching & ui render into different components.
 - Keep a component under 500 lines
 
+- Prefer stacks
+  - @trpc/tanstack-react-query
+  - @types/react-table
+
 ## React Component Order
 
 **1. External Info Processing**

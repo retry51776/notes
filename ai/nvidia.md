@@ -113,6 +113,16 @@ Grid (many Blocks)
 - **L2 Cache** – Shared across SMs; large but slower than L1.  
 - **Global Memory** – HBM or GDDR attached to the GPU.
 
+### CuTitle
+
+since CUDA 13.0, `import nvshmem.core.device.tile`
+
+### nvmath-python
+
+`numba-CUDA` is single thread python compiler, so developer can inspect CUDA code.
+
+`nsight copolite`
+
 ## NVIDIA Software Stack
 
 - **AI Enterprise** → OS (Ubuntu + drivers) → Tools (Base Command Platform, Suit Command).  

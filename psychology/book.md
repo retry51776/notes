@@ -30,3 +30,34 @@
 > Do we really need each sensation area with its reference frame? or just single golbal reference frame?
 
 > Hafting et al. (2005) [1] suggested that a place code is computed in the entorhinal cortex and fed into the hippocampus, which may make the associations between place and events that are needed for the formation of memories
+
+## Talks
+
+- How to Speak @ Patrick Winston https://www.youtube.com/watch?v=Unzc731iCUY
+  - Take Away
+    - Acknowledgment should in start, not end
+  - Repeat 3 times
+  - Novelty for attention
+  - Boundaries / Distinction
+  - verbal punctuation (indicate content structure)
+  - Interaction
+    - Quiz
+    - Board
+    - Props
+  - Ending words & slide
+    - Validate audience Ex: It's been a fun talk here.
+    - Joke
+
+- https://www.youtube.com/watch?v=PiNN-HmHu7A
+  - Delivery Habits
+      - Pause More (0:28 - 1:54): Create "white space" in your speech to make your ideas more digestible and convey confidence.
+      - Slow Down to Highlight (1:54 - 3:25): Vary your tempo; slowing down acts as a verbal highlighter for your most important points.
+      - Use Declarative Statements (3:25 - 5:37): Avoid rambling by using concise, complete sentences to project authority and reduce hesitation.
+  - Vocal Habits
+      - Warm Up Your Voice (5:37 - 8:39): Use techniques like lip trills to prepare your vocal muscles and prevent fatigue.
+      - Nose Breathing (8:39 - 10:36): Default to nose breathing to humidify the air, hydrate your cords, and promote calmness.
+      - Use More Volume (10:36 - 11:56): Speak with presence and vitality to transfer energy to your listeners, as people associate vocal strength with personal conviction.
+  - Cognitive Habits
+    - Finish One Thought at a Time (11:56 - 14:15): Avoid multitasking mid-sentence to keep your structure clear and prevent your audience from zoning out.
+    - Learn to Use Frameworks (14:15 - 17:13): Use structures like the CCC framework (Context, Core, Connect) to explain complex ideas simply.
+    - Use Analogies

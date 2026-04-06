@@ -1,5 +1,32 @@
 # Claude code
 
+https://zhuanlan.zhihu.com/p/2022438622347937238
+
+## Memory
+
+- Context Compaction（短期）
+- ExtractMemories（中期）
+- AutoDream（长期）
+    - 1. Orient（定位）
+    - 2. Gather React signal
+    - 3. Consolidate
+    - 4. Prune & Index
+
+- Each memory / files has dirty flag, only access memory if they still clean.
+
+## Agent
+
+- Fork Agent (inherit context)
+  - ExtractMemories
+  - AutoDream
+- Fresh Agent (new session)
+
+## Tool Use
+
+Pre/Post Tool Use hooks
+
+## Structure
+
 - .settings
   - cliArg
   - localSettings `$pwd/.claude/settings.json`
@@ -60,6 +87,7 @@
         - 5. Pending Tasks:
         - 6. Current Work:
         - 7. Optional Next Step:
+
 
 ## flags
 
@@ -758,3 +786,30 @@ function ChatWindow({
   );
 }
 ```
+
+
+## YOLO Classifier
+
+- white list
+- soft deny (need approval)
+- hard deny
+
+## Fork Agent
+
+> More like reflect agent
+
+No bash, only current folder.
+
+Only repeat/invoke every N turned, no more tool calls.
+
+## Compact
+
+1、Primary Request and Intent（主要需求和意图）
+2、Key Technical Concepts（关键技术概念）
+3、Files and Code Sections（涉及的文件和代码片段，包含实际代码
+4、Errors and fixes（遇到的错误和修复方案）
+5、Problem Solving（问题解决过程）
+6、All user messages（所有用户消息，逐条保留，不能遗漏）
+7、Pending Tasks（待办任务）
+8、Current Work（当前工作状态）
+9、Optional Next Step（可选的下一步，包含原始对话的直接引用，防止任务漂移）

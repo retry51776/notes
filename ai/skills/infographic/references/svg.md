@@ -15,6 +15,7 @@
 
 - default font size is 16, font size is font width pixels, line heigh is 150% font width.
 
+
 ## Avoid
 
 - `textLength` in `SVG`

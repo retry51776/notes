@@ -319,6 +319,41 @@ RL Types:
 - Self-Play / Debate / Multi-Agent RL (improve reasoning)
 - Online RL with Real Usage
 
+
+Keys:
+- high-throughput verification
+- stable policy updates
+- efficient sampling
+
+Thinking should be categorical, not effector base.
+Ex: argentic think - progress; Reasoning think - static-monologue thinking;
+
+### Agentic Thinking
+
+Just like interview person, we not only need smart guy, but resilient, consistent, planning, agency.
+
+DIFFER(Agentic vs Reasoning) Traits:
+
+- Deciding when to stop thinking and take an action. (Ex: Musk test to fail)
+- Choosing tool & order
+- ignore failed path, revising plans
+- maintain coherence
+- action consistent with planning
+
+Harness:
+
+- tool servers
+- browsers
+- terminals
+- search engines
+- simulators
+- execution sandboxes
+- api layers
+- persistent memory system
+- orchestration framework
+
+- Environment-building
+
 **PPO components**:
 
 > reinforcement learning human feedback with Proximal Policy Optimization(PPO), just promote subset response probability over undesired responses.

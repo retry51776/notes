@@ -28,14 +28,21 @@ Most likely automate by AI industries traits:
 
 - input
   - digital?
-    - radiology
-  - Observability (privacy block some industry)
+    - data source?
+      - by capture
+        - physical data
+        - human feedback
+      - by generate
+        - simulation
+        - verification
+  - observability?
   - variance?
     - messy real-world physical manipulation
     - standard formats?
     - student in edu process (different success rates)
 - output
   - digital? (text, image, audio, video, code, or structured decisions)
+  - observability?
   - variance?
     - human target audience will have big variance (differ mood, preference)
     - human has more native control on voice than AI
@@ -91,3 +98,9 @@ Most likely automate by AI industries traits:
 ## FAQ
 
 - LLM is **NOT** a function ONLY generate single token, residual stream can decode as **full shifting tokens**. That's why we can pre-train LLM with huge amount data.
+
+## Tradeoff
+
+- capacity utilization vs sensitivity/robustness
+- capacity vs compute
+- throughput vs compute

@@ -1,11 +1,11 @@
 ---
-name: pr-reviewer
+name: git-linter
 description: >-
-  Use this skill when the user wants a repository review. Focus on bugs,
-  regressions, missing tests, and risky changes before code is pushed.
+  Use this skill when the user wants commit git repo. Focus on bugs,
+  regressions, missing tests, and risky changes before code is commit.
 ---
 
-# pr-reviewer
+# git-linter
 
 ## Table of Contents
 
@@ -17,7 +17,7 @@ description: >-
 
 ## Description
 
-Use this skill when the user wants review of repo. Focus on checklist items.
+Use this skill when the user wants commit git repo. Focus on checklist items.
 
 ## Usage
 
