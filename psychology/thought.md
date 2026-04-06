@@ -7,6 +7,8 @@
 > > That is why we love stories: stories lead to conclusions.
 `aka Recognized patterns.`
 
+> Knowledge (can source from AI), Practices (must do it yourself), Talent (self inherit)
+
 > pupil dilating ≈ mental effort
 
 > People too lazy constantly reevaluating their conclusions, it's much easier to just label/make x conclusion once, and continue build flawed conclusions on top of old flawed foundation.

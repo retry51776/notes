@@ -87,3 +87,13 @@ Account
 Positive cashflow w negative [Earning Before Interest, Taxes, Depreciation, and Amortization](EBITDA)
 
 none gaap EBITDA, adjust EBITDA ....
+
+## Supply & Demand
+
+Price is ABOUT destruction of PRODUCTION or CONSUMPTION.
+
+5% excess requires DESTRUCTION of 5% PRODUCTION.
+
+Liquidity span both current assets & future investment.
+
+Military conflict acts similar to Price, about destruction time horizon.

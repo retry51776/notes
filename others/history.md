@@ -7,3 +7,8 @@
 Joseph Stalin died on March 5, 1953.
 
 The Korean War ended with an armistice signed on July 27, 1953.
+
+## 2025
+
+- Rock & Chip
+- Pax Silica (硅和平)

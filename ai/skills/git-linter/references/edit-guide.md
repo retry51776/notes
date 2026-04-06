@@ -1,4 +1,4 @@
-# pr-reviewer edit-guide
+# git-linter edit-guide
 
 ## Table of Contents
 

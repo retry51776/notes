@@ -270,6 +270,10 @@ Cons:
 
 ## Applications Overview
 
+### Presentation
+
+piktochart
+
 ### Deep Research Agents
 >
 > AI researcher DRAs. OpenAI expects this mature before 2027.
@@ -376,9 +380,6 @@ Cons:
 
 - LanceDB, Pinecone, Milvus, Qdrant, Redis, Weaviate, Zilliz.
 
-### Plugins
-
-- PluginFlask server exposing `/upsert` and `/query` endpoints for tool integration.
 
 ## Retrieval‑Augmented Generation (RAG)
 

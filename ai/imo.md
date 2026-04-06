@@ -1,10 +1,88 @@
 # AI Insights
 
+
+## Analogy
+
+- Terms:
+  - LLM ~ vehicle's propulsion system
+    - modality ~ fuel type
+    - context window size ~ fuel tank size
+      - generation token ~ engine cycle
+      - inference cost ~ gasoline
+    - weight/param ~ engine block
+    - architecture ~ engine design
+      - transformer ~ four-stroke cycle(most common engine design)
+        - attention heads/experts ~ cylinders
+        - hidden state(KV cache) ~ vehicle momentum / inertia
+    - roles (system / developer / user / assistant / tool) ~ control priority
+
+
+  - agentic system / harness ~ vehicle operation
+    - prompt / inference ~ driving
+      - inference system ~ road trip
+        - workflow instruction (role: system | developer ) ~ driver handling control
+          - monitor component ~ dashboard
+        - task context (role: user) ~ driving route
+          - prompt ambiguity ~ ambiguity route
+          - lazy delegation ~ incomplete route
+      - evaluation system ~ test drive
+    - memory system ~ driving history
+      - working memory ~ driving state (Ex: speedometer, direction)
+        - KV cache ~ current momentum / speed / engine state
+        - context rot ~ driver fatigue
+      - persistent memory ~ stored vehicle records
+        - session.md / episodic memory ~ trip history (can restore driving state)
+        - skills / semantic memory / general knowledge ~ driving manual / driving habits
+    - agent tools ~ vehicle attachments
+
+  - task ~ mission
+    - task context ~ draft driving route
+    - workflow instruction ~ reprocess draft driving route
+      - break route into sections
+      - equipped traction tires getting out bad situation
+
+    - agentic thinking ~ driver thinking
+      - planning: choosing tool & order
+      - maintain coherence: general direction tracking
+      - reflection: deciding when to stop thinking and take an action
+      - responsiveness: react to data from dashboard
+
+    - agentic action ~ driving / exploration
+      - consistency: action consistent with planning
+      - handiness: use tool
+
+
+propulsion system:
+> Most user has no control beside choose which propulsion system.
+
+> Top close source LLM(large engine), even bad harness/prompt(bad driver) can overcome task(arrive destination)
+> Open source LLM(smaller engine), requires lighter hardwares(gasoline), but requires good harness(good driver)
+
+vehicle dynamics:
+> Unlike car analogy, here user has A LOT control on their car's vehicle dynamics(chassis & drive style)
+
+> Main focus should be Destination & Route. Because car/LLM seems improve rapidly.
+
+> Different chassis (harness) alter how the landscape (task) is navigated.
+
+> In future, LLM support multiple instructions coordination?
+
+Destination:
+> We need well describe trajectory(destination); Since engine improves, we only need harness good enough to works.
+
+> Break task into chunks ~ Break mountain route into sections; car avoid lost control momentum, and have fallback/resume point.
+>> huge Momentum: hard to stop/control;
+>> little/no momentum: no progress;
+
+>> Long route ~ truck driver drives over 10hrs. Longer driver drives, their attention sensitivity decrease. ~ later position KV cache has more Context Rot.
+
+> We need dashboard/Evaluation System; We can only improve what we can measure.
+
+
 ## IMO
 
 Parameters → "what you know"
 Loops → "how long you think"
-
 
 
 - Merge PR ~ RL changes into LLM
@@ -334,3 +412,9 @@ Training often uses beam search, while inference favors sequential revision.
 ### 2026
 
 - <https://research.google/blog/sequential-attention-making-ai-models-leaner-and-faster-without-sacrificing-accuracy/> shrink up & down, find which feature matters. Aka contrast between training data vs benchmark data. When a feature is "locked," its selection weight $w_i$ is permanently set to 1.0.
+
+- https://arxiv.org/pdf/2603.15031 Attention on previous block's residual stream replace residual connections.
+  - layer: both NLP & Attention counts as an layer; Recommend N=8;
+  - Q `profile of block`
+  - V `input/hidden_states of each blocks`
+  - K `norm(V), v=input`
