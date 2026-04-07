@@ -137,6 +137,10 @@ mdc: true
   alt="Mountain back road"
 />
 
+<div class="absolute bottom-4 left-0 w-full text-center text-sm text-gray-400">
+  Agent ~ Context Engineering + DevOps's CICD
+</div>
+
 ---
 layout: default
 ---
@@ -273,7 +277,7 @@ layout: section
       aria-label="Steering wheel icon"
     ><path d="M13,19.92C14.8,19.7 16.35,18.95 17.65,17.65C18.95,16.35 19.7,14.8 19.92,13H16.92C16.7,14 16.24,14.84 15.54,15.54C14.84,16.24 14,16.7 13,16.92V19.92M10,8H14L17,11H19.92C19.67,9.05 18.79,7.38 17.27,6C15.76,4.66 14,4 12,4C10,4 8.24,4.66 6.73,6C5.21,7.38 4.33,9.05 4.08,11H7L10,8M11,19.92V16.92C10,16.7 9.16,16.24 8.46,15.54C7.76,14.84 7.3,14 7.08,13H4.08C4.3,14.77 5.05,16.3 6.35,17.6C7.65,18.9 9.2,19.67 11,19.92M12,2C14.75,2 17.1,3 19.05,4.95C21,6.9 22,9.25 22,12C22,14.75 21,17.1 19.05,19.05C17.1,21 14.75,22 12,22C9.25,22 6.9,21 4.95,19.05C3,17.1 2,14.75 2,12C2,9.25 3,6.9 4.95,4.95C6.9,3 9.25,2 12,2Z" /></svg>
 
-### Agentic System is persistent storage, unlike LLM is Ephemeral.
+### Agentic System is **Persistent**, unlike LLM is **Ephemeral**.
 
 ---
 layout: two-cols-header
@@ -298,18 +302,25 @@ incomplete route
 - 5. evaluation system ~ test drive
 
 - 6. agent profiles ~ different driver profiles
+
+- 7. status management ~ turning signal
 ::right::
 
 <img src="https://media1.tenor.com/m/unu0esewTrcAAAAC/horse-animal.gif"  class="ml-auto w-40"/>
 
 <small>Agentic System also call **Harness**, <br/>similar horse harness give rider control over horse.</small>
 
+
+<div class="absolute bottom-4 left-0 w-full text-center text-sm text-gray-400">
+  Different Agentic System has different designs, we cover common components here.
+</div>
+
 ---
 layout: two-cols-header
 ---
 
 ::left::
-## 2.1 workflow instruction
+## 2.1 Workflow instruction
 
 <br/>
 
@@ -324,7 +335,7 @@ layout: two-cols-header
 
 ::right::
 
-## 2.2 task context
+## 2.2 Task context
 <br/>
 
 - Injection attack | conflict direction
@@ -351,7 +362,7 @@ layout: default
 
 ### Tools like attachment, extend what the vehicle can do on the trip
 
-<div class="grid grid-cols-2 gap-6 mt-6">
+<div class="grid grid-cols-3 gap-6 mt-6">
   <div class="tile">
     <div class="text-center">
       <div class="hero-icon">🧰</div>
@@ -369,9 +380,14 @@ layout: default
       </div>
       <div class="rounded-xl bg-slate-100 px-3 py-4">
         <div class="text-3xl">🧱</div>
-        <div class="mt-2 text-sm font-semibold">Execution Sandbox</div>
+        <div class="mt-2 text-sm font-semibold">Sandbox</div>
       </div>
     </div>
+  </div>
+  <div class="tile text-center flex flex-col justify-center">
+    <div class="hero-icon">⌨️</div>
+    <div class="big">Commands</div>
+    <div class="mini mt-1">user manual trigger</div>
   </div>
   <div class="tile text-center flex flex-col justify-center">
     <div class="hero-icon">🔌</div>
@@ -410,15 +426,43 @@ layout: two-cols-header
   <div class="tile">
     <div class="tile-title">Persistent Memory</div>
     <div class="mini">vehicle records, trip history, manuals, habits</div>
-    <div class="mini">session.md -> episodic state and restore points</div>
-    <div class="mini">skills -> reusable process and semantic memory</div>
+
   </div>
 </div>
+
+- Skills (reusable process and semantic memory)
+  - SKILL.md
+    - name & description
+    - main instructions
+  - /reference
+- session.md
+- CLAUDE.md (project-level persistent profiles update by dream)
+
 
 <div class="absolute bottom-4 left-0 w-full text-center text-sm text-gray-400">
   Restore state by loading episodic memory. Forked sessions and parallel
   workers are easier when the memory hierarchy is explicit.
 </div>
+
+---
+layout: two-cols-header
+---
+
+## 2.7 Status Management
+<br />
+
+::left::
+
+- Different Status
+- Status Hooks
+  - Auto Pipeline | Handler
+  - Approval Confirmation
+  - Logging
+- Status Visibility & Update
+
+::right::
+
+<img class="w-50" src="https://www.roadtrafficsigns.com/img/lg/K/use-turn-signal-sign-k-0060.png" alt="Turn signal road sign" />
 
 ---
 layout: section
@@ -587,7 +631,6 @@ layout: end
 ---
 
 ## End
-### Engine, handling, route, dashboard
 
 <div class="mini mt-6">
   A usable mental model for debugging agent systems:

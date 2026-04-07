@@ -4,6 +4,8 @@
 >
 > Finetune LLM to uses custom tools to generate structure output.
 
+Also structure output can enforce by some rule base engine, apply mask BEFORE logit sampling. (Block LLM pick invalid character)
+
 Different than RFT
 
 - Multi Steps RL
