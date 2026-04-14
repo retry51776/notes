@@ -13,6 +13,7 @@ Both software and hardware improvements are similar.
       - in-place execution reduce variable switch
 - Computation
   - Parallel `increase workers`
+    - Asymmetric Parallelism
   - Interrupt `swap tasks to increase hardware efficiency`
   - Predict `trade/waste computation for speed`
   - Arithmetic

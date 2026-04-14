@@ -178,6 +178,12 @@ layout: default
 
 </div>
 
+<img class="mx-auto w-60 mt-10" src="https://res.cloudinary.com/aenetworks/image/upload/c_fill,ar_2,w_1920,h_960,g_auto/dpr_auto/f_auto/q_auto:eco/v1/firstbenz-jpggettyimages-905504772?_a=BAVMn6DY0">
+
+<div class="absolute bottom-4 left-0 w-full text-center text-sm text-gray-400">
+  Similar to early day Automaker
+</div>
+
 ---
 layout: section
 ---
@@ -220,6 +226,13 @@ mdi: true
         - attention heads/experts ~ cylinders
         - hidden state(KV cache) ~ vehicle momentum / inertia
 - roles `system | developer | user | assistant | tool` ~ control priority
+
+<img class="w-100 absolute right-10 top-20" src="https://i.ytimg.com/vi/AsCBOiCjYLE/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLC4SoAqCd5OyVEvqW8ZXpbv6AJdrQ">
+
+
+<div class="absolute bottom-4 left-0 w-full text-center text-sm text-gray-400">
+  CUDA, ROCm, Metal are runtime (different aluminum for engine).
+</div>
 
 ---
 layout: two-cols-header
@@ -459,10 +472,34 @@ layout: two-cols-header
   - Approval Confirmation
   - Logging
 - Status Visibility & Update
+- Interval Trigger
 
 ::right::
 
-<img class="w-50" src="https://www.roadtrafficsigns.com/img/lg/K/use-turn-signal-sign-k-0060.png" alt="Turn signal road sign" />
+```
+results/<task-name>/<timestamp>/
+├── .coral/                    # Shared state directory
+│   ├── config.yaml            # Task configuration (copy)
+│   ├── public/                # Visible to all agents
+│   │   ├── attempts/          # JSON records of each eval
+│   │   ├── notes/             # Agent-written insights
+│   │   ├── skills/            # Reusable tools/scripts
+│   │   ├── logs/              # Agent session logs
+│   │   ├── heartbeat/         # Heartbeat action configs
+│   │   └── eval_count         # Global eval counter
+│   └── private/               # Hidden from agents
+│       └── eval/              # Grader code and test data
+│
+└── agents/
+    ├── agent-1/               # Git worktree for agent 1
+    │   ├── .coral_dir         # Points to shared .coral/
+    │   ├── .coral_agent_id    # This agent's ID
+    │   ├── CORAL.md           # Generated instructions
+    │   └── <task files>       # Seeded from workspace.repo_path
+    │
+    └── agent-2/               # Git worktree for agent 2
+        └── ...>
+```
 
 ---
 layout: section

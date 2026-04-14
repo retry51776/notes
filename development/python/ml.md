@@ -7,8 +7,10 @@ ANOVA stands for Analysis of Variance.
 ## ML Libraries
 
 - NumPy
+  - CuPy is Single GPU numpy replacement, cuPyNumeric auto partition across GPUs
 - pandas
 - scikit‑learn
+  - RAPIDS cuML is CuPy's scikit‑learn
 
 ## Core Components
 

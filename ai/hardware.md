@@ -2,17 +2,8 @@
 
 > Ultimately, the only limitation is chip real estate; space must be allocated to computation (flexible or efficient) or storage (latency or throughput).
 
-## Stack
 
-- Software
-  - harness software
-  - inference runtime engine
-- Hardware
-  - io flows
-  - support ops & precision
-  - Assembly
-
-## Software Stack
+## Runtime Stack
 
 > Machine‑learning frameworks (e.g., PyTorch) → Intermediate Representation(IR/compute graph) → Kernel (different subset CUDA/cuDNN/FlashInfer) → parallel thread execution (PTX assembly) → streaming assembly (SASS machine code) → hardware (GPU).
 
@@ -20,14 +11,30 @@ Different hardware needs its own version of `llama.cpp` (e.g., Metal, ROCm, CUDA
 
 Each manufacturer has its own shading language.
 
-### Near‑Memory Design
+Open‑Source Ecosystem:
 
-- Reconfigurable data‑flow hardware vs. parallelism on existing compute units.
-- skew - variances of data transfer arrival time. HBM requires within 2 picoseconds variance arrival time.
+- **Exo Labs** – AI cluster management software.
 
-## Memory Hierarchy
+## Memory
 
 > The real bottleneck is the memory hierarchy: GPUs have limited high‑bandwidth memory (HBM or SRAM), while model parameters far exceed this capacity, forcing frequent off‑chip transfers.
+
+- Arithmetic Intensity | Compute Density ~ Compute / Data @ FB16
+  - Workload
+    - Attention ~ 10–50 FLOPs/byte
+    - GEMM / MLP ~ 100–1000+ FLOPs/byte
+    - decode ~ 1–10 FLOPs/byte
+  - Hardware
+    - H100 FP16 ~ 300 FLOPs/byte
+    - Groq ~ 3 - 8 FLOPs/byte
+
+- RAM Flush speed ~ IO / capacity
+  - NAND ~ seconds to minutes
+  - DR5 ~ 0.2–0.5× / sec
+  - HBM3 ~ 10–20× / sec
+  - HBM4 ~ 30× / sec
+  - SRAM ~ 300k / sec
+
 
 - **GPU memory** hides latency by interleaving many threads. Unlike CPUs, where context switches are expensive, GPU threads are lightweight and scheduled by hardware.
 
@@ -35,8 +42,22 @@ Each manufacturer has its own shading language.
 
 | Type | Description |
 |------|-------------|
-| DRAM (dynamic) | Capacitor‑based; includes HBM (PCIe 5 ≈ 128 GB/s, SXM ≈ 600 GB/s), DDR1‑5, LPDDR, GDDR |
 | SRAM (static) | Flip‑flop based; L1/L2/L3 caches |
+| DRAM (dynamic) | Capacitor‑based; includes HBM (PCIe 5 ≈ 128 GB/s, SXM ≈ 600 GB/s), DDR1‑5, LPDDR, GDDR |
+
+
+### Near‑Memory Design
+
+- Reconfigurable data‑flow hardware vs. parallelism on existing compute units.
+- skew - variances of data transfer arrival time. HBM requires within 2 picoseconds variance arrival time.
+
+
+
+> RAM size like water tank, fundamental we need match workload's compute density to hardware's compute density. RAM size just buffer enable short time of mismatch.
+
+Increase network bandwidth, then compute density should be lower, and scale out cluster.
+
+Each chip design with a FIXED Arithmetic Intensity, but different workload has different Arithmetic Intensity.
 
 ### Parallelism Strategies
 
@@ -83,9 +104,6 @@ Each manufacturer has its own shading language.
 - Very Long Instruction Word (VLIW) - Compiler optimization
 - Threadgroup walk order - increase cache hit rate(because x,y index increase slowly)
 
-## Open‑Source Ecosystem
-
-- **Exo Labs** – AI cluster management software.
 
 ## Inference Hardware
 
@@ -132,6 +150,7 @@ Metal Performance Primitives / TensorOps
 
 - **MLX** – Efficient array framework for Apple silicon (supports 4‑ and 8‑bit).
   - MLX uses Apple GPUs, which is general purpose.
+  - mlx[cuda] compiled into CUDA api for CUDA runtime
 - **Core ML** – Optimized inference engine; leverages the Apple Neural Engine (ANE).
   - Neural Engine is similar to Tensor Core, only does matrix ops
   - VERY few frameworks uses Neural Engine, almost pointless to have it

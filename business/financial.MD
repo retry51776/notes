@@ -1,6 +1,11 @@
 # Financial
 
-# BuzzWords
+## Bank
+
+- concentration risk
+- 巴塞尔协议 Basel Accords
+
+## BuzzWords
 
 - Accounting (ACCG)
 - International Financial Reporting Standards (IFRS)

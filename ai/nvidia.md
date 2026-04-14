@@ -43,14 +43,32 @@
 
 ```py
 # Developer perspective with Hopper
-Grid (many Blocks)
+Grid (many Blocks, kernel send to grid)
  ├─ Block 0 (1024 Threads) → assigned to a single SM
- │   ├─ Warp 0 (32 Threads)
+ │   ├─ Warp 0 (32 Threads SAME instruction, hardware component)
  │   └─ …
  ├─ Block 1 (many Threads)
  ├─ …
  └─ Block 31
+
+# Hardware perspective with Hopper
+GPU (H100 / Hopper)
+ ├─ SM 0
+ │   ├─ Warp Scheduler(s)
+ │   │   ├─ Warp 0 (32 threads SAME instruction)
+ │   │   ├─ Warp 1
+ │   │   └─ ...
+ │   ├─ Registers (per thread)
+ │   ├─ Shared Memory (per block region)
+ │   └─ Tensor Cores / FP units
+ │
+ ├─ SM 1
+ │   └─ ...
+ │
+ └─ SM N
 ```
+
+
 
 - **SM** – Streaming Multiprocessor; contains CUDA cores, Tensor Cores, warp schedulers, SFUs, load/store units, L1 cache & shared memory.
 - **L2 Cache** – Shared across SMs; large but slower than L1.
@@ -107,9 +125,31 @@ Each gate has a special purpose — like customs, traffic control, or the big cr
 
 > Note: Tensor Core CAN'T tokenization, softmax scaling, KV cache indexing, and sampling, which still operate on floating point in CUDA Core;
 
-- kernel - CPU dispatch CUDA kernel, CUDA kernel can NOT invoke another CUDA kernel.
+CUDA: New Features and Beyond by Stephen Jones. Every year talk about CUDA direction.
+
+CUDA Platform Stack
+
+| Layer                          | Examples                                                                 |
+|--------------------------------|--------------------------------------------------------------------------|
+| Frameworks & DSLs              | TensorRT · Omniverse · JAX · PyTorch                                      |
+| SDKs                           | RAPIDS · CUDA-Q · BioNeMo · Ariel                                         |
+| Domain-Specific Libraries      | cuQuantum · CUDA-CV · cuDNN · nvComp                                      |
+| Accelerated Libraries          | Thrust · cuBLAS · cuFFT · NPP                                             |
+| Communication Libraries        | NCCL · NVSHMEM · MPI · UCX                                                |
+| Device Libraries               | CUB · CUTLASS · cuBLASDx · libc++                                         |
+| Kernel Authoring               | CUDA C++ · PTX · OpenCL · CUDA Fortran                                    |
+| Compiler Stack                 | nvcc · nvrtc · nvptx · ptxas                                              |
+| Host Runtimes & Tools          | CUDA Runtime · Drivers · Nsight Tools · Installers                        |
+
+### kernel
+
+CPU dispatch CUDA kernel, CUDA kernel can NOT invoke another CUDA kernel.
+
+> Most kernel authoring are for improve training, room to improve inference are very small (inference are mostly memory bound).
+
 
 - **cuDNN**, **DeepSpeed** for large‑scale training.
+
 
 ### Asymmetric Parallelism
 
@@ -126,15 +166,52 @@ Tech stacks:
 
 computation libraries is A MESS.
 
+
 ### FlashInfer
 
 Specialized high-performance CUDA kernel library for LLM inference.
 
+### C++ CUDA SIMT
+
+classic CUDA code. Thread is lowest execute unit.
+
+define the execution graph + hardware mapping explicitly.
+
+### Triton
+
+define the math + tiling, compiler defines execution. Manage by OpenAI.
+
 ### CuTitle
 
-since CUDA 13.0, `import nvshmem.core.device.tile`
+since CUDA 13.0; **Tile IR** compile into GPU executable. Block is lowest execute unit. Array based programming.
+
+There are both cuTile C++ & cuTile Python.
+
+less controls then CUDA python SIMT.
+
+```py
+import nvshmem.core.device.tile
+```
+
+https://github.com/NVIDIA/TileGym
+
+cuTile autotuner
 
 ### nvmath-python
+
+```py
+# NVTX annotation for Nsight Profiler
+
+import nvtx
+@nvtx.annotate(color="blue")
+def xxx():
+    with nvtx.annotate("this_loop", color="red"):
+        pass
+
+```
+
+- stateless api ~ similar to numpy
+- stateful api ~ `with nvmath.xxx(a, b)`
 
 `numba-CUDA` is single thread python compiler, so developer can inspect CUDA code.
 

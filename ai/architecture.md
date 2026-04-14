@@ -1,17 +1,31 @@
 # Architecture
 >
-> AI Architecture notes, from old to newer. Fork off academic.md
+> Architecture inference design focus on 2 aspects: network structure(possible routes @ RAM cost) vs route control(which route @ compute cost).
+
+## density vs route
+
+- MLP is extrema network density (always-on routes)
+- MOE
+- Residual Attention
+- Local Attention
+- Global Attention is extrema route control
+
 
 ## MLP
 
 Adv:
 
 - memorization capacity
+- extrema network density
 
 Con:
 
 - compute intensive
 - Fixed function, can't dynamic adjust according length of input
+
+## UNet
+
+Main compute. Similar to CNN.
 
 ## VAE
 
@@ -267,3 +281,39 @@ Instead of iterative descent, train a network to predict the minimizer directly.
 ## Deep Equilibrium Models
 
 DEQ are memory efficiency & infinite depth, at cost of compute.
+
+## Kimi
+
+### Attention Residual
+
+Such underrate paper. What a simple idea!! L4 = sum(l4 + l3% + l2% + l1%). Just uses normal attention score.
+
+This increase nn density, reduce hops from deep network to shallow network.
+
+> This still NOT adapted compute, still same compute per token.
+
+- Locality as a Prior; Neural networks have a natural inductive bias toward locality.
+
+## Google
+
+https://newsletter.maartengrootendorst.com/p/a-visual-guide-to-gemma-4
+
+### Per-Layer Embeddings (PLE)
+
+Introduce in Gemma 4, acting as a "Semantic Reminder" inject input's info into stream.
+
+I think PLE just superset of Attention Residual design. Since Lookup table lives VRAM, & operate by CPU, there is reduce HBM pressure.
+
+There is gating variable controller determent inject amount.
+
+### p-RoPE
+
+Adjustable % tokens RoPE, later position RoPE often are noise.
+
+### K=V
+
+Global Attention Layers (The "K=V" Trick); Very interesting this works without crazy performance hit.
+
+### Visual soft token budget
+
+Each token budget for differ image resolutions with variable ratio.

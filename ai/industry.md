@@ -48,6 +48,36 @@
   - Investor allowable runway determents take off speed(intelligent) of LLM.
   - Automatic value ~ (success_task_% - failed_task_%) * task_value_$ - llm_cost_$
 
+## MLOps
+
+> Full pipeline of AI
+
+### Data Factory
+
+- Generate
+- Annotate
+- Validate
+
+### Eval Factory
+
+https://github.com/NVIDIA-NeMo/Evaluator
+
+AgentBench
+
+- Checkpoint
+- Benchmark
+- Throughput
+- Cycle Time
+
+### Inference Factory
+
+- Optimize
+- Build Container Image
+- Validate
+  - security scan
+  - accuracy
+  - performance
+
 ## Cache Strategies
 
 | Phase                     | Cache Type          | Description |
@@ -205,7 +235,7 @@ Adaptive Computation Time (ACT) / Universal Transformer style halting. Each toke
 
 - Design 1: Accumulated compute value until reach threshold
 - Design 2: Keep slide window of token's projects across layers, either KL or NN decides.
-- Design 3: Token Pruning & Merging to shrink context length
+- Design 3: Advance Routing (similar to MOE) support loop.
 
 token premium effects: differences in compression rates across languages.
 
@@ -528,6 +558,7 @@ assert f({1: 2, 2: 4, 3: 3}, 3) == ??
   - Early warning tests
 - Anthropic: Responsible Scaling Policy (RSP)
   - AI Safety Levels (ASL)
+  - Project Glasswing
 - OpenAI: Preparedness Framework
 
 - Mesa-optimizers

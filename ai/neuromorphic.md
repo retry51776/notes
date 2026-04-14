@@ -38,6 +38,9 @@
 
 ## Speculation
 
+- Both MOE & Group Query Attention (GQA) size prove that we needs to avoid connects every ideas together.
+  - Local & Smaller cluster are easier to adapt, less cross interference.
+
 - Compute density ~ neuron density.
   - neuron density has upper limited. Sometime people can't change, Maybe their neuron cluster overcrowded, new neurons don't have room to growth.
   - Similar to superposition interference.

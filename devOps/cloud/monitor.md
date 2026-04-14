@@ -12,13 +12,42 @@
 
 Additional ecosystem:
 
-- **OpenTelemetry** – standard for tracing front‑end services  
+- **Tempo** – trace backend storage; provides 100% trace retention
+
+`opentelemetry → prometheus → grafana`
+
+## opentelemetry
+
+> **OpenTelemetry** – standard for tracing front‑end services, do NOT include backend storage system.
+
+- 1. Instrumentation API	`how your app reports data (traces, metrics, logs)`
   - `trace_id` = global request ID
   - `span_id`  = per-service step
   - Upstream Service inject `traceparent` to downstream service, or manually inject into request's header
-- **Tempo** – trace backend storage; provides 100 % trace retention  
+- 2. SDK `collects + batches + processes data`
+- 3. Exporter `sends data to a backend in OTLP format`
+  - Traces `request flow, tree structured`
+  - Metrics `numeric time series`
+  - Logs `raw events, annotation json`
 
-`opentelemetry → prometheus → grafana`
+Common backends(Observability Platforms):
+
+- Managed:
+  - Datadog
+  - New Relic
+  - Honeycomb
+- Open Source:
+  - Grafana stack
+    - Tempo (traces)
+    - Mimir (metrics)
+    - Loki (logs)
+  - Zipkin (traces)
+  - SigNoz
+- Neocloud internal:
+  - Stackdriver / Google Cloud Operations
+  - Amazon CloudWatch
+  - Azure Monitor
+
 
 ## Zabbix
 
@@ -50,6 +79,34 @@ Infrastructure monitoring tool with complex alerts and many integrations (e.g., 
 
 Simple alert manager.
 
-### Other Tools
+## Langfuse
 
-- Stackdriver
+- Backend
+  - Organization
+    - Project
+      - session (group by user_id or session_id)
+        - trace (one request / workflow) `OpenTelemetry trace`
+          - spans (workflow step)
+            - generation
+
+- Client
+  - SDK
+    - Client Instance
+      - Trace
+        - Observation (span / generation)
+          - input
+          - output
+          - model
+          - usage
+          - metadata
+          - score
+
+```py
+npx skills add langfuse/skills --skill "langfuse"
+
+LANGFUSE_PUBLIC_KEY
+LANGFUSE_BASE_URL
+
+# langfuse Wrapper
+from langfuse.openai import openai
+```

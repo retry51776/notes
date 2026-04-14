@@ -21,9 +21,19 @@ https://zhuanlan.zhihu.com/p/2022438622347937238
   - AutoDream
 - Fresh Agent (new session)
 
-## Tool Use
 
-Pre/Post Tool Use hooks
+## Hooks
+
+- Session lifecycle
+- Prompt lifecycle
+- Tool execution lifecycle
+- Agent lifecycle
+- Other events:
+  - PermissionRequest
+  - Notification
+  - PreCompact
+
+matcher ~ filter
 
 ## Structure
 

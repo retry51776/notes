@@ -172,8 +172,8 @@ Loops → "how long you think"
 
 - LLM weights functions
   - inference weights
-    - encode/decode (Ex: embedding)
-    - compute (Ex: Attention, MLP)
+    - deterministic (Ex: embedding, LM head, RoPE)
+    - compute (Ex: Attention V, MLP)
     - routing (Ex: DSA, MOE, maybe even attention score)
       - benefit: decouple gradients, partition representational space, reduce interference
     - stability control (Ex: norm)
