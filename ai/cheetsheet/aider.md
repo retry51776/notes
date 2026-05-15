@@ -62,3 +62,16 @@ execute_generator_loop
 
 
 ## Opencode
+
+Log path: `~/.local/share/opencode/log`
+User plugins: `~/.opencode/plugins`
+
+https://opencode.ai/docs/troubleshooting/
+
+
+## Designs
+
+- Reproducibility
+  - Exportable session.
+  - Agentic system's plugins should allow mock input & mock_tool_calls.
+    - `if (mock_return && admin) return mock_return` early exit on each plugins

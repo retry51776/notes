@@ -210,6 +210,7 @@ Tools:
 
 - SLURM
 - nvidia-smi pmon
+  -  NVML is c++ library expose nvidia-smi to addon
 - gpustat `nvidia-smi wrapper`
 - Triton metrics
 - <https://github.com/NVIDIA/dcgm-exporter>

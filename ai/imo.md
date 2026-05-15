@@ -84,6 +84,7 @@ Destination:
 Parameters → "what you know"
 Loops → "how long you think"
 
+- Learning is not about memorize same thing, it's about understand & absorb differences.
 
 - Merge PR ~ RL changes into LLM
   - My heuristic ≠ LLM heuristic

@@ -222,6 +222,8 @@ Think of OATH 2.0 as an authentication standard family.
 2. Create the user on the remote Linux server.
 3. Copy the public key into `/home/user_name/.ssh`.
 
+or use `ssh-copy-id user_name@host_name` to copy to remote server `~/.ssh/authorized_keys`.
+
 ### Windows SSH
 
 - `ssh-rsa` is a public key format often seen in developer workflows.

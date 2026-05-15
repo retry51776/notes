@@ -52,6 +52,14 @@
 
 > Full pipeline of AI
 
+### Control Plane
+
+> Assign GPU works, spawn & kill process. Control Plane. Swap hot spare. Heal monitor.
+
+### CheckPointer
+
+> Async save LLM state into DDR(~5min), then SSD(~30min), then HDD(~3hr).
+
 ### Data Factory
 
 - Generate
@@ -77,6 +85,10 @@ AgentBench
   - security scan
   - accuracy
   - performance
+- Key controls
+  - Batch size
+  - tps per user
+  - Prefill worker vs decode worker
 
 ## Cache Strategies
 
@@ -128,10 +140,23 @@ attention scores
 
 ### Precision & Quantization
 
-- **Quantization formats**  
-  - AWQ – activation‑weight quantization.  
-  - GGUF – CPU‑focused.  
-  - GPTQ – GPU‑focused.
+- **model formats**
+  - `.safetensors` - [header JSON metadata][binary tensor blobs], source checkpoint, can convert to any runtime.
+    - tensor-per-layer
+    - support by mlx or llama runtimes
+    - other formats: `awq`, `exl2`
+      - salient weight
+  - `.gguf` – deployment artifact for llama.cpp-class runtimes.
+    - weights split into blocks (e.g. 32/64 elements)
+      - hierarchy scaling - 256 group on top 32 group
+    - layout is hard-coded for GGML kernels
+  - `models/blobs/sha256-xxxx` Ollama Modelfile
+    - similar to dockerfile bundle gguf with
+      - model registry
+      - versioning
+      - prompt templates
+      - system prompts
+      - tool configs
 
 - **Precisions**
   - F32 - optimizer parameter still uses.
@@ -143,8 +168,8 @@ attention scores
     - E8M0
   - FP4 (Ollama default)
     - NF4 - Hardcoded 16 numbers -1 to 1
-    - MXFP4
-    - NVFP4
+    - MXFP4 range -6 to 6; `-6 .... 0.0, 0.5, 1.0, 1.5, 2, 3, 4, 6`; 32 block number with scaler.
+    - NVFP4 https://developer.nvidia.com/blog/introducing-nvfp4-for-efficient-and-accurate-low-precision-inference/ 16 block
 
 > Different components of Transformer has different precision needs.
 >> Q, K, V, FFN, early layers are less sensitive to precision; embedding, normalization, KV cache are sensitive to precision.
@@ -156,9 +181,9 @@ $$\frac{\text{KV per token}}{\text{layer weights}} \approx \frac{2 \cdot d_{\tex
 
 ## General Landscape
 
-- **Machine‑learning frameworks**: PyTorch, TensorFlow, FlashAttention.  
-- **Model formats**: `.bin`, `.gguf`, `.safetensors`.  
-- **Pre‑training** – large‑scale training (e.g., DeepSpeed).  
+- **Machine‑learning frameworks**: PyTorch, TensorFlow, FlashAttention.
+- **Model formats**: `.bin`, `.gguf`, `.safetensors`.
+- **Pre‑training** – large‑scale training (e.g., DeepSpeed).
 - **Post‑training** – LoRA, fine‑tuning, RLHF, synthetic data.
   - Instruction fine-tuning - common phrase, undesired answer, answer format; Q & A formats
   - Preference fine-tuning - Rank subset responses over others
@@ -167,6 +192,7 @@ $$\frac{\text{KV per token}}{\text{layer weights}} \approx \frac{2 \cdot d_{\tex
   - <https://crfm.stanford.edu/helm/>
   - <https://lmarena.ai/leaderboard>
   - <https://huggingface.co/spaces/ArtificialAnalysis/>
+- Forward Deploy Engineer
 
 ### Inference Framework
 
@@ -183,7 +209,7 @@ $$\frac{\text{KV per token}}{\text{layer weights}} \approx \frac{2 \cdot d_{\tex
 | Category | Examples |
 |----------|----------|
 | Research | `transformers`, `llama.cpp` |
-| Inference Engine | JAX, ONNX, **TensorRT**, **vLLM**, SGLang |
+| Inference Engine | JAX, ONNX, **TensorRT**, **vLLM**, SGLang, NVIDIA Megatron-LM / Megatron-Core |
 | Inference Orchestrate Framework | llm-d, Ray, Dynamo |
 
 - **TensorRT**
@@ -312,9 +338,9 @@ piktochart
 
 ### Robotics
 
-- Physical intelligence (OpenAI, Tesla)  
-  - Pi Zero – open‑source physical engine.  
-- Boston Dynamics – owned by Google.  
+- Physical intelligence (OpenAI, Tesla)
+  - Pi Zero – open‑source physical engine.
+- Boston Dynamics – owned by Google.
 - Unitree – Chinese robot company.
 
 #### Unitree G1 Specs (excerpt)
@@ -376,35 +402,36 @@ piktochart
 
 ## Workflow Platforms
 
-- Low‑code: FlowiseAI, n8n.  
+- Low‑code: FlowiseAI, n8n.
 - Python chains: smolagents, LangChain.
+- Pipecat: voice
 
 ### Agent Features
 
 - instruction hierarchy (LLM able prioritize instruction base off roles)
-- Structured output parsers (system prompt + output parser).  
-- Tool usage vs. explicit tool calls (e.g., Llama 3.1 lacks native tool calls; 70B works fine).  
+- Structured output parsers (system prompt + output parser).
+- Tool usage vs. explicit tool calls (e.g., Llama 3.1 lacks native tool calls; 70B works fine).
 - Penalties: presence & frequency can improve reasoning.
 
 ## Agents
 
-- AutoGen (Microsoft)  
-- ADK (Google)  
+- AutoGen (Microsoft)
+- ADK (Google)
 
 ### Agent Types
 
-- CLI agents (Claude CLI, Codex).  
+- CLI agents (Claude CLI, Codex).
 - GUI agents (Continue.dev, Cursor).
 
 ## Protocols
 
-- MCP (Model Context Protocol) – inject system prompts, tool descriptions, and response formats.  
+- MCP (Model Context Protocol) – inject system prompts, tool descriptions, and response formats.
 - A2A (Agent‑to‑Agent) – asynchronous task assignment with status callbacks.
 
 ## Tools & Utilities
 
-- Chain: predefined workflow.  
-- Agent: dynamic workflow.  
+- Chain: predefined workflow.
+- Agent: dynamic workflow.
 
 ### Vector Databases
 
@@ -413,7 +440,7 @@ piktochart
 
 ## Retrieval‑Augmented Generation (RAG)
 
-- Context size vs. RAG: summarization needs large context; translation can use RAG.  
+- Context size vs. RAG: summarization needs large context; translation can use RAG.
 - Strategies: reranking, query expansion, fake answer search, agentic tools, property graphs, RDF.
 
 ### Context-1
@@ -437,8 +464,8 @@ Decide: enough info?
 
 ## Debugging & Evaluation
 
-- Tracing: Jaeger, Langfuse.  
-- GraphRAG – knowledge‑graph based retrieval.  
+- Tracing: Jaeger, Langfuse.
+- GraphRAG – knowledge‑graph based retrieval.
 
 ### Evaluation Methods
 
@@ -483,7 +510,7 @@ Decide: enough info?
     - execution commands
     - execution results
     - review result
-  
+
   - Mutate-fix task `introduce bug on work code, let LLM fix broken code`
   - Issue-fix task `open Github PR on github issue`
   - Deduplication `concatenation all actions, have another LLM train to learn these trajectories, only train with not predictable trajectories.`
@@ -558,7 +585,7 @@ assert f({1: 2, 2: 4, 3: 3}, 3) == ??
   - Early warning tests
 - Anthropic: Responsible Scaling Policy (RSP)
   - AI Safety Levels (ASL)
-  - Project Glasswing
+  - Project Glasswing2
 - OpenAI: Preparedness Framework
 
 - Mesa-optimizers

@@ -3,6 +3,7 @@
 ## Frustration
 
 - `np.concatenate` `np.dot` are NOT support
+- fixed kernels backend, not allow swap kernels.
 
 ## OSS chat template
 >

@@ -16,6 +16,7 @@ default workflow path: ~/Documents/ComfyUI/user/default/workflows
 - FP8 formats (E4M3, E5M2) is NOT support by mac os
 - VAE failed on mps backend, launch ComfyUI with `--cpu-vae` flag
 - ACE 1.5 can't generate song above 500 seconds.
+- Ksampler ALWAYS set to `sample_name=euler_ancestral, scheduler=beta`
 
 ## Recovery Moves
 

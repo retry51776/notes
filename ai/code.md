@@ -15,15 +15,25 @@ pip3 install torch -U
 # Metal Performance Shaders (MPS)
 import torch
 print(torch.backends.mps.is_available())  # Should return True
-print(torch.backends.mps.is_built()) 
+print(torch.backends.mps.is_built())
 
 # pytorch matrix defined into specific GPUs
 import torch.distributed as dist
 device_tensor = torch.empty(1, device="cuda:1")
 # NCCL disturbed operation
 dist.all_reduce(input=device_tensor, output=output, op=dist.ReduceOp.SUM)
+# Group weights into bucket, once bucket excess nbytes threshold,
+
+# For python RAY worker, NCCL to broadcast between ray workers.
+import ray.util.collective as collective
+collective.broadcast(self.bucket, src_rank=0, group_name=self.group_name)
 
 export PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0
+
+# ZeroMQ broadcasts the Python metadata describing what is inside that bucket
+self.socket.send_pyobj(self.metadata) # socket is ZeroMQ
+self.metadata = self.socket.recv_pyobj()
+
 
 # Default HuggingFace downloads folder
 ~/.cache/huggingface
@@ -106,14 +116,14 @@ ollama serve
 ollama pull llama2:7b
 ollama run llama2:7b
 
-OLLAMA_KEEP_ALIVE=1              # 0 is unload, negative is stay in RAM, 
+OLLAMA_KEEP_ALIVE=1              # 0 is unload, negative is stay in RAM,
 OLLAMA_KV_CACHE_TYPE=q8_0        # storing past attention states, reducing redundant computations (default: f16)
 OLLAMA_NUM_PARALLEL=1            # The maximum number of parallel requests each model will process at the same time
 OLLAMA_FLASH_ATTENTION           # Reduce RAM
 OLLAMA_MAX_QUEUE
 
 http://localhost:11434
- 
+
 http://host.docker.internal:11434
 
 
@@ -276,7 +286,7 @@ q = (
 #   Repeated axis name (i i) ⇒ take diagonal
 
 # einsum()
-#   Omitted axis ⇒ SUM; 
+#   Omitted axis ⇒ SUM;
 #   Shared axis across inputs ⇒ MULTIPLY + SUM;
 
 # rearrange() never changes data
@@ -477,7 +487,7 @@ for name, param in model.named_parameters():
 import transformers
 print(transformers.models.qwen2.modeling_qwen2.__file__)
 
-''' 
+'''
 model.layers.3.post_attention_layernorm: Qwen2RMSNorm((5120,), eps=1e-05)
 ---
 model.layers.4: Qwen2DecoderLayer(
@@ -680,7 +690,7 @@ Developer or Produce Owner should pick design from here as UX ground for agent.
 > 2~4 × improvement pytorch
 
 ```bash
-trtllm-build 
+trtllm-build
 trtllm-serve
 
 # A100
@@ -783,7 +793,23 @@ PrefillWorker:
 '''
 
 # Build a docker image
-dynamo build 
+dynamo build
+```
+
+## VLLM
+
+vllm's backend is GPU kernels, vllm allow you overwrite with custom backends(swape GPU kernel).
+
+```py
+# Option A: force vLLM to use an existing backend it already supports
+from vllm import LLM
+
+llm = LLM(
+    model="Qwen/Qwen3-7B",
+    attention_backend="FLASH_ATTN",   # or TRITON_ATTN / FLASHINFER / etc. custom kernel
+)
+
+# CustomOp
 ```
 
 ## Visual Tools

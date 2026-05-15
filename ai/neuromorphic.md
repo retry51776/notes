@@ -11,6 +11,36 @@
 > Human don't receive error, we get feedback from interaction. But error can NOT back propagation(neuron only fires 1 direction), but how to back propagation feedback? Maybe that's why positive discipline works, maybe success easier learned(back propagation) than failure. (I don't think it's success or failure matter, rather emotional level) <https://arxiv.org/abs/2406.08747>
 >
 
+## Interaction Principal
+
+- abstract away upstream complexity
+  - LLM uses chain rule (keep scope local)
+    - Chain rule is powerful, enable bidirectional. But constrain NN flow be directional, unlike brain.
+  - Brain some unknown biology
+- Adapted Learning
+  - LLM adjust weights
+  - Brain has Neuron Plasticity
+- Routing vs Compute
+  - LLM uses attention, MOE as routing
+  - Brain cluster has different neurons density at different layers, assume denser layers are compute, sparse layers are routing.
+
+## Architecture
+
+Emerge Behaviors:
+
+- no forget mechanism
+- memorized differences, memorization just emerge properties
+- cluster ideas
+- momentum of thinking
+- hierarchy of feature extraction
+
+Different:
+
+- LLM NN can both forward & backward, but brain neurons can't.
+  - I assume abstract upstream & adjust on cluster level, but forward and backward must be on different paths.
+- LLM same compute path per token, human repeat will get easier.
+- LLM's residual stream in central system. Brain has distributed residual streams.
+
 ## Neuron Plasticity
 >
 > There are many dimensions neuron plasticity;
@@ -38,6 +68,24 @@
 
 ## Speculation
 
+- citizen-initiated ballot analogy
+  - Query ~ Ask ~ Sensor data; current voting ballot.
+    - new_query = new_Query(Value(old_query)); After town citizen voted, collected all voted & generate new ballot for next town.
+  - Key ~ Acknowledge ~ city consoles. (Duty: 1. Accept ballot; 2. Find town citizen that knows ballot;)
+    - K cache ~ elected consoles's decisions;
+      - K cache is same neuron, but different connections(actual value need stored).
+      - K is good feedback point.
+    - Score ~ citizen's attention about ballot.
+  - Value ~ Answer ~ town citizens. (Duty: 1. Vote on ballot; 2. Generate new ballot;)
+    - V cache ~ citizen vote history; Output control signal;
+  - Residual Stream ~ propagate across dense layers
+    - Brain must be distributed residual streams.
+
+- Transformer predict 1 token is like clawing, MTP is like walking. Most likely jump skip prediction Nth tokens ~ human expectation, when exception > threshold & use expected RS & skip normal flow ~ lazy thinking.
+  - Lazy thinking ~ GPU fast path (like build-in distill nn)
+  - Normal Transformer flow ~ GPU slow path
+  - deep thinking ~ fork to deep nn flow
+
 - Both MOE & Group Query Attention (GQA) size prove that we needs to avoid connects every ideas together.
   - Local & Smaller cluster are easier to adapt, less cross interference.
 
@@ -50,6 +98,8 @@
 - We can simplify human inference to the point upload to cloud. But simplification will distort actual human development trajectory.
 
 - Communication Through Coherence (CTC) `Neurons that fire in the same oscillation phase communicate more effectively.`
+- Reward Shaping ~ partial credit;
+  - Dopamine ~ partial credit for reproduction. Reproduction is final reward, but too sparse. So Dopamine is partial credit for actions leads to reproduction.
 
 - hypothesis: Neuron naturally has incentive balance activity across networks.
   - Over active neurons will die out.
@@ -155,3 +205,8 @@ Hodgkin-Huxley model:
   • Gating variables (m,h,n)
   • Synaptic currents
   • Population firing rates
+
+
+## Psychology Interpretation
+
+Way to interact stubborn people, it's not through BP, rather introduce diverse input (ask questions).

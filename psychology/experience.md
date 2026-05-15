@@ -17,21 +17,24 @@
 
 ## Table of Contents
 
-- [Opinion](#opinion)
-  - [China Opinion](#china-opinion)
-  - [Psychology Opinion](#psychology-opinion)
-  - [Economic Opinion](#economic-opinion)
-- [Philosophy](#philosophy)
-  - [Personal Philosophy](#personal-philosophy)
-- [Practical Principles](#practical-principles)
-- [Frameworks](#frameworks)
-  - [Bayesian Statisticians](#bayesian-statisticians)
-  - [Life Is a Video Game](#life-is-a-video-game)
-  - [Society & Time](#society--time)
-  - [Science Pyramid](#science-pyramid)
-  - [Brain Characteristics](#brain-characteristics)
-  - [Drive toward Future](#drive-toward-future)
-- [Skills](#skills)
+- [Experience](#experience)
+  - [Table of Contents](#table-of-contents)
+  - [Opinion](#opinion)
+    - [China Opinion](#china-opinion)
+    - [Psychology Opinion](#psychology-opinion)
+    - [Economic Opinion](#economic-opinion)
+  - [Philosophy](#philosophy)
+    - [Personal Philosophy](#personal-philosophy)
+      - [Approaches to Solution](#approaches-to-solution)
+    - [Practical Principles](#practical-principles)
+  - [Frameworks](#frameworks)
+    - [Bayesian Statisticians](#bayesian-statisticians)
+    - [Life Is a Video Game](#life-is-a-video-game)
+    - [Society \& Time](#society--time)
+    - [Science Pyramid](#science-pyramid)
+    - [Brain Characteristics](#brain-characteristics)
+    - [Drive toward Future](#drive-toward-future)
+  - [Skills](#skills)
 
 ---
 
@@ -94,7 +97,7 @@
 
 - Credit Assignment is root of many problem;(wealth distribution, LLM training, learning deficit)
 - Growth ~ system temperature ~ reduce friction/bond between individual. Stagnation ~ zero sum game incentivize individual fight instead corporation.
-- Assuming unlimited supply, quality vs. price follows an exponential relationship, whereas quantity vs. price follows a logarithmic relationship.
+- Assuming unlimited supply, quality vs. price follows an **exponential** relationship, whereas quantity vs. price follows a logarithmic relationship.
 
 - Trade‑off between Redundancy–Efficiency in production.
   - Redundancy Ex: China High Speed Rail over‑built due to insufficient validation. Military Industry.
@@ -105,6 +108,7 @@
 
 - Technological progress fuels production efficiency, which concentrates markets; concentrated markets centralize consumption, creating the scale and resources that drive further technological progress.
   - Technological Progress → Production Efficiency → Market Concentrate → Consumption Concentrate → Technological Progress
+- As we move to frontier knowledge, there are more paths to be wrong than right, logically correct path will be consistency.
 
 ---
 

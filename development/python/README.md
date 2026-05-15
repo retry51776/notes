@@ -59,6 +59,8 @@
 - **3.12**
   - Debug‑friendly f‑strings: ``f'His name is {name=}'``
   - Typing enhancements
+- **3.14**
+  - t-string better version of f-string
 
 ## Frustrations
 

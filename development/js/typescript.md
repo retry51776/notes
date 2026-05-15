@@ -43,3 +43,9 @@ const funx = (a: number | null, b: number | string): void => {
   return;
 };
 ```
+
+## trpc
+
+trpc is a framework that allows you to build end-to-end typesafe APIs without needing a separate schema or code generation step.
+
+When you define an input (using a library like Zod) and a return type on your server, your frontend IDE will immediately know exactly what data it's receiving.

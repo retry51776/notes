@@ -9,6 +9,7 @@ ANOVA stands for Analysis of Variance.
 - NumPy
   - CuPy is Single GPU numpy replacement, cuPyNumeric auto partition across GPUs
 - pandas
+  - CuDF is Single GPU pandas replacement, Dask-cuDF auto partition across GPUs
 - scikit‑learn
   - RAPIDS cuML is CuPy's scikit‑learn
 

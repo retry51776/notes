@@ -41,6 +41,8 @@
 
 ## LLM Tips
 
+- Threat LLM often improve performance.
+- Prompt engineering is NOT about the choice of word. The key is structure of prompt, use repetition to emphasize priority, attach clear context.
 - """use parallel subagents to XXX"""
 - Explain in mechanistic terms, not marketing terms.
 - For extraction task, tell LLM assigned default value when no info, and do not make any assumptions.
@@ -79,7 +81,8 @@
 - LLM future improvement
   - habit simulation
     - Learned Gating Mechanisms
-    -
+
+- Doom Loop `small LLM often repeat/loop, not decide.`
 
 ## Useful Prompts
 
@@ -117,6 +120,34 @@ Instructions:
 2. If YES → answer using only the reference.
 3. If NO → refuse with the exact message above.
 4. Do NOT hallucinate or supplement with external knowledge.
+```
+
+
+```md
+Explain this paper mechanistically.
+
+Do NOT give a marketing summary.
+
+For each major component:
+- explain the exact data flow
+- explain what problem each component solves
+- explain why this design may work better than prior methods
+
+Highlight:
+- hidden assumptions
+- implementation-critical details
+- numerical stability concerns
+- memory/computation tradeoffs
+- hardware implications
+
+Whenever possible:
+- use concrete examples
+- track tensor shapes
+- explain step-by-step
+
+At the end:
+- summarize the actual novelty in 3 precise technical bullets
+- list likely reproduction difficulties
 ```
 
 ## Pitfalls

@@ -1,5 +1,24 @@
 # Project Misc Stuff
 
+## Project Governance
+
+> Project governance now is real bottleneck since AI makes contribution so much easier.
+
+- https://github.com/cncf/project-template
+  - charter.md
+    - Mission
+    - Role
+    - Values
+    - Membership
+    - Governance Rules
+    - General Rules and Operations
+    - Amendments
+  - MAINTAINERS.md
+  - style-guide.md
+
+https://github.com/odpi/specs/wiki/ODPi-Code-of-Conduct
+https://egeria-project.org/guides/project-operations/#maintainers
+
 ## Dependency
 
 > Prefer projects from open‑source foundations; they should be mature and have fewer breaking changes.

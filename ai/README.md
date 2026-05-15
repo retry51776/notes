@@ -94,6 +94,13 @@ Most likely automate by AI industries traits:
   - Hardware: Disk < Infinity Switch < InfiniBand < HBM < L1 cache
   - LLM: fussy memory @ LLM weights < determinist memory @ context window < relevant memory @ residual stream
 - Hardware failure needs complex multi level monitor system
+- Some LLM(Ex: qwen) refuse answer when there is only single system message
+- Lot of small file (LOSF) may cause random unmount volumnes; patch with `autofs`
+- verify that their InfiniBand network is properly isolated
+- It's SO hard to estimate RAM requirement when running training.
+  - LLM answer length variance.
+  - No ideas 3rd party libraries doing, what RAM they need.
+- Measure LLM is very hard, and expensive.
 
 ## FAQ
 

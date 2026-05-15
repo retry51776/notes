@@ -433,6 +433,8 @@ layout: two-cols-header
   </div>
 </div>
 
+<b>ALWAYS</b><small> save mission's input & response in format(json) that can <b>rerun</b> again in Agentic Sytem</small>
+
 ::right::
 
 <div class="space-y-3 mt-2">
@@ -448,8 +450,8 @@ layout: two-cols-header
     - name & description
     - main instructions
   - /reference
-- session.md
-- CLAUDE.md (project-level persistent profiles update by dream)
+- session.md (rerun task for optimzation)
+- CLAUDE.md (project-level persistent profiles)
 
 
 <div class="absolute bottom-4 left-0 w-full text-center text-sm text-gray-400">
@@ -578,6 +580,8 @@ layout: default
   Route resets, summaries, checkpoints, and fresh sessions are not
   optional hygiene. They are control systems.
 </div>
+
+- IMO most LLM reasoning logic degrade after 10% max context window or 32k.
 
 <div class="absolute bottom-4 left-0 w-full text-center text-sm text-gray-400">Consider different Agent profiles(with different LLM engine) for different mission sections.</div>
 

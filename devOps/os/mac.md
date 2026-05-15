@@ -77,3 +77,7 @@ deinit()
 // Swift Package Manager (SPM)
 swift package resolve
 ```
+
+## Pitfalls
+
+- On macOS, the command `xattr -cr xxx.app` is used to remove extended attributes from an application file, which effectively fixes the "App is damaged and can't be opened" error.

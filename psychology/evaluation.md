@@ -1,6 +1,18 @@
 
 # Evaluation
 
+## Evolution steering
+
+Environmental priming / Behavioral conditioning
+
+- Bird sound implies safety
+- Open visibility historically reduced ambush risk.
+- Preference
+  - Flowing water
+  - orange light
+  - Low, slow, rhythmic voices
+
+
 ## IMO
 
 - Can psychology being model?
@@ -206,7 +218,7 @@ Instructions:
 
 ## Individual Time
 
-Time IS known constrain on EVERYONE. Check list here doesn't sum up 100% because over lapse. But still important to evaluate time spent.  
+Time IS known constrain on EVERYONE. Check list here doesn't sum up 100% because over lapse. But still important to evaluate time spent.
 
 - Sleep 33%
 - Work 22%

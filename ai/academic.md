@@ -134,8 +134,16 @@ Stage:
   - Parameter Efficient Fine Tuning(PEFT)
     - google/IFEval
   - LoRa `Attach extra weight to original model feed forward layer, then train these extra weight; usually mb size`
+    - In SVD, only keep topK V identity. So LORA keep most important values. Similar break large number into prime numbers, then only keep topK primes.
   - On Policy Distillation `kl(student_prob - teach_prob)`
   - RLAIF (RL from AI Feedback)
+  - intrinsic reward methods (won't learn new knowledge)
+    - majority voting across multiple
+rollouts
+    - verbalized-base approach
+      - reprompt
+      - feedback
+      - binary judgment (correct/wrong)
 
 - L1 regularization `L1 regularization penalizes the sum of the absolute values of the weights in the network. This encourages the network to use a smaller number of weights, and it can also help to prevent over fitting.`
 - L2 regularization `L2 regularization penalizes the sum of the squares of the weights in the network. This also encourages the network to use a smaller number of weights, and it can also help to improve the generalization performance of the network.`
@@ -145,10 +153,15 @@ Stage:
 - Groking `Training lost doesn't improve & Testing lost is huge. Continues training will sudden have testing lost improve, and stabilize testing lost.`
 
 - Perplexity in LLMs is a metric for how well the model predicts a sequence of tokens
+- Reward Shaping ~  partial credit
+  - Proxy Loss & Proxy Reward
+    - training reward model - BP proxy loss into Police, then generate New Police output, calculate new real loss changes, then compares to old loss, then adjust proxy loss.
+- Test Time Training - just like Test Time Reasoning, but for RL.
 - bias-variance tradeoff - overfitting training data. As LLM size increase, bais error is easy to reduce(aka training error), while variance(range of understanding) error domain, then variance error decrease.
   - The problem is human brain are similar, so default variance are small. But LLM are very different, larger variance relative to another human.
 - gradient descent `Compute batch avg lose, nudge a little by batch avg lose direction. It works because unlike it stuck at local min, stuck requires all dimensions are at local minimum at the same time`
   - big batch size can support large learning rate, small batch size should able fine tune. RL ~ batch size = 1; Think as case specific knowledge can't be mixed.
+  - Input Gradient(has dependence) VS Weight Gradient(with no dependence, can decouple)
 - epoch, batch, slot
 - Collective Operations
   - Broadcast
@@ -280,15 +293,43 @@ residual stream/latent space `The intermediate output between NN layers`
 
 > Dynamic Activation Pruning and Optimization (DAPO): L1 that prune inactive / low-importance neurons or channels during training
 
-### Pretrain
+## Pretrain
 
 > Pretrain is all about imitation.
 
-### Supervise Finetune Training(SFT)
+### Normalization
+
+> Bring activation back to central area. Imbalance activation will cause dead neurons.
+
+>> Maybe activation builtin normalization?
+
+- softmax `rescale to unit circle`
+  - Online softmax is element wise ops
+- Error Function (ERF)
+  - Dynamic ERF (Derf)
+- Dynamic Tanh (DyT) `rescale to square`
+- Root Mean Square `rescale to sphere`
+
+Normalization Dimensions:
+  - Batch Norm
+  - Layer Norm
+  - Instance Norm
+  - Group Norm
+
+
+## Supervise Finetune Training(SFT)
 
 > SFT can't scale, generate the whole distribution is too expensive. Also too hard to judge/score SFT solution.
 
-### Reinforcement Learning
+Existed human generated data often without human's COT, but SFT is more stable than RL. Often acts as warn up step for RL.
+
+### Unsloth Studio
+
+- full fine tune
+- 16bit Lora
+- 4bit QLora
+
+## Reinforcement Learning
 
 > Think of it as outer loop of learning.
 
@@ -298,7 +339,14 @@ residual stream/latent space `The intermediate output between NN layers`
 
 > The limitation of RL is reward sparsity, which it's why important to have small achievable goal.
 
+> RL requires baseline policy already has SOME success rate. This only works on medium difficulty problems.
+
 > RL is mostly close source, with many diverse approaches.
+>> Often SFT warn up, then small LORA check effectiveness, then continues RL.
+
+> RL need diverse data, (mixed public RL dataset, average again with original weights, increase reward functions) avoid forgetting.
+
+> Update gradient should consider = success - baseline
 
 Good LLM RL practices:
 
@@ -318,6 +366,7 @@ RL Types:
 - Outcome RL with Verifiers (scalable)
 - Self-Play / Debate / Multi-Agent RL (improve reasoning)
 - Online RL with Real Usage
+- R-Zero as a "Generative Adversarial Network (GAN) for Reasoning"
 
 
 Keys:
@@ -327,6 +376,16 @@ Keys:
 
 Thinking should be categorical, not effector base.
 Ex: argentic think - progress; Reasoning think - static-monologue thinking;
+
+- off-policy problem - Policy drifted away from behavior policy.
+- reward model
+  - score's absolute scale doesn’t matter, relative differences matter
+- policy
+- environment
+- LLM judge
+  - partial credit
+  - reward hacking detection
+- goal instruction -> LLM generated artifacts -> grader(python logic includes `parser -> validator -> executor`) -> update LLM -> repeat.
 
 ### Agentic Thinking
 
@@ -360,7 +419,7 @@ Harness:
 
 > Collect set of complete responses, each token calculate its advantage estimate(from reward_model) & baseline_value(from ref_model)
 
-- police_model/SFT model - AI that takes input & generate output action.
+- police_model/SFT model/rollout - AI that takes input & generate output action.
 - ref_model - Frozen SFT model, uses to calculate lose by compare new action vs old action
 - reward_model - LLM with LORA(attach head) trained with ranking loss.
   - Learn from human how to rate LLM output
@@ -413,6 +472,64 @@ Harness:
   - residual stream variance
   - attention entropy
   - ?
+
+### Self Distillation
+
+Combine LLM rollout({prompt}{solution}{runtime_result}), correct_solution, unsuccessful_feedback, prompt_again. Ask teacher LLM resolve question given previous failure. Use in-context learning with RL.
+
+Then calculate KL loss between teacher's answer vs student's answer.
+
+- Trajectory level `broadcasts that same scalar across tokens.`
+- Token level `raise or lower the probability of this chosen token, ignore other candidate tokens.`
+- Logit level - KL/JSD `reshape the full distribution to match the teacher’s beliefs`
+- ?? expert level ??
+
+policy-side package:
+
+- actor/trainer = the trainer who calculate loss & updates policy
+  - reprompted richer context + the same old response.
+  - teacher's reprompt NOT generate new response; rather run prefill generate old response logits, find out how much teacher DISLIKE old response when given right answer; The assumption/reason is right answer will generate strong deterrent force on wrong tokens.
+    - This IS same phenomenon when senior developer HATES read his older code!! Those mistakes he noticed generate strong dislike.
+- rollout/policy = the generation/sampling side used to collect
+  trajectories
+- ref = a frozen/reference policy used for KL-style regularization
+  or SDPO paths
+- model = shared model config for those components
+
+algorithm handles the RL math and training-rule side, not the policy model itself. No need train critic module like PPO.
+
+  In this repo, algorithm is the top-level config for things like:
+
+  - reward shaping / KL-in-reward
+  - advantage estimation method
+  - discounting and GAE parameters
+  - off-policy rollout correction
+  - a few PPO-variant switches like PF-PPO
+
+```py
+# compute advantages
+batch = critic.compute_values(batch)
+batch = reference.compute_log_prob(batch)
+batch = reward.compute_reward(batch)
+batch = compute_advantages(batch)
+```
+
+### R-zero
+
+> Assume logical truth is more self-consistent than random errors. But some tasks naturally has diverse answers, we exclude them by set Challenger uncertainty score preference.
+
+- uncertainty score ~ answer's consistency.
+- Challenger max reward when its generate question is 50% uncertainty score.
+- Advantage(A) - GRPO's advantage score. `Relative Signal`
+
+### RL frameworks
+
+- areal
+- Magistral
+- streamrl
+- asyncflow
+- PyTorch
+  - Fully Sharded Data Parallel v2 (FSDP2)
 
 ## Mechanistic Interpretability
 >
