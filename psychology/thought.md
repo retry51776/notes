@@ -11,6 +11,8 @@
 
 > pupil dilating ≈ mental effort
 
+> Short video has reward dopamine make sense. LLM prefer smaller prompt, less kv cache & compute. Naturally brain avoid long thoughts, that is expensive.
+
 > People too lazy constantly reevaluating their conclusions, it's much easier to just label/make x conclusion once, and continue build flawed conclusions on top of old flawed foundation.
 
 > **Empathy entitlement** is common problem. Emotion has strong internal & external effect, maybe relates to emotion regulation.

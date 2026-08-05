@@ -39,7 +39,7 @@ Most likely automate by AI industries traits:
   - variance?
     - messy real-world physical manipulation
     - standard formats?
-    - student in edu process (different success rates)
+    - different success rates (Ex: student goes through same class but different grades)
 - output
   - digital? (text, image, audio, video, code, or structured decisions)
   - observability?
@@ -73,7 +73,8 @@ Most likely automate by AI industries traits:
 
 <hr/>
 
-> Token(LLM output) is NOT what we want, it's just an intermediary. We don't want to read answer, rather we want to CHANGE/LEARN our BRAIN(residual stream) by reading answer.
+> LLM is predictive, but what we need prescriptive.
+> > Token(LLM output) is NOT what we want, it's just an intermediary. We don't want to read answer, rather we want to CHANGE/LEARN our BRAIN(residual stream) by reading answer.
 
 - Token(str: atom)
 - Embedding(vector @ beginning of LLM: atom's lowest energy/identity state)
@@ -102,12 +103,67 @@ Most likely automate by AI industries traits:
   - No ideas 3rd party libraries doing, what RAM they need.
 - Measure LLM is very hard, and expensive.
 
-## FAQ
+## Interesting POV
 
+- LLM is predictive, what we need is prescriptive.
+- LLM, Brain are networks; with 2 perspective: `inference goal` & `network control theory`.
+- The training data property that LLM relied on: random noise will average out evenly, logical behavior will NOT average out because logical behavior property is consistency.
+- There are no irreducible logic.
+- Memorization is goal / emergent behavior, not fundamental operative. Ex: DB also achieve memorization, but its fundamental operative is balance tree.
+  - Sure transistor acts like a switch, so most fundamental operative is ALWAYS if statement.
 - LLM is **NOT** a function ONLY generate single token, residual stream can decode as **full shifting tokens**. That's why we can pre-train LLM with huge amount data.
+- LLM weights functions
+  - inference weights
+    - deterministic (Ex: embedding, LM head, RoPE)
+    - compute (Ex: Attention V, MLP)
+      - Matrix Ops ~ divide & conquer & regroup(robustness & superposition)
+    - routing (Ex: DSA, MOE, maybe even attention score)
+      - benefit: decouple gradients, partition representational space, reduce interference
+    - stability control (Ex: normal layer)
+  - training weights
+    - loss function
+    - optimizer state
+      - direction
+      - momentum
+    - activation/activation checkpoints
+    - custom settings (Ex: LR, decay)
 
 ## Tradeoff
 
 - capacity utilization vs sensitivity/robustness
 - capacity vs compute
 - throughput vs compute
+- Plasticity vs Generalization
+  - Generalization rely on noise cancel out each other.
+- Stability-Plasticity Dilemma
+  - BP has strong constrain on network stability. dynamical isometry!
+
+
+## DL Theory
+
+weight matrix ~ transformation;
+- spectral norm ~ single scalar number represent max stretch
+
+activation function ~ cut after transformation; irreversible change;
+
+Known layer weight constrains:
+
+- Weight Distributions Gaussian; (NOT normal distributions)
+  - Heavy-Tailed Weight Spectra; (Many weights end up contributing very little)
+- mean ~ 0
+  - Weight Updates Have Mean Near Zero
+- variance ~ 1/n
+  - Stable Activation Variance Across Depth
+- magnitudes ~ $|W_{ij}| \propto \frac{1}{\sqrt{d}}$
+  - largest individual weight can never exceed the spectral norm
+  - Row/Column Norms Tend Toward Similar Scale
+
+- singular values ~ 1 $\sigma_i(W) \approx 1$
+- Effective Rank Is Usually Much Lower Than Matrix Size
+- Symmetry Must Be Broken
+- Scale Symmetries Exist; if W1 -> 2W1; then shrink W2 -> 0.5W2; can undo;
+
+Training:
+- In training both signal % & noise % reach constance ratio;  gradient = signal + noise;
+- Different Attention Heads Specialize
+- Features Become More Orthogonal `aka remember differences`

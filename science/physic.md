@@ -7,6 +7,8 @@
 
 ## Thoughts
 
+- Newton classical physic links matters by force, but spacetime is absolute background. Einstein links spacetime & energy tensor.
+
 - What really is spacetime? Why does it have a single direction? *Is it truly unidirectional, or do we only perceive forward?*  
 - Is space expanding, or is the redshift of light merely an observational effect?
 
@@ -41,6 +43,8 @@ R_{\mu\nu} - \tfrac{1}{2} R\, g_{\mu\nu} = \frac{8\pi G}{c^{4}} T_{\mu\nu}
 >
 > Represents the content of space‑time (mass‑energy).  
 Constant factor: \(\displaystyle \frac{8\pi G}{c^{4}} T_{\mu\nu}\)
+
+- conservation of energy require symmetry, but expending spacetime is NOT symmetric.
 
 ### Geodesic Equation
 >

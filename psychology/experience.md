@@ -29,6 +29,7 @@
     - [Practical Principles](#practical-principles)
   - [Frameworks](#frameworks)
     - [Bayesian Statisticians](#bayesian-statisticians)
+    - [Network Control Theory](#network-control-theory)
     - [Life Is a Video Game](#life-is-a-video-game)
     - [Society \& Time](#society--time)
     - [Science Pyramid](#science-pyramid)
@@ -67,17 +68,24 @@
 - China is a role‑based society. Role determents individual responsibility and power, rather than directly from personal choice. Hierarchical structure arise from role assignments—for example: 君君臣臣，父父子子.
 - Chinese Culture attempts to lock up human nature(不尊重人性). Ex: Buddhist can't marry nor eat meat; Communism eliminate personal profit;孔子:克己复礼;程朱理学:存天理，灭人欲。
 - Chinese history often attributes the cause or outcome of events to specific individuals, which I disagrees. Life is similar to poker, perfect actions & still lose that hand. A failure does not necessarily mean a decision was wrong, just as success does not automatically justify an action.
-- 高压统治者 = 高压 + 高不确定性 → 系统必然寻求“降压继承者”
-  - 秦始皇，汉武帝，光武帝，朱元璋，毛泽东，斯大林 的继承者都是浅根基，温和派，延续旧政策，大概率过渡期发生政变。
+- 高压统治者（暴君） = 高压 + 高不确定性 → 系统必然寻求“降压继承者”
+  - 秦始皇，汉武帝，武则天，朱元璋，毛泽东，斯大林 的继承者都是浅根基，温和派，延续旧政策，大概率过渡期发生政变。
 - Chinese culture doesn't have habit for power exit system. Ex: (emperor, company founder w chinese origin)
+- 指鹿为马，剃发易服，文字狱，酒桌文化，都是服从性测试
 
 ### Psychology Opinion
 
 - The brain is analogous to a computer: biology (hardware) + psychology (software).
+- High-energy lifestyles favor richer emotional systems. Ex: koala, Capybaras vs Dolphin, human.
 - Two “minds”: the rational mind (cortex) and the emotional mind (more primitive mammalian brain).
   - cortex is slow, lazy & strong; mammalian brain is fast, restless, & gullible;
 - Human nature desire for **belonging** and **power**.
   - Psychological dimensions @ Hippocampus: Power & Affiliation
+- Intelligent & discipline are critical independent attributes.
+- People are identifying with their beliefs rather than merely holding beliefs.
+  - Decide whether the goal is truth or relationship
+  - Ask questions instead of presenting evidence
+  - Attack certainty, not the belief
 - Monkey see, Monkey do.
 - Sigmund Freud contrarian conclusion: "Narcissism of Small Differences"
 - Instinct(Personality) just understanding of risk & reward in EARLY childhood, which embedding into brain as default instinct.
@@ -245,6 +253,69 @@
 - Poker exemplifies risk‑reward analysis; starting hand selection is critical.
 
 </details>
+
+### Network Control Theory
+
+improvisation ~ emotion robustious ~ state change cost
+`Input & Output just some Nodes with dynamic connections, not fundamental component.`
+
+Fundamental Network Components:
+- Network Structure
+  - **Node** 
+    - Function
+  - **Connections**
+    - Direction/Bidirectional
+    - Sync/Async
+- Activation State
+  - Node state
+  - Edge state `activation`
+    - Feature Circuit `edges combination: discover by different inputs same weight`
+    - Weight Statistic
+    - Activation Entropy `confident | stubbornness`
+  - Optimizer state (optional)
+    - Loss_fn
+    - Loss
+    - Progress Trackers
+- Network Evolution Trajectory
+  - Objectives `may be arbitrary label, but are fundamental forces sharp network evolution.`
+    - Capacity: numbers possible states
+    - Representation Allocation ~ Data Distribution
+  - Constraints `from Network Structure, State, Trajectory...`
+  - Adaptation Rules `LLM rely on chain rule(BP), brain has some alternative method(IMO sync control)`
+  - History
+    - Sensitivity / Coordination Maturity `Sensitivity: both node’s activity has high variance.`
+      - Control Cost `aka input sensitivity`
+    - Momentum / Inertia `aka Loss history`
+
+Examples:
+- Information Network `Content is transformed`
+  - Brain
+  - LLM
+  - Social Network
+- Transportation Network `Content moves but is largely conserved`
+  - Internet
+  - Traffic
+  - Financial (Risk Network)
+  - Power Grid
+- Ecological `Populations change while interaction rules are relatively stable`
+- Corporation Network `Agents cooperate toward shared goals`
+  - Supply Chain
+  - Companies
+  - Military
+  - Governments
+  - Dependency Networks (DAG)
+    - Software
+    - Project planning
+    - Wikipedia
+
+Important Network Variables:
+- Control Cost - explains why different person does same works but different pays.
+- Flexibility | Variance
+- Inference
+  - Cost
+  - Speed
+  - Throughput
+- Observability
 
 ### Life Is a Video Game
 

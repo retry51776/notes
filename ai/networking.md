@@ -21,6 +21,7 @@ Rack Components:
 - HPU Trays
 - NVLink switch
 - Power Shelves
+  - B200 ~ 1kw; so at lease 50+ kW rack
 
 ## Frontend Networking
 

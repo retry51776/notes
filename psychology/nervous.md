@@ -5,37 +5,45 @@
 ## Table of Contents
 
 - [Nervous System](#nervous-system)
+  - [Table of Contents](#table-of-contents)
   - [Central Nervous System](#central-nervous-system)
-    - [Human Brain](#human-brain)
-      - [Frontal Lobe](#frontal-lobe)
-      - Parietal Lobe
-      - Occipital Lobe
-      - Temporal Lobe
-      - Insular Cortex
-    - [Mammal Brain](#mammal-brain)
-      - [Habits](#habits)
-    - [Reptilian Brain](#reptilian-brain)
-      - [Cerebellum](#cerebellum)
-
   - [Peripheral Nervous System](#peripheral-nervous-system)
-    - Somatic Nervous System
-    - Autonomic Nervous System
-      - Sympathetic Nervous System
-      - Parasympathetic Nervous System
-
+  - [Human Brain](#human-brain)
+    - [Frontal Lobe](#frontal-lobe)
+  - [Mammal Brain](#mammal-brain)
+    - [Habits](#habits)
+  - [Reptilian Brain](#reptilian-brain)
+    - [Cerebellum](#cerebellum)
 - [Tissue](#tissue)
   - [Basal Ganglia](#basal-ganglia)
   - [Striatum](#striatum)
   - [Amygdala](#amygdala)
   - [Hippocampus](#hippocampus)
-
-- [Cell](#cell)
-  - [Neuron](#neuron)
+    - [Substructures](#substructures)
+  - [Cell](#cell)
+    - [Neuromodulators](#neuromodulators)
+      - [Extrapersonal / Long‑Range Neuromodulators](#extrapersonal--longrange-neuromodulators)
+      - [Local / “Here \& Now” Neuromodulators](#local--here--now-neuromodulators)
+    - [Neuron](#neuron)
+      - [Components](#components)
+      - [Synapse Development \& Pruning](#synapse-development--pruning)
+    - [Short‑Term Memory](#shortterm-memory)
+    - [Long‑Term Memory](#longterm-memory)
   - [Axon Guidance](#axon-guidance)
   - [Axonal Plasticity](#axonal-plasticity)
+    - [Neuron Firing Modes](#neuron-firing-modes)
   - [Brain Waves](#brain-waves)
+    - [Frequency Bands](#frequency-bands)
   - [Glial Cells](#glial-cells)
+    - [Types](#types)
+      - [Subtypes of Ependymal Cells](#subtypes-of-ependymal-cells)
   - [Blood-Brain Barrier](#blood-brain-barrier)
+- [Questions](#questions)
+  - [Additional Topics](#additional-topics)
+  - [Study More](#study-more)
+    - [Critical Phase Theory](#critical-phase-theory)
+  - [Memory Types](#memory-types)
+    - [Primary Emotions (six)](#primary-emotions-six)
 
 ## Central Nervous System
 >
@@ -330,6 +338,7 @@ Additional elements:
 ## Axonal Plasticity
 >
 > Donald Hebb: “Neurons that fire together wire together; neurons that fire apart lose their connection.”
+> > IMO brain connection activity variance already high. Low variance connections are pruned. learning rate proportional to connection's sensitivity.
 
 ### Neuron Firing Modes
 

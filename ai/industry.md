@@ -1,18 +1,206 @@
 # AI Industry
+> General Framework -> Model Formats -> Inference Engine -> Compute Hardware -> Forward Deploy Engineer
 
-> Only list tech stacks, companies, and products here.
+- **General frameworks**: PyTorch, TensorFlow, MLX.
+  - **Pre‑training** – custom kernels, cuTile
+  - **Post‑training** – LoRA, fine‑tuning, RLHF, synthetic data.
+
+## Model Formats
+
+Formats:
+- `.safetensors` - [header JSON metadata][binary tensor blobs], source checkpoint, can convert to any runtime.
+  - `model.safetensors.index.json` index for multiple `model-000x.safetensors`.
+  - tensor-per-layer
+  - support by mlx or llama runtimes
+  - other formats: `awq`, `exl2`
+    - salient weight
+- `.gguf` – deployment artifact for llama.cpp-class runtimes.
+  - weights split into blocks (e.g. 32/64 elements)
+    - hierarchy scaling - 256 group on top 32 group
+  - layout is hard-coded for GGML kernels
+- `models/blobs/sha256-xxxx` Ollama Modelfile
+  - similar to dockerfile bundle gguf with
+    - model registry
+    - versioning
+    - prompt templates
+    - system prompts
+    - tool configs
+
+## Inference Engine
+
+Inference Engine workflow:
+- 1. Load model file
+  - `gguf` meta defined tensor layout
+  - Analogy: import raw material for factory
+- 2. Bind model tensors to engine’s model structure
+  - Ex: Attention class has (Wq Wk Wv Wo; KVCache; xxx_kernel;) need memory mapping points to loaded RAM address
+  - Analogy: prep raw material for production line
+    - optimization: fuse matrix, matrix changes, build index.
+- 3. Initialize backend engine (CPU, Metal, CUDA)
+  - 3.1 setup weight cache, kernel buffers, workspace
+  - 3.2 maps weights to accelerator
+  - 3.3 manage thread pool, batch scheduler
+  - Notes:
+    - CUDA has hardware support dequantize + multiply + accumulate
+    - Apple uses Metal Shading Language to dequantize block
+- 4. Create runtime session
+  - 4.1 allocate KV cache + decode scratch
+  - 4.2 generate compute graph
+  - 4.3 manage graph execution & tensor pipeline
+  - Notes:
+    - compute graph ~ model operations & tensor dependencies
+    - Adv: distributed coordinator / TP registration
+- 5. Cleanup engine & session
+
+
+| Category | Examples |
+|----------|----------|
+| Research | `transformers`, `llama.cpp` |
+| Inference Engine | JAX, ONNX, **TensorRT**, **vLLM**, SGLang, NVIDIA Megatron-LM / Megatron-Core |
+| Inference Orchestrate Framework | llm-d, Ray, Dynamo |
+
+- **TensorRT**
+  - SDK open source, but core close source. Covert pytorch modal to Nvidia kernel.
+  - builtin `fused kernels` or `micro kernels`
+  - 2–4× higher TPS to vllm
+- [JAX](https://developer.apple.com/metal/jax/)
+  - `pip install "jax==0.4.34" "jaxlib==0.4.34" "jax-metal==0.1.1"`
+  - AXLearn `Google's alternative Hugging Face transformers`
+- **llm-d**: a Kubernetes-native high-performance distributed LLM inference framework; (ONLY CUDA/ROCm)
+  - Gateway
+  - Inference Scheduler (similar to nginx, at request level)
+    - `xxx-instruct-epp-xxxx`
+    - attempt to uses last Decode Engine to avoid move KV cache
+    - prioritize kv cache match over workload
+  - KV Cache Indexer
+  - Inference-engine(vllm)
+    - NIXL (NVIDIA communication library designed for fast KV-cache)
+    - Prefill Engine (generate KV cache)
+      - `threshold 100 token`
+      - uses top spec GPUs
+      - column-parallel(every seq's token at once) ops; (That's why prefill so efficient)
+    - Decode Engine
+      - can done in smaller GPUs with enough RAM
+      - row-parallel(seq independent) ops; (That's why decode token ~4x expensive)
+  - ModelService Controller (Pod Controller)
+  - Prometheus (Monitor)
+
+- **NVIDIA Inference Microservices** (NIM) - ~3GB `nvcr.io/nim/nvidia/llm-nim:latest`
+  - Triton Inference Engine
+- **Dynamo** - 2+ nodes will 2X throughput tps
+  - cli run
+  - Planner
+
+### Compute Precision
+> Compute Precision are precisions have native hardware support. Hardware also can support NONE native **Block Storage Precision** at extra compute cost.
+
+`Storage format -> Compute precision -> Accumulator precision -> Output precision`
+
+Mac native compute precision includes: (FP16, BF16, INT8, INT4); yet llama.cpp engine w dequant support `IQ2_XXS`;
+
+NVIDIA native support: FP8, FP6, FP4, MXFP8, and NVFP4.
+
+### Weight Compression Algorithm
+> Compression has lowest error when numbers normal/beta distribution, highest error when numbers are bipolar.
+
+> IMO At most can have something 50% better than IQ2_XXS. Almost impossible below 1bit per weight.
+
+Algorithm:
+- Uniform Rounding (INT8, INT4)
+- Block Floating Point
+  - MXFP8
+  - NVFP4 `B200 hardware support, similar to Q4_K storage, but faster`
+- Block Quantization (Q4_0, Q4_K)
+- Importance-aware Quantization (IQ2_XXS, IQ3_XXS, IQ3_S, IQ4_NL)
+  - **codebook*: weight magnitude pattern
+  - sign_pattern: weight sign_pattern
+  - IQ2_XXS dequantize: `weight[i] = global_scale × local_scale × codebook[grid_index][i] × sign_pattern[sign_index][i]`
+- AWQ `focus important channel`
+- GPTQ `focus minimizes result error`
+- TurboQuant
+
+**Activation-aware Weight Quantization** (AWQ)
+> **Imatrix** is used to make the quantized expert weights preserve the directions that matter most for the actual MoE inputs, so the quantized model usually stays closer to the original model’s expert behavior on the kinds of prompts you calibrated on. Need create custom script for quantized the expert. or fallback `sum(row[c] * row[c])`.
+
+**Runtime Quantization**
+> Beside weight, there are KV cache, activation, attention score... many temporary tensors that also takes up storage can be quantize.
+
+> Different components of Transformer has different precision needs.
+>> Q, K, V, FFN, early layers are less sensitive to precision; embedding, normalization, KV cache are sensitive to precision.
+
+**PolarQuant**
+> quant - Add random rotation. Convert cartisian to polar coordinates. For normalize input & preserves dot product.
+
+Q' · K' (quantized)
+   ↓
+(+ QJL correction)
+   ↓
+attention scores
+
+- rotate `convert Cartesian into Spherical, same precision`
+- quantize `only apply to KV, not Q; compress into 8 buckets`
+
+3-bit PolarQuant format (2-bit quantization + 1-bit sign) with a block size of 32.
+So $2^3$ = 8 buckets.
+
+**TurboQuant**
+
+Deterministic Compress KV cache Algorithm, apply to any LLM, enhances vector search.
+
+> Convert KV cache into TurboQuant space, convert new Query's token into TurboQuant when inference, compute in TurboQuant space, then dequantize output into fp16. Same rotation per Layer.
+
+Cartesian coordinates: Standard; smooth, linear gradient;
+Spherical coordinates: Circle; nonlinear, coupled gradient;
+
+
+### Block Storage Formats
+> numbers ALWAYS store in blocks, within a block there is scaler & basis adjust all elements at once. superblock even have group as element.
+
+```
+quantization_code: (num_elements, bytes, quantization_formats)
+-----------------------------------------
+0: (1, 4, "F32"),
+1: (1, 2, "F16"),
+8: (32, 34, "Q8_0"),
+10: (256, 84, "Q2_K"),
+12: (256, 144, "Q4_K"),
+16: (256, 66, "IQ2_XXS"),
+26: (1, 4, "I32"),
+
+
+Ex: IQ2_XXS ~ (66 * 8) / 256 = 2.0625
+
+# Mixed-precision 
+Q4_K
+    ↓
+dequantize
+    ↓
+FP16 values
+    ↓
+multiply
+    ↓
+FP32 accumulation
+```
+
+
+**Native support vs Storage-only support**
+> Note: Comfyui fp8 on mac problem: ComfyUI backend is PyTorch; mac DON'T have native fp8 support.
+> > It's simple add dequantize script, it's hard to support Mixed-precision of fp8:
+>
+> > llama.cpp supports a much narrower execution pattern; PyTorch must support a huge operation × dtype × backend matrix;
+
+
+## Compute Hardware
+> Reference to hardware.md
 
 ## Rules of Thumb
 
 - Important
   - Compute
-  - Data Quantity
-  - Data distribution
+  - Data Quantity & Distribution
   - Train Time
-  - Objective function & reward
-    - Next token prediction
-    - **Contextual World Models** ~ `Train to predict CHANGED Code/Env Variables`
-  - Number Stability Designs
+  - Optimizer Direction
+  - Stability Designs
 - Hardware
   - RAM size > RAM speed > GPU speed.
   - Data‑center scale: 2024: ~30k A100 GPUs; 2025: ~100k; 2026: 300–700k.
@@ -48,9 +236,6 @@
   - Investor allowable runway determents take off speed(intelligent) of LLM.
   - Automatic value ~ (success_task_% - failed_task_%) * task_value_$ - llm_cost_$
 
-## MLOps
-
-> Full pipeline of AI
 
 ### Control Plane
 
@@ -108,141 +293,6 @@ There are 3 KV approaches:
   - Split into large context subagent; Common doc has its own system prompt;
   - Decouple Prefill vs Decode; Ex: Nvidia Dyno
 
-### Key In-channel, Value In-token (KIVI)
-
-### QuIP
-
-### PolarQuant
-
-- rotate `convert Cartesian into Spherical, same precision`
-- quantize `only apply to KV, not Q; compress into 8 buckets`
-
-3-bit PolarQuant format (2-bit quantization + 1-bit sign) with a block size of 32.
-So $2^3$ = 8 buckets.
-
-### TurboQuant
-
-Deterministic Compress KV cache Algorithm, apply to any LLM, enhances vector search.
-
-> Convert KV cache into TurboQuant space, convert new Query's token into TurboQuant when inference, compute in TurboQuant space, then dequantize output into fp16. Same rotation per Layer.
-
-Cartesian coordinates: Standard; smooth, linear gradient;
-Spherical coordinates: Circle; nonlinear, coupled gradient;
-
-- Polar quant - Add random rotation. Convert cartisian to polar coordinates. For normalize input & preserves dot product.
-- QGL - convert sign bit (1 or -1)
-
-Q' · K' (quantized)
-   ↓
-(+ QJL correction)
-   ↓
-attention scores
-
-### Precision & Quantization
-
-- **model formats**
-  - `.safetensors` - [header JSON metadata][binary tensor blobs], source checkpoint, can convert to any runtime.
-    - tensor-per-layer
-    - support by mlx or llama runtimes
-    - other formats: `awq`, `exl2`
-      - salient weight
-  - `.gguf` – deployment artifact for llama.cpp-class runtimes.
-    - weights split into blocks (e.g. 32/64 elements)
-      - hierarchy scaling - 256 group on top 32 group
-    - layout is hard-coded for GGML kernels
-  - `models/blobs/sha256-xxxx` Ollama Modelfile
-    - similar to dockerfile bundle gguf with
-      - model registry
-      - versioning
-      - prompt templates
-      - system prompts
-      - tool configs
-
-- **Precisions**
-  - F32 - optimizer parameter still uses.
-  - FP16
-    - BF16 - 8-bit exponent + 7-bit mantissa (+1 sign)
-  - FP8
-    - E4M3 (Nvidia default)
-    - E5M2
-    - E8M0
-  - FP4 (Ollama default)
-    - NF4 - Hardcoded 16 numbers -1 to 1
-    - MXFP4 range -6 to 6; `-6 .... 0.0, 0.5, 1.0, 1.5, 2, 3, 4, 6`; 32 block number with scaler.
-    - NVFP4 https://developer.nvidia.com/blog/introducing-nvfp4-for-efficient-and-accurate-low-precision-inference/ 16 block
-
-> Different components of Transformer has different precision needs.
->> Q, K, V, FFN, early layers are less sensitive to precision; embedding, normalization, KV cache are sensitive to precision.
-
-$$\frac{\text{KV per token}}{\text{layer weights}} \approx \frac{2 \cdot d_{\text{model}}}{12 \cdot d_{\text{model}}^2}
-= \frac{1}{6 \cdot d_{\text{model}}}$$
-
-> Model size matters as much as precision.
-
-## General Landscape
-
-- **Machine‑learning frameworks**: PyTorch, TensorFlow, FlashAttention.
-- **Model formats**: `.bin`, `.gguf`, `.safetensors`.
-- **Pre‑training** – large‑scale training (e.g., DeepSpeed).
-- **Post‑training** – LoRA, fine‑tuning, RLHF, synthetic data.
-  - Instruction fine-tuning - common phrase, undesired answer, answer format; Q & A formats
-  - Preference fine-tuning - Rank subset responses over others
-  - Reasoning fine-tuning - Train with diverse and verified solutions
-- Evaluation Leaderboard
-  - <https://crfm.stanford.edu/helm/>
-  - <https://lmarena.ai/leaderboard>
-  - <https://huggingface.co/spaces/ArtificialAnalysis/>
-- Forward Deploy Engineer
-
-### Inference Framework
-
-> Exclude training framework, only inference.
-
-**Things to consider**
-
-- intelligence
-- responsiveness
-- energy efficiency
-- cost
-- throughput
-
-| Category | Examples |
-|----------|----------|
-| Research | `transformers`, `llama.cpp` |
-| Inference Engine | JAX, ONNX, **TensorRT**, **vLLM**, SGLang, NVIDIA Megatron-LM / Megatron-Core |
-| Inference Orchestrate Framework | llm-d, Ray, Dynamo |
-
-- **TensorRT**
-  - SDK open source, but core close source. Covert pytorch modal to Nvidia kernel.
-  - builtin `fused kernels` or `micro kernels`
-  - 2–4× higher TPS to vllm
-- [JAX](https://developer.apple.com/metal/jax/)
-  - `pip install "jax==0.4.34" "jaxlib==0.4.34" "jax-metal==0.1.1"`
-  - AXLearn `Google's alternative Hugging Face transformers`
-- **llm-d**: a Kubernetes-native high-performance distributed LLM inference framework; (ONLY CUDA/ROCm)
-  - Gateway
-  - Inference Scheduler (similar to nginx, at request level)
-    - `xxx-instruct-epp-xxxx`
-    - attempt to uses last Decode Engine to avoid move KV cache
-    - prioritize kv cache match over workload
-  - KV Cache Indexer
-  - Inference-engine(vllm)
-    - NIXL (NVIDIA communication library designed for fast KV-cache)
-    - Prefill Engine (generate KV cache)
-      - `threshold 100 token`
-      - uses top spec GPUs
-      - column-parallel(every seq's token at once) ops; (That's why prefill so efficient)
-    - Decode Engine
-      - can done in smaller GPUs with enough RAM
-      - row-parallel(seq independent) ops; (That's why decode token ~4x expensive)
-  - ModelService Controller (Pod Controller)
-  - Prometheus (Monitor)
-
-- **NVIDIA Inference Microservices** (NIM) - ~3GB `nvcr.io/nim/nvidia/llm-nim:latest`
-  - Triton Inference Engine
-- **Dynamo** - 2+ nodes will 2X throughput tps
-  - cli run
-  - Planner
 
 ## Speculative Decoding
 
@@ -251,6 +301,11 @@ Speeds up decode by predicting multiple tokens(8–16 token drafts) with **small
   Also explain why most LLM objective is fully shift, otherwise this won't work.
 
 Usually 5 tokens out of 8 draft tokens will be right.
+
+### DSpark
+
+- draft token includes prev draft token
+- stop when draft token logit fuzzy
 
 ## Token-adaptive compute
 
@@ -400,48 +455,25 @@ piktochart
 }
 ```
 
-## Workflow Platforms
-
-- Low‑code: FlowiseAI, n8n.
-- Python chains: smolagents, LangChain.
-- Pipecat: voice
-
-### Agent Features
-
-- instruction hierarchy (LLM able prioritize instruction base off roles)
-- Structured output parsers (system prompt + output parser).
-- Tool usage vs. explicit tool calls (e.g., Llama 3.1 lacks native tool calls; 70B works fine).
-- Penalties: presence & frequency can improve reasoning.
-
-## Agents
-
-- AutoGen (Microsoft)
-- ADK (Google)
-
-### Agent Types
-
-- CLI agents (Claude CLI, Codex).
-- GUI agents (Continue.dev, Cursor).
 
 ## Protocols
 
 - MCP (Model Context Protocol) – inject system prompts, tool descriptions, and response formats.
 - A2A (Agent‑to‑Agent) – asynchronous task assignment with status callbacks.
 
-## Tools & Utilities
-
-- Chain: predefined workflow.
-- Agent: dynamic workflow.
-
-### Vector Databases
-
-- LanceDB, Pinecone, Milvus, Qdrant, Redis, Weaviate, Zilliz.
-
 
 ## Retrieval‑Augmented Generation (RAG)
 
 - Context size vs. RAG: summarization needs large context; translation can use RAG.
 - Strategies: reranking, query expansion, fake answer search, agentic tools, property graphs, RDF.
+
+### Vector Databases
+
+> Vector DB ONLY will NOT store chunk's Causality, only chunk's Observable State.
+
+>> Embedding projection chunks into clusters. More that it exclude unrelate info, more than find relevant info. 
+
+- LanceDB, Pinecone, Milvus, Qdrant, Redis, Weaviate, Zilliz.
 
 ### Context-1
 
@@ -467,19 +499,10 @@ Decide: enough info?
 - Tracing: Jaeger, Langfuse.
 - GraphRAG – knowledge‑graph based retrieval.
 
-### Evaluation Methods
-
-| Type | Examples |
-|------|----------|
-| Multiple‑choice | MMLU |
-| Free‑form answer | GSM8K, TruthfulQA |
-| Code generation | HumanEval |
-| Long‑context | Needle in a Haystack |
 
 ## Beyond Static LLMs
 
 - Open‑socket interruption, context caching.
-- Token Adjust Calculation
 - Google Titan
 
 ### Python Ecosystem
@@ -518,65 +541,6 @@ Decide: enough info?
   - Future task
     - Jump from section to another
 
-```md
-Given a python code function and an assert statement containing a specific input, provide the assertion with the exact literal output that the function returns with that input. Do not
-include any mathematical expressions or function calls -- only the final literal value. Your response should be solely the assertion, enclosed within [ANSWER] and [/ANSWER] tags.
-You are a computational world model and can predict the program execution.
-Your execution trace prediction format MUST follow this structure:
-1. The execution trace prediction starts with the <|trace_context_start|> token and ends with a final <|frame_sep|> token.
-2. For each code execution step:
-- Begin with <|frame_sep|> followed by the event token which can be <|call_sep|>, <|line_sep|>, <|return_sep|> or <|exception_sep|>.
-- After <|call_sep|> or <|line_sep|> put the local variable states as dictionary in JSON format followed by the <|action_sep|> token and the current source code line.
-- After <|return_sep|>, <|exception_sep|> directly put the <|action_sep|> token and the current source code line followed by an <|arg_sep|> token and the return or exception arguments.
-3. Provide the full assertion with the correct output that you obtained after <|return_sep|> in [ANSWER] and [/ANSWER] tags
-Here is an example of how you would predict the output of the program using your trace prediction capability:
-Python function:
-def f(a,b):
-y = a
-for i in range(b):
-y += y * i
-return y
-assert f(1,3) == ??
-<think>
-your internal reasoning
-</think>
-Let’s verify this by putting the code into a trace context and call the function in the main() function and then trace the execution of the main function.
-We indicate the entry point of the execution trace with a # << START_OF_TRACE marker.
-def f(a,b):
-y = a
-for i in range(b):
-y += y * i
-return y
-def main(): # << START_OF_TRACE
-return f(1,3)
-<|frame_sep|><|call_sep|>{}<|action_sep|>def main(): # << START_OF_TRACE
-<|frame_sep|><|line_sep|>{}<|action_sep|> return f(1,3)
-<|frame_sep|><|call_sep|>{"a": "1", "b": "3"}<|action_sep|>def f(a,b):
-<|frame_sep|><|line_sep|>{"a": "..", "b": ".."}<|action_sep|> y = a
-<|frame_sep|><|line_sep|>{"a": "..", "b": "..", "y": "1"}<|action_sep|> for i in range(b):
-<|frame_sep|><|line_sep|>{"a": "..", "b": "..", "y": "..", "i": "0"}<|action_sep|> y += y * i
-<|frame_sep|><|line_sep|>{"a": "..", "b": "..", "y": "..", "i": ".."}<|action_sep|> for i in range(b):
-<|frame_sep|><|line_sep|>{"a": "..", "b": "..", "y": "..", "i": "1"}<|action_sep|> y += y * i
-<|frame_sep|><|line_sep|>{"a": "..", "b": "..", "y": "2", "i": ".."}<|action_sep|> for i in range(b):
-<|frame_sep|><|line_sep|>{"a": "..", "b": "..", "y": "..", "i": "2"}<|action_sep|> y += y * i
-<|frame_sep|><|line_sep|>{"a": "..", "b": "..", "y": "6", "i": ".."}<|action_sep|> for i in range(b):
-<|frame_sep|><|line_sep|>{"a": "..", "b": "..", "y": "..", "i": ".."}<|action_sep|> return y
-<|frame_sep|><|return_sep|><|action_sep|> return y
-<|arg_sep|>"6"<|frame_sep|><|return_sep|><|action_sep|> return f(1,3)
-<|arg_sep|>"6"<|frame_sep|>
-Now let us analyze the trace. The return argument of the function call f(1,3) in the main() function is "6" in JSON format, so the return value is 6.
-[ANSWER]
-assert f(1,3) == 6
-[/ANSWER]
-Python function:
-def f(d, k):
-new_d = {}
-for key, val in d.items():
-if key < k:
-new_d[key] = val
-return new_d
-assert f({1: 2, 2: 4, 3: 3}, 3) == ??
-```
 
 ## Safety
 

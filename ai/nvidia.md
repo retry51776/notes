@@ -60,7 +60,9 @@
     - distinct
       - Optical 100m+
       - DAC 3m, reliable
+      - No cable 50m
     - Speed
+      - Mini Cool Edge I/O (MCIO) ~ 10G/s per lane
       - QSFP28 @ 100G/s
       - QSFP56 @ 200G/s
       - QSFP-DD @ 400G/s
@@ -88,7 +90,7 @@
 - Software Level
   - Network Management
     - Unified Fabric Manager (UFM)
-  - Storage Management
+  - Storage Management (~10TB/s @ training)
     - Luster
     - GPFS
     - Weka
@@ -414,3 +416,8 @@ def matmul(A: ct.Array,
 >> Ex: switch LLM from 20s to 2s.
 
 The command to enable GPUDirect RDMA is `sudo modprobe nvidia-peermem`
+
+
+## Nemotron
+
+https://github.com/NVIDIA-NeMo/Nemotron/blob/main/src/nemotron/steps/_runners/nemo_rl_grpo_nemo_gym.py#L38

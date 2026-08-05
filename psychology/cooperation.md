@@ -4,16 +4,19 @@
 
 ## Table of Contents
 
-- [Communication](#communication)
-- [Teamwork Philosophy](#teamwork-philosophy)
-  - [Core Ideas](#core-ideas)
-- [Parenting](#parenting)
-  - [Positive discipline](#positive-discipline)
-  - [Authoritarian family](#authoritarian-family)
-  - [Permissive family](#permissive-family)
-  - [Parenting Ideas](#parenting-ideas)
-  - [IMO](#imo)
-  - [Games](#games)
+- [Cooperation](#cooperation)
+  - [Table of Contents](#table-of-contents)
+  - [Communication](#communication)
+    - [Strategic Agreement](#strategic-agreement)
+  - [Teamwork Philosophy](#teamwork-philosophy)
+    - [Core Ideas](#core-ideas)
+  - [Parenting](#parenting)
+    - [Positive discipline](#positive-discipline)
+    - [Authoritarian family](#authoritarian-family)
+    - [Permissive family](#permissive-family)
+    - [Parenting Ideas](#parenting-ideas)
+    - [IMO](#imo)
+    - [Games](#games)
 
 ## Communication
 
@@ -28,6 +31,27 @@
 1. Self intend
 2. Other's intend
 3. Current State
+
+### Strategic Agreement
+
+Advantages:
+- Lowers other's defenses
+- Builds trust capital
+- Saves cognitive load `reduce contested area`
+
+Common Ground Targets:
+- Problem
+- Logic `but not conclusion`
+- Values
+- Background
+- Future/Desire goals (because undetermined)
+
+Tactics:
+- Agree with the Goal
+  - "I completely agree that we need to reduce costs."
+- Conditional Agreement
+  - "If we assume the market will stay stable, then your plan makes sense."
+  - "Yes, xxxxx. AND base off current deadline xxxx"
 
 ## Teamwork Philosophy
 

@@ -4,33 +4,36 @@
 
 ## Table of Contents
 
-- [1. Attention](#1-attention)
-  - [Selective Attention](#selective-attention)
-    - [Ways to change attention](#ways-to-change-attention)
-- [2. Sensation](#2-sensation)
-  - [Touch](#touch)
-  - [Vision](#vision)
-  - [Hearing](#hearing)
-  - [Smell](#smell)
-  - [Taste](#taste)
-  - [Kinesthesis](#kinesthesis)
-  - [Vestibular](#vestibular)
-- [3. Perception](#3-perception)
-  - [Psychological perception](#psychological-perception)
-  - [Biological perception](#biological-perception)
-    - [Nociception](#nociception)
-    - [Radiance perception](#radiance-perception)
-    - [Thermoception](#thermoception)
-    - [Proprioception](#proprioception)
-- [4. Experience](#4-experience)
-  - [Ways to change association](#ways-to-change-association)
-  - [Visual association](#visual-association)
-  - [Logic association](#logic-association)
-  - [Memory association](#memory-association)
-    - [Working memory](#working-memory)
-    - [Long-term memory](#long-term-memory)
-  - [Body language](#body-language)
-- [IMO](#imo)
+- [Psychology](#psychology)
+  - [Table of Contents](#table-of-contents)
+  - [1. Attention](#1-attention)
+    - [Selective Attention](#selective-attention)
+      - [Ways to change attention](#ways-to-change-attention)
+  - [2. Sensation](#2-sensation)
+    - [Touch](#touch)
+    - [Vision](#vision)
+    - [Hearing](#hearing)
+    - [Smell](#smell)
+    - [Taste](#taste)
+    - [Kinesthesis](#kinesthesis)
+    - [Vestibular](#vestibular)
+  - [3. Perception](#3-perception)
+    - [Psychological perception](#psychological-perception)
+    - [Biological perception](#biological-perception)
+      - [Nociception](#nociception)
+      - [Radiance perception](#radiance-perception)
+      - [Thermoception](#thermoception)
+      - [Proprioception](#proprioception)
+  - [4. Experience](#4-experience)
+    - [Ways to change association](#ways-to-change-association)
+    - [Visual association](#visual-association)
+    - [Logic association](#logic-association)
+    - [Memory association](#memory-association)
+      - [Working memory](#working-memory)
+      - [Long-term memory](#long-term-memory)
+    - [Body language](#body-language)
+  - [IMO](#imo)
+  - [Conclusion](#conclusion)
 
 ## 1. Attention
 
@@ -250,6 +253,8 @@ Our bodies are similar to cars, with speech being the equivalent of honking and 
 > I assume the brain also uses near‑memory computation design; therefore memory & functions are localized.
 
 > Each cortical lobe is a register; association areas act like a CPU (more like an FPGA). Some cortex also serves as storage.
+
+- Anxiety ~ uncertainty ~ opposite surprise ~ Lack norepinephrine (norepinephrine only signal uncertainty or surprise, it don't signal confident)
 
 **Books**
 

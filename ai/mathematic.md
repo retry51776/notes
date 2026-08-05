@@ -4,8 +4,11 @@ List all mathematic tools relate to AI.
 
 ## Principle
 
+- Central Limit Theorem (CLT) ~ distribution probability / network stability
+- Information Theory ~ rare event contain more information, require more bits to encode
 - Slide window ~ in-place execution
 - Calculus ~ divide & conquer
+- Equal marginal principle ~ general heuristic for minimizing the sum of various costs, sub items often should roughly equals.
 
 ## Linear algebra
 
@@ -33,10 +36,30 @@ List all mathematic tools relate to AI.
     - V (Right Singular Vectors) `orthonormal basis for the input space; square matrix match with x'col;`
     - U (Left Singular Vectors) `orthonormal basis for the output space; square matrix match with x'row`
     - Σ (Singular Values) `how much each of these basis directions is stretched or scaled during the transformation. same shape x matrix`
+  - whole row i represent node i, whole column j represent node j. matrix[i][j] element value represent node 1 connection to node j.
+
+### Jacobian Matrix
+Five functional properties of a global workspace:
+- Verbal report.
+- Directed modulation.
+- Internal reasoning. 
+- Flexible generalization. 
+- Selectivity.
+
+> Jacobian lens corrects for representational changes that take place across layers
 
 ## Calculus
 
+- **chain rule** ~ backprops's foundation & prerequisites. 
 - multivariable calculus `uses in back propagation`
+
+## Entropy
+
+- Entropy ~ randomness distribution;
+  - High entropy ~ pure random; Low entropy ~ fixed result;
+- Cross Entropy ~ distribution differences ~ KL Divergence
+  - why `sum(-log(q))`; sum is for add up different buckets; -log because some math reason.
+
 
 ## Dynamic system
 
@@ -140,3 +163,54 @@ DMD to probe stability of residual blocks:
 3. calculate eigenvalues of A
 
 - Lyapunov Exponent (LLE) measures how fast nearby trajectories diverge
+
+## Network Control Theory
+
+- Matrix has x rows, y columns; Then represent x nodes, y nodes. Element value [i][j] represent i node SINGLE DIRECTION to j node.
+  - If `i to j` != `j to i`, then different matrix needed. 
+
+Network = Structure(Connection) + State(Activation)
+
+### Network sensitivity
+> Factory: low redundancy + high coupling + high amplification
+> Foodchain: high redundancy + low coupling + local absorption
+
+> IMO when neuron receives a rare activation state, make the neuron more plastic.
+
+Controllability: Can we reach every possible state?
+
+- Variance control dimensions
+  - Weight
+  - Input
+  - Activation
+  - Logit
+  - Gradient
+
+Ex:
+**dynamical isometry** - Both Activation & Gradient variance need center around 1, otherwise signals will explode or vanish through depth.
+Mean control - avg block ~ 0.
+BatchNorm - Input Variance control.
+
+Structure: Architecture design
+
+- Attention: enforce one way causality.
+- Position Encoding: break symmetry
+
+degree centrality, clustering coefficient, characteristic path length, and modularity
+
+Network Constraints:
+
+- Topology
+  - Sparsity
+  - Directionality
+- State
+  - Capacity
+  - Robustness
+  - Resource
+- Evolve Dynamics
+  - Budget
+  - Stability
+  - Energy
+    - Safety: Forbidden states
+  - Time
+- Observability

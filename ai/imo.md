@@ -78,13 +78,48 @@ Destination:
 
 > We need dashboard/Evaluation System; We can only improve what we can measure.
 
+<hr>
+
+Just like visual information not only in each frame, but the DIFFERENCES between frames. Ex: movement, direction, causation.... there information is NOT in any single frame, rather changes between frames.
+
+Understanding is not only within token, but between tokens. That is why transformer's attention works so well.
+
+## Modality
+
+Data modality nature determent architecture efficiency.
+Data ~ random numbers; LLM ~ sorting algorithm;
+
+Noise & Throughput:
+Visual > Language > Gene(DNA/RNA)
+
+
 
 ## IMO
 
-Parameters → "what you know"
-Loops → "how long you think"
+- LLM quantization and tensor compression research IS one of main reasons for LLM providers. Collect hot/important tensor at inference.
 
-- Learning is not about memorize same thing, it's about understand & absorb differences.
+- Classic Transformer ~ bubble sort! It works, but not efficient on scale.
+
+- The containerization transition. It's demo of corporation maturity development.
+
+- Similar to light is both wave & particle. Word is particle, turn word into embedding ~ particle(collapsed wave function) return to wave form. LLM's residual stream ~ wave interfere each other to produce final probability wave. At last wave collapse to produce final token.
+
+- LLM has depth(route by residual attention), width/hidden dimension(route by MLP), and token(route by attention).
+- When prefill has LLM strong disagreement, their most likely world "BUT".
+- Learning is not about memorization, it's about absorb differences(can have different time scale).
+  - pretrain ~ differences to next token
+  - RL ~ differences between trajectories
+
+- LLM data deficiency is make up by amortized across billions of sessions at once.
+
+- Database vs LLM;
+  - DB: stored label, not assign meaning.
+    - Row A content has no effect on its neighbor content.
+  - LLM: stored & assign meaning within distance @ residual space(none linear function makes non-uniform space).
+    - Image the edge between 2 neurons. Between two neuron, there is some slop(weight), then a cliff(activation function), then some slop again(weight), horizon is basis.
+      - case 1: both neurons similar, need high output; basis is high.
+      - case 2: both neurons similar, need low output; basis is low.
+      - case 3: neurons hugh different, one is on high side of cliff, the other is on low side cliff.
 
 - Merge PR ~ RL changes into LLM
   - My heuristic ≠ LLM heuristic
@@ -131,13 +166,14 @@ Loops → "how long you think"
 
 - I disagree invest so much on decode accelerator hardwares. IMO problem source is transformer design tradeoff, transformer reduce compute density by kv cache(which demand RAM). Maybe diffusion like architecture is more future, which utilize all compute.
 
-- Data > Infra > Algorithm > Talent
+- LLM research: Data > Infra > Algorithm > Talent
 
-- The problem with Back Pros is earlier adjustment takes a LOT longer to adjust.
+- The problem with BP is earlier layers takes a LOT longer to adjust.
   - Is there ways to find Mid, or Early blocks' target, and adjust? Because we should KNEW which it's active expert.
 
 - Speed up COT
   - Uses none english, pure vectors.
+  - Remove tokenizer, pure NN dynamical encode & decode.
   - Use DAG COT, increase possible async sections.
 
 - LLM has different sensitivity, just like human more sensitivity on hands, less sensitivity on back. LLM has high sensitivity on start & end tokens, less on middle & later position.
@@ -170,21 +206,6 @@ Loops → "how long you think"
   - Markdown
     - LaTeX
   - Code
-
-- LLM weights functions
-  - inference weights
-    - deterministic (Ex: embedding, LM head, RoPE)
-    - compute (Ex: Attention V, MLP)
-    - routing (Ex: DSA, MOE, maybe even attention score)
-      - benefit: decouple gradients, partition representational space, reduce interference
-    - stability control (Ex: norm)
-  - training weights
-    - loss function
-    - optimizer state
-      - direction
-      - momentum
-    - activation/activation checkpoints
-    - custom settings (Ex: LR, decay)
 
 - Avoid interference is THE REASON why MOE works.
   - KPI, measure NN's capacity by shrink NN's precision cost accuracy.
@@ -401,6 +422,7 @@ Training often uses beam search, while inference favors sequential revision.
 ### 22
 
 - Chinchilla scaling laws, titled "Training Compute-Optimal Large Language Models"
+  - $L(N,D)=E+\frac{A}{N^\alpha}+\frac{B}{D^\beta}$ ~ `Loss = irreducible entropy + representation entropy deficit + experience entropy deficit`
 
 ### 23
 
@@ -419,3 +441,6 @@ Training often uses beam search, while inference favors sequential revision.
   - Q `profile of block`
   - V `input/hidden_states of each blocks`
   - K `norm(V), v=input`
+
+- https://transformer-circuits.pub/2026/workspace/index.html J-Space
+- aync load MOE expert from SSD

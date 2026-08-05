@@ -49,6 +49,8 @@
 
 ## Evolution
 
+> Gene that sacrifice future for current advance WILL out compete. This is very reason nothing lives forever.
+
 - Protein Preference
   - coil (C)
   - helices (H)

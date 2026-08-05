@@ -57,26 +57,35 @@ Graphics pipeline:
 - **Level of Detail (LOD)** – lower detail uses billboards.  
 - **Dynamic Level of Detail (DLD)** – adjusts polygon count based on distance.  
 - **Foliage**, **Nanite Foliage**  
-
-### FPGA
->
-> Originally designed for debugging and testing in FABs. Before computation, a compiled design is loaded onto the device.
-
-Hardware Description Languages:
-
-- RTL, VHDL, Verilog, SystemVerilog
-
-### ASIC
->
-> Hard‑coded circuitry for a single (or few) applications; extremely fast but inflexible.
-
-## Buzzwords
+- Thermal stress
 
 - **EDA** – hardware design software.  
 - **Standard Cell Library** – pre‑designed logic gates (AND, OR, ADD).  
 - **Track Height**, **Design for Manufacturability**, **Multi‑patterning**, **Half‑pitch**, **Resolution Enhancement Techniques**.  
 - **Power / Performance / Area / Cost (PPAC)** metrics.  
 - **Transceiver** – high‑speed fiber networking.  
+
+### FPGA
+>
+> Originally designed for debugging and testing in FABs. Before computation, a compiled design is loaded onto the device.
+>
+> Start from $10k
+
+Hardware Description Languages:
+
+- RTL, VHDL, Verilog, SystemVerilog
+
+Core components:
+- LookUp Table (LUT) wrapper of all logic gates; or flexible True Table(4bit input, 1bit output).
+- Multiplexer - dynamic routing, on every LUT & register, allow route to its neighbor LUT & register.
+  - Developer essentially program Multiplexer.
+- register
+
+### ASIC
+>
+> Hard‑coded circuitry for a single (or few) applications; extremely fast but inflexible.
+> Start from $30 millions.
+
 
 # Fabrication (FAB)
 
@@ -95,11 +104,18 @@ Hardware Description Languages:
         - Physical only cell
         - IO & interface cells
         - multi-drive variants
-- Produce  
+
+
+Terms:
+- Process Design Kit - foundries spec for designers.
 
 ## Backend
 
-- Cut  
+- Produce: Transistor formation (FEOL)
+- Metal interconnect formation (BEOL)
+- Cut
+- yield analysis
+- process control.
 - SIP (封装)  
   - CoWoS (Chip-on-Wafer-on-Substrate)
     - CoWoS-S (S=Silicon)

@@ -36,6 +36,7 @@ Stage:
     - ??? new lose function that trajectory level or tokens group?
 - 2027 ?? who knows, other data modality?
   - LIAR, SONAR, x-ray ....
+  - replace `single-pass inference` to `branching → evaluate → merge`
 
 ### Modeling Steps
 
@@ -43,10 +44,22 @@ Stage:
     - Human Modalities (Ex: text, audio, image, video)
     - None Human Modalities (Ex: X-ray, MRI, protein folding)
 2. Curate Data
-    - Planning Domain Definition Language (PDDL)
-    - Business Process Model and Notation (BPMN)
-    - Knowledge Graph Triplets
-    - Mathematical Proof (LEAN)
+    - Formats:
+       - Planning Domain Definition Language (PDDL)
+       - Business Process Model and Notation (BPMN)
+       - Knowledge Graph Triplets
+       - Mathematical Proof (LEAN)
+    - Filter Data **Important**
+      - Deduplication:
+        - remove similar Locality Sensitive Hashing
+        - Embedding similarity
+      - Medium Perplexity filtering (too high often noise, too low often no value)
+      - Distinct Gradient-based filtering
+      - Keep examples where models disagree
+    - Sort Data
+      - Difficulty targeting: train on data with medium loss, push off high loss data til LLM loss shift to avg
+      - Diversity targeting
+        - Input embedding or both Input & output embedding
 3. Design AI Architecture
     - Dark magic? Ask AI expert
     - Symmetry within model (Ex: time, left vs right, position,)
@@ -69,6 +82,7 @@ Stage:
       - `params` groups parameters into many groups with different `lr`.
 6. Evaluation
     - Ensure benchmark data not in training data.
+    - Most critical yet overlook by noobs
 
 ### Neural Network Terms
 
@@ -299,6 +313,8 @@ residual stream/latent space `The intermediate output between NN layers`
 
 ### Normalization
 
+> This is variance control, a part of stability control.
+
 > Bring activation back to central area. Imbalance activation will cause dead neurons.
 
 >> Maybe activation builtin normalization?
@@ -448,30 +464,45 @@ Harness:
  • Self-play (used in AlphaGo, AlphaZero, OpenAI Five).
  • Hierarchical RL → break down long horizon tasks into sub-policies.
 
-## Stability knob
+## Stability
 
-- Gradient Control
-  - Warmup
-  - Weight Decay
-  - Gradient clipping
-- Weight Initialization Knobs
+> Stability control ~ variance control. But on what dimension? (activation, layer, depth, gradient...)
+> > Variance is VERY critical for LLM stability.
+
+- Weight Initialization `weight variance need ~ 1`
   - Xavier
     - Layer Gain
-  - Shrink Residual Connect effect
-- Normalization/Layer
-  - Softmax behavior
-  - Precision
-- Architecture Control
-  - Trade Deep with width
-  - Activation Function
-- Training size
+- Input
+  - Training size
   - batch size
   - seq length
   - Regularization
-- Statistic Monitor
-  - residual stream variance
-  - attention entropy
-  - ?
+- Activation
+  - Layer/Block
+    - LayerNorm
+    - Weight Decay
+    - Activation Function `avoid dead neuron`
+    - MOE routing
+    - Attention
+  - Depth/Residual
+    - Residual Add / Residual Attention / Deepseek HCM
+    - Shrink Residual Connect effect
+  - Time/Token `same neuron activation across many tokens, because higher dimension, maybe reason for sleep`
+    - LR or weight decay compensation?
+- Gradient Control
+  - Gradient clipping `avoid dramatic variance changes`
+  - LR Schedule
+  - Optimizer Precision `accumulation at higher precision, error margin cancel out`
+
+
+### Advance Controls 
+
+**Maximal Update Parameterization** decouple dimension d with weight magnitude,
+by applies specific scaling factors to the initiation, forward pass, gradients & lr;
+
+Width-Agnostic Hyperparameters: It enables the "proxy-to-large" transfer, where the optimal learning rate and initialization scale identified; then apply to larger LLM.
+
+Limitation: Depth Sensitivity, mean smaller model parameter ONLY TRANSFERABLE to similar depth larger LLM.
 
 ### Self Distillation
 
@@ -530,6 +561,7 @@ batch = compute_advantages(batch)
 - asyncflow
 - PyTorch
   - Fully Sharded Data Parallel v2 (FSDP2)
+  - ATen `C++ tensor library`
 
 ## Mechanistic Interpretability
 >

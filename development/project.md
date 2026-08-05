@@ -72,3 +72,39 @@ wmill sync pull
 > Variable maximum length: 15 000 characters.
 
 <https://www.windmill.dev/docs/apps/app_configuration_settings/app_component_library>
+
+## Taxonomy
+
+taxonomy is classification, identification, and naming of entities based on shared characteristics.
+
+```md
+1. Discovery Failure
+   ├─ Wrong problem
+   ├─ Wrong customer
+   └─ Wrong market
+
+2. Design Failure
+   ├─ Wrong requirements
+   ├─ Bad UX
+   └─ Bad architecture
+
+3. Build Failure
+   ├─ Coding quality
+   ├─ Integration issues
+   └─ Technical debt
+
+4. Deployment Failure
+   ├─ Testing gaps
+   ├─ Security issues
+   └─ Operational issues
+
+5. Adoption Failure
+   ├─ No user engagement
+   ├─ No business value
+   └─ Organizational resistance
+
+6. Growth Failure
+   ├─ Scaling issues
+   ├─ Cost explosion
+   └─ Competition
+```

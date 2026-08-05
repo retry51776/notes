@@ -12,6 +12,13 @@ AI workload similar to drink(compute) water(data) from cup(HBM) through straw(SR
 - 17% HBM memory
 - 53% network & software
 
+Chip Placement:
+- center: logic core
+- top: network
+- bottom: IO
+- surround: HBM or DRAM
+
+
 ## Runtime Stack
 
 > Machine‑learning frameworks (e.g., PyTorch) → Intermediate Representation(IR/compute graph) → Kernel (different subset CUDA/cuDNN/FlashInfer) → parallel thread execution (PTX assembly) → streaming assembly (SASS machine code) → hardware (GPU).
@@ -80,6 +87,9 @@ Analogy:
 
 - Reconfigurable data‑flow hardware vs. parallelism on existing compute units.
 - skew - variances of data transfer arrival time. HBM requires within 2 picoseconds variance arrival time.
+- Multiplexer - hardware circuit that load target cache into ALU. Aka hidden data movement cost.
+  - Data movement is similar to ADD operation.
+  - Dot Product keep large matrix inside register, load smaller vector into register. Load register similar to train, shallow register moves its data into deeper register.
 
 
 Each chip design with a FIXED Arithmetic Intensity, but different workload has different Arithmetic Intensity.
@@ -135,6 +145,12 @@ Hardware Model codesign
 ## NEO Cloud Providers
 
 https://substackcdn.com/image/fetch/$s_!vOm0!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe347a756-d864-4e1b-983e-9bde22c34e53_1024x479.png
+
+4 types business models:
+- Sell Hardware
+- Cloud Rental
+- White Glove Offering (include maintain service)
+- API
 
 
 ### Amazon & Anthropic
@@ -203,6 +219,10 @@ Known Bugs:
 ### AMD
 
 - Uses **HIP** to translate CUDA code to AMD GPUs.
+
+### Cerebras
+
+whole wafer chip ~ 40GB SRAM
 
 ### Intel
 

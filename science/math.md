@@ -107,3 +107,11 @@ Probability distributions:
 ## Machine Learning
 
 - Pre 2015, boosted tree algo is mainstream Ad.
+
+## Game Theory
+
+### Kelly Criterion
+
+investors use to estimate an “optimal” bet size from win prob & return odd.
+
+`bet_% = (return_odd * win_prob -  lost_prob) / return_odd`

@@ -39,6 +39,11 @@ Here are common trade‑offs:
   > SQL vs NoSQL
 - Complexity or flexibility
 
+## Taxonomy
+
+- Security
+- future proof against failures
+
 ## Prediction
 
 1. In the future (within 10 years), developers will write/describe MVP code and give it to an AI compiler for optimization. The AI compiler may ask the developer for assumptions or clarifications, then compile production‑ready code much faster.

@@ -14,11 +14,15 @@
 
 ## Table of Contents
 
-- [Infographic](#infographic)
-- [Personal Eval](#personal-eval)
-- [Pitfalls](#pitfalls)
-- [Git Linter](#git-linter)
-- [Social Simulator](#social-simulator)
+- [Skills](#skills)
+  - [Skill Design](#skill-design)
+  - [Table of Contents](#table-of-contents)
+  - [Infographic](#infographic)
+  - [Personal Eval](#personal-eval)
+  - [Pitfalls](#pitfalls)
+  - [Git Linter](#git-linter)
+  - [Social Simulator](#social-simulator)
+  - [others](#others)
 
 ## Infographic
 
@@ -49,3 +53,7 @@
 - [social-simulator](./social-simulator/SKILL.md): A structured
   conversation simulator for communication and social cognition
   training.
+
+## others
+
+https://github.com/mukul975/Anthropic-Cybersecurity-Skills

@@ -2,6 +2,19 @@
 >
 > Architecture inference design focus on 2 aspects: network structure(possible routes @ RAM cost) vs route control(which route @ compute cost).
 
+## Byte Latent Transformer
+
+> The Byte Latent Transformer (BLT) replaces fixed-vocabulary tokenization with a hierarchical architecture that operates on dynamically segmented 'patches' of raw bytes. 
+
+- Replaced determinist logic group chars into token, with NN layer that **Dynamically** group chars into patches base off context.
+  - So `Hello ` + `World!`; space often part of first patch. Unlike most tokenizers.
+
+Dynamic Patching via Entropy: Decoupling segmentation from fixed vocabularies by using prediction uncertainty as a dynamic boundary marker.
+
+Hierarchical Latent Processing: Using a high-capacity Transformer only on compressed patch representations, while delegating raw byte handling to lightweight local modules.
+
+Hashed N-gram Integration: Incorporating local context into byte-level embeddings via hashing to maintain efficiency without explicit, large-scale n-gram lookup tables.
+
 ## density vs route
 
 - MLP is extrema network density (always-on routes)

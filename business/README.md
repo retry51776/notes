@@ -26,6 +26,14 @@
 - CFO
 - CIO
 
-# Important Gov
+## Data
+
+ALPHORA INSIGHTS https://insights.alphoragroup.com/
+
+## Important Gov
 
 - <https://en.wikipedia.org/wiki/Section_230> `aka platform immunity`
+
+## IMO
+
+- 2 types business approaches: minimize entropy(factory) or minimize labor(farmer) 

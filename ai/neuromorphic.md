@@ -1,5 +1,7 @@
 # Neuromorphic
->
+
+> LLMs have depth homogeneity, Brains have functional heterogeneity.
+
 > Human have 86 billion neurons with 100 trillion connections, to process related small experiences. LLM currently have 10 trillion connection to process all human writings.
 
 > One major differences is NN can do backward propagation. But neuron synapse only fire single direction.
@@ -16,6 +18,7 @@
 - abstract away upstream complexity
   - LLM uses chain rule (keep scope local)
     - Chain rule is powerful, enable bidirectional. But constrain NN flow be directional, unlike brain.
+    - Chain rule cons side is require gradient near 1(bifurcation point), other wise either forward or backward gradient imbalance.
   - Brain some unknown biology
 - Adapted Learning
   - LLM adjust weights
@@ -68,6 +71,14 @@ Different:
 
 ## Speculation
 
+- LLM's understanding very stable, that understanding with equilibrium by many other anchor points. But human's understanding usually linked to few anchor points, the understanding in brain not fully stable.
+  - stability at the cost of robust entropy.
+- Persistent activity is believed to support working memory.
+- Discipline ~ Control of Residual Stream Entropy. 
+  - High entropy ~ more diverse thoughts with little commitment.
+  - Usefulness has narrow entropy range.
+  - Brain has robust entropy control system. Brain keeps many possibilities, often not produce coherent answer.
+  - Naturally LLM has more Discipline than human. LLM train to Fast entropy reduction, produce single coherent answer.
 - citizen-initiated ballot analogy
   - Query ~ Ask ~ Sensor data; current voting ballot.
     - new_query = new_Query(Value(old_query)); After town citizen voted, collected all voted & generate new ballot for next town.
@@ -114,6 +125,7 @@ Different:
 
 - Sleep time has strong correlation with rapid/burst response time. Ex: cat, snake, crocodile, bats, sloth.
   - no obvious correlation with intelligent
+  - Maybe sleep is restore **neuron activity variance** across many sessions.
 - Most likely things evolution optimize for long time will be harder to achieve in AI.
   - Parameter is similar to gene, DNA often has duplicate genes, allow intermediate modification without disrupt current process. More parameter in LLM allows more paths get to desire network.
 
@@ -123,6 +135,58 @@ Different:
   - neuronal avalanches ~ only trigger when cluster agrees(cluster reach equilibrium)
     - wake-up grumpiness ~ not reach equilibrium caused frustration
     - repeat task get easier ~ easy stay in equilibrium
+
+## Network Neuroscience
+
+> This are inference hypothesis, not explain brain learning. Think of "state of brain" as token, which change at time.
+>
+> Network control theory!!
+> IMO control is emerge behavior, not design.
+> Identify: structure, state, structure constraint, 
+
+> Topology determines: controllability, robustness, synchronization, communication efficiency, vulnerability
+> > IMO brain uses Dragonfly Network Topology, but because supply line, and brain not perfect ball sharp, that maybe not obvious. anterior commissure as center.
+>
+> > LLM stability ~ hub centrality ~ control thoughts
+
+evolved modularity:
+* wiring cost
+* developmental constraints
+* robustness
+* specialization
+* evolutionary reuse
+* metabolic efficiency.
+
+Control Cost:
+* easy transitions
+* difficult transitions
+* stable attractors
+* unstable states
+
+Networks Scale:
+- social network
+- brain Regional network
+- neuronal network
+- molecular network
+
+The seven networks(~ LLM functional circuits) are:
+
+1. Visual Network
+2. Somatomotor Network `sensing & movement`
+3. Dorsal Attention Network `Directing attention to relevant external information`
+4. Ventral Attention Network `Detecting unexpected or behaviorally relevant events`
+5. Limbic Network `emotion, motivation, reward, and assigning value to experiences`
+6. Frontoparietal Control Network `Planning and executive control`
+7. Default Mode Network `Internal thinking.`
+   - Interesting DMN often self trigger. So it's difficult trigger/practice DMN with 3rd party.
+
+
+### Triple Network Model 
+
+> These 3 regions appear across thousands of fMRI studies.
+- Salience Network `Detects what is important and decides where the brain should allocate resources. brain’s scheduler or operating system.`
+- Default Mode Network
+- Central Executive Network `Goal-directed thinking.`
 
 ## Entrorhinal cortex
 >
