@@ -311,6 +311,13 @@ This increase nn density, reduce hops from deep network to shallow network.
 
 https://newsletter.maartengrootendorst.com/p/a-visual-guide-to-gemma-4
 
+- Google’s TITANS and MIRAS / MORAS
+  - Contextual Memory Module
+    - Inject context into main LLM RS from another AI Contextual Memory Module
+  - Customize parameters per user
+    - Help Main LLM process/adapt injected context
+
+
 ### Per-Layer Embeddings (PLE)
 
 Introduce in Gemma 4, acting as a "Semantic Reminder" inject input's info into stream.

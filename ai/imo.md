@@ -96,6 +96,8 @@ Visual > Language > Gene(DNA/RNA)
 
 ## IMO
 
+- Backprops rely on chain rule, Discretization breaks Backprops.
+
 - LLM quantization and tensor compression research IS one of main reasons for LLM providers. Collect hot/important tensor at inference.
 
 - Classic Transformer ~ bubble sort! It works, but not efficient on scale.
@@ -428,6 +430,7 @@ Training often uses beam search, while inference favors sequential revision.
 
 ### 24
 
+- LLMs notoriously have a few channels with very large activations. The importance matrix (imatrix, Kawrakow, January 2024)
 - **Anthropic’s “Scaling Monosemanticity”**  
 
 ### 25

@@ -1,8 +1,19 @@
-# LLM Conventions
+# Agent Notes
+This is note repo for personal use.
 
-Here are conventions when edit different files.
+I prefer retrain my wording as much as possible, concise & common words are prefer over verbose & rare words.
+
+Each folder is a category, find relevant notes by folder & file name.
+
+
+## Guidelines
+
+- This is markdown notes repo, fix grammar & markdown mistakes.
+- This is a trunk‑based repository, you can commit straight into master branch.
+- Don't remove unused codes.
 
 ---
+Here are conventions when edit different files.
 
 ## General Programming
 

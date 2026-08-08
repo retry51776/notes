@@ -1,13 +1,11 @@
 # AI Industry
 > General Framework -> Model Formats -> Inference Engine -> Compute Hardware -> Forward Deploy Engineer
 
-- **General frameworks**: PyTorch, TensorFlow, MLX.
-  - **Pre‑training** – custom kernels, cuTile
-  - **Post‑training** – LoRA, fine‑tuning, RLHF, synthetic data.
+## General Frameworks
+> Reference to academic.md
 
 ## Model Formats
 
-Formats:
 - `.safetensors` - [header JSON metadata][binary tensor blobs], source checkpoint, can convert to any runtime.
   - `model.safetensors.index.json` index for multiple `model-000x.safetensors`.
   - tensor-per-layer
@@ -25,17 +23,78 @@ Formats:
     - prompt templates
     - system prompts
     - tool configs
+- `.ckpt` pytorch checkpoint
+- `.onnx` ONNX Model file also contain compute graph
+- `.mlpackage` CoreML convert diffusion models for CoreML engine runs on MAC
+
+### Block Storage Formats
+> numbers ALWAYS store in blocks, within a block there is scaler & basis adjust all elements at once. superblock even have group as element.
+> > default iteration order is row-major, block-by-block.
+>
+> > row's width **must** be divisible by the block size
+>
+> > filename indicates the lowest precision present in the file, not the average.
+>
+> > Q4_K_M or UD-Q4_K_XL as default, KV cache q8_0.
+
+File Extension Meanings:
+- Trailing _0/_1: legacy, type-0 (scale) / type-1 (scale+min)
+- _K: super-blocks of 256 with quantized sub-scales.
+- _NL: non-linear lookup table
+- S ≈ pure base type
+- M ≈ base + promoted sensitive tensors
+- L ≈ base + promoted further
+- IQ: codebook/lattice quants.
+- _XXS/_XS/_S/_M: size grades within the bit class.
+- TQ / Q1_0: ternary/binary packing for models trained at that precision;
+- UD-: Unsloth Dynamic recipe.
+
+Source code all ggml formats: https://github.com/ggml-org/llama.cpp/blob/master/ggml/src/ggml-common.h
+
+```
+quantization_code: (num_elements, bytes, quantization_formats)
+-----------------------------------------
+0: (1, 4, "F32"),
+1: (1, 2, "F16"),
+8: (32, 34, "Q8_0"),
+10: (256, 84, "Q2_K"),
+12: (256, 144, "Q4_K"),
+16: (256, 66, "IQ2_XXS"),
+26: (1, 4, "I32"),
+
+
+Ex: IQ2_XXS ~ (66 * 8) / 256 = 2.0625 bits-per-weight (bpw) 
+
+# Mixed-precision 
+Q4_K (loaded storage format to RAM)
+    ↓
+dequantize (engine decides which dequantize kernel; or manually `--compute-type fp16`)
+    ↓
+FP16 values (inference engine dequantized FP16 at GPU's SRAM)
+    ↓
+multiply
+    ↓
+FP32 accumulation (later kernel quantize accumulation to desire precision, popular Q8_K)
+```
+
 
 ## Inference Engine
+> Inference Engine translate Model File to Engine's model structure, then map to Hardware's supported Compute Precision.
+>
+> Inference engine, based on its available kernels, backend, hardware, and sometimes user configuration, decides what floating-point format to dequantize into
 
 Inference Engine workflow:
 - 1. Load model file
   - `gguf` meta defined tensor layout
-  - Analogy: import raw material for factory
+  - Analogy: get production line machine
 - 2. Bind model tensors to engine’s model structure
-  - Ex: Attention class has (Wq Wk Wv Wo; KVCache; xxx_kernel;) need memory mapping points to loaded RAM address
-  - Analogy: prep raw material for production line
-    - optimization: fuse matrix, matrix changes, build index.
+  - 2.1 Read model architecture metadata
+  - 2.2 Construct the engine’s model structure
+  - 2.3 Engine model structure infer matrix ops from tensor name
+  - 2.4 Optionally transpose, split, fuse, repack, or index matrix.
+  - Notes:
+    - Ex: Attention class has (Wq Wk Wv Wo; KVCache; xxx_kernel;) need memory mapping points to loaded RAM address
+    - Analogy: unpack production line machine inside factory floor
 - 3. Initialize backend engine (CPU, Metal, CUDA)
   - 3.1 setup weight cache, kernel buffers, workspace
   - 3.2 maps weights to accelerator
@@ -43,22 +102,48 @@ Inference Engine workflow:
   - Notes:
     - CUDA has hardware support dequantize + multiply + accumulate
     - Apple uses Metal Shading Language to dequantize block
+    - Analogy: setup production line
 - 4. Create runtime session
   - 4.1 allocate KV cache + decode scratch
-  - 4.2 generate compute graph
-  - 4.3 manage graph execution & tensor pipeline
+  - 4.2 batch prefill
+    - calculate prefill chunk starting point
+    - check prompt hit KV cache
+    - enqueue block kernel
+      - overwrite Q scratch
+      - overwrite K/V temporary representation
+      - write persistent K/V cache
+      - overwrite attention scratch
+      - overwrite FFN scratch
+      - swap hidden buffers
+    - release tensor pointers
+  - 4.3 batch decode loop
+    - repeat blocks
+      - enqueue kernel
+      - save kv cache into store
+    - enqueue output_head kernel
+    - decode token & speculated ops
+    - eos check & batch swap
   - Notes:
     - compute graph ~ model operations & tensor dependencies
     - Adv: distributed coordinator / TP registration
+    - Analogy: feed raw material into production line
 - 5. Cleanup engine & session
+
+Weight Loading Strategy:
+- Memory-mapped (file-backed)
+- Tensor-backed
+- Streaming
+- Distributed/Sharded
+- Precompiled to Engine Binary
 
 
 | Category | Examples |
 |----------|----------|
-| Research | `transformers`, `llama.cpp` |
-| Inference Engine | JAX, ONNX, **TensorRT**, **vLLM**, SGLang, NVIDIA Megatron-LM / Megatron-Core |
+| Research | `tensorflow`, `pytorch`, `mlx` |
+| Inference Engine | **vLLM**, llama.cpp, CoreML, JAX, ONNX, **TensorRT**, SGLang |
 | Inference Orchestrate Framework | llm-d, Ray, Dynamo |
 
+- CoreML `Apple inference engine`
 - **TensorRT**
   - SDK open source, but core close source. Covert pytorch modal to Nvidia kernel.
   - builtin `fused kernels` or `micro kernels`
@@ -91,6 +176,11 @@ Inference Engine workflow:
   - cli run
   - Planner
 
+Settings:
+- prefill-chunk size effect memory pressure vs speed
+- Speculation Settings
+
+
 ### Compute Precision
 > Compute Precision are precisions have native hardware support. Hardware also can support NONE native **Block Storage Precision** at extra compute cost.
 
@@ -99,6 +189,15 @@ Inference Engine workflow:
 Mac native compute precision includes: (FP16, BF16, INT8, INT4); yet llama.cpp engine w dequant support `IQ2_XXS`;
 
 NVIDIA native support: FP8, FP6, FP4, MXFP8, and NVFP4.
+
+**Native support vs Storage-only support**
+> Note: ComfyUI fp8 on mac problem: ComfyUI backend is PyTorch; mac DON'T have native fp8 support.
+> > It's simple add dequantize script, it's hard to support Mixed-precision of fp8:
+>
+> > llama.cpp supports a much narrower execution pattern; PyTorch must support a huge operation × dtype × backend matrix;
+
+Mainstream@26 is same storage encoding for all components within block. Just less code/logic kernels. More flexible storage encoding can reduce storage, RAM, and IO, at the cost inference engine complexity.
+
 
 ### Weight Compression Algorithm
 > Compression has lowest error when numbers normal/beta distribution, highest error when numbers are bipolar.
@@ -110,10 +209,14 @@ Algorithm:
 - Block Floating Point
   - MXFP8
   - NVFP4 `B200 hardware support, similar to Q4_K storage, but faster`
-- Block Quantization (Q4_0, Q4_K)
-- Importance-aware Quantization (IQ2_XXS, IQ3_XXS, IQ3_S, IQ4_NL)
+- Block Quantization (Q4_0, Q4_1, Q4_K)
+  - type-0 (Q4_0) `32 elements, assume symmetry: y=sx`
+  - type-1 (Q4_1) `add bias: y=sx+b`
+  - K-quants `256 block & 16 group elements, 2 scale levels + 1 offset level`
+- Importance-aware Quantization (IQ2_XXS, IQ3_XXS, IQ3_S, IQ4_NL) `with more compute cost`
   - **codebook*: weight magnitude pattern
   - sign_pattern: weight sign_pattern
+  - error scaling per block
   - IQ2_XXS dequantize: `weight[i] = global_scale × local_scale × codebook[grid_index][i] × sign_pattern[sign_index][i]`
 - AWQ `focus important channel`
 - GPTQ `focus minimizes result error`
@@ -121,6 +224,9 @@ Algorithm:
 
 **Activation-aware Weight Quantization** (AWQ)
 > **Imatrix** is used to make the quantized expert weights preserve the directions that matter most for the actual MoE inputs, so the quantized model usually stays closer to the original model’s expert behavior on the kinds of prompts you calibrated on. Need create custom script for quantized the expert. or fallback `sum(row[c] * row[c])`.
+
+**Unsloth Dynamic 2.0 Quantization**
+> Need python code to output gguf formats are directly compatible with mainstream inference engines.
 
 **Runtime Quantization**
 > Beside weight, there are KV cache, activation, attention score... many temporary tensors that also takes up storage can be quantize.
@@ -151,43 +257,6 @@ Deterministic Compress KV cache Algorithm, apply to any LLM, enhances vector sea
 
 Cartesian coordinates: Standard; smooth, linear gradient;
 Spherical coordinates: Circle; nonlinear, coupled gradient;
-
-
-### Block Storage Formats
-> numbers ALWAYS store in blocks, within a block there is scaler & basis adjust all elements at once. superblock even have group as element.
-
-```
-quantization_code: (num_elements, bytes, quantization_formats)
------------------------------------------
-0: (1, 4, "F32"),
-1: (1, 2, "F16"),
-8: (32, 34, "Q8_0"),
-10: (256, 84, "Q2_K"),
-12: (256, 144, "Q4_K"),
-16: (256, 66, "IQ2_XXS"),
-26: (1, 4, "I32"),
-
-
-Ex: IQ2_XXS ~ (66 * 8) / 256 = 2.0625
-
-# Mixed-precision 
-Q4_K
-    ↓
-dequantize
-    ↓
-FP16 values
-    ↓
-multiply
-    ↓
-FP32 accumulation
-```
-
-
-**Native support vs Storage-only support**
-> Note: Comfyui fp8 on mac problem: ComfyUI backend is PyTorch; mac DON'T have native fp8 support.
-> > It's simple add dequantize script, it's hard to support Mixed-precision of fp8:
->
-> > llama.cpp supports a much narrower execution pattern; PyTorch must support a huge operation × dtype × backend matrix;
 
 
 ## Compute Hardware
@@ -237,6 +306,8 @@ FP32 accumulation
   - Automatic value ~ (success_task_% - failed_task_%) * task_value_$ - llm_cost_$
 
 
+## High-Performance Computing
+
 ### Control Plane
 
 > Assign GPU works, spawn & kill process. Control Plane. Swap hot spare. Heal monitor.
@@ -275,7 +346,9 @@ AgentBench
   - tps per user
   - Prefill worker vs decode worker
 
-## Cache Strategies
+## Advance Inference Optimization
+
+### Cache Strategies
 
 | Phase                     | Cache Type          | Description |
 |---------------------------|---------------------|-------------|
@@ -294,20 +367,68 @@ There are 3 KV approaches:
   - Decouple Prefill vs Decode; Ex: Nvidia Dyno
 
 
-## Speculative Decoding
+### Speculative Decoding
 
-Speeds up decode by predicting multiple tokens(8–16 token drafts) with **smaller** LLM, validate predicted token in batch(prefill/fast) with **larger** LLM(bottleneck).
-  Validate by checking prefill draft token's logit within top-k logit.
+Speeds up decode by predicting multiple tokens(8–16 token drafts) with **smaller** module, verify draft tokens in batch with prefill **expensive**.
+  Validate by checking prefill draft token's logit within top-k(default top 1) logit.
   Also explain why most LLM objective is fully shift, otherwise this won't work.
 
-Usually 5 tokens out of 8 draft tokens will be right.
+Usually 5 tokens out of 8 draft tokens will be right; Only make sense on idol compute hardware, with batch size > 8;
 
-### DSpark
+`draft_cost + verify_cost + replay_cost < saved_target_decode_cost`
+
+- draft_cost - often cheapest part
+- verify_cost - prefill on draft tokens, often expensive
+- replay_cost - update KV cache, often part of verify process
+
+
+```c
+// MTP sudo code:
+e = enorm(embedding_or_previous_mtp_state);
+h = hnorm(main_model_hidden_state);
+
+e = e_proj(e);
+h = h_proj(h);
+
+x = e + h;                  // or concat(e, h), depending on tensor shapes
+x = norm(x);
+
+x = transformer_block(x, block);
+logits = hc_head(x);
+```
+
+#### DSpark
 
 - draft token includes prev draft token
 - stop when draft token logit fuzzy
+- DSPARK_SCHEDULER `extra skip logic`
+  - many no_draft cycles
+  - low average accepted drafts
+  - no accepted long drafts
+  - low confidence early on
+  - poor measured break-even if optional timing gates are enabled
+  - tail of generation has too few tokens left
 
-## Token-adaptive compute
+```c
+hidden_states = main_model_selected_layers(...);
+draft_state = initialize_with_noise_or_token_context(...);
+
+for (uint32_t i = 0; i < w->n_stages; i++) {
+    draft_state = dspark_stage_forward(
+        &w->stage[i],
+        draft_state,
+        hidden_states,
+        w->block_size,
+        w->markov_rank
+    );
+}
+
+draft_tokens = decode_stage_output(draft_state);
+
+// M4 dspark: verify_cost 1259 ms; replay 944 ms; draft_cost was 816 ms.
+```
+
+### Token-adaptive compute
 
 Adaptive Computation Time (ACT) / Universal Transformer style halting. Each token decides when it has had “enough” layers.
 >> Design ACT needs balance between check cost vs compute saving. Avoid early checking, check every X layers?
@@ -320,7 +441,7 @@ Adaptive Computation Time (ACT) / Universal Transformer style halting. Each toke
 
 token premium effects: differences in compression rates across languages.
 
-## Batching
+### Batching
 
 ### Pad Batching
 >The last real token in ALL sequences within same batch **must share same RoPE index** to batch properly.
@@ -381,15 +502,7 @@ Cons:
 
 ## Applications Overview
 
-### Presentation
-
-piktochart
-
-### Deep Research Agents
->
-> AI researcher DRAs. OpenAI expects this mature before 2027.
-
-> LLM needs to improve its reasoning resilient, verified its sources.
+Presentation: piktochart
 
 ### Robotics
 
@@ -434,26 +547,6 @@ piktochart
 - Google Workflow Framework
   - Agent Development Kit `Google's langchain`
   - ADK Web UI
-
-#### Prompt Engineering for Code Generation
-
-```json
-{
-  "type": "function",
-  "function": {
-    "name": "get_current_weather",
-    "description": "Get the current weather for a location",
-    "parameters": {
-      "type": "object",
-      "properties": {
-        "location": { "type": "string", "description": "Location, e.g., San Francisco, CA" },
-        "format":   { "type": "string", "description": "celsius or fahrenheit", "enum": ["celsius","fahrenheit"] }
-      },
-      "required": ["location","format"]
-    }
-  }
-}
-```
 
 
 ## Protocols
@@ -500,46 +593,11 @@ Decide: enough info?
 - GraphRAG – knowledge‑graph based retrieval.
 
 
-## Beyond Static LLMs
-
-- Open‑socket interruption, context caching.
-- Google Titan
-
 ### Python Ecosystem
 
 - `litellm` – common SDK for multiple providers.
 - `jaxtyping` - similar to typescript, define matrix size meaning during variable definition.
 - `einsum` - syntax define matrix ops; Ex: `batch seq1 hidden, batch seq2 hidden -> batch seq1 seq2`
-
-## Memory Architecture
-
-- Google’s TITANS and MIRAS / MORAS
-  - Contextual Memory Module
-    - Inject context into main LLM RS from another AI Contextual Memory Module
-  - Customize parameters per user
-    - Help Main LLM process/adapt injected context
-
-- Meta's Code World Model (CWM) https://arxiv.org/pdf/2510.02387
-  - Training data is a text format of function's execution stacktraces.
-  - The problem with source code don't show LLM variables transition/transformation. This stacktrace will help LLM see/understand detail working of code.
-    - “episodify” execution stacktraces
-      - Begin with <|frame_sep|> followed by the event token which can be <|call_sep|>, <|line_sep|>, <|return_sep|> or <|exception_sep|>.
-      - After <|call_sep|> or <|line_sep|> put the local variable states as dictionary in JSON format followed by the <|action_sep|> token and the current source code line.
-      - After <|return_sep|>, <|exception_sep|> directly put the <|action_sep|> token and the current source code line followed by an <|arg_sep|> token and the return or exception arguments.
-    - attach relevant source code
-    - attach semantic context
-      - desc
-      - unit tests: given input, expected output
-    - execution commands
-    - execution results
-    - review result
-
-  - Mutate-fix task `introduce bug on work code, let LLM fix broken code`
-  - Issue-fix task `open Github PR on github issue`
-  - Deduplication `concatenation all actions, have another LLM train to learn these trajectories, only train with not predictable trajectories.`
-  - Construct Input/Output task
-  - Future task
-    - Jump from section to another
 
 
 ## Safety
@@ -557,3 +615,6 @@ Decide: enough info?
 - H-Neurons drive the AI to be overly compliant and eager to please the user.
 
 removes LLM censorship: https://github.com/p-e-w/heretic
+
+Common Problems:
+- Read Only operations in some system still leave traces, that allow agent communicate. Ex: SEO leaves search queries history. Folder & file names can uses for communication.

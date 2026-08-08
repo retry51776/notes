@@ -106,27 +106,31 @@ Most likely automate by AI industries traits:
 ## Interesting POV
 
 - LLM is predictive, what we need is prescriptive.
-- LLM, Brain are networks; with 2 perspective: `inference goal` & `network control theory`.
+- LLM, Brain view from `network control theory`.
 - The training data property that LLM relied on: random noise will average out evenly, logical behavior will NOT average out because logical behavior property is consistency.
 - There are no irreducible logic.
-- Memorization is goal / emergent behavior, not fundamental operative. Ex: DB also achieve memorization, but its fundamental operative is balance tree.
-  - Sure transistor acts like a switch, so most fundamental operative is ALWAYS if statement.
+- Memorization is emergent behavior, not fundamental operative. Ex: DB also achieve memorization, but its fundamental operative is balance tree.
+  - FYI transistor acts like a switch, so most fundamental operative is ALWAYS if statement.
 - LLM is **NOT** a function ONLY generate single token, residual stream can decode as **full shifting tokens**. That's why we can pre-train LLM with huge amount data.
-- LLM weights functions
-  - inference weights
-    - deterministic (Ex: embedding, LM head, RoPE)
-    - compute (Ex: Attention V, MLP)
-      - Matrix Ops ~ divide & conquer & regroup(robustness & superposition)
-    - routing (Ex: DSA, MOE, maybe even attention score)
-      - benefit: decouple gradients, partition representational space, reduce interference
-    - stability control (Ex: normal layer)
-  - training weights
-    - loss function
-    - optimizer state
-      - direction
-      - momentum
-    - activation/activation checkpoints
-    - custom settings (Ex: LR, decay)
+- Prompt control won't have enough feedback precision on LLM sensory layers.
+  - Similar to good research's taste or instinct can't put into words.
+
+
+### LLM weights functions
+- inference weights
+  - deterministic (Ex: embedding, LM head, RoPE)
+  - compute (Ex: Attention V, MLP)
+    - Matrix Ops ~ divide & conquer & regroup(robustness & superposition)
+  - routing (Ex: DSA, MOE, maybe even attention score)
+    - benefit: decouple gradients, partition representational space, reduce interference
+  - stability control (Ex: normal layer)
+- training weights
+  - loss function
+  - optimizer state
+    - direction
+    - momentum
+  - activation/activation checkpoints
+  - custom settings (Ex: LR, decay)
 
 ## Tradeoff
 

@@ -6,36 +6,21 @@ Inference's hardware requirement is way lower than training. Nvidia is king of t
 
 AI workload similar to drink(compute) water(data) from cup(HBM) through straw(SRAM).
 
-## Pitfall
-
-- 30% GPU & NVLink failures
-- 17% HBM memory
-- 53% network & software
-
-Chip Placement:
-- center: logic core
-- top: network
-- bottom: IO
-- surround: HBM or DRAM
-
 
 ## Runtime Stack
 
-> Machine‑learning frameworks (e.g., PyTorch) → Intermediate Representation(IR/compute graph) → Kernel (different subset CUDA/cuDNN/FlashInfer) → parallel thread execution (PTX assembly) → streaming assembly (SASS machine code) → hardware (GPU).
+> General frameworks (PyTorch) → Intermediate Representation(IR/compute graph) → Kernel (different subset CUDA/cuDNN/FlashInfer) → parallel thread execution (PTX assembly) → streaming assembly (SASS machine code) → hardware (GPU).
 
 Different hardware needs its own version of `llama.cpp` (e.g., Metal, ROCm, CUDA).
 
 Each manufacturer has its own shading language.
 
-Open‑Source Ecosystem:
-
-- **Exo Labs** – AI cluster management software.
 
 ## Memory
 
 > The real bottleneck is the memory hierarchy: GPUs have limited high‑bandwidth memory (HBM or SRAM), while model parameters far exceed this capacity, forcing frequent off‑chip transfers.
 
-- Arithmetic Intensity | Compute Density ~ Compute / Data @ FB16
+- Arithmetic Intensity | Compute Density ~ Compute / Data @ FP16
   - Workload
     - Attention ~ 10–50 FLOPs/byte
     - GEMM / MLP ~ 100–1000+ FLOPs/byte
@@ -141,6 +126,13 @@ Hardware Model codesign
 - Threadgroup walk order - increase cache hit rate(because x,y index increase slowly)
 
 
+### Compute Precision
+
+- CPU default FP32 AVX kernel
+- MAC default FP16
+- NVIDIA has many compute precision, NVFP4 is common inference precision
+
+`operation × dtype × backend matrix` requires unique kernel.
 
 ## NEO Cloud Providers
 
@@ -182,6 +174,8 @@ https://substackcdn.com/image/fetch/$s_!vOm0!,f_auto,q_auto:good,fl_progressive:
 
 ### Apple
 
+> Default compute precision is FP16.
+
 Metal Performance Primitives / TensorOps
 └── Metal Performance Shaders
     └── MPSGraph
@@ -190,8 +184,7 @@ Metal Performance Primitives / TensorOps
         │   └── MetalFX
         └── (others)
 
-- **MLX** – Efficient array framework for Apple silicon (supports 4‑ and 8‑bit).
-  - MLX uses Apple GPUs, which is general purpose.
+- **MLX** – General Framework for Apple silicon
   - mlx[cuda] compiled into CUDA api for CUDA runtime
   - https://github.com/ml-explore/mlx-lm/tree/main/mlx_lm/models defined supported models
 - **Core ML** – Optimized inference engine; leverages the Apple Neural Engine (ANE).
@@ -209,6 +202,8 @@ Apple GPU components:
 - M5's Neural accelerator ~ tensor core
   - GPU -> DRAM -> NPU -> DRAM -> GPU; slow, not on SRAM.
 - ALU (int/fp/complex) ~ ALU
+
+- MTLBuffers ~ CUDA device buffer
 
 > The ANE is not directly accessible from MLX or PyTorch.
 
@@ -270,6 +265,16 @@ Support TorchTitan
 - Chip all 3D space all need to utilize, but at the expense of manufactory cost.
 - Precision are getting smaller.
 
+Chip Placement:
+- center: logic core
+- top: network
+- bottom: IO
+- surround: HBM or DRAM
+
+Pitfall:
+- 30% GPU & NVLink failures
+- 17% HBM memory
+- 53% network & software
 
 ## Benchmark
 

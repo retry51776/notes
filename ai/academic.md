@@ -237,7 +237,29 @@ Important notes:
 
 > The chain rule says: Total effect = (effect on intermediate) × (effect of intermediate on final)
 
-> Chain rule backprops prerequisite: nn is DAG(no Cyclic graph).
+> The chain rule is the mathematical foundation of standard backpropagation: nn is DAG(no Cyclic graph).
+
+```md
+ReLU: dead neuron when 0 gradient
+
+y
+│       /
+│      /
+│     /
+│____/_______ x
+     0
+gradient:  0 | 1
+
+
+round()
+
+y
+│       ┌────
+│   ┌───┘
+│───┘
+└──────────── x
+Discretization: gradient: 0 almost everywhere
+```
 
 > Often layer's output are component of derivative calculation. `backprops(grad_out, x, out)`
 
@@ -307,9 +329,23 @@ residual stream/latent space `The intermediate output between NN layers`
 
 > Dynamic Activation Pruning and Optimization (DAPO): L1 that prune inactive / low-importance neurons or channels during training
 
-## Pretrain
+## General Frameworks
+> These are similar to numpy framework, but build-in support backprops, and some pre-built optimizer. They can both inference & train, but inference will be slower.
 
-> Pretrain is all about imitation.
+- PyTorch - Reference to code.md or nvidia.md
+- Tensorflow - Reference to code.md
+- MLX
+
+### Rate-distortion theory
+
+quantization scheme allocation:
+* more bits for each weight;
+* more local scales;
+* better scale precision;
+* offsets/zero-points;
+* codebooks;
+* importance information;
+* different treatment of outliers.
 
 ### Normalization
 
