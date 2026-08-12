@@ -7,7 +7,7 @@ Inference's hardware requirement is way lower than training. Nvidia is king of t
 AI workload similar to drink(compute) water(data) from cup(HBM) through straw(SRAM).
 
 
-## Runtime Stack
+## Runtime
 
 > General frameworks (PyTorch) → Intermediate Representation(IR/compute graph) → Kernel (different subset CUDA/cuDNN/FlashInfer) → parallel thread execution (PTX assembly) → streaming assembly (SASS machine code) → hardware (GPU).
 
@@ -15,6 +15,33 @@ Different hardware needs its own version of `llama.cpp` (e.g., Metal, ROCm, CUDA
 
 Each manufacturer has its own shading language.
 
+### Hardware Workflow
+
+> Kernel function + arguments / buffers + thread/grid dimensions + pipeline state = dispatch descriptor
+
+CPU/Metal driver side
+
+- records each kernel dispatch
+- binds pipeline state, buffers, offsets, constants
+- validates resource usage
+- builds command streams
+- commits command buffers to the GPU queue
+
+GPU command processor / scheduler
+
+- reads the command stream
+- launches each dispatch in command-buffer order
+- assigns threadgroups to GPU cores
+- manages barriers/order between dispatches
+- tracks resource hazards enough to preserve command ordering
+- handles occupancy: how many threadgroups can fit based on registers, threadgroup memory, threads, etc.
+
+Per-kernel execution
+
+- allocates threadgroup memory/SRAM if the kernel declares it
+- schedules SIMDgroups/threads
+- runs memory loads/stores and ALU work
+- retires threadgroups
 
 ## Memory
 
@@ -38,6 +65,16 @@ Each manufacturer has its own shading language.
 
 
 - **GPU memory** hides latency by interleaving many threads. Unlike CPUs, where context switches are expensive, GPU threads are lightweight and scheduled by hardware.
+
+- MTLCommandQueue `command queue`
+- MTLCommandBuffer `a batch GPU kernels`
+- MTLBuffer `memory pointer for GPU kernel's inputs & results`
+  - c: `graph->query_by_tier[graph->active_tier]` syntax similar struct
+  - Lifetime: persists while MTLBuffer exists, outlast kernel.
+  - Visibility: another kernel can read it later if you bind the same MTLBuffer.
+  - Address space: it is device memory, global GPU memory, not per-thread local memory.
+  - Synchronization: if one kernel writes it and another reads it, ordering matters. Separate encoders in the same command buffer are ordered; separate command buffers need dependency handling.
+  - Performance: device memory is slower than thread-local registers or threadgroup memory
 
 ### RAM Types
 
@@ -110,6 +147,7 @@ Hardware Model codesign
 | CUDA Graphs | Pre‑record kernel launches | Avoids CPU bottlenecks |
 | Multi‑token Decoding | Predict several tokens at once | Increases generation speed |
 
+- command-buffer schedules `how often CPU dispatch kernels`
 - superkernel - reduce kernel swap by multi ops
 - microbatch - split training batch into smaller batches
 - flashcomm
@@ -203,7 +241,11 @@ Apple GPU components:
   - GPU -> DRAM -> NPU -> DRAM -> GPU; slow, not on SRAM.
 - ALU (int/fp/complex) ~ ALU
 
-- MTLBuffers ~ CUDA device buffer
+- DS4MetalTensor
+  - MTLBuffer ~ memory pointer for GPU
+  - offset
+  - owner
+  - live_snap & peak_snap
 
 > The ANE is not directly accessible from MLX or PyTorch.
 
@@ -221,8 +263,14 @@ whole wafer chip ~ 40GB SRAM
 
 ### Intel
 
-- intel/llm-scaler-vllm
-- Dynamic auto cast LLM to int4 or fp8
+Software:
+- OpenVINO (Open Visual Inference and Neural Network Optimization) `in tel inference engine`
+- intel/llm-scaler-vllm `custom vLLM inference engine`
+
+Hardware:
+- Intel Gaudi 3 `w 128 GB of HBM2e`
+- GPU Max Series (Ponte Vecchio)
+
 
 ### CoreWeave
 

@@ -1,10 +1,33 @@
 # AI Industry
-> General Framework -> Model Formats -> Inference Engine -> Compute Hardware -> Forward Deploy Engineer
 
-## General Frameworks
-> Reference to academic.md
+1. [General ML Framework](./academic.md)
+   PyTorch / MLX / TensorFlow / JAX
+   └── tensor ops, compiler, kernels, autograd, hardware backend
 
-## Model Formats
+2. [Model Artifact](#model-arthifact)
+   **safetensors** / GGUF / ONNX / mlpackage
+   ├── weights
+   ├── architecture/config
+   ├── metadata
+   └── tokenizer
+
+3. [Inference Engine](#inference-engine)
+   llama.cpp / vLLM engine / TensorRT-LLM / ONNX Runtime
+   └── model execution / kernel conversation
+   └── KV cache
+   └── batching
+   └── decode
+   └── quantization
+   └── memory management
+
+4. [Compute Runtime / Communication Runtime](./hardware.md#runtime)
+   CUDA / ROCm / Metal
+   NCCL / RCCL
+
+5. [Compute Hardware](./hardware.md)
+   CPU / GPU / Networking / Storage
+
+## Model Artifact
 
 - `.safetensors` - [header JSON metadata][binary tensor blobs], source checkpoint, can convert to any runtime.
   - `model.safetensors.index.json` index for multiple `model-000x.safetensors`.
@@ -83,7 +106,7 @@ FP32 accumulation (later kernel quantize accumulation to desire precision, popul
 >
 > Inference engine, based on its available kernels, backend, hardware, and sometimes user configuration, decides what floating-point format to dequantize into
 
-Inference Engine workflow:
+### Inference Engine workflow
 - 1. Load model file
   - `gguf` meta defined tensor layout
   - Analogy: get production line machine
@@ -116,6 +139,9 @@ Inference Engine workflow:
       - overwrite FFN scratch
       - swap hidden buffers
     - release tensor pointers
+    - Notes:
+      - no TP: `1 GPU barrier wait + 1 host readback`
+      - with TP: `per layer barrier waits + 1 output-head wait + 1 host readback`
   - 4.3 batch decode loop
     - repeat blocks
       - enqueue kernel
@@ -136,21 +162,40 @@ Weight Loading Strategy:
 - Distributed/Sharded
 - Precompiled to Engine Binary
 
-
-| Category | Examples |
-|----------|----------|
-| Research | `tensorflow`, `pytorch`, `mlx` |
-| Inference Engine | **vLLM**, llama.cpp, CoreML, JAX, ONNX, **TensorRT**, SGLang |
-| Inference Orchestrate Framework | llm-d, Ray, Dynamo |
-
+Inference Engines:
 - CoreML `Apple inference engine`
+- llama.cpp
+- vllm
 - **TensorRT**
   - SDK open source, but core close source. Covert pytorch modal to Nvidia kernel.
   - builtin `fused kernels` or `micro kernels`
   - 2–4× higher TPS to vllm
-- [JAX](https://developer.apple.com/metal/jax/)
-  - `pip install "jax==0.4.34" "jaxlib==0.4.34" "jax-metal==0.1.1"`
-  - AXLearn `Google's alternative Hugging Face transformers`
+
+> Tokenizer / preprocessing / postprocessing — tokenization, chat templates, multimodal image preprocessing, sampling/logits processing, detokenization.
+
+Settings:
+- prefill-chunk size effect memory pressure vs speed
+- Speculation Settings
+- TP settings
+  - **network protocols**: RDMA|TCP
+
+### Inference Frameworks:
+> There are many other tasks, get bundle w inference engine as single framework.
+
+Common capabilities:
+└── engine integration
+└── TP / PP / EP
+└── multi-GPU/node coordination
+└── request scheduling/routing
+└── model pull/load
+└── API serving
+└── monitoring
+
+- **Dynamo** - 2+ nodes will 2X throughput tps
+  - cli run
+  - Planner
+  - **NVIDIA Inference Microservices** (NIM) - ~3GB `nvcr.io/nim/nvidia/llm-nim:latest`
+    - Triton Inference Engine (Docker Image)
 - **llm-d**: a Kubernetes-native high-performance distributed LLM inference framework; (ONLY CUDA/ROCm)
   - Gateway
   - Inference Scheduler (similar to nginx, at request level)
@@ -170,15 +215,7 @@ Weight Loading Strategy:
   - ModelService Controller (Pod Controller)
   - Prometheus (Monitor)
 
-- **NVIDIA Inference Microservices** (NIM) - ~3GB `nvcr.io/nim/nvidia/llm-nim:latest`
-  - Triton Inference Engine
-- **Dynamo** - 2+ nodes will 2X throughput tps
-  - cli run
-  - Planner
-
-Settings:
-- prefill-chunk size effect memory pressure vs speed
-- Speculation Settings
+> Distributed execution Examples: NCCL, RCCL, MPI, Ray, DeepSpeed inference, plus TP/PP implementations inside vLLM/TensorRT-LLM.
 
 
 ### Compute Precision
@@ -259,8 +296,6 @@ Cartesian coordinates: Standard; smooth, linear gradient;
 Spherical coordinates: Circle; nonlinear, coupled gradient;
 
 
-## Compute Hardware
-> Reference to hardware.md
 
 ## Rules of Thumb
 
@@ -308,43 +343,32 @@ Spherical coordinates: Circle; nonlinear, coupled gradient;
 
 ## High-Performance Computing
 
-### Control Plane
+HPC common problems:
+- Lot of small file (LOSF) may cause random unmount volumnes; patch with `autofs`
 
-> Assign GPU works, spawn & kill process. Control Plane. Swap hot spare. Heal monitor.
-
-### CheckPointer
-
-> Async save LLM state into DDR(~5min), then SSD(~30min), then HDD(~3hr).
-
-### Data Factory
-
-- Generate
-- Annotate
-- Validate
-
-### Eval Factory
-
-https://github.com/NVIDIA-NeMo/Evaluator
-
-AgentBench
-
-- Checkpoint
-- Benchmark
-- Throughput
-- Cycle Time
-
-### Inference Factory
-
-- Optimize
-- Build Container Image
-- Validate
-  - security scan
-  - accuracy
-  - performance
-- Key controls
-  - Batch size
-  - tps per user
-  - Prefill worker vs decode worker
+HPC components:
+- Control Plane: Assign GPU works, spawn & kill process. Control Plane. Swap hot spare. Heal monitor.
+- CheckPointer: Async save LLM state into DDR(~5min), then SSD(~30min), then HDD(~3hr).
+- Data Factory:
+  - Generate
+  - Annotate
+  - Validate
+- Eval Factory: https://github.com/NVIDIA-NeMo/Evaluator
+  - Checkpoint
+  - Benchmark
+  - Throughput
+  - Cycle Time
+- Inference Factory
+  - Optimize
+  - Build Container Image
+  - Validate
+    - security scan
+    - accuracy
+    - performance
+  - Key controls
+    - Batch size
+    - tps per user
+    - Prefill worker vs decode worker
 
 ## Advance Inference Optimization
 
@@ -443,29 +467,6 @@ token premium effects: differences in compression rates across languages.
 
 ### Batching
 
-### Pad Batching
->The last real token in ALL sequences within same batch **must share same RoPE index** to batch properly.
->> Because during prefill, attention is computed “column-wise”;
->
->> SHORTER prompt’s ROPE absolute positions DO change depending on the longest prompt in the batch.
-
-pad token
-
-- will mask out by attention mask
-- never get through attention
-- never received ROPE
-- Left padding / PREFILL:
-  - Ex: `<pad>    <pad>    Hello`
-  - purpose: algin ALL sequences within same batch to SAME RoPE index;
-  - attention is computed column-wise across the batch, so prefill sacrifices absolute position alignment for batched speed.
-- Right padding / GENERATION:
-  - Ex: `Hello    <pad>    <pad>`
-  - attention is computed sequence-wise, independently per row;
-  - The position of new tokens is computed from the cache length, not from the tensor shape.
-
-Vllm will swap out completed slot with another request. Max out batch usage avoid padding.
-Dual Batch ~ 2 micro batch
-
 ### Selective Batching
 
 Flat & concatenate multiple MLP input sequence, so batch process all inputs with different sequence at the same time.
@@ -519,23 +520,10 @@ Presentation: piktochart
 |   | 192.168.123.164 (high‑level Jetson, Python control) |
 | FSM States | 0: zero torque, 1: damp, 2: squat, 3: sit, 4: stand‑up, 200: start, … |
 
-### Agent
+## Agent
 
-- UX Agent
-  - https://stitch.withgoogle.com/
-- Coding Agent
-- Workflow Agent
-  - Budget
-  - Security
-    - Log
-    - Access Manager
-    - Skill market place
-  - Custom Hardwares `integrate with agent skills to manage it`
-    - Door Locks
-    - Print
-    - Projector & TV
-    - Clock in/out machine
-    - Headphone
+90% prefill and under 10% generated.
+
 - Govern System
  1. Identity / trust boundary
  2. Tool permission policy
@@ -549,7 +537,7 @@ Presentation: piktochart
   - ADK Web UI
 
 
-## Protocols
+### Protocols
 
 - MCP (Model Context Protocol) – inject system prompts, tool descriptions, and response formats.
 - A2A (Agent‑to‑Agent) – asynchronous task assignment with status callbacks.
@@ -585,19 +573,6 @@ Prune / summarize / filter
 Decide: enough info?
    ├─ No → issue new query (loop)
    └─ Yes → return final docs
-
-
-## Debugging & Evaluation
-
-- Tracing: Jaeger, Langfuse.
-- GraphRAG – knowledge‑graph based retrieval.
-
-
-### Python Ecosystem
-
-- `litellm` – common SDK for multiple providers.
-- `jaxtyping` - similar to typescript, define matrix size meaning during variable definition.
-- `einsum` - syntax define matrix ops; Ex: `batch seq1 hidden, batch seq2 hidden -> batch seq1 seq2`
 
 
 ## Safety

@@ -1,5 +1,28 @@
 # MLX
 
+## Mac OS
+
+> The worker must dial the address on the Thunderbolt member interface, not the bridge address
+
+- **bridge** is a virtual network interface `10.0.0.2`
+- **Thunderbolt member interface** `en5: 169.254.10.2`
+```bash
+# check RDMA
+rdma_ctl status
+ibv_devinfo -v
+
+# Let the GPU wire ~117 GB (default cap is ~75% of RAM; the resident
+# expert shard needs ~97.5 GiB plus KV/scratch).
+sudo sysctl iogpu.wired_limit_mb=120000
+
+# RDMA over Thunderbolt needs an IPv4 address directly on the cabled
+# member interface (the bridge IP does not count). Use the interface
+# that is 'active' in ifconfig, e.g. en1 on one side and en6 on the
+# other. Skip this if you are fine with the TCP fallback.
+sudo ifconfig en1 inet 10.99.0.2/30 alias     # machine A
+sudo ifconfig en6 inet 10.99.0.1/30 alias     # machine B
+```
+
 ## Frustration
 
 - `np.concatenate` `np.dot` are NOT support

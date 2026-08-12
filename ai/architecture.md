@@ -23,6 +23,9 @@ Hashed N-gram Integration: Incorporating local context into byte-level embedding
 - Local Attention
 - Global Attention is extrema route control
 
+## Prefix-LM
+
+You can have: `Prompt = bidirectional` but `Generated output = causal`
 
 ## MLP
 

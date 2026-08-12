@@ -214,3 +214,17 @@ Network Constraints:
     - Safety: Forbidden states
   - Time
 - Observability
+
+## Kolmogorov–Arnold Networks
+> Learnable function replace neuron's learnable weight.
+
+> B-spline KANs is break apart single complex function into sections. Each section has its derivative. Then we both has resolution control and flexibility.
+> > Each section ~ single Relu neuron.
+
+
+- **Activation Function** conditionally compress unimportant information while preserving important information, with the **weights deciding where that preserved region is**.
+    - problem w sigmoid, tanh...; has 2 fixed compress sections, that restrict preserve info range. Yet weight only control one.
+    - problem w Relu, it's delete, not compress.
+
+- matrix multiplication can think as rotation, previous diagonal direction rotate into axis-aligned direction.
+  - Different MOE Experts rotate its unique direction, extra info differently.

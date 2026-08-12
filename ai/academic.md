@@ -92,11 +92,6 @@ Stage:
     - Relu - range 0 to x;
     - SiLU - GPT-OSS; likely range from -1 to 50
     - GELU - (Gaussian Error Linear Unit)
-    - cosin ~ measure alignment
-    - sin ~ measure orthogonal difference
-    - tanh ~ single softmax conversion with offset; output: zero-centered, −1 or +1
-    - sigmoid ~ single softmax conversion; output: 0 or 1;
-    - softmax ~ Mutual exclusive
   - distribution
     - variance stable: $fan_{in} \cdot \sigma^2 \approx 1
 \quad\Rightarrow\quad
@@ -105,14 +100,13 @@ Stage:
     - gain: how much matrix/weight need to compensate lost variance.
     - Explains why warn up period, as training continue, individual layer will lost variance stable, but cross layers(the whole network) stable.
 - Basic General
-  - Forward Propagation
   - Backward Propagation
     - Lost
     - ε (epsilon) `a tiny constant (typically 1e-5 or 1e-6); learning rate unit`
     - $J(\theta)$ `the loss function / objective function being minimized`
   - Tiling `calculation matrix multiplication by smaller block, each SM loads target block row & col to calculate small final result block`
   - Neuron `fundamental unit in a neural network that performs a simple mathematical operation on input data and passes the result to other neurons or output units; weights usually gaussian distribution`
-  - Activation function
+  - Activation function 
   - Weight - Usually range from -1 to 1
   - Bias - Usually small; Doesn't uses in attention blocks;
   - Output - center around 0 because normalization layer;  Activations Density under 0.5%
@@ -335,6 +329,10 @@ residual stream/latent space `The intermediate output between NN layers`
 - PyTorch - Reference to code.md or nvidia.md
 - Tensorflow - Reference to code.md
 - MLX
+
+### Compiler / kernel layer
+> Compiler turns model ops into efficient device kernels, performs fusion/codegen.
+>> Examples: Triton, XLA, TorchInductor, CUDA kernels, Metal kernels, MLX compiler, TensorRT compiler pieces
 
 ### Rate-distortion theory
 
@@ -619,6 +617,7 @@ Interpretability Research: <https://transformer-circuits.pub/>
 - Physics Informed Machine Learning
 - Stable diffusion: add noise to image, let AI recover image;
   - KV Cache Incompatibility: old tokens can also attend to new token, which means the representations of all tokens must be recomputed.
+  - Main differences to autoregression: random mask vs casual mask
 
 - **Circuits** `sub network that perform X calculation`
 - **Feature Manifold** `lives in a particular subspace of the residual stream (RS), orientation and shape are stable;`
@@ -763,4 +762,3 @@ Measures:
 - Routing Entropy
 - compression curve
 - Noise Robustness Test (noise sensitive ~ high utilization %)
-

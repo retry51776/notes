@@ -9,5 +9,9 @@
     "python.testing.pytestEnabled": false,
     "python.testing.unittestEnabled": true,
     "cody.autocomplete.advanced.provider": "experimental-ollama",
-    "editor.emptySelectionClipboard": false
+    "editor.emptySelectionClipboard": false,
+    "files.associations": {
+        "*.metal": "cpp",
+        "*.msl": "cpp"
+    }
 }

@@ -247,7 +247,6 @@ Each gate has a special purpose — like customs, traffic control, or the big cr
 
 GPUDirect Storage (GDS) support 27 GBps
 
-## Server Software
 
 ## NVIDIA Software Stack
 
@@ -262,7 +261,13 @@ GPUDirect Storage (GDS) support 27 GBps
       - vllm (default engine)
       - **TensorRT**
       - sglang
+      - NVIDIA Triton Model Analyzer `pip install triton-model-analyzer`
   - **NVIDIA NeMo** – Model training framework.
+
+> Usually deploy as container. Has SDK container w full tool sets, and Server container.
+
+Important Network Settings:
+- GID = Global Identifier, a 128-bit address used by InfiniBand/RDMA verbs.
 
 ### OS services
 
@@ -301,7 +306,29 @@ Dynamically-linked `use CUDA runtime`
 
 ### kernel
 
+```md
+                         Kernel
+                           │
+              ┌────────────┴────────────┐
+              │ arguments               │
+              │                         │
+         matrix pointers          dimensions/etc.
+              │
+              ▼
+       [ huge matrix ]
+              │
+      ┌───────┼────────┐
+      ▼       ▼        ▼
+   worker   worker    worker   ...
+   ID=0     ID=1      ID=2
+      │       │        │
+      ▼       ▼        ▼
+    data[0] data[1]  data[2]
+```
+
 CPU dispatch CUDA kernel, CUDA kernel can NOT invoke another CUDA kernel.
+
+kernel ~ C++ function executed by MANY GPU threads: matrix pointer, threadIdx/blockIdx (worker id for coordination)
 
 > Most kernel authoring are for improve training, room to improve inference are very small (inference are mostly memory bound).
 

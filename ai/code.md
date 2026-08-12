@@ -7,6 +7,10 @@ Packages:
 - networkx `Graph package`
 - lancedb `database engine for all sort datatypes`
 
+- `litellm` – common SDK for multiple providers.
+- `jaxtyping` - similar to typescript, define matrix size meaning during variable definition.
+- `einsum` - syntax define matrix ops; Ex: `batch seq1 hidden, batch seq2 hidden -> batch seq1 seq2`
+
 ## Command fix shits
 
 ```py
@@ -393,7 +397,30 @@ tl.store(y_ptrs, y_row)
 
 ```
 
-## transformers
+## Metal
+
+```h
+// @autoreleasepool ~ @with mark variables for cleanup, except 
+id result;
+
+@autoreleasepool {
+    id temp = make_object();
+    result = temp;   // under ARC, result holds a strong reference
+}
+
+// result is still alive here
+use(result);
+
+
+
+//TP service thread ~ request queue, mutex/condition variable, and the service loop
+
+thread_position_in_grid ~ threadIdx
+thread_position_in_threadgroup ~ blockIdx
+threadgroup_position_in_grid ~ blockDim
+```
+
+## Transformers
 
 > Python package by huggingface
 
@@ -767,3 +794,18 @@ llm = LLM(
 ## Visual Tools
 
 <https://plotly.com/python/>
+
+## llama.cpp
+
+```c
+llama_memory_t mem = llama_get_memory(ctx);
+
+llama_memory_seq_cp(
+    mem,
+    MAIN,
+    SAFETY,
+    0,
+    fork_pos
+);
+```
+

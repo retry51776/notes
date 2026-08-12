@@ -32,6 +32,7 @@ Here are common trade‑offs:
 - CPU vs Memory  
   > AKA space–time trade‑off
 - Speed vs Accuracy
+  - Repetition to exclude noise
 - Latency vs Throughput
 - Consistency or availability  
   > Database high‑availability problems
