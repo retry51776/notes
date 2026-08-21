@@ -237,5 +237,22 @@ Rule:
 - I expects taxonomy result is single nested tree w methods name, I don’t care its declared position
 - When method already called inside nested taxonomy, don't show its declared duplicate. Keep taxonomy tree minimum & clean.
 
+
+=======
+
+Meeting Notes:
+Attendees:
+Use a bulleted list.
+Format each attendee as:
+* Person Name (Organization / Team)
+* Person Name (Organization & Project)
+* Person Name (Title)
+
+Discussion Items:
+Start each topic with the person responsible for or introducing the topic in square brackets:
+* [Name] Topic or question
+	- possible solution A
+	- possible answer B
+
 ```
 

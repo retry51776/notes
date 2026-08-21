@@ -5,6 +5,9 @@
 
 <https://huggingface.co/spaces/ArtificialAnalysis/Video-Generation-Arena-Leaderboard>
 
+## General
+- `ffmpeg` common linux package.
+
 ## Metric
 
 - space persistent

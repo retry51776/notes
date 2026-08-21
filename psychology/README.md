@@ -11,15 +11,21 @@
 
 ## Table of Contents
 
-- [Biology](#biology)
-  - [Forward Propagation Process](#forward-propagation-process) `Reaction Process`
-  - [Backward Propagation Process](#backward-propagation-process) `Reflection Process`
-- [Psychology Definitions](#psychology-definitions)
-  - [Awareness](#awareness)
-  - [Desire](#desire)
-  - [Reward](#reward)
+- [Psychology](#psychology)
+  - [Table of Contents](#table-of-contents)
+  - [Biology](#biology)
+    - [Forward Propagation Process](#forward-propagation-process)
+    - [Backward Propagation Process](#backward-propagation-process)
+  - [Psychology Definitions](#psychology-definitions)
+    - [Awareness](#awareness)
+      - [Cue](#cue)
+    - [Desire](#desire)
+    - [Reward](#reward)
   - [Action](#action)
   - [Reflection](#reflection)
+    - [Diagnose](#diagnose)
+    - [Design](#design)
+    - [Implementation](#implementation)
 
 ## Biology
 >
@@ -98,6 +104,15 @@
     - d.2 Reliance on machine
 
 ## Reflection
+
+- 1. Experience current events, and record;
+- 2. Flatten past events(sequential) into a batch history(parallelizable information, able fit into limited context window);
+- 3. Discover causal effect within batch history;
+- 4. Store new finding as an past event.(recycled into step 1)
+
+> The problem with people wants to forget trauma, forget trauma breaks reflection process, prevent change.
+
+> You can’t find patterns on past events that you forgotten! Doomed to repeat same mistakes.
 
 ### Diagnose
 

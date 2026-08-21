@@ -116,3 +116,9 @@ smtp_tls_security_level = encrypt
 myorigin = example.com
 smtp_generic_maps = hash:/etc/postfix/generic
 ```
+
+## Qualcomm Topology
+
+- **QTM-X800** — NVIDIA Quantum-X800 InfiniBand switch plus BlueField-3 DPUs and ConnectX-8 SuperNICs
+- **QTM-2** — NVIDIA Quantum-2 InfiniBand switch plus BlueField-3 DPUs and ConnectX-7 NICs
+- **SPTMX** — NVIDIA Spectrum-X Ethernet switch and SuperNICs plus BlueField-3 DPUs

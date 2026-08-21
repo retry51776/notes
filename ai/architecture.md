@@ -2,6 +2,19 @@
 >
 > Architecture inference design focus on 2 aspects: network structure(possible routes @ RAM cost) vs route control(which route @ compute cost).
 
+
+## Information Lifetime
+> Different information has different persistent time period.
+
+- Model Training Lifetime: Optimizer State
+- Model Inference Lifetime: Model's Weights, LoRA
+- User Lifetime: User's Preference; google's TITANS architecture
+- Agent Lifetime: compressed memory, task status, tool status, todo list.
+- Sequence Lifetime: KV cache
+- Token Lifetime: input token, output logit
+- Layer lifetime: activation, query projection, attention score
+- Kernel Lifetime: which matrix, ops in SRAM
+
 ## Byte Latent Transformer
 
 > The Byte Latent Transformer (BLT) replaces fixed-vocabulary tokenization with a hierarchical architecture that operates on dynamically segmented 'patches' of raw bytes. 
@@ -47,6 +60,8 @@ Main compute. Similar to CNN.
 
 Variational Autoencoders just identity network forces to compress & recover input. VAEs also need to keep constraint on std(x) & mean(x) to ensure VAEs utilize latent space efficient.
 
+> VAE common use cases are converts the model output from latent space to pixel space.
+
 ## CNN
 
 Assumptions:
@@ -57,6 +72,7 @@ Assumptions:
 
 ## Transformer
 
+> The KEY advance is cross attention can parallel reproduce causality.
 <https://poloclub.github.io/transformer-explainer/>
 
 - x `input tokens`
@@ -72,6 +88,9 @@ Assumptions:
 The limitation MLP block is SAME force/changes applies to every token, no interactions between tokens, token’s value determents amount of force/changes.
 
 Attention block is focused on interactions between tokens, each token has different interactions(look back tokens @ causal mask). So not same force/field applies to every tokens.
+
+• Self-attention: Q, K, and V are all from the same sequence.
+• Cross-attention: Q is from a different sequence than K and V, conditioning Q on external information.  (e.g., between the image being generated and the associated text prompt)
 
 Attention is closer to a residual stream pointer machine than a mixer. Attention score controls how much premixed token info from value projection.
 
@@ -194,6 +213,8 @@ YaRN allows RoPE to use non-integer (fractional) token positions
       - combine tokens' dimensions into single indexer score
   - Top-k selector
 
+- DeepGEMM kernel H100
+
 ```py
 model.model.layers ModuleList(
   (0-63): 64 x Qwen2DecoderLayer(
@@ -237,6 +258,8 @@ Their idea is design architecture for inference(avoid KV cache size blow up). At
 ## Diffusion
 
 > Diffusion train data by noise sample both variances(gaussian noise) & mean(drift direction toward 0/normal distribution).
+
+> Modern video models hold the entire video in latent space and modify it on each denoising step. Each frame attends to each other frame and is updated on every forward pass.
 
 Diffusion phrases:
 

@@ -58,6 +58,7 @@
 - Intelligence(Data) vs. Rationality(Radom Sample)
 - We (including AI) are always biased because each of us experiences only a subset of reality.
 - surprisal: Rare events contains more information.
+- Politician's public speech always more important than private saying.
 
 - All evolutionary ideas challenge our assumptions.  
   > *Einstein*: E = mc² → energy and mass are equivalent.  

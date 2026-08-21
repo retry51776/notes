@@ -12,11 +12,13 @@
 
 ## Nvidia Product Lines
 
+- **Rubin NVL 144 CPX**
 - **NVL72 Cluster**: 72 × B200 GPUs.
 - **DGX SuperPOD**: n × NVL72 Nodes.
 
 - **DGX / HGX** – AI‑focused servers (e.g., DGX A100, HGX H100).
   - H100 units cost at least $30k; DGX has 8×H100
+  - GH200 CPU has 900 GB/s bi-directional bandwidth between the CPU and GPU memory, much higher than others.
 
 - GB300 ~ $100k with 700GB HBM3
 - **Quadro** – Professional workstations.
@@ -261,10 +263,15 @@ GPUDirect Storage (GDS) support 27 GBps
       - vllm (default engine)
       - **TensorRT**
       - sglang
-      - NVIDIA Triton Model Analyzer `pip install triton-model-analyzer`
   - **NVIDIA NeMo** – Model training framework.
 
 > Usually deploy as container. Has SDK container w full tool sets, and Server container.
+
+### Helper Tools
+
+- NVIDIA Triton Model Analyzer `Deployment Autotuning`
+- [NVIDIA GenAI-Perf](https://github.com/ai-dynamo/aiperf) `Benchmark tools`
+- NVIDIA Model Optimizer `Model Optimization: quantization, distill, Neural Architecture Search`
 
 Important Network Settings:
 - GID = Global Identifier, a 128-bit address used by InfiniBand/RDMA verbs.
@@ -298,6 +305,12 @@ CUDA Platform Stack
 | Host Runtimes & Tools          | CUDA Runtime · Drivers · Nsight Tools · Installers                        |
 
 pytorch -> NVCC compiler -> (Cubins or Fatbins) -> JIT -> PTX
+
+- cuBLAS (Basic Linear Algebra Subprograms)
+  - GEMM (General Matrix-Matrix Multiplication)
+- cuDNN (CUDA Deep Neural Network)
+- CUTLASS is a template library that provides building blocks for writing
+high-performance kernels
 
 ### nvcc
 

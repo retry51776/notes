@@ -1,34 +1,23 @@
 # Hardware
 
-> Ultimately, the only limitation is chip real estate; space must be allocated to computation (flexible or efficient) or storage (latency or throughput).
+> Ultimately, the only limitation is chip real estate; space must be allocated to computation (flexible or efficient) or storage (latency or bandwidth or capacity).
 
-Inference's hardware requirement is way lower than training. Nvidia is king of training.
-
-AI workload similar to drink(compute) water(data) from cup(HBM) through straw(SRAM).
-
-
-## Runtime
+## Hardware Workflow
 
 > General frameworks (PyTorch) → Intermediate Representation(IR/compute graph) → Kernel (different subset CUDA/cuDNN/FlashInfer) → parallel thread execution (PTX assembly) → streaming assembly (SASS machine code) → hardware (GPU).
 
-Different hardware needs its own version of `llama.cpp` (e.g., Metal, ROCm, CUDA).
-
-Each manufacturer has its own shading language.
-
-### Hardware Workflow
+Each manufacturer has its own shading language(IR).
 
 > Kernel function + arguments / buffers + thread/grid dimensions + pipeline state = dispatch descriptor
 
-CPU/Metal driver side
-
+CPU/Metal driver side:
 - records each kernel dispatch
 - binds pipeline state, buffers, offsets, constants
 - validates resource usage
 - builds command streams
 - commits command buffers to the GPU queue
 
-GPU command processor / scheduler
-
+GPU command processor / scheduler:
 - reads the command stream
 - launches each dispatch in command-buffer order
 - assigns threadgroups to GPU cores
@@ -36,8 +25,7 @@ GPU command processor / scheduler
 - tracks resource hazards enough to preserve command ordering
 - handles occupancy: how many threadgroups can fit based on registers, threadgroup memory, threads, etc.
 
-Per-kernel execution
-
+Per-kernel execution:
 - allocates threadgroup memory/SRAM if the kernel declares it
 - schedules SIMDgroups/threads
 - runs memory loads/stores and ALU work
@@ -46,6 +34,8 @@ Per-kernel execution
 ## Memory
 
 > The real bottleneck is the memory hierarchy: GPUs have limited high‑bandwidth memory (HBM or SRAM), while model parameters far exceed this capacity, forcing frequent off‑chip transfers.
+>
+> Impossible triangle: capacity, latency, bandwidth
 
 - Arithmetic Intensity | Compute Density ~ Compute / Data @ FP16
   - Workload
@@ -56,25 +46,16 @@ Per-kernel execution
     - H100 FP16 ~ 300 FLOPs/byte
     - Groq ~ 3 - 8 FLOPs/byte
 
-- RAM Flush speed ~ IO / capacity
+- RAM Flush speed ~ IO / capacity≈
   - NAND ~ seconds to minutes
   - DR5 ~ 0.2–0.5× / sec
   - HBM3 ~ 10–20× / sec
   - HBM4 ~ 30× / sec
   - SRAM ~ 300k / sec
 
-
+- Byte Ratio: compute FLOPs / io throughput
 - **GPU memory** hides latency by interleaving many threads. Unlike CPUs, where context switches are expensive, GPU threads are lightweight and scheduled by hardware.
 
-- MTLCommandQueue `command queue`
-- MTLCommandBuffer `a batch GPU kernels`
-- MTLBuffer `memory pointer for GPU kernel's inputs & results`
-  - c: `graph->query_by_tier[graph->active_tier]` syntax similar struct
-  - Lifetime: persists while MTLBuffer exists, outlast kernel.
-  - Visibility: another kernel can read it later if you bind the same MTLBuffer.
-  - Address space: it is device memory, global GPU memory, not per-thread local memory.
-  - Synchronization: if one kernel writes it and another reads it, ordering matters. Separate encoders in the same command buffer are ordered; separate command buffers need dependency handling.
-  - Performance: device memory is slower than thread-local registers or threadgroup memory
 
 ### RAM Types
 
@@ -93,10 +74,11 @@ Per-kernel execution
       - start from GB300
 
 Analogy:
-
+>  AI workload similar to drink(compute) water(data) from cup(HBM) through straw(SRAM).
 - compute ~ drink water
   - CPU ~ drink through straw
     - DDR ~ water tank
+    - CXL Memory ~ PCIe memories
   - GPU w HBM ~ drink through many straw
     - GDDR ~ water tank with more flow
     - HBM ~ water towers (stacked up water tanks)
@@ -104,6 +86,12 @@ Analogy:
 - Data ~ water
 - bandwidth ~ throughput
 - NV speed of light ~ max Arithmetic Intensity
+
+Connections:
+- CXL: CPU↔device/memory standard
+- NVLink
+- AMD Infinity Fabric
+- PCIe: General IOs
 
 ### Near‑Memory Design
 
@@ -121,47 +109,6 @@ Hardware Model codesign
 - Gate Size
 - Energy Cost
 - LLM Intelligent per jew
-
-### Parallelism Strategies
-
-| Strategy | Description |
-|----------|-------------|
-| Data Parallelism (DP) | Replicate the whole model on each GPU; split data **batches**. |
-| Pipeline Parallelism (PP) | Split the model across **layers**; each GPU processes a different stage. |
-| Sequence Parallelism (SP) | Partition long input **sequences** across GPUs. (very limited) |
-| Tensor Parallelism (TP) | Split **individual tensor(dim)** operations across devices (often less efficient). |
-
-- Nvidia build optimize LLM image with tp1(single GPU), tp4(split attention head in 4 GPUs)
-
-
-## Performance Optimizations
-
-| Optimization | Key Idea | Benefit |
-|--------------|----------|---------|
-| Tensor Cores | Use FP16/INT8 for matrix ops | 10–20× speedup |
-| Memory Coalescing | Align memory accesses | Reduces latency |
-| Kernel Fusion | Merge multiple kernels | Lowers launch overhead |
-| FlashAttention | Blockwise attention computation | Saves memory, speeds inference |
-| Lower Precision (FP16/INT8/FP8) | Reduce data size | Faster compute, less memory |
-| Persistent Kernels | Keep threads alive | Cuts scheduling cost |
-| CUDA Graphs | Pre‑record kernel launches | Avoids CPU bottlenecks |
-| Multi‑token Decoding | Predict several tokens at once | Increases generation speed |
-
-- command-buffer schedules `how often CPU dispatch kernels`
-- superkernel - reduce kernel swap by multi ops
-- microbatch - split training batch into smaller batches
-- flashcomm
-- compiler cache - kernel re-use
-- MTP - Multi-Token Prediction
-- Placement Driver (PD) dispatcher
-
-- all-reduce operation - sync local gradient for global gradients.
-- Activation Checkpoint - recompute activation every n layers when back props.
-
-- Thread Block Clusters - multiple SMs works on same SRAM
-- Stationary Data/Array - in-place execution data
-- Very Long Instruction Word (VLIW) - Compiler optimization
-- Threadgroup walk order - increase cache hit rate(because x,y index increase slowly)
 
 
 ### Compute Precision
@@ -182,6 +129,12 @@ https://substackcdn.com/image/fetch/$s_!vOm0!,f_auto,q_auto:good,fl_progressive:
 - White Glove Offering (include maintain service)
 - API
 
+## Vendors
+
+- Supermicro: common for mid size company
+- Celestica: hyperscaler
+- HPE: custom solution
+  - AMD prefer
 
 ### Amazon & Anthropic
 
@@ -240,12 +193,8 @@ Apple GPU components:
 - M5's Neural accelerator ~ tensor core
   - GPU -> DRAM -> NPU -> DRAM -> GPU; slow, not on SRAM.
 - ALU (int/fp/complex) ~ ALU
+- Special Function Unit (SFU): Accelerates certain mathematical operations like sin, cos, and log.
 
-- DS4MetalTensor
-  - MTLBuffer ~ memory pointer for GPU
-  - offset
-  - owner
-  - live_snap & peak_snap
 
 > The ANE is not directly accessible from MLX or PyTorch.
 
@@ -255,7 +204,11 @@ Known Bugs:
 
 ### AMD
 
+- AMD Helios Rackscale Solution
+  - MI300 ~ $20k w 192 GB, OAM connector
 - Uses **HIP** to translate CUDA code to AMD GPUs.
+
+- tinygrad `IR inference engine`
 
 ### Cerebras
 

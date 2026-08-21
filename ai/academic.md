@@ -544,10 +544,12 @@ Combine LLM rollout({prompt}{solution}{runtime_result}), correct_solution, unsuc
 
 Then calculate KL loss between teacher's answer vs student's answer.
 
-- Trajectory level `broadcasts that same scalar across tokens.`
-- Token level `raise or lower the probability of this chosen token, ignore other candidate tokens.`
-- Logit level - KL/JSD `reshape the full distribution to match the teacher’s beliefs`
-- ?? expert level ??
+- **Latent consistency** is NOT enough for distillation. Network has some build-in circuit that also enforce causation.
+  - Trajectory level `broadcasts that same scalar across tokens.`
+  - Token level `raise or lower the probability of this chosen token, ignore other candidate tokens.`
+  - Logit level - KL/JSD `reshape the full distribution to match the teacher’s beliefs`
+  - ?? expert level ??
+- causal circuit distillation
 
 policy-side package:
 
@@ -578,6 +580,8 @@ batch = reference.compute_log_prob(batch)
 batch = reward.compute_reward(batch)
 batch = compute_advantages(batch)
 ```
+
+- Flex-KD 
 
 ### R-zero
 
@@ -762,3 +766,50 @@ Measures:
 - Routing Entropy
 - compression curve
 - Noise Robustness Test (noise sensitive ~ high utilization %)
+
+
+## DL Theory
+
+weight matrix ~ transformation;
+- spectral norm ~ single scalar number represent max stretch
+
+- activation function ~ compress some info, while preserve other info.
+
+Known layer weight constrains:
+
+- Weight Distributions Gaussian; (NOT normal distributions)
+  - Heavy-Tailed Weight Spectra; (Many weights end up contributing very little)
+- mean ~ 0
+  - Weight Updates Have Mean Near Zero
+- variance ~ 1/n
+  - Stable Activation Variance Across Depth
+- magnitudes ~ $|W_{ij}| \propto \frac{1}{\sqrt{d}}$
+  - largest individual weight can never exceed the spectral norm
+  - Row/Column Norms Tend Toward Similar Scale
+
+- singular values ~ 1 $\sigma_i(W) \approx 1$
+- Effective Rank Is Usually Much Lower Than Matrix Size
+- Symmetry Must Be Broken
+- Scale Symmetries Exist; if W1 -> 2W1; then shrink W2 -> 0.5W2; can undo;
+
+Training:
+- In training both signal % & noise % reach constance ratio; gradient = signal + noise;
+- Different Attention Heads Specialize
+- Features Become More Orthogonal `aka remember differences`
+
+
+### LLM weights functions
+- inference weights
+  - deterministic (Ex: embedding, LM head, RoPE)
+  - compute (Ex: Attention V, MLP)
+    - Matrix Ops ~ divide & conquer & regroup(robustness & superposition)
+  - routing (Ex: DSA, MOE, maybe even attention score)
+    - benefit: decouple gradients, partition representational space, reduce interference
+  - stability control (Ex: normal layer)
+- training weights
+  - loss function
+  - optimizer state
+    - direction
+    - momentum
+  - activation/activation checkpoints
+  - custom settings (Ex: LR, decay)

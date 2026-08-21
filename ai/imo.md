@@ -1,5 +1,37 @@
 # AI Insights
 
+## Trend
+Most likely automate by AI industries traits:
+
+- input
+  - digital?
+    - data source?
+      - by capture
+        - physical data
+        - human feedback
+      - by generate
+        - simulation
+        - verification
+  - observability?
+  - variance?
+    - messy real-world physical manipulation
+    - standard formats?
+    - different success rates (Ex: student goes through same class but different grades)
+- output
+  - digital? (text, image, audio, video, code, or structured decisions)
+  - observability?
+  - variance?
+    - human target audience will have big variance (differ mood, preference)
+    - human has more native control on voice than AI
+    - code low variance because IDE execute result same
+    - time-horizon variance
+      - hiring decision, policy design, medical treatment plan
+    - uncertainty
+      - poker, strategy result, therapy resp
+  - Incentive alignment
+    - Education/politics/art
+- huge volumes of historical data (code, movie)
+- workflows that repeat at scale
 
 ## Analogy
 
@@ -92,9 +124,26 @@ Data ~ random numbers; LLM ~ sorting algorithm;
 Noise & Throughput:
 Visual > Language > Gene(DNA/RNA)
 
+## Continue Learning
 
+I think we needs filter/target system find learning targets in KV, then run tree search to expand its query trigger. Now w all QKV, project them through LLM to generate new training data. Some kind training make sure LLM memorized new training data.
+
+Maybe for some repeat tasks, warm up KV cache that repeat trigger. similar to PrexLM.
 
 ## IMO
+
+> LLM is predictive, but what we need prescriptive.
+> > Token(LLM output) is NOT what we want, it's just an intermediary. We don't want to read answer, rather we want to CHANGE/LEARN our BRAIN(residual stream) by reading answer.
+
+- KV cache orchestration almost become new google search.
+- LLM, Brain view from `network control theory`.
+- The training data property that LLM relied on: random noise will average out evenly, logical behavior will NOT average out because logical behavior property is consistency.
+- There are no irreducible logic.
+- Memorization is emergent behavior, not fundamental operative. Ex: DB also achieve memorization, but its fundamental operative is balance tree.
+  - FYI transistor acts like a switch, so most fundamental operative is ALWAYS if statement.
+- LLM is **NOT** a function ONLY generate single token, residual stream can decode as **full shifting tokens**. That's why we can pre-train LLM with huge amount data.
+- Prompt control won't have enough feedback precision on LLM sensory layers.
+  - Similar to good research's taste or instinct can't put into words.
 
 - Backprops rely on chain rule, Discretization breaks Backprops.
 
@@ -335,6 +384,8 @@ LLMs work by providing each “world” with context, which includes relevant in
 
 ### Flash Attention Techniques
 
+> FlashAttention 3 takes advantage of the new asynchronous data transfer and execution features introduced with Hopper.
+
 1. **Tiling** – Divides attention computation into smaller parallel tiles.  
 2. **Sparse Matrix Multiplication** – More efficient than dense multiplication.  
 3. **I/O Awareness** – Minimizes memory reads/writes.
@@ -431,7 +482,8 @@ Training often uses beam search, while inference favors sequential revision.
 ### 24
 
 - LLMs notoriously have a few channels with very large activations. The importance matrix (imatrix, Kawrakow, January 2024)
-- **Anthropic’s “Scaling Monosemanticity”**  
+- **Anthropic’s “Scaling Monosemanticity”**
+- [KIVI](https://arxiv.org/html/2402.02750v2)
 
 ### 25
 
@@ -447,3 +499,4 @@ Training often uses beam search, while inference favors sequential revision.
 
 - https://transformer-circuits.pub/2026/workspace/index.html J-Space
 - aync load MOE expert from SSD
+- MoE delta decomposition

@@ -1,32 +1,5 @@
 # AI Industry
 
-1. [General ML Framework](./academic.md)
-   PyTorch / MLX / TensorFlow / JAX
-   └── tensor ops, compiler, kernels, autograd, hardware backend
-
-2. [Model Artifact](#model-arthifact)
-   **safetensors** / GGUF / ONNX / mlpackage
-   ├── weights
-   ├── architecture/config
-   ├── metadata
-   └── tokenizer
-
-3. [Inference Engine](#inference-engine)
-   llama.cpp / vLLM engine / TensorRT-LLM / ONNX Runtime
-   └── model execution / kernel conversation
-   └── KV cache
-   └── batching
-   └── decode
-   └── quantization
-   └── memory management
-
-4. [Compute Runtime / Communication Runtime](./hardware.md#runtime)
-   CUDA / ROCm / Metal
-   NCCL / RCCL
-
-5. [Compute Hardware](./hardware.md)
-   CPU / GPU / Networking / Storage
-
 ## Model Artifact
 
 - `.safetensors` - [header JSON metadata][binary tensor blobs], source checkpoint, can convert to any runtime.
@@ -166,6 +139,7 @@ Inference Engines:
 - CoreML `Apple inference engine`
 - llama.cpp
 - vllm
+- SGLang `uses @ xAI / chinese labs`
 - **TensorRT**
   - SDK open source, but core close source. Covert pytorch modal to Nvidia kernel.
   - builtin `fused kernels` or `micro kernels`
@@ -178,6 +152,7 @@ Settings:
 - Speculation Settings
 - TP settings
   - **network protocols**: RDMA|TCP
+- NUMA Aware = Non-Uniform Memory Access Aware; `aware CPU's RAM w different speeds`
 
 ### Inference Frameworks:
 > There are many other tasks, get bundle w inference engine as single framework.
@@ -189,11 +164,15 @@ Common capabilities:
 └── request scheduling/routing
 └── model pull/load
 └── API serving
+└── Disaggregation
+└── Software-Defined Networking (SDN)
+└── Attention–FFN Disaggregation (AFD)
 └── monitoring
 
 - **Dynamo** - 2+ nodes will 2X throughput tps
   - cli run
   - Planner
+  - KV Cache-aware routing
   - **NVIDIA Inference Microservices** (NIM) - ~3GB `nvcr.io/nim/nvidia/llm-nim:latest`
     - Triton Inference Engine (Docker Image)
 - **llm-d**: a Kubernetes-native high-performance distributed LLM inference framework; (ONLY CUDA/ROCm)
@@ -214,6 +193,8 @@ Common capabilities:
       - row-parallel(seq independent) ops; (That's why decode token ~4x expensive)
   - ModelService Controller (Pod Controller)
   - Prometheus (Monitor)
+- Kserver: K8s, CNCF
+- AIBrix
 
 > Distributed execution Examples: NCCL, RCCL, MPI, Ray, DeepSpeed inference, plus TP/PP implementations inside vLLM/TensorRT-LLM.
 
@@ -296,6 +277,13 @@ Cartesian coordinates: Standard; smooth, linear gradient;
 Spherical coordinates: Circle; nonlinear, coupled gradient;
 
 
+## Client
+
+- Chat
+- Agent
+- UI
+- **Async worker** - `async worker that send batch inference to inference engine queue, latency insensitive`
+
 
 ## Rules of Thumb
 
@@ -370,26 +358,78 @@ HPC components:
     - tps per user
     - Prefill worker vs decode worker
 
+
+## KV cache
+
+> KV cache workflow: identify it, copy it, serialize it, restore it
+>> request-level and token-level prefix cache hits
+
+> Commonly dequantized KV cache requires custom attention kernels.
+
+> Q & K channels with same block consistently have large outlier across many tokens;
+> > Newer K keep original, older K quantized once enough K reach.
+> V are more uniform.
+KV approaches:
+
+- KV cache compression
+  - build-in compression; Ex: Deepseek MLA, DSA
+  - math compression; Ex: TurboQuant
+  - KV cache dropping; Ex: KVzip, SnackKV
+- **non-prefix caching** Ex: CacheBlend
+  - selective recompute % KV cache layer by layer
+- **prefix caching** Ex: RadixAttention
+
+KV cache researches:
+- KV compression
+- KV Blending
+  - Simulate cross attention on subset KV & layers for causality, assume changes continues on token axis.
+- Partial reuse
+- Semantic reuse
+- Cross-model reuse
+- Trainable KV
+- KV retrieval
+- Attention steering
+
+> KV cache has continues tendency in token axis(same channel & layer).
+> > KV cache of same channel & layer across tokens is NOT sensitivity to token changes.
+> 
+> Shallow layer sensitivity.
+> > Noise in shallow layer propagate noise father.
+
+### KV cache Context Shifting 
+> Useful when agent compress context window, shift context to <bos>, default disable.
+
+`llama.cpp --context-shift`
+
+### LMCache
+> LMCache needs compute to warn up cache chunks, allow reusing of KV caches of multiple text chunks in one LLM input.
+https://github.com/LMCache/LMCache 
+
+- has its own demon
+- block ids over ZMQ
+- block
+  - block_size ~ group of 256 tokens
+  - parent_hash
+  - hash
+- KV cache pool in global DRAM, multiple inference engines can access
+- multi-tier storage
+  - local GPU
+  - local CPU
+  - Remote CPU
+  - local SSD
+  - Remote storage
+
+### Mooncake
+Kimi's LMCache
+
 ## Advance Inference Optimization
+> Common: quantization, speculation, caching, parallelism, and disaggregation
 
-### Cache Strategies
+### Prompt Compression
+> Avoid KV cache from the start.
 
-| Phase                     | Cache Type          | Description |
-|---------------------------|---------------------|-------------|
-| **Embedding**               | Embedding Cache     | Used only for similarity search; very limited. Does **not** save LLM token cost. |
-| **Prefill**               | Tokenizer Cache     | First step; small savings; order does not matter. |
-|                           | Prompt Cache        | Requires an exact prefix match; works only during the prefill phase. |
-| **Autoregressive Decoding** | KV Cache            | Used for token generation. The query (latest token) changes each step, while the key and value (past tokens) remain static.<br>• Implicit cache – handled automatically by the LLM provider.<br>• Explicit cache – must be programmed. |
-|                           | FlashAttention Cache| Combines KV cache with softmax optimization. |
-
-There are 3 KV approaches:
-
-- build-in compression; Ex: Deepseek MLA
-- math compression; Ex: TurboQuant
-- Increase cache hit rate;
-  - Split into large context subagent; Common doc has its own system prompt;
-  - Decouple Prefill vs Decode; Ex: Nvidia Dyno
-
+- LLMLingua
+- Build-in architecture; Ex: LazyLLm 
 
 ### Speculative Decoding
 
@@ -399,11 +439,24 @@ Speeds up decode by predicting multiple tokens(8–16 token drafts) with **small
 
 Usually 5 tokens out of 8 draft tokens will be right; Only make sense on idol compute hardware, with batch size > 8;
 
+Fuzzy Speculative Decoding: accept draft tokens that is NOT top token
+
+
+#### SpecForge
+train draft module.
+
 `draft_cost + verify_cost + replay_cost < saved_target_decode_cost`
 
-- draft_cost - often cheapest part
-- verify_cost - prefill on draft tokens, often expensive
-- replay_cost - update KV cache, often part of verify process
+- Speculative Compute Cost
+  - draft_cost - often cheapest part
+  - verify_cost - prefill on draft tokens, often expensive
+  - replay_cost - update KV cache, often part of verify process
+- Speculative RAM Cost
+  - `mtp.gguf`
+- Efficiency Variable
+  - token acceptance rate
+  - high batch size reduce spare compute power
+  - temperature
 
 
 ```c
@@ -420,6 +473,12 @@ x = norm(x);
 x = transformer_block(x, block);
 logits = hc_head(x);
 ```
+
+#### EAGLE
+> similar to MTP, but also take mid activation & early activation as input. To get more context for most accuracy.
+
+#### DFlash
+Diffusion solve the next (16)N-token chunk jointly.
 
 #### DSpark
 
@@ -465,7 +524,7 @@ Adaptive Computation Time (ACT) / Universal Transformer style halting. Each toke
 
 token premium effects: differences in compression rates across languages.
 
-### Batching
+## Batching
 
 ### Selective Batching
 

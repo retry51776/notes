@@ -7,6 +7,8 @@
 > > That is why we love stories: stories lead to conclusions.
 `aka Recognized patterns.`
 
+> Commitment Device.
+
 > Knowledge (can source from AI), Practices (must do it yourself), Talent (self inherit)
 
 > pupil dilating ≈ mental effort

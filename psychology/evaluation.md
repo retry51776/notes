@@ -170,9 +170,6 @@ Instructions:
           - Risk calibration
           - Creativity?
     - Reflection
-      - Reinforce opinions
-      - Known mistakes
-      - Known unknown
 - 1) Adult Experiences
   - Medium: brain
   - Flexibility: self determent

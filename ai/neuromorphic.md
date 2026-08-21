@@ -200,7 +200,7 @@ The seven networks(~ LLM functional circuits) are:
 - Psychological dimensions @ Hippocampus: Power & Affiliation
 - Path Integration / Coordination : project relation into algorithm operable space
 
-## Terms
+## Glossary
 
 - Temporal-Difference (TD) Learning `Learn by comparing what you expected now vs. what you expect next.`
 
