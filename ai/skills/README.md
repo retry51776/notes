@@ -57,3 +57,4 @@
 ## others
 
 https://github.com/mukul975/Anthropic-Cybersecurity-Skills
+https://github.com/NVIDIA/SkillSpector

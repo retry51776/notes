@@ -31,6 +31,8 @@ Rack Components:
 
 Octal Small Form-factor Pluggable (OSFP)
 
+> We don't want traffic go through typical k8s ingress or service routing, we route traffic through pod's sidecar.
+
 - Network Topology
   - Direction Connections
     - Top of Rack (ToR) switch `optical switch`
@@ -122,3 +124,13 @@ smtp_generic_maps = hash:/etc/postfix/generic
 - **QTM-X800** — NVIDIA Quantum-X800 InfiniBand switch plus BlueField-3 DPUs and ConnectX-8 SuperNICs
 - **QTM-2** — NVIDIA Quantum-2 InfiniBand switch plus BlueField-3 DPUs and ConnectX-7 NICs
 - **SPTMX** — NVIDIA Spectrum-X Ethernet switch and SuperNICs plus BlueField-3 DPUs
+
+## Transfer Engine
+
+> Often framework will use some engine to give comprehensive support to different hardwares, different protocols, different modes.
+
+https://kvcache-ai.github.io/Mooncake/design/transfer-engine/index.html
+
+
+## Uptime
+> SLA don't guaranty uptime, just vendor promise. Just like house backup circuit needs different routing. We needs to mark critical LLM service vs none-critical service. Only backup capacity for critical LLM service.

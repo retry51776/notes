@@ -1,12 +1,12 @@
 # Nvidia
 
-> Do as much as needed, but as little as possible.
+> Do as much as needed, but as little as possible. Jensen Huang;
 
 5 layers AI industry:
 
 - Energy
 - Chips (Hardware co-design)
-- Infrastructure (data, data pipeline & kernels)
+- Infrastructure (Datacenter: power, cooling, data)
 - Models
 - Application
 
@@ -130,6 +130,7 @@
 
 ```py
 # Developer perspective with Hopper
+# Optional: NUMA Aware = Non-Uniform Memory Access Aware; `aware CPU's RAM w different speeds`; `nvidia-smi topo -m`
 CPU
  ├─ Stream A → kernel launch
  │   ├─ kernel1 → Grid A
@@ -245,6 +246,9 @@ Each gate has a special purpose — like customs, traffic control, or the big cr
 
 - **Ethernet** – Standard networking. Frontend Network.
 
+Important Network Settings:
+- GID = Global Identifier, a 128-bit address used by InfiniBand/RDMA verbs.
+
 ### Storage
 
 GPUDirect Storage (GDS) support 27 GBps
@@ -267,14 +271,8 @@ GPUDirect Storage (GDS) support 27 GBps
 
 > Usually deploy as container. Has SDK container w full tool sets, and Server container.
 
-### Helper Tools
+- Nsight Compute - Kernel optimization
 
-- NVIDIA Triton Model Analyzer `Deployment Autotuning`
-- [NVIDIA GenAI-Perf](https://github.com/ai-dynamo/aiperf) `Benchmark tools`
-- NVIDIA Model Optimizer `Model Optimization: quantization, distill, Neural Architecture Search`
-
-Important Network Settings:
-- GID = Global Identifier, a 128-bit address used by InfiniBand/RDMA verbs.
 
 ### OS services
 
@@ -368,6 +366,10 @@ computation libraries is A MESS.
 ### FlashInfer
 
 Specialized high-performance CUDA kernel library for LLM inference.
+
+Vllm, sglang now offloads their most kernel development to FlashInfer.
+
+> Major reason inference companies fork vLLM/SGLang is to take tighter control over exactly FlashInfer usage.
 
 ### C++ CUDA SIMT
 

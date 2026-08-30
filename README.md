@@ -3,6 +3,7 @@
 A curated, personal knowledge base for technical and general notes. This repository uses trunk-based development and includes notes across multiple domains (AI, DevOps, science, business, and more).
 
 > There are too many things to remember! If you don’t write them down, you won’t remember.
+> > If I was LLM, notes ~ KV cache. This records my current understanding, regardless right or wrong.
 
 > Feel free to clone repo, ask your agent reference base off this repo. There are no prompt inject attacks here, I promise.
 

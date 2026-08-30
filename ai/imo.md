@@ -135,6 +135,15 @@ Maybe for some repeat tasks, warm up KV cache that repeat trigger. similar to Pr
 > LLM is predictive, but what we need prescriptive.
 > > Token(LLM output) is NOT what we want, it's just an intermediary. We don't want to read answer, rather we want to CHANGE/LEARN our BRAIN(residual stream) by reading answer.
 
+- mathematical equivalent has 2 categories:
+  - not involve in gradient descent
+  - needs to arrived by gradient descent; `then this is more like possible mathematical equivalent!`
+
+- Single trajectory can’t observe the counterfactual error.
+  - That's why "Everyone is unique."
+
+- Intelligent has resolution! attention allow gradient/causality focus at network section/interaction points. MOE has similar mechanism.
+  - Ex: kid just good vs evil. Adult consider economic impact, political impact....
 - KV cache orchestration almost become new google search.
 - LLM, Brain view from `network control theory`.
 - The training data property that LLM relied on: random noise will average out evenly, logical behavior will NOT average out because logical behavior property is consistency.
@@ -177,6 +186,9 @@ Maybe for some repeat tasks, warm up KV cache that repeat trigger. similar to Pr
     - Typical Companies CAN'T RL LLM, just like customer need report their issues to SASS company. Typical companies' job is collect issues, relevant background, avoid known issues, info LLM provider, updates to latest LLM.
   - Define heuristic differences into SKILL/Prompt/Data
   - RL update ~ Implement update to patch bugs
+
+- make unlikely logit more negative has side effect of making more likely logit dominant.
+  - top-p sampling in RL, but make sure top-p won't be top-1; We want re-prioritize good trajectories, not mess with bad trajectories.
 
 - Bottlenecks:
   - Info communication/absorption rate.

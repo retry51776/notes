@@ -2,12 +2,42 @@
 
 > Ultimately, the only limitation is chip real estate; space must be allocated to computation (flexible or efficient) or storage (latency or bandwidth or capacity).
 
-## Hardware Workflow
+
+## Runtime Workflow
 
 > General frameworks (PyTorch) → Intermediate Representation(IR/compute graph) → Kernel (different subset CUDA/cuDNN/FlashInfer) → parallel thread execution (PTX assembly) → streaming assembly (SASS machine code) → hardware (GPU).
 
-Each manufacturer has its own shading language(IR).
 
+### Intermediate Representation
+
+> IR represent the program in an intermediate form that is easier to analyze, transform, optimize, or retarget. Compiler engineer's territory.
+
+> Just like SQL has many forms, IR has many versions.
+
+> Each manufacturer has its own shading language(IR).
+
+LLVM Frontend: `understands Language`
+- Clang
+- Flang
+
+LLVM Optimizer: `understands Program`
+  │
+  ├── Inlining
+  ├── Constant folding
+  ├── Dead-code elimination
+  ├── Loop optimizations
+  ├── Loop Vectorizer
+  ├── SLP Vectorizer
+  └── many others
+
+LLVM Backend: `understands HARDWARE`
+- Apple: AArch64 ISA
+- Nvidia: NVPTX backend
+- AMD: AMDGPU backend
+
+> Note: tinygrad is specialized alternative LLVM stacks.
+
+### GPU Workflow
 > Kernel function + arguments / buffers + thread/grid dimensions + pipeline state = dispatch descriptor
 
 CPU/Metal driver side:
@@ -31,11 +61,23 @@ Per-kernel execution:
 - runs memory loads/stores and ALU work
 - retires threadgroups
 
+### Compute Precision
+
+- CPU default FP32 AVX kernel
+- MAC default FP16
+- NVIDIA has many compute precision, NVFP4 is common inference precision
+
+`operation × dtype × backend matrix` requires unique kernel.
+
+
 ## Memory
 
-> The real bottleneck is the memory hierarchy: GPUs have limited high‑bandwidth memory (HBM or SRAM), while model parameters far exceed this capacity, forcing frequent off‑chip transfers.
+> Memory hierarchy ~ traffic problem causes by variance vehicle: GPUs have limited high‑bandwidth memory (HBM or SRAM), while model parameters far exceed this capacity, forcing frequent off‑chip transfers.
 >
 > Impossible triangle: capacity, latency, bandwidth
+
+
+> Each chip design with a FIXED Arithmetic Intensity, but different workload has different Arithmetic Intensity.
 
 - Arithmetic Intensity | Compute Density ~ Compute / Data @ FP16
   - Workload
@@ -58,11 +100,6 @@ Per-kernel execution:
 
 
 ### RAM Types
-
-| Type | Description |
-|------|-------------|
-| SRAM (static) | Flip‑flop based; L1/L2/L3 caches |
-| DRAM (dynamic) | Capacitor‑based; includes HBM (PCIe 5 ≈ 128 GB/s, SXM ≈ 600 GB/s), DDR1‑5, LPDDR, GDDR |
 
 - DRAM
   - Low Power DDR (LPDDR)
@@ -91,33 +128,50 @@ Connections:
 - CXL: CPU↔device/memory standard
 - NVLink
 - AMD Infinity Fabric
-- PCIe: General IOs
+- Consumer Grades
+  - SlimSAS | MCIO ports
+  - PCIe: General IOs
+  - PCIe switch
 
-### Near‑Memory Design
-
+Hardware designs:
 - Reconfigurable data‑flow hardware vs. parallelism on existing compute units.
 - skew - variances of data transfer arrival time. HBM requires within 2 picoseconds variance arrival time.
 - Multiplexer - hardware circuit that load target cache into ALU. Aka hidden data movement cost.
   - Data movement is similar to ADD operation.
   - Dot Product keep large matrix inside register, load smaller vector into register. Load register similar to train, shallow register moves its data into deeper register.
+- Hardware Model codesign
+  - Gate Count
+  - Gate Size
+  - Energy Cost
+  - LLM Intelligent per jew
 
 
-Each chip design with a FIXED Arithmetic Intensity, but different workload has different Arithmetic Intensity.
-
-Hardware Model codesign
-- Gate Count
-- Gate Size
-- Energy Cost
-- LLM Intelligent per jew
 
 
-### Compute Precision
+## Vendors
 
-- CPU default FP32 AVX kernel
-- MAC default FP16
-- NVIDIA has many compute precision, NVFP4 is common inference precision
+### Big 4
+- Dell
+- CISCO
+- Lenovo
+- HPE: custom solution
+  - AMD prefer
 
-`operation × dtype × backend matrix` requires unique kernel.
+### Mid providers
+$200k+
+- Supermicro: common for mid size company
+- Celestica: hyperscaler
+
+### Custom Hardwares
+$50k ~ $100k
+- https://www.octoserver.com/
+- https://tinycorp.myshopify.com/
+
+### Datacenter rental
+- $150/month per KWh rent
+- Preboot eXecution Environment(PXE): bare metal boot loader;
+- GPU default Full Height Double Width. Often consumer GPU are slight more width;
+  - Backplane: OXM or SXM GPU interconnect board;
 
 ## NEO Cloud Providers
 
@@ -128,13 +182,6 @@ https://substackcdn.com/image/fetch/$s_!vOm0!,f_auto,q_auto:good,fl_progressive:
 - Cloud Rental
 - White Glove Offering (include maintain service)
 - API
-
-## Vendors
-
-- Supermicro: common for mid size company
-- Celestica: hyperscaler
-- HPE: custom solution
-  - AMD prefer
 
 ### Amazon & Anthropic
 
@@ -167,6 +214,7 @@ https://substackcdn.com/image/fetch/$s_!vOm0!,f_auto,q_auto:good,fl_progressive:
 
 > Default compute precision is FP16.
 
+> Apple don't publish GPU ISA/compiler backend; Unlike NVIDIA exposes PTX;
 Metal Performance Primitives / TensorOps
 └── Metal Performance Shaders
     └── MPSGraph
@@ -208,6 +256,7 @@ Known Bugs:
   - MI300 ~ $20k w 192 GB, OAM connector
 - Uses **HIP** to translate CUDA code to AMD GPUs.
 
+- AITer `AMD inference kernels, like FlashInfer`
 - tinygrad `IR inference engine`
 
 ### Cerebras

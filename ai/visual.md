@@ -1,6 +1,8 @@
 
 # Visual
 
+https://www.designarena.ai/leaderboard
+
 <https://huggingface.co/spaces/ArtificialAnalysis/Text-to-Image-Leaderboard>
 
 <https://huggingface.co/spaces/ArtificialAnalysis/Video-Generation-Arena-Leaderboard>

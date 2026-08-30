@@ -12,7 +12,7 @@
    ├── metadata
    └── tokenizer
 
-3. [Inference Engine](./industry.md#inference-engine)
+3. [Inference Engine](./inference.md#inference-engine)
    llama.cpp / vLLM engine / TensorRT-LLM / ONNX Runtime
    └── model execution / kernel conversation
    └── KV cache
@@ -83,6 +83,7 @@
   - LLM answer length variance.
   - No ideas 3rd party libraries doing, what RAM they need.
 - Measure LLM is very hard, and expensive.
+- Inference engine's random behavior, but not through error out.
 
 
 ## Tradeoff

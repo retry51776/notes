@@ -22,6 +22,3 @@ Session start request prompt -> LLM tool(sess_id) -> tool_api -> LLM -> final_an
 <https://modal.com>
 `Python create third-party serverless cloud SDK`
 
-## Inference
-
-> OpenAI pro LLM has multiple chain of thoughts.

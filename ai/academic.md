@@ -659,6 +659,7 @@ Tools:
 
 - TransformerLens
 - nnsight
+  - Nsight Compute
 - PCA, UMAP, SVD, Ridge probing
 
 Intuitions:

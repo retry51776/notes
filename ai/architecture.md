@@ -52,6 +52,9 @@ Con:
 - compute intensive
 - Fixed function, can't dynamic adjust according length of input
 
+### MOE
+> Often same expert across tokens.
+
 ## UNet
 
 Main compute. Similar to CNN.

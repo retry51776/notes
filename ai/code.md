@@ -667,6 +667,14 @@ Developer or Produce Owner should pick design from here as UX ground for agent.
 ## TensorRT
 
 > 2~4 × improvement pytorch
+>
+> Engine Directory is folder of compiled engine artifacts.
+
+https://github.com/triton-inference-server/model_navigator
+
+extensions:
+- .engine
+- .plan
 
 ```bash
 trtllm-build
@@ -775,27 +783,24 @@ PrefillWorker:
 dynamo build
 ```
 
-## VLLM
-
-vllm's backend is GPU kernels, vllm allow you overwrite with custom backends(swape GPU kernel).
-
-```py
-# Option A: force vLLM to use an existing backend it already supports
-from vllm import LLM
-
-llm = LLM(
-    model="Qwen/Qwen3-7B",
-    attention_backend="FLASH_ATTN",   # or TRITON_ATTN / FLASHINFER / etc. custom kernel
-)
-
-# CustomOp
-```
-
 ## Visual Tools
 
 <https://plotly.com/python/>
 
 ## llama.cpp
+```md
+Your scalar C/C++ code
+        ↓
+Compiler
+        ↓
+SLP vectorizer
+        ↓
+Groups compatible scalar operations
+        ↓
+SIMD instructions
+        ↓
+ARM NEON / x86 AVX / etc.
+```
 
 ```c
 llama_memory_t mem = llama_get_memory(ctx);
@@ -809,3 +814,5 @@ llama_memory_seq_cp(
 );
 ```
 
+## Mojo
+> Python like syntax, but also support memory layout definetion, ownership, Compile-time params.
