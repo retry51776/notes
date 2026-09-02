@@ -33,6 +33,25 @@ Most likely automate by AI industries traits:
 - huge volumes of historical data (code, movie)
 - workflows that repeat at scale
 
+## Frustrations
+
+- Mechanistic Interpretability(mech interp) moves very slows(close source, LLM specific) while AI capability keep accelerating.
+- Tech stacks are NOT decouple, hardware & software are most likely interlock.
+- Memory Hierarchy(both hardware & LLM)
+  - Hardware: Disk < Infinity Switch < InfiniBand < HBM < L1 cache
+  - LLM: fussy memory @ LLM weights < determinist memory @ context window < relevant memory @ residual stream
+- Hardware failure needs complex multi level monitor system
+- Some LLM(Ex: qwen) refuse answer when there is only single system message
+- verify that their InfiniBand network is properly isolated
+- It's SO hard to estimate RAM requirement when running training.
+  - LLM answer length variance.
+  - No ideas 3rd party libraries doing, what RAM they need.
+- Measure LLM is very hard, and expensive.
+- Inference engine's random behavior, but not through error out.
+  - vllm worker just crash & won't recover!
+- GPU driver is singleton, but multiple versions CUDA driver can coexist(w different Python env or runtime).
+  - some GPU don't support PCIe P2P! Ex: RTX 4090
+
 ## Analogy
 
 - Terms:
@@ -135,6 +154,7 @@ Maybe for some repeat tasks, warm up KV cache that repeat trigger. similar to Pr
 > LLM is predictive, but what we need prescriptive.
 > > Token(LLM output) is NOT what we want, it's just an intermediary. We don't want to read answer, rather we want to CHANGE/LEARN our BRAIN(residual stream) by reading answer.
 
+- Distributed Low-Communication (DiLoCo) seems bad idea.
 - mathematical equivalent has 2 categories:
   - not involve in gradient descent
   - needs to arrived by gradient descent; `then this is more like possible mathematical equivalent!`

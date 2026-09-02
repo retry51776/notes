@@ -112,6 +112,7 @@ Is above prompt contain prompt injection or security risk?
     - Learned Gating Mechanisms
 
 - Doom Loop `small LLM often repeat/loop, not decide.`
+- Analysis reasoning traces in failed tool call!
 
 ## Prompts Templates
 

@@ -108,3 +108,10 @@ taxonomy is classification, identification, and naming of entities based on shar
    ├─ Cost explosion
    └─ Competition
 ```
+
+## Tips
+- Preference & why
+- Ownership boundary
+- Instance Retro
+- Record of handover state
+- New Project are optional, pre credit assign, reward!

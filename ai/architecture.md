@@ -55,6 +55,10 @@ Con:
 ### MOE
 > Often same expert across tokens.
 
+- classic token choice 
+- expert choice: expert has its own top-K tokens
+- Use classic feedback mechanism (balance top-k expert bias per batch), not gradient.
+
 ## UNet
 
 Main compute. Similar to CNN.
@@ -209,6 +213,7 @@ YaRN allows RoPE to use non-integer (fractional) token positions
   - Calculate backprops for early layer
   - Calculate weight update
 
+> Much like 2 different resolutions, rough scan first, then zoom in detail.
 - DeepSeek Sparse Attention (DSA) `similar to MOE gating but on attention`
   - Lightning Indexer (reduce precision to find top-k token)
     - indexer projection weights (Learned coarse routing, sometime some token ALWAYS matter regardless its attention score, just like MOE gating linear weights)
@@ -216,28 +221,10 @@ YaRN allows RoPE to use non-integer (fractional) token positions
       - combine tokens' dimensions into single indexer score
   - Top-k selector
 
-- DeepGEMM kernel H100
+other optimization packages:
+- DeepEP
+- DeepGEMM
 
-```py
-model.model.layers ModuleList(
-  (0-63): 64 x Qwen2DecoderLayer(
-    (self_attn): Qwen2Attention(
-      (q_proj): Linear(in_features=5120, out_features=5120, bias=True)
-      (k_proj): Linear(in_features=5120, out_features=1024, bias=True)
-      (v_proj): Linear(in_features=5120, out_features=1024, bias=True)
-      (o_proj): Linear(in_features=5120, out_features=5120, bias=False)
-    )
-    (mlp): Qwen2MLP(
-      (gate_proj): Linear(in_features=5120, out_features=27648, bias=False)
-      (up_proj): Linear(in_features=5120, out_features=27648, bias=False)
-      (down_proj): Linear(in_features=27648, out_features=5120, bias=False)
-      (act_fn): SiLU()
-    )
-    (input_layernorm): Qwen2RMSNorm((5120,), eps=1e-05)
-    (post_attention_layernorm): Qwen2RMSNorm((5120,), eps=1e-05)
-  )
-)
-```
 
 Implicit Transformer / DEQ Transformer
 
@@ -257,6 +244,11 @@ QWEN 3.5 uses linear attention. K.V -> State Matrix, but State Matrix is CONSTAN
 Their idea is design architecture for inference(avoid KV cache size blow up). At cost of compute during training.
 
 **Linear Attention** means attention compute, memory(kv cache) are constance. Typical transformer compute is N^2, memory also N^2.
+
+- **n-gram embedding layer**: add extra embedding that cover near by tokens.
+- **Gated Residual**: let RS hold more info
+  - Gated Residual(GR): collapse main stream before block process
+  - Gated Normalization(GN): generate 4 vectors of gates for block's output mixed residual stream
 
 ## Diffusion
 

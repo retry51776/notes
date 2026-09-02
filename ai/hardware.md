@@ -35,7 +35,13 @@ LLVM Backend: `understands HARDWARE`
 - Nvidia: NVPTX backend
 - AMD: AMDGPU backend
 
+
+### Tensor Framework
 > Note: tinygrad is specialized alternative LLVM stacks.
+
+> Developer directly works in IR, avoid tech stacks between General Framework and LLVM!
+- tinygrad `IR inference compiler`
+- candle `similar to MLX`
 
 ### GPU Workflow
 > Kernel function + arguments / buffers + thread/grid dimensions + pipeline state = dispatch descriptor
@@ -68,7 +74,6 @@ Per-kernel execution:
 - NVIDIA has many compute precision, NVFP4 is common inference precision
 
 `operation × dtype × backend matrix` requires unique kernel.
-
 
 ## Memory
 
@@ -120,6 +125,9 @@ Analogy:
     - GDDR ~ water tank with more flow
     - HBM ~ water towers (stacked up water tanks)
     - SRAM ~ water cup
+      - Register 1 cycle access
+      - Shared Memory
+      - L2 Cache
 - Data ~ water
 - bandwidth ~ throughput
 - NV speed of light ~ max Arithmetic Intensity
@@ -257,7 +265,6 @@ Known Bugs:
 - Uses **HIP** to translate CUDA code to AMD GPUs.
 
 - AITer `AMD inference kernels, like FlashInfer`
-- tinygrad `IR inference engine`
 
 ### Cerebras
 

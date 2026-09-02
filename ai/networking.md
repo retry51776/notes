@@ -73,7 +73,6 @@ Octal Small Form-factor Pluggable (OSFP)
 ## Configs
 - /etc/nccl.conf
 
-
 ## Head Node
 
 Also call Login Node / Submit Node; Always `hostname` to confirm current terminal node.

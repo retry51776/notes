@@ -76,3 +76,7 @@ sandbox_mode = "workspace-write"
 [sandbox_workspace_write]
 network_access = true
 ```
+
+```bs
+/status # Check token usage & budget
+```

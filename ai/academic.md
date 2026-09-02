@@ -143,6 +143,7 @@ Stage:
     - google/IFEval
   - LoRa `Attach extra weight to original model feed forward layer, then train these extra weight; usually mb size`
     - In SVD, only keep topK V identity. So LORA keep most important values. Similar break large number into prime numbers, then only keep topK primes.
+    - Problem arise when LoRa rank is NOT enough, cause weaker signals vanish.
   - On Policy Distillation `kl(student_prob - teach_prob)`
   - RLAIF (RL from AI Feedback)
   - intrinsic reward methods (won't learn new knowledge)
@@ -170,6 +171,8 @@ rollouts
 - gradient descent `Compute batch avg lose, nudge a little by batch avg lose direction. It works because unlike it stuck at local min, stuck requires all dimensions are at local minimum at the same time`
   - big batch size can support large learning rate, small batch size should able fine tune. RL ~ batch size = 1; Think as case specific knowledge can't be mixed.
   - Input Gradient(has dependence) VS Weight Gradient(with no dependence, can decouple)
+  - loss scaling - avoid 0 gradient by shares small gradients.
+- outlier features
 - epoch, batch, slot
 - Collective Operations
   - Broadcast
@@ -501,7 +504,12 @@ Harness:
 ## Stability
 
 > Stability control ~ variance control. But on what dimension? (activation, layer, depth, gradient...)
+> 
+> Training always want highest LR, so stability is a resource! LLM is always at the edge of instability.
 > > Variance is VERY critical for LLM stability.
+
+> Crazy no visibility/prob stability so far. Just gradient exploded.
+> > Keep calm and lower learning rate!
 
 - Weight Initialization `weight variance need ~ 1`
   - Xavier
@@ -667,6 +675,7 @@ Intuitions:
 - Facts are expects to resides in early layers of FFN
 - FFN can think as 'nonlinear feature generator' to each token independently at RS, not between tokens. That's why we need attention, mix tokens first, then capture 'nonlinear feature generator'.
   - FFN shared across tokens because the meaning of a feature is universal, not token-specific.
+  - FFN can view as soft lookup table. by Mor Geva 2021
 
 ### Linear representation
 >
@@ -747,6 +756,13 @@ sparse optimization algorithm
 
 **Activation density**
 > Most transformer neuron fires under 0.5%; early layers fires more than later layers. But human cortex Activation density ~ 1-5%.
+
+### Mor Geva
+> Top token/seq trigger Key, Keys capture specific patterns in input sequences.
+>
+> Values hold distributions over the output vocabulary
+
+FFN is soft lookup table.
 
 ### Capacity
 

@@ -1,6 +1,7 @@
 # AI
 
 ## Inference Stack
+```md
 1. [General ML Framework](./academic.md)
    PyTorch / MLX / TensorFlow / JAX
    └── tensor ops, compiler, kernels, autograd, hardware backend
@@ -27,7 +28,7 @@
 
 5. [Compute Hardware](./hardware.md)
    CPU / GPU / Networking / Storage
-
+```
 
 ## Folder Structure
 ```text
@@ -67,23 +68,6 @@
   - Smart AI output token’s information density → Iron density
 
 <hr/>
-
-
-## Frustrations
-
-- Mechanistic Interpretability(mech interp) moves very slows(close source, LLM specific) while AI capability keep accelerating.
-- Tech stacks are NOT decouple, hardware & software are most likely interlock.
-- Memory Hierarchy(both hardware & LLM)
-  - Hardware: Disk < Infinity Switch < InfiniBand < HBM < L1 cache
-  - LLM: fussy memory @ LLM weights < determinist memory @ context window < relevant memory @ residual stream
-- Hardware failure needs complex multi level monitor system
-- Some LLM(Ex: qwen) refuse answer when there is only single system message
-- verify that their InfiniBand network is properly isolated
-- It's SO hard to estimate RAM requirement when running training.
-  - LLM answer length variance.
-  - No ideas 3rd party libraries doing, what RAM they need.
-- Measure LLM is very hard, and expensive.
-- Inference engine's random behavior, but not through error out.
 
 
 ## Tradeoff

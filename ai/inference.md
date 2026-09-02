@@ -183,6 +183,7 @@ Inference Engines:
 - llama.cpp
 - vllm
 - SGLang `uses @ xAI / chinese labs`
+- TGI
 - **TensorRT**
   - SDK open source, but core close source. Covert pytorch modal to Nvidia kernel.
   - builtin `fused kernels` or `micro kernels`
@@ -207,6 +208,7 @@ Common capabilities:
 └── TP / PP / EP
 └── multi-GPU/node coordination
 └── request scheduling/routing
+    └── refuse request when busy
 └── model pull/load
 └── API serving
 └── Disaggregation
@@ -272,6 +274,8 @@ Mainstream@26 is same storage encoding for all components within block. Just les
 > Compression has lowest error when numbers normal/beta distribution, highest error when numbers are bipolar.
 
 > IMO At most can have something 50% better than IQ2_XXS. Almost impossible below 1bit per weight.
+
+> Note: Smaller LLM are more sensitive to compression!
 
 Algorithm:
 - Uniform Rounding (INT8, INT4)
@@ -364,7 +368,8 @@ Optimizations:
 - Stationary Data/Array - in-place execution data
 - Very Long Instruction Word (VLIW) - Compiler optimization
 - Threadgroup walk order - increase cache hit rate(because x,y index increase slowly)
-- Decode Context Parallelism - like prefill chunk, but split token's KV cache attention head when decode; `--decode-context-parallel-size 4`
+- Decode Context Parallelism (Flash-Decoding) - like prefill chunk, but split token's KV cache attention head when decode; `--decode-context-parallel-size 4`
+
 
 ## Disaggregation
 
@@ -387,10 +392,13 @@ Optimizations:
 - Data Parallelism (DP): Replicate the whole model on each GPU; split data **batches**.
   - **Data Parallel Attention** (DPA): gives each request a “home GPU” for Attention/KV. Trading extra replicated attention-weight memory for independent attention execution and local KV caches.
 - Pipeline Parallelism (PP): Split the model across **layers**; each GPU processes a different stage.
-- Sequence Parallelism (SP): Partition long input **sequences** across GPUs. (very limited)
+- Sequence Parallelism (SP): Partition long input **sequences** across GPUs. (useful for long context)
+  - Ring Attention(Ring All Reduce): split Attention into chunks, share KV to neighbor.
 - Tensor Parallelism (TP): Split **individual tensor(dim)** operations across devices (often less efficient).
   - Nvidia build optimize LLM image with tp1(single GPU), tp4(split attention head in 4 GPUs)
 - Expert Parallelism (EP)
+  - hot expert & expert redundance
+
 
 - all-reduce operation - very expensive operation; Ex: sync local gradient for global gradients.
 
@@ -412,7 +420,10 @@ Speeds up decode by predicting multiple tokens(8–16 token drafts) with **small
 
 Usually 5 tokens out of 8 draft tokens will be right; Only make sense on idol compute hardware, with batch size > 8;
 
-Fuzzy Speculative Decoding: accept draft tokens that is NOT top token
+Draft Token Accept Rule:
+- greedy decoding
+- **Fuzzy Speculative Decoding**: accept draft tokens that is NOT top token
+- Probabilistic Acceptance: re_norm[drop_neg(target_logit - draft_logit)]
 
 https://huggingface.co/collections/RedHatAI/speculator-models
 
@@ -432,21 +443,6 @@ train draft module.
   - high batch size reduce spare compute power
   - temperature
 
-
-```c
-// MTP sudo code:
-e = enorm(embedding_or_previous_mtp_state);
-h = hnorm(main_model_hidden_state);
-
-e = e_proj(e);
-h = h_proj(h);
-
-x = e + h;                  // or concat(e, h), depending on tensor shapes
-x = norm(x);
-
-x = transformer_block(x, block);
-logits = hc_head(x);
-```
 
 #### EAGLE
 > similar to MTP, but also take mid activation & early activation as input. To get more context for most accuracy.
@@ -485,10 +481,7 @@ draft_tokens = decode_stage_output(draft_state);
 // M4 dspark: verify_cost 1259 ms; replay 944 ms; draft_cost was 816 ms.
 ```
 
-## Scheduler
-> Scheduler step/batch is like train job: train capacity ~ batch token budget; 
 
-- mixed prefill-decode batching
 
 ## KV cache
 
@@ -500,10 +493,12 @@ draft_tokens = decode_stage_output(draft_state);
 > Q & K channels with same block consistently have large outlier across many tokens;
 > > Newer K keep original, older K quantized once enough K reach.
 > V are more uniform.
+
+> KV cache is even HARDER to compress than weight, at least weight static, KV cache is unique per trajectory.
 KV approaches:
 
 - KV cache compression
-  - build-in compression; Ex: Deepseek MLA, DSA
+  - build-in compression; Ex: Deepseek MLA
   - Quantization & Precision Reduction; Ex: TurboQuant
   - KV cache dropping; Ex: KVzip, SnackKV, KVcompact `sequence-length compression`
 - **non-prefix caching** Ex: CacheBlend
@@ -565,12 +560,13 @@ JSONL traces will define workload's size, but not same content.
 
 ## vLLM
 > Single Node w single or many GPU(s).
+> > Everyone hates vLLM, yet they fork it!
 
 - Prefix Aware Router
   - Message Queue
   - Replica selection
   - https://github.com/vllm-project/semantic-router
-- [vLLM Scheduler](#scheduler)
+- [vLLM Scheduler](#scheduler) `batch / execution plan && coordinates the GPU worker(s)`
   - `scheduler_cls`
   - prefill/decode balancing
   - token budget
@@ -579,6 +575,7 @@ JSONL traces will define workload's size, but not same content.
     - spec tokens
   - chunk size/splitting
   - request priority & preemption
+  - Worker per GPU
 - [ModelRunner](#inference-engine-workflow)
   - Attention backend
   - Sample/Decode/Draft
@@ -591,12 +588,31 @@ JSONL traces will define workload's size, but not same content.
 - DP Coordinator
   - RPC
 - Flags:
+  - `--gpu-memory-utilization`
   - `--tensor-parallel-size`
-  - `--attention-backend`
+  - `--attention-backend` & `--moe-backend`
   - `--block-size` KV block size default 16; `--kv-cache-dtype`
-  - DPA = DP & EP
+  - `--tp --ep` DPA = DP & EP
+  - structured output: (xgrammar)
+
+Pin:
+- vLLM 0.x.y
+- PyTorch 2.x
+- CUDA 12.x
+- driver xxx
+
+https://recipes.vllm.ai/
+https://carbonforge.ai/en/models
+
+> vllm compile `xx.so`, then `vllm serve xyzModel` will auto load compile so file.
+> > `xx.so` is toolbox of kernels and native ops.
 
 FlashInfer is kernel libraries, fork vLLM often for overwrite FlashInfer usage.
+
+### Scheduler
+> Scheduler step/batch is like train job: train capacity ~ batch token budget; 
+
+- mixed prefill-decode batching
 
 ## Dynamo
 > Multi Nodes, at least multiple DGX or NVL72.
@@ -614,3 +630,26 @@ FlashInfer is kernel libraries, fork vLLM often for overwrite FlashInfer usage.
 - NVIDIA Triton Model Analyzer `Deployment Autotuning`
 - [NVIDIA GenAI-Perf](https://github.com/ai-dynamo/aiperf) `End-to-end Benchmark tools`
 - NVIDIA Model Optimizer `Model Optimization: quantization, distill, Neural Architecture Search`
+
+## Monitor
+- KV hit %
+- TPS
+- Batch Slot %
+- Queue Wait Time
+- Goodput % `exclude timeout tokens`
+
+## Semantic Router
+- Envoy — Gateway
+  - proxy
+- Router - Inspect request and decide model/path/policy
+  - Signals
+  - Decision Engine
+    - decisions
+      - priority
+      - rules
+      - plugins: `action`
+      - modelRefs: `target LLM`
+    - Plugin Chain
+- dashboard
+  - SIM container: `Simulator`
+  - config.yaml

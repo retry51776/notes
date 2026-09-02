@@ -191,6 +191,7 @@ GPU (H100 / Hopper) has 132 SMs
 ```
 
 - **SM** – Streaming Multiprocessor; contains CUDA cores, Tensor Cores, warp schedulers, SFUs, load/store units, L1 cache & shared memory.
+  - SM's architecture determent hardware support kernels: SM100(spark) != SM120(H200); blackwell/rubin just marketing names.
 - **L2 Cache** – Shared across SMs; large but slower than L1.
 - **Global Memory** – HBM or GDDR attached to the GPU.
   - Zero-Copy Memory - GPU directly invoke host memory
@@ -199,24 +200,15 @@ GPU (H100 / Hopper) has 132 SMs
 - Kernel indexing = mapping rule
 - Launch config   = execution shape
 
-Analogy: The Multi-Lane Toll Plaza.
-
-- Entire traffic demand ~ Grid
-  - shipping logistics ~ Kernel Indexing
-    - number of roads ~ grimDim
-    - number of car per road ~ blockDim
-      - car convoy ~ wrap
-  - road lanes ~ Block
-    - road support capacity ~ sharedMem (per block)
-  - individual car ~ Thread
-    - complete stopped ~ thread data loaded, task ready to execute
-    - cars convoy enter toll (32 cars) ~ active wrap
-    - car weight ~ L1 SRAM register usage
-- toll road ~ GPU
-  - active wraps ~ 32 cars allow entry toll at once
-  - toll station ~ SM
-    - toll station controller ~ Warp Scheduler
-  - toll gates > toll lanes ~ latency hiding
+SM Analogy: `similarity to GPU workflow`
+- SM ~ tiny computer
+  - cuda core ~ CPU does general compute;
+  - tensor core ~ GPU hold most FLOPs;
+  - **TMA** ~ RDMA swap memory in background;
+  - **Scheduler** ~ Wrap's manager manage threads instruction & state. `latency hiding happens here`
+- instructions
+  - WGMMA ~ offload heavy workload from cuda core to tensor core.
+  - mbarrier ~ async completion/event flag
 
 ### Network Components
 
@@ -286,6 +278,7 @@ GPUDirect Storage (GDS) support 27 GBps
 
 > Note: Tensor Core CAN'T tokenization, softmax scaling, KV cache indexing, and sampling, which still operate on floating point in CUDA Core;
 
+> >  SM120 consumer fake blackwell, often SM100 kernel won't support.
 CUDA: New Features and Beyond by Stephen Jones. Every year talk about CUDA direction.
 
 CUDA Platform Stack
@@ -309,6 +302,27 @@ pytorch -> NVCC compiler -> (Cubins or Fatbins) -> JIT -> PTX
 - cuDNN (CUDA Deep Neural Network)
 - CUTLASS is a template library that provides building blocks for writing
 high-performance kernels
+
+### PTX Instructions
+> GPU architectural differences in details. By OpenAI ofc.
+> > **tcgen05** ~ SM100 instructions.
+>
+> CUDA_ARCH 9.0 = SM90
+
+| Instruction Category | Job | Ampere SM80 | Hopper SM90 | Blackwell SM100 |
+|---|---|---|---|---|
+| **Compute** | Matrix math | `mma.sync` | `wgmma` | `tcgen05.mma` |
+| **Data movement** | Move tensors/tiles | `cp.async` | **TMA** / `cp.async.bulk` | TMA + `tcgen05.cp` |
+| **Matrix load/store** | Move fragments between memory levels | `ldmatrix` | `ldmatrix` | `tcgen05.ld/st` |
+| **Synchronization** | Coordinate async work | barriers | `mbarrier` | `mbarrier` + newer mechanisms |
+| **Execution grouping** | Define cooperating threads | warp/CTA | **warp-group / cluster** | CTA pairs / clusters |
+| **Memory hierarchy** | Where working data lives | Reg + SMEM | Reg + SMEM + DSM | Reg + SMEM + **TMEM** |
+| **Communication** | GPU↔GPU / CTA↔CTA | NVLink, atomics | DSM/NVLink | enhanced NVLink mechanisms |
+| **Scalar/vector** | Normal arithmetic | `add`, `mul`, `fma`, etc. | same | same |
+
+- CTA: Cooperative Thread Array, CUDA Thread Block hardware
+- WGMMA: Warp Group Matrix Multiply Accumulate, let wrap runs matrix multiply in background, while wrap moves on other data movements.
+
 
 ### nvcc
 
@@ -346,6 +360,7 @@ kernel ~ C++ function executed by MANY GPU threads: matrix pointer, threadIdx/bl
 
 - **cuDNN**, **DeepSpeed** for large‑scale training.
 - Dependent Kernel Launch `sequential kernels`
+- DeepGEMM kernel H100
 
 ### Asymmetric Parallelism
 

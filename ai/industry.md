@@ -98,7 +98,14 @@ FP32 accumulation (later kernel quantize accumulation to desire precision, popul
   - Model FLOPs Utilization (MFU) > 30% good, > 40% excellent
   - Power‑to‑chip efficiency (PUE) improves from 1.8 (wasteful) to ~1.1 (effective).
   - Total Cost of Ownership: 10 % data center, 15 % power, 75 % Compute Hardwares.
+  - Bottlenecks
+    - Compute bound
+    - Memory bound
+    - Latency bound
+    - Sync bound
+    - Scaling bound
 - Training
+  - Context Growth Stages: 8k, 16k, 24k, 40k, 64k, 96k, 128k...
   - 90% Flops to pretrain; 3–7% to fine tune; 1-3% to RL;
   - Lab compute allocation: 40% inference, 50% research; 10% final training run.
   - RL is similar to lottery-yield manufacturing
@@ -121,6 +128,7 @@ FP32 accumulation (later kernel quantize accumulation to desire precision, popul
   - 4k tokens @ 8bit @ 120B OSS ≈ ~1 GB KV cache
   - Measure LLM by training-data, energy per task(cost) vs human
   - Inference Flop ~ 2 X tokens X parameters
+  - Thinking ~ 85% decode tokens
 - Business
   - AI industry often compares to Cloud Service Provider
   - Demand is key unknown variable, profit is adjustable by balancing training vs inference.
