@@ -1,0 +1,12 @@
+exclude:
+  - .aider*
+  - .claude/
+  - .github/
+  - .ipynb_checkpoints/
+  - .vscode/
+  - ai/skills/
+  - node_modules/
+  - package.json
+  - presentation/
+  - test/
+  - tools/

@@ -105,28 +105,49 @@
 
 ### Server Rack Components
 
-- LPU - 500 SRAM @ 150TB/s
-- GPU
-- spectrum-x `fiber to`
-- NV-Link switch `between nodes`
+- CPU * 2
+- GDDR
+- GPU * 8
+  - SM: Streaming Multiprocessor
+    - CUDA Core: General‑purpose compute unit
+    - Tensor Core: Matrix multiplication
+    - SFUs: Special Function Units
+    - **Tensor Memory Accelerator**(TMA) ~ swap tensor tile in background;
+      - Shared Memory
+    - **Wrap Scheduler** ~ Wrap's manager manage threads instruction & state. `latency hiding happens here`
+    - Dispatch Unit ~ Router for Wrap's active thread's instruction
+    - load/store units
+    - L1 cache
+  - **L2 Cache** – Shared across SMs; large but slower than L1.
+- **Global Memory** – HBM
+  - Zero-Copy Memory - GPU directly invoke host memory
+  - GPUDirect
+- Networking:
+  - spectrum-x `fiber to`
+  - NV-Link switch `between nodes`
 
-### GPU Components
 
-| Component | Role |
-|-----------|------|
-| CUDA Core | General‑purpose compute unit |
-| Tensor Core | Matrix multiplication (FP16/INT8) |
-| RT Core | Ray tracing |
-| Raster Unit | Vector → pixel conversion |
-| Texture Unit | Apply textures to geometry |
-| Memory | GDDR5/6/6X, HBM2/2E |
-| NVLink | High‑speed GPU‑to‑GPU interconnect |
-| NVENC / NVDEC | Video encode/decode |
+> SM's architecture determent hardware support kernels: SM100(spark) != SM120(H200); blackwell/rubin just marketing names.
 
-- **Grid** – Collection of blocks; can be 1‑3 dimensions.
-- **Block** – Up to 1024 threads; also 1‑3 dimensions.
-- **Warp** – 32 threads executed in lockstep.
-- Unified Virtual Addressing (UVA) - Share Memory across SINGLE NODE(Ex: a NVL72)
+
+Video GPU components:
+- RT Core: Ray tracing
+- Raster Unit: Vector → pixel conversion
+- Texture Unit: Apply textures to geometry
+- NVENC / NVDEC: Video encode/decode
+
+
+SM Analogy:
+- SM ~ tiny computer
+  - Cuda Core ~ CPU does general compute;
+  - Tensor Core ~ GPU hold most FLOPs;
+  - **Tensor Memory Accelerator**(TMA) ~ swap tensor tile in background;
+  - **Wrap Scheduler** ~ Wrap's manager manage threads instruction & state. `latency hiding happens here`
+  - Dispatch Unit ~ Router for Wrap's active thread's instruction
+- instructions
+  - WGMMA ~ offload heavy workload from cuda core to tensor core.
+  - mbarrier ~ async completion/event flag
+
 
 ```py
 # Developer perspective with Hopper
@@ -146,19 +167,22 @@ CPU
 #        ↓
 # GPU scheduler
 #        ↓
-# Break kernels into block threads
-Grid (kernel 1 to 1 grid)
- ├─ Block 0 (max 1024 Threads) → assigned to a single SM
- │   ├─ Warp 0 (a wrap = 32 Threads w SAME instruction, different states)
- │   ├─ …
- │   └─ Warp 63
- ├─ Block 1 (from 1 to 1024 Threads)
- ├─ …
- └─ Block 31
+# decompose workload into grid/thread block/lane
+Grid
+└── Thread Block Cluster # multiple SMs possible
+    └── Thread Block / Cooperative Thread Array (CTA) # exactly ONE SM, max 1024 threads / lane
+        ├── block_id:   `blockIdx.x`
+        ├── block_size: `blockDim.x`
+        │
+        └── Warp / simdgroup # SIMT execution unit, 32 threads
+            ├── warp_id in CTA: `threadIdx.x / warpSize`
+            │
+            └── Thread # within ONE warp
+                └── lane_id: `threadIdx.x % warpSize`
 
-# Threads are independent, parallel, ordered diagnostic tasks.
-
-# Grids may be 3 dimensional ($$GlobalID = (blockIdx.x \times blockDim.x) + threadIdx.x$$), purely software index.
+# gridDim   ≈ Work dimensions
+# blockDim  ≈ Work-chunk dimensions
+# CUDA runtime automatically schedules thread blocks, but possible extra threads!
 
 '''
        ↓
@@ -173,9 +197,9 @@ Tile-level scheduling:
 '''
 
 # Hardware perspective with Hopper
-GPU (H100 / Hopper) has 132 SMs
- ├─ SM 0
- │   ├─ 4 Warp Scheduler(s) → similar Hyper-Threading, so 4 active warps (4 * 32 = 128 active threads per SM) continues working on millions threads.
+GPU # H100 has 132 SMs
+ ├─ SM 0 # Each SM max 32 resident blocks
+ │   ├─ 4 Warp Scheduler(s) # similar Hyper-Threading, so 4 active warps (4 * 32 = 128 active threads per SM) continues working on millions threads.
  │   │   ├─ Warp 0 (32 threads SAME instruction)
  │   │   ├─ Warp 1 (only 4 active Warp per SM)
  │   │   ├─ ...
@@ -184,31 +208,17 @@ GPU (H100 / Hopper) has 132 SMs
  │   ├─ Shared Memory (per block region)
  │   └─ 128 Tensor Cores / FP units
  │
- ├─ SM 1 with 256 KB L1 SRAM registers, shared by block
+ ├─ SM 1 # with 256 KB L1 SRAM registers, shared by block
  │   └─ ...
  │
  └─ SM 131
+
 ```
 
-- **SM** – Streaming Multiprocessor; contains CUDA cores, Tensor Cores, warp schedulers, SFUs, load/store units, L1 cache & shared memory.
-  - SM's architecture determent hardware support kernels: SM100(spark) != SM120(H200); blackwell/rubin just marketing names.
-- **L2 Cache** – Shared across SMs; large but slower than L1.
-- **Global Memory** – HBM or GDDR attached to the GPU.
-  - Zero-Copy Memory - GPU directly invoke host memory
-  - GPUDirect
 - error buffer is a "single-slot" & async, so never can guaranty all error messages are collected.
 - Kernel indexing = mapping rule
 - Launch config   = execution shape
-
-SM Analogy: `similarity to GPU workflow`
-- SM ~ tiny computer
-  - cuda core ~ CPU does general compute;
-  - tensor core ~ GPU hold most FLOPs;
-  - **TMA** ~ RDMA swap memory in background;
-  - **Scheduler** ~ Wrap's manager manage threads instruction & state. `latency hiding happens here`
-- instructions
-  - WGMMA ~ offload heavy workload from cuda core to tensor core.
-  - mbarrier ~ async completion/event flag
+- Unified Virtual Addressing (UVA) - Share Memory across SINGLE NODE(Ex: a NVL72)
 
 ### Network Components
 
@@ -237,6 +247,7 @@ Each gate has a special purpose — like customs, traffic control, or the big cr
   - **Unified Virtual Addressing** (UVA) - Share Memory across SINGLE NODE(Ex: a NVL72)
 
 - **Ethernet** – Standard networking. Frontend Network.
+- QSFP – High‑speed optical/electrical interface.
 
 Important Network Settings:
 - GID = Global Identifier, a 128-bit address used by InfiniBand/RDMA verbs.
@@ -269,7 +280,6 @@ GPUDirect Storage (GDS) support 27 GBps
 ### OS services
 
 - BMC – Baseboard Management Controller (motherboard management).
-- QSFP – High‑speed optical/electrical interface.
 - nv-hostengine
 - nvidia-smi
   - NVML
@@ -283,6 +293,13 @@ CUDA: New Features and Beyond by Stephen Jones. Every year talk about CUDA direc
 
 CUDA Platform Stack
 
+
+Program Scope:
+- **Grid** – Collection of blocks; can be 1‑3 dimensions.
+- **Block** – Up to 1024 threads; also 1‑3 dimensions.
+- **Warp** – 32 threads executed in lockstep.
+
+
 | Layer                          | Examples                                                                 |
 |--------------------------------|--------------------------------------------------------------------------|
 | Frameworks & DSLs              | TensorRT · Omniverse · JAX · PyTorch                                      |
@@ -295,7 +312,7 @@ CUDA Platform Stack
 | Compiler Stack                 | nvcc · nvrtc · nvptx · ptxas                                              |
 | Host Runtimes & Tools          | CUDA Runtime · Drivers · Nsight Tools · Installers                        |
 
-pytorch -> NVCC compiler -> (Cubins or Fatbins) -> JIT -> PTX
+pytorch -> [NVCC compiler](hardware.md#intermediate-representation) -> (Cubins or Fatbins) -> JIT -> [PTX](#parallel-thread-execution-instructions)
 
 - cuBLAS (Basic Linear Algebra Subprograms)
   - GEMM (General Matrix-Matrix Multiplication)
@@ -303,13 +320,14 @@ pytorch -> NVCC compiler -> (Cubins or Fatbins) -> JIT -> PTX
 - CUTLASS is a template library that provides building blocks for writing
 high-performance kernels
 
-### PTX Instructions
+### Parallel Thread Execution Instructions
+> PTX Instructions are GPU Primitives.
 > GPU architectural differences in details. By OpenAI ofc.
 > > **tcgen05** ~ SM100 instructions.
 >
 > CUDA_ARCH 9.0 = SM90
 
-| Instruction Category | Job | Ampere SM80 | Hopper SM90 | Blackwell SM100 |
+| GPU Primitives | Job | Ampere SM80 | Hopper SM90 | Blackwell SM100 |
 |---|---|---|---|---|
 | **Compute** | Matrix math | `mma.sync` | `wgmma` | `tcgen05.mma` |
 | **Data movement** | Move tensors/tiles | `cp.async` | **TMA** / `cp.async.bulk` | TMA + `tcgen05.cp` |
@@ -377,6 +395,50 @@ Tech stacks:
 
 computation libraries is A MESS.
 
+### Kernel Selection/Tuning
+```md
+Algorithm
+   ↓
+Candidate kernel family
+   ↓
+Shape + dtype + layout + hardware + workload constraints
+   ↓
+Candidate kernel configurations
+   ↓
+Benchmark / heuristic / autotune
+   ↓
+Selected kernel
+```
+
+> autotuning shows up every stacks!
+Variables:
+- dtype
+  - quantization
+- M, N, K dimensions
+- layout: row/col major
+- contiguous/strided
+- workspace memory
+
+> kernel microbenchmarks and actual inference-engine performance.
+
+Benchmark:
+- Arithmetic intensity
+- memory traffic
+- compute utilization
+- Scheduling: occupancy/stalls
+
+Tools:
+- torch profiler
+- Nsight Systems
+- Nsight Compute
+- CUTLASS / Triton profiler
+
+Optimazation:
+- block decomposition
+- thread/lane assigment
+- Matrix Multiply and Accumulate/WGMMA lowering
+- reg allocation
+- instruction scheduling
 
 ### FlashInfer
 
@@ -439,40 +501,44 @@ def xxx():
 `nsight copolit`
 import cuda.tile as ct
 
-## CUDA Domain-Specific Language (DSL)
-
-> kernel generator, performance between pytorch and CUDA C++.
-
-```py
-import cuda.tile as ct
-
-@ct.func
-def matmul(A: ct.Array,
-           B: ct.Array,
-           C: ct.Array,
-           tshp: ct.Constant[ct.Shape]):
-
-    sum = ct.zeros(tshp[0:1], A.dtype)
-
-    pA = ct.partition(A, (tshp[0], tshp[2]))
-    pB = ct.partition(B, (tshp[2], tshp[1]))
-
-    for k in range(pA.shape[1]):
-        sum = ct.mac(
-            pA[ct.pid(0), k],
-            pB[k, ct.pid(1)],
-            sum
-        )
-
-    ct.store(C, ct.pid(0:2), sum)
-```
-
 ### CUDA Driver
 
 > `cuda-checkpoint` suspend & restore GPU active state. Often saved GPUs state into CPU DRAM.
 >> Ex: switch LLM from 20s to 2s.
 
 The command to enable GPUDirect RDMA is `sudo modprobe nvidia-peermem`
+
+## Debug
+
+```md
+NVIDIA GPU Errors
+│
+├── Application
+│   └── CUDA / NCCL / PyTorch
+│
+├── Driver / Firmware
+│   ├── NVIDIA Kernel Driver
+│   │
+│   └── **GSP** (GPU System Processor) `xid: 120`
+│       ├── GSP firmware crash
+│       ├── GSP timeout / hang
+│       ├── RPC failure
+│       ├── firmware boot failure
+│       └── driver ↔ GSP communication failure
+│
+├── GPU Hardware / RAS
+│   ├── SM
+│   ├── HBM
+│   ├── L2
+│   └── internal fabric
+│
+├── Interconnect
+│   ├── PCIe
+│   ├── NVLink
+│   └── NVSwitch
+│
+└── Power / Thermal
+```
 
 
 ## Nemotron

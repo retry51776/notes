@@ -42,6 +42,10 @@ You can have: `Prompt = bidirectional` but `Generated output = causal`
 
 ## MLP
 
+
+- [Speculators: build custom drafter](https://github.com/vllm-project/speculators)
+- [Track Progress](https://github.com/gradio-app/trackio)
+
 Adv:
 
 - memorization capacity

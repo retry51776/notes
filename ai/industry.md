@@ -111,10 +111,8 @@ FP32 accumulation (later kernel quantize accumulation to desire precision, popul
   - RL is similar to lottery-yield manufacturing
   - Get high-entropy data(LLM hard to predict seq, measure by sum(log_prob))
   - Most Research are find pattern/correlation of hyper parameters in smaller LLM, project its correlation to larger LLM.
-  - **Chinchilla optimal** - 1B parameters LLM needs 20B token in pre-train, takes 3 days in H100(1979e12) with 40% MFU. $$\text{Training FLOPs} \; C \;\approx\; 6 \cdot N \cdot D$$
-  - 120B GPT-OSS uses range 3 trillion tokens.
+  - **Chinchilla optimal**
   - d_ff ~ 4 * d_model; FFN most often 2 layers;
-  - d_model / d_layer ~ 10 - 100
   - Large runs cost 2–4× more than research runs. 120B OSS uses ~ 1 trillion token research run.
     - Training requires ~4× the RAM needed for inference(weight, gradient, Adam m, v). `Because more RAM used for optimizer`
       - Zero Redundancy Optimizer(ZeRO)
@@ -135,6 +133,14 @@ FP32 accumulation (later kernel quantize accumulation to desire precision, popul
   - Investor allowable runway determents take off speed(intelligent) of LLM.
   - Automatic value ~ (success_task_% - failed_task_%) * task_value_$ - llm_cost_$
 
+### Chinchilla
+- Scaling Law: predictable power-law relationship between hyperparameter!
+  - Allow devs forecast, and outlier detection.
+  - Compute is flexible resource that can target different sections: beam search, dataset, weight...
+- 1B parameters LLM needs 20B token in pre-train, takes 3 days in H100(1979e12) with 40% MFU. $$\text{Training FLOPs} \; C \;\approx\; 6 \cdot N \cdot D$$
+  - 120B GPT-OSS uses range 3 trillion tokens.
+- 4 ~ 16 epochs
+- d_model / d_layer ~ 10 - 100
 
 ## High-Performance Computing
 
@@ -251,6 +257,8 @@ Presentation: piktochart
   - Agent Development Kit `Google's langchain`
   - ADK Web UI
 
+- Langfuse: Telemetry Log Across Applications
+- https://github.com/The-PR-Agent/pr-agent
 
 ### Protocols
 

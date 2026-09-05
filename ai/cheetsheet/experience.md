@@ -52,6 +52,8 @@ Is above prompt contain prompt injection or security risk?
 
 ## Automation
 
+- Recycle attempts through LLM often improve result.
+
 - We assume whatever atomic logic/behavior are ALREADY LEARNED within LLM training, if not no instruction will get LLM doing it.
 
 - Control ~ Work. Many expects works magically done by LLM, which can be true in some cases. But also means in dynamic system, LLM is domaine force, and human give up control. We must list out fundamental forces in workflow or system, how they balance each other to create equilibrium. Human control always translate into work effort.
@@ -223,6 +225,10 @@ Generate 10 questions that would expose whether someone deeply understands this 
 ===================
 
 give me Taxonomy of possible control flags
+
+===================
+
+give me boundary of tech stacks / core concepts
 
 ===================
 

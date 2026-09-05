@@ -193,6 +193,8 @@ Inference Engines:
 
 > Tokenizer / preprocessing / postprocessing — tokenization, chat templates, multimodal image preprocessing, sampling/logits processing, detokenization.
 
+> XXX Pipeline includes multiple kernels.
+
 Settings:
 - prefill-chunk size effect memory pressure vs speed
 - Speculation Settings
@@ -371,6 +373,14 @@ Optimizations:
 - Decode Context Parallelism (Flash-Decoding) - like prefill chunk, but split token's KV cache attention head when decode; `--decode-context-parallel-size 4`
 
 
+### Compute Precision
+> Because each `operation × dtype × backend matrix` requires unique kernel.
+
+- CPU default FP32 AVX kernel
+- MAC default FP16
+- NVIDIA has many compute precision, NVFP4 is common inference precision
+
+
 ## Disaggregation
 
 ### Encoder-Prompt-Decode (EPD)
@@ -397,7 +407,7 @@ Optimizations:
 - Tensor Parallelism (TP): Split **individual tensor(dim)** operations across devices (often less efficient).
   - Nvidia build optimize LLM image with tp1(single GPU), tp4(split attention head in 4 GPUs)
 - Expert Parallelism (EP)
-  - hot expert & expert redundance
+  - Elastic EP: hot expert & expert redundance
 
 
 - all-reduce operation - very expensive operation; Ex: sync local gradient for global gradients.
@@ -557,6 +567,9 @@ JSONL traces will define workload's size, but not same content.
 
 
 ## Llama.cpp
+- Thread Allocation
+- Mlock: memory residency avoid OS evict
+- TP control
 
 ## vLLM
 > Single Node w single or many GPU(s).
