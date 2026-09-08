@@ -6,9 +6,11 @@ List all mathematic tools relate to AI.
 
 - Central Limit Theorem (CLT) ~ distribution probability / network stability
 - Information Theory ~ rare event contain more information, require more bits to encode
-- Slide window ~ in-place execution
 - Calculus ~ divide & conquer
 - Equal marginal principle ~ general heuristic for minimizing the sum of various costs, sub items often should roughly equals.
+- Balance Locality between Information vs Compute.
+  - Slide window ~ in-place execution. Good compute locality but bad information locality.
+  - MOE ~ gate(assume Information Locality) vs expert(Compute Locality).
 
 ## Linear algebra
 

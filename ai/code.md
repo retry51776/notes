@@ -242,7 +242,18 @@ dynamo build
 ```
 
 
-## Pytorch
+## Domain Specific Language
+
+> DSL covers AI, SQL, Regex, GraphQL .... We are focus on GPU | Accelerator Programming here.
+
+> In AI Domain, DSL has range Higher abstraction(Helion) to hardware control(PTX).
+
+Terms:
+- Tail effect
+- Memory coalesce
+- Occupancy
+
+### Pytorch
 
 > [General Framework](academic.md#general-frameworks) similar to numpy, with build-in support backprops, optimizer.
 >
@@ -261,6 +272,11 @@ Tensor components:
 
 backprop_cal(grad_out: Arr, out: Arr, x: Arr)
 
+Tools:
+- torch autograd profiler
+- pytorch profiler
+
+
 ```py
 import torch
 import gc
@@ -268,6 +284,7 @@ import gc
 gc.collect()
 torch.cuda.empty_cache()
 
+@triton.jit(interpreter=True)
 
 # basic indexing: index dimension < matrix dimension; return component of matrix;
 matrix[1] = [x, y]
@@ -280,6 +297,8 @@ W_E[tokens] -> Float[Tensor, "batch position d_model"]
 t.stack(x, dim=0) # combine tensors along a new dimension.
 t.cat(x, dim=0) # append existing dimension
 
+# profiler
+with torch.autograd.profiler.profile():
 
 # Pytorch will auto stretch when dimension = 1;
 # Many PyTorch functions take an optional keyword argument `out` for in-place execution.
@@ -370,9 +389,29 @@ mp.spawn(
 import torch.distributed as dist
 ```
 
-## CUDA
+
+
+### Triton
+> Develop By OpenAI, one of CUDA DSL.
+> Manage Memory coalescing, Schedule SMs on top of CUDA. Just better version pytorch compile.
+
+> Let dev just work on block level, not the lower CUDA thread level.
+
+> Backend uses LLVM.
+
+[Example DeepGEMM kernel](https://github.com/deepseek-ai/DeepGEMM/blob/main/deep_gemm/legacy/a_fused_k_grouped_gemm.py)
+
+```py
+x = tl.load([start_ptr, s+1, ....s+BLOCK_SIZE])
+tl.store(y_ptrs, y_row)
+
+```
+
+### CUDA
 
 [Nvidia Training Course](https://www.nvidia.com/en-us/training/)
+
+[Programming Massively Parallel Processors](https://www.cse.iitd.ac.in/~rijurekha/col730_2022/cudabook.pdf)
 
 These __global__ functions are known as kernels, and code that runs on the GPU is often called device code, while code that runs on the CPU is host code.
 
@@ -381,19 +420,23 @@ These __global__ functions are known as kernels, and code that runs on the GPU i
 >> 1. CUDA wrapper(CPU part) determent divide logic: boundary, tiling size, input & output pointers ...etc
 >> 2. `__golbal__` kernel(GPU part) does conquer: find sub target(with `block` & `thread`), runs desire logic, avoid out of bound.
 
-- Hierarchy of computations
-- corresponding memory space
-- synchronization primitives
-  - `cudaDeviceSynchronize()`
-  - `__syncthreads();`
-  - `__syncwarp()`
+CUDA variable lifetime:
+- Thread `int x;`
+- Block `__shared__ float x[];`
+- CUDA application `__constant__` && `__device__`
 
-Nsight System - Advance GUI debugger
+CUDA namespaces:
+- device:: # device-side facilities
+- experimental:: # experimental CUDA-wide APIs
+- std:: # CUDA implementation of C++ standard library
+- mr:: # memory-resource APIs
 
-Pytorch will calculate SM size, and choice best tiling size CUDA kernel.
+Tools:
+- Nsight System - Advance GUI debugger
+- nvprof
 
 ```md
-GPU Kernel
+GPU Kernel responsibility
 │
 ├── 1. Work / Thread Indexing
 │
@@ -475,31 +518,54 @@ GPU Kernel
     ├── quantization
     └── final store
 ```
+
+
 ```c++
 // CUDA Kernel function to add the elements of two arrays on the GPU
 __global__
 void add(int n, float *x, float *y)
 {
+    //
+    // uses Predefined variables calculate Thread Indexing
   int i = blockIdx.x * blockDim.x + threadIdx.x;
   if (i >= n)
     return
 
   for (int i = 0; i < n; i++)
       y[i] = x[i] + y[i];
+
+    // Kernel memory ops
+    // malloc()
+    // free()
 }
 
-  // Allocate Unified Memory -- accessible from CPU or GPU
-  float *x, *y;
-  cudaMallocManaged(&x, N*sizeof(float));
-  cudaMallocManaged(&y, N*sizeof(float));
+// loadInline() invoke kernel
+from torch.utils.cpp_extension import load_inline
+module = load_inline(
+    name="my_cuda_extension",
+    cpp_sources=cpp_src,
+    cuda_sources=cuda_src,
+    functions=["add_cuda"],
+)
 
-  // Wait for GPU to finish before accessing on host; AKA thread.join()
-  cudaDeviceSynchronize();
-  ...
+@numba.cuda.jit
+def kernel_x():
+    //pass
 
-  // Free memory
-  cudaFree(x);
-  cudaFree(y);
+// Allocate Unified Memory -- Only CPU invokes, not inside kernel.
+float *x, *y;
+cudaMemcpy()
+cudaMallocManaged(&x, N*sizeof(float));
+cudaMallocManaged(&y, N*sizeof(float));
+
+// Wait for GPU to finish before accessing on host; AKA thread.join()
+cudaDeviceSynchronize();
+...
+
+// Free memory
+cudaFree(x);
+cudaFree(y);
+
 
 // Profile CUDA script
 nvprof ./add_cuda
@@ -515,13 +581,13 @@ module = load_inline(
   build_directory="var/cuda_gelu"
 )
 
-//<<<gridDim, blockDim>>>; const
+// <<<gridDim, blockDim>>>; const
 // blockIdx.x; blockIdx.y; blockIdx.z
 // threadIdx.x; threadIdx.y; threadIdx.z;
-// Both gridDim & blockDim supports from 1 to 3 dimensions (x, y, z)
+// Global thread coordinate requeires x, y, z when blockDim is 3 dimensions
 dim3 gridDim(x, y);
 dim3 blockDim(x, y, z);
-add<<<gridDim, blockDim>>>(N, x, y);
+add<<<gridDim, blockDim>>>(N, x, y); // gridDim.x * blockDim.x > N
 
 // overlapping kernel execution using streams
 cudaStream_t stream1, stream2;
@@ -540,12 +606,23 @@ __global__ void warpAlignedKernel(int *x) {
     }
 }
 
+// EXPLICITLY issue TMA ptx instruction:
+
+#include <cuda.h>
+#include <cuda/barrier>
+#include <cuda/ptx>
+
+
+cuda::device::experimental::
+    cp_async_bulk_tensor_2d_global_to_shared(
+        &tile[0][0],
+        &tensor_map,
+        /* x = */ 0,
+        /* y = */ 0,
+        bar
+    );
 ```
 
-
-### CUDA Domain-Specific Language (DSL)
-
-> kernel generator, performance between pytorch and CUDA C++.
 
 ```py
 import cuda.tile as ct
@@ -571,19 +648,7 @@ def matmul(A: ct.Array,
     ct.store(C, ct.pid(0:2), sum)
 ```
 
-## Triton
-> Develop By OpenAI
-> Manage Memory coalescing, Schedule SMs on top of CUDA. Just better version pytorch compile.
-
-> Let dev just work on block level, not the lower CUDA thread level.
-
-```py
-x = tl.load([start_ptr, s+1, ....s+BLOCK_SIZE])
-tl.store(y_ptrs, y_row)
-
-```
-
-## Metal
+### Metal
 
 ```h
 // @autoreleasepool ~ @with mark variables for cleanup, except 
@@ -601,6 +666,29 @@ use(result);
 
 //TP service thread ~ request queue, mutex/condition variable, and the service loop
 
+```
+
+
+### PTX
+
+> Example PTX instruction, give more controls over communication/memory movement.
+```md
+ld.global.nc.L1::no_allocate.L2::256B
+
+ld.global
+│
+├── .nc                 use non-coherent/read-only path
+│
+├── .L1::no_allocate    don't allocate this into L1
+│
+└── .L2::256B           request 256-byte L2 prefetch/cache behavior
+
+## TMA ops
+## compiler to discover a TMA transfer automatically
+cp.async.bulk.tensor.2d.shared::cluster.global.mbarrier::complete_tx::bytes
+    [smem_addr],
+    [tensor_map, {x, y}],
+    [mbarrier];
 ```
 
 ## Tensor Framework
@@ -731,3 +819,44 @@ llama_memory_seq_cp(
 
 ## Mojo
 > Python like syntax, but also support memory layout definetion, ownership, Compile-time params.
+
+
+
+### CuTitle
+
+since CUDA 13.0; **Tile IR** compile into GPU executable. Block is lowest execute unit. Array based programming.
+
+There are both cuTile C++ & cuTile Python.
+
+less controls then CUDA python SIMT.
+
+```py
+import nvshmem.core.device.tile
+```
+
+https://github.com/NVIDIA/TileGym
+
+cuTile autotuner
+
+@cuda.tile.kernel invoke @cuda.tile.function
+
+### nvmath-python
+
+```py
+# NVTX annotation for Nsight Profiler
+
+import nvtx
+@nvtx.annotate(color="blue")
+def xxx():
+    with nvtx.annotate("this_loop", color="red"):
+        pass
+
+```
+
+- stateless api ~ similar to numpy
+- stateful api ~ `with nvmath.xxx(a, b)`
+
+`numba-CUDA` is single thread python compiler, so developer can inspect CUDA code.
+
+`nsight copolit`
+import cuda.tile as ct

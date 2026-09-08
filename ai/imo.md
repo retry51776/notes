@@ -489,6 +489,9 @@ Training often uses beam search, while inference favors sequential revision.
 
 ## Blogs
 
+### 07
+- Nvidia release of CUDA replaced OpenGL or DirectX API.
+  - Nvidia unify Vertex shader ALUs + pixel shader ALUs + geometry shader ALUs → one pool of general-purpose Stream Processors (SPs)
 
 ### 17
 

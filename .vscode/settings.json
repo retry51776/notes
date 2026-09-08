@@ -13,5 +13,8 @@
     "files.associations": {
         "*.metal": "cpp",
         "*.msl": "cpp"
-    }
+    },
+    "cSpell.words": [
+        "railcar"
+    ]
 }

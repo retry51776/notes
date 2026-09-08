@@ -240,10 +240,9 @@ Common capabilities:
     - Prefill Engine (generate KV cache)
       - `threshold 100 token`
       - uses top spec GPUs
-      - column-parallel(every seq's token at once) ops; (That's why prefill so efficient)
+      - token-parallel(every seq's token at once) ops; (That's why prefill so efficient)
     - Decode Engine
       - can done in smaller GPUs with enough RAM
-      - row-parallel(seq independent) ops; (That's why decode token ~4x expensive)
   - ModelService Controller (Pod Controller)
   - Prometheus (Monitor)
 - Kserver: K8s, CNCF
@@ -339,30 +338,14 @@ Spherical coordinates: Circle; nonlinear, coupled gradient;
 
 > Dispatch single **CUDA Graph** is faster than individual kernels(Eager execution).
 
-- DS4MetalTensor
-  - MTLBuffer ~ memory pointer for GPU
-  - offset
-  - owner
-  - live_snap & peak_snap
-
-- MTLCommandQueue `command queue`
-- MTLCommandBuffer `a batch GPU kernels`
-- MTLBuffer `memory pointer for GPU kernel's inputs & results`
-  - c: `graph->query_by_tier[graph->active_tier]` syntax similar struct
-  - Lifetime: persists while MTLBuffer exists, outlast kernel.
-  - Visibility: another kernel can read it later if you bind the same MTLBuffer.
-  - Address space: it is device memory, global GPU memory, not per-thread local memory.
-  - Synchronization: if one kernel writes it and another reads it, ordering matters. Separate encoders in the same command buffer are ordered; separate command buffers need dependency handling.
-  - Performance: device memory is slower than thread-local registers or threadgroup memory
-
 Optimizations:
 - Persistent Kernels
-- Memory Coalescing
-- superkernel - reduce kernel swap by multi ops
-- microbatch - split training batch into smaller batches
+- Memory Coalescing: memory addresses accessed(matrix index) across lanes of a warp should be contiguous
+- superkernel: reduce kernel swap by multi ops
+- microbatch: split training batch into smaller batches
 - flashcomm
 - command-buffer schedules `how often CPU dispatch kernels`
-- compiler cache - kernel re-use
+- compiler cache: kernel re-use
 - Placement Driver (PD) dispatcher
 - SWAP_AB: Run smaller ops individually on inputs often faster then single ops on larger output.
 
@@ -375,6 +358,8 @@ Optimizations:
 
 ### Compute Precision
 > Because each `operation × dtype × backend matrix` requires unique kernel.
+>
+> Industrial standard is shared quantized & dequantized in shared method.
 
 - CPU default FP32 AVX kernel
 - MAC default FP16

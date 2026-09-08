@@ -2,6 +2,8 @@
 
 > Ultimately, the only limitation is chip real estate; space must be allocated to computation (flexible or efficient) or storage (latency or bandwidth or capacity).
 
+> **GPU vs CPU** hides latency by interleaving many wraps. Unlike CPUs, where context switches are expensive, GPU threads are lightweight and scheduled by hardware.
+> > GPU trade CPU's scheduler area for more SM cores.
 
 ## Runtime Workflow
 
@@ -76,13 +78,108 @@ Model / Python program
 GPU / CPU hardware
 ```
 
+### Kernel
+
+> kernel ~ C++ function executed by MANY GPU threads(Grid-Stride Loop);
+
+- **Grid-Stride Loop**: gridDim * blockDim loop
+  - build-in variables: `gridDim, blockDim, blockIdx, threadIdx, warpSize`
+  - gridDim   ≈ number of worker groups
+  - blockDim  ≈ workers per group
+  - kernel    ≈ work each worker executes
+- kernel consideration:
+  - dtype
+    - quantization
+  - M, N, K dimensions
+  - layout: row/col major
+  - contiguous/strided
+  - workspace memory
+
+```md
+
+Kernel Contract:
+├── Operation       GEMM? attention? RMSNorm? MoE dispatch?
+├── Input shapes    M × K, K × N
+├── Layout          row-major / column-major / tiled
+├── Dtype           FP16 / BF16 / FP8 / INT8
+├── Output          dtype + layout
+├── Semantics       scaling, bias, activation, masking, etc.
+├── Hardware        Hopper? Blackwell? AMD?
+└── Runtime/API     CUDA stream, workspace, synchronization
+
+
+Grid-Stride Loop
+
+══════════════════════════════════════════════════════════════
+
+                    GRID
+              gridDim.x = 3
+         ≈ 3 worker groups (blocks)
+
+     ┌──────────┬──────────┬──────────┐
+     │ BLOCK 0  │ BLOCK 1  │ BLOCK 2  │
+     │blockIdx=0│blockIdx=1│blockIdx=2│
+     │          │          │          │
+     │ T0 T1 T2 │ T0 T1 T2 │ T0 T1 T2 │
+     │          │          │          │
+     └──────────┴──────────┴──────────┘
+          ↑
+     blockDim.x = 3
+     ≈ 3 workers / group
+
+Global thread IDs
+
+──────────────────────────────────────────────────────────────
+
+ Block 0        Block 1        Block 2
+
+┌─────────┐    ┌─────────┐    ┌─────────┐
+│ T0 → 0  │    │ T0 → 3  │    │ T0 → 6  │
+│ T1 → 1  │    │ T1 → 4  │    │ T1 → 7  │
+│ T2 → 2  │    │ T2 → 5  │    │ T2 → 8  │
+└─────────┘    └─────────┘    └─────────┘
+
+i = blockIdx.x * blockDim.x + threadIdx.x
+
+Grid stride
+
+──────────────────────────────────────────────────────────────
+
+stride = gridDim.x * blockDim.x
+       = 3 * 3
+       = 9
+
+                    WORK SPACE
+
+  0  1  2  3  4  5  6  7  8 | 9 10 11 12 13 14 15 16 17 | ...
+  ↑  ↑  ↑  ↑  ↑  ↑  ↑  ↑  ↑   ↑  ↑  ↑  ↑  ↑  ↑  ↑  ↑  ↑
+ T0 T1 T2 T3 T4 T5 T6 T7 T8  T0 T1 T2 T3 T4 T5 T6 T7 T8
+  │                          stride = 9
+  └──────────────────────────────→
+
+Each worker executes the kernel repeatedly:
+Thread 0 :  0 ──→  9 ──→ 18 ──→ 27 ...
+Thread 1 :  1 ──→ 10 ──→ 19 ──→ 28 ...
+Thread 2 :  2 ──→ 11 ──→ 20 ──→ 29 ...
+...
+Thread 8 :  8 ──→ 17 ──→ 26 ──→ 35 ...
+
+CUDA built-ins
+──────────────────────────────────────────────────────────────
+gridDim    ≈ number of worker groups
+blockDim   ≈ workers per group
+blockIdx   = which worker group am I?
+threadIdx  = which worker am I within the group?
+warpSize   = workers executed together as a warp (32)
+kernel     ≈ work each worker executes
+```
+
+
 ### Intermediate Representation
 
 > IR represent the program in an intermediate form that is easier to analyze, transform, optimize, or retarget. Compiler engineer's territory.
 
 > Just like SQL has many forms, IR has many versions.
-
-> Each manufacturer has its own shading language.
 
 LLVM Frontend: `understands Language`
 - Clang
@@ -134,16 +231,43 @@ Per-kernel execution:
 > SM assignment is hardware/runtime decides!
 > Thread Blocks / CTAs is indivisible scheduling units.
 
-## Memory
+
+#### Asymmetric Parallelism
+
+> SM core's Symmetric Parallelism VS Asymmetric Parallelism, disaggregation strategy on SM scheduler.
+>
+> Async CUDA pipeline ≈ multiple streams + events/dependencies
+
+Tech stacks:
+
+- CUDA Stream - opportunistic Asymmetric Parallelism Execution.
+- Green Context - Dynamic partition with guaranty. Aka define consumer/worker & routing_key.
+- Multi-Process Service (MPS) - Controlled GPU partition.
+- Multi-Instance GPU (MIG) - fixed GPU partition
+
+> CUDA has 2 main libraries categories: computation libraries & Communication libraries.
+
+computation libraries is A MESS.
+
+```md
+Async coordination
+├── Kernel level
+│   └── Streams + Events
+│
+└── Inside-kernel level
+    └── Async memory operations + Barriers
+```
+
+## IO
 
 > Memory hierarchy ~ traffic problem causes by variance vehicle: GPUs have limited high‑bandwidth memory (HBM or SRAM), while model parameters far exceed this capacity, forcing frequent off‑chip transfers.
 >
 > Impossible triangle: capacity, latency, bandwidth
 
 
-> Each chip design with a FIXED Arithmetic Intensity, but different workload has different Arithmetic Intensity.
+> Roofline Model: Each chip has a peak CGMA, but different workload has different CGMA.
 
-- Arithmetic Intensity | Compute Density ~ Compute / Data @ FP16
+- Arithmetic Intensity | Compute Density ~ Compute / Data @ FP16 `compute to global memory access (CGMA) ratio`
   - Workload
     - Attention ~ 10–50 FLOPs/byte
     - GEMM / MLP ~ 100–1000+ FLOPs/byte
@@ -160,7 +284,6 @@ Per-kernel execution:
   - SRAM ~ 300k / sec
 
 - Byte Ratio: compute FLOPs / io throughput
-- **GPU memory** hides latency by interleaving many threads. Unlike CPUs, where context switches are expensive, GPU threads are lightweight and scheduled by hardware.
 
 
 ### RAM Types
@@ -253,7 +376,7 @@ $50k ~ $100k
 
 ### Amazon & Anthropic
 
-- **Trainium** – Custom AWS hardware compatible with CUDA.
+- **Trainium** – Custom AWS hardware w runtime.
 - **Bedrock** – Managed LLM service (works with Anthropic).
   - Haiku（最小最快）
   - Sonnet（中间档）
@@ -282,11 +405,19 @@ $50k ~ $100k
 
 > Default compute precision is FP16.
 
-> Apple don't publish GPU ISA/compiler backend; Unlike NVIDIA exposes PTX;
+> Metal Shading Language (MSL) xxx.metal kernels is lowest lower for dev.
+> > Apple don't publish GPU ISA/compiler backend; Unlike NVIDIA exposes PTX;
+
+
+> The ANE is not directly accessible from MLX or PyTorch.
+
+> MLX support mxxfp8_tensor.
+
+Apple's strategy is use Unified Memory Architecture (UMA) avoid Nvidia's TMA.
 
 ```md
 Metal
-├── Metal Performance Primitives / TensorOps
+├── Metal Performance Primitives | TensorOps (~ CUDA libraries)
 │   └── Metal Performance Shaders
 │       └── MPSGraph
 │           ├── PyTorch-Metal
@@ -310,6 +441,7 @@ Metal
         └── synchronization / resource management
 ```
 
+Frameworks:
 - **MLX** – General Framework for Apple silicon
   - mlx[cuda] compiled into CUDA api for CUDA runtime
   - https://github.com/ml-explore/mlx-lm/tree/main/mlx_lm/models defined supported models
@@ -317,10 +449,10 @@ Metal
   - Neural Engine is similar to Tensor Core, only does matrix ops
   - VERY few frameworks uses Neural Engine, almost pointless to have it
 
-
-Instruments ~ Apple Metal Trace software
+- Instruments ~ Apple Metal Trace software
 
 Apple GPU components:
+> Each manufacturer has its own shading language.
 
 - Shader Core ~ SM
   - ALU (int/fp/complex) ~ Cuda core
@@ -330,12 +462,24 @@ Apple GPU components:
     - `execution_simdgroups` like
 - SIMDgroup ~ Warp
 - Threadgroup ~ Thread Block
+  - Threadgroup Memory ~ Shared Memory
+    - Cooperative Tensor ~ MMA fragment / WMMA
 - TB DMA ~ IB
 
 
-> The ANE is not directly accessible from MLX or PyTorch.
-
-Apple's strategy is use Unified Memory Architecture (UMA) avoid Nvidia's TMA.
+Metal API objects:
+- MTLTensor
+  - data plane
+  - scale plane
+- MTLCommandQueue `command queue`
+- MTLCommandBuffer `a batch GPU kernels`
+- MTLBuffer `memory pointer for GPU kernel's inputs & results`
+  - c: `graph->query_by_tier[graph->active_tier]` syntax similar struct
+  - Lifetime: persists while MTLBuffer exists, outlast kernel.
+  - Visibility: another kernel can read it later if you bind the same MTLBuffer.
+  - Address space: it is device memory, global GPU memory, not per-thread local memory.
+  - Synchronization: if one kernel writes it and another reads it, ordering matters. Separate encoders in the same command buffer are ordered; separate command buffers need dependency handling.
+  - Performance: device memory is slower than thread-local registers or threadgroup memory
 
 Known Bugs:
 

@@ -10,27 +10,7 @@
 - Models
 - Application
 
-## Nvidia Product Lines
-
-- **Rubin NVL 144 CPX**
-- **NVL72 Cluster**: 72 × B200 GPUs.
-- **DGX SuperPOD**: n × NVL72 Nodes.
-
-- **DGX / HGX** – AI‑focused servers (e.g., DGX A100, HGX H100).
-  - H100 units cost at least $30k; DGX has 8×H100
-  - GH200 CPU has 900 GB/s bi-directional bandwidth between the CPU and GPU memory, much higher than others.
-
-- GB300 ~ $100k with 700GB HBM3
-- **Quadro** – Professional workstations.
-- Spark ~ $4k with 128GB DDR4
-  - https://forums.developer.nvidia.com/c/accelerated-computing/dgx-spark-gb10/719
-
-- **GeForce** – Consumer gaming GPUs.
-- **Thor** - robotics 128GB.
-- **Jetson** – Edge AI and robotics.
-- **Tegra** – Embedded/mobile GPUs.
-
-### BoM
+## Datacenter Infrastructure
 
 - Compute Chassis Level ($250k H100)
   - Compute
@@ -41,7 +21,6 @@
     - AMD (bad for NCCL, tune NUMA NPS settings)
   - Backend Networking | InfiniBand (fastest)
     - ConnectX-7 NIC * 8 $($2k)
-      - RoCEv2
     - Bluefield-3 DPU * 2 ($3k)
       - more expensive than connectX
       - has build-in CPU
@@ -103,17 +82,17 @@
       - AI Enterprise $4.5k per GPU per year
   - Virtualization
 
-### Server Rack Components
+### Server Form Factor
 
 - CPU * 2
 - GDDR
 - GPU * 8
-  - SM: Streaming Multiprocessor
+  - SM
     - CUDA Core: General‑purpose compute unit
     - Tensor Core: Matrix multiplication
     - SFUs: Special Function Units
-    - **Tensor Memory Accelerator**(TMA) ~ swap tensor tile in background;
-      - Shared Memory
+    - **Tensor Memory Accelerator**(TMA): async io between global memory and shared memory;
+    - **Shared Memory**
     - **Wrap Scheduler** ~ Wrap's manager manage threads instruction & state. `latency hiding happens here`
     - Dispatch Unit ~ Router for Wrap's active thread's instruction
     - load/store units
@@ -129,6 +108,26 @@
 
 > SM's architecture determent hardware support kernels: SM100(spark) != SM120(H200); blackwell/rubin just marketing names.
 
+
+### Nvidia Product Lines
+
+- **Rubin NVL 144 CPX**
+- **NVL72 Cluster**: 72 × B200 GPUs.
+- **DGX SuperPOD**: n × NVL72 Nodes.
+
+- **DGX / HGX** – AI‑focused servers (e.g., DGX A100, HGX H100).
+  - H100 units cost at least $30k; DGX has 8×H100
+  - GH200 CPU has 900 GB/s bi-directional bandwidth between the CPU and GPU memory, much higher than others.
+
+- GB300 ~ $100k with 700GB HBM3
+- **Quadro** – Professional workstations.
+- Spark ~ $4k with 128GB DDR4
+  - https://forums.developer.nvidia.com/c/accelerated-computing/dgx-spark-gb10/719
+
+- **GeForce** – Consumer gaming GPUs.
+- **Thor** - robotics 128GB.
+- **Jetson** – Edge AI and robotics.
+- **Tegra** – Embedded/mobile GPUs.
 
 Video GPU components:
 - RT Core: Ray tracing
@@ -151,6 +150,7 @@ SM Analogy:
 
 ```py
 # Developer perspective with Hopper
+
 # Optional: NUMA Aware = Non-Uniform Memory Access Aware; `aware CPU's RAM w different speeds`; `nvidia-smi topo -m`
 CPU
  ├─ Stream A → kernel launch
@@ -161,9 +161,7 @@ CPU
  │   └─ kernel4 `kernel<<<gridDim, blockDim, sharedMem, stream>>>`
  └─ Stream C
 
-# Kernel has flexible grid size & block size, index rule, define per thread computation
-# gridDim unlimited, blockDim 0-1024, sharedMem 0-48 KB (per block),
-
+# developer must ensure gridDim * blockDim loop(grid-stride loop) covers all works, but possible extra threads!
 #        ↓
 # GPU scheduler
 #        ↓
@@ -173,34 +171,36 @@ Grid
     └── Thread Block / Cooperative Thread Array (CTA) # exactly ONE SM, max 1024 threads / lane
         ├── block_id:   `blockIdx.x`
         ├── block_size: `blockDim.x`
+        ├── Shared Memory
         │
         └── Warp / simdgroup # SIMT execution unit, 32 threads
             ├── warp_id in CTA: `threadIdx.x / warpSize`
             │
             └── Thread # within ONE warp
-                └── lane_id: `threadIdx.x % warpSize`
+                ├── lane_id: `threadIdx.x % warpSize`
+                └── Registers
 
-# gridDim   ≈ Work dimensions
-# blockDim  ≈ Work-chunk dimensions
-# CUDA runtime automatically schedules thread blocks, but possible extra threads!
+#        ↓
+# Block-level scheduling:
+# - programmer defines blocks
+# - CUDA runtime/hardware schedules blocks onto SMs automatically
 
-'''
-       ↓
-Block-level scheduling:
-- programmer defines blocks
-- CUDA runtime/hardware schedules blocks onto SMs automatically
+# Tile-level scheduling:
+# - programmer/compiler defines tile decomposition inside a block
+# - execution of those tiles is handled within the block on the assigned SM
+#        ↓
 
-Tile-level scheduling:
-- programmer/compiler defines tile decomposition inside a block
-- execution of those tiles is handled within the block on the assigned SM
-       ↓
-'''
 
 # Hardware perspective with Hopper
 GPU # H100 has 132 SMs
  ├─ SM 0 # Each SM max 32 resident blocks
  │   ├─ 4 Warp Scheduler(s) # similar Hyper-Threading, so 4 active warps (4 * 32 = 128 active threads per SM) continues working on millions threads.
- │   │   ├─ Warp 0 (32 threads SAME instruction)
+ │   │   ├─ Warp 0
+ │   │   │   ├─ instruction # 32 threads SAME instruction
+ │   │   │   ├─ active `eligible | stale` # hardware bookkeeping status
+ │   │   │   ├─ Thread 0
+ │   │   │   ├─ ...
+ │   │   │   └─ Thread 31
  │   │   ├─ Warp 1 (only 4 active Warp per SM)
  │   │   ├─ ...
  │   │   └─ Warp 63
@@ -239,7 +239,7 @@ But applications can’t directly drive the cranes, forklifts, and trucks at the
 Instead, the Linux kernel provides gates (device nodes in /dev/infiniband).
 Each gate has a special purpose — like customs, traffic control, or the big cranes.
 
-- **InfiniBand** – Uses Remote Direct Memory Access (RDMA) bypasses the CPU. Uses Reliable Datagram Protocol (RDP) to share Memory across BETWEEN CLUSTER. Backend Networking (InfiniBand or RoCEv2 Ethernet)
+- **InfiniBand** – Uses Remote Direct Memory Access (RDMA) bypasses the CPU. Uses Reliable Datagram Protocol (RDP) to share Memory across BETWEEN CLUSTER. Backend Networking
   - NCCL (NVIDIA Collective Communications Library) - specialize protocol for GPU, open source
   - **NVSHMEM** - GPU threads directly put/get/update data in remote GPU memory without CPU involvement.
 
@@ -291,13 +291,17 @@ GPUDirect Storage (GDS) support 27 GBps
 > >  SM120 consumer fake blackwell, often SM100 kernel won't support.
 CUDA: New Features and Beyond by Stephen Jones. Every year talk about CUDA direction.
 
-CUDA Platform Stack
-
 
 Program Scope:
-- **Grid** – Collection of blocks; can be 1‑3 dimensions.
-- **Block** – Up to 1024 threads; also 1‑3 dimensions.
-- **Warp** – 32 threads executed in lockstep.
+- CUDA Application
+  - CUDA Stream
+    - Kernel Launch: **Grid-Stride Loop**
+      - **gridDim**   ≈ number of worker groups
+      - **blockDim**  ≈ workers per group
+      - **kernel**    ≈ work each worker executes
+- GPU: runtime allocate workers to wraps
+  - SM
+    - **Warp** – 32 threads executed in lockstep.
 
 
 | Layer                          | Examples                                                                 |
@@ -312,7 +316,6 @@ Program Scope:
 | Compiler Stack                 | nvcc · nvrtc · nvptx · ptxas                                              |
 | Host Runtimes & Tools          | CUDA Runtime · Drivers · Nsight Tools · Installers                        |
 
-pytorch -> [NVCC compiler](hardware.md#intermediate-representation) -> (Cubins or Fatbins) -> JIT -> [PTX](#parallel-thread-execution-instructions)
 
 - cuBLAS (Basic Linear Algebra Subprograms)
   - GEMM (General Matrix-Matrix Multiplication)
@@ -342,58 +345,21 @@ high-performance kernels
 - WGMMA: Warp Group Matrix Multiply Accumulate, let wrap runs matrix multiply in background, while wrap moves on other data movements.
 
 
-### nvcc
+### Nvidia C Compiler
+
+> Nvidia C Compiler(nvcc) compile kernel into PTX.
 
 Statically-linked `compiled with dependence`
 Dynamically-linked `use CUDA runtime`
 
-### kernel
+### Kernel
 
-```md
-                         Kernel
-                           │
-              ┌────────────┴────────────┐
-              │ arguments               │
-              │                         │
-         matrix pointers          dimensions/etc.
-              │
-              ▼
-       [ huge matrix ]
-              │
-      ┌───────┼────────┐
-      ▼       ▼        ▼
-   worker   worker    worker   ...
-   ID=0     ID=1      ID=2
-      │       │        │
-      ▼       ▼        ▼
-    data[0] data[1]  data[2]
-```
-
-CPU dispatch CUDA kernel, CUDA kernel can NOT invoke another CUDA kernel.
-
-kernel ~ C++ function executed by MANY GPU threads: matrix pointer, threadIdx/blockIdx (worker id for coordination)
-
-> Most kernel authoring are for improve training, room to improve inference are very small (inference are mostly memory bound).
+CPU dispatch CUDA kernel, kernel rarely invoke another kernel(Dynamic Parallelism).
 
 
 - **cuDNN**, **DeepSpeed** for large‑scale training.
 - Dependent Kernel Launch `sequential kernels`
 - DeepGEMM kernel H100
-
-### Asymmetric Parallelism
-
-Symmetric Parallelism VS Asymmetric Parallelism
-
-Tech stacks:
-
-- CUDA Stream - opportunistic Asymmetric Parallelism Execution.
-- Green Context - Dynamic partition with guaranty. Aka define consumer/worker & routing_key.
-- Multi-Process Service (MPS) - Controlled GPU partition.
-- Multi-Instance GPU (MIG) - fixed GPU partition
-
-> CUDA has 2 main libraries categories: computation libraries & Communication libraries.
-
-computation libraries is A MESS.
 
 ### Kernel Selection/Tuning
 ```md
@@ -411,13 +377,6 @@ Selected kernel
 ```
 
 > autotuning shows up every stacks!
-Variables:
-- dtype
-  - quantization
-- M, N, K dimensions
-- layout: row/col major
-- contiguous/strided
-- workspace memory
 
 > kernel microbenchmarks and actual inference-engine performance.
 
@@ -432,6 +391,7 @@ Tools:
 - Nsight Systems
 - Nsight Compute
 - CUTLASS / Triton profiler
+- Nvidia Compute Profiler (NCU)
 
 Optimazation:
 - block decomposition
@@ -447,59 +407,6 @@ Specialized high-performance CUDA kernel library for LLM inference.
 Vllm, sglang now offloads their most kernel development to FlashInfer.
 
 > Major reason inference companies fork vLLM/SGLang is to take tighter control over exactly FlashInfer usage.
-
-### C++ CUDA SIMT
-
-https://docs.nvidia.com/cuda/
-
-`CPU → submits work → Stream → GPU scheduler → SM`
-
-classic CUDA code. Thread is lowest execute unit.
-
-define the execution graph + hardware mapping explicitly.
-
-### Triton
-
-define the math + tiling, compiler defines execution. Manage by OpenAI. JIT compiler, so only generate kernel cache at runtime.
-
-### CuTitle
-
-since CUDA 13.0; **Tile IR** compile into GPU executable. Block is lowest execute unit. Array based programming.
-
-There are both cuTile C++ & cuTile Python.
-
-less controls then CUDA python SIMT.
-
-```py
-import nvshmem.core.device.tile
-```
-
-https://github.com/NVIDIA/TileGym
-
-cuTile autotuner
-
-@cuda.tile.kernel invoke @cuda.tile.function
-
-### nvmath-python
-
-```py
-# NVTX annotation for Nsight Profiler
-
-import nvtx
-@nvtx.annotate(color="blue")
-def xxx():
-    with nvtx.annotate("this_loop", color="red"):
-        pass
-
-```
-
-- stateless api ~ similar to numpy
-- stateful api ~ `with nvmath.xxx(a, b)`
-
-`numba-CUDA` is single thread python compiler, so developer can inspect CUDA code.
-
-`nsight copolit`
-import cuda.tile as ct
 
 ### CUDA Driver
 
@@ -539,7 +446,6 @@ NVIDIA GPU Errors
 │
 └── Power / Thermal
 ```
-
 
 ## Nemotron
 

@@ -26,6 +26,7 @@
 - Routing vs Compute
   - LLM uses attention, MOE as routing
   - Brain cluster has different neurons density at different layers, assume denser layers are compute, sparse layers are routing.
+- Both brain & GPU minimize moving info/bit distance.
 
 ## Architecture
 

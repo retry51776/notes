@@ -2,17 +2,37 @@
 
 ## Table of Contents
 
-- [Basic Terms](#basic-terms)
-- [Add Certificate](#add-certificate)
-- [SSL/TLS Certificate Files](#ssltls-certificate-files)
-- [Create SSL/TLS](#create-ssltls)
-- [Commands](#commands)
-- [Install CA Service](#install-ca-service)
-- [Interface with CA Service](#interface-with-ca-service)
-- [Generate Developer VPN Certificate](#generate-developer-vpn-certificate)
-- [Client Login](#client-login)
-- [Secure Shell](#secure-shell)
-- [Buzzwords](#buzzwords)
+- [Security](#security)
+  - [Table of Contents](#table-of-contents)
+  - [Basic Terms](#basic-terms)
+    - [Certificate Concepts](#certificate-concepts)
+  - [Add Certificate](#add-certificate)
+    - [Windows Certificate Store](#windows-certificate-store)
+    - [macOS](#macos)
+    - [Linux](#linux)
+      - [Create Certificate](#create-certificate)
+      - [Request CA Signature](#request-ca-signature)
+      - [Install Certificate into Service](#install-certificate-into-service)
+      - [Trust the CA on the Client](#trust-the-ca-on-the-client)
+  - [SSL/TLS Certificate Files](#ssltls-certificate-files)
+    - [Common File Types](#common-file-types)
+    - [Windows Conversions](#windows-conversions)
+  - [Create SSL/TLS](#create-ssltls)
+  - [Commands](#commands)
+  - [Install CA Service](#install-ca-service)
+  - [Interface with CA Service](#interface-with-ca-service)
+  - [Generate Developer VPN Certificate](#generate-developer-vpn-certificate)
+    - [Microsoft UI](#microsoft-ui)
+    - [PowerShell](#powershell)
+  - [Client Login](#client-login)
+    - [Single Sign-On (SSO)](#single-sign-on-sso)
+    - [Initiative for Open Authentication (OATH)](#initiative-for-open-authentication-oath)
+      - [SAML](#saml)
+  - [Secure Shell](#secure-shell)
+    - [Linux SSH](#linux-ssh)
+    - [Windows SSH](#windows-ssh)
+  - [Buzzwords](#buzzwords)
+  - [Tips](#tips)
 
 ## Basic Terms
 
@@ -235,3 +255,6 @@ or use `ssh-copy-id user_name@host_name` to copy to remote server `~/.ssh/author
 ## Buzzwords
 
 - Man-in-the-middle (MITM)
+
+## Tips
+- Disabled ICMP at firewall level;
