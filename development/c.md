@@ -39,3 +39,9 @@ export LD_LIBRARY_PATH="${pwd}"
 
 - **Makefiles**: Define build rules for compiling/linking modules  
   *(Example: `target: dependencies` pattern)*
+
+## Code
+```c
+// :: is the scope resolution operator
+
+```

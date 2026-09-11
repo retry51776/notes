@@ -72,10 +72,14 @@
 
 ## Tradeoff
 
-- capacity utilization vs sensitivity/robustness
-- capacity vs compute
-- throughput vs compute
-- Plasticity vs Generalization
-  - Generalization rely on noise cancel out each other.
-- Stability-Plasticity Dilemma
-  - BP has strong constrain on network stability. dynamical isometry!
+- Allocate Space & Energy between Information Locality vs Compute Locality
+  - Compute
+    - Speed vs Accuracy
+    - Capacity utilization vs Sensitivity/robustness
+    - Stability-Plasticity Dilemma
+      - BP has strong constrain on network stability. dynamical isometry!
+    - Plasticity vs Generalization
+      - Generalization rely on noise cancel out each other.
+  - Information Locality (minimize information movement)
+    - Impossible Triangle: capacity, throughput, latency
+    - Information Lifetime

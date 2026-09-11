@@ -121,6 +121,7 @@ FP32 accumulation (later kernel quantize accumulation to desire precision, popul
   - Or move all norm layers outside residual stream, only addition to RS.
   - RMSNorm replaced LayerNorm
 - Inference
+  - performance ~ log(llm_size)
   - Output tokens(decode/RAM/slow/expensive) are ~4× as expensive as input tokens (prefill/compute/fast/cheap).
   - 128k ~ 100k words ~ agent handle 3-5 source files
   - 4k tokens @ 8bit @ 120B OSS ≈ ~1 GB KV cache

@@ -10,6 +10,22 @@
 - Models
 - Application
 
+research teams:
+- demand side
+  - Circuits
+  - Architecture
+  - Programming Systems
+  - VLSI
+  - Storage
+  - Networking
+  - Security
+- supply side
+  - AI
+  - Autonomous Vehicles
+  - Quantum Computing
+  - Robotics
+  - Graphics
+
 ## Datacenter Infrastructure
 
 - Compute Chassis Level ($250k H100)
@@ -82,7 +98,7 @@
       - AI Enterprise $4.5k per GPU per year
   - Virtualization
 
-### Server Form Factor
+### Server Tray
 
 - CPU * 2
 - GDDR
@@ -111,7 +127,7 @@
 
 ### Nvidia Product Lines
 
-- **Rubin NVL 144 CPX**
+- **Rubin NVL 144 CPX** `CPX means cluster comes w LPU`
 - **NVL72 Cluster**: 72 × B200 GPUs.
 - **DGX SuperPOD**: n × NVL72 Nodes.
 
@@ -123,6 +139,7 @@
 - **Quadro** – Professional workstations.
 - Spark ~ $4k with 128GB DDR4
   - https://forums.developer.nvidia.com/c/accelerated-computing/dgx-spark-gb10/719
+  - [sparkrun](https://github.com/spark-arena/sparkrun)
 
 - **GeForce** – Consumer gaming GPUs.
 - **Thor** - robotics 128GB.
@@ -135,90 +152,6 @@ Video GPU components:
 - Texture Unit: Apply textures to geometry
 - NVENC / NVDEC: Video encode/decode
 
-
-SM Analogy:
-- SM ~ tiny computer
-  - Cuda Core ~ CPU does general compute;
-  - Tensor Core ~ GPU hold most FLOPs;
-  - **Tensor Memory Accelerator**(TMA) ~ swap tensor tile in background;
-  - **Wrap Scheduler** ~ Wrap's manager manage threads instruction & state. `latency hiding happens here`
-  - Dispatch Unit ~ Router for Wrap's active thread's instruction
-- instructions
-  - WGMMA ~ offload heavy workload from cuda core to tensor core.
-  - mbarrier ~ async completion/event flag
-
-
-```py
-# Developer perspective with Hopper
-
-# Optional: NUMA Aware = Non-Uniform Memory Access Aware; `aware CPU's RAM w different speeds`; `nvidia-smi topo -m`
-CPU
- ├─ Stream A → kernel launch
- │   ├─ kernel1 → Grid A
- │   ├─ kernel2 → Grid B
- │   └─ kernel3 → Grid C
- ├─ Stream B → kernel launch
- │   └─ kernel4 `kernel<<<gridDim, blockDim, sharedMem, stream>>>`
- └─ Stream C
-
-# developer must ensure gridDim * blockDim loop(grid-stride loop) covers all works, but possible extra threads!
-#        ↓
-# GPU scheduler
-#        ↓
-# decompose workload into grid/thread block/lane
-Grid
-└── Thread Block Cluster # multiple SMs possible
-    └── Thread Block / Cooperative Thread Array (CTA) # exactly ONE SM, max 1024 threads / lane
-        ├── block_id:   `blockIdx.x`
-        ├── block_size: `blockDim.x`
-        ├── Shared Memory
-        │
-        └── Warp / simdgroup # SIMT execution unit, 32 threads
-            ├── warp_id in CTA: `threadIdx.x / warpSize`
-            │
-            └── Thread # within ONE warp
-                ├── lane_id: `threadIdx.x % warpSize`
-                └── Registers
-
-#        ↓
-# Block-level scheduling:
-# - programmer defines blocks
-# - CUDA runtime/hardware schedules blocks onto SMs automatically
-
-# Tile-level scheduling:
-# - programmer/compiler defines tile decomposition inside a block
-# - execution of those tiles is handled within the block on the assigned SM
-#        ↓
-
-
-# Hardware perspective with Hopper
-GPU # H100 has 132 SMs
- ├─ SM 0 # Each SM max 32 resident blocks
- │   ├─ 4 Warp Scheduler(s) # similar Hyper-Threading, so 4 active warps (4 * 32 = 128 active threads per SM) continues working on millions threads.
- │   │   ├─ Warp 0
- │   │   │   ├─ instruction # 32 threads SAME instruction
- │   │   │   ├─ active `eligible | stale` # hardware bookkeeping status
- │   │   │   ├─ Thread 0
- │   │   │   ├─ ...
- │   │   │   └─ Thread 31
- │   │   ├─ Warp 1 (only 4 active Warp per SM)
- │   │   ├─ ...
- │   │   └─ Warp 63
- │   ├─ Registers (per thread)
- │   ├─ Shared Memory (per block region)
- │   └─ 128 Tensor Cores / FP units
- │
- ├─ SM 1 # with 256 KB L1 SRAM registers, shared by block
- │   └─ ...
- │
- └─ SM 131
-
-```
-
-- error buffer is a "single-slot" & async, so never can guaranty all error messages are collected.
-- Kernel indexing = mapping rule
-- Launch config   = execution shape
-- Unified Virtual Addressing (UVA) - Share Memory across SINGLE NODE(Ex: a NVL72)
 
 ### Network Components
 
@@ -329,6 +262,8 @@ high-performance kernels
 > > **tcgen05** ~ SM100 instructions.
 >
 > CUDA_ARCH 9.0 = SM90
+>
+> NVVM is Nvidia's extension of LLVM.
 
 | GPU Primitives | Job | Ampere SM80 | Hopper SM90 | Blackwell SM100 |
 |---|---|---|---|---|
@@ -351,6 +286,14 @@ high-performance kernels
 
 Statically-linked `compiled with dependence`
 Dynamically-linked `use CUDA runtime`
+
+```bash
+# Compile kernel for NCU
+nvcc [filename.cu] -o benchmark
+
+# Then let NCU print kernel profile result
+ncu --set full ./benchmark
+```
 
 ### Kernel
 
@@ -446,7 +389,3 @@ NVIDIA GPU Errors
 │
 └── Power / Thermal
 ```
-
-## Nemotron
-
-https://github.com/NVIDIA-NeMo/Nemotron/blob/main/src/nemotron/steps/_runners/nemo_rl_grpo_nemo_gym.py#L38

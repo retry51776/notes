@@ -3,8 +3,8 @@
 
 ## Analogy
 
-> Logistics Manager(Inference Engineer) that orchestrate many Postman & Cargos through rail network.
-> > Don't focus on geography interpretation, rather focus on traffic management aspect.
+> Logistics Manager(Inference Engineer) that orchestrate very large scale Postman & Cargos through rail network.
+> > Don't focus on geography interpretation, rather focus on **traffic management aspect**.
 > 
 > > Postman only carry cargos within his section. Postman won't travel the whole network.
 >
@@ -47,8 +47,8 @@ Artifacts:
 
 
 - GPU command buffer ~ Train Manifest
-  - Input & output matrix ~ Postman & Cargo
-  - GPU kernels ~ Trip Sheet, which directions
+  - **Input & output matrix** ~ Postman & Cargo
+  - **GPU kernels** ~ Trip Sheet, which directions
   - Pipeline state ~ Train state
 
 Operations:
@@ -69,15 +69,15 @@ Operations:
 > > can't parallel, because we don't know next city
 
 Hardwares:
-- Node ~ Train Station
+- **GPU Node ~ Train Station**
   - CPU ~ Train Station Manager
     - Manage between HBM and storage ~ transfer cargo between station and warehouse
-  - GPU ~ Train Terminal, 8 terminals per Station
+  - **GPU ~ Train Terminal**, 8 terminals per Station
     - FLOPS ~ Train Engine's HP
     - support kernels ~ Different Train Terminals supports different train size, train width....
     - SRAM ~ Train's cargo capacity
     - HBM ~ Terminal's cargo capacity
-  - IO ~ Traffic
+  - **IO ~ Traffic**
   - Storage
     - DDR ~ station's parking lot `near station, but rain can destroy cargos`
     - SSD ~ warehouse near station
@@ -88,16 +88,16 @@ Hardwares:
 > Solving city traffic is HARD, because different vehicle has different capacity, speed, latency.
 
 > The key is more async processes to utilize most IOs, avoid redundant traffic.
-> > Compute IO overlapping ~ Train head detach railcar, let railcar uploading on side, and attach another loaded railcar and take off.
+> > **Latency Hiding** ~ Train head detach railcar, let railcar uploading on side, and attach another loaded railcar and take off.
 >
 > > Smart system will always have shuttle bus run between airport & warehouse. Not wait til cargo arrived.
 > 
 > Why not increase train capacity? Longer cargos loading time.
-> > Onboard time often longer than train head pull railcar time.
+> > **Onboard time** often **longer** than train **traverse time**.
 >
-> > Just like container changes shipping, block/page/batch transfer has huge effect on IO.
+> > Just like **shipping container** changes shipping! block/page/batch transfer has huge effect on IO.
 
-> Quantization & Dequante ~ remove cargo packaging, compress into smaller form
+> Quantization & Dequante ~ remove cargo packaging, compress into smaller form.
 > > Quantization & Dequante should only happen inside kernel. Analogy break, but important note: don't decompress cargos in Station, only decompress small % cargos inside Train on demand.
 
 IO:
@@ -278,7 +278,7 @@ Mainstream@26 is same storage encoding for all components within block. Just les
 
 > Note: Smaller LLM are more sensitive to compression!
 
-Algorithm:
+[GGML Algorithm](https://github.com/ggml-org/ggml/blob/e91ded11bdcd78c42f9c8d3978ff6686eb4c1226/src/ggml-quants.c#L479):
 - Uniform Rounding (INT8, INT4)
   - W4A8 (4-bit Weights, 8-bit Activations)
 - Block Floating Point
@@ -337,6 +337,8 @@ Spherical coordinates: Circle; nonlinear, coupled gradient;
 ## Kernels
 
 > Dispatch single **CUDA Graph** is faster than individual kernels(Eager execution).
+> inference engines often uses both pre-compiled & JIT compile kernels.
+> > Matrix-size-dependent kernel selection happens at runtime dispatch.
 
 Optimizations:
 - Persistent Kernels
@@ -356,36 +358,26 @@ Optimizations:
 - Decode Context Parallelism (Flash-Decoding) - like prefill chunk, but split token's KV cache attention head when decode; `--decode-context-parallel-size 4`
 
 
-### Compute Precision
-> Because each `operation × dtype × backend matrix` requires unique kernel.
->
-> Industrial standard is shared quantized & dequantized in shared method.
+## Distribution
+> Divide(Disaggregation) and Conquer(Parallelism)!
 
-- CPU default FP32 AVX kernel
-- MAC default FP16
-- NVIDIA has many compute precision, NVFP4 is common inference precision
+### Disaggregation
+- Encoder-Prompt-Decode (EPD)
+- Prefill Decode Disaggregation (PDD)
+  - Prefill REQUIRES ALL KV cache ready, also current compute batch.
+  - Decoder can start or load KV later
+  - Often 2x token throughput
+- MoE Expert Disaggregation
+- Attention–FFN Disaggregation (AFD)
+  - LSU for FFN; GPU for attention;
+- Draft / Verify Disaggregation
 
+### Parallelism Strategies
 
-## Disaggregation
-
-### Encoder-Prompt-Decode (EPD)
-
-### Prefill Decode Disaggregation (PDD)
-- Prefill REQUIRES ALL KV cache ready, also current compute batch.
-- Decoder can start or load KV later
-- Often 2x token throughput
-
-### MoE Expert Disaggregation
-
-### Attention–FFN Disaggregation (AFD)
-> LSU for FFN; GPU for attention;
-
-### Draft / Verify Disaggregation
-
-## Parallelism Strategies
-
+![image](https://huggingface.co/transformers/v4.9.0/_images/parallelism-deepspeed-3d.png)
 - Data Parallelism (DP): Replicate the whole model on each GPU; split data **batches**.
   - **Data Parallel Attention** (DPA): gives each request a “home GPU” for Attention/KV. Trading extra replicated attention-weight memory for independent attention execution and local KV caches.
+  - Fully Sharded Data Parallel v2 (FSDP2)
 - Pipeline Parallelism (PP): Split the model across **layers**; each GPU processes a different stage.
 - Sequence Parallelism (SP): Partition long input **sequences** across GPUs. (useful for long context)
   - Ring Attention(Ring All Reduce): split Attention into chunks, share KV to neighbor.
@@ -394,8 +386,9 @@ Optimizations:
 - Expert Parallelism (EP)
   - Elastic EP: hot expert & expert redundance
 
-
 - all-reduce operation - very expensive operation; Ex: sync local gradient for global gradients.
+
+> For decode less independent workload to hide latency!
 
 ## Advance Inference Optimization
 > Common: quantization, speculation, caching, parallelism, and disaggregation
@@ -555,6 +548,8 @@ JSONL traces will define workload's size, but not same content.
 - Thread Allocation
 - Mlock: memory residency avoid OS evict
 - TP control
+- uses [GGML](https://github.com/ggml-org/ggml/) as main backend
+  - `ggml_backend_sched_t` tensor/backend assignment
 
 ## vLLM
 > Single Node w single or many GPU(s).

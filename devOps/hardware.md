@@ -30,7 +30,8 @@ The goal is to avoid waiting for supermarket deliveries, minimize walking around
   - Fixed instruction length enables easy preloading and out‑of‑order execution.
   - Simpler instructions, more registers, single‑cycle operations.
 
-### GPU
+
+### [GPU](../ai/hardware.md)
 >
 > Simple, small cores but many of them.
 
@@ -113,6 +114,7 @@ Terms:
 
 - Produce: Transistor formation (FEOL)
 - Metal interconnect formation (BEOL)
+  - Metal pitch
 - Cut
 - yield analysis
 - process control.

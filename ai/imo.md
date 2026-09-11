@@ -154,6 +154,12 @@ Maybe for some repeat tasks, warm up KV cache that repeat trigger. similar to Pr
 > LLM is predictive, but what we need prescriptive.
 > > Token(LLM output) is NOT what we want, it's just an intermediary. We don't want to read answer, rather we want to CHANGE/LEARN our BRAIN(residual stream) by reading answer.
 
+- The problem w scaling law, data is a limited resource. I think transformer rely too much on data. Eventually we will need alternative architecture that able to adapted with limited data.
+- Make computational cost part of the training objective.
+  - reduce compute cost mechanism:
+    - structure sparsity (evenly set weights to 0)
+    - reduce slide window
+    - shrink expert
 - Distributed Low-Communication (DiLoCo) seems bad idea.
 - mathematical equivalent has 2 categories:
   - not involve in gradient descent
@@ -498,6 +504,7 @@ Training often uses beam search, while inference favors sequential revision.
 - Attention is all you need
 
 ### 18
+- Dissecting the NVIDIA Volta GPU Architecture via Microbenchmarking
 
 ### 19
 

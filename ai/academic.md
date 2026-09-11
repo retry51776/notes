@@ -605,9 +605,7 @@ batch = compute_advantages(batch)
 - Magistral
 - streamrl
 - asyncflow
-- PyTorch
-  - Fully Sharded Data Parallel v2 (FSDP2)
-  - ATen `C++ tensor library`
+- information gain per RL token
 
 ## Mechanistic Interpretability
 >

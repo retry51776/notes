@@ -250,8 +250,9 @@ dynamo build
 
 Terms:
 - Tail effect
-- Memory coalesce
+- Memory coalesce: not only initial step memory read continues, every read within kernel execution loop should read continues address.
 - Occupancy
+- Warp Divergence: it's okay kernel has if statement, as long as wrap's 32 threads enter SAME if result.
 
 ### Pytorch
 
@@ -387,6 +388,9 @@ mp.spawn(
 
 # Uses NCCL underneath, communicate between mp
 import torch.distributed as dist
+
+# Avoid race condition
+atomicAdd()
 ```
 
 
@@ -423,19 +427,41 @@ These __global__ functions are known as kernels, and code that runs on the GPU i
 CUDA variable lifetime:
 - Thread `int x;`
 - Block `__shared__ float x[];`
-- CUDA application `__constant__` && `__device__`
-
-CUDA namespaces:
-- device:: # device-side facilities
-- experimental:: # experimental CUDA-wide APIs
-- std:: # CUDA implementation of C++ standard library
-- mr:: # memory-resource APIs
+- CUDA Stream
+- CUDA Application `__constant__` && `__device__`
 
 Tools:
 - Nsight System - Advance GUI debugger
 - nvprof
 
 ```md
+CUDA APIs
+├── CUDA Driver API                    # <cuda.h>
+│   ├── cuInit()
+│   ├── cuDeviceGet()
+│   ├── cuCtxCreate()
+│   ├── cuMemAlloc()
+│   ├── cuLaunchKernel()
+│   │
+│   └── Checkpoint API
+│       ├── cuCheckpointProcessLock()
+│       ├── cuCheckpointProcessCheckpoint()
+│       ├── cuCheckpointProcessRestore()
+│       └── cuCheckpointProcessUnlock()
+│
+├── CUDA Runtime API                   # <cuda_runtime.h>
+│   ├── cudaMalloc()
+│   ├── cudaMemcpy()
+│   ├── cudaLaunchKernel()
+│   └── ...
+│
+└── CUDA C++ libraries | namespaces     # <cuda/experimental>
+    └── namespace cuda::
+        ├── device::
+        ├── experimental::
+        ├── std::
+        └── mr::
+
 GPU Kernel responsibility
 │
 ├── 1. Work / Thread Indexing
@@ -472,8 +498,8 @@ GPU Kernel responsibility
 │   └── double/multi buffering
 │
 ├── 7. Synchronization
-│   ├── __syncthreads()
-│   ├── warp synchronization
+│   ├── `__syncthreads()`
+│   ├── `__synchwrap()`
 │   ├── barriers
 │   ├── mbarrier
 │   └── producer/consumer synchronization
@@ -522,8 +548,7 @@ GPU Kernel responsibility
 
 ```c++
 // CUDA Kernel function to add the elements of two arrays on the GPU
-__global__
-void add(int n, float *x, float *y)
+__global__ void add(int n, float *x, float *y)
 {
     //
     // uses Predefined variables calculate Thread Indexing
@@ -581,7 +606,6 @@ module = load_inline(
   build_directory="var/cuda_gelu"
 )
 
-// <<<gridDim, blockDim>>>; const
 // blockIdx.x; blockIdx.y; blockIdx.z
 // threadIdx.x; threadIdx.y; threadIdx.z;
 // Global thread coordinate requeires x, y, z when blockDim is 3 dimensions
@@ -606,21 +630,15 @@ __global__ void warpAlignedKernel(int *x) {
     }
 }
 
-// EXPLICITLY issue TMA ptx instruction:
+// Warp Matrix Multiply-Accumulate(wmma)
+wmma::mma_sync(Output, M, N, Bias); // V100 by 1 wrap
+wgmma.mma_async(); // H100 by 4 wraps async, but accumulator at register
+tcgen05.mma(); // B100 accumulator at TMEM, reduce register pressure; & CTA-pair.
 
-#include <cuda.h>
-#include <cuda/barrier>
-#include <cuda/ptx>
+// CUTLASS mma ops (description of HOW to perform MMA)
+cute::gemm(mma, A_tile, B_tile, C_tile);
 
 
-cuda::device::experimental::
-    cp_async_bulk_tensor_2d_global_to_shared(
-        &tile[0][0],
-        &tensor_map,
-        /* x = */ 0,
-        /* y = */ 0,
-        bar
-    );
 ```
 
 
@@ -648,6 +666,80 @@ def matmul(A: ct.Array,
     ct.store(C, ct.pid(0:2), sum)
 ```
 
+#### Advance CUDA
+```c++
+// Declare template parameter allow CUDA compiler optimized x versions
+template<int TILE_M, int TILE_N, int TILE_K>
+__global__ void matmul_kernel(
+    const float* A,
+    const float* B,
+    float* C,
+    int M, int N, int K)
+{
+
+    __shared__ float As[TILE_M][TILE_K];
+}
+// Now compiler will compile 1 predefine kernel
+matmul_kernel<64, 32, 16><<<grid64, dim3(32,8)>>>(A, B, C, M, N, K);
+
+
+
+// EXPLICITLY issue TMA ptx instruction:
+
+#include <cuda.h>
+#include <cuda/barrier>
+#include <cuda/ptx>
+
+
+cuda::device::experimental::
+    cp_async_bulk_tensor_2d_global_to_shared(
+        &tile[0][0],
+        &tensor_map,
+        /* x = */ 0,
+        /* y = */ 0,
+        bar
+    );
+```
+
+
+### CuTitle
+
+since CUDA 13.0; **Tile IR** compile into GPU executable. Block is lowest execute unit. Array based programming.
+
+There are both cuTile C++ & cuTile Python.
+
+less controls then CUDA python SIMT.
+
+> NVSHMEM PE selection partitions work across GPUs/nodes. Too advance for me.
+
+
+https://github.com/NVIDIA/TileGym
+
+cuTile autotuner
+
+@cuda.tile.kernel invoke @cuda.tile.function
+
+### nvmath-python
+
+```py
+# NVTX annotation for Nsight Profiler
+
+import nvtx
+@nvtx.annotate(color="blue")
+def xxx():
+    with nvtx.annotate("this_loop", color="red"):
+        pass
+
+```
+
+- stateless api ~ similar to numpy
+- stateful api ~ `with nvmath.xxx(a, b)`
+
+`numba-CUDA` is single thread python compiler, so developer can inspect CUDA code.
+
+`nsight copolit`
+import cuda.tile as ct
+
 ### Metal
 
 ```h
@@ -668,10 +760,26 @@ use(result);
 
 ```
 
+### Specialized kernel libraries
+> Many prebuild libraies for developer won't have to know PTX instructions, yet still need performance.
+>
+> Triton, Pytorch, Cuda are general kernels covers all ops, but here are other kernel libraries cover common complex ops.
+
+- [GGML (High: hardware compatibility)](https://huggingface.co/blog/introduction-to-ggml)
+- DeepGEMM (High)
+- cuBLAS (High: matrix multiplication)
+- CUTLASS (Mid: custom kernel)
+- CuTe (Low: tiling + layouts)
+- WMMMA (Low: explicit MMA)
+- PTX (Low: memory control)
 
 ### PTX
 
 > Example PTX instruction, give more controls over communication/memory movement.
+>
+> These new PTX instruction(ex: mma.sync) often wrapped into CuTe / CUTLASS libraries for CUDA devs.
+>
+> L1, L2 cache PTX instruction can set police, but still no direct control.
 ```md
 ld.global.nc.L1::no_allocate.L2::256B
 
@@ -683,12 +791,15 @@ ld.global
 │
 └── .L2::256B           request 256-byte L2 prefetch/cache behavior
 
+
 ## TMA ops
 ## compiler to discover a TMA transfer automatically
 cp.async.bulk.tensor.2d.shared::cluster.global.mbarrier::complete_tx::bytes
     [smem_addr],
     [tensor_map, {x, y}],
     [mbarrier];
+
+## operands: Instruction arguments
 ```
 
 ## Tensor Framework
@@ -819,44 +930,3 @@ llama_memory_seq_cp(
 
 ## Mojo
 > Python like syntax, but also support memory layout definetion, ownership, Compile-time params.
-
-
-
-### CuTitle
-
-since CUDA 13.0; **Tile IR** compile into GPU executable. Block is lowest execute unit. Array based programming.
-
-There are both cuTile C++ & cuTile Python.
-
-less controls then CUDA python SIMT.
-
-```py
-import nvshmem.core.device.tile
-```
-
-https://github.com/NVIDIA/TileGym
-
-cuTile autotuner
-
-@cuda.tile.kernel invoke @cuda.tile.function
-
-### nvmath-python
-
-```py
-# NVTX annotation for Nsight Profiler
-
-import nvtx
-@nvtx.annotate(color="blue")
-def xxx():
-    with nvtx.annotate("this_loop", color="red"):
-        pass
-
-```
-
-- stateless api ~ similar to numpy
-- stateful api ~ `with nvmath.xxx(a, b)`
-
-`numba-CUDA` is single thread python compiler, so developer can inspect CUDA code.
-
-`nsight copolit`
-import cuda.tile as ct

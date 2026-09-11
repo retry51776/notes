@@ -80,7 +80,7 @@ GPU / CPU hardware
 
 ### Kernel
 
-> kernel ~ C++ function executed by MANY GPU threads(Grid-Stride Loop);
+> kernel ~ C++ void function executed by MANY GPU threads(Grid-Stride Loop);
 
 - **Grid-Stride Loop**: gridDim * blockDim loop
   - build-in variables: `gridDim, blockDim, blockIdx, threadIdx, warpSize`
@@ -175,6 +175,18 @@ kernel     ≈ work each worker executes
 ```
 
 
+#### Compute Precision
+> kernel contain quantize & dequantize logic, determent compute & accumulate precision.
+> > Hardware support, then use instruction; Otherwise cuda code bitwise manipulation does pack & unpack.
+>
+> Industrial standard is shared quantized & dequantized in shared method.
+
+- CPU default FP32 AVX kernel
+- MAC default FP16
+- NVIDIA has many compute precision, NVFP4 is common inference precision
+- prologue vs epilogue
+
+
 ### Intermediate Representation
 
 > IR represent the program in an intermediate form that is easier to analyze, transform, optimize, or retarget. Compiler engineer's territory.
@@ -204,7 +216,7 @@ LLVM Backend: `understands HARDWARE`
 
 
 ### Hardware Scheduling
->CPU & GPU Execution Datapath
+> CPU & GPU Execution Datapath
 > Kernel function + arguments / buffers + thread/grid dimensions + pipeline state = dispatch descriptor
 
 CPU/Metal driver side:
@@ -231,6 +243,93 @@ Per-kernel execution:
 > SM assignment is hardware/runtime decides!
 > Thread Blocks / CTAs is indivisible scheduling units.
 
+```py
+# Hopper Workflow
+
+# Optional: NUMA Aware = Non-Uniform Memory Access Aware; `aware CPU's RAM w different speeds`; `nvidia-smi topo -m`
+
+
+# 1. Developer
+# Program ask CPU to launch CUDA application with gridDim, blockDim.
+# must ensure grid-stride loop(gridDim * blockDim) covers all works, but possible extra threads!
+CPU
+ ├─ Stream A → kernel launch
+ │   ├─ kernel1 → Grid A
+ │   ├─ kernel2 → Grid B
+ │   └─ kernel3 → Grid C
+ ├─ Stream B → kernel launch
+ │   └─ kernel4 `kernel<<<gridDim, blockDim, sharedMem, stream>>>`
+ └─ Stream C
+
+#        ↓
+# 2. CUDA runtime
+# schedules thread-blocks onto SMs automatically
+Grid
+└── Thread Block Cluster # multiple SMs possible
+    └── Thread Block / Cooperative Thread Array (CTA) # exactly ONE SM, max 1024 threads / lane
+        ├── block_id:   `blockIdx.x`
+        ├── block_size: `blockDim.x`
+        ├── Shared Memory
+        │
+        └── Warp / simdgroup # SIMT execution unit, 32 threads
+            ├── warp_id in CTA: `threadIdx.x / warpSize`
+            │
+            └── Thread # within ONE warp
+                ├── lane_id: `threadIdx.x % warpSize`
+                └── Registers
+
+#        ↓
+# Hardware perspective with Hopper
+#
+# 3. Wrap Scheduler
+# spawn 32 threads with grid-stride loop coordinates & kernel
+# execution same instruction with 32 threads at once
+#        ↓
+GPU # H100 has 132 SMs
+ ├─ SM 0 # Each SM max 32 resident blocks
+ │   ├─ 4 Warp Scheduler(s) # similar Hyper-Threading, so 4 active warps (4 * 32 = 128 active threads per SM) continues working on millions threads.
+ │   │   ├─ Warp 0
+ │   │   │   ├─ instruction # 32 threads SAME instruction.
+ │   │   │   ├─ active mask # hardware implement warp divergence by mask out threads
+ │   │   │   ├─ Scheduling State
+ │   │   │   ├─ Thread 0
+ │   │   │   ├─ ...
+ │   │   │   └─ Thread 31
+ │   │   ├─ Warp 1 (only 4 active Warp per SM)
+ │   │   ├─ ...
+ │   │   └─ Warp 63 # Wrap is NOT child, but managed by Warp Scheduler.
+ │   ├─ ScoreBoard # hardware bookkeeping ALL wrap's next instruction ready
+ │   ├─ Registers (per thread)
+ │   ├─ Shared Memory (per block region) # Developer can control
+ │   ├─ L1 cache # cache-policy through PTX
+ │   └─ 128 Tensor Cores / FP units
+ │
+ ├─ SM 1 # with 256 KB L1 SRAM registers, shared by block
+ │   └─ ...
+ │
+ ├─ SM 131
+ │
+ ├─ L2 Cache # cache-policy through PTX
+ └─ Global Memory # HBM, Developer can control
+
+```
+
+SM Analogy:
+- SM ~ tiny computer
+  - Cuda Core ~ CPU does general compute;
+  - Tensor Core ~ GPU hold most FLOPs;
+  - **Tensor Memory Accelerator**(TMA) ~ swap tensor tile in background;
+  - **Wrap Scheduler** ~ Wrap's manager manage threads instruction & state. `latency hiding happens here`
+  - Dispatch Unit ~ Router for Wrap's active thread's instruction
+- instructions
+  - WGMMA ~ offload heavy workload from cuda core to tensor core.
+  - mbarrier ~ async completion/event flag
+
+
+- error buffer is a "single-slot" & async, so never can guaranty all error messages are collected.
+- Kernel indexing = mapping rule
+- Launch config   = execution shape
+- Unified Virtual Addressing (UVA) - Share Memory across SINGLE NODE(Ex: a NVL72)
 
 #### Asymmetric Parallelism
 
@@ -307,7 +406,7 @@ Analogy:
     - GDDR ~ water tank with more flow
     - HBM ~ water towers (stacked up water tanks)
     - SRAM ~ water cup
-      - Register 1 cycle access
+      - Register | Local Memory: 1 cycle access
       - Shared Memory
       - L2 Cache
 - Data ~ water
@@ -386,7 +485,9 @@ $50k ~ $100k
 
 ### Google
 
-- **TPU** – Tensor Processing Units, Google’s custom AI accelerator.
+> TPU network is way harder to hot swap!
+
+- **TPU** – Tensor Processing Units, Google’s custom AI accelerator. `wrap is small SIMD, TPU is large SIMD`
   - MXUs (Matrix Multiply Units) - aka tensor core
   - vector process unit (VPU) - aka normal math ops
   - scalar ALUs - normal CPU ops, aka control unit
@@ -559,6 +660,10 @@ Pitfall:
 - 30% GPU & NVLink failures
 - 17% HBM memory
 - 53% network & software
+
+signal speed ~ 2 millimeter per 1 nanosecond
+
+decode care more about latency than throughput, and increase RAM capacity.
 
 ## Benchmark
 
