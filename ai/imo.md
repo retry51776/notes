@@ -35,6 +35,7 @@ Most likely automate by AI industries traits:
 
 ## Frustrations
 
+- CUDA code won't error out, most are byte ops that mess up without error.
 - Mechanistic Interpretability(mech interp) moves very slows(close source, LLM specific) while AI capability keep accelerating.
 - Tech stacks are NOT decouple, hardware & software are most likely interlock.
 - Memory Hierarchy(both hardware & LLM)
@@ -151,9 +152,13 @@ Maybe for some repeat tasks, warm up KV cache that repeat trigger. similar to Pr
 
 ## IMO
 
-> LLM is predictive, but what we need prescriptive.
-> > Token(LLM output) is NOT what we want, it's just an intermediary. We don't want to read answer, rather we want to CHANGE/LEARN our BRAIN(residual stream) by reading answer.
-
+- It's NOT some layers smarter than other layers. It's because cumulative knowledge reach some threshold! similar modern ppl vs our ancestor!
+- mHC shows hidden state info capacity still bottleneck.
+- high-information tokens that actually drive intelligence.
+- local optimization vs large structural reorganization
+- LLM is predictive, but what we need prescriptive.
+  - The problem with only reading and absorbing information from AI is that AI doesn’t know how I think. It can explain things to me, but it can’t see my mental model—what I understand, what I misunderstand, or what assumptions I’m making.
+  - Also notes here acts as my KV cache, reinforce/remind my understanding.
 - The problem w scaling law, data is a limited resource. I think transformer rely too much on data. Eventually we will need alternative architecture that able to adapted with limited data.
 - Make computational cost part of the training objective.
   - reduce compute cost mechanism:
@@ -423,6 +428,10 @@ LLMs work by providing each “world” with context, which includes relevant in
 ### Flash Attention Techniques
 
 > FlashAttention 3 takes advantage of the new asynchronous data transfer and execution features introduced with Hopper.
+>
+> FlashAttention took >40GB RAM when compile!
+
+![img](https://miro.medium.com/v2/resize:fit:1400/0*re9W2bnbRZQSQotj.png)
 
 1. **Tiling** – Divides attention computation into smaller parallel tiles.  
 2. **Sparse Matrix Multiplication** – More efficient than dense multiplication.  
@@ -542,3 +551,4 @@ Training often uses beam search, while inference favors sequential revision.
 - https://transformer-circuits.pub/2026/workspace/index.html J-Space
 - aync load MOE expert from SSD
 - MoE delta decomposition
+- AI need learn solve classic Pandora’s Box

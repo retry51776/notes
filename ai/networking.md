@@ -33,6 +33,15 @@ Octal Small Form-factor Pluggable (OSFP)
 
 > We don't want traffic go through typical k8s ingress or service routing, we route traffic through pod's sidecar.
 
+
+- Collective Operations
+  - Broadcast
+  - Scatter - each rank gets subset of data
+  - Gather - collect all ranks into single rank
+  - Reduce
+  - All-gather - every rank broadcast & gather;
+  - Reduce-scatter - every rank get op(sub_set)
+  - All-reduce = reduce-scatter + all-gather
 - Network Topology
   - Direction Connections
     - Top of Rack (ToR) switch `optical switch`
@@ -47,11 +56,24 @@ Octal Small Form-factor Pluggable (OSFP)
     - Partition Keys / VLAN
     - Unified Fabric Manager (UFM)
   - oversubscription ~ more upload links to spine(TOR) than spine's capacity
-- Hardwares
+- Hardwares Protocol
   - NCCL
   - UCX
   - UCCL
   - Mooncacke
+
+### NCCL
+> NCCL (NVIDIA Collective Communications Library) - specialize protocol for GPU, open source
+>
+> Message Passing Interface(MPI) is old CPU Library, its problem has too many abstraction/optimization.
+
+### NVSHMEM
+> **GPU kernel directly** put/get/update data in remote GPU memory without CPU involvement.
+> > Built-in support memory partition.
+>
+> > One sided control!
+>
+> NVSHMEM enable nterleaving between compute & io transfer within kernel, while NCCL will support similar soon.
 
 ## OBB
 

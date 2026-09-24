@@ -23,10 +23,21 @@
 - Adapted Learning
   - LLM adjust weights
   - Brain has Neuron Plasticity
-- Routing vs Compute
+- Local Information vs Local Compute
   - LLM uses attention, MOE as routing
   - Brain cluster has different neurons density at different layers, assume denser layers are compute, sparse layers are routing.
 - Both brain & GPU minimize moving info/bit distance.
+
+## Leaky Integrate-and-Fire model
+> (LIF) is how fly brain's connectome implemented in simulation.
+
+need assumptions:
+- neuron time constants
+- thresholds
+- excitatory/inhibitory effects
+- neurotransmitter dynamics
+- delays
+- nonlinearities
 
 ## Architecture
 

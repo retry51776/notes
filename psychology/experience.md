@@ -137,6 +137,7 @@
 
 **Principles:**  
 
+- `mechanism → analogy → approximate terminology → boundary testing → precise terminology` rather than `terminology → definition → memorization → application`
 - Focus should be proportional to your ability to effect change.  
 
 - What you **DESIRE** is different from what you **NEED**.
@@ -181,6 +182,8 @@
 - **Decision‑Fatigue Management**: Limit the number of high‑stakes decisions in a short period; automate or delegate routine choices where possible.
 - **Iterative Learning**: Treat failures as data points for Bayesian updates; slow down when high‑impact evidence appears to allow proper integration.
 - **Goal Setting**: Define clear goals and rules upfront, then remain flexible to adjust consensus as new information emerges.
+- That correction is often much more valuable than another fact.
+  - Don’t merely note what was wrong. Identify the condition that causes it.
 
 ---
 

@@ -58,6 +58,7 @@
 
   - Mining & Extraction → Data collection & scraping
   - Computation → Heat
+    - Optimization ~ Annealing
   - Data center → Blast furnace
   - Data → Iron ore
   - Model → Steel
@@ -76,8 +77,10 @@
   - Compute
     - Speed vs Accuracy
     - Capacity utilization vs Sensitivity/robustness
+    - Exploration–Exploitation dilemma
     - Stability-Plasticity Dilemma
       - BP has strong constrain on network stability. dynamical isometry!
+      - Training ALWAYS max out LR while model on edge of stability!
     - Plasticity vs Generalization
       - Generalization rely on noise cancel out each other.
   - Information Locality (minimize information movement)

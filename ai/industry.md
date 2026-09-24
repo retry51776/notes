@@ -223,6 +223,11 @@ Cons:
   - hard to distribute
   - can't FlashAttention
 
+## Distillation
+Distillation infrastructure still mostly classical DevOps.
+- Storage System
+- Network IO
+
 ## Applications Overview
 
 Presentation: piktochart
@@ -329,3 +334,13 @@ Common Problems:
   - Dedicated Inference
   - Truss `simple deployments version`
   - Iterative SFT: Self-generated rollouts repaired via feedback loops.
+
+## Terms
+- 1P models: "First-Party" models
+- inference co-design
+- seed prompt for prompt distribution gathering
+- Moravec's paradox: subjective human difficulty ≠ computational difficulty
+- prompt distribution
+- How much RL can climb AI lineage that Human developed?
+- annealing cycle: hyperparameter cycle. Ex: cyclical learning rate.
+- Sim-to-real: coding is easy to simulate, but robotic is hard.

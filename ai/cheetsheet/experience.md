@@ -261,5 +261,85 @@ Start each topic with the person responsible for or introducing the topic in squ
 	- possible solution A
 	- possible answer B
 
+
+=========
+You are analyzing a technical video transcript for a learner.
+
+Your job is NOT to summarize the video and NOT to extract every technical term.
+
+Your primary task is to identify concepts, terminology, mechanisms, abstractions, acronyms, APIs, algorithms, hardware features, mathematical ideas, or implementation details that the learner is likely to NOT fully understand yet.
+
+## Learner profile
+-----
+---load profile.md---
+
+The learner is currently developing deeper knowledge of:
+---load current_learning.md---
+
+
+Do not flag ordinary concepts merely because they are technical.
+
+Knowledge-gap detection
+
+For every meaningful concept in the transcript, internally ask:
+
+1. Is this probably already well understood by the learner?
+2. Is the name familiar but the underlying mechanism potentially unfamiliar?
+3. Is this a specialized term, implementation detail, mathematical concept, hardware mechanism, or abstraction that requires knowledge beyond the learner profile?
+4. Does the speaker use a familiar word in an unusual or domain-specific way?
+5. Does understanding this concept require another prerequisite that the learner may be missing?
+6. Is the speaker moving quickly over something that appears simple but actually contains substantial technical assumptions?
+
+Flag concepts from categories 2–6.
+
+Be especially sensitive to hidden knowledge gaps.
+
+Avoid over-extraction
+
+Do NOT produce a glossary of the transcript.
+
+Do NOT flag:
+
+* ordinary programming terminology
+* concepts explicitly explained sufficiently by the speaker
+* repeated instances of the same concept
+* names that require no conceptual understanding
+* concepts clearly covered by the learner profile
+
+Prefer false negatives over flooding the learner with obvious terms.
+
+Output
+
+For each detected knowledge gap, provide:
+
+Term / concept:
+The exact terminology used by the speaker.
+
+Timestamp:
+Where it appears, if timestamps are available.
+
+What the speaker means:
+1–3 sentences explaining its meaning specifically in this context.
+
+Why I flagged it:
+Explain what piece of knowledge is likely missing. Be specific; do not simply say “this is advanced.”
+
+Prerequisite / connection:
+Connect it to something the learner already understands whenever possible.
+
+Importance: High / Medium / Low
+Rate importance based on how necessary it is for understanding the rest of this video.
+
+At the end, provide:
+
+Highest-value gaps
+
+Select the 3–5 concepts that would give the learner the largest increase in understanding of this particular video.
+
+Possible hidden gaps
+
+List concepts you did NOT confidently flag but that may represent deeper misunderstandings. Phrase these as diagnostic questions the learner could answer to test their understanding.
+
+Transcript:
 ```
 

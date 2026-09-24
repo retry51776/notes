@@ -9,6 +9,8 @@
 
 ### Compiler Pipeline
 
+> [Online Compiler Godbolt](https://godbolt.org/)
+
 ```md
 Model / Python program
         │
@@ -91,7 +93,10 @@ GPU / CPU hardware
   - dtype
     - quantization
   - M, N, K dimensions
-  - layout: row/col major
+  - [layout(coordinate) → index](code.md#cute)
+    - coordinate: WHICH logical element(row & col of matrix)?
+    - index: linear offset into the underlying storage
+    - shape & stride: matrix shape & indexing pattern! `coordinate may not be continues`
   - contiguous/strided
   - workspace memory
 
@@ -174,6 +179,46 @@ warpSize   = workers executed together as a warp (32)
 kernel     ≈ work each worker executes
 ```
 
+#### Layout
+> Kernel logic is heavily influenced by the tensor layout.
+>
+> SubTile has SAME stride as parent, but with different pointer.
+```md
+Tensor
+├── Engine
+│   └── Where/how data is accessed
+│       ├── pointer
+│       ├── registers
+│       ├── shared memory
+│       └── global memory
+│
+└── Layout
+    ├── Shape
+    │   └── (M, N, ...)
+    │
+    └── Stride
+        └── mapping coordinates → linear offset
+
+Shape  = (3, 4)
+Stride = (4, 1)
+
+         Shape
+      4 columns
+    ┌─────────────┐
+  3 │ 0  1  2  3  │
+rows│ 4  5  6  7  │
+    │ 8  9 10 11  │
+    └─────────────┘
+
+Move ↓ one row:    index += 4
+Move → one column: index += 1
+                    ↑
+                  Stride
+```
+
+> Nest shape is possible, think of it as sql composite index;
+> > Ex: shape A (1, 2, 3) vs shape B ((1, 2), 3)
+> > A has 3 indexes to access A; while B only has 2 indexes, first index is composite index!
 
 #### Compute Precision
 > kernel contain quantize & dequantize logic, determent compute & accumulate precision.
@@ -215,7 +260,7 @@ LLVM Backend: `understands HARDWARE`
 
 
 
-### Hardware Scheduling
+### Hardware Execution Model
 > CPU & GPU Execution Datapath
 > Kernel function + arguments / buffers + thread/grid dimensions + pipeline state = dispatch descriptor
 
@@ -310,7 +355,11 @@ GPU # H100 has 132 SMs
  ├─ SM 131
  │
  ├─ L2 Cache # cache-policy through PTX
- └─ Global Memory # HBM, Developer can control
+ ├─ Global Memory # HBM, Developer can control
+ ├─ IO Interface
+ │   ├─ PCIe
+ │   └─ NVLink
+ └─ Copy Engine # DMA/data transfer for Global Memory
 
 ```
 
@@ -363,6 +412,9 @@ Async coordination
 >
 > Impossible triangle: capacity, latency, bandwidth
 
+- Global memory: maximize coalescing io
+- Shared memory: avoid bank conflicts
+- Register: avoid spillover
 
 > Roofline Model: Each chip has a peak CGMA, but different workload has different CGMA.
 
@@ -387,7 +439,13 @@ Async coordination
 
 ### RAM Types
 
-- DRAM
+- Registers     # 1 cycle
+- L1 Cache      # 3 ~ 5 cycle
+- Shared memory # 20 ~ 30 cycle
+- L2 Cache      # 150 ~ 250 cycle
+
+- HBM           # 400+ cycle
+- DRAM          # 500+ cycle
   - Low Power DDR (LPDDR)
   - Dual In-line Memory Module (DIMM) `common PCIe`
   - LPCAMM2 - laptop screw in RAM
@@ -406,12 +464,20 @@ Analogy:
     - GDDR ~ water tank with more flow
     - HBM ~ water towers (stacked up water tanks)
     - SRAM ~ water cup
-      - Register | Local Memory: 1 cycle access
+      - Register | Local Memory
       - Shared Memory
       - L2 Cache
 - Data ~ water
 - bandwidth ~ throughput
 - NV speed of light ~ max Arithmetic Intensity
+
+physic:
+- electric charge
+- trapped charged
+- phrase change material
+- magnetic state
+- resistance state
+- polarization
 
 Connections:
 - CXL/SXM: CPU↔device/memory standard
@@ -437,6 +503,13 @@ Hardware designs:
 > SXM removed: 8 pins power supply, PCIe connection, cooling & display ports; Replaced w 2 sections SXM connections: NVLink & General(power, io, display signal); cooling (70mm x 32mm)
 
 
+
+
+## Other Hardwares
+- Each GPU uses 16x PCIe Lanes, which caped by CPU & motherboard.
+- Host RAM bandwidth
+- NIC bandwidth + topology
+- PSU needs separate circuit.
 
 ## Vendors
 

@@ -274,7 +274,7 @@ Mainstream@26 is same storage encoding for all components within block. Just les
 ### Weight Compression Algorithm
 > Compression has lowest error when numbers normal/beta distribution, highest error when numbers are bipolar.
 
-> IMO At most can have something 50% better than IQ2_XXS. Almost impossible below 1bit per weight.
+> IMO At most can have something 50% better than IQ2_XXS. Almost impossible below 1bit per weight. IQ2 prefill 10% slower than Q4K.
 
 > Note: Smaller LLM are more sensitive to compression!
 

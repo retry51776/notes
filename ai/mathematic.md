@@ -230,3 +230,44 @@ Network Constraints:
 
 - matrix multiplication can think as rotation, previous diagonal direction rotate into axis-aligned direction.
   - Different MOE Experts rotate its unique direction, extra info differently.
+
+
+## Limited Exploration
+> Many problems are sequential decision-making under uncertainty with limited exploration.
+
+```md
+Decision / Search Problems
+│
+├── 1. Static optimization
+│      "I know the options and their values. Find the best."
+│      └── optimization, shortest path, linear programming
+│
+├── 2. Search under uncertainty
+│      "I don't know what each option is worth until I investigate."
+│      ├── Pandora's Box problem
+│      ├── optimal stopping
+│      └── sequential search
+│
+├── 3. Explore vs. exploit
+│      "Trying an option teaches me something,
+│       but I also need to benefit from my choices."
+│      ├── Multi-Armed Bandit
+│      ├── contextual bandit
+│      └── Bayesian optimization
+│
+├── 4. Sequential decision-making
+│      "Today's choice changes what choices/states I have tomorrow."
+│      ├── Markov Decision Process (MDP)
+│      ├── POMDP
+│      └── reinforcement learning
+│
+└── 5. Adversarial decision-making
+       "Other decision-makers react to what I do."
+       ├── game theory
+       ├── non-stationary distribution
+       ├── minimax
+       └── stochastic games
+```
+
+terms:
+- regret: `chosen strategy - theoretical maximum reward`

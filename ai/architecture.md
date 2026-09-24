@@ -12,7 +12,7 @@
 - Agent Lifetime: compressed memory, task status, tool status, todo list.
 - Sequence Lifetime: KV cache
 - Token Lifetime: input token, output logit
-- Layer lifetime: activation, query projection, attention score
+- Layer lifetime: activation, query projection, attention score, Embedding/Engram-style memory
 - Kernel Lifetime: which matrix, ops in SRAM
 
 ## Byte Latent Transformer
@@ -216,6 +216,18 @@ YaRN allows RoPE to use non-integer (fractional) token positions
 - Due Pipeline - Decouple backprops into 2 components; Only run 2nd part when GPU is free
   - Calculate backprops for early layer
   - Calculate weight update
+- mHC: multi-channel residual-stream
+  - doubly stochastic matrix: constrain `H_l` mixer matrix for stability
+
+X_(l+1) = H_l(X_l) + B_l(F_l(A_l(X_l)))
+
+| Symbol | Shape | Meaning |
+|---|---:|---|
+| `X_l` | `4 × 7168` | The **4 residual streams entering layer `l`** |
+| `H_l` | `4 × 4` | Mixer/router between the 4 residual streams |
+| `A_l` | `1 × 4` | **Read weights**: combine 4 RS → 1 RS |
+| `F_l` | `7168 → 7168` | Actual Transformer operation: Attention or FFN |
+| `B_l` | `4 × 1` | **Write weights**: distribute 1 block output → 4 RS |
 
 > Much like 2 different resolutions, rough scan first, then zoom in detail.
 - DeepSeek Sparse Attention (DSA) `similar to MOE gating but on attention`
@@ -224,6 +236,13 @@ YaRN allows RoPE to use non-integer (fractional) token positions
       - Don't assume only large activation matters, consistent activation PATH matters too
       - combine tokens' dimensions into single indexer score
   - Top-k selector
+- Compressed Sparse Attention 1 (CSA)
+- CSA2
+  - Encoder append a KV cache per 6 layers
+  - Decoder READ ONLY on global KV cache
+    - Full Mode: Build its own **Shared Candidate Pool**: subset Global KV cache, then CSA1 process
+    - Reindex Mode: New Query Projection, but same Shared Candidate Pool
+    - Reuse Mode: Reuse FULL Mode's top-512 tokens
 
 other optimization packages:
 - DeepEP

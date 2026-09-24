@@ -147,7 +147,7 @@ research teams:
 - **Tegra** – Embedded/mobile GPUs.
 
 Video GPU components:
-- RT Core: Ray tracing
+- RTX Core: Ray tracing `Tree Traverse through bounding volume hierarchy`
 - Raster Unit: Vector → pixel conversion
 - Texture Unit: Apply textures to geometry
 - NVENC / NVDEC: Video encode/decode
@@ -173,8 +173,6 @@ Instead, the Linux kernel provides gates (device nodes in /dev/infiniband).
 Each gate has a special purpose — like customs, traffic control, or the big cranes.
 
 - **InfiniBand** – Uses Remote Direct Memory Access (RDMA) bypasses the CPU. Uses Reliable Datagram Protocol (RDP) to share Memory across BETWEEN CLUSTER. Backend Networking
-  - NCCL (NVIDIA Collective Communications Library) - specialize protocol for GPU, open source
-  - **NVSHMEM** - GPU threads directly put/get/update data in remote GPU memory without CPU involvement.
 
 - OpenUCX (Unified Communication X) is a high-performance communication framework; Replaced **Mellanox**
   - **Unified Virtual Addressing** (UVA) - Share Memory across SINGLE NODE(Ex: a NVL72)
@@ -259,7 +257,7 @@ high-performance kernels
 ### Parallel Thread Execution Instructions
 > PTX Instructions are GPU Primitives.
 > GPU architectural differences in details. By OpenAI ofc.
-> > **tcgen05** ~ SM100 instructions.
+> > **tcgen05** & **TMEN/UMMA** ~ SM100 instructions.
 >
 > CUDA_ARCH 9.0 = SM90
 >
@@ -293,6 +291,16 @@ nvcc [filename.cu] -o benchmark
 
 # Then let NCU print kernel profile result
 ncu --set full ./benchmark
+
+# check registers spillover
+nvcc -Xptxas=-v kernel.cu -o kernel
+
+# -O: optimized level
+nvcc -O3 kernel.cu
+
+# Often cmake define whole project @ CMakeLists.txt, wrapper around nvcc
+cmake -B build
+cmake --build build
 ```
 
 ### Kernel
@@ -330,7 +338,7 @@ Benchmark:
 - Scheduling: occupancy/stalls
 
 Tools:
-- torch profiler
+- Torch profiler
 - Nsight Systems
 - Nsight Compute
 - CUTLASS / Triton profiler
@@ -342,6 +350,7 @@ Optimazation:
 - Matrix Multiply and Accumulate/WGMMA lowering
 - reg allocation
 - instruction scheduling
+
 
 ### FlashInfer
 
@@ -389,3 +398,23 @@ NVIDIA GPU Errors
 │
 └── Power / Thermal
 ```
+
+
+### NCU
+NVTX markers
+
+### Pytorch Profiler
+
+
+- runtime profiling: export as [json chrome traces](chrome://tracing/)
+  - CPU tracks
+    - forward pass & backward pass(autograd engine) usually on different threads.
+  - CUDA Stream tracks
+- GPU memory profiling
+- communication profiling
+`1GB = 1e6`
+
+
+tips:
+- verify `Synch` blocks are necessary
+- [dispatch chain UI](https://ui.perfetto.dev/)

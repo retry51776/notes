@@ -258,7 +258,9 @@ Terms:
 
 > [General Framework](academic.md#general-frameworks) similar to numpy, with build-in support backprops, optimizer.
 >
-> Compiler backend uses ATen.
+> Compiler pipeline: xxx.py > Dynamo(FX graph) > AOTAutograd(ATen) > Inductor (GPU kernels)
+
+> Beginner should start with Pytorch code, then ask LLM to convert to CUDA.
 
 
 Tensor components:
@@ -391,6 +393,11 @@ import torch.distributed as dist
 
 # Avoid race condition
 atomicAdd()
+
+# registration/dispatch pattern
+
+.register_implementation()
+.register_operator()
 ```
 
 
@@ -702,6 +709,13 @@ cuda::device::experimental::
 ```
 
 
+- CCCL: Cuda Core manage WHAT parallel operation do those workers perform?
+  - libcu++: CUDA C++ standard facilities for general cuda
+  - CUB: GPU parallel primitives
+  - **Thrust**: high-level parallel algorithms, mostly HOST Library.
+
+
+
 ### CuTitle
 
 since CUDA 13.0; **Tile IR** compile into GPU executable. Block is lowest execute unit. Array based programming.
@@ -766,12 +780,41 @@ use(result);
 > Triton, Pytorch, Cuda are general kernels covers all ops, but here are other kernel libraries cover common complex ops.
 
 - [GGML (High: hardware compatibility)](https://huggingface.co/blog/introduction-to-ggml)
-- DeepGEMM (High)
-- cuBLAS (High: matrix multiplication)
-- CUTLASS (Mid: custom kernel)
-- CuTe (Low: tiling + layouts)
-- WMMMA (Low: explicit MMA)
-- PTX (Low: memory control)
+
+- Host Call:
+  - GGML (Highest: w multi hardware support)
+  - FlashInfer (Highest)
+  - cuDNN (High: Block module)
+  - cuBLAS (High: matrix multiplication)
+  - FlashAttention
+- Device Call:
+  - CUTLASS (Mid: custom kernel)
+    - CUTLASS 3.0 ~ built from CuTe
+  - DeepGEMM (Mid: matrix ops)
+  - CuTe (Low: tiling + layouts)
+  - WMMMA (Low: explicit MMA)
+  - PTX (Low: memory control)
+
+#### CuTe
+> CuTe can apple [layout](hardware.md#layout) both data & compute resources(thread's assignment). Idea is tensor shape still same, but stride does thread's assignment.
+>
+> Early FORTRAN function name limited by 6 characters, that is orgin of cryptic function name!
+```c++
+// https://github.com/NVIDIA/cutlass/blob/main/examples/cute/tutorial
+#include <cute/tensor.hpp>
+Tensor tile_s = make_coord();
+
+```
+
+Concept hierarchy:
+
+- device layer
+  - kernel layer
+    - Collective: ops
+      - atom layer
+      - tile MMA
+    - Main Loop
+    - Epilogue: Post processing
 
 ### PTX
 
