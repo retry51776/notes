@@ -244,6 +244,8 @@ The seven networks(~ LLM functional circuits) are:
     - 1. Output
     - 1. Embedding/RoPE
 
+- all to all within cortical column, column size limited by communication energy cost.
+
 ### dynamical system in neuroscience
 
 <https://www.izhikevich.org/publications/dsn.pdf>

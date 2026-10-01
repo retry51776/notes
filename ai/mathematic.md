@@ -11,8 +11,10 @@ List all mathematic tools relate to AI.
 - Balance Locality between Information vs Compute.
   - Slide window ~ in-place execution. Good compute locality but bad information locality.
   - MOE ~ gate(assume Information Locality) vs expert(Compute Locality).
+- represent continuously, decide sparsely.
+- Category Theory ~ structures + relationships between structures
 
-## Linear algebra
+## Linear Algebra
 
 - Vector
   - vector addition -> linear combination
@@ -28,6 +30,7 @@ List all mathematic tools relate to AI.
     - transpose
     - eigenvalues & eigenvector
       - eigenvalues > 1 causes exploding training
+      - Sinkhorn-Balanced(double stochastic matrix): normalizing rows and columns
   - Orthogonal matrices intuitions
     - Length & angle(information) preservation
     - Inverse = transpose; typical Inverse is expensive op, but transpose is cheap
@@ -55,6 +58,37 @@ Five functional properties of a global workspace:
 - **chain rule** ~ backprops's foundation & prerequisites. 
 - multivariable calculus `uses in back propagation`
 
+## Category Theory
+> Foundation for Tensor Memory Management, CuTe layout.
+
+- category theory
+  - categories
+    - Tupole
+    - Nest
+    - FinSet
+  - morphisms
+  - functors
+  - Operads
+- Fast Fourier Transform
+- tensor contraction
+
+
+layout = (shape):(stride) = `(row, column):(row_increment: col_increment)`
+
+- Tensor = iterator + layout
+- Scopes:
+  - modes:
+  - entries
+  - rank: numbers of modes
+  - length: length all entries
+  - size: produce all entries
+- **layout operations**:
+  - composed: able refined/convert sub layouts
+  - compliment: give everything layout not return.
+  - concatenation
+  - coalesce: combining adjacent modes
+
+
 ## Entropy
 
 - Entropy ~ randomness distribution;
@@ -63,7 +97,7 @@ Five functional properties of a global workspace:
   - why `sum(-log(q))`; sum is for add up different buckets; -log because some math reason.
 
 
-## Dynamic system
+## Dynamic System
 
 system dynamics modeling softwares:
 

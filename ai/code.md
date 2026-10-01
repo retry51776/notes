@@ -259,9 +259,11 @@ Terms:
 > [General Framework](academic.md#general-frameworks) similar to numpy, with build-in support backprops, optimizer.
 >
 > Compiler pipeline: xxx.py > Dynamo(FX graph) > AOTAutograd(ATen) > Inductor (GPU kernels)
+> > registration-based dispatch pattern
 
 > Beginner should start with Pytorch code, then ask LLM to convert to CUDA.
 
+https://discuss.pytorch.org/
 
 Tensor components:
 - array: array
@@ -756,6 +758,7 @@ import cuda.tile as ct
 
 ### Metal
 
+
 ```h
 // @autoreleasepool ~ @with mark variables for cleanup, except 
 id result;
@@ -789,32 +792,168 @@ use(result);
   - FlashAttention
 - Device Call:
   - CUTLASS (Mid: custom kernel)
-    - CUTLASS 3.0 ~ built from CuTe
+    - CUTLASS 2.* ~ bundle thread layout & data layout
+    - CUTLASS 3.* ~ built from CuTe
+    - CUTLASS 4.* ~ python `nvidia-cutlass-dsl` faster compile than c++
   - DeepGEMM (Mid: matrix ops)
   - CuTe (Low: tiling + layouts)
   - WMMMA (Low: explicit MMA)
   - PTX (Low: memory control)
 
+#### Cutlass
+layers:
+- device layer
+- kernel layer
+- collective layer
+- cute layer
+- atom layer
+
+
+- SMEM descriptor: `start address & leading offset & stride offset & swizzle mode`
+- warp specialization: Not every warp participates in load + compute
+  - single TMA producer warp
+  - Ping-pong warp specialization: two consumer warpgroups alternate
+  - Functional specialization: two consumer warpgroups invoke different calculation units
+
+```c++
+auto row = Int<10>{}; // static Constant // (_10, 1): (5, 2) underscore prefix mean Constant
+```
+
 #### CuTe
 > CuTe can apple [layout](hardware.md#layout) both data & compute resources(thread's assignment). Idea is tensor shape still same, but stride does thread's assignment.
 >
 > Early FORTRAN function name limited by 6 characters, that is orgin of cryptic function name!
-```c++
-// https://github.com/NVIDIA/cutlass/blob/main/examples/cute/tutorial
-#include <cute/tensor.hpp>
-Tensor tile_s = make_coord();
+>
+> Replace Old Kernel Loop Philosophy! idx = inner_product(coordnate, stride)
+> > Same tensor, with different layout ~ matrix transform
 
+Basic Terms:
+- layout: Coordinate → offset
+  - **Iteration Order**: Order those coordinates are visited. Most people visualize this.
+    - row_major
+    - col_major
+    - swizzle
+  - shape: matrix's row & col
+  - stide: row_increment, col_increment
+- storage: any write iterator also support pointer retrieval.
+  - Coordinate can be any 1D, 2D, hD
+- tensor: storage_pointer + layout. `make_tensor(storage_iterator, layout)`
+  - predicate tensor: mask tensor
+  - MMA: M, N, K -> M, N; Tensor Core only take 2D matrixs as input.
+    - M ~ row mode
+    - N ~ col mode
+    - K ~ reduction mode
+    - P ~ batch mode that need flatten
+
+
+Manipulate layout(Layout Algebra operations):
+- grouping layout modes: flatten matrix, tensor contractions
+- right|left inverse layout:
+- compliment layout: many properties
+  - Left & Right identity
+  - Associativity
+  - Left Distributivity
+- product layouts: swape element of target_layout with another layout
+- divide layouts: split target_layout according another layout
+- common layouts: continues offsets between 2 layouts
+
+Tensor Operations:
+- copy
+  - gather: merge modes
+  - scatter: split modes
+  - broadcast: increase matrix dimension
+  - transpose: run copy from A layout to B layout(A's transpose)
+- gemm
+  - transpose output matrix
+  - General Tensor-Tensor contraction(GeTT): CuTe allow inner deminsion out of order.
+  - convolution
+- **composition**: partition = composition + slice
+  - partition_A, _B, _C: kernel's thread coordinate calculation
+
+- [Example Cute](https://github.com/NVIDIA/cutlass/blob/main/examples/cute/tutorial)
+  - Index mapping: balance between scope (the ability to represent any computable index mapping) and closure (ensuring that operations on these mappings return objects within the same representation)
+    - Memory Layout
+    - Tiling
+    - Access Distribution
+    - Broadcast/Expand Dimension
+    - All Aboves Combinations
+
+Kernel workflow:
+- 1. setup:
+  - 1.1 tiling tensors A, B, C
+  - 1.2 partitioning tensors; `.partition_A()`
+  - 1.3 copy view Global into shared memory; `tCsA ~ thread Copy share_memory A;`
+  - 1.4 registers allocation for tile; `.make_fragment_A()`
+  - 1.5 copy view shared memory into register & reset output register; `tCrA ~ thread Copy register A`
+- 2. Mainloop: run `M, N, K` nested loop;
+  - 2.1 grather inputs by invoke copy operations; `tCrA(_, m, k)`
+  - 2.2 run mma accumulation; `tCrC`
+- 3. save output into Global
+
+- CuTe Layout Representation and Algebra: partition & combine
+  - colexicographic isomorphism
+  - Fast Fourier Transform (FFT)
+
+- Compiler(heuristic)
+- Metaprogram(transparent, runtime)
+  - Geometry: ex: Tile, Layout, Cluster, Wrap
+  - Mechanism: PipeLine, Scheduler, Epilogue
+  - **Hardware**: WGMMA, TMA, SM, dType
+
+```md
+CUTLASS 3.x | nvidia-cutlass-dsl
+
+Device layer: host-facing launch/argument API
+└── `cutlass::gemm::device::GemmUniversalAdapter`
+      │
+      │
+      ▼
+Kernel layer
+└── `cutlass::gemm::kernel::GemmUniversal`
+      │
+      ├── **Tile Scheduler**: grid-strid loop, ASSIGN work to CTA
+      │   ├── Conventional: CTA per tile
+      │   ├── Persistent scheduling(Stream-K): distribute the total K work across CTAs;
+      │   └── Split-K: fixed K partitions, good for small M.
+      ├── **Mainloop**: inner loop of kernel
+      │   ├── StageCount(PipelineDepth): concurrent tiles(pipelines)
+      │   └── Atom: invoke PTX instruction
+      │     ├── TMA producer
+      │     └── MMA consumer
+      └── **Epilogue**: Mainloop's post-processing
+          └── `cutlass::epilogue::collective::CollectiveEpilogue`
 ```
+```c++
+// c3x ~ CUTLASS 3.x
 
-Concept hierarchy:
+// CUTLASS device-side scheduler
 
-- device layer
-  - kernel layer
-    - Collective: ops
-      - atom layer
-      - tile MMA
-    - Main Loop
-    - Epilogue: Post processing
+
+// Producer: publish message when TMA loaded data
+while (work_tile_info.is_valid_tile) {
+    collective_mainloop.load();          // TMA copy tensor tile from HBM to shared memory
+    scheduler.advance_to_next_work();    // advance 1 work item
+    work_tile_info = scheduler.get_current_work();
+}
+
+// Consumer: SM wraps start compute
+while (work_tile_info.is_valid_tile) {
+    collective_mainloop.compute();       // WGMMA / mainloop compute
+    scheduler.advance_to_next_work(NumConsumers);
+    work_tile_info = scheduler.get_current_work();
+}
+
+// CollectiveBuilder ~ compiler determent best layout, mainloop, TMA...
+
+shared_storage.pipelines.xxx_barrier
+    //.init()
+    //.arrive()
+    //.wait()
+
+M ~ often dynamic
+N ~ large N needs specialization
+K ~ often static, large K needs specialization
+```
 
 ### PTX
 
@@ -836,6 +975,11 @@ ld.global
 
 
 ## TMA ops
+tma_load(tile, tensor_map, k_offset, m_offset, barrier);
+cp.async.bulk.tensor.2d.global.shared::cta.bulk_group
+    [tensor_map, {x, y}],
+    [smem_ptr];
+
 ## compiler to discover a TMA transfer automatically
 cp.async.bulk.tensor.2d.shared::cluster.global.mbarrier::complete_tx::bytes
     [smem_addr],
@@ -843,6 +987,18 @@ cp.async.bulk.tensor.2d.shared::cluster.global.mbarrier::complete_tx::bytes
     [mbarrier];
 
 ## operands: Instruction arguments
+
+## xxx.approx arithmetic 2× faster; Inline PTX script
+
+__device__ __forceinline__ float sqrt_fast(float x) {
+#if defined(__CUDA_ARCH__)
+    float result;
+    asm("sqrt.approx.f32 %0, %1;" : "=f"(result) : "f"(x));
+    return result;
+#else
+    return sqrtf(x);
+#endif
+}
 ```
 
 ## Tensor Framework

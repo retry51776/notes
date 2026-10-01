@@ -5,6 +5,11 @@
 > **GPU vs CPU** hides latency by interleaving many wraps. Unlike CPUs, where context switches are expensive, GPU threads are lightweight and scheduled by hardware.
 > > GPU trade CPU's scheduler area for more SM cores.
 
+modal.com/gpu-glossary
+
+> Power = (Energy/Operation) * (Operations/Second)
+> Chip's total power is fixed, so we decrease operation(SIMD).
+
 ## Runtime Workflow
 
 ### Compiler Pipeline
@@ -183,6 +188,9 @@ kernel     ≈ work each worker executes
 > Kernel logic is heavily influenced by the tensor layout.
 >
 > SubTile has SAME stride as parent, but with different pointer.
+>
+> **TMA** moves much of the address/index calculation for global↔shared-memory tile transfers out of the CUDA kernel’s per-element logic and into hardware.
+> > TMA can NOT change continuous mode!
 ```md
 Tensor
 ├── Engine
@@ -214,6 +222,20 @@ Move ↓ one row:    index += 4
 Move → one column: index += 1
                     ↑
                   Stride
+----------
+
+TMA descriptor
+├── base address
+├── dimensions
+├── strides
+├── element type
+├── shared-memory swizzle
+│     └── Swizzle mode
+│          ├── none
+│          ├── 32Bytes
+│          ├── 64B
+│          └── 128B
+└── other layout information
 ```
 
 > Nest shape is possible, think of it as sql composite index;
@@ -254,7 +276,7 @@ LLVM Optimizer: `understands Program`
 
 LLVM Backend: `understands HARDWARE`
 - Apple: AArch64 ISA
-- Nvidia: NVPTX backend
+- Nvidia: [NVPTX backend](https://kuterdinel.com/nv_isa/)
 - AMD: AMDGPU backend
 
 
@@ -287,6 +309,7 @@ Per-kernel execution:
 
 > SM assignment is hardware/runtime decides!
 > Thread Blocks / CTAs is indivisible scheduling units.
+> Tensor Core can load memory from Share Memory through descriptor
 
 ```py
 # Hopper Workflow
@@ -346,6 +369,10 @@ GPU # H100 has 132 SMs
  │   ├─ ScoreBoard # hardware bookkeeping ALL wrap's next instruction ready
  │   ├─ Registers (per thread)
  │   ├─ Shared Memory (per block region) # Developer can control
+ │   ├── mbarrier object
+ │   │   ├── phase
+ │   │   ├── arrival count: wait
+ │   │   └── transaction count: write
  │   ├─ L1 cache # cache-policy through PTX
  │   └─ 128 Tensor Cores / FP units
  │
@@ -370,9 +397,7 @@ SM Analogy:
   - **Tensor Memory Accelerator**(TMA) ~ swap tensor tile in background;
   - **Wrap Scheduler** ~ Wrap's manager manage threads instruction & state. `latency hiding happens here`
   - Dispatch Unit ~ Router for Wrap's active thread's instruction
-- instructions
-  - WGMMA ~ offload heavy workload from cuda core to tensor core.
-  - mbarrier ~ async completion/event flag
+
 
 
 - error buffer is a "single-slot" & async, so never can guaranty all error messages are collected.
@@ -559,6 +584,9 @@ $50k ~ $100k
 ### Google
 
 > TPU network is way harder to hot swap!
+>
+> Compiler-scheduled DMA & memory-transfer engines feeding scratchpads does TMA & Copy Engine's job.
+> > Transfer engine Pallas provides semaphores.
 
 - **TPU** – Tensor Processing Units, Google’s custom AI accelerator. `wrap is small SIMD, TPU is large SIMD`
   - MXUs (Matrix Multiply Units) - aka tensor core
@@ -573,21 +601,27 @@ $50k ~ $100k
   - Differences to Nvidia GPU
     - No warp schedulers
     - No thread switching hardware
+    - Very Long Instruction Word (VLIW) compiler
 - **Colab** – Free notebooks with GPU/TPU access.
+
 
 ### Apple
 
-> Default compute precision is FP16.
 
-> Metal Shading Language (MSL) xxx.metal kernels is lowest lower for dev.
-> > Apple don't publish GPU ISA/compiler backend; Unlike NVIDIA exposes PTX;
+> Apple don't publish GPU ISA/compiler backend; Unlike NVIDIA exposes PTX;
 
+> Metal: Apple’s low-level GPU framework (CUDA).
+> > Metal Shading Language (MSL) xxx.metal kernels is lowest lower for dev.
+>
+> MPS: Apple’s library of prebuilt, optimized GPU kernels (like cuDNN/cuBLAS).
 
 > The ANE is not directly accessible from MLX or PyTorch.
 
+> Default compute precision is FP16.
 > MLX support mxxfp8_tensor.
 
-Apple's strategy is use Unified Memory Architecture (UMA) avoid Nvidia's TMA.
+> Apple's strategy is use Unified Memory Architecture (UMA) avoid Nvidia's TMA.
+> > When pytorch move tensor from CPU to MPS, `x.data_ptr()` is changed!
 
 ```md
 Metal
@@ -619,15 +653,18 @@ Frameworks:
 - **MLX** – General Framework for Apple silicon
   - mlx[cuda] compiled into CUDA api for CUDA runtime
   - https://github.com/ml-explore/mlx-lm/tree/main/mlx_lm/models defined supported models
+  - `mx.metal.start_capture() & stop_capture() & MTL_CAPTURE_ENABLED` create `*.gputrace`
 - **Core ML** – Optimized inference engine; leverages the Apple Neural Engine (ANE).
   - Neural Engine is similar to Tensor Core, only does matrix ops
   - VERY few frameworks uses Neural Engine, almost pointless to have it
 
 - Instruments ~ Apple Metal Trace software
+- Xcode
 
 Apple GPU components:
 > Each manufacturer has its own shading language.
 
+> Since Apple don't have NV's TMA, only provide `simdgroup_async_copy`; TMA offloads multidimensional tensor addressing + tile movement.
 - Shader Core ~ SM
   - ALU (int/fp/complex) ~ Cuda core
     - Special Function Unit (SFU): Accelerates certain mathematical operations like sin, cos, and log.
@@ -654,6 +691,9 @@ Metal API objects:
   - Address space: it is device memory, global GPU memory, not per-thread local memory.
   - Synchronization: if one kernel writes it and another reads it, ordering matters. Separate encoders in the same command buffer are ordered; separate command buffers need dependency handling.
   - Performance: device memory is slower than thread-local registers or threadgroup memory
+- MTLCompileOptions
+  - mathMode = .fast
+  - mathFloatingPointFunctions = .fast
 
 Known Bugs:
 

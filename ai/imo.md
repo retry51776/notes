@@ -152,6 +152,11 @@ Maybe for some repeat tasks, warm up KV cache that repeat trigger. similar to Pr
 
 ## IMO
 
+- Current GPU cluster mostly NOT heterogeneous, but from past hardware evolution, it will be heterogeneous.
+- Variables:
+  - Scale | Throughput
+  - Iterative time
+  - Efficiency
 - It's NOT some layers smarter than other layers. It's because cumulative knowledge reach some threshold! similar modern ppl vs our ancestor!
 - mHC shows hidden state info capacity still bottleneck.
 - high-information tokens that actually drive intelligence.

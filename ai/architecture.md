@@ -218,6 +218,7 @@ YaRN allows RoPE to use non-integer (fractional) token positions
   - Calculate weight update
 - mHC: multi-channel residual-stream
   - doubly stochastic matrix: constrain `H_l` mixer matrix for stability
+  - Single-Pass mHC: Previous block’s determent next block's Mixer/router
 
 X_(l+1) = H_l(X_l) + B_l(F_l(A_l(X_l)))
 
@@ -301,6 +302,9 @@ DDMP paper by Johnathan Ho @ 2020
 (Evidence Lower Bound)ELBO
 
 - scored diffusion - `llm learn score noised sample`
+
+### Block Diffusion
+> hybrid between autoregressive generation and diffusion-style generation
 
 ## MAMBA
 

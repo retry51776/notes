@@ -33,15 +33,6 @@ Octal Small Form-factor Pluggable (OSFP)
 
 > We don't want traffic go through typical k8s ingress or service routing, we route traffic through pod's sidecar.
 
-
-- Collective Operations
-  - Broadcast
-  - Scatter - each rank gets subset of data
-  - Gather - collect all ranks into single rank
-  - Reduce
-  - All-gather - every rank broadcast & gather;
-  - Reduce-scatter - every rank get op(sub_set)
-  - All-reduce = reduce-scatter + all-gather
 - Network Topology
   - Direction Connections
     - Top of Rack (ToR) switch `optical switch`
@@ -56,24 +47,65 @@ Octal Small Form-factor Pluggable (OSFP)
     - Partition Keys / VLAN
     - Unified Fabric Manager (UFM)
   - oversubscription ~ more upload links to spine(TOR) than spine's capacity
-- Hardwares Protocol
-  - NCCL
-  - UCX
-  - UCCL
-  - Mooncacke
 
-### NCCL
-> NCCL (NVIDIA Collective Communications Library) - specialize protocol for GPU, open source
->
+
+### IB
+> IB covers first 4 ISO layers: Physical, Data Link, Network, Transport.
+- Protocol:
+  - IB Reliable Connection(IBRC): relies on a CPU proxy thread
+  - IB GPUDirect Async(IBGDA): faster by bypass CPU
+  - DeepEP protocol: DeepEP Dispatch hacked version of NVSHMEM, reduce synchronization base off some assumptions.
+- Terms:
+  - Verbs: low-level instruction interface for network/RDMA operations.
+  - CUDA VMM (Virtual Memory Management)
+  - NVLink pointers: UVA + peer access
+  - NVLink domain: group of GPUs within single fabric
+
+### Communication Library
+> Developer control IO through Communication Libraries. NCCL is most popular, second is NVSHMEM.
+
+#### UCX
+> Unified Communication X(UCX) primarily a host-side (CPU) communication framework/API.
+
+#### MPI
 > Message Passing Interface(MPI) is old CPU Library, its problem has too many abstraction/optimization.
+> > No built-in **flow control**. Simple Pub/Sub message system.
 
-### NVSHMEM
+#### NCCL
+> NCCL (NVIDIA Collective Communications Library) - specialize protocol for GPU, open source, focus collective communication operations, less control than NVSHMEM.
+
+Collective Operations:
+- Broadcast
+- Scatter - each rank gets subset of data
+- Gather - collect all ranks into single rank
+- Reduce
+- All-gather - every rank broadcast & gather;
+- Reduce-scatter - every rank get op(sub_set)
+- All-reduce = reduce-scatter + all-gather
+
+Communication Patterns:
+- Ring
+- Halo: Neighbor exchange
+- Tree
+- Butterfly
+- Torus
+
+> NCCL 2.x device APIs now converge toward NVSHMEM.
+>
+> NCCL built-in flow control (auto batch optimization) network IO. NV devs recommend NOT to finetune it.
+
+#### NVSHMEM
 > **GPU kernel directly** put/get/update data in remote GPU memory without CPU involvement.
 > > Built-in support memory partition.
 >
-> > One sided control!
+> > One sided control! similar pub/sub
 >
-> NVSHMEM enable nterleaving between compute & io transfer within kernel, while NCCL will support similar soon.
+> NVSHMEM enable interleaving between compute & io transfer within kernel, while NCCL will support similar soon.
+
+- Partitioned Global Address Space (PGAS)
+- memory symmetry: assume/prerequisite every node same memory allocation.
+- DeepEP Dispatch: customize version from NVSHMEM
+
 
 ## OBB
 

@@ -15,6 +15,7 @@
 - Windows Server DNS
 - OpenDNS
 - Cloudflare
+  - https://one.one.one.one/help/
 - Google Public DNS
 
 ### resolv.conf vs hosts

@@ -340,6 +340,8 @@ Spherical coordinates: Circle; nonlinear, coupled gradient;
 > inference engines often uses both pre-compiled & JIT compile kernels.
 > > Matrix-size-dependent kernel selection happens at runtime dispatch.
 
+https://kernelbench.com/
+
 Optimizations:
 - Persistent Kernels
 - Memory Coalescing: memory addresses accessed(matrix index) across lanes of a warp should be contiguous
@@ -408,10 +410,12 @@ Speeds up decode by predicting multiple tokens(8–16 token drafts) with **small
 
 Usually 5 tokens out of 8 draft tokens will be right; Only make sense on idol compute hardware, with batch size > 8;
 
-Draft Token Accept Rule:
+Draft Token Sampler:
 - greedy decoding
 - **Fuzzy Speculative Decoding**: accept draft tokens that is NOT top token
 - Probabilistic Acceptance: re_norm[drop_neg(target_logit - draft_logit)]
+
+Draft Scheduler: When to skip draft
 
 https://huggingface.co/collections/RedHatAI/speculator-models
 
@@ -489,6 +493,7 @@ KV approaches:
   - build-in compression; Ex: Deepseek MLA
   - Quantization & Precision Reduction; Ex: TurboQuant
   - KV cache dropping; Ex: KVzip, SnackKV, KVcompact `sequence-length compression`
+  - KV block similarity substitution/consolidation
 - **non-prefix caching** Ex: CacheBlend
   - selective recompute % KV cache layer by layer
 - **prefix caching** Ex: RadixAttention
@@ -580,6 +585,7 @@ JSONL traces will define workload's size, but not same content.
       - InfiniBand / UCX
 - DP Coordinator
   - RPC
+
 - Flags:
   - `--gpu-memory-utilization`
   - `--tensor-parallel-size`
@@ -587,6 +593,16 @@ JSONL traces will define workload's size, but not same content.
   - `--block-size` KV block size default 16; `--kv-cache-dtype`
   - `--tp --ep` DPA = DP & EP
   - structured output: (xgrammar)
+- SpeculativeConfig
+  - RejectionSampleMethod
+- [KernelConfig](https://github.com/vllm-project/vllm/blob/e5f3d08d722870a5301560fad0cfa65b7e333900/vllm/config/kernel.py#L220):
+  - Level 1: Backend routing
+    - SparseIndexerTopkBackend
+    - MoEBackend
+    - LinearBackend
+  - Level 2: Kernel routing inside backend
+    - M often `Chunked prefill size` or `batch size`
+    - M: 1–256
 
 Pin:
 - vLLM 0.x.y
@@ -601,6 +617,10 @@ https://carbonforge.ai/en/models
 > > `xx.so` is toolbox of kernels and native ops.
 
 FlashInfer is kernel libraries, fork vLLM often for overwrite FlashInfer usage.
+
+Fork Vllm:
+- Add kernel dispatch granularity
+- Custom hardware support(add backend kernel)
 
 ### Scheduler
 > Scheduler step/batch is like train job: train capacity ~ batch token budget; 

@@ -64,6 +64,8 @@ Stage:
     - Shampoo
     - K-FAC
     - Muon - Take the gradient of a matrix, normalize it, orthogonalize it, then apply a clean step.
+      - eigenvalue = 1
+      - Hessian = second-order derivative information
     - Adaptive Moment Estimation (ADAM)
       - magnitude $v_t = \beta_2 \cdot v_{t-1} + (1 - \beta_2) \cdot g_t^2$
       - momentum $m_t = \beta_1 \cdot m_{t-1} + (1 - \beta_1) \cdot g_t$
@@ -98,7 +100,6 @@ Stage:
     - ε (epsilon) `a tiny constant (typically 1e-5 or 1e-6); learning rate unit`
     - $J(\theta)$ `the loss function / objective function being minimized`
   - Tiling `calculation matrix multiplication by smaller block, each SM loads target block row & col to calculate small final result block`
-  - Neuron `fundamental unit in a neural network that performs a simple mathematical operation on input data and passes the result to other neurons or output units; weights usually gaussian distribution`
   - Activation function 
   - Weight - Usually range from -1 to 1
   - Bias - Usually small; Doesn't uses in attention blocks;
@@ -321,6 +322,8 @@ residual stream/latent space `The intermediate output between NN layers`
 ### Compiler / kernel layer
 > Compiler turns model ops into efficient device kernels, performs fusion/codegen.
 >> Examples: Triton, XLA, TorchInductor, CUDA kernels, Metal kernels, MLX compiler, TensorRT compiler pieces
+
+> Compiler generate menu, JIT runtime pick menu.
 
 ### Rate-distortion theory
 

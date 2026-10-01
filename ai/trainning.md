@@ -1,6 +1,11 @@
 # Training
 
-## Pretrain
+## Quantized Training
+> Problem with quantization may causes gaps within continues representation space, we need make sure Optimizer able jump across those gaps.
+
+- Optimizer State quantized in HBM, dequant & accumulate @ training.
+- Gradient accumulation.
+- Stochastic Rounding: probability round replace deterministic round
 
 ## Supervise Finetune Training(SFT)
 

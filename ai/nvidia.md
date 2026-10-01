@@ -128,7 +128,7 @@ research teams:
 ### Nvidia Product Lines
 
 - **Rubin NVL 144 CPX** `CPX means cluster comes w LPU`
-- **NVL72 Cluster**: 72 × B200 GPUs.
+- **NVL72 Cluster**: 72 × B200 GPUs. 13.5TB HBM 17TB RAM @ 1440PFLOP
 - **DGX SuperPOD**: n × NVL72 Nodes.
 
 - **DGX / HGX** – AI‑focused servers (e.g., DGX A100, HGX H100).
@@ -251,7 +251,7 @@ Program Scope:
 - cuBLAS (Basic Linear Algebra Subprograms)
   - GEMM (General Matrix-Matrix Multiplication)
 - cuDNN (CUDA Deep Neural Network)
-- CUTLASS is a template library that provides building blocks for writing
+- **CUTLASS** is a template library that provides building blocks for writing
 high-performance kernels
 
 ### Parallel Thread Execution Instructions
@@ -274,8 +274,19 @@ high-performance kernels
 | **Communication** | GPU↔GPU / CTA↔CTA | NVLink, atomics | DSM/NVLink | enhanced NVLink mechanisms |
 | **Scalar/vector** | Normal arithmetic | `add`, `mul`, `fma`, etc. | same | same |
 
-- CTA: Cooperative Thread Array, CUDA Thread Block hardware
-- WGMMA: Warp Group Matrix Multiply Accumulate, let wrap runs matrix multiply in background, while wrap moves on other data movements.
+- Hopper:
+  - CTA: Cooperative Thread Array, CUDA Thread Block hardware
+  - TMA: layout-transform engine
+  - WGMMA: Warp Group Matrix Multiply Accumulate, let wrap runs matrix multiply in background, while wrap moves on other data movements.
+- Blackwell:
+  - Texture Processing Cluster (TPC): 2 SMs `.cta_group::2`
+  - TMEN: Blackwell Tensor Core's Share Memory; Costumer grade Blackwell missing!
+  - Decompression Engine(DE): CopyEngine add DE support LZ4, Snappy, Deflate;
+  - NVLink5
+- Rubin:
+  - newer Tensor Core
+  - more Decompression Engine
+  - NVLink6
 
 
 ### Nvidia C Compiler
