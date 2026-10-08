@@ -3,12 +3,24 @@
 > Ultimately, the only limitation is chip real estate; space must be allocated to computation (flexible or efficient) or storage (latency or bandwidth or capacity).
 
 > **GPU vs CPU** hides latency by interleaving many wraps. Unlike CPUs, where context switches are expensive, GPU threads are lightweight and scheduled by hardware.
+> > Problem is we need to interleave io & compute at right scope, GPU scheduler won't able interleave ops within CTA.
+> 
 > > GPU trade CPU's scheduler area for more SM cores.
 
 modal.com/gpu-glossary
 
 > Power = (Energy/Operation) * (Operations/Second)
 > Chip's total power is fixed, so we decrease operation(SIMD).
+
+Levels Hardware Disclose:
+- Marketing Specs
+- Programming model/API - Apple Metal, but stop here!
+- ISA primitives - PTX/SASS, AMD GCN/CDNA ISA
+- Architectural model - Most stop here!
+- Microarchitecture - Some leak or developer guess. pipelines, schedulers, issue rates, latency.
+- Register-Transfer Level(RTL) - Verilog files
+- Physical implementation - floorplan, routing, SRAM arrays
+- Transistor-level implementation - transistor sizes, voltages, analog circuits
 
 ## Runtime Workflow
 
@@ -174,14 +186,44 @@ Thread 2 :  2 ──→ 11 ──→ 20 ──→ 29 ...
 ...
 Thread 8 :  8 ──→ 17 ──→ 26 ──→ 35 ...
 
-CUDA built-ins
+
 ──────────────────────────────────────────────────────────────
-gridDim    ≈ number of worker groups
-blockDim   ≈ workers per group
-blockIdx   = which worker group am I?
-threadIdx  = which worker am I within the group?
-warpSize   = workers executed together as a warp (32)
-kernel     ≈ work each worker executes
+Grid          = entire workforce for the project
+CTA Cluster   = crew group
+CTA / Block   = crew: group of squads, or persistent squads continuously work.
+Warp          = squad of 32 workers works on same instruction
+Thread        = worker
+
+Developer                       = construction architect
+
+GPU / Construction company
+├── Kernel(gridDim, blockDim)   = construction project; architect control.
+│   ├── `gridDim`               = number of crews
+│   └── `blockDim`              = workers per crew
+├── Grid                        = entire workforce for the project; architect control.
+│   └── CTA Cluster             = crew group
+│       ├── CTA / Thread Block  = one crew
+│       │   ├── `blockIdx`      = crew ID
+│       │   ├── `threadIdx`     = worker ID within crew
+│       │   │
+│       │   ├── Warp 0          = squad of 32 workers
+│       │   ├── Warp 1          = squad of 32 workers
+│       │   └── ...
+│       │
+│       └── CTA / Thread Block
+│           └── Warps...
+│
+│                               Construction Managers & Hardwares
+├── GPU CTA scheduler         = dispatcher assigns crew → worksite; no architect control.
+├── TMA                       = automated deliver system single worker call
+└── SM                        = worksite
+    ├── resident CTA(s)       = number of crews currently assigned here
+    ├── Tensor Cores(4)       = squad-operated Concrete mixer, works independently
+    ├── ALU(4)                = squad-operated Power drill, works independently
+    │
+    └── Warp Scheduler(s)     = foreman selects a ready squad and issues its next instruction(tool)
+
+
 ```
 
 #### Layout
@@ -190,7 +232,10 @@ kernel     ≈ work each worker executes
 > SubTile has SAME stride as parent, but with different pointer.
 >
 > **TMA** moves much of the address/index calculation for global↔shared-memory tile transfers out of the CUDA kernel’s per-element logic and into hardware.
+> > TMA handle layout interpretation, boundary handling, asynchronous transaction/barrier machinery.
 > > TMA can NOT change continuous mode!
+>
+> Problem is Matrix in mathematic don't have preferred direction, but in physical memory hardware DOES!
 ```md
 Tensor
 ├── Engine
@@ -229,12 +274,14 @@ TMA descriptor
 ├── dimensions
 ├── strides
 ├── element type
-├── shared-memory swizzle
-│     └── Swizzle mode
-│          ├── none
-│          ├── 32Bytes
-│          ├── 64B
-│          └── 128B
+├── shared-memory swizzle: default 8 x 16-byte chunks = 128-byte row;
+│     ├── Swizzle mode: None, 16(default), 32, 64, 128;
+│     │ 
+│     ├── banks: shared-memory access lane (“column reader”). Swizzle disperses accesses across banks to avoid bank conflicts.
+│     ├── formula: `physical_x = ((y + offset) % 8) XOR x`
+│     ├── offset: how much next_row shift starting position
+│     ├── x: which chunk, x ∈ [0,7]
+│     └── y: row index
 └── other layout information
 ```
 
@@ -258,28 +305,68 @@ TMA descriptor
 
 > IR represent the program in an intermediate form that is easier to analyze, transform, optimize, or retarget. Compiler engineer's territory.
 
-> Just like SQL has many forms, IR has many versions.
+
+https://github.com/PacktPublishing/LLVM-Code-Generation
+
+Analogy:
+- IR ~ SQL query
+- LLVM ~ SQL query planner
+  - Analyses pass ~ DB statistics
+    - heuristics
+    - cost model
+  - Transformation passes ~ Query optimizer
+- MachineIR ~ query plan
+  - instruction selection ~ HashJoin
+  - scheduling
+  - register allocation
 
 LLVM Frontend: `understands Language`
 - Clang
 - Flang
 
-LLVM Optimizer: `understands Program`
-  │
-  ├── Inlining
-  ├── Constant folding
-  ├── Dead-code elimination
-  ├── Loop optimizations
-  ├── Loop Vectorizer
-  ├── SLP Vectorizer
-  └── many others
+
+LLVM Middle:
+- Analysis Pass: `understands Program`
+- **Transformation Pass** `applies optimization`
+  - **Cost Model**: `decision flow`
+    - Tune threshold
+    - Change heuristic
+    - Add target-specific information
+    - Add new transformation
+  - Unroll loop
+  - Vectorize loop
+  - Inline function
+  - Remove dead code
+  - Fuse operations
+  - Rewrite instructions
+
 
 LLVM Backend: `understands HARDWARE`
 - Apple: AArch64 ISA
 - Nvidia: [NVPTX backend](https://kuterdinel.com/nv_isa/)
 - AMD: AMDGPU backend
 
+Terms:
+- NVVM is Nvidia's extension of LLVM.
+- CUDA Internal Compiler Component (CICC): internal implementation detail of the CUDA toolchain
+- LLDB: LLVM project's debugger
 
+> We want compiler system recognize optimization. LLVM pass, highest IR toolchain level
+```c++
+MyOptimizationPass::run(...) {
+
+    // Ask existing LLVM analyses:
+    LoopInfo
+    ScalarEvolution
+    AliasAnalysis
+    DominatorTree
+        ↓
+
+    // Make optimization decision
+    if (profitable(...))
+        transformIR();
+}
+```
 
 
 ### Hardware Execution Model
@@ -414,6 +501,8 @@ SM Analogy:
 Tech stacks:
 
 - CUDA Stream - opportunistic Asymmetric Parallelism Execution.
+- SM-constrained operator
+- CUDA GreenContext - spatial partitioning of the GPU
 - Green Context - Dynamic partition with guaranty. Aka define consumer/worker & routing_key.
 - Multi-Process Service (MPS) - Controlled GPU partition.
 - Multi-Instance GPU (MIG) - fixed GPU partition
@@ -706,6 +795,7 @@ Known Bugs:
 - Uses **HIP** to translate CUDA code to AMD GPUs.
 
 - AITer `AMD inference kernels, like FlashInfer`
+- Data Movement Engine (DME) ~ TMA
 
 ### Cerebras
 

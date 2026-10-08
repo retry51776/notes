@@ -280,7 +280,7 @@ The learner is currently developing deeper knowledge of:
 Do not flag ordinary concepts merely because they are technical.
 
 Knowledge-gap detection
-
+FF
 For every meaningful concept in the transcript, internally ask:
 
 1. Is this probably already well understood by the learner?

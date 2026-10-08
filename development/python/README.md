@@ -61,9 +61,16 @@
   - Typing enhancements
 - **3.14**
   - t-string better version of f-string
+- **3.15**
+  - lazy import & its default mode
+  - frozendict
+  - **sentinel**: default value but can "display"
+  - unpacking comprehensions
+  - new profiling
 
 ## Frustrations
 
+- `-S` disable .pth files loading, should be disable by NOW.
 - Python imports are singletons (per process & MUST **identical** path) for cache
 - ~~Destructure like ES6 ``const {a, b, ...others} = obj;``~~  
   > Python 3.10 supports similar functionality with the ``match`` statement.

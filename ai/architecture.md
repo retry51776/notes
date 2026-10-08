@@ -2,6 +2,7 @@
 >
 > Architecture inference design focus on 2 aspects: network structure(possible routes @ RAM cost) vs route control(which route @ compute cost).
 
+**Inference First Architecture**: design like DS4.1
 
 ## Information Lifetime
 > Different information has different persistent time period.
@@ -365,6 +366,8 @@ https://newsletter.maartengrootendorst.com/p/a-visual-guide-to-gemma-4
   - Customize parameters per user
     - Help Main LLM process/adapt injected context
 
+https://developers.googleblog.com/embeddinggemma-2-the-developer-guide/
+> Embedding similar to Jev, allow dynamic opinions, mass similarity search.
 
 ### Per-Layer Embeddings (PLE)
 

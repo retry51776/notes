@@ -420,6 +420,8 @@ tl.store(y_ptrs, y_row)
 
 ```
 
+Gluon: Triton give ways for dev to implement wrap specialization.
+
 ### CUDA
 
 [Nvidia Training Course](https://www.nvidia.com/en-us/training/)
@@ -790,33 +792,125 @@ use(result);
   - cuDNN (High: Block module)
   - cuBLAS (High: matrix multiplication)
   - FlashAttention
+  - custom Attention Kernels
+    - FlashKDA
 - Device Call:
   - CUTLASS (Mid: custom kernel)
-    - CUTLASS 2.* ~ bundle thread layout & data layout
-    - CUTLASS 3.* ~ built from CuTe
-    - CUTLASS 4.* ~ python `nvidia-cutlass-dsl` faster compile than c++
   - DeepGEMM (Mid: matrix ops)
   - CuTe (Low: tiling + layouts)
   - WMMMA (Low: explicit MMA)
   - PTX (Low: memory control)
 
 #### Cutlass
-layers:
+> nvcc compile giant template-heavy CUTLASS build, super slow. While CuTe 4 DSL Python will JIT or AOT compilation!
+
+Hardwares:
+- Pascle P40 SM61 Not support
+- P100 w NVLink 1
+- Tesla V100 SM70 with NCCL kernel
+- A100 SM80 w `cp.async`
+- H100 w TMA & WGMMA & NVLink 4 Multicast PTX instructions `multimem`
+- Blackwell w TMEN
+
+Versions:
+- CUTLASS 2.* ~ bundle thread layout & data layout
+- CUTLASS 3.* ~ built from CuTe
+- CUTLASS 4.* ~ python `nvidia-cutlass-dsl` faster compile than c++
+
+Layers:
 - device layer
 - kernel layer
 - collective layer
 - cute layer
 - atom layer
 
+Dirs:
+- /include - Library Core
+- /python/CuTeDSL/cutlass - Python Lib
+  - /cute - Cute DSL Core ~ `import cutlass.cute`
+  - /cutlass_dsl - DSL compiler/JIT machinery
 
+Terms:
 - SMEM descriptor: `start address & leading offset & stride offset & swizzle mode`
+- SharedStorage: ShareMemory Variables struct
 - warp specialization: Not every warp participates in load + compute
   - single TMA producer warp
-  - Ping-pong warp specialization: two consumer warpgroups alternate
+  - Ping-pong warp specialization: 2 Consumer wrap groups interleaving Epilogue(uses ALU) & Mainloop(uses tensor core)
   - Functional specialization: two consumer warpgroups invoke different calculation units
+  - AR Mode: LDMCxSTMC" (Load Multicast & Store Multicast) ~ Fused All-Reduce
+    - ldmcxstmc_default_inflight_depth: chunks/fragments of the C tile can be pipelined
+
+Cutlass Kernel Workflow:
+- 1. host side
+  - 1.1 Define problem
+    - problem shape M,N,K
+    - A/B/C dtype & layout/stride
+  - 1.2 Construct kernel components
+    - CTA tile shape
+    - TiledMMA
+    - TiledCopy
+      - `tCsA ~ thread Copy share_memory A;`
+      - `tCrA ~ thread Copy register A`
+    - Optional Adv components
+      - **Pipeline**: acquire → TMA → commit → wait → MMA → release;
+        - StageCount: concurrent pipelines
+      - Async TMA
+      - **Warp specialization**
+  - 1.3 lanuch kernel
+    - gridDim: number of worker groups
+    - blockDim: workers per group
+    - Cluster shape: how worker groups are grouped into teams
+    - Dynamic SMEM size
+- 2. device side
+  - 2.1 Identify CTA's work `cute.local_tile()` 
+  - 2.2 Create tensor views
+  - 2.3 Partition tensors `.partition_A()`
+  - 2.4 Allocate storage `.make_fragment_A()` or `cute.make_rmem_tensor`
+  - 2.5 MAINLOOP over K tiles: invoke kernel components
+    - `load_A & load_B` or `cute.copy()`
+    - MMA
+    - Optional Adv components:
+      - Pipeline: Async pub/sub like cycle.
+      - Warp specialization
+      - Async
+  - 2.6 Epilogue: K reduction post-process
+    - accumulator transformations
+    - scaling / bias / activation / conversion
+    - output layout handling
+  - 2.7 Storage: to global memory
+
 
 ```c++
+// Cutlass C++
 auto row = Int<10>{}; // static Constant // (_10, 1): (5, 2) underscore prefix mean Constant
+```
+
+3 Staging:
+- Pre-Stage: Python DSL -> Python AST -> Intermediate Python(Structure Capture)
+- Meta Stage: Python Interpeter -> MLIR (Tracing)
+- Object Stage: MLIR -> MLIR Compiler
+
+```python
+# CuTe DSL
+# `@cute.jit` is entry point for host method; kernel(A).launch(...)
+# `@kernel` is entry point for device method
+# thr_ ~ thread
+
+@cute.jit
+def gemm()
+
+# Often Kernel Class entrypoint happens in __call__
+@cute.jit
+def __call__()
+
+# Conditional eval ON runtime, not compile time
+cutlass.const_expr() 
+
+cute.printf("x: {}", x)
+cute.print_tensor()
+compiled_func = cute.compile(kernel, args)
+
+llvm.inline_asm()
 ```
 
 #### CuTe
@@ -826,6 +920,8 @@ auto row = Int<10>{}; // static Constant // (_10, 1): (5, 2) underscore prefix m
 >
 > Replace Old Kernel Loop Philosophy! idx = inner_product(coordnate, stride)
 > > Same tensor, with different layout ~ matrix transform
+>
+> CuTe will compile to TileIR, bypass PTX directly compiled to SASS.
 
 Basic Terms:
 - layout: Coordinate → offset
@@ -840,10 +936,10 @@ Basic Terms:
 - tensor: storage_pointer + layout. `make_tensor(storage_iterator, layout)`
   - predicate tensor: mask tensor
   - MMA: M, N, K -> M, N; Tensor Core only take 2D matrixs as input.
-    - M ~ row mode
-    - N ~ col mode
-    - K ~ reduction mode
-    - P ~ batch mode that need flatten
+    - M ~ row mode; often dynamic.
+    - N ~ col mode; large N needs specialization.
+    - K ~ reduction mode; often static, large K needs specialization.
+    - P ~ batch mode that need flatten into M;
 
 
 Manipulate layout(Layout Algebra operations):
@@ -878,18 +974,6 @@ Tensor Operations:
     - Broadcast/Expand Dimension
     - All Aboves Combinations
 
-Kernel workflow:
-- 1. setup:
-  - 1.1 tiling tensors A, B, C
-  - 1.2 partitioning tensors; `.partition_A()`
-  - 1.3 copy view Global into shared memory; `tCsA ~ thread Copy share_memory A;`
-  - 1.4 registers allocation for tile; `.make_fragment_A()`
-  - 1.5 copy view shared memory into register & reset output register; `tCrA ~ thread Copy register A`
-- 2. Mainloop: run `M, N, K` nested loop;
-  - 2.1 grather inputs by invoke copy operations; `tCrA(_, m, k)`
-  - 2.2 run mma accumulation; `tCrC`
-- 3. save output into Global
-
 - CuTe Layout Representation and Algebra: partition & combine
   - colexicographic isomorphism
   - Fast Fourier Transform (FFT)
@@ -912,13 +996,13 @@ Kernel layer
 └── `cutlass::gemm::kernel::GemmUniversal`
       │
       ├── **Tile Scheduler**: grid-strid loop, ASSIGN work to CTA
-      │   ├── Conventional: CTA per tile
-      │   ├── Persistent scheduling(Stream-K): distribute the total K work across CTAs;
-      │   └── Split-K: fixed K partitions, good for small M.
+      │   ├── Conventional: 1 C tile per 1 CTA; good for Large M,N, bad if small C
+      │   ├── Stream-K(Persistent scheduling): fixed # workers, rotate work chunks; Irregular batch M/N.
+      │   └── Split-K: each CTA works 1 slice of K, good for M/N are small and K is large.
       ├── **Mainloop**: inner loop of kernel
       │   ├── StageCount(PipelineDepth): concurrent tiles(pipelines)
       │   └── Atom: invoke PTX instruction
-      │     ├── TMA producer
+      │     ├── TMA producer: load StageCount # tiles from global into share memory
       │     └── MMA consumer
       └── **Epilogue**: Mainloop's post-processing
           └── `cutlass::epilogue::collective::CollectiveEpilogue`
@@ -945,14 +1029,12 @@ while (work_tile_info.is_valid_tile) {
 
 // CollectiveBuilder ~ compiler determent best layout, mainloop, TMA...
 
+// Async barrier
 shared_storage.pipelines.xxx_barrier
     //.init()
     //.arrive()
     //.wait()
 
-M ~ often dynamic
-N ~ large N needs specialization
-K ~ often static, large K needs specialization
 ```
 
 ### PTX
@@ -962,6 +1044,9 @@ K ~ often static, large K needs specialization
 > These new PTX instruction(ex: mma.sync) often wrapped into CuTe / CUTLASS libraries for CUDA devs.
 >
 > L1, L2 cache PTX instruction can set police, but still no direct control.
+
+- Flush-to-Zero(FTZ)
+- 
 ```md
 ld.global.nc.L1::no_allocate.L2::256B
 
@@ -1005,9 +1090,21 @@ __device__ __forceinline__ float sqrt_fast(float x) {
 
 > Developer directly works in IR, avoid tech stacks between General Framework and LLVM!
 
+> So these DSL/Framework tends to focus ML primitives, not from hardware or developer. 
+
 ### Tinygrad
 > Note: tinygrad is specialized alternative LLVM stacks. More pytorch competivitor than inference alternative.
 - UOp (micro-operation) IR
+
+Tensor API
+      ↓
+UOp graph
+      ↓
+scheduler / optimizer
+      ↓
+kernel codegen
+      ↓
+hardware
 
 ### candle
 
@@ -1129,3 +1226,5 @@ llama_memory_seq_cp(
 
 ## Mojo
 > Python like syntax, but also support memory layout definetion, ownership, Compile-time params.
+>
+> This is more developer focus framework.

@@ -219,7 +219,7 @@ GPUDirect Storage (GDS) support 27 GBps
 
 > Note: Tensor Core CAN'T tokenization, softmax scaling, KV cache indexing, and sampling, which still operate on floating point in CUDA Core;
 
-> >  SM120 consumer fake blackwell, often SM100 kernel won't support.
+> >  SM120 consumer fake blackwell, often SM100 kernel won't support, SM120 LSU has more bandwidth than SM100.
 CUDA: New Features and Beyond by Stephen Jones. Every year talk about CUDA direction.
 
 
@@ -260,8 +260,6 @@ high-performance kernels
 > > **tcgen05** & **TMEN/UMMA** ~ SM100 instructions.
 >
 > CUDA_ARCH 9.0 = SM90
->
-> NVVM is Nvidia's extension of LLVM.
 
 | GPU Primitives | Job | Ampere SM80 | Hopper SM90 | Blackwell SM100 |
 |---|---|---|---|---|
@@ -283,6 +281,7 @@ high-performance kernels
   - TMEN: Blackwell Tensor Core's Share Memory; Costumer grade Blackwell missing!
   - Decompression Engine(DE): CopyEngine add DE support LZ4, Snappy, Deflate;
   - NVLink5
+  - 2-CTA MMA
 - Rubin:
   - newer Tensor Core
   - more Decompression Engine
@@ -308,6 +307,13 @@ nvcc -Xptxas=-v kernel.cu -o kernel
 
 # -O: optimized level
 nvcc -O3 kernel.cu
+
+# other flags
+--use_fast_math
+
+# CUDA flags
+-U__CUDA_NO_xxx
+
 
 # Often cmake define whole project @ CMakeLists.txt, wrapper around nvcc
 cmake -B build

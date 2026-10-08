@@ -43,6 +43,40 @@ List all mathematic tools relate to AI.
     - Σ (Singular Values) `how much each of these basis directions is stretched or scaled during the transformation. same shape x matrix`
   - whole row i represent node i, whole column j represent node j. matrix[i][j] element value represent node 1 connection to node j.
 
+
+```md
+                     K = 256
+A
+       K →
+     ┌────┬────┬────┬────┬────┬────┬────┬────┐
+M    │ A0 │ A1 │ A2 │ A3 │ A4 │ A5 │ A6 │ A7 │
+128  │    │    │    │    │    │    │    │    │
+     └────┴────┴────┴────┴────┴────┴────┴────┘
+       each A_k = 128 × 32
+
+
+B          N = 128
+       ┌──────────────┐
+       │      B0      │ 32
+       ├──────────────┤
+       │      B1      │ 32
+       ├──────────────┤
+ K     │      B2      │ 32
+256    ├──────────────┤
+       │      ...     │
+       ├──────────────┤
+       │      B7      │ 32
+       └──────────────┘
+
+       each B_k = 32 × 128
+
+Tile Scheduler ~ How to split M N K matrix
+Mainloop ~ K reduction ~ Σ A[m,k]B[k,n] ~ Aggregation Tile Loop `256 / 32 = 8`
+  Each Thread calculate tile: A[m,k]*B[k,n]
+Epilogue ~ post-processing
+  Activation Function or Scale
+```
+
 ### Jacobian Matrix
 Five functional properties of a global workspace:
 - Verbal report.

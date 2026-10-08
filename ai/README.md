@@ -73,18 +73,19 @@
 
 ## Tradeoff
 
-- Allocate Space & Energy between Information Locality vs Compute Locality
-  - Compute
-    - Complexity vs Performance
-    - Speed vs Accuracy
-    - Capacity utilization vs Sensitivity/robustness
-    - Exploration–Exploitation dilemma
-    - Stability-Plasticity Dilemma
-      - BP has strong constrain on network stability. dynamical isometry!
-      - Training ALWAYS max out LR while model on edge of stability!
-    - Plasticity vs Generalization
-      - Generalization rely on noise cancel out each other.
-  - Information Locality (minimize information movement)
-    - Impossible Triangle: capacity, throughput, latency
-    - Information Lifetime
-    - Temporal / Spatial locality: Temporal ~ Time; Spatial ~ Space;
+> Allocate Space & Energy between Information Locality vs Compute Locality
+
+- Compute
+  - Complexity vs Performance
+  - Speed vs Accuracy
+  - Capacity utilization vs Sensitivity/robustness
+  - Exploration–Exploitation dilemma
+  - Stability-Plasticity Dilemma
+    - BP has strong constrain on network stability. dynamical isometry!
+    - Training ALWAYS max out LR while model on edge of stability!
+  - Plasticity vs Generalization
+    - Generalization rely on noise cancel out each other.
+- Information Locality (minimize information movement)
+  - Impossible Triangle: capacity, throughput, latency
+  - Information Lifetime
+  - Temporal / Spatial locality: Temporal ~ Time; Spatial ~ Space;

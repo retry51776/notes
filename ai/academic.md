@@ -63,7 +63,7 @@ Stage:
 5. Optimization
     - Shampoo
     - K-FAC
-    - Muon - Take the gradient of a matrix, normalize it, orthogonalize it, then apply a clean step.
+    - Muon - Take the gradient of a matrix, normalize it, orthogonalize it, then apply a clean step. (avoid singular direction dominates)
       - eigenvalue = 1
       - Hessian = second-order derivative information
     - Adaptive Moment Estimation (ADAM)

@@ -60,6 +60,28 @@ Octal Small Form-factor Pluggable (OSFP)
   - CUDA VMM (Virtual Memory Management)
   - NVLink pointers: UVA + peer access
   - NVLink domain: group of GPUs within single fabric
+- Scope:
+  - Intra
+  - Server to Server
+  - Rack to Rack
+
+### NVLink
+> Hardware, need NCCL/NVSHMEM softwares to operate.
+
+- NVLink 1 @ P100 ~160 GB/s per GPU
+  - `cudaDeviceEnablePeerAccess()`
+  - communicate through NCCL
+- NVLink 3
+  - add NVSwitch support
+- NVLink 4 @ H100 ~900 GB/s per GPU
+  - Multicast PTX instructions `multimem`
+- NVLink 5 @ B200 1.8 TB/s per GPU
+  - `multimem.cp.async.bulk`
+  - `multimem.cp.reduce.async.bulk`
+  - `multimem.st.async`
+  - new datatypes / vector forms
+
+> **Multicast** one virtual GPU address that represents multiple physical memory locations.
 
 ### Communication Library
 > Developer control IO through Communication Libraries. NCCL is most popular, second is NVSHMEM.
@@ -72,7 +94,19 @@ Octal Small Form-factor Pluggable (OSFP)
 > > No built-in **flow control**. Simple Pub/Sub message system.
 
 #### NCCL
-> NCCL (NVIDIA Collective Communications Library) - specialize protocol for GPU, open source, focus collective communication operations, less control than NVSHMEM.
+> NCCL (NVIDIA Collective Communications Library) - specialize protocol for GPU, open source, focus collective communication operations, less control than NVSHMEM. Think CUTLASS -> CUDA -> GPU, NCCL -> ISA Primitives -> NVLink
+>
+> AMD uses RCCL.
+
+Transports:
+- PCIe
+- NVLink P2P
+- NVLink SHARP/NVLS mechanisms
+
+Kernel/ISA Primitives:
+- `multimem.load`
+- `multimem.st.async`
+- `multimem.cp.async.bulk`
 
 Collective Operations:
 - Broadcast
@@ -89,6 +123,7 @@ Communication Patterns:
 - Tree
 - Butterfly
 - Torus
+
 
 > NCCL 2.x device APIs now converge toward NVSHMEM.
 >

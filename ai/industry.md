@@ -334,6 +334,7 @@ Common Problems:
   - Dedicated Inference
   - Truss `simple deployments version`
   - Iterative SFT: Self-generated rollouts repaired via feedback loops.
+- CodeSignal test: online technical-assessment platform
 
 ## Terms
 - 1P models: "First-Party" models

@@ -1,13 +1,58 @@
 # Training
 
-## Quantized Training
+## Pretain
+
+### Data mixer
+> Decides training data.
+
+https://arxiv.org/html/2607.11052v1
+
+- Dataset Source
+- Data Parsing & Normalization
+- Dataset Filtering
+  - Deduplication
+  - quality scoring
+  - toxicity / safety filtering
+  - PII filtering
+  - Language filtering
+  - perplexity filtering
+- Domain Classification
+- train/test overlap detection
+  - train/test overlap detection
+- Mixture Policy
+  - difficult targeting
+  - Diversity balancing
+  - data synergy
+    - correlate domains:
+      - Math & Code
+      - Science & Code
+      - Web & Q&A
+    - interfering domains:
+      - Math vs book
+      - encyclopedia vs book
+      - web vs book
+      - legal vs code
+      - legal vs math
+- Sampler
+  - upsampling/downsampling
+  - sequence length distribution
+
+terms:
+- data synergy: data interactions
+  - domain-to-benchmark synergy
+  - domain-to-domain synergy
+
+
+
+### Quantized Training
 > Problem with quantization may causes gaps within continues representation space, we need make sure Optimizer able jump across those gaps.
 
 - Optimizer State quantized in HBM, dequant & accumulate @ training.
 - Gradient accumulation.
 - Stochastic Rounding: probability round replace deterministic round
+- loe-bit MMA
 
-## Supervise Finetune Training(SFT)
+### Supervise Finetune Training(SFT)
 
 > SFT can't scale, generate the whole distribution is too expensive. Also too hard to judge/score SFT solution.
 

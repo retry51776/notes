@@ -3,7 +3,7 @@
 
 ## Analogy
 
-> Logistics Manager(Inference Engineer) that orchestrate very large scale Postman & Cargos through rail network.
+> Travel Agency(Inference Engineer) that orchestrate very large scale Postman & Cargos through transit network.
 > > Don't focus on geography interpretation, rather focus on **traffic management aspect**.
 > 
 > > Postman only carry cargos within his section. Postman won't travel the whole network.
@@ -28,8 +28,6 @@ Artifacts:
 
 - Weights ~ Postman
 - Data ~ Cargos & Postman
-- Different LLM ~ Different Worlds.
-- Inference Job ~ Exploring World.
 
 - Model File ~ All Postman & Hierarchy
   - Model Block ~ Stopover Group
@@ -45,19 +43,13 @@ Artifacts:
       - `<EOS>` ~ THE final city when postman exhausted
   - KV cache ~ Past Cargos
 
-
-- GPU command buffer ~ Train Manifest
-  - **Input & output matrix** ~ Postman & Cargo
-  - **GPU kernels** ~ Trip Sheet, which directions
-  - Pipeline state ~ Train state
-
-Operations:
+Inference Operations:
 - Inference Framework ~ Orchestrate Overall Traffic
   - Inference Engine ~ Orchestrate Station(s) Traffic
-    - Load Model ~ Postman clock in to work
+    - Load Model ~ passengers ready get in station
     - Tokenizer ~ Translation between City Name and Train Station Code
-    - Prefill
-    - Decode
+    - Prefill ~ Postman collect all cargos from Pickup Route
+    - Decode ~ Postman deliver route
   - KV cache orchestration ~ cargos management
 
 > Prefill ~ sent MANY postman to ship & receive cargos to many cities at once
@@ -68,16 +60,35 @@ Operations:
 > Decode ~ sent one postman & past cargoes to DISCOVERY MISSION to find new CITY, until postman exhausted.
 > > can't parallel, because we don't know next city
 
+Software:
+- Developer ~ Travel Agency orchestrate transit.
+- **GPU Kernel** ~ **Guide instruction**(station specific) for passengers navigate.
+
+> Problem is each station(diff gen GPU) will have different railcar sizes, station capacity, terminal capacity, Moving walkway. That need different instruction(kernel). Not consider different traffic!!!
+
+- Grid ~ all passengers that need transit network
+  - CTA ~ passenger group, Travel Agency will divide passengers into groups
+    - Wrap ~ smallest transit group, Travel Agency's smallest control unit.
+      - 32 Threads SIMD ~ 32 passengers of same transit group ALWAYS goes same destination.
+
 Hardwares:
-- **GPU Node ~ Train Station**
-  - CPU ~ Train Station Manager
+- Node
+  - CPU ~ Manager
     - Manage between HBM and storage ~ transfer cargo between station and warehouse
-  - **GPU ~ Train Terminal**, 8 terminals per Station
-    - FLOPS ~ Train Engine's HP
-    - support kernels ~ Different Train Terminals supports different train size, train width....
-    - SRAM ~ Train's cargo capacity
-    - HBM ~ Terminal's cargo capacity
+  - **GPU** ~ **Train Station**
+    - **GPU CTA Scheduler** ~ station's wayfinding staff **automatic** assign passenger groups to terminal.
+    - **SM** ~ **Terminal**
+      - Wrap Scheduler ~ Terminal Dispatcher dispatch Train/Bus ASAP.
+        - wrap mask ~ block some passengers aboard
+      - Tensor Core ~ Railcar, fast, but fixed.
+        - FLOPS ~ Train Engine's HP
+      - ALU ~ General Bus, flexible, but slower.
+      - SFU ~ Handicap Bus, specific use case.
+    - TMA ~ Moving walkway speedup passenger and cargo get to Terminal.
   - **IO ~ Traffic**
+    - Register & L1 cache ~ Railcard's capacity
+    - Share Memory ~ Terminal's capacity
+    - HBM ~ Station's cargo capacity
   - Storage
     - DDR ~ station's parking lot `near station, but rain can destroy cargos`
     - SSD ~ warehouse near station
@@ -85,15 +96,18 @@ Hardwares:
   - PD disaggregated ~ Transfer Hub Design
   - IB switch ~ rail between stations or directly between terminals across stations
 
-> Solving city traffic is HARD, because different vehicle has different capacity, speed, latency.
+> Solving traffic is HARD, because different transit has different capacity, speed, latency.
 
-> The key is more async processes to utilize most IOs, avoid redundant traffic.
-> > **Latency Hiding** ~ Train head detach railcar, let railcar uploading on side, and attach another loaded railcar and take off.
+> The key is more async processes to utilize most IOs & compute units, avoid redundant traffic and waiting.
+> > **Latency Hiding** ~ Train head detach railcar, let railcar onboard on side, and attach another onboarded railcar and take off.
 >
-> > Smart system will always have shuttle bus run between airport & warehouse. Not wait til cargo arrived.
+> > **GPU CTA Scheduler** ~ Station **automatic** assign passenger groups to terminal.
 > 
-> Why not increase train capacity? Longer cargos loading time.
-> > **Onboard time** often **longer** than train **traverse time**.
+> > Wrap specialization ~ Reduce train|bus idle (caused Onboard time) by use both train(for passenger) and bus(for cargo) for same passenger group, at cost of complex instruction manage Postman & Cargo.
+> > Think about people boarding airplane, stuck in ale handle carryon. If carryon was handle like check-in bags, passenger will onboard faster, more utilization of airplane.
+> 
+> Why not increase train capacity? Longer onboard time.
+> > **Onboard time** often **longer** than **transit time**.
 >
 > > Just like **shipping container** changes shipping! block/page/batch transfer has huge effect on IO.
 
@@ -337,10 +351,30 @@ Spherical coordinates: Circle; nonlinear, coupled gradient;
 ## Kernels
 
 > Dispatch single **CUDA Graph** is faster than individual kernels(Eager execution).
-> inference engines often uses both pre-compiled & JIT compile kernels.
-> > Matrix-size-dependent kernel selection happens at runtime dispatch.
+> Inference engines often uses both pre-compiled & JIT compile kernels.
+> > Matrix-size-dependent kernel selection happens at runtime dispatch, dispatch logic can exist within `.so` or inference engine code.
 
-https://kernelbench.com/
+- JIT compile ~ Jinja templates.
+- AOT compiled 
+  - compile machinery: more advance routing & analysis logics to build kernels
+    - nvcc
+    - NVVM/LLVM
+      - `*.so` CPU/Host artifacts contain DISPATCH LOGIC
+      - `*.cubin` / `*.fatbin` GPU kernel artifacts
+  - runtime machinery
+    - Inference Engine's Backend Selection
+    - Kernel Routing
+    - Kernel Launch:
+      - CUDA Driver
+      - driver JIT compiler -> SASS
+      - GPU
+
+
+- [B, T, H, D]
+  - B ~ Batch
+  - T ~ Time Steps | Sequence Length
+  - H ~ Attention Heads
+  - D ~ Head Dimension
 
 Optimizations:
 - Persistent Kernels
@@ -359,6 +393,71 @@ Optimizations:
 - Threadgroup walk order - increase cache hit rate(because x,y index increase slowly)
 - Decode Context Parallelism (Flash-Decoding) - like prefill chunk, but split token's KV cache attention head when decode; `--decode-context-parallel-size 4`
 
+### Attention Kernel
+> Attention Kernel is Important than other kernels. Many inference engine components interface with Attention:
+- Batch Scheduler
+- KV Manager: feed as input, append its output
+- Attention Metadata Builder
+  - **share prefix metadata**: no standard across kernels, inference engine needs adaptor per kernel
+  - causal masks
+- Attention Layer Runtime
+  - Weight
+  - Attention Backend Dispatcher
+    - Attention kernel:
+      - FlashAttention: default vllm
+      - FlashInfer: uses BSR for PageTable, RadixTree, and SparseMask, more heavy load & complexity.
+    - contraction kernel: Split-K attention, merging these partial outputs together
+- Memory Manager
+- Distributed Runtime
+
+> Attention vs FFN: Attention starting cost is lower, but attention scaling is faster(per trajectory & token vs per model)!
+Optimizations:
+- Block-sparse matrix: storage/compression formats + specialized kernels
+  - **Block Sparse Row**(BSR): `matrix.to_sparse_bsr()`
+  - Column vector sparse(CVS): often useful load KV cache, because share prefix ~ load same columns.
+  - NVIDIA’s 2:4 structured sparsity
+- KV block reuses
+  - Outside kernel recognize page/block sharing
+  - When launch kernel, tell kernel share block meta
+  - Kernel follow meta to run MMA
+- FlexAttention: kernel-generation api for custom masks, sliding windows, or unique score modifications.
+
+Attention Backends:
+- FlashAttention
+  - FA1:
+    - A100 40GB
+    - tile(Q, K, V)
+    - online softmax
+  - FA2: A100 100GB
+    - swapping to: outer loop(K_tile, result final C), inner loop(Q_tile)
+  - FA3: H100 SXM
+    - uses TMA & WMMA
+    - wrap specialization
+  - FA4: B200 kernel
+    - 5 wraps specialization:
+      - TMA wrap
+      - QKV wrap
+      - softmax wrap
+      - correction wrap(rescale encounter new max)
+      - store wrap
+    - Better Online Softmax
+      - only rescale when new_max is above rescale_threshold
+      - use ALU replace SFU on softmax's exponential
+- FlashInfer
+- DeepEP
+  - uses wrap specialization to communicate across GPUs.
+- ThunderKittens(TK)
+  - uses B200 cooperative thread arrays
+- CuDNN Attention
+  - Open Source Software(OSS) kernels
+  - NVIDIA closed source kernels
+
+Softmax:
+Softmax's numerator(exponent get large) is numerically unstable(number overflow).
+Safe softmax: max subtraction before exponentiation, keep exponentiated values are close to or less than zero.
+Online softmax: current_max Subtraction, rescale when encounter new_max.
+
+softmax wrap maybe the highest clock time from attention kernel wraps.
 
 ## Distribution
 > Divide(Disaggregation) and Conquer(Parallelism)!
@@ -549,6 +648,9 @@ Kimi's LMCache, large scale distributed network.
 JSONL traces will define workload's size, but not same content.
 
 
+## Overfit Inference Engines
+> The nose knows!
+
 ## Llama.cpp
 - Thread Allocation
 - Mlock: memory residency avoid OS evict
@@ -574,8 +676,9 @@ JSONL traces will define workload's size, but not same content.
   - chunk size/splitting
   - request priority & preemption
   - Worker per GPU
+  - Block Manager
 - [ModelRunner](#inference-engine-workflow)
-  - Attention backend
+  - [Attention backend](https://github.com/vllm-project/vllm/blob/main/vllm/model_executor/layers/attention/attention.py)
   - Sample/Decode/Draft
 - [KVCacheManager](#kv-cache)
   - KV Connector
@@ -626,6 +729,11 @@ Fork Vllm:
 > Scheduler step/batch is like train job: train capacity ~ batch token budget; 
 
 - mixed prefill-decode batching
+
+Workload:
+- Constant Distribution
+- Uniform Distribution
+- Zipf Distribution: "skewed" distribution
 
 ## Dynamo
 > Multi Nodes, at least multiple DGX or NVL72.

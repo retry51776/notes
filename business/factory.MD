@@ -20,6 +20,11 @@ Street words
 
 - Golden Sample `Sample is better than actual delivery`
 
+## Government Effect
+- Production Linked Incentive(PLI)
+- Approved List of Models and Manufacturers(ALMM)
+- **Demand Side Management** & Supply Chain; Demand Management often overlooked.
+
 ## ERP Modules
 
 - HR
