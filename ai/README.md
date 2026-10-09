@@ -15,19 +15,19 @@
 
 3. [Inference Engine](./inference.md#inference-engine)
    llama.cpp / vLLM engine / TensorRT-LLM / ONNX Runtime
-   └── model execution / kernel conversation
-   └── KV cache
-   └── batching
-   └── decode
-   └── quantization
+   ├── model execution / kernel conversation
+   ├── KV cache
+   ├── batching
+   ├── decode
+   ├── quantization
    └── memory management
 
 4. [Compute & Communication Runtime](./hardware.md#runtime)
-   CUDA / ROCm / Metal
-   NCCL / RCCL
+   ├── CUDA / ROCm / Metal
+   └── NCCL / RCCL
 
 5. [Compute Hardware](./hardware.md)
-   CPU / GPU / Networking / Storage
+   └── CPU / GPU / Networking / Storage
 ```
 
 ## Folder Structure

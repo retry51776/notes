@@ -44,6 +44,12 @@ terms:
 
 
 
+### Backprops Kernels
+- atomic additions for gradient accumulation
+- Semaphores
+- Shortest Processing Time (SPT) scheduler
+
+
 ### Quantized Training
 > Problem with quantization may causes gaps within continues representation space, we need make sure Optimizer able jump across those gaps.
 
@@ -51,6 +57,7 @@ terms:
 - Gradient accumulation.
 - Stochastic Rounding: probability round replace deterministic round
 - loe-bit MMA
+
 
 ### Supervise Finetune Training(SFT)
 

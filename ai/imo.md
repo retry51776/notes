@@ -35,6 +35,7 @@ Most likely automate by AI industries traits:
 
 ## Frustrations
 
+- floating-point addition is not associative, caused non-deterministic.
 - GPU different kernel paths will cause different accumulation, result diff. Bad for compression.
 - CUDA code won't error out, most are byte ops that mess up without error.
   - require `reinterpret_cast`, dumb c++ boilerplate

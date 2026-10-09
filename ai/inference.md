@@ -1,14 +1,15 @@
 # Inference
-> Mostly focus on Inference Engine & Framework. Here assume you well aware academic.md & hardware.md.
+> Mostly focus on Inference Engine & Framework.
 
 ## Analogy
 
-> Travel Agency(Inference Engineer) that orchestrate very large scale Postman & Cargos through transit network.
+> Deliver Agency(Inference Engineer) that orchestrate large scale passengers(Weight & KV cache) through transit network(GPUs).
 > > Don't focus on geography interpretation, rather focus on **traffic management aspect**.
 > 
-> > Postman only carry cargos within his section. Postman won't travel the whole network.
+> > Postman only carry cargos within his section. Postman won't transit the whole network.
 >
-> This network composite of Cities, and stopover between cities.
+> Assume Pipeline Parallel deployment, where single GPU handle single LLM layer.
+> > This network composite of Cities, and stopover between cities.
 >
 > Postman follow pickup route(prompt) to pickup & delivery cargos, until postman exhausted.
 > > Pickup route(prompt) order MATTERS: Dallas → London → Paris → HongKong[10,945 miles] != Dallas → Paris → Hong Kong → London[16,910 miles]
@@ -24,10 +25,11 @@
 > > Ex: Currently have "Cold" as past cargo, now postman more likely goes to London than Texas.
 
 
-Artifacts:
+Inference Interpretation:
 
-- Weights ~ Postman
-- Data ~ Cargos & Postman
+- Data ~ Passengers (Cargos & Postman) that need transit
+  - LLM Weights ~ Postman
+  - Quantized format ~ Passenger's body mass. Passengers have variances body mass.
 
 - Model File ~ All Postman & Hierarchy
   - Model Block ~ Stopover Group
@@ -40,8 +42,10 @@ Artifacts:
 - All Tokens ~ Whole Route
   - Prompt Tokens(Input) ~ Pickup Route
     - Token ~ Train Station Code
-      - `<EOS>` ~ THE final city when postman exhausted
-  - KV cache ~ Past Cargos
+      - `<bos>` ~ THE starting city
+      - `<eos>` ~ THE final city when postman exhausted
+  - KV cache ~ Route's Cargos
+  - Decode ~ Deliver Route
 
 Inference Operations:
 - Inference Framework ~ Orchestrate Overall Traffic
@@ -61,44 +65,69 @@ Inference Operations:
 > > can't parallel, because we don't know next city
 
 Software:
-- Developer ~ Travel Agency orchestrate transit.
+- Developer ~ Deliver Agency orchestrate transit.
 - **GPU Kernel** ~ **Guide instruction**(station specific) for passengers navigate.
+  - Quantize - Use bus send passenger to gym to reduce body mass, to improve passenger mobility.
+    - Often only done before exit station, or can done outside station.
+  - Dequantize - Use bus send passenger to restaurant increase body mass, to improve passenger's carry capacity.
+    - MOSTLY done within terminal.
 
-> Problem is each station(diff gen GPU) will have different railcar sizes, station capacity, terminal capacity, Moving walkway. That need different instruction(kernel). Not consider different traffic!!!
+  - Intermediate tensor ~ cargos sometime need to Quantize/Dequantize between transits inside terminal.
+  - SASS Instruction ~ Actual railcar|bus required specific passengers' body mass.
 
+> Heavier passenger has more carry capacity, yet slower mobility.
+> > Assume there is magical GYM(reduce weight) or Restaurant(gain weight) that adjust passenger's body mass.
+>
+> > Newer GPU has **smaller & faster** railcar|bus support. The idea is move passenger faster in & out terminal.
+
+> Problem is each station(diff gen GPU) will have different **railcar capacity**, **terminal capacity**, station capacity, Moving walkway. Optimal traffic need different instructions(kernel), different traffic demand also need correspond instructions!!!
+
+- MMA
+  - A: input matrix_A(M by N)
+  - B: input matrix_B(N by K)
+  - C: output matrix_C(M by K)
 - Grid ~ all passengers that need transit network
-  - CTA ~ passenger group, Travel Agency will divide passengers into groups
-    - Wrap ~ smallest transit group, Travel Agency's smallest control unit.
-      - 32 Threads SIMD ~ 32 passengers of same transit group ALWAYS goes same destination.
+  - CTA ~ passenger group, Deliver Agency will divide passengers into groups
+    - `grimDim` ~ number passenger groups
+    - `blockDim` ~ how many passengers per passenger groups
+
+> ALL 32 threads within wrap execute SINGLE instruction on tile_A(dequant), then invoke mma.m16n8k16(tile_a, tile_b, result_c).
 
 Hardwares:
 - Node
-  - CPU ~ Manager
+  - CPU ~ Station Manager
     - Manage between HBM and storage ~ transfer cargo between station and warehouse
   - **GPU** ~ **Train Station**
     - **GPU CTA Scheduler** ~ station's wayfinding staff **automatic** assign passenger groups to terminal.
     - **SM** ~ **Terminal**
       - Wrap Scheduler ~ Terminal Dispatcher dispatch Train/Bus ASAP.
         - wrap mask ~ block some passengers aboard
+        - Wrap ~ smallest transit(railcar|bus) unit, Travel Agency's smallest control unit.
+          - 32 Threads SIMD ~ 32 passengers of same transit group ALWAYS goes same destination.
       - Tensor Core ~ Railcar, fast, but fixed.
         - FLOPS ~ Train Engine's HP
       - ALU ~ General Bus, flexible, but slower.
       - SFU ~ Handicap Bus, specific use case.
     - TMA ~ Moving walkway speedup passenger and cargo get to Terminal.
   - **IO ~ Traffic**
-    - Register & L1 cache ~ Railcard's capacity
+    - Register & L1 cache ~ Railcar's capacity
     - Share Memory ~ Terminal's capacity
     - HBM ~ Station's cargo capacity
   - Storage
     - DDR ~ station's parking lot `near station, but rain can destroy cargos`
     - SSD ~ warehouse near station
+  - Transfer Modes
+    - Local: Within Terminal
+    - Node: Within Station
+    - P2P: Directly to Terminal
+    - Remote: to warehouse
 - Multi Nodes ~ Train Network
   - PD disaggregated ~ Transfer Hub Design
-  - IB switch ~ rail between stations or directly between terminals across stations
+  - IB switch ~ highway between stations or directly between terminals across stations
 
-> Solving traffic is HARD, because different transit has different capacity, speed, latency.
 
-> The key is more async processes to utilize most IOs & compute units, avoid redundant traffic and waiting.
+
+> The key is more async processes to utilize most IOs & compute units, avoid redundant terminal traffic and waiting.
 > > **Latency Hiding** ~ Train head detach railcar, let railcar onboard on side, and attach another onboarded railcar and take off.
 >
 > > **GPU CTA Scheduler** ~ Station **automatic** assign passenger groups to terminal.
@@ -107,26 +136,10 @@ Hardwares:
 > > Think about people boarding airplane, stuck in ale handle carryon. If carryon was handle like check-in bags, passenger will onboard faster, more utilization of airplane.
 > 
 > Why not increase train capacity? Longer onboard time.
-> > **Onboard time** often **longer** than **transit time**.
+> > **Onboard time** often **longer** than **transit time**. In fact newer hardware goes opposite direction, smaller & faster railcar.
 >
 > > Just like **shipping container** changes shipping! block/page/batch transfer has huge effect on IO.
 
-> Quantization & Dequante ~ remove cargo packaging, compress into smaller form.
-> > Quantization & Dequante should only happen inside kernel. Analogy break, but important note: don't decompress cargos in Station, only decompress small % cargos inside Train on demand.
-
-IO:
-- Transfer Modes
-  - Local: Within Terminal
-  - Node: Within Station
-  - P2P: Directly to Terminal
-  - Remote: to warehouse
-- Transfer Hardwares
-  - Spectrum ~ Fiber Hardware
-  - IB ~ Access directly to Terminal without security check
-  - NVLink
-  - Infinity Fabric
-  - CXL
-- Memory Allocator
 
 > two_tokens_casual_paths = (num_token_in_between + num_blocks) / num_blocks * (routes_per_block ^ num_blocks)
 
@@ -220,21 +233,21 @@ Settings:
 > There are many other tasks, get bundle w inference engine as single framework.
 
 Common capabilities:
-└── engine integration
-└── TP / PP / EP
-└── multi-GPU/node coordination
-└── request scheduling/routing
-    └── refuse request when busy
-└── model pull/load
-└── API serving
-└── Disaggregation
-└── Software-Defined Networking (SDN)
-└── Attention–FFN Disaggregation (AFD)
-└── monitoring
-└── Semantic Router
-    └── Named Entity Recognition (GLiNER)
-    └── Redaction (presidio) & Recover
-    └── Guardrail
+- engine integration
+- TP / PP / EP
+- multi-GPU/node coordination
+- request scheduling/routing
+  - refuse request when busy
+- model pull/load
+- API serving
+- Disaggregation
+- Software-Defined Networking (SDN)
+- Attention–FFN Disaggregation (AFD)
+- monitoring
+- Semantic Router
+    - Named Entity Recognition (GLiNER)
+    - Redaction (presidio) & Recover
+    - Guardrail
 
 - **Dynamo** - 2+ nodes will 2X throughput tps
   - cli run
@@ -422,7 +435,7 @@ Optimizations:
   - Kernel follow meta to run MMA
 - FlexAttention: kernel-generation api for custom masks, sliding windows, or unique score modifications.
 
-Attention Backends:
+Attention Backends: ~5% diff
 - FlashAttention
   - FA1:
     - A100 40GB
@@ -448,16 +461,21 @@ Attention Backends:
   - uses wrap specialization to communicate across GPUs.
 - ThunderKittens(TK)
   - uses B200 cooperative thread arrays
-- CuDNN Attention
-  - Open Source Software(OSS) kernels
-  - NVIDIA closed source kernels
+- CuDNN Attention (Pytorch default)
+  - `nvidia-cudnn-frontend`: Open Source Software(OSS)
+    - 2 Q tiles, 1 KV stream
+  - `nvidia-cudnn-cu13`: NVIDIA closed source kernels
 
 Softmax:
+Softmax wrap maybe the highest clock time from attention kernel wraps.
+  Exponential: relative differences in logits become ratios.
+  Linear attention will bypass Softmax problems: numerically unstable, `exp` slow, sum reduction.
+  Sigmoid attention will bypass sum reduction.
+
 Softmax's numerator(exponent get large) is numerically unstable(number overflow).
 Safe softmax: max subtraction before exponentiation, keep exponentiated values are close to or less than zero.
 Online softmax: current_max Subtraction, rescale when encounter new_max.
 
-softmax wrap maybe the highest clock time from attention kernel wraps.
 
 ## Distribution
 > Divide(Disaggregation) and Conquer(Parallelism)!

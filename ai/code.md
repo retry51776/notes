@@ -1225,6 +1225,7 @@ llama_memory_seq_cp(
 ```
 
 ## Mojo
-> Python like syntax, but also support memory layout definetion, ownership, Compile-time params.
+> CuteDSL like syntax, but with hardwares portability(AMD), and use CPU (AVX/AMX/SIMD kernel).
+> > Features: memory layout definetion, ownership, Compile-time params.
 >
-> This is more developer focus framework.
+> CPU runtime + scheduler + CPU SIMD + GPU kernels + hardware specialization can all live in one compiled language.
