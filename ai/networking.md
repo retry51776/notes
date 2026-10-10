@@ -109,13 +109,19 @@ Kernel/ISA Primitives:
 - `multimem.cp.async.bulk`
 
 Collective Operations:
-- Broadcast
-- Scatter - each rank gets subset of data
-- Gather - collect all ranks into single rank
-- Reduce
-- All-gather - every rank broadcast & gather;
-- Reduce-scatter - every rank get op(sub_set)
-- All-reduce = reduce-scatter + all-gather
+- Synchronization
+- Data movement
+  - Broadcast
+  - Scatter: each rank gets subset of data
+  - Gather: collect all ranks into single rank
+  - All-gather: every rank broadcast & gather;
+- Reduction
+  - Reduce
+  - Reduce-scatter: every rank get op(sub_set)
+  - All-reduce: reduce-scatter + all-gather
+- Ordered collective: cumulative transforms
+  - Scan (Prefix Sum)
+  - Exclusive Scan
 
 Communication Patterns:
 - Ring

@@ -52,6 +52,7 @@ Most likely automate by AI industries traits:
 - Measure LLM is very hard, and expensive.
 - Inference engine's random behavior, but not through error out.
   - vllm worker just crash & won't recover!
+    - grid-wide sync → DEADLOCK
 - GPU driver is singleton, but multiple versions CUDA driver can coexist(w different Python env or runtime).
   - some GPU don't support PCIe P2P! Ex: RTX 4090
 

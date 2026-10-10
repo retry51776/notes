@@ -1,6 +1,36 @@
 # Training
 
-## Pretain
+## Workflow Checkpoints
+- Pretrain
+  - Base Model Checkpoint
+  - Intermediate Checkpoint
+  - Domain-adaptive checkpoint
+- Midtrain
+  - STF checkpoint
+  - Instruction-tuned checkpoint
+  - Domain-specific SFT checkpoint
+  - Alignment
+    - Direct Preference Optimization(DPO) checkpoint
+    - Identity Preference Optimization(IPO) checkpoint
+    - KTO checkpoint: remember good vs bad
+    - Odds Ratio Preference Optimization(ORPO) checkpoint
+- Posttrain
+  - Domain RL
+    - Math RL
+    - Coding RL
+    - Agent RL
+  - Distillation
+  - Multi-Teacher On-Policy Distillation(MOPD) Checkpoint
+- Model Combination
+  - Model-merged checkpoint
+    - Weight averaging
+    - Model soup: strategic weight averaging
+    - Spherical Linear Interpolation(SLERP): similar MEUON optimizer
+    - Trim, Elect Sign, and Merge(TIES) / Drop And REscale(DARE)
+  - Expert-combined / MoE checkpoint
+- Deployment Variants
+
+## Pretrain
 
 ### Data mixer
 > Decides training data.

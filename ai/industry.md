@@ -316,6 +316,7 @@ Decide: enough info?
 - OpenAI: Preparedness Framework
 
 - Mesa-optimizers
+- Activation Monitor
 
 - H-Neurons drive the AI to be overly compliant and eager to please the user.
 

@@ -3,8 +3,9 @@
 
 ## Analogy
 
-> Deliver Agency(Inference Engineer) that orchestrate large scale passengers(Weight & KV cache) through transit network(GPUs).
-> > Don't focus on geography interpretation, rather focus on **traffic management aspect**.
+LLM Interpretation:
+> Deliver Agency(Inference Engineer) that orchestrate large scale traffic(Weight & KV cache) through transit network(GPUs).
+> > Don't focus on geography interpretation, rather focus on **traffic management aspect**, goal is cargos' interactions.
 > 
 > > Postman only carry cargos within his section. Postman won't transit the whole network.
 >
@@ -23,13 +24,12 @@
 > 
 > New joinery's stopover needs past cargos.
 > > Ex: Currently have "Cold" as past cargo, now postman more likely goes to London than Texas.
+> 
+> two_tokens_casual_paths = (num_token_in_between + num_blocks) / num_blocks * (routes_per_block ^ num_blocks)
 
-
-Inference Interpretation:
-
-- Data ~ Passengers (Cargos & Postman) that need transit
+- Data ~ Cargos & Postman that need transit
   - LLM Weights ~ Postman
-  - Quantized format ~ Passenger's body mass. Passengers have variances body mass.
+  - Quantized format ~ Postman's body mass. Postman have variances body mass.
 
 - Model File ~ All Postman & Hierarchy
   - Model Block ~ Stopover Group
@@ -48,14 +48,6 @@ Inference Interpretation:
   - Decode ~ Deliver Route
 
 Inference Operations:
-- Inference Framework ~ Orchestrate Overall Traffic
-  - Inference Engine ~ Orchestrate Station(s) Traffic
-    - Load Model ~ passengers ready get in station
-    - Tokenizer ~ Translation between City Name and Train Station Code
-    - Prefill ~ Postman collect all cargos from Pickup Route
-    - Decode ~ Postman deliver route
-  - KV cache orchestration ~ cargos management
-
 > Prefill ~ sent MANY postman to ship & receive cargos to many cities at once
 > > --chunk-size ~ how MANY postman sent to Station at once
 > 
@@ -64,58 +56,122 @@ Inference Operations:
 > Decode ~ sent one postman & past cargoes to DISCOVERY MISSION to find new CITY, until postman exhausted.
 > > can't parallel, because we don't know next city
 
-Software:
+- Inference Framework ~ Orchestrate Transit Network, include Stations Coordination, Cargo Warehouse Management, Transfer Hub Coordination(PDD), priority management.
+  - Inference Engine ~ Manage single Station
+    - Load Model ~ Postman wake up, does morning routine, then arrive to station.
+    - Tokenizer ~ Translation between City Name and Train Station Code
+    - Prefill ~ Postman collect all cargos from Pickup Route
+    - Decode ~ Postman deliver route
+      - Sampler ~ Postman pick next City
+  - KV cache manager ~ cargos management: on/off load cargos from station; index cargos.
+  - Prefix Aware router ~ route Postman to last station that hold their cargos.
+
+
+GPU Programming:
+> I need to use Postman analogy earlier because cargo can't move by itself. In reality LLM weight can't move by itself, LLM weight need GPU thread to manage.
+> 
+> For simplicity, assume 1 thread work on 1 element.
+
+> Problem is each station(diff gen GPU) will have different **railcar capacity**, **terminal capacity**, station capacity, cargo buggy. Optimal traffic need different instructions(kernel), different traffic demand also need correspond instructions!!!
+
+Developer & Instruction & Execution Unit:
 - Developer ~ Deliver Agency orchestrate transit.
-- **GPU Kernel** ~ **Guide instruction**(station specific) for passengers navigate.
-  - Quantize - Use bus send passenger to gym to reduce body mass, to improve passenger mobility.
-    - Often only done before exit station, or can done outside station.
-  - Dequantize - Use bus send passenger to restaurant increase body mass, to improve passenger's carry capacity.
-    - MOSTLY done within terminal.
+  - 1. Deliver Agency divide cargo handlers into handler apartments.
+  - 2. Station assign handler apartment(CTA) to Terminal(SM).
+  - 3. for each handler apartment's teams:
+    - Ready handler team execute instruction at Terminal
+      - **handle tile fragment**(A*B) = tile(C).
+    - Store final cargo at Station's lobby
+- **GPU Kernel** ~ **Guide instruction**(station specific) for Cargo handlers.
+  - Intermediate tensor ~ sometime adjust cargo container(Quantize/Dequantize) before next transit.
+  - SASS Instruction ~ Actual railcar|bus required specific cargo's size.
+- GPU thread ~ Cargo handler
 
-  - Intermediate tensor ~ cargos sometime need to Quantize/Dequantize between transits inside terminal.
-  - SASS Instruction ~ Actual railcar|bus required specific passengers' body mass.
 
-> Heavier passenger has more carry capacity, yet slower mobility.
-> > Assume there is magical GYM(reduce weight) or Restaurant(gain weight) that adjust passenger's body mass.
->
-> > Newer GPU has **smaller & faster** railcar|bus support. The idea is move passenger faster in & out terminal.
+> There's container store allow swap cargo container(quant & dequant), Cargo handler can bring their cargo, ride bus to container store to adjust cargo container size.
+> > Newer GPU has **smaller & faster** railcar|bus support. The idea is move cargo faster in & out terminal.
 
-> Problem is each station(diff gen GPU) will have different **railcar capacity**, **terminal capacity**, station capacity, Moving walkway. Optimal traffic need different instructions(kernel), different traffic demand also need correspond instructions!!!
+Workload:
+- LLM weight ~ Cargo (weight, KV, activation)
+  - Quantization ~ Cargo container Size
+    - FP16 ~ Big container, slow
+    - MXFP4 ~ Small container, fast
+  - Quant & Dequant ~ Container Store swap container
+    - Quant: Often only done before exit station, or can done outside station.
+    - Dequant: MOSTLY done within terminal.
+  - Weight Matrix ~ cargos
+    - A: input matrix_A(M by N)
+    - B: input matrix_B(N by K)
+    - C: output matrix_C(M by K)
+    - Tile Fragment: cargo collectively handled by a team of 32 Cargo handler (one warp)
 
-- MMA
-  - A: input matrix_A(M by N)
-  - B: input matrix_B(N by K)
-  - C: output matrix_C(M by K)
-- Grid ~ all passengers that need transit network
-  - CTA ~ passenger group, Deliver Agency will divide passengers into groups
-    - `grimDim` ~ number passenger groups
-    - `blockDim` ~ how many passengers per passenger groups
+Workload Division Scopes:
+- Grid ~ all cargo handler that need transit network
+  - **CTA** ~ Cargo handler apartment;
+    - Wrap(32 threads) ~ smallest handler team(32 handlers)
+      - **Thread** ~ cargo handler
+    - `gridDim` ~ number cargo handler departments
+      - convention `gridDim.x` = ceil(N / TILE_N)
+      - convention `gridDim.y` = ceil(M / TILE_M)
+    - `blockDim` ~ how many handlers(thread) per each handler department
+      - convention: `blockDim.x` handlers × work per handler ≈ Tile Fragment N
+
+> single thread handle 1 element; Ex: quant & dequant, activation function.
+> thread coarsening: thread handle multiple elements; Ex: Softmax, Reduction Ops, MMA
+> > More instructions, more terminal & railcar capacity, but less handler department.
 
 > ALL 32 threads within wrap execute SINGLE instruction on tile_A(dequant), then invoke mma.m16n8k16(tile_a, tile_b, result_c).
+> > Confusion cause by kernel code written in thread level, but execute in wrap level(32 threads). Analogy is Guide Instruction written for individual handler, but a team 32 handlers shares same Guide Instruction to navigate. (because instruction just like cargo, costly to move around)
 
-Hardwares:
+Sync scopes:
+- Sync Execution: Did thread's instruction pointer hit/arrived? ~ handler current location.
+  - Grid `grid.sync()` ~ wait all handlers finished transit
+    - CTA Cluster `cluster.sync()` ~ wait handler apartments
+      - **CTA `__syncthreads`** ~ wait handler apartment; happen the most.
+        - wrap groups ~ rare; manual use `mbarrier`;
+          - wrap `__syncwarp()`: for wrap divergence ~ wait for handlers that not board railcar within team;
+- Sync IO: Did data arrived? ~ handler's cargo
+  - **TMA `mbarrier.wait()`** ~ wait handlers' cargo arrived to terminal.
+  - Thread `cp.async.wait_group()` ~ wait handlers' cargo arrived
+
+GPU Hardwares:
+
+> The key is more async processes to utilize most IOs & compute units, avoid redundant terminal traffic and waiting.
+> > **Latency Hiding** ~ Train head detach railcar, let railcar onboard on side, and attach another onboarded railcar and take off.
+>
+> > **GPU CTA Scheduler** ~ Station **automatic** assign handler apartment to terminal.
+> 
+> > Wrap specialization ~ Reduce train|bus idle (caused Onboard time) by use both railcar(for some cargo) and bus(for other cargo) for same handler team, at cost of complex handler instructions.
+> > Think about people boarding airplane, stuck in ale handle carryon. If carryon was handle like check-in bags, handler will onboard faster, more utilization of airplane.
+> 
+> Why not increase train capacity? Longer onboard time.
+> > **Onboard time** often **longer** than **transit time**. In fact newer hardware goes opposite direction, smaller & faster railcar.
+>
+> > Just like **shipping container** changes shipping! block/page/batch transfer has huge effect on IO.
+
 - Node
   - CPU ~ Station Manager
     - Manage between HBM and storage ~ transfer cargo between station and warehouse
   - **GPU** ~ **Train Station**
-    - **GPU CTA Scheduler** ~ station's wayfinding staff **automatic** assign passenger groups to terminal.
-    - **SM** ~ **Terminal**
+    - **GPU CTA Scheduler** ~ station's **automatic** assign handler apartment to terminal. No Terminal changes, handlers must finish their work at assigned terminal.
+    - **SM** ~ **Terminal** with 1024 handlers(thread) capacity.
       - Wrap Scheduler ~ Terminal Dispatcher dispatch Train/Bus ASAP.
-        - wrap mask ~ block some passengers aboard
+        - wrap mask ~ block some handlers aboard
         - Wrap ~ smallest transit(railcar|bus) unit, Travel Agency's smallest control unit.
-          - 32 Threads SIMD ~ 32 passengers of same transit group ALWAYS goes same destination.
+          - 32 Threads SIMD ~ a team of 32 handlers of follows same instruction.
+          - Instruction ~ Instruction shared by a team 32 handlers.
       - Tensor Core ~ Railcar, fast, but fixed.
         - FLOPS ~ Train Engine's HP
       - ALU ~ General Bus, flexible, but slower.
       - SFU ~ Handicap Bus, specific use case.
-    - TMA ~ Moving walkway speedup passenger and cargo get to Terminal.
+    - TMA ~ Station Buggy move cargos to Terminal.
   - **IO ~ Traffic**
-    - Register & L1 cache ~ Railcar's capacity
-    - Share Memory ~ Terminal's capacity
-    - HBM ~ Station's cargo capacity
+    - Register & L1 cache ~ Railcar's cargo capacity
+    - Share Memory ~ Terminal's waiting area cargo capacity
+    - HBM ~ Station Lobby cargo capacity
   - Storage
-    - DDR ~ station's parking lot `near station, but rain can destroy cargos`
-    - SSD ~ warehouse near station
+    - DDR ~ Station's parking lot. `near station, but temporary storage`
+    - SSD ~ House to store handler & cargo. `far from station, but permanent`
   - Transfer Modes
     - Local: Within Terminal
     - Node: Within Station
@@ -124,24 +180,6 @@ Hardwares:
 - Multi Nodes ~ Train Network
   - PD disaggregated ~ Transfer Hub Design
   - IB switch ~ highway between stations or directly between terminals across stations
-
-
-
-> The key is more async processes to utilize most IOs & compute units, avoid redundant terminal traffic and waiting.
-> > **Latency Hiding** ~ Train head detach railcar, let railcar onboard on side, and attach another onboarded railcar and take off.
->
-> > **GPU CTA Scheduler** ~ Station **automatic** assign passenger groups to terminal.
-> 
-> > Wrap specialization ~ Reduce train|bus idle (caused Onboard time) by use both train(for passenger) and bus(for cargo) for same passenger group, at cost of complex instruction manage Postman & Cargo.
-> > Think about people boarding airplane, stuck in ale handle carryon. If carryon was handle like check-in bags, passenger will onboard faster, more utilization of airplane.
-> 
-> Why not increase train capacity? Longer onboard time.
-> > **Onboard time** often **longer** than **transit time**. In fact newer hardware goes opposite direction, smaller & faster railcar.
->
-> > Just like **shipping container** changes shipping! block/page/batch transfer has huge effect on IO.
-
-
-> two_tokens_casual_paths = (num_token_in_between + num_blocks) / num_blocks * (routes_per_block ^ num_blocks)
 
 
 ## Inference Engine
@@ -362,6 +400,7 @@ Spherical coordinates: Circle; nonlinear, coupled gradient;
 
 
 ## Kernels
+> Make sure use **exact CUDA toolchain/runtime matrix** with your kernel developer specified, DON'T assume update newer ~ better.
 
 > Dispatch single **CUDA Graph** is faster than individual kernels(Eager execution).
 > Inference engines often uses both pre-compiled & JIT compile kernels.
@@ -389,7 +428,10 @@ Spherical coordinates: Circle; nonlinear, coupled gradient;
   - H ~ Attention Heads
   - D ~ Head Dimension
 
-Optimizations:
+Linear Algebra Optimizations:
+- SWAP_AB: Run smaller ops individually on inputs often faster then single ops on larger output.
+
+Kernel Optimizations:
 - Persistent Kernels
 - Memory Coalescing: memory addresses accessed(matrix index) across lanes of a warp should be contiguous
 - superkernel: reduce kernel swap by multi ops
@@ -398,7 +440,8 @@ Optimizations:
 - command-buffer schedules `how often CPU dispatch kernels`
 - compiler cache: kernel re-use
 - Placement Driver (PD) dispatcher
-- SWAP_AB: Run smaller ops individually on inputs often faster then single ops on larger output.
+- multiple buffering: avoid reuse buffer's race condition, at cost ram.
+- work-efficiency: if kernel does SAME amount work as sequential process
 
 - Thread Block Clusters - multiple SMs works on same SRAM
 - Stationary Data/Array - in-place execution data

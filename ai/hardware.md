@@ -199,7 +199,7 @@ Developer                       = construction architect
 GPU / Construction company
 ├── Kernel(gridDim, blockDim)   = construction project; architect control.
 │   ├── `gridDim`               = number of crews
-│   └── `blockDim`              = workers per crew
+│   └── `blockDim`              = workers per crew; threads per CTA;
 ├── Grid                        = entire workforce for the project; architect control.
 │   └── CTA Cluster             = crew group
 │       ├── CTA / Thread Block  = one crew
@@ -692,12 +692,42 @@ $50k ~ $100k
     - No thread switching hardware
     - Very Long Instruction Word (VLIW) compiler
 - **Colab** – Free notebooks with GPU/TPU access.
-
+- AlphaChip - RL chip floor planning
 
 ### Apple
 
 
 > Apple don't publish GPU ISA/compiler backend; Unlike NVIDIA exposes PTX;
+> > [M1 ISA](https://dougallj.github.io/applegpu/docs.html)
+> > Apple Graphics Accel (AGX)
+
+- SOC
+  - CPU
+    - Apple Matrix Extensions(AMX) or SME (M4+) ~ CPU's AVX
+  - **Apple Graphics Accelerator**(AGX) ~ GPU
+    - Pipeline Engine
+      - Tile Accelerator(TA)
+      - 3D Engine
+      - **Compute Processor**(CP) ~ MLX mostly use
+    - IO
+      - Unified Address Translator(UAT)
+      - Tile Vector Buffer(TVB)
+      - CPU Channels
+      - Work queues
+    - Controller
+      - **Apple Storage Controller**(ASC)
+      - Command Sequencer
+  - Unified Memory
+  - Apple Neural Engine(ANE) ~ No one uses
+
+  - Always On Processor(AOP)
+  - Apple ProRes Accelerator(APR)
+  - Power Management Processor(PMP)
+  - Secure Enclave Processor(SEP)
+
+  - Apple Video Encoder(AVE)
+  - Apple Video Decoder(AVD)
+  - Display Control / Compression Processor(DCP)
 
 > Metal: Apple’s low-level GPU framework (CUDA).
 > > Metal Shading Language (MSL) xxx.metal kernels is lowest lower for dev.
