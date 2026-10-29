@@ -155,12 +155,15 @@ Video GPU components:
 
 ### Network Components
 
-- CX [8, 9] Network Interface Control (NIC) uses InfiniBand; Node to Node
-  - InfiniBand and RoCE NICs uses **RDMA**(looks like folder `/dev/infiniband` in Linux)
-    - LinkX NDR ACC cables
+- InfiniBand: Node to Node
+  - NIC: uses **RDMA**(looks like folder `/dev/infiniband` in Linux)
+    - CX [8, 9] Network Interface Control (NIC) uses InfiniBand;
+    - RoCE NICs
+  - LinkX NDR ACC cables
   - RDMA over Converged Ethernet (RoCEv2) UDP ports (typically 4791, 4790).
+  - InfiniBand Switch
 
-- NVLink [5, 6, 8]; NVLink; GPU to GPU
+- NVLink [5, 6, 8]: GPU to GPU
   - Part of /dev/nvidia; No linux exposure
 
 Analogy: A Shipping Port with Cranes
@@ -177,7 +180,6 @@ Each gate has a special purpose — like customs, traffic control, or the big cr
 - OpenUCX (Unified Communication X) is a high-performance communication framework; Replaced **Mellanox**
   - **Unified Virtual Addressing** (UVA) - Share Memory across SINGLE NODE(Ex: a NVL72)
 
-- **Ethernet** – Standard networking. Frontend Network.
 - QSFP – High‑speed optical/electrical interface.
 
 Important Network Settings:
@@ -186,6 +188,9 @@ Important Network Settings:
 ### Storage
 
 GPUDirect Storage (GDS) support 27 GBps
+
+- Boot SSD: OS, bootloader, system software
+- Data SSD
 
 
 ## NVIDIA Software Stack
@@ -203,10 +208,34 @@ GPUDirect Storage (GDS) support 27 GBps
       - sglang
   - **NVIDIA NeMo** – Model training framework.
 
+
 > Usually deploy as container. Has SDK container w full tool sets, and Server container.
 
 - Nsight Compute - Kernel optimization
 
+### GPU Driver
+> GPU has privileged GPU configuration registers, that normally can't change. https://github.com/Zagitta/gpu-unlock
+- nvidia.ko: NVIDIA’s official kernel driver.
+- nouveau: Linux’s open-source community NVIDIA driver.
+
+Boot Workflow:
+- GPU Boot ROM / VBIOS:
+  - Firmware Security (FWSEC)
+  - Device Initialization (DEVINIT) ~ GPU's VBIOS
+- OS boots
+- Linux PCI subsystem discovers GPU
+- Kernel GPU driver claims device
+- NVIDIA driver initialization
+- User-space NVIDIA stack
+  - CUDA runtime
+    - CUDA Runtime API: libcudart.so
+    - CUDA Driver API: libcuda.so
+
+Modules:
+- nvidia-modeset
+- nvidia-drm
+- nvidia-uvm
+- nvidia-peermem
 
 ### OS services
 
@@ -222,17 +251,19 @@ GPUDirect Storage (GDS) support 27 GBps
 > >  SM120 consumer fake blackwell, often SM100 kernel won't support, SM120 LSU has more bandwidth than SM100.
 CUDA: New Features and Beyond by Stephen Jones. Every year talk about CUDA direction.
 
+> For kernel variable, if it reuse across warps? or only single active warps? manually partitioned per warp?
 
-Program Scope:
-- CUDA Application
+Developer Control Scopes:
+- CUDA Application: Global Memory variables
   - CUDA Stream
-    - Kernel Launch: **Grid-Stride Loop**
-      - **gridDim**   ≈ number of worker groups
-      - **blockDim**  ≈ workers per group
-      - **kernel**    ≈ work each worker executes
-- GPU: runtime allocate workers to wraps
-  - SM
-    - **Warp** – 32 threads executed in lockstep.
+    - Kernel: gridDim & blockDim
+      - CTA / Block: Shared Memory variables
+        - Thread: Register variables
+
+GPU Control Scopes:
+- GPU: CTAs distribution
+  - SM: Warp scheduler
+    - Warp: Thread Mask / Active-lane
 
 
 | Layer                          | Examples                                                                 |
@@ -368,6 +399,17 @@ Optimazation:
 - reg allocation
 - instruction scheduling
 
+**Kernel Launch Workflow**:
+Host side
+- 1. runtime → driver
+- 2. Argument marshaling
+- 3. Driver work: (Expensive)validate launch, construct commands, locks/bookkeeping
+- 4. Command submission: (latency Expensive)
+Device side:
+- 5. GPU frontend: fetch/decode launch command, set up launch state
+- 6. Grid scheduling
+- 7. CTA distribution
+- 8. SM startup
 
 ### FlashInfer
 

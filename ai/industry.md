@@ -265,6 +265,7 @@ Presentation: piktochart
 
 - Langfuse: Telemetry Log Across Applications
 - https://github.com/The-PR-Agent/pr-agent
+- Reverse Engineering Repo
 
 ### Protocols
 
@@ -316,7 +317,7 @@ Decide: enough info?
 - OpenAI: Preparedness Framework
 
 - Mesa-optimizers
-- Activation Monitor
+- Activation Monitor -> LLM as judge escalation
 
 - H-Neurons drive the AI to be overly compliant and eager to please the user.
 
@@ -336,6 +337,8 @@ Common Problems:
   - Truss `simple deployments version`
   - Iterative SFT: Self-generated rollouts repaired via feedback loops.
 - CodeSignal test: online technical-assessment platform
+- Deepseek
+  - https://api-docs.deepseek.com/guides/search/ search & fetch api ~ google search for Agent
 
 ## Terms
 - 1P models: "First-Party" models

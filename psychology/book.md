@@ -11,6 +11,8 @@
 
 - 为什么大象不听话-人类行为背后的25个心理学原理-魏知超
 
+- The Logic of Collective Action by Mancur Olson
+
 - fundamental of brain network analysis
 
 > We are were child once; This book help to diagnose our childhood, it may help to find root of problem.

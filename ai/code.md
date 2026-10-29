@@ -211,6 +211,8 @@ http://host.docker.internal:11434
 
 ## Dynamo
 
+- Planner: adjust Prefill's EP & Decode's EP
+
 ```bash
 uv pip install 'ai-dynamo[all]'
 
@@ -253,6 +255,38 @@ Terms:
 - Memory coalesce: not only initial step memory read continues, every read within kernel execution loop should read continues address.
 - Occupancy
 - Warp Divergence: it's okay kernel has if statement, as long as wrap's 32 threads enter SAME if result.
+
+### Parallel Computing Components
+- Parallel Algorithm Families (How)
+  - Map / Transform
+  - Reduce
+  - Scan: any associative binary operations.
+    - Exclusive scan: commonly used to calculate output positions and memory offsets.
+    - Inclusive scan:
+  - Sort
+  - Selection / Partition
+  - Aggregation
+- Parallel Algorithm Communication Patterns (Merge)
+  - Independent
+  - Reduce: merge step's order won't matter. 
+  - Scan: merge step's order matter. it's prefix aggregation.
+  - Hierarchical Merge
+    - MergeSort: “I need to exchange or merge data with other chunks over multiple stages.”
+  - Scatter / Gather
+  - Global Coordination
+- Parallel Execution & Scheduling (WHEN / WHERE)
+  - Thread / Warp / CTA / Grid
+  - Static vs. Dynamic Scheduling
+  - Persistent Kernels
+  - Warp Specialization
+- Synchronization & Communication Mechanisms (WITH WHAT)
+  - Warp Shuffle
+  - Shared Memory + __syncthreads()
+  - Global Memory
+  - Atomics
+  - Cooperative Grid Synchronization
+  - Multi-Kernel Synchronization
+
 
 ### Pytorch
 
@@ -412,6 +446,8 @@ atomicAdd()
 
 > Backend uses LLVM.
 
+- `TRITON_CACHE_DIR`
+
 [Example DeepGEMM kernel](https://github.com/deepseek-ai/DeepGEMM/blob/main/deep_gemm/legacy/a_fused_k_grouped_gemm.py)
 
 ```py
@@ -434,6 +470,8 @@ These __global__ functions are known as kernels, and code that runs on the GPU i
 >>
 >> 1. CUDA wrapper(CPU part) determent divide logic: boundary, tiling size, input & output pointers ...etc
 >> 2. `__golbal__` kernel(GPU part) does conquer: find sub target(with `block` & `thread`), runs desire logic, avoid out of bound.
+
+> __shared__ must defined BEFORE kernel launch, can't be dynamic at kernel's runtime.
 
 CUDA variable lifetime:
 - Thread `int x;`
@@ -718,6 +756,26 @@ cuda::device::experimental::
   - CUB: GPU parallel primitives
   - **Thrust**: high-level parallel algorithms, mostly HOST Library.
 
+CCCL Algorithm Usage:
+- DeviceScan: 733
+- DeviceRadixSort: 732
+- DeviceReduce: 614
+- DeviceSelect: 538
+- DeviceSegmentedRadixSort: 519
+- DeviceSegmentedReduce: 463
+- DeviceRunLengthEncode: 332
+- DeviceHistogram: 250
+- DevicePartition: 225
+- DeviceSegmentedSort: 203
+- DeviceMergeSort: 167
+- DeviceMerge: 163
+- DeviceAdjacentDifference: 82
+- DeviceCopy: 75
+- DeviceFor: 64
+- DeviceMemcpy: 63
+- DeviceTransform: 57
+- DeviceTopK: 17
+- DeviceFind: 7
 
 
 ### CuTitle

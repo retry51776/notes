@@ -22,6 +22,8 @@ Levels Hardware Disclose:
 - Physical implementation - floorplan, routing, SRAM arrays
 - Transistor-level implementation - transistor sizes, voltages, analog circuits
 
+> Migrate fragile components from expensive component into cheaper component.
+
 ## Runtime Workflow
 
 ### Compiler Pipeline
@@ -105,6 +107,7 @@ GPU / CPU hardware
   - build-in variables: `gridDim, blockDim, blockIdx, threadIdx, warpSize`
   - gridDim   ≈ number of worker groups
   - blockDim  ≈ workers per group
+    - threads per CTA = blockDim.x * blockDim.y * blockDim.z
   - kernel    ≈ work each worker executes
 - kernel consideration:
   - dtype
@@ -578,20 +581,13 @@ Analogy:
     - GDDR ~ water tank with more flow
     - HBM ~ water towers (stacked up water tanks)
     - SRAM ~ water cup
-      - Register | Local Memory
+      - Register | L1 Cache
       - Shared Memory
       - L2 Cache
 - Data ~ water
 - bandwidth ~ throughput
 - NV speed of light ~ max Arithmetic Intensity
 
-physic:
-- electric charge
-- trapped charged
-- phrase change material
-- magnetic state
-- resistance state
-- polarization
 
 Connections:
 - CXL/SXM: CPU↔device/memory standard
@@ -601,6 +597,50 @@ Connections:
   - SlimSAS | MCIO ports
   - PCIe: General IOs
   - PCIe switch
+
+> SXM removed: 8 pins power supply, PCIe connection, cooling & display ports; Replaced w 2 sections SXM connections: NVLink & General(power, io, display signal); cooling (70mm x 32mm)
+
+#### DRAM Fab
+> DRAM latency never improve, only bandwidth.
+
+Process generation naming:
+- CXMT: g1 → g2 → g3 → g4 → g5
+- Samsung: 1x → 1y → 1z → 1a → 1b → 1c
+- SK hynix: 1x → 1y → 1z → 1a → 1b → 1c
+- Micron: 1x → 1y → 1z → 1α → 1β → 1γ
+
+DRAM workflow:
+1. Address
+   1. Main Channel @ 1bit
+   2. Sub Channel @ 1bit
+   3. Bank @ 5bits
+   4. Word @ 16bits
+   5. Bit @ 6bits
+2. row open (assume already reset 0.5v)
+3. Amplifiers enhance signal into row buffer & restore Capacitor
+4. Filter target columns from row buffer
+
+functional components:
+1. Storage Array (Memory Cell Array)
+  - 32 Banks
+    - Bit Line(Col) & Word Line(Row)
+    - Transistor 1 Capacitor(1T1C) cells.
+2. Peripheral Logic (Control & I/O Circuitry)
+   1. Row Decoder
+   2. Sense Amplifiers
+   3. Column Decoder / Selector
+   4. Read/Write Data Path
+   5. Command & Control Logic
+   6. Refresh Logic
+
+physic:
+- electric charge
+- trapped charged
+- phrase change material
+- magnetic state
+- resistance state
+- polarization
+
 
 Hardware designs:
 - Reconfigurable data‑flow hardware vs. parallelism on existing compute units.
@@ -613,8 +653,6 @@ Hardware designs:
   - Gate Size
   - Energy Cost
   - LLM Intelligent per jew
-
-> SXM removed: 8 pins power supply, PCIe connection, cooling & display ports; Replaced w 2 sections SXM connections: NVLink & General(power, io, display signal); cooling (70mm x 32mm)
 
 
 
@@ -668,6 +706,7 @@ $50k ~ $100k
   - Sonnet（中间档）
   - Opus（最大最强）三档
   - Capybara/Mythos ?
+- Annapurana Labs
 
 
 ### Google
@@ -785,7 +824,7 @@ Apple GPU components:
 
 > Since Apple don't have NV's TMA, only provide `simdgroup_async_copy`; TMA offloads multidimensional tensor addressing + tile movement.
 - Shader Core ~ SM
-  - ALU (int/fp/complex) ~ Cuda core
+  - ALU X 8 (int/fp/complex) ~ Cuda core
     - Special Function Unit (SFU): Accelerates certain mathematical operations like sin, cos, and log.
     - Matrix Multiply Accelerator (MMA) ~ old matrix core that uses ALU
   - M5's Neural Accelerator (NA) ~ newer tensor core
@@ -822,6 +861,7 @@ Known Bugs:
 
 - AMD Helios Rackscale Solution
   - MI300 ~ $20k w 192 GB, OAM connector
+  - UALink support
 - Uses **HIP** to translate CUDA code to AMD GPUs.
 
 - AITer `AMD inference kernels, like FlashInfer`
@@ -846,20 +886,27 @@ Hardware:
 
 - Cloud AI provider with GPU‑focused infrastructure.
 
-### Haiwei
+### Huawei
 
-- Atlas cluster
-  - UnifiedBus ~ NVLink Fabric
-- Ascend(升腾) – Inference hardware from Huawei.
-  - 910DT | 950DT
-    - UE8M0 - (Unsigned Exponent, 8 bits, 0 mantissa) can only represent powers of two
-    - hierarchy scale: 8 group 128 group
-    - <https://github.com/omni-ai-npu/omni-infer>
+
+- Cluster:
+  - Atlas 950 cluster (8192 NPUs) ~ NVL144 * 7
+    - UnifiedBus ~ NVLink Fabric, but optical
+  - Cloud Matrix 384 ~ NV72
+    - 910C
+- Componetns:
+  - Ascend(升腾) – Inference hardware from Huawei.
+    - 910DT | 950DT
+      - UE8M0 - (Unsigned Exponent, 8 bits, 0 mantissa) can only represent powers of two
+      - hierarchy scale: 8 group 128 group
+      - <https://github.com/omni-ai-npu/omni-infer>
+  - Hi-One: optical switch
 - Software
   - Ascend C (Cuda alternative)
     - `EnQue` \ `DeQue` move data
   - TileLang-Ascend
   - CANN (CuDNN alternative) pre-optimized library
+  - TileLang ~ CuteDSL
 
 
 Support TorchTitan

@@ -11,10 +11,13 @@ let test = Test::new();
 run(&test)
 ```
 
-borrower checker
-    - tracking init & moves
-    - lifetime inference(garbage collect)
-    -  dancling pointers/race conditions
+- borrower checker
+  - tracking init & moves
+  - lifetime inference(garbage collect)
+  -  dancling pointers/race conditions
+- Memory Layout: Rust provide memory layout control.
+- No garbage collector
+- Python Integration: PyO3 | maturin
 
 ### Compilation Stages
 

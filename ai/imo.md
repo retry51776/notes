@@ -155,6 +155,12 @@ Maybe for some repeat tasks, warm up KV cache that repeat trigger. similar to Pr
 
 ## IMO
 
+- Mobile age is NOT new information medium, it's NEW behavior collector. Agent is NOT new info medium.
+  - Internet is agitator of info, which large info give birth to LLM.
+  - What will new agent age give birth to? 
+- Companies has supply focus vs customer focus. As agent age comes, past entrypoint war no longer matter.
+- Important of Transfer is KV cache, a persistent storage isolate from interfering. Problem with RNN's hidden state: limited capacity, each token each block interfering. KV cache allow meaning **accumulate**.
+- Problem Construction is new critical skill.
 - Current GPU cluster mostly NOT heterogeneous, but from past hardware evolution, it will be heterogeneous.
 - Variables:
   - Scale | Throughput

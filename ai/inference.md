@@ -76,12 +76,13 @@ GPU Programming:
 
 Developer & Instruction & Execution Unit:
 - Developer ~ Deliver Agency orchestrate transit.
-  - 1. Deliver Agency divide cargo handlers into handler apartments.
-  - 2. Station assign handler apartment(CTA) to Terminal(SM).
-  - 3. for each handler apartment's teams:
-    - Ready handler team execute instruction at Terminal
-      - **handle tile fragment**(A*B) = tile(C).
-    - Store final cargo at Station's lobby
+  - 1. Deliver Agency **divide** handlers into **handler division**.
+  - 2. Station assign handler division(CTA) to Terminal(SM).
+  - 3. Terminal launch ready handler teams ASAP
+    - A team of 32 handlers execute SAME instruction at Terminal
+      - get station's buggy(TMA) load cargos(tile: A, B, C) to Terminal waiting area(Share Memory)
+      - send cargos to railcar (MMA tile fragment through Tensor Core)
+      - store final cargo at Station's lobby(Global Memory)
 - **GPU Kernel** ~ **Guide instruction**(station specific) for Cargo handlers.
   - Intermediate tensor ~ sometime adjust cargo container(Quantize/Dequantize) before next transit.
   - SASS Instruction ~ Actual railcar|bus required specific cargo's size.
@@ -103,17 +104,20 @@ Workload:
     - A: input matrix_A(M by N)
     - B: input matrix_B(N by K)
     - C: output matrix_C(M by K)
-    - Tile Fragment: cargo collectively handled by a team of 32 Cargo handler (one warp)
+
+    - Warp Tile: cargo collectively handled by a team of 32 cargo handlers (one warp)
+      - Warp-tile size depends on the kernel design. A wrap can handle larger wrap-tile by execute multiple MMA instructions.
+      - MMA fragment: single PTX instruction with fixed matrix sizes `mma.m16n8k16`
 
 Workload Division Scopes:
-- Grid ~ all cargo handler that need transit network
-  - **CTA** ~ Cargo handler apartment;
+- Grid ~ all cargo handlers
+  - **CTA** ~ Cargo handler division;
     - Wrap(32 threads) ~ smallest handler team(32 handlers)
       - **Thread** ~ cargo handler
-    - `gridDim` ~ number cargo handler departments
+    - `gridDim` ~ number cargo handler departments(CTAs)
       - convention `gridDim.x` = ceil(N / TILE_N)
       - convention `gridDim.y` = ceil(M / TILE_M)
-    - `blockDim` ~ how many handlers(thread) per each handler department
+    - `blockDim` ~ number cargo handlers(threads) per handler department(CTA)
       - convention: `blockDim.x` handlers × work per handler ≈ Tile Fragment N
 
 > single thread handle 1 element; Ex: quant & dequant, activation function.
@@ -126,8 +130,8 @@ Workload Division Scopes:
 Sync scopes:
 - Sync Execution: Did thread's instruction pointer hit/arrived? ~ handler current location.
   - Grid `grid.sync()` ~ wait all handlers finished transit
-    - CTA Cluster `cluster.sync()` ~ wait handler apartments
-      - **CTA `__syncthreads`** ~ wait handler apartment; happen the most.
+    - CTA Cluster `cluster.sync()` ~ wait handler division
+      - **CTA `__syncthreads`** ~ wait handler division; happen the most.
         - wrap groups ~ rare; manual use `mbarrier`;
           - wrap `__syncwarp()`: for wrap divergence ~ wait for handlers that not board railcar within team;
 - Sync IO: Did data arrived? ~ handler's cargo
@@ -139,7 +143,7 @@ GPU Hardwares:
 > The key is more async processes to utilize most IOs & compute units, avoid redundant terminal traffic and waiting.
 > > **Latency Hiding** ~ Train head detach railcar, let railcar onboard on side, and attach another onboarded railcar and take off.
 >
-> > **GPU CTA Scheduler** ~ Station **automatic** assign handler apartment to terminal.
+> > **GPU CTA Scheduler** ~ Station **automatic** assign handler division to terminal.
 > 
 > > Wrap specialization ~ Reduce train|bus idle (caused Onboard time) by use both railcar(for some cargo) and bus(for other cargo) for same handler team, at cost of complex handler instructions.
 > > Think about people boarding airplane, stuck in ale handle carryon. If carryon was handle like check-in bags, handler will onboard faster, more utilization of airplane.
@@ -149,14 +153,17 @@ GPU Hardwares:
 >
 > > Just like **shipping container** changes shipping! block/page/batch transfer has huge effect on IO.
 
+> Compiler ~ Someone familiar with stations, read your fuzzy directions, then convert fuzzy direction into detail station guide.
+> > Inline PTX ~ Developer define detail direction.
+
 - Node
   - CPU ~ Station Manager
     - Manage between HBM and storage ~ transfer cargo between station and warehouse
   - **GPU** ~ **Train Station**
-    - **GPU CTA Scheduler** ~ station's **automatic** assign handler apartment to terminal. No Terminal changes, handlers must finish their work at assigned terminal.
+    - **GPU CTA Scheduler** ~ station's **automatic** assign handler division to terminal. No Terminal changes, handlers must finish their work at assigned terminal.
     - **SM** ~ **Terminal** with 1024 handlers(thread) capacity.
       - Wrap Scheduler ~ Terminal Dispatcher dispatch Train/Bus ASAP.
-        - wrap mask ~ block some handlers aboard
+        - Wrap mask ~ block some handlers aboard
         - Wrap ~ smallest transit(railcar|bus) unit, Travel Agency's smallest control unit.
           - 32 Threads SIMD ~ a team of 32 handlers of follows same instruction.
           - Instruction ~ Instruction shared by a team 32 handlers.
@@ -166,7 +173,8 @@ GPU Hardwares:
       - SFU ~ Handicap Bus, specific use case.
     - TMA ~ Station Buggy move cargos to Terminal.
   - **IO ~ Traffic**
-    - Register & L1 cache ~ Railcar's cargo capacity
+    - Register ~ Cargo Handler's hand capacity
+    - L1, L2 cache ~ Handler's nearby storage
     - Share Memory ~ Terminal's waiting area cargo capacity
     - HBM ~ Station Lobby cargo capacity
   - Storage
@@ -406,7 +414,7 @@ Spherical coordinates: Circle; nonlinear, coupled gradient;
 > Inference engines often uses both pre-compiled & JIT compile kernels.
 > > Matrix-size-dependent kernel selection happens at runtime dispatch, dispatch logic can exist within `.so` or inference engine code.
 
-- JIT compile ~ Jinja templates.
+- JIT compile ~ Jinja templates & calculate kernel resource characteristics
 - AOT compiled 
   - compile machinery: more advance routing & analysis logics to build kernels
     - nvcc
@@ -441,7 +449,8 @@ Kernel Optimizations:
 - compiler cache: kernel re-use
 - Placement Driver (PD) dispatcher
 - multiple buffering: avoid reuse buffer's race condition, at cost ram.
-- work-efficiency: if kernel does SAME amount work as sequential process
+- work-efficiency: if kernel does SAME amount work as sequential process.
+- weight streaming
 
 - Thread Block Clusters - multiple SMs works on same SRAM
 - Stationary Data/Array - in-place execution data
@@ -697,7 +706,7 @@ https://github.com/LMCache/LMCache
   - hash
 - KV cache pool in global DRAM, multiple inference engines can access
 - multi-tier storage
-  - local GPU
+  - local GPU (>30s offload)
   - local CPU
   - Remote CPU
   - local SSD

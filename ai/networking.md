@@ -29,7 +29,30 @@ Rack Components:
 
 ## Backend Networking
 
-Octal Small Form-factor Pluggable (OSFP)
+**Interconnect Protocols**:
+- Accelerator Scale-Up
+  - NVLink
+  - UALink
+- Coherent Memory Interconnect
+  - CXL
+  - CCIX
+- Scale-Out Networking
+  - InfiniBand
+  - RoCE
+  - Ultra Ethernet
+- General I/O
+  - PCIe
+  - USB / Thunderbolt
+- Storage Interconnect
+  - SATA
+  - SAS
+  - NVMe
+    - PCIe
+    - Fabrics
+  - Fibre Channel
+
+Physical Connections:
+- Octal Small Form-factor Pluggable (OSFP)
 
 > We don't want traffic go through typical k8s ingress or service routing, we route traffic through pod's sidecar.
 
@@ -62,11 +85,25 @@ Octal Small Form-factor Pluggable (OSFP)
   - NVLink domain: group of GPUs within single fabric
 - Scope:
   - Intra
+    - NVLink Bridge
+    - NVSwitch Board
   - Server to Server
+    - NVLink Domain rack-scale
   - Rack to Rack
+    - InfiniBand switch
+
+> Hyperconverged Infrastructure alternative NVLink
+
+OCS:
+> Google assume spine switch connections are stable at min time scale. Palomar uses mirror switch.
 
 ### NVLink
-> Hardware, need NCCL/NVSHMEM softwares to operate.
+> Hardware, need NCCL/NVSHMEM softwares to operate. UALink is open protocol alternative.
+
+- NVLink Bridge: 2 GPUs bridge hardware, for PCIe cards
+  - PCIe H100 has NVLink bridge connectors(3 slot section for single connection)
+- NVSwitch Board: 8 GPUs hardware; Interconnect NVLink Hybrid Riser Board;
+- NVLink Domain rack-scale: 72 GPUs
 
 - NVLink 1 @ P100 ~160 GB/s per GPU
   - `cudaDeviceEnablePeerAccess()`
@@ -147,6 +184,27 @@ Communication Patterns:
 - memory symmetry: assume/prerequisite every node same memory allocation.
 - DeepEP Dispatch: customize version from NVSHMEM
 
+### Optical
+> Physical often not stable(FAB defect, or interference); common solution is add monitor module & compensate mechanism.
+
+Optical Components:
+- Digital Signal Processor (DSP): signal adjustment
+- Optical-to-Electrical (OE): light shutter.
+- External Laser Source (ELS): light source, most energy intense & breakable module.
+
+Optical Industry Trend @ 2026:
+- Pluggable Optics: (DSP + OE + ELS) 2026 standard.
+- Linear Pluggable Optics (LPO): integrate DSP workload into switch chip
+- Near-Packaged Optics (NPO): Move OE to near switch chip
+- Co-Packaged Optics (CPO): integrate OE workload into switch chip
+  - CPO Switch: Broadcom 3rd gen Davisson @ 102Tbps & 16 OE
+  - CPO GPUs: at least 2028 Feynman
+- Optical I/O: GPU integrate CPO switch chip
+
+
+Problems:
+- Link Flap 链路闪断
+- MMean Time Between Failures (MTBF)
 
 ## OBB
 
@@ -225,6 +283,7 @@ smtp_generic_maps = hash:/etc/postfix/generic
 
 https://kvcache-ai.github.io/Mooncake/design/transfer-engine/index.html
 
+System V shared memory (shm) - Linux allow multi processes map the same physical memory pages.
 
 ## Uptime
 > SLA don't guaranty uptime, just vendor promise. Just like house backup circuit needs different routing. We needs to mark critical LLM service vs none-critical service. Only backup capacity for critical LLM service.

@@ -1,6 +1,16 @@
 # Training
 
+Terms:
+- nucleus: % logit sampler includes
+- GPU step/wall time
+
+
 ## Workflow Checkpoints
+> IO has most pressure when saving checkpoints(~ 5TB+).
+> Saving also store data progress.
+> There is formula calculate saving frequency.
+> Cache checkpoint in CXL.
+
 - Pretrain
   - Base Model Checkpoint
   - Intermediate Checkpoint
@@ -31,8 +41,36 @@
 - Deployment Variants
 
 ## Pretrain
+training time scales:
+- forward: 1x
+- backward: 2x
+  - attention backward 35%
+- optimizer: 2x
 
-### Data mixer
+Notes:
+- Feeding Tokens into LLM ~ 2TB/s, very light weight IO.
+- Balancing Batch size ~ roughly even seq, avoid long seq delay batch.
+- Turn on python `--manual-gc`
+- Benchmark Hardware BEFORE Training job, remove outlier.
+- NCCL default 10min to raise error.
+- Monitor Dashboard, highlight slower GPUs per sync.
+- Silent Data Corruption: check hash of result.
+
+Maintain workflow: (10% lose time)
+- 1. Monitor & Alter
+- 2. Identify failure
+- 3. Swap Node
+- 4. Re-establish connection
+- 5. Reload checkpoints
+- 6. Continue
+
+### Gradient
+- Ring All-Reduce
+- Hierarchical All-Reduce
+- Tree All-Reduce
+- DiLoCo
+
+### Data Mixer
 > Decides training data.
 
 https://arxiv.org/html/2607.11052v1
@@ -89,6 +127,14 @@ terms:
 - loe-bit MMA
 
 
+- BF16 keep same FP32's range, critical for gradient.
+
+- NVFP4
+  - Randomized Hadamard Transform: similar turbo quant, random change 2 matrix, MMA canceled out
+  - Randomized Rounding
+  - Gradient accumulation.
+
+
 ### Supervise Finetune Training(SFT)
 
 > SFT can't scale, generate the whole distribution is too expensive. Also too hard to judge/score SFT solution.
@@ -103,19 +149,13 @@ SFT success does not imply every step was good.
 
 
 ## Reinforcement Learning
-
-> Think of it as outer loop of learning.
-
-> @ 2026 industrial direction is scale RL to be generalize.
-
 > The limitation of supervise learning is teacher HAS answer, and student will NEVER out smart teacher, teacher requires build large teaching exercise.
 
 > The limitation of RL is reward sparsity, which it's why important to have small achievable goal.
 
 > RL requires baseline policy already has SOME success rate. This only works on medium difficulty problems.
 
-> RL is mostly close source, with many diverse approaches.
->> Often SFT warn up, then small LORA check effectiveness, then continues RL.
+> Often SFT warn up, then small LORA check effectiveness, then continues RL.
 
 > RL need diverse data, (mixed public RL dataset, average again with original weights, increase reward functions) avoid forgetting.
 
@@ -166,6 +206,11 @@ Ex: argentic think - progress; Reasoning think - static-monologue thinking;
   - partial credit
   - reward hacking detection
 - goal instruction -> LLM generated artifacts -> grader(python logic includes `parser -> validator -> executor`) -> update LLM -> repeat.
+
+- Sampler: inference engine to solve RL question. 70%-90% Time per batch.
+- Let finished trajectories RL, move unfinished to next batch.
+- Training Inference Mismatch (TIM): Trainer is policy get updates. Every x steps sync update into sampler.
+  - staleness and drift
 
 ### Recursive Self Improvement
 Optimization within a fixed search space vs RSI modifying the search space/search procedure itself.

@@ -216,6 +216,9 @@ Common encoding formats:
 > YAML’s indentation is already messy and unreadable; now Helm workflow adds another layer of mess? Why? It’s ugly! Easy to make mistakes. I want my good old JSON format back.  
 > I get it—parsers are easier when you can trust indentation. I hope someone builds a better parser and a different format.
 
+## Lean
+> Lean 4, lake is the Lean build system and package manager.
+
 ---
 
 ## gRPC | WebTransport

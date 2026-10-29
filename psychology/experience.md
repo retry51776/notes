@@ -118,6 +118,7 @@
 - Technological progress fuels production efficiency, which concentrates markets; concentrated markets centralize consumption, creating the scale and resources that drive further technological progress.
   - Technological Progress → Production Efficiency → Market Concentrate → Consumption Concentrate → Technological Progress
 - As we move to frontier knowledge, there are more paths to be wrong than right, logically correct path will be consistency.
+- Costly Signaling → Brand image, Peacock, Luxury.
 
 ---
 
@@ -165,6 +166,8 @@
   - Unknown - Once you knew your unknown, you knew something about that.
   - Future - It's just concept, today is all we ever has.
   - Novelty, excitement... - Dopamine & neuron's biological nature, its effect never design to be persistent.
+
+- Self consistent framework mean nothing, contradiction won't change other's mind. More useful to build framework explain historical data & predict future.
 
 #### Approaches to Solution
 
